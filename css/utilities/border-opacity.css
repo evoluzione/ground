@@ -1,0 +1,7 @@
+@layer utilities {
+    @variants responsive {
+        .border-opacity-theme {
+            @apply border-opacity-10;
+	    }
+    }
+}

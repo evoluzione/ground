@@ -27,7 +27,16 @@ module.exports = {
 				primary: 'var(--ground-color-primary)',
 				secondary: 'var(--ground-color-secondary)',
 				body: 'var(--ground-color-body)',
-				typo: 'var(--ground-color-typo)'
+				// typo: 'var(--ground-color-typo)'
+				typo: ({ opacityVariable, opacityValue }) => {
+					if (opacityValue !== undefined) {
+						return `rgba(var(--ground-color-typo), ${opacityValue})`;
+					}
+					if (opacityVariable !== undefined) {
+						return `rgba(var(--ground-color-typo), var(${opacityVariable}, 1))`;
+					}
+					return 'rgb(var(--ground-color-typo))';
+				}
 			},
 			margin: {
 				'1/2': '50%'
@@ -134,45 +143,6 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [
-		function ({ addUtilities, theme, variants }) {
-			const fn = (prefix, key, prop, opacity) => {
-				const t = theme(prop);
-
-				addUtilities(
-					Object.keys(t).reduce(
-						(_o, _k) => ({
-							..._o,
-							...Object.keys(t[_k])
-								.filter((x) => /^rgb\(.*\)$/i.test(t[_k][x]))
-								.reduce(
-									(o, k) => ({
-										...o,
-										[`.${prefix}-${_k}-${k}`]: {
-											[opacity]: '1',
-											[key]: t[_k][k].replace(
-												/^rgb\((.*)\)$/i,
-												`rgba($1, var(${opacity})) !important`
-											)
-										}
-									}),
-									{}
-								)
-						}),
-						{}
-					),
-					{
-						respectImportant: false,
-						variants: variants(prop)
-					}
-				);
-			};
-
-			// add more utils here...
-			fn('bg', 'background-color', 'backgroundColor', '--tw-bg-opacity');
-			fn('text', 'color', 'textColor', '--tw-text-opacity');
-		}
-	],
 	variants: {
 		extend: {}
 	},

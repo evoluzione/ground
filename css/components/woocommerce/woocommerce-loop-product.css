@@ -37,7 +37,7 @@
 
 .woocommerce-loop-product__description {
 	* {
-		@apply card-description;
+		@apply block text-typo text-opacity-theme text-base mb-3 line-clamp-3;
 		.minicart & {
 			@apply text-sm;
 		}

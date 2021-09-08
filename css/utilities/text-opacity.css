@@ -1,0 +1,7 @@
+@layer utilities {
+    @variants responsive {
+        .text-opacity-theme {
+            @apply text-opacity-40;
+	    }
+    }
+}

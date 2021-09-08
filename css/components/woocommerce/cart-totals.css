@@ -2,11 +2,11 @@
     @apply relative;
 
     .cart_totals__body {
-        @apply bg-gray-100 rounded-theme py-0 px-6 lg:py-12 lg:px-32;
+        @apply bg-typo bg-opacity-5 rounded-theme py-0 px-6 lg:py-12 lg:px-32;
     }
 
     .shop_table {
-        @apply bg-gray-100;
+        @apply bg-transparent;
 
 
         tr {

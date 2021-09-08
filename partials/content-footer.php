@@ -46,7 +46,7 @@
 		</div>
 	</div>
 
-	<div class="container mt-6 lg:flex lg:items-center lg:justify-start py-9 lg:pt-9 lg:space-x-9 bg-black lg:bg-transparent lg:border-gray-200 lg:border-t">
+	<div class="container mt-6 lg:flex lg:items-center lg:justify-start py-9 lg:pt-9 lg:space-x-9 bg-black lg:bg-transparent lg:border-typo lg:border-opacity-theme lg:border-t">
 		<div class="mb-6 lg:mb-0">
 			<p class="text-center text-white lg:text-left lg:text-black text-sm lg:text-base">
 			<?php
@@ -63,7 +63,7 @@
 			<?php echo GROUND_COMPANY_CF ? ' - C.F.:' . GROUND_COMPANY_CF : null; ?> </p>
 		</div>
 		<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
-		<div class="lg:border-l border-gray-200">
+		<div class="lg:border-l border-typo border-opacity-theme">
 
 			<div class="lg:flex items-center justify-center lg:space-x-6">
 

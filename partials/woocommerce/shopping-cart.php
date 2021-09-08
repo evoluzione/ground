@@ -9,7 +9,7 @@ if ( $count === 0 ) {
 }
 ?>
 
-<a class="shopping-cart <?php echo $class; ?> text-black hover:text-primary" data-toggle-target="#minicart html" data-toggle-class-name="is-overlay-panel-open" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
+<a class="shopping-cart <?php echo $class; ?> text-typo hover:text-primary" data-toggle-target="#minicart html" data-toggle-class-name="is-overlay-panel-open" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
 
 	<div class="shopping-cart__link">
 		<span><?php _e( 'Cart', 'ground' ); ?></span>

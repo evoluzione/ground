@@ -8,7 +8,7 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply relative text-base opacity-theme my-3;
+		@apply relative text-base text-opacity-theme my-3;
 	}
 
 	.product_meta {
