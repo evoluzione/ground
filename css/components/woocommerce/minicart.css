@@ -19,7 +19,7 @@
 		}
 
 		.woocommerce-mini-cart {
-			@apply absolute inset-0 h-screen w-full pt-40 pb-12 overflow-y-auto text-black;
+			@apply absolute inset-0 h-screen w-full pt-40 pb-12 m-0 overflow-y-auto text-black;
 			-ms-overflow-style: none;  /* IE and Edge */
   			scrollbar-width: none;  /* Firefox */
 	    	&::-webkit-scrollbar { @apply hidden; }
