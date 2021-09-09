@@ -2,7 +2,7 @@
 
     .cart & {
    
-        @apply flex flex-none justify-center items-center relative bg-typo bg-opacity-theme overflow-hidden w-32 rounded-theme;
+        @apply flex flex-none justify-center items-center relative bg-body-secondary overflow-hidden w-32 rounded-theme;
 
         .screen-reader-text {
             @apply sr-only;

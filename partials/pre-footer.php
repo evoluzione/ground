@@ -13,7 +13,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 
 					foreach ( $repeater as $row ) :
 						?>
-						<figure class="col-span-1 aspect-w-1 aspect-h-1 rounded-full bg-typo bg-opacity-theme flex justify-center">
+						<figure class="col-span-1 aspect-w-1 aspect-h-1 rounded-full bg-body-secondary flex justify-center">
 							<img class="object-contain p-4 md:p-12 lg:p-4 xl:p-6" src="<?php echo GROUND_TEMPLATE_URL . '/img/getway-icons/' . $row . '.svg'; ?>"/>
 						</figure>
 					<?php endforeach; ?>
@@ -25,14 +25,14 @@ $repeater = GROUND_SHOP_PAYMENT;
 				<div class="text-2xl lg:text-3xl font-bold mb-4 ">
 					<?php _e( 'Types of payments', 'ground' ); ?>
 				</div>
-				<div class="text-base lg:text-xl text-typo text-opacity-theme">
+				<div class="text-base lg:text-xl text-typo-secondary">
 					<?php _e( 'Maximum security during the purchase: all information is encrypted and transmitted without risk.', 'ground' ); ?>
 				</div>
 			</div>
 
 			<div class="col-start-5 col-span-4 lg:col-start-auto lg:col-span-2 ">
 				<div class="w-full aspect-w-1 aspect-h-1">
-					<div class="rounded-full text-black bg-typo bg-opacity-theme flex items-center justify-center mb-4">
+					<div class="rounded-full text-black bg-body-secondary flex items-center justify-center mb-4">
 						<?php ground_icon( 'faster', 'icon--faster w-full p-6 lg:p-12 text-typo' ); ?>
 					</div>
 				</div>
@@ -42,7 +42,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 				<div class="text-2xl lg:text-3xl font-bold mb-4">
 					<?php _e( 'Fast shipping for all orders', 'ground' ); ?>
 				</div>
-				<div class="text-base lg:text-xl text-typo text-opacity-theme">
+				<div class="text-base lg:text-xl text-typo-secondary">
 					<?php _e( 'We will take care to guarantee you the best possible service', 'ground' ); ?>
 				</div>
 			</div>

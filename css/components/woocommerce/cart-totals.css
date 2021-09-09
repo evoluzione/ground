@@ -2,7 +2,7 @@
     @apply relative;
 
     .cart_totals__body {
-        @apply bg-typo bg-opacity-theme rounded-theme py-0 px-6 lg:py-12 lg:px-32;
+        @apply bg-body-secondary rounded-theme py-0 px-6 lg:py-12 lg:px-32;
     }
 
     .shop_table {
@@ -10,7 +10,7 @@
 
 
         tr {
-            @apply border-b border-typo border-opacity-theme;
+            @apply border-b border-line-primary;
             &:last-child {
                 @apply border-0;
 

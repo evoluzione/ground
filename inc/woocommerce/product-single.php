@@ -142,7 +142,7 @@ function ground_add_page_relation_below_product_summary() {
 			$title     = get_the_title( $page_relation->ID );
 			?>
 		<div>
-			<a class="text-sm text-typo text-opacity-theme underline" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
+			<a class="text-sm text-typo-secondary underline" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
 		</div>
 		<?php endforeach; ?>
 	</div>

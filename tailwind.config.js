@@ -26,17 +26,12 @@ module.exports = {
 			colors: {
 				primary: 'var(--ground-color-primary)',
 				secondary: 'var(--ground-color-secondary)',
-				body: 'var(--ground-color-body)',
-				// typo: 'var(--ground-color-typo)'
-				typo: ({ opacityVariable, opacityValue }) => {
-					if (opacityValue !== undefined) {
-						return `rgba(var(--ground-color-typo), ${opacityValue})`;
-					}
-					if (opacityVariable !== undefined) {
-						return `rgba(var(--ground-color-typo), var(${opacityVariable}, 1))`;
-					}
-					return 'rgb(var(--ground-color-typo))';
-				}
+				'typo-primary': 'var(--ground-color-typo-primary)',
+				'typo-secondary': 'var(--ground-color-typo-secondary)',
+				'body-primary': 'var(--ground-color-body-primary)',
+				'body-secondary': 'var(--ground-color-body-secondary)',
+				'line-primary': 'var(--ground-color-line-primary)',
+				'line-secondary': 'var(--ground-color-line-secondary)'
 			},
 			margin: {
 				'1/2': '50%'

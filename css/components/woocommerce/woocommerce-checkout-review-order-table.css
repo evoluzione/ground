@@ -8,7 +8,7 @@
         @apply relative;
 
         .cart_item {
-            @apply relative border-0 border-b border-typo border-opacity-theme;
+            @apply relative border-0 border-b border-line-primary;
             .product-name {
                 @apply relative pl-20 text-sm;
 
@@ -37,7 +37,7 @@
 
     tfoot {
         tr {
-            @apply border-b border-typo border-opacity-theme;
+            @apply border-b border-line-primary;
         }
 
         .cart-subtotal {

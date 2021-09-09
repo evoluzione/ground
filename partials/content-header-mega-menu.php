@@ -4,12 +4,12 @@
 
 
 
-<header class="header header-mega-menu w-full z-30 bg-body">
+<header class="header header-mega-menu w-full z-30 bg-body-primary">
 
-	<div class="bg-body h-16 w-full z-30 lg:hidden">
+	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
-		<div class="header__bar-mobile container py-2 bg-body grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
+		<div class="header__bar-mobile container py-2 bg-body-primary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
 				<?php get_template_part( 'partials/navicon', 'primary' ); ?>
 			</div>
@@ -23,7 +23,7 @@
 
 	</div>
 
-	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 				<div class="hidden xl:flex">
@@ -49,7 +49,7 @@
 					</div>
 
 					<ul class="relative z-0 border-b border-gray-200 lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo' ); ?></span></a></li>
+						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
 						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
 					</ul>
 
@@ -68,7 +68,7 @@
 					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
-								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
+								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-typo-primary' ); ?></div>
 								<div> <?php _e( 'All products', 'ground' ); ?></div>
 							</a>
 							<div class="hidden lg:flex">
@@ -88,5 +88,5 @@
 
 </header> <!-- End header -->
 
-<div id="js-search-mobile" class="pt-3 h-16 bg-white lg:hidden" ></div>
+<div id="js-search-mobile" class="pt-3 h-16 lg:hidden"></div>
 

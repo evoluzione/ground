@@ -3,13 +3,13 @@
 }
 
 .woocommerce-cart-form__contents {
-	@apply relative border-t border-typo border-opacity-theme;
+	@apply relative border-t border-line-primary;
 
 	.actions {
 		@apply relative py-9 lg:py-12 max-w-4xl mx-auto;
 
 		.button[name="update_cart"] {
-			@apply relative p-0 text-typo underline bg-transparent border-0 md:absolute md:right-0;
+			@apply relative p-0 text-typo-primary underline bg-transparent border-0 md:absolute md:right-0;
 		}
 
 		.coupon {
@@ -39,7 +39,7 @@
 }
 
 .woocommerce-cart-form__cart-item {
-	@apply grid grid-cols-12 gap-6 py-6 border-b border-typo border-opacity-theme;
+	@apply grid grid-cols-12 gap-6 py-6 border-b border-line-primary;
 
 	/* THUMBNAIL */
 	.product-thumbnail {
@@ -53,9 +53,9 @@
 
 	/* NAME */
 	.product-name {
-		@apply col-span-8 md:col-span-4 lg:col-span-3 text-typo;
+		@apply col-span-8 md:col-span-4 lg:col-span-3 text-typo-primary;
 		a {
-			@apply text-typo font-bold text-base;
+			@apply text-typo-primary font-bold text-base;
 		}
 	}
 
@@ -126,7 +126,7 @@
 
 		a {
 			text-decoration: none;
-			@apply text-typo;
+			@apply text-typo-primary;
 
 			// Solo mobile
 			@media ( max-width: theme('screens.md') ) {
@@ -200,7 +200,7 @@
 			}
 
 			i {
-				@apply text-typo;
+				@apply text-typo-primary;
 				@apply mr-3;
 			}
 		}
@@ -214,7 +214,7 @@
 
 		> .button {
 			background: transparent;
-			@apply text-typo;
+			@apply text-typo-primary;
 			border-color: transparent;
 
 			padding: 0;

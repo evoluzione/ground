@@ -35,9 +35,12 @@
 	}
 
 	body {
-		@apply bg-body text-typo;
+		@apply bg-body-primary text-typo-primary;
 		.is-search-open & {
 			@apply overflow-y-hidden;
 		}
 	}
 }
+
+/* bg-body
+text-typo */

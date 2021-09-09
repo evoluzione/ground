@@ -5,7 +5,7 @@
     }
 
     &__body {
-        @apply fixed top-0 right-0 h-full w-full bg-body z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
+        @apply fixed top-0 right-0 h-full w-full bg-body-primary z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
 
         .overlay-panel--from-left & {
             @apply left-0 -translate-x-full;
@@ -20,7 +20,7 @@
     }
 
     &__close {
-    	@apply absolute top-8 right-9 z-40 text-center text-typo cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;    
+    	@apply absolute top-8 right-9 z-40 text-center text-typo-primary cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;    
     }
 
     &.is-overlay-panel-open {

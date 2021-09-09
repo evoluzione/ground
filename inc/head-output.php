@@ -37,8 +37,12 @@ function ground_add_css_theme_variables() {
 		:root {
 			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
 			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
-			--ground-color-body:' . GROUND_COLOR_BODY . ';
-			--ground-color-typo:' . GROUND_COLOR_TYPO . ';
+			--ground-color-typo-primary:' . GROUND_COLOR_TYPO_PRIMARY . ';
+			--ground-color-typo-secondary:' . GROUND_COLOR_TYPO_SECONDARY . ';
+			--ground-color-body-primary:' . GROUND_COLOR_BODY_PRIMARY . ';
+			--ground-color-body-secondary:' . GROUND_COLOR_BODY_SECONDARY . ';
+			--ground-color-line-primary:' . GROUND_COLOR_LINE_PRIMARY . ';
+			--ground-color-line-secondary:' . GROUND_COLOR_LINE_SECONDARY . ';
 			--ground-font-primary:' . GROUND_FONT_FAMILY_PRIMARY . ';
 			--ground-font-secondary:' . GROUND_FONT_FAMILY_SECONDARY . ';
 			--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;

@@ -9,7 +9,7 @@
 }
 
 .search__content {
-	@apply bg-white relative lg:bg-white lg:relative lg:w-full;;
+	@apply bg-white relative lg:bg-body-primary lg:relative lg:w-full;
 
 	@screen lg {
 		transition: transform var(--ease-speed) var(--ease-in-out-quint);
@@ -59,7 +59,7 @@
 }
 
 .search__button {
-	@apply absolute right-10 bg-white h-8 w-8 rounded-full;
+	@apply absolute right-10 h-8 w-8 rounded-full;
 }
 
 .search__form {

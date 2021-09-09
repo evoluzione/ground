@@ -18,7 +18,7 @@
 		@apply ml-0;
 	}
 	.navigation__link {
-		@apply text-typo text-opacity-theme;
+		@apply text-typo-secondary;
 		&:hover,
 		&.is-active,
 		.is-parent & {

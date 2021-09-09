@@ -30,7 +30,7 @@
             }
 
             .col-1 {
-                @apply overflow-hidden rounded-theme bg-typo bg-opacity-theme rounded-theme;
+                @apply overflow-hidden rounded-theme bg-body-secondary rounded-theme;
                 form.woocommerce-form-login {
                     @apply w-full p-0;
                 }

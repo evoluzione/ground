@@ -69,9 +69,9 @@
             "default_value": ""
         },
         {
-            "key": "field_6113b768cd672",
-            "label": "Color Body",
-            "name": "color_body",
+            "key": "field_613a1f19cd1e6",
+            "label": "Color Body Primary",
+            "name": "color_body_primary",
             "type": "color_picker",
             "instructions": "Default: #FFFFFF",
             "required": 0,
@@ -84,11 +84,11 @@
             "default_value": ""
         },
         {
-            "key": "field_6114c2bc2cc8f",
-            "label": "Color Typo",
-            "name": "color_typo",
-            "type": "radio",
-            "instructions": "",
+            "key": "field_613a1f2837e58",
+            "label": "Color Body Secondary",
+            "name": "color_body_secondary",
+            "type": "color_picker",
+            "instructions": "Default: #F4F4F5",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -96,16 +96,67 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "#000000": "Dark",
-                "#ffffff": "Light"
+            "default_value": "#F4F4F5"
+        },
+        {
+            "key": "field_613a192aab130",
+            "label": "Color Typo Primary",
+            "name": "color_typo_primary",
+            "type": "color_picker",
+            "instructions": "Default: #000000",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value",
-            "save_other_choice": 0
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_613a1be07744e",
+            "label": "Color Typo Secondary",
+            "name": "color_typo_secondary",
+            "type": "color_picker",
+            "instructions": "Default: #71717A",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#71717A"
+        },
+        {
+            "key": "field_613a2220766c0",
+            "label": "Color Line Primary",
+            "name": "color_line_primary",
+            "type": "color_picker",
+            "instructions": "Default: #D4D4D8",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#D4D4D8"
+        },
+        {
+            "key": "field_613a25ba0581f",
+            "label": "Color Line Secondary",
+            "name": "color_line_secondary",
+            "type": "color_picker",
+            "instructions": "Default: #D4D4D8",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#D4D4D8"
         },
         {
             "key": "field_61010ec6e9471",
@@ -484,5 +535,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631171027
+    "modified": 1631200840
 }

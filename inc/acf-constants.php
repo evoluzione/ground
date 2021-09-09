@@ -13,13 +13,13 @@ define( 'GROUND_DARK_MODE', get_field( 'dark_mode', 'option' ) ? get_field( 'dar
 // Colors.
 define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
 define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );
-define( 'GROUND_COLOR_BODY', get_field( 'color_body', 'option' ) ? get_field( 'color_body', 'option' ) : '#FFFFFF' );
-// define( 'GROUND_COLOR_TYPO', get_field( 'color_typo', 'option' ) ? get_field( 'color_typo', 'option' ) : '#000000' );
+define( 'GROUND_COLOR_TYPO_PRIMARY', get_field( 'color_typo_primary', 'option' ) ? get_field( 'color_typo_primary', 'option' ) : '#000000' );
+define( 'GROUND_COLOR_TYPO_SECONDARY', get_field( 'color_typo_secondary', 'option' ) ? get_field( 'color_typo_secondary', 'option' ) : '#71717A' );
+define( 'GROUND_COLOR_BODY_PRIMARY', get_field( 'color_body_primary', 'option' ) ? get_field( 'color_body_primary', 'option' ) : '#ffffff' );
+define( 'GROUND_COLOR_BODY_SECONDARY', get_field( 'color_body_secondary', 'option' ) ? get_field( 'color_body_secondary', 'option' ) : '#F4F4F5' );
+define( 'GROUND_COLOR_LINE_PRIMARY', get_field( 'color_line_primary', 'option' ) ? get_field( 'color_line_primary', 'option' ) : '#D4D4D8' );
+define( 'GROUND_COLOR_LINE_SECONDARY', get_field( 'color_line_secondary', 'option' ) ? get_field( 'color_line_secondary', 'option' ) : '#D4D4D8' );
 
-$ground_color_typo     = get_field( 'color_typo', 'option' );
-list($r, $g, $b)       = sscanf( $ground_color_typo, '#%02x%02x%02x' );
-$ground_color_typo_rgb = "$r,$g,$b";
-define( 'GROUND_COLOR_TYPO', $ground_color_typo_rgb );
 // Fonts.
 define( 'GROUND_FONT_SOURCE_PRIMARY', get_field( 'font_source_primary', 'option' ) ? get_field( 'font_source_primary', 'option' ) : '' );
 define( 'GROUND_FONT_FAMILY_PRIMARY', get_field( 'font_family_primary', 'option' ) ? get_field( 'font_family_primary', 'option' ) : '' );
