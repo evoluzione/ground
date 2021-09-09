@@ -6818,6 +6818,8 @@ html.has-scroll-smooth .scroll-progress {
 	display: flex;
 	width: 100%;
 	align-items: baseline;
+	--tw-text-opacity: 1;
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 }
 .price .amount, .ground__price-range .amount {
 	font-size: 1.125rem;
@@ -6864,6 +6866,9 @@ html.has-scroll-smooth .scroll-progress {
 	font-size: 0.875rem;
 	line-height: 1.25rem;
 	font-weight: 400;
+	--tw-text-opacity: 1;
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
+	--tw-text-opacity: 0.4;
 	--tw-text-opacity: 0.4;
 }
 @media (min-width: 1024px) {

@@ -1,6 +1,6 @@
 .price,
 .ground__price-range {
-	@apply flex items-baseline w-full;
+	@apply flex items-baseline w-full text-typo;
 
 	.amount {
 		@apply text-lg font-bold lg:text-4xl;
@@ -15,7 +15,7 @@
 	del {
 		@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 		.amount {
-			@apply text-sm lg:text-xl font-normal text-opacity-theme;
+			@apply text-typo text-opacity-theme text-sm lg:text-xl font-normal text-opacity-theme;
 
 			.summary & {
 				@apply text-lg lg:text-xl;
