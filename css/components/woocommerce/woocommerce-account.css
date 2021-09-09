@@ -8,7 +8,7 @@
         }
 
         form.woocommerce-form-login {
-            @apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 bg-gray-100  rounded-theme;
+            @apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme;
             @apply rounded-t-none !important;
 
             .woocommerce-form-login__submit {
@@ -30,14 +30,14 @@
             }
 
             .col-1 {
-                @apply overflow-hidden rounded-theme bg-gray-100 rounded-theme;
+                @apply overflow-hidden rounded-theme bg-typo bg-opacity-theme rounded-theme;
                 form.woocommerce-form-login {
                     @apply w-full p-0;
                 }
             }
 
             .col-2 {
-                @apply py-3 lg:py-9 bg-white;
+                @apply py-3 lg:py-9;
             }
 
         }

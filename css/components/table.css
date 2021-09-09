@@ -6,7 +6,7 @@ table {
 	table-layout: auto;
 	max-width: 100%;
 	width: 100%;
-	@apply bg-white;
+	@apply bg-transparent;
 }
 
 .table--striped {
@@ -182,7 +182,7 @@ tr {
 
 .table__cell,
 td {
-	@apply py-6 align-middle border-0 border-b border-gray-200;
+	@apply py-6 align-middle border-0 border-b border-typo border-opacity-theme;
 }
 
 .shop_table td {

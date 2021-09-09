@@ -8,7 +8,7 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply relative text-base text-opacity-theme my-3;
+		@apply relative text-base text-typo text-opacity-theme my-3;
 	}
 
 	.product_meta {
@@ -16,11 +16,11 @@
 	}
 
 	.sku_wrapper {
-		@apply block;
+		@apply block text-typo text-opacity-theme;
 	}
 
 	.sku {
-		@apply text-black font-bold;
+		@apply text-typo font-bold;
 	}
 
 	.price {
@@ -29,7 +29,7 @@
 
 	.posted_in,
 	.tagged_as {
-		@apply block;
+		@apply block text-typo text-opacity-theme;
 
 		a {
 			@apply text-primary hover:underline;

@@ -9,4 +9,20 @@
 	.is-parent & {
 		@apply text-primary;
 	}
+	
+}
+
+
+.navigation--footer {
+	.navigation__list {
+		@apply ml-0;
+	}
+	.navigation__link {
+		@apply text-typo text-opacity-theme;
+		&:hover,
+		&.is-active,
+		.is-parent & {
+			@apply text-primary;
+		}
+	}
 }

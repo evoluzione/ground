@@ -1,10 +1,10 @@
 .product-remove {
-	@apply flex text-xs text-black mt-2;
+	@apply flex text-xs text-typo mt-2;
 	.icon {
 		@apply transition-all;
 	}
 	.remove {
-		@apply text-xs text-black pl-1 transition;
+		@apply text-xs text-typo pl-1 transition;
 	}
 
 	&:hover {

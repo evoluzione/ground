@@ -17,7 +17,7 @@
 
 	&:after {
 		content: '▸';
-		@apply opacity-theme text-xl px-3;
+		@apply text-typo text-opacity-theme text-xl px-3;
 	}
 
 	&:last-child {
@@ -34,7 +34,7 @@
 }
 
 .breadcrumb__link {
-	@apply opacity-theme no-underline;
+	@apply text-typo text-opacity-theme no-underline;
 
 	&:hover {
 		@apply underline text-primary;

@@ -2,7 +2,7 @@
 
     .cart & {
    
-        @apply flex flex-none justify-center items-center relative bg-gray-200 overflow-hidden w-32 rounded-theme;
+        @apply flex flex-none justify-center items-center relative bg-typo bg-opacity-theme overflow-hidden w-32 rounded-theme;
 
         .screen-reader-text {
             @apply sr-only;
@@ -25,7 +25,7 @@
         .minus { @apply pl-4 pr-0; }
 
         .qty {
-            @apply w-12 py-3 m-0 bg-gray-200 text-center focus:ring-transparent border-transparent !important;
+            @apply w-12 py-3 m-0 bg-transparent text-center focus:ring-transparent border-transparent !important;
             -moz-appearance: textfield;
 
             &::-webkit-outer-spin-button,
