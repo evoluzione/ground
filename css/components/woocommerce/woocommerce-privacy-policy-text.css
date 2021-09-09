@@ -1,5 +1,5 @@
 .woocommerce-privacy-policy-text {
     * {
-        @apply text-sm text-gray-500;
+        @apply text-sm text-typo-secondary;
     }
 }
