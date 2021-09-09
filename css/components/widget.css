@@ -9,10 +9,4 @@
 		}
 
 	}
-	.sidebar & {
-		@apply text-black lg:text-typo;
-	}
-	.overlay-panel & {
-		@apply text-black;
-	}
 }

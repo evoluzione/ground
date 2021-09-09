@@ -15,7 +15,7 @@
 		}
 
 		.woocommerce-widget-layered-nav-list {
-			@apply m-0 list-none border-b border-gray-200 lg:border-0;
+			@apply m-0 list-none border-b border-typo border-opacity-theme lg:border-0;
 
 			&__item {
 				@apply relative mb-2 hidden lg:block;

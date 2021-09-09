@@ -5084,7 +5084,7 @@ hr {
 	cursor: pointer;
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-	--tw-bg-opacity: 0.6;
+	--tw-bg-opacity: 0.7;
 	opacity: 0;
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -5102,8 +5102,7 @@ hr {
 	--tw-translate-x: 100%;
 	transform: var(--tw-transform);
 	transform: var(--tw-transform);
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	background-color: var(--ground-color-body);
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
@@ -5145,7 +5144,7 @@ hr {
 	cursor: pointer;
 	text-align: center;
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 	opacity: 0;
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -5651,7 +5650,7 @@ hr {
 	cursor: pointer;
 	text-align: center;
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 	opacity: 0;
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -6197,21 +6196,6 @@ tr {
 	line-height: 1.75rem;
 	font-weight: 700;
 }
-.sidebar .widget {
-	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
-@media (min-width: 1024px) {
-
-	.sidebar .widget {
-		--tw-text-opacity: 1;
-		color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
-	}
-}
-.overlay-panel .widget {
-	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
 .scrollbar {
 	position: absolute;
 	right: 0;
@@ -6642,7 +6626,7 @@ html.has-scroll-smooth .scroll-progress {
 	padding-top: 10rem;
 	padding-bottom: 3rem;
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 			-ms-overflow-style: none;  /* IE and Edge */
   			scrollbar-width: none;
 }
@@ -6759,8 +6743,7 @@ html.has-scroll-smooth .scroll-progress {
 .minicart .widget_shopping_cart_content .woocommerce-mini-cart__total {
 	position: relative;
 	z-index: 10;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	background-color: var(--ground-color-body);
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 	padding-top: 1.5rem;
@@ -6778,7 +6761,7 @@ html.has-scroll-smooth .scroll-progress {
 	line-height: 1.75rem;
 	font-weight: 400;
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 }
 .minicart .widget_shopping_cart_content .woocommerce-mini-cart__total .amount {
 	display: inline-block;
@@ -6801,11 +6784,11 @@ html.has-scroll-smooth .scroll-progress {
 	line-height: 2.5rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 }
 .minicart .widget_shopping_cart_content .woocommerce-mini-cart__total .amount * {
 	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
+	color: rgba(var(--ground-color-typo), var(--tw-text-opacity));
 }
 .minicart .widget_shopping_cart_content .woocommerce-mini-cart__buttons {
 	position: relative;
@@ -6815,14 +6798,14 @@ html.has-scroll-smooth .scroll-progress {
 	gap: 1.5rem;
 	border-bottom-width: 1px;
 	--tw-border-opacity: 1;
-	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	border-color: rgba(var(--ground-color-typo), var(--tw-border-opacity));
+	background-color: var(--ground-color-body);
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	padding-bottom: 1rem;
+	--tw-border-opacity: 0.1;
 }
 @media (min-width: 1024px) {
 
@@ -7364,7 +7347,8 @@ html.has-scroll-smooth .scroll-progress {
 	list-style-type: none;
 	border-bottom-width: 1px;
 	--tw-border-opacity: 1;
-	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+	border-color: rgba(var(--ground-color-typo), var(--tw-border-opacity));
+	--tw-border-opacity: 0.1;
 }
 @media (min-width: 1024px) {
 

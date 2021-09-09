@@ -11,7 +11,7 @@
 	}
 
 	&__close {
-		@apply fixed top-8 right-9 z-40 text-center text-black cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500 lg:hidden;
+		@apply fixed top-8 right-9 z-40 text-center text-typo cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500 lg:hidden;
 	}
 
 	&.is-sidebar-open {
