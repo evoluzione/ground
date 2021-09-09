@@ -10,7 +10,7 @@
 
 
         tr {
-            @apply border-b border-gray-300;
+            @apply border-b border-typo border-opacity-theme;
             &:last-child {
                 @apply border-0;
 

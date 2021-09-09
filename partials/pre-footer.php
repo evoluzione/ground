@@ -33,7 +33,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 			<div class="col-start-5 col-span-4 lg:col-start-auto lg:col-span-2 ">
 				<div class="w-full aspect-w-1 aspect-h-1">
 					<div class="rounded-full text-black bg-typo bg-opacity-theme flex items-center justify-center mb-4">
-						<?php ground_icon( 'faster', 'icon--faster w-full p-6 lg:p-12' ); ?>
+						<?php ground_icon( 'faster', 'icon--faster w-full p-6 lg:p-12 text-typo' ); ?>
 					</div>
 				</div>
 			</div>

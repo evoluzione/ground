@@ -1,7 +1,7 @@
 @layer utilities {
     @variants responsive {
         .text-opacity-theme {
-            @apply text-opacity-20;
+            @apply text-opacity-40;
 	    }
         .rounded-theme {
 		    border-radius: var(--ground-rounded-theme);
@@ -10,7 +10,7 @@
             @apply border-opacity-10;
 	    }
         .bg-opacity-theme {
-            @apply bg-opacity-5;
+            @apply bg-opacity-10;
 	    }
     }
 }

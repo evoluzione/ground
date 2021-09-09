@@ -51,7 +51,7 @@
 	}
 
 	&--bordered {
-		@apply bg-transparent text-typo border border-gray-500;
+		@apply bg-transparent text-typo border border-typo border-opacity-theme;
 
 		.button__icon {
 			@apply text-primary;
