@@ -17,8 +17,8 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
-            "layout": "row",
+            "max": 3,
+            "layout": "table",
             "button_label": "Add Highlight",
             "sub_fields": [
                 {
@@ -27,7 +27,7 @@
                     "name": "category_highlight_image",
                     "type": "image",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -51,7 +51,7 @@
                     "name": "category_highlight_title",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -100,5 +100,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631266221
+    "modified": 1631275376
 }

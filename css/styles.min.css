@@ -4825,7 +4825,7 @@ hr {
 	bottom: 0px;
 	left: 0px;
 	background-color: var(--ground-color-body-primary);
-	opacity: 0.7;
+	opacity: 0.3;
 }
 @media (min-width: 1024px) {
         .hero__image-filter {
@@ -4974,7 +4974,8 @@ hr {
 }
 .hero__card {
 	overflow: hidden;
-	background-color: var(--ground-color-body-secondary);
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 		    border-radius: var(--ground-rounded-theme);
 }
 .hero__card:hover .hero__card-thumb {
@@ -4985,13 +4986,20 @@ hr {
 }
 .hero__card-body {
 	display: flex;
-	height: 12rem;
+	height: 11rem;
 	align-items: center;
 	justify-content: center;
 }
+@media (min-width: 1024px) {
+
+	.hero__card-body {
+		height: 12rem;
+	}
+}
 .hero__card-text {
 	position: relative;
-	color: var(--ground-color-typo-primary);
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .hero__card-thumb {
 	position: absolute;
@@ -5003,6 +5011,7 @@ hr {
 	width: 100%;
 	object-fit: cover;
 	object-position: center;
+	opacity: 0.6;
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
@@ -10170,6 +10179,10 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		grid-column: span 3 / span 3;
 	}
 
+	.lg\:col-span-7 {
+		grid-column: span 7 / span 7;
+	}
+
 	.lg\:col-span-6 {
 		grid-column: span 6 / span 6;
 	}
@@ -10188,14 +10201,6 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.lg\:col-span-9 {
 		grid-column: span 9 / span 9;
-	}
-
-	.lg\:col-span-7 {
-		grid-column: span 7 / span 7;
-	}
-
-	.lg\:col-start-2 {
-		grid-column-start: 2;
 	}
 
 	.lg\:col-start-6 {

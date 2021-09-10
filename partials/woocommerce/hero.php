@@ -56,7 +56,9 @@
 					<?php if ( $ground_url ) : ?>
 						<a href="<?php echo $ground_url; ?>">
 					<?php endif; ?>
-						<img class="hero__card-thumb" src="<?php echo wp_get_attachment_image_src( $ground_image, $ground_size )[0]; ?>">
+						<?php if ( $ground_image ) : ?>
+							<img class="hero__card-thumb" src="<?php echo wp_get_attachment_image_src( $ground_image, $ground_size )[0]; ?>">
+						<?php endif; ?>				
 						<?php if ( $ground_title ) : ?>
 							<h5 class="hero__card-text"><?php echo $ground_title; ?></h5>
 						<?php endif; ?>
