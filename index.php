@@ -24,16 +24,20 @@ get_template_part( 'partials/header' );
 					</header>
 				<?php endif; ?>
 
-				<div class="page__body grid grid-cols-2 lg:grid-cols-3 gap-6 js-infinite-container">
+				<div class="page__body">
 
-					<?php
-					while ( have_posts() ) :
-						the_post();
+					<div class="grid grid-cols-2 lg:grid-cols-3 gap-6 js-infinite-container">
 
-						get_template_part( 'partials/abstract', 'post' );
+						<?php
+						while ( have_posts() ) :
+							the_post();
 
-					endwhile;
-					?>
+							get_template_part( 'partials/abstract', 'post' );
+
+						endwhile;
+						?>
+
+					</div>
 
 				</div> <!-- End .page__body -->
 

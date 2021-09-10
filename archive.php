@@ -16,12 +16,41 @@ get_template_part( 'partials/header' );
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page__header">
-					<?php the_archive_title( '<h1 class="page__title">', '</h1>' ); ?>
-				</header>
+				<div class="hero">
 
-				<div class="page__body js-infinite-container">
-					<?php the_archive_description(); ?>
+					<div class="hero__body">
+
+						<?php
+						if ( has_post_thumbnail() ) {
+							?>
+						<img class="hero__image" srcset="<?php ground_image( 'large' ); ?> 1200w,
+										<?php ground_image( 'medium_large' ); ?> 768w,
+										<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
+							<div class="hero__image-filter" aria-hidden="true"></div>
+								<?php
+						}
+						?>
+
+						<div class="hero__content">
+							<div class="grid grid-cols-12 gap-x-6">
+								<div class="col-span-full lg:col-span-3">
+									<h1 class="color-typo-primary text-3xl font-bold py-3 lg:py-0"><?php the_archive_title(); ?></h1>
+								</div>
+								<div class="col-span-full lg:col-start-6 lg:col-span-7">
+									<div class="text-typo-primary text-base">
+										<?php the_archive_description(); ?>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="page__body">
+
+					<div class="grid grid-cols-2 lg:grid-cols-3 gap-6 js-infinite-container">
 
 					<?php
 					while ( have_posts() ) :
@@ -31,6 +60,8 @@ get_template_part( 'partials/header' );
 
 					endwhile;
 					?>
+
+					</div>
 				</div> <!-- End .page__body -->
 
 				<?php get_template_part( 'partials/pagination' ); ?>

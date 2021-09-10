@@ -1,15 +1,50 @@
 .hero {
-    @apply relative overflow-hidden py-12 lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:py-28 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto;
-}
-
-.hero__image {
-    @apply absolute inset-0 object-cover w-full h-full;
-}
-
-.hero__image-filter {
-    @apply absolute inset-0 bg-body-primary opacity-70;
+    @apply relative;
 }
 
 .hero__body {
-    @apply relative lg:px-0 px-6;
+    @apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto;
+}
+
+.hero__image {
+    @apply absolute inset-0 object-cover w-full h-full lg:rounded-theme;
+}
+
+.hero__image-filter {
+    @apply absolute inset-0 bg-body-primary opacity-70 lg:rounded-theme;
+}
+
+.hero__content {
+    @apply relative lg:px-24 px-6 py-16 lg:py-28;
+    /* py-12 lg:py-28  */
+}
+
+.hero__highlights {
+    @apply relative -mt-6 px-24 mb-9 lg:mb-20 lg:-mt-20;
+    /* margin-bottom: 100px; */
+}
+
+.hero__cards {
+    @apply carousel-css;
+}
+
+.hero__card {
+    @apply overflow-hidden rounded-theme bg-body-secondary;
+    &:hover {
+        .hero__card-thumb {
+            @apply transform scale-110; 
+        }
+    }
+}
+
+.hero__card-body {
+    @apply flex items-center justify-center h-48;
+}
+
+.hero__card-text {
+    @apply relative text-typo-primary;
+}
+
+.hero__card-thumb {
+    @apply absolute inset-0 object-cover object-center h-full w-full transition-all ease-default duration-500;
 }
