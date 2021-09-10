@@ -4909,7 +4909,7 @@ hr {
 	}
 
 	.hero__cards {
-		overflow-y: auto;
+		overflow-y: hidden;
 	}
 
 	.hero__cards {
@@ -6701,7 +6701,7 @@ html.has-scroll-smooth .scroll-progress {
 	}
 
 	.woocommerce-cart .cross-sells .products {
-		overflow-y: auto;
+		overflow-y: hidden;
 	}
 
 	.woocommerce-cart .cross-sells .products {
@@ -7127,7 +7127,6 @@ html.has-scroll-smooth .scroll-progress {
 }
 .woocommerce-product-details {
 	position: relative;
-
 }
 .woocommerce-product-details .product_title {
 	font-size: 1.5rem;
@@ -9425,7 +9424,7 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 	}
 
 	.related .products {
-		overflow-y: auto;
+		overflow-y: hidden;
 	}
 
 	.related .products {
@@ -9582,7 +9581,7 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 	}
 
 	.up-sells .products {
-		overflow-y: auto;
+		overflow-y: hidden;
 	}
 
 	.up-sells .products {

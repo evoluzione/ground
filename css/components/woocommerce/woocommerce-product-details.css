@@ -1,9 +1,8 @@
 .woocommerce-product-details {
-	position: relative;
+	@apply relative;
 
 	.product_title {
 		@apply text-2xl font-bold lg:text-4xl;
-
 	}
 	
 	.woocommerce-Price-amount {
