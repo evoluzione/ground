@@ -3,6 +3,23 @@
     "title": "Theme Settings: Shop",
     "fields": [
         {
+            "key": "field_613b5436dd936",
+            "label": "Archive Product",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
             "key": "field_611116e8a3d28",
             "label": "Add to cart button",
             "name": "shop_add_to_cart",
@@ -20,6 +37,84 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_613b53e7d76b1",
+            "label": "Single Product",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_613b540ce7f71",
+            "label": "Product Gallery Slider",
+            "name": "shop_product_gallery_slider",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable slideshow mode",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_611bbaf4e3dd3",
+            "label": "Product Page Relation",
+            "name": "shop_product_page_relation",
+            "type": "relationship",
+            "instructions": "Select the pages to show after the summary on the product page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_613b544a383e9",
+            "label": "Payments",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_611b8bed114b6",
@@ -51,31 +146,6 @@
             "toggle": 0,
             "return_format": "value",
             "save_custom": 0
-        },
-        {
-            "key": "field_611bbaf4e3dd3",
-            "label": "Product Page Relation",
-            "name": "shop_product_page_relation",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
         }
     ],
     "location": [
@@ -95,5 +165,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629208929
+    "modified": 1631278487
 }

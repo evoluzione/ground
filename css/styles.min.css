@@ -8938,6 +8938,7 @@ form.woocommerce-ResetPassword {
 		    border-radius: var(--ground-rounded-theme);
 }
 .woocommerce-product-gallery .flex-control-nav {
+	margin: 0px;
 	margin-top: 0.75rem;
 	display: flex;
 }
@@ -9017,6 +9018,9 @@ form.woocommerce-ResetPassword {
 		margin-left: 7rem;
 	}
 }
+.woocommerce-product-gallery .flex-viewport {
+	height: auto !important;
+}
 .woocommerce-product-gallery__wrapper {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -9027,6 +9031,13 @@ form.woocommerce-ResetPassword {
 	gap: 0px;
 }
 .woocommerce-product-gallery__image {
+	position: relative;
+	display: block;
+	overflow: hidden;
+		    border-radius: var(--ground-rounded-theme);
+}
+.woocommerce-product-gallery__image a {
+	position: relative;
 	display: block;
 	overflow: hidden;
 		    border-radius: var(--ground-rounded-theme);
