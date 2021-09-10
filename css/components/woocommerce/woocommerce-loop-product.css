@@ -36,11 +36,9 @@
 }
 
 .woocommerce-loop-product__description {
-	* {
-		@apply block text-typo-secondary text-base mb-3 line-clamp-3;
-		.minicart & {
-			@apply text-sm;
-		}
+	@apply card-description block;
+	.minicart & {
+		@apply text-sm;
 	}
 }
 

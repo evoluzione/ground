@@ -2,17 +2,17 @@
 	@apply relative overflow-hidden;
 
 	img {
-		@apply relative overflow-hidden w-full h-auto rounded-theme;
+		@apply card-image;
 	}
 }
 
 .woocommerce-loop-category__title {
-	@apply text-black dark:text-white text-lg font-bold pt-6 pb-2;
+	@apply card-title;
 	.count {
 		@apply hidden;
 	}
 }
 
 .woocommerce-loop-category__description {
-	@apply text-gray-500 text-base mb-3;
+	@apply card-description;
 }

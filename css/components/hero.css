@@ -1,0 +1,15 @@
+.hero {
+    @apply relative overflow-hidden py-12 lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:py-28 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto;
+}
+
+.hero__image {
+    @apply absolute inset-0 object-cover w-full h-full;
+}
+
+.hero__image-filter {
+    @apply absolute inset-0 bg-body-primary opacity-70;
+}
+
+.hero__body {
+    @apply relative lg:px-0 px-6;
+}
