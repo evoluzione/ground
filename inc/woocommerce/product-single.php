@@ -47,10 +47,12 @@ function ground_woocommerce_add_brand_single_product() {
 
 // add_action('woocommerce_single_product_summary', 'ground_woocommerce_add_brand_single_product', 6);
 
+
+
 /**
  * Remove single product tabs
  */
-// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
 
 
@@ -156,3 +158,103 @@ function ground_add_page_relation_below_product_summary() {
 }
 add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_below_product_summary', 55 );
 
+
+
+
+
+
+
+/**
+ * Add custom field (REST editable)
+ */
+function ground_add_custom_tabs( $tabs ) {
+
+	$tabs['ground_product_details'] = array(
+		'label'  => __( 'Details', 'ground-admin' ),
+		'target' => 'ground_product_details',
+		'class'  => array(),
+	);
+
+	return $tabs;
+}
+
+add_filter( 'woocommerce_product_data_tabs', 'ground_add_custom_tabs' );
+
+
+/**
+ * Add Tab Details
+ */
+function ground_tab_ground_product_details() {
+	echo '<div id="ground_product_details" class="panel woocommerce_options_panel">';
+	echo '<div class="options_group">';
+
+	woocommerce_wp_text_input(
+		array(
+			'id'          => 'product_video',
+			'label'       => __( 'Video', 'ground-admin' ),
+			'placeholder' => '',
+			'desc_tip'    => 'false',
+			'description' => __( 'String [product_video]', 'ground-admin' ),
+		)
+	);
+
+	echo '</div>';
+	echo '</div>';
+}
+
+add_action( 'woocommerce_product_data_panels', 'ground_tab_ground_product_details' );
+
+
+
+/**
+ * Save field
+ */
+function woocommerce_product_custom_field_fields_save( $post_id ) {
+
+	$woocommerce_product_video = $_POST['product_video'];
+	update_post_meta( $post_id, 'product_video', esc_attr( $woocommerce_product_video ) );
+
+}
+
+add_action( 'woocommerce_process_product_meta', 'woocommerce_product_custom_field_fields_save' );
+
+
+/**
+ * REST field
+ */
+add_action(
+	'rest_api_init',
+	function () {
+
+		// TAB TASSONOMY
+
+		register_rest_field(
+			'product',
+			'product_video',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_video', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_video', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Name Vulgar', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+	}
+);
+
+
+/**
+ * Include single product additional info
+ */
+function ground_woocommerce_after_single_product_summary_info() {
+	get_template_part( 'partials/woocommerce/content-single-product' );
+};
+
+add_action( 'woocommerce_after_single_product_summary', 'ground_woocommerce_after_single_product_summary_info', 10, 2 );

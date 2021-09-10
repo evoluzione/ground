@@ -1864,6 +1864,9 @@ select {
 .pl-3 {
 	padding-left: 0.75rem;
 }
+.pb-6 {
+	padding-bottom: 1.5rem;
+}
 .text-center {
 	text-align: center;
 }
@@ -9826,8 +9829,7 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 }
 .stock.in-stock:before {
 	border-width: 4px;
-	--tw-border-opacity: 1;
-	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+	border-color: var(--ground-color-body-primary);
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
@@ -9838,8 +9840,7 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 }
 .stock.out-of-stock:before {
 	border-width: 4px;
-	--tw-border-opacity: 1;
-	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+	border-color: var(--ground-color-body-primary);
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
@@ -10213,6 +10214,10 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		grid-column: span 9 / span 9;
 	}
 
+	.lg\:col-span-10 {
+		grid-column: span 10 / span 10;
+	}
+
 	.lg\:col-start-6 {
 		grid-column-start: 6;
 	}
@@ -10227,6 +10232,14 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.lg\:col-start-9 {
 		grid-column-start: 9;
+	}
+
+	.lg\:col-start-2 {
+		grid-column-start: 2;
+	}
+
+	.lg\:col-start-7 {
+		grid-column-start: 7;
 	}
 
 	.lg\:m-0 {
@@ -10272,6 +10285,10 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.lg\:ml-auto {
 		margin-left: auto;
+	}
+
+	.lg\:ml-0 {
+		margin-left: 0px;
 	}
 
 	.lg\:block {
@@ -10454,6 +10471,11 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		padding-right: 0px;
 	}
 
+	.lg\:py-12 {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
 	.lg\:pr-8 {
 		padding-right: 2rem;
 	}
@@ -10521,6 +10543,9 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 	.lg\:text-typo-primary {
 		color: var(--ground-color-typo-primary);
 	}
+        .lg\:rounded-theme {
+		    border-radius: var(--ground-rounded-theme);
+	    }
 }
 @media (min-width: 1280px) {
 
