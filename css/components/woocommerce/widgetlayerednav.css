@@ -4,7 +4,7 @@
 	.overlay-panel & {	
 		@apply mb-4 lg:mb-9;
 
-		.woocommerce-widget-layered-nav__title {
+		.widgettitle {
 			@apply cursor-pointer inline-block lg:cursor-default lg:block mb-4 lg:mb-3;
 			&:after {
 				content: '';
@@ -66,7 +66,7 @@
 		}
 
 		&.widget-is-open {
-			.woocommerce-widget-layered-nav__title {
+			.widgettitle {
 				&:after {
 					@apply transform rotate-180;
 				}

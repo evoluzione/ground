@@ -23,7 +23,7 @@ export default class WidgetAccordion {
 
 		jQuery(elName).each((key, value) => {
 			const currentWidget = value;
-			const currentWidgetTitle = jQuery(currentWidget).find('.woocommerce-widget-layered-nav__title');
+			const currentWidgetTitle = jQuery(currentWidget).find('.widgettitle');
 
 			jQuery(currentWidgetTitle).click(() => {
 				jQuery(currentWidget).toggleClass('widget-is-open');

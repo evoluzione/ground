@@ -2,11 +2,8 @@
 	.sidebar &,
 	.overlay-panel & {
 		@apply relative mb-9;
-
-		.widgettitle,
-		> h6 {
+		.widgettitle {
 			@apply relative text-lg font-bold mb-3;
 		}
-
 	}
 }

@@ -1630,11 +1630,11 @@ select {
 .grid-cols-12 {
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-.grid-cols-2 {
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .grid-cols-4 {
 	grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1663,14 +1663,17 @@ select {
 .justify-between {
 	justify-content: space-between;
 }
-.gap-6 {
-	gap: 1.5rem;
-}
 .gap-4 {
 	gap: 1rem;
 }
+.gap-6 {
+	gap: 1.5rem;
+}
 .gap-x-6 {
 	column-gap: 1.5rem;
+}
+.gap-y-12 {
+	row-gap: 3rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -6454,7 +6457,7 @@ tr {
 	position: relative;
 	margin-bottom: 2.25rem;
 }
-.sidebar .widget .widgettitle, .sidebar .widget > h6, .overlay-panel .widget .widgettitle, .overlay-panel .widget > h6 {
+.sidebar .widget .widgettitle, .overlay-panel .widget .widgettitle {
 	position: relative;
 	margin-bottom: 0.75rem;
 	font-size: 1.125rem;
@@ -7548,26 +7551,26 @@ html.has-scroll-smooth .scroll-progress {
 		margin-bottom: 2.25rem;
 	}
 }
-.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title {
+.sidebar .widget_layered_nav .widgettitle, .overlay-panel .widget_layered_nav .widgettitle {
 	margin-bottom: 1rem;
 	display: inline-block;
 	cursor: pointer;
 }
 @media (min-width: 1024px) {
 
-	.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title {
+	.sidebar .widget_layered_nav .widgettitle, .overlay-panel .widget_layered_nav .widgettitle {
 		margin-bottom: 0.75rem;
 	}
 
-	.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title {
+	.sidebar .widget_layered_nav .widgettitle, .overlay-panel .widget_layered_nav .widgettitle {
 		display: block;
 	}
 
-	.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title {
+	.sidebar .widget_layered_nav .widgettitle, .overlay-panel .widget_layered_nav .widgettitle {
 		cursor: default;
 	}
 }
-.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title:after, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title:after {
+.sidebar .widget_layered_nav .widgettitle:after, .overlay-panel .widget_layered_nav .widgettitle:after {
 				content: '';
 				margin-left: 0.75rem;
 				display: inline-block;
@@ -7580,11 +7583,11 @@ html.has-scroll-smooth .scroll-progress {
 			}
 @media (min-width: 1024px) {
 
-	.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title:after, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title:after {
+	.sidebar .widget_layered_nav .widgettitle:after, .overlay-panel .widget_layered_nav .widgettitle:after {
 		display: none;
 	}
 }
-.sidebar .widget_layered_nav .woocommerce-widget-layered-nav__title:after, .overlay-panel .widget_layered_nav .woocommerce-widget-layered-nav__title:after {
+.sidebar .widget_layered_nav .widgettitle:after, .overlay-panel .widget_layered_nav .widgettitle:after {
 				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB5SURBVHgBzc3RDYAgDATQugmjsImjuZluIvJBE1NFSrkaLrmvNveIJkokv8TaYc1NuRths5TNsxivaALjjPLuAz8EjMAlyt3vTwGMf6FBPqPwLhSFm9BRfAi14hC0F4eiWtwF1eBuaAt3RbW4C9rCXdEa/gsqcRN6AYi1juFGJsYVAAAAAElFTkSuQmCC') center center no-repeat;
 				background-size: 14px 8px;
 			}
@@ -7660,7 +7663,7 @@ html.has-scroll-smooth .scroll-progress {
 	border-color: var(--ground-color-primary);
 	background-color: var(--ground-color-primary);
 }
-.sidebar .widget_layered_nav.widget-is-open .woocommerce-widget-layered-nav__title:after, .overlay-panel .widget_layered_nav.widget-is-open .woocommerce-widget-layered-nav__title:after {
+.sidebar .widget_layered_nav.widget-is-open .widgettitle:after, .overlay-panel .widget_layered_nav.widget-is-open .widgettitle:after {
 	--tw-rotate: 180deg;
 	transform: var(--tw-transform);
 	transform: var(--tw-transform);
@@ -10260,6 +10263,10 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.md\:col-span-3 {
 		grid-column: span 3 / span 3;
+	}
+
+	.md\:grid-cols-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.md\:p-12 {
