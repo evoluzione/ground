@@ -13,7 +13,7 @@
 	.label {
 		@apply p-0;
 		label {
-			@apply text-sm text-gray-500 mb-1;
+			@apply text-sm text-typo-secondary mb-1;
 		}
 	}
 
@@ -22,7 +22,7 @@
 	}
 
 	.reset_variations {
-		@apply block text-sm text-gray-500 mt-2 underline;
+		@apply block text-sm text-typo-secondary mt-2 underline;
 	}
 
 }
@@ -32,7 +32,7 @@
 	.woocommerce-variation-description {
 		@apply relative mt-3 mb-6;
 		* {
-			@apply text-sm text-gray-500;
+			@apply text-sm text-typo-secondary;
 		}
 	}
 	.woocommerce-variation-price {

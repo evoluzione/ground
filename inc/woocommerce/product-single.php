@@ -55,7 +55,28 @@ function ground_woocommerce_add_brand_single_product() {
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
 
+/**
+ * Add "additional information" after single product summary
+ */
 
+function ground_product_attributes_after_summary() {
+	global $product;
+
+	if ( $product && ( $product->has_attributes() || apply_filters( 'wc_product_enable_dimensions_display', $product->has_weight() || $product->has_dimensions() ) ) ) { ?>
+		<div class="relative my-16">
+			<div class="grid grid-cols-12 gap-6">
+				<div class="col-span-full lg:col-start-2 lg:col-end-12">
+					<h3 class="mb-9"><?php _e( 'Product attributes', 'ground' ); ?></h3>
+					<?php wc_display_product_attributes( $product ); ?>
+				</div>
+			</div>
+		</div>
+
+		<?php
+	}
+}
+
+add_action( 'ground_product_attributes', 'ground_product_attributes_after_summary', 10 );
 
 /**
  * Reordering woocommerce_template_single_meta
@@ -78,7 +99,8 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_e
 /**
  * Plus Minus Quantity Buttons @ WooCommerce - 1 Add Plus
  */
-function ground_display_quantity_plus() { ?>
+function ground_display_quantity_plus() {
+	?>
 	<button type="button" class="plus"><?php ground_icon( 'math-plus' ); ?></button>
 	<?php
 }
@@ -192,13 +214,83 @@ function ground_tab_ground_product_details() {
 		array(
 			'id'          => 'product_video',
 			'label'       => __( 'Video', 'ground-admin' ),
-			'placeholder' => '',
+			'placeholder' => 'Insert video URL',
 			'desc_tip'    => 'false',
 			'description' => __( 'String [product_video]', 'ground-admin' ),
-		)
+		),
 	);
 
 	echo '</div>';
+
+	echo '<div class="options_group">';
+
+		woocommerce_wp_text_input(
+			array(
+				'id'          => 'product_info_title1',
+				'label'       => __( 'Info Title', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_title1]', 'ground-admin' ),
+			),
+		);
+		woocommerce_wp_textarea_input(
+			array(
+				'id'          => 'product_info_content1',
+				'label'       => __( 'Info Content', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_content1]', 'ground-admin' ),
+			),
+		);
+
+	echo '</div>';
+
+	echo '<div class="options_group">';
+
+		woocommerce_wp_text_input(
+			array(
+				'id'          => 'product_info_title2',
+				'label'       => __( 'Info Title', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_title2]', 'ground-admin' ),
+			),
+		);
+		woocommerce_wp_textarea_input(
+			array(
+				'id'          => 'product_info_content2',
+				'label'       => __( 'Info Content', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_content2]', 'ground-admin' ),
+			),
+		);
+
+	echo '</div>';
+
+	echo '<div class="options_group">';
+
+		woocommerce_wp_text_input(
+			array(
+				'id'          => 'product_info_title3',
+				'label'       => __( 'Info Title', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_title3]', 'ground-admin' ),
+			),
+		);
+		woocommerce_wp_textarea_input(
+			array(
+				'id'          => 'product_info_content3',
+				'label'       => __( 'Info Content', 'ground-admin' ),
+				'placeholder' => '',
+				'desc_tip'    => 'false',
+				'description' => __( 'String [product_info_content3]', 'ground-admin' ),
+			),
+		);
+
+	echo '</div>';
+
 	echo '</div>';
 }
 
@@ -213,6 +305,18 @@ function woocommerce_product_custom_field_fields_save( $post_id ) {
 
 	$woocommerce_product_video = $_POST['product_video'];
 	update_post_meta( $post_id, 'product_video', esc_attr( $woocommerce_product_video ) );
+	$woocommerce_product_info_title1 = $_POST['product_info_title1'];
+	update_post_meta( $post_id, 'product_info_title1', esc_attr( $woocommerce_product_info_title1 ) );
+	$woocommerce_product_info_content1 = $_POST['product_info_content1'];
+	update_post_meta( $post_id, 'product_info_content1', esc_attr( $woocommerce_product_info_content1 ) );
+	$woocommerce_product_info_title2 = $_POST['product_info_title2'];
+	update_post_meta( $post_id, 'product_info_title2', esc_attr( $woocommerce_product_info_title2 ) );
+	$woocommerce_product_info_content2 = $_POST['product_info_content2'];
+	update_post_meta( $post_id, 'product_info_content2', esc_attr( $woocommerce_product_info_content2 ) );
+	$woocommerce_product_info_title3 = $_POST['product_info_title3'];
+	update_post_meta( $post_id, 'product_info_title3', esc_attr( $woocommerce_product_info_title3 ) );
+	$woocommerce_product_info_content3 = $_POST['product_info_content3'];
+	update_post_meta( $post_id, 'product_info_content3', esc_attr( $woocommerce_product_info_content3 ) );
 
 }
 
@@ -226,8 +330,6 @@ add_action(
 	'rest_api_init',
 	function () {
 
-		// TAB TASSONOMY
-
 		register_rest_field(
 			'product',
 			'product_video',
@@ -239,7 +341,115 @@ add_action(
 					update_post_meta( $object->id, 'product_video', esc_attr( $value ) );
 				},
 				'schema'          => array(
-					'description' => __( 'Name Vulgar', 'woocommerce' ),
+					'description' => __( 'Product Video', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_title1',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_title1', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_title1', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Title1', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_content1',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_content1', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_content1', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Content1', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_title2',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_title2', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_title2', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Title2', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_content2',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_content2', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_content2', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Content2', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_title3',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_title3', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_title3', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Title3', 'woocommerce' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
+
+		register_rest_field(
+			'product',
+			'product_info_content3',
+			array(
+				'get_callback'    => function ( $object, $field_name, $request ) {
+					return get_post_meta( $object['id'], 'product_info_content3', true );
+				},
+				'update_callback' => function ( $value, $object, $field_name ) {
+					update_post_meta( $object->id, 'product_info_content3', esc_attr( $value ) );
+				},
+				'schema'          => array(
+					'description' => __( 'Product Info Content3', 'woocommerce' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),

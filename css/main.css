@@ -12,6 +12,7 @@
 @import "base/list.css";
 
 /* Components */
+@import "components/accordion.css";
 @import "components/icons.css";
 @import "components/breadcrumb.css";
 @import "components/button.css";

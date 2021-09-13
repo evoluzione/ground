@@ -67,3 +67,22 @@
 		}
 	}
 } */
+
+
+.woocommerce-product-attributes {
+	@apply relative;
+
+	tr {
+		/* @apply border-b border-line-primary; */
+	}
+
+	th {
+		@apply text-base font-normal;
+	}
+
+	td {
+		* {
+			@apply text-typo-secondary text-base;
+		}
+	}
+}
