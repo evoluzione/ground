@@ -10,6 +10,8 @@
 @import "base/text.css";
 @import "base/link.css";
 @import "base/list.css";
+@import "base/image.css";
+
 
 /* Components */
 @import "components/accordion.css";

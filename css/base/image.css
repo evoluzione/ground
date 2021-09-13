@@ -1,0 +1,5 @@
+@layer base {
+    figure, img {
+        @apply rounded-theme;
+    }
+}
