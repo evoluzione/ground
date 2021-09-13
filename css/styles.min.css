@@ -1715,10 +1715,6 @@ select {
 .border-line-primary {
 	border-color: var(--ground-color-line-primary);
 }
-.border-gray-200 {
-	--tw-border-opacity: 1;
-	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-}
 .border-gray-500 {
 	--tw-border-opacity: 1;
 	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
@@ -5645,8 +5641,7 @@ hr {
 }
 .search__content {
 	position: relative;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	background-color: var(--ground-color-body-primary);
 }
 @media (min-width: 1024px) {
 
@@ -5687,8 +5682,7 @@ hr {
 		right: 0px;
 		bottom: 0px;
 		z-index: -1;
-		--tw-bg-opacity: 1;
-		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+		background-color: var(--ground-color-body-primary);
 		opacity: 0;
 	}
 @media (min-width: 1024px) {
@@ -5789,8 +5783,7 @@ hr {
 		right: 0px;
 		bottom: 0px;
 		z-index: -1;
-		--tw-bg-opacity: 1;
-		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+		background-color: var(--ground-color-body-primary);
 		opacity: 0;
 	}
 .is-search-open .search__form:before {
