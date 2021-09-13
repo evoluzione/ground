@@ -66,7 +66,7 @@ if ( $product_info_title1 || $product_info_title2 || $product_info_title3 ) :
 
 			<div class="accordion accordion-1">
 				<span class="accordion__head js-toggle" data-toggle-target=".accordion-1" data-toggle-class-name="is-accordion-open">
-					<?php echo $product_info_title1; ?>
+					<?php echo $product_info_title1; ?> jdhsgf jdshgfjdhsgfjdshgfhsdgfjhsdgf jh gjfsg djfgs jg jg 
 					<?php if ( $product_info_content1 ) : ?>
 						<span class="accordion__icon"></span>
 					<?php endif; ?>

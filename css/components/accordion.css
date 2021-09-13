@@ -42,7 +42,7 @@
 }
 
 .accordion__head {
-    @apply flex items-center cursor-pointer py-6 text-xl;
+    @apply flex items-center cursor-pointer py-6 text-xl pr-20;
 }
 
 .accordion__body {

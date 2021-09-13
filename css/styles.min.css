@@ -1752,9 +1752,6 @@ select {
 .bg-body-secondary {
 	background-color: var(--ground-color-body-secondary);
 }
-.bg-body-primary {
-	background-color: var(--ground-color-body-primary);
-}
 .bg-blue-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
@@ -1774,6 +1771,9 @@ select {
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+.bg-body-primary {
+	background-color: var(--ground-color-body-primary);
 }
 .bg-red-300 {
 	--tw-bg-opacity: 1;
@@ -2404,6 +2404,7 @@ text-typo */
 	align-items: center;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
+	padding-right: 5rem;
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
@@ -9323,6 +9324,7 @@ form.woocommerce-ResetPassword {
 .woocommerce-loop-product__additional-image {
 	position: absolute;
 	top: 0px;
+	display: none;
 	height: auto;
 	width: 100%;
 	opacity: 0;
@@ -9330,6 +9332,12 @@ form.woocommerce-ResetPassword {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 	transition-duration: 300ms;
+}
+@media (min-width: 1024px) {
+
+	.woocommerce-loop-product__additional-image {
+		display: block;
+	}
 }
 .woocommerce-loop-product__additional-image img {
 	position: relative;

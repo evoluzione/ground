@@ -44,7 +44,7 @@
 
 
 .woocommerce-loop-product__additional-image {
-	@apply absolute top-0 w-full h-auto opacity-0 transition-all duration-300;
+	@apply absolute top-0 w-full h-auto opacity-0 transition-all duration-300 hidden lg:block;
 	img {
 		@apply card-image;
 	}
