@@ -17,7 +17,7 @@ $product_info_content3 = get_post_meta( $product_id, 'product_info_content3', tr
 	<?php if ( ! empty( get_the_content() ) ) : ?>
 		<div class="grid grid-cols-12 gap-6 pt-3 pb-6 lg:py-12">
 			<div class="col-span-full lg:col-start-2 lg:col-span-3">
-				<h3><?php _e( 'Product specifications', 'ground' ); ?></h3>
+				<h4><?php _e( 'Product specifications', 'ground' ); ?></h4>
 			</div>
 			<div class="col-span-full lg:col-start-7 lg:col-span-5">			
 				<div class="text-typo-secondary text-base">
@@ -60,14 +60,16 @@ if ( $product_info_title1 || $product_info_title2 || $product_info_title3 ) :
 <div class="grid grid-cols-12 gap-6 my-16">
 	<div class="col-span-full lg:col-start-2 lg:col-end-12">
 
-		<h3 class="mb-9"><?php _e( 'Technical info', 'ground' ); ?></h3>
+		<h4 class="mb-9"><?php _e( 'Technical info', 'ground' ); ?></h4>
 
 		<?php if ( $product_info_title1 ) : ?>
 
 			<div class="accordion accordion-1">
 				<span class="accordion__head js-toggle" data-toggle-target=".accordion-1" data-toggle-class-name="is-accordion-open">
 					<?php echo $product_info_title1; ?>
-					<span class="accordion__icon"></span>
+					<?php if ( $product_info_content1 ) : ?>
+						<span class="accordion__icon"></span>
+					<?php endif; ?>
 				</span>
 				<?php if ( $product_info_content1 ) : ?>
 				<div class="accordion__body">
@@ -85,7 +87,9 @@ if ( $product_info_title1 || $product_info_title2 || $product_info_title3 ) :
 			<div class="accordion accordion-2">
 				<span class="accordion__head js-toggle" data-toggle-target=".accordion-2" data-toggle-class-name="is-accordion-open">
 					<?php echo $product_info_title2; ?>
-					<span class="accordion__icon"></span>
+					<?php if ( $product_info_content2 ) : ?>
+						<span class="accordion__icon"></span>
+					<?php endif; ?>
 				</span>
 				<?php if ( $product_info_content2 ) : ?>
 				<div class="accordion__body">
@@ -103,7 +107,9 @@ if ( $product_info_title1 || $product_info_title2 || $product_info_title3 ) :
 			<div class="accordion accordion-3">
 				<span class="accordion__head js-toggle" data-toggle-target=".accordion-3" data-toggle-class-name="is-accordion-open">
 					<?php echo $product_info_title3; ?>
-					<span class="accordion__icon"></span>
+					<?php if ( $product_info_content3 ) : ?>
+						<span class="accordion__icon"></span>
+					<?php endif; ?>
 				</span>			
 				<?php if ( $product_info_content3 ) : ?>
 				<div class="accordion__body">

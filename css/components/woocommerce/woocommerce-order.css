@@ -25,7 +25,7 @@
 			}
 			tfoot {
 				tr {
-					@apply border-b border-gray-200;
+					@apply border-b border-line-primary;
 				}
 				td {
 					@apply text-right;

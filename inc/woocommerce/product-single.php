@@ -66,7 +66,7 @@ function ground_product_attributes_after_summary() {
 		<div class="relative my-16">
 			<div class="grid grid-cols-12 gap-6">
 				<div class="col-span-full lg:col-start-2 lg:col-end-12">
-					<h3 class="mb-9"><?php _e( 'Product attributes', 'ground' ); ?></h3>
+					<h4 class="mb-9"><?php _e( 'Product attributes', 'ground' ); ?></h4>
 					<?php wc_display_product_attributes( $product ); ?>
 				</div>
 			</div>

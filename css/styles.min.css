@@ -868,8 +868,8 @@ select {
 	/* Unordered/Ordered list */
 	ul, ol {
 	margin-top: 0px;
-	margin-left: 1rem;
-	margin-bottom: 1.5rem;
+	margin-left: 0px;
+	margin-bottom: 0px;
 	padding: 0px;
 }
 
@@ -898,8 +898,8 @@ select {
 }
 
 	dd {
-	margin-left: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-left: 0px;
+	margin-bottom: 0px;
 }
 	input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], textarea, select {
 	width: 100%;
@@ -4127,8 +4127,7 @@ hr {
 .header-mega-menu .navigation--primary .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -4208,13 +4207,7 @@ hr {
 	}
 
 				.header-mega-menu .navigation--primary .navigation__sub-menu:after {
-		--tw-bg-opacity: 1;
-		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	}
-
-				.dark .header-mega-menu .navigation--primary .navigation__sub-menu:after {
-		--tw-bg-opacity: 1;
-		background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+		background-color: var(--ground-color-body-primary);
 	}
 
 				.header-mega-menu .navigation--primary .navigation__sub-menu:after {
@@ -4265,8 +4258,7 @@ hr {
 	}
 
 	.header-mega-menu .navigation--primary .navigation__sub-menu .navigation__link {
-		--tw-border-opacity: 1;
-		border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+		border-color: var(--ground-color-line-primary);
 	}
 
 	.header-mega-menu .navigation--primary .navigation__sub-menu .navigation__link {
@@ -4290,8 +4282,7 @@ hr {
 .header-mega-menu .navigation--primary .navigation__sub-menu .navigation__item .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
@@ -4349,13 +4340,7 @@ hr {
 	}
 
 				.header-mega-menu .navigation--primary .navigation__image:after {
-		--tw-bg-opacity: 1;
-		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	}
-
-				.dark .header-mega-menu .navigation--primary .navigation__image:after {
-		--tw-bg-opacity: 1;
-		background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+		background-color: var(--ground-color-body-primary);
 	}
 
 				.header-mega-menu .navigation--primary .navigation__image:after {
@@ -4420,8 +4405,7 @@ hr {
 .header-mega-menu .navigation--panel-primary .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -4474,8 +4458,7 @@ hr {
 		border-bottom-width: 1px;
 	}
 .header-mega-menu .navigation--panel-primary .navigation__sub-menu .navigation__link {
-		--tw-border-opacity: 1;
-		border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+		border-color: var(--ground-color-line-primary);
 	}
 .header-mega-menu .navigation--panel-primary .navigation__sub-menu .navigation__link {
 		--tw-border-opacity: 0.2;
@@ -4498,8 +4481,7 @@ hr {
 .header-mega-menu .navigation--panel-primary .navigation__sub-menu .navigation__item .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
@@ -4552,8 +4534,7 @@ hr {
 .header-mega-menu .navigation--secondary .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -4776,8 +4757,7 @@ hr {
 	}
 
 	.header-mega-menu .navigation--secondary .navigation__sub-menu .navigation__link {
-		--tw-border-opacity: 1;
-		border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+		border-color: var(--ground-color-line-primary);
 	}
 
 	.header-mega-menu .navigation--secondary .navigation__sub-menu .navigation__link {
@@ -4801,8 +4781,7 @@ hr {
 .header-mega-menu .navigation--secondary .navigation__sub-menu .navigation__item .navigation__link {
 	display: block;
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 	--tw-border-opacity: 0.2;
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
@@ -5084,9 +5063,15 @@ hr {
 }
 .hero__card-body {
 	display: flex;
-	height: 11rem;
+	height: 9rem;
 	align-items: center;
 	justify-content: center;
+}
+@media (min-width: 640px) {
+
+	.hero__card-body {
+		height: 11rem;
+	}
 }
 @media (min-width: 1024px) {
 
@@ -8423,8 +8408,7 @@ form.woocommerce-ResetPassword {
 }
 .woocommerce-order .woocommerce-order-details .woocommerce-table--order-details tfoot tr {
 	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+	border-color: var(--ground-color-line-primary);
 }
 .woocommerce-order .woocommerce-order-details .woocommerce-table--order-details tfoot td {
 	text-align: right;
@@ -9470,7 +9454,9 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 }
 .related > h2 {
 	margin-bottom: 1.5rem;
-	text-align: center;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	text-align: left;
 	font-size: 1.5rem;
 	line-height: 2rem;
 }
@@ -9478,6 +9464,15 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.related > h2 {
 		margin-bottom: 3rem;
+	}
+
+	.related > h2 {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.related > h2 {
+		text-align: center;
 	}
 }
 .related .products {
@@ -9627,7 +9622,9 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 }
 .up-sells > h2 {
 	margin-bottom: 1.5rem;
-	text-align: center;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	text-align: left;
 	font-size: 1.5rem;
 	line-height: 2rem;
 }
@@ -9635,6 +9632,15 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.up-sells > h2 {
 		margin-bottom: 3rem;
+	}
+
+	.up-sells > h2 {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.up-sells > h2 {
+		text-align: center;
 	}
 }
 .up-sells .products {

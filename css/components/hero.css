@@ -38,7 +38,7 @@
 }
 
 .hero__card-body {
-    @apply flex items-center justify-center h-44 lg:h-48;
+    @apply flex items-center justify-center h-36 sm:h-44 lg:h-48;
 }
 
 .hero__card-text {

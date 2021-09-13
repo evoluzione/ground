@@ -2,7 +2,7 @@
     @apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
 
     > h2 {
-        @apply text-center text-2xl mb-6 lg:mb-12;
+        @apply text-left px-6 lg:text-center text-2xl mb-6 lg:mb-12 lg:px-0;
     }
 
     .products {
