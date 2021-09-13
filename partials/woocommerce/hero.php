@@ -3,6 +3,7 @@
 	<div class="hero__body">
 
 		<?php
+
 		if ( is_product_category() ) {
 			$ground_cat   = get_queried_object();
 			$thumbnail_id = get_term_meta( $ground_cat->term_id, 'thumbnail_id', true );
@@ -11,9 +12,18 @@
 				<div class="hero__image-filter" aria-hidden="true"></div>
 				<?php
 			}
+		} else {
+			$page_id      = get_option( 'woocommerce_shop_page_id' );
+			$thumbnail_id = get_post_thumbnail_id( $page_id );
+			if ( $thumbnail_id ) {
+				?>
+				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0]; ?>">
+				<div class="hero__image-filter" aria-hidden="true"></div>
+				<?php
+			}
 		}
 		?>
-
+						
 		<div class="hero__content">
 			<div class="grid grid-cols-12 gap-x-6">
 				<div class="col-span-full lg:col-span-3">

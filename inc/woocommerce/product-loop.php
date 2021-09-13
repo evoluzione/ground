@@ -245,3 +245,25 @@ function ground_show_sale_percentage_loop() {
 }
 
 add_action( 'woocommerce_sale_flash', 'ground_show_sale_percentage_loop', 25 );
+
+
+
+/**
+ * Display hero on woocommerce archive
+ */
+function ground_add_shop_hero() {
+	if ( ! is_search() && is_post_type_archive( 'product' ) && in_array( absint( get_query_var( 'paged' ) ), array( 0, 1 ), true ) ) {
+
+		$min_price = isset( $_GET['min_price'] ) ? esc_attr( $_GET['min_price'] ) : 0;
+		$max_price = isset( $_GET['max_price'] ) ? esc_attr( $_GET['max_price'] ) : 0;
+
+		if ( 0 < count( WC_Query::get_layered_nav_chosen_attributes() ) || 0 < $min_price || 0 < $max_price ) {
+			// Ci sono filtri attivi
+			// get_template_part( 'partials/woocommerce/hero' );
+		} else {
+			get_template_part( 'partials/woocommerce/hero' );
+		}
+	}
+}
+
+add_action( 'woocommerce_before_main_content', 'ground_add_shop_hero', 20 );
