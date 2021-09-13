@@ -901,9 +901,6 @@ select {
 	margin-left: 0px;
 	margin-bottom: 0px;
 }
-    figure, img {
-		    border-radius: var(--ground-rounded-theme);
-	    }
 	input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], textarea, select {
 	width: 100%;
 	border-color: var(--ground-color-line-primary);

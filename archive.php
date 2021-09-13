@@ -50,7 +50,7 @@ get_template_part( 'partials/header' );
 
 				<div class="page__body">
 
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 mt-6 js-infinite-container">
 
 					<?php
 					while ( have_posts() ) :
