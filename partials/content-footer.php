@@ -47,9 +47,9 @@
 	</div>
 
 	<div class="container">
-		<div class="mt-6 py-9 border-t border-line-primary lg:flex lg:items-center lg:justify-start lg:space-x-9 lg:pt-9">			
+		<div class="mt-6 py-9 border-t border-line-primary lg:flex lg:items-center lg:justify-between lg:space-x-9 lg:pt-9">			
 			<div class="mb-6 lg:mb-0">
-				<p class="text-center text-white lg:text-left lg:text-typo-primary text-sm lg:text-base">
+				<p class="text-center lg:text-left text-typo-secondary text-sm lg:text-xs">
 				<?php
 				_e( 'All rights reserved - © copyright', 'ground' );
 				echo date( 'Y' );
@@ -68,7 +68,7 @@
 
 				<div class="lg:flex items-center justify-center lg:space-x-6">
 
-					<p class="pr-3 text-white text-center mb-2 text-sm lg:text-base lg:pl-6 lg:text-left lg:text-typo-primary lg:mb-0"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
+					<p class="pr-3 text-center mb-2 text-sm lg:text-xs lg:pl-6 lg:text-left text-typo-secondary lg:mb-0"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
 
 					<div class="flex justify-center lg:justify-start space-x-3">
 						<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>
