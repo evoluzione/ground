@@ -34,6 +34,27 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
+
+	<div class="relative" data-scroll="js-horizontal-scroll-container" data-scroll-scrub="0.2">
+
+		<div class="flex flex-nowrap h-full w-[500%]" data-scroll-target>
+
+			<div class="bg-green-500 h-screen w-screen flex items-center justify-center" data-scroll-panel>
+				<div class="relative text-5xl text-white">Scroll down to animate horizontally ></div>
+			</div>
+			
+			<div class="bg-green-600 h-screen w-screen flex items-center justify-center" data-scroll-panel>
+				<div class="js-box-1 relative bg-white p-9 text-xl">js-box-1</div>
+			</div>
+
+			<div class="bg-green-700 h-screen w-screen flex items-center justify-center" data-scroll-panel>
+				<div class="js-box-2 relative bg-white p-9 text-xl">js-box-2</div>
+			</div>
+
+		</div>
+
+	</div>
+
 	<div class="container mt-12 text-center" data-flip>
 		<h2 class="mb-9 text-gray-300">Drag the squares <strong class="text-gray-800">Flip</strong></h2>
 		<button data-flip-trigger>CLICK HERE TO FLIP</button>
@@ -44,6 +65,8 @@ get_template_part( 'partials/header' ); ?>
 			<div class="inline-block h-12 w-12 m-12 border border-green-500 transform rotate-45" data-flip-to></div>
 		</div>
 	</div>
+
+
 
 	<div class="container max-w-2xl mt-40 text-center">
 
@@ -307,14 +330,14 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 		</div>
 
-		<div class="relative my-44" data-scroll="js-sprite-images" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/dhcuygjf8/image/upload/v1605626657/Coltri/Landing%20Product/Smart">
+		<!-- <div class="relative my-44" data-scroll="js-sprite-images" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/dhcuygjf8/image/upload/v1605626657/Coltri/Landing%20Product/Smart">
 			<div class="relative" data-scroll-target>
 				<h2 class="text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
 				<div class="relative w-9/12 m-auto" data-scroll-target-animate>
 					<canvas data-scroll-canvas class="relative w-full" />
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 

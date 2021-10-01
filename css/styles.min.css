@@ -1407,6 +1407,9 @@ select {
 .w-24 {
 	width: 6rem;
 }
+.w-\[500\%\] {
+	width: 500%;
+}
 .w-44 {
 	width: 11rem;
 }
@@ -1790,6 +1793,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
+.bg-green-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
+.bg-green-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+}
 .bg-opacity-10 {
 	--tw-bg-opacity: 0.1;
 }
@@ -1813,6 +1824,9 @@ select {
 }
 .p-3 {
 	padding: 0.75rem;
+}
+.p-9 {
+	padding: 2.25rem;
 }
 .py-3 {
 	padding-top: 0.75rem;
@@ -10448,6 +10462,11 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		line-height: 1.5rem;
 	}
 
+	.lg\:text-xs {
+		font-size: 0.75rem;
+		line-height: 1rem;
+	}
+
 	.lg\:text-lg {
 		font-size: 1.125rem;
 		line-height: 1.75rem;
@@ -10456,10 +10475,6 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 	.lg\:text-3xl {
 		font-size: 1.875rem;
 		line-height: 2.25rem;
-	}
-
-	.lg\:text-typo-primary {
-		color: var(--ground-color-typo-primary);
 	}
         .lg\:rounded-theme {
 		    border-radius: var(--ground-rounded-theme);

@@ -94,10 +94,12 @@ export default class AnimationsAll {
 				this.animationSpriteImages(element);
 			} else if (element.dataset.scroll === 'js-horizontal-scroll') {
 				this.animationHorizontalScroll(element);
+			} else if (element.dataset.scroll === 'js-horizontal-scroll-container') {
+				this.animationHorizontalScrollContainer(element);
 			} else if (element.dataset.scroll === 'js-horizontal-scroll-section') {
 				this.animationHorizontalScrollSection(element);
 			} else if (element.dataset.scroll === 'js-comparison') {
-				this.animationSomparison(element);
+				this.animationComparison(element);
 			} else if (element.dataset.scroll === 'js-parallax') {
 				this.animationParallax(element);
 			} else if (element.dataset.scroll === 'js-video') {
@@ -135,10 +137,12 @@ export default class AnimationsAll {
 				this.animationSpriteImages(target);
 			} else if (target.dataset.scroll === 'js-horizontal-scroll') {
 				this.animationHorizontalScroll(target);
+			} else if (target.dataset.scroll === 'js-horizontal-scroll-container') {
+				this.animationHorizontalScrollContainer(target);
 			} else if (target.dataset.scroll === 'js-horizontal-scroll-section') {
 				this.animationHorizontalScrollSection(target);
 			} else if (target.dataset.scroll === 'js-comparison') {
-				this.animationSomparison(target);
+				this.animationComparison(target);
 			} else if (target.dataset.scroll === 'js-parallax') {
 				this.animationParallax(target);
 			} else if (target.dataset.scroll === 'js-video') {
@@ -475,6 +479,58 @@ export default class AnimationsAll {
 	}
 
 	/**
+	 * pin Horizontal Container Animation
+	 */
+	animationHorizontalScrollContainer(item) {
+		const target = item.querySelector('[data-scroll-target]');
+		const panel = item.querySelectorAll('[data-scroll-panel]');
+		const targetScrub = item.dataset.scrollScrub;
+
+		console.log(targetScrub);
+
+		let sections = gsap.utils.toArray(panel);
+
+		let scrollTween = gsap.to(sections, {
+			xPercent: -100 * (sections.length - 1),
+			ease: 'none', // <-- IMPORTANT!
+			scrollTrigger: {
+				trigger: target,
+				pin: true,
+				scrub: targetScrub || false,
+				//snap: directionalSnap(1 / (sections.length - 1)),
+				end: '+=3000'
+			}
+		});
+
+		gsap.to('.js-box-1', {
+			y: -130,
+			duration: 2,
+			ease: 'elastic',
+			scrollTrigger: {
+				trigger: '.js-box-1',
+				containerAnimation: scrollTween,
+				start: 'left center',
+				toggleActions: 'play none play reverse'
+				// markers: true,
+			}
+		});
+
+		gsap.to('.js-box-2', {
+			y: 320,
+			backgroundColor: 'red',
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.js-box-2',
+				containerAnimation: scrollTween,
+				start: 'center 80%',
+				end: 'center 20%',
+				scrub: 2
+				// markers: true
+			}
+		});
+	}
+
+	/**
 	 * pin Horizontal Section Animation
 	 */
 	animationHorizontalScrollSection(item) {
@@ -550,7 +606,7 @@ export default class AnimationsAll {
 	/**
 	 * comparison Animation
 	 */
-	animationSomparison(item) {
+	animationComparison(item) {
 		const target = item.querySelector('[data-scroll-target]');
 		const targetMedia = item.querySelectorAll('[data-scroll-target-media]');
 		const targetImage = item.querySelectorAll('[data-scroll-target-media] img');
