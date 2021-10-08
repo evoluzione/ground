@@ -7,15 +7,15 @@
 }
 
 .hero__body {
-    @apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto;
+    @apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
 }
 
 .hero__image {
-    @apply absolute inset-0 object-cover w-full h-full lg:rounded-theme;
+    @apply absolute inset-0 object-cover w-full h-full;
 }
 
 .hero__image-filter {
-    @apply absolute inset-0 bg-black opacity-30 lg:rounded-theme;
+    @apply absolute inset-0 bg-black opacity-40;
 }
 
 .hero__content {

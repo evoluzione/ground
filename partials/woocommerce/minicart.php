@@ -1,4 +1,4 @@
-<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart() ) : ?>
 
 	<div class="minicart">
 		<div class="overlay-panel" id="minicart">

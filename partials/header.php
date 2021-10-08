@@ -16,6 +16,8 @@
 
 	<div class="scroll" id="js-scroll">
 
+		<?php get_template_part( 'partials/woocommerce/minicart' ); ?>
+
 		<?php get_template_part( 'partials/content', 'header' ); ?>
 
 		<div data-router-wrapper>
