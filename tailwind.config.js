@@ -19,7 +19,15 @@ module.exports = {
 			typography: () => ({
 				DEFAULT: {
 					css: {
-						maxWidth: '100%'
+						maxWidth: '100%',
+						color: 'var(--ground-color-typo-primary)',
+						h1: { color: 'var(--ground-color-typo-primary)' },
+						h2: { color: 'var(--ground-color-typo-primary)' },
+						h3: { color: 'var(--ground-color-typo-primary)' },
+						h4: { color: 'var(--ground-color-typo-primary)' },
+						h5: { color: 'var(--ground-color-typo-primary)' },
+						h6: { color: 'var(--ground-color-typo-primary)' },
+						strong: { color: 'var(--ground-color-typo-primary)' }
 					}
 				}
 			}),

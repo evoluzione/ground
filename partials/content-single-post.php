@@ -39,7 +39,7 @@
 		<span class="page__data page__data--date"><time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
 	</header>
 
-	<div class="page__body">
+	<div class="page__body prose">
 		<?php the_content(); ?>
 	</div> <!-- End .page__body -->
 
