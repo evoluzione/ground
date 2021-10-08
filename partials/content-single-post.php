@@ -1,6 +1,6 @@
 <article class="page page--post-single">
 
-	<div class="hero">
+	<div class="hero hero--full-width">
 
 		<div class="hero__body">
 
@@ -10,17 +10,20 @@
 							<?php ground_image( 'medium_large' ); ?> 768w,
 							<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
 					<div class="hero__image-filter" aria-hidden="true"></div>
+					<div class="hero__content hero-has-thumbnail">
 					<?php
-			}
-			?>
+			} else {
+				?>
 
 			<div class="hero__content">
+			<?php } ?>
+
 				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-full lg:col-span-3">
-						<h1 class="color-typo-primary text-3xl font-bold py-3 lg:py-0"><?php the_title(); ?></h1>
+						<h1 class="hero__title"><?php the_title(); ?></h1>
 					</div>
 					<div class="col-span-full lg:col-start-6 lg:col-span-7">
-						<div class="text-typo-primary text-base">
+						<div class="hero__excerpt">
 							<?php ground_excerpt( 9999 ); ?>
 						</div>
 					</div>

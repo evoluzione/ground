@@ -1,5 +1,9 @@
 .hero {
     @apply relative;
+
+    &.hero--full-width {
+        @apply transform -translate-x-2/4 w-screen ml-1/2;
+    }
 }
 
 .hero__body {
@@ -11,16 +15,28 @@
 }
 
 .hero__image-filter {
-    @apply absolute inset-0 bg-body-primary opacity-30 lg:rounded-theme;
+    @apply absolute inset-0 bg-black opacity-30 lg:rounded-theme;
 }
 
 .hero__content {
-    @apply relative lg:px-24 px-6 py-16 lg:py-28;
+    @apply text-typo-primary relative container py-16 lg:py-28;
     /* py-12 lg:py-28  */
+
+    &.hero-has-thumbnail {
+        @apply text-white;
+    }
+}
+
+.hero__title {
+    @apply text-3xl font-bold py-3 lg:py-0;
+}
+
+.hero__excerpt {
+    @apply text-base;
 }
 
 .hero__highlights {
-    @apply relative -mt-6 px-24 mb-9 lg:mb-20 lg:-mt-20;
+    @apply relative container -mt-6 mb-9 lg:mb-20 lg:-mt-20;
     /* margin-bottom: 100px; */
 }
 

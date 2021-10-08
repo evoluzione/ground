@@ -1,4 +1,4 @@
-<div class="hero">
+<div class="hero hero--full-width">
 
 	<div class="hero__body">
 
@@ -10,6 +10,12 @@
 			if ( $thumbnail_id ) { ?>
 				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0]; ?>">
 				<div class="hero__image-filter" aria-hidden="true"></div>
+				<div class="hero__content hero-has-thumbnail">				
+				<?php
+			} else {
+				?>
+				<div class="hero__content">				
+
 				<?php
 			}
 		} else {
@@ -19,20 +25,24 @@
 				?>
 				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0]; ?>">
 				<div class="hero__image-filter" aria-hidden="true"></div>
+				<div class="hero__content hero-has-thumbnail">
+				<?php
+			} else {
+				?>
+				<div class="hero__content">				
 				<?php
 			}
 		}
 		?>
 						
-		<div class="hero__content">
 			<div class="grid grid-cols-12 gap-x-6">
 				<div class="col-span-full lg:col-span-3">
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-						<h1 class="color-typo-primary text-3xl font-bold py-3 lg:py-0"><?php woocommerce_page_title(); ?></h1>
+						<h1 class="hero__title"><?php woocommerce_page_title(); ?></h1>
 					<?php endif; ?>
 				</div>
 				<div class="col-span-full lg:col-start-6 lg:col-span-7">			
-					<div class="text-typo-primary text-base py-3 lg:py-0">
+					<div class="hero__excerpt">
 						<?php do_action( 'woocommerce_archive_description' ); ?>
 					</div>
 				</div>
