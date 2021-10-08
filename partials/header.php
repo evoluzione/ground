@@ -16,12 +16,7 @@
 
 	<div class="scroll" id="js-scroll">
 
-		<?php
-			/**
-			 * Hook: ground_header.
-			 */
-			do_action( 'ground_header' );
-		?>
+		<?php get_template_part( 'partials/content', 'header' ); ?>
 
 		<div data-router-wrapper>
 

@@ -594,16 +594,16 @@ function ground_header_switch_type() {
 	$header_type = GROUND_HEADER_TYPE;
 	switch ( $header_type ) {
 		case $header_type == 'menu':
-			get_template_part( 'partials/content', 'header' );
+			get_template_part( 'partials/headers/header', 'simple' );
 			break;
 		case $header_type == 'menuCentered':
-			get_template_part( 'partials/content', 'header-logo-centered' );
+			get_template_part( 'partials/headers/header', 'logo-centered' );
 			break;
 		case $header_type == 'megaMenu':
-			get_template_part( 'partials/content', 'header-mega-menu' );
+			get_template_part( 'partials/headers/header', 'mega-menu' );
 			break;
 		default:
-			get_template_part( 'partials/content', 'header' );
+			get_template_part( 'partials/headers/header', 'simple' );
 	}
 
 }
