@@ -1,0 +1,3 @@
+img, figure {
+    @apply rounded-theme;
+}

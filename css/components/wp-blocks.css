@@ -1,9 +1,18 @@
+.ground-blocks {
+    > [class^="wp-block-"] {
+        /* border: 10px solid pink !important; */
+        @apply my-12 !important;
+    }
+}
+
+
 /* Gallery */
 .wp-block-gallery {
+
     .blocks-gallery-grid {
         @apply m-0 p-0 list-none -mx-1 md:mx-0;
         .blocks-gallery-item {
-            @apply md:mb-4 p-0;
+            @apply my-2 p-0;
             &:before {
                 @apply hidden;
             }
@@ -17,7 +26,28 @@
 
 /* Cover */
 .wp-block-cover {
+    @apply overflow-hidden rounded-theme;
     .wp-block-cover__inner-container {
         @apply container;
+    }
+}
+
+
+.wp-block-verse {
+    @apply rounded-theme !important;
+}
+
+.wp-block-embed {
+    @apply overflow-hidden rounded-theme !important;
+}
+
+
+.wp-block-media-text {
+    .wp-block-media-text__media {
+
+    }
+
+    .wp-block-media-text__content {
+        @apply p-0 lg:p-12 !important;
     }
 }
