@@ -21,7 +21,7 @@
 .wp-block-cover {
     @apply overflow-hidden rounded-theme my-12;
     .wp-block-cover__inner-container {
-        @apply container;
+        @apply container space-y-4;
     }
 }
 
@@ -52,7 +52,7 @@
         @apply mb-6 lg:mb-0 !important;
     }
     .wp-block-media-text__content {
-        @apply px-0 lg:px-12 space-y-3 !important;
+        @apply px-0 sm:px-12 space-y-3 !important;
         a {
             @apply button;
         }
