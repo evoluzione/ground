@@ -1,87 +1,47 @@
-/* .wc-block-grid {
-    @apply relative my-6 lg:my-12;
 
-    &__products {
-        @apply gap-y-6 gap-x-6 lg:gap-y-16;
-        .has-1-columns & { @apply grid grid-cols-1 gap-12; }
-        .has-2-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
-        .has-3-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
-        .has-4-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4; }
-        .has-5-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5; }
-        .has-6-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6; }
-    }
-
-    &__product {
-        @apply relative;
-    }
-
-    &__product-image {
-        img {
-            @apply card-image;
-        }
-    }
-
-    &__product-title {
-	    @apply card-title;
-    }
-
-    &__product-onsale {
-		@apply card-label;
-
-        .screen-reader-text {
-            @apply sr-only;
-        }
-    }
-
-    &__product-add-to-cart {
-        @apply mt-6;
-        
-        .added_to_cart {
-            @apply block;
-        }
-    }
-
-}
-
-
+/* wc-block-featured-product */
+/* wc-block-featured-category */
 .wc-block-featured-product,
 .wc-block-featured-category {
-    @apply relative flex justify-center items-center overflow-hidden rounded-theme bg-cover bg-no-repeat my-6 lg:my-12;
-
-    &.has-background-dim {
-        &:before { @apply bg-black; }
-    }
-
-    &:before {
-        content: '';
-        @apply absolute w-full h-full inset-0 opacity-70;
-        
-    }
+    @apply my-12 !important;
+    @apply relative overflow-hidden rounded-theme;
 
     &__wrapper {
-        @apply relative w-full px-6 mx-auto text-center text-white lg:w-6/12;
     }
 
     &__title {
-        @apply mb-3 text-7xl;
 
     }
     &__description {
-        @apply my-6 text-gray-300;
     }
 
     &__price {
-        @apply my-6 text-4xl font-bold;
+        @apply price !important;
+
+        .alignnone & { @apply justify-center; }
+        .has-left-content & { @apply justify-start; }
+        .has-right-content & { @apply justify-end; }
+
     }
 
     &__link {
         @apply mt-3;
+
+        .wp-block-button {
+            &.alignright {
+                @apply text-right; 
+            }
+        }
+
+        .wp-block-button__link {
+            @apply button;
+        }
     }
 
 }
 
 
- */
+
 /* 
 
 .wp-block-woocommerce-attribute-filter {
@@ -106,3 +66,61 @@
 .wp-block-woocommerce-active-filters {
     
 } */
+
+/* wc-block-grid */
+.wc-block-grid {
+    @apply my-12 !important;
+    
+    &__products {
+        @apply gap-y-6 gap-x-6 lg:gap-y-16;
+        .has-1-columns & { @apply grid grid-cols-1 gap-12; }
+        .has-2-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
+        .has-3-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
+        .has-4-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4; }
+        .has-5-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5; }
+        .has-6-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6; }
+    }
+
+    .wc-block-grid__products {
+        @apply m-0;
+
+        .wc-block-grid__product {
+            @apply text-left border-0 p-0 flex-shrink-0 max-w-full !important;
+
+            &:before { @apply hidden; }
+
+            .wc-block-grid__product-link { @apply no-underline; }
+
+            .wc-block-grid__product-image {
+                @apply card-image;
+            }
+
+            .wc-block-grid__product-title {
+                @apply card-title;
+            }
+
+            .wc-block-grid__product-onsale {
+                @apply border-0 px-4 py-2 text-sm !important;
+                @apply card-label;
+            }
+
+            .wc-block-grid__product-price {
+                @apply price;
+            }
+
+            .wp-block-button {
+                @apply mt-5;
+
+                .wp-block-button__link {
+                    @apply button !important;
+
+                    &:after {
+                        @apply hidden;
+                    }
+                }
+            }
+
+        }
+
+    }
+}

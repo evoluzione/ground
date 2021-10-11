@@ -5,6 +5,6 @@
 	do_action( 'ground_product_attributes' );
 ?>
 
-<div class="prose ground-blocks">
+<div class="relative">
 	<?php the_content(); ?>
 </div>
