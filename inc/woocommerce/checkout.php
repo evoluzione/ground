@@ -341,7 +341,7 @@ function ground_header_checkout() {
 	if ( class_exists( 'WooCommerce' ) && is_checkout() ) { ?>
 
 		<div class="container">
-			<div class="flex justify-between py-6 border-b border-line-primary">
+			<div class="flex items-center justify-between py-6 border-b border-line-primary">
 				<div>
 					<?php get_template_part( 'partials/logo-primary' ); ?>
 				</div>
