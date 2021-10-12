@@ -16,8 +16,8 @@
 	@apply inline-block;
 
 	&:after {
-		content: '▸';
-		@apply text-typo-secondary text-xl px-3;
+		content: "▸";
+		@apply text-typo-secondary px-3;
 	}
 
 	&:last-child {
