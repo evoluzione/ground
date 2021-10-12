@@ -1,4 +1,4 @@
-/*! tailwindcss v2.2.9 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -437,18 +437,6 @@ button,
   cursor: pointer;
 }
 
-/**
- * Override legacy focus reset from Normalize with modern Firefox focus styles.
- *
- * This is actually an improvement over the new defaults in Firefox in our testing,
- * as it triggers the better focus styles even for links, which still use a dotted
- * outline in Firefox by default.
- */
- 
-:-moz-focusring {
-	outline: auto;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -731,6 +719,9 @@ select {
 [type='file']:focus {
 	outline: 1px auto -webkit-focus-ring-color;
 }
+	html {
+		scroll-behavior: smooth;
+	}
 			html.is-loader-complete:not(.has-scroll-smooth) {
 	overflow: auto;
 }
@@ -741,6 +732,13 @@ select {
 			html.is-loader-complete.is-navigation-hover {
 	overflow: hidden;
 }
+
+				@media (min-width: 768px) {
+
+			html.is-loader-complete.is-navigation-hover {
+		overflow: auto;
+	}
+				}
 
 			html.is-loader-complete.is-search-open {
 	overflow: hidden;
@@ -757,6 +755,12 @@ select {
 		html.is-navigation-hover {
 	overflow: hidden;
 }
+			@media (min-width: 768px) {
+
+		html.is-navigation-hover {
+		overflow: auto;
+	}
+			}
 
 	body {
 	background-color: var(--ground-color-body-primary);
@@ -1160,6 +1164,12 @@ select {
 .right-0 {
 	right: 0px;
 }
+.bottom-4 {
+	bottom: 1rem;
+}
+.right-4 {
+	right: 1rem;
+}
 .top-0 {
 	top: 0px;
 }
@@ -1174,6 +1184,9 @@ select {
 }
 .z-50 {
 	z-index: 50;
+}
+.z-10 {
+	z-index: 10;
 }
 .z-20 {
 	z-index: 20;
@@ -1371,6 +1384,9 @@ select {
 .h-12 {
 	height: 3rem;
 }
+.h-6 {
+	height: 1.5rem;
+}
 .h-8 {
 	height: 2rem;
 }
@@ -1433,6 +1449,9 @@ select {
 }
 .max-w-4xl {
 	max-width: 56rem;
+}
+.max-w-5xl {
+	max-width: 64rem;
 }
 .flex-shrink {
 	flex-shrink: 1;
@@ -1778,6 +1797,9 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
 }
+.bg-body-primary {
+	background-color: var(--ground-color-body-primary);
+}
 .bg-green-300 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
@@ -1797,9 +1819,6 @@ select {
 .bg-green-700 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
-}
-.bg-body-primary {
-	background-color: var(--ground-color-body-primary);
 }
 .bg-opacity-10 {
 	--tw-bg-opacity: 0.1;
@@ -1987,6 +2006,10 @@ select {
 }
 .shadow {
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-xl {
+	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .ring {
@@ -2702,11 +2725,9 @@ img, figure {
 	display: inline-block;
 }
 .breadcrumb__item:after {
-		content: '▸';
+		content: "▸";
 		padding-left: 0.75rem;
 		padding-right: 0.75rem;
-		font-size: 1.25rem;
-		line-height: 1.75rem;
 		color: var(--ground-color-typo-secondary);
 	}
 .breadcrumb__item:last-child {
@@ -5463,7 +5484,6 @@ hr {
 }
 .navigation__link {
 	text-decoration: none;
-	
 }
 .navigation__link:hover, .navigation__link.is-active, .is-parent .navigation__link {
 	color: var(--ground-color-primary);
@@ -5476,6 +5496,142 @@ hr {
 }
 .navigation--footer .navigation__link:hover, .navigation--footer .navigation__link.is-active, .is-parent .navigation--footer .navigation__link {
 	color: var(--ground-color-primary);
+}
+.navigation--account {
+	margin-bottom: 3rem;
+	display: block;
+}
+.navigation--account > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.navigation--account {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+@media (min-width: 1024px) {
+
+	.navigation--account {
+		margin-bottom: 0.5rem;
+	}
+
+	.navigation--account {
+		margin-top: 1.5rem;
+	}
+
+	.navigation--account {
+		display: inline-block;
+	}
+
+	.navigation--account {
+		align-items: center;
+	}
+
+	.navigation--account {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+.navigation--account {
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            margin-left: 50%;
+            width: 100vw;
+            --tw-translate-x: -50%;
+            transform: var(--tw-transform);
+            transform: var(--tw-transform);
+}
+@media (min-width: 1024px) {
+
+	.navigation--account {
+		margin-left: 0px;
+	}
+
+	.navigation--account {
+		width: auto;
+	}
+
+	.navigation--account {
+		--tw-translate-x: 0px;
+		transform: var(--tw-transform);
+	}
+}
+.navigation--account {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none;
+}
+/* Firefox */
+.navigation--account::-webkit-scrollbar {
+	display: none;
+}
+.navigation--account li {
+	position: relative;
+	margin: 0px;
+	display: inline-block;
+	align-items: center;
+	overflow: hidden;
+	white-space: normal;
+            scroll-snap-align: center;
+}
+@media (min-width: 1024px) {
+
+	.navigation--account li {
+		display: block;
+	}
+}
+.navigation--account li.is-active {
+	border-radius: 9999px;
+	background-color: var(--ground-color-primary);
+	color: var(--ground-color-typo-secondary);
+}
+@media (min-width: 1024px) {
+
+	.navigation--account li.is-active {
+		background-color: transparent;
+	}
+}
+.navigation--account li a {
+	display: flex;
+	align-items: center;
+	border-radius: 9999px;
+	border-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	vertical-align: middle;
+	color: var(--ground-color-typo-primary);
+	text-decoration: none;
+}
+@media (min-width: 1024px) {
+
+	.navigation--account li a {
+		margin-bottom: 0.5rem;
+	}
+
+	.navigation--account li a {
+		border-width: 0px;
+	}
+
+	.navigation--account li a {
+		padding: 0px;
+	}
+}
+.navigation--account li.is-active a {
+	border-color: var(--ground-color-primary);
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	.navigation--account li.is-active a {
+		color: var(--ground-color-primary);
+	}
 }
 .overlay-panel__mask {
 	visibility: hidden;
@@ -8153,6 +8309,12 @@ html.has-scroll-smooth .scroll-progress {
 		padding-bottom: 2.25rem;
 	}
 }
+.woocommerce-account .woocommerce .table__head, .woocommerce-account .woocommerce thead {
+	border-bottom-width: 1px !important;
+	border-color: var(--ground-color-line-primary) !important;
+	background-color: transparent !important;
+	color: var(--ground-color-typo-primary) !important;
+}
 .woocommerce-cart-form {
 	position: relative;
 }
@@ -10680,16 +10842,18 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 }
 /* Utilities */
 /* @import "utilities/rounded.css"; */
+.hover\:bg-body-secondary:hover {
+	background-color: var(--ground-color-body-secondary);
+}
 .hover\:text-white:hover {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+.hover\:text-typo-secondary:hover {
+	color: var(--ground-color-typo-secondary);
+}
 .hover\:text-primary:hover {
 	color: var(--ground-color-primary);
-}
-.dark .dark\:bg-white {
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 .dark .dark\:bg-black {
 	--tw-bg-opacity: 1;
@@ -10725,6 +10889,14 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 
 	.lg\:sticky {
 		position: sticky;
+	}
+
+	.lg\:bottom-8 {
+		bottom: 2rem;
+	}
+
+	.lg\:right-8 {
+		right: 2rem;
 	}
 
 	.lg\:top-0 {
@@ -11014,12 +11186,20 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		background-color: transparent;
 	}
 
+	.lg\:bg-body-secondary {
+		background-color: var(--ground-color-body-secondary);
+	}
+
 	.lg\:p-4 {
 		padding: 1rem;
 	}
 
 	.lg\:p-12 {
 		padding: 3rem;
+	}
+
+	.lg\:p-24 {
+		padding: 6rem;
 	}
 
 	.lg\:py-0 {
