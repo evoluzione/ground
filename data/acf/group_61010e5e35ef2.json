@@ -20,25 +20,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_6110ee3cb5fdb",
-            "label": "Dark Mode",
-            "name": "dark_mode",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "Dark Mode Enabled",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_61010e7ffd833",
             "label": "Color Primary",
             "name": "color_primary",
@@ -69,9 +50,9 @@
             "default_value": ""
         },
         {
-            "key": "field_613a1f19cd1e6",
-            "label": "Color Body Primary",
-            "name": "color_body_primary",
+            "key": "field_6113b768cd672",
+            "label": "Color Body",
+            "name": "color_body",
             "type": "color_picker",
             "instructions": "Default: #FFFFFF",
             "required": 0,
@@ -84,24 +65,9 @@
             "default_value": ""
         },
         {
-            "key": "field_613a1f2837e58",
-            "label": "Color Body Secondary",
-            "name": "color_body_secondary",
-            "type": "color_picker",
-            "instructions": "Default: #F4F4F5",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#F4F4F5"
-        },
-        {
-            "key": "field_613a192aab130",
-            "label": "Color Typo Primary",
-            "name": "color_typo_primary",
+            "key": "field_6114c2bc2cc8f",
+            "label": "Color Typo",
+            "name": "color_typo",
             "type": "color_picker",
             "instructions": "Default: #000000",
             "required": 0,
@@ -111,52 +77,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#000000"
-        },
-        {
-            "key": "field_613a1be07744e",
-            "label": "Color Typo Secondary",
-            "name": "color_typo_secondary",
-            "type": "color_picker",
-            "instructions": "Default: #71717A",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#71717A"
-        },
-        {
-            "key": "field_613a2220766c0",
-            "label": "Color Line Primary",
-            "name": "color_line_primary",
-            "type": "color_picker",
-            "instructions": "Default: #D4D4D8",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#D4D4D8"
-        },
-        {
-            "key": "field_613a25ba0581f",
-            "label": "Color Line Secondary",
-            "name": "color_line_secondary",
-            "type": "color_picker",
-            "instructions": "Default: #D4D4D8",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#D4D4D8"
+            "default_value": ""
         },
         {
             "key": "field_61010ec6e9471",
@@ -481,7 +402,7 @@
             "key": "field_6109530246aa6",
             "label": "No Image",
             "name": "",
-            "type": "tab",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -490,7 +411,8 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "open": 0,
+            "multi_expand": 0,
             "endpoint": 0
         },
         {
@@ -516,6 +438,42 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_61643bf780f79",
+            "label": "Scroll top",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61643c0780f7a",
+            "label": "Scroll top",
+            "name": "scroll_top",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -535,5 +493,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631200840
+    "modified": 1633959477
 }

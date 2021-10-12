@@ -29,7 +29,7 @@ do_action( 'woocommerce_account_navigation' ); ?>
 // .row is opened in myaccount/navigation.php
 ?>
 
-<div class="w-full lg:w-9/12">
+<div class="w-full lg:col-span-4 lg:col-start-4 max-w-5xl lg:p-24 lg:rounded-theme lg:bg-body-secondary">
 	<div class="woocommerce-MyAccount-content">
 		<?php
 		/**

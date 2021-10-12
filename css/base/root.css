@@ -1,5 +1,7 @@
 @layer base {
 	html {
+		scroll-behavior: smooth;
+
 		&.has-scroll-dragging {
 			@apply select-none;
 		}
@@ -14,6 +16,10 @@
 
 			&.is-navigation-hover {
 				@apply overflow-hidden;
+
+				@screen md {
+					@apply overflow-auto;
+				}
 			}
 
 			&.is-search-open {
@@ -31,6 +37,9 @@
 
 		&.is-navigation-hover {
 			@apply overflow-hidden;
+			@screen md {
+				@apply overflow-auto;
+			}
 		}
 	}
 

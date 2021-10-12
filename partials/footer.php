@@ -13,6 +13,7 @@
 						<?php
 						get_template_part( 'partials/pre-footer' );
 						get_template_part( 'partials/content', 'footer' );
+						get_template_part( 'partials/scroll-top' );
 						?>
 
 						</div><!-- End [data-router-view]  -->

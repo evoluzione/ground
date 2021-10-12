@@ -69,7 +69,7 @@ export default class Menu {
 		});
 
 		if (subMenu && whichMenu) {
-			console.log('multiLevelMenu click');
+			//console.log('multiLevelMenu click');
 			// console.log('item', item);
 			// console.log('whichMenu', whichMenu);
 			// console.log('this.defaults.level', this.defaults.level);
@@ -123,11 +123,11 @@ export default class Menu {
 
 		//Gestione livelli delle navigation
 		this.DOM.element.forEach((item) => {
-			console.log(this.defaults.level, 'primadelclick');
+			//console.log(this.defaults.level, 'primadelclick');
 
 			item.addEventListener('click', (t) => {
 				t.stopImmediatePropagation();
-				console.log('click');
+				//console.log('click');
 
 				if (window.matchMedia('(max-width: 1024px)').matches) {
 					//Attivo la transtion sul container dell'header per il mobile
@@ -182,7 +182,7 @@ export default class Menu {
 
 		//Se clicco la navicon resetto tutto
 		this.DOM.navicon.addEventListener('click', (t) => {
-			console.log('navicon');
+			//console.log('navicon');
 			t.stopImmediatePropagation();
 
 			this.DOM.html.classList.remove('is-sub-navigation-open');
@@ -197,7 +197,7 @@ export default class Menu {
 		//Se clicco il close di navigation panel resetto tutto
 		if (this.DOM.closePanel) {
 			this.DOM.closePanel.addEventListener('click', (t) => {
-				console.log('closePanel');
+				//console.log('closePanel');
 				t.stopImmediatePropagation();
 
 				this.DOM.html.classList.remove('is-sub-navigation-open');

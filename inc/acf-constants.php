@@ -79,3 +79,7 @@ define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field
 define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
 define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
 define( 'GROUND_SHOP_PRODUCT_GALLERY_SLIDER', get_field( 'shop_product_gallery_slider', 'option' ) ? get_field( 'shop_product_gallery_slider', 'option' ) : '' );
+
+
+// Scroll top.
+define( 'GROUND_SCROLL_TOP', get_field( 'scroll_top', 'option' ) ? get_field( 'scroll_top', 'option' ) : '' );

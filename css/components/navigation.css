@@ -9,9 +9,7 @@
 	.is-parent & {
 		@apply text-primary;
 	}
-	
 }
-
 
 .navigation--footer {
 	.navigation__list {
@@ -23,6 +21,30 @@
 		&.is-active,
 		.is-parent & {
 			@apply text-primary;
+		}
+	}
+}
+
+.navigation--account {
+	@apply mb-12 px-6 space-x-3 block lg:px-0 lg:items-center lg:mb-2 lg:mt-6 lg:inline-block;
+	@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	&::-webkit-scrollbar {
+		@apply hidden;
+	}
+
+	li {
+		@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:block;
+		&.is-active {
+			@apply bg-primary rounded-full text-typo-secondary lg:bg-transparent;
+		}
+		a {
+			@apply border border-gray-400 text-typo-primary no-underline px-3 py-1 rounded-full align-middle flex items-center lg:p-0 lg:border-0 lg:mb-2;
+		}
+		&.is-active a {
+			@apply border-primary text-white lg:text-primary;
 		}
 	}
 }
