@@ -12,7 +12,6 @@
 @import "base/list.css";
 @import "base/image.css";
 
-
 /* Components */
 @import "components/accordion.css";
 @import "components/icons.css";
@@ -32,6 +31,7 @@
 @import "components/hero.css";
 @import "components/item.css";
 @import "components/loader.css";
+@import "components/logo.css";
 @import "components/media.css";
 @import "components/message-alert.css";
 @import "components/message.css";
@@ -99,8 +99,3 @@
 /* @import "utilities/rounded.css"; */
 @import "utilities/scroll-snap.css";
 @import "utilities/theme.css";
-
-
-
-
-
