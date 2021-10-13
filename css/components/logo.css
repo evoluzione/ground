@@ -4,6 +4,10 @@
 .logo--primary {
 	@apply block h-12;
 
+	.header-logo-centered & {
+		@apply lg:h-16;
+	}
+
 	svg {
 		@apply h-full w-full;
 	}
