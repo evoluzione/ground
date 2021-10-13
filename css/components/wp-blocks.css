@@ -12,14 +12,11 @@
 .wp-block-gallery {
     @apply my-12 !important;
     .blocks-gallery-grid {
-        @apply m-0 p-0 list-none -mx-1 md:mx-0;
+        @apply m-0 p-0 list-none mx-0;
         .blocks-gallery-item {
             @apply my-2 p-0 rounded-theme overflow-hidden;
             &:before {
                 @apply hidden;
-            }
-            @media ( max-width: calc(theme('screens.md') -1px) ) {
-                @apply m-1;
             }
         }
     }
@@ -67,6 +64,7 @@
 /* wp-block-media-text */
 .wp-block-media-text {
     @apply my-12 !important;
+    
     .wp-block-media-text__media {
         @apply mb-6 lg:mb-0 !important;
     }
@@ -74,6 +72,12 @@
         @apply px-0 sm:px-12 space-y-3 !important;
         a {
             @apply button;
+        }
+    }
+    &.has-background {
+        @apply rounded-theme;
+        .wp-block-media-text__content {
+            @apply px-6 pb-6 sm:px-12 !important;
         }
     }
 }
