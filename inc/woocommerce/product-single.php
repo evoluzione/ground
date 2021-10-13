@@ -20,20 +20,20 @@ add_action( 'after_setup_theme', 'ground_woocommerce_add_gallery_support' );
 /**
  * Change gallery image size
  */
-add_filter(
-	'woocommerce_gallery_image_size',
-	function( $size ) {
-		return 'medium_large';
-	}
-);
+// add_filter(
+// 'woocommerce_gallery_image_size',
+// function( $size ) {
+// return 'medium_large';
+// }
+// );
 
 /**
- *  Change gallery thumbnail size
- */
+*  Change gallery thumbnail size
+*/
 add_filter(
 	'woocommerce_gallery_thumbnail_size',
 	function( $size ) {
-		return 'thumbnail';
+		return 'woocommerce_thumbnail';
 	}
 );
 
