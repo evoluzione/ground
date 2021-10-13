@@ -5,6 +5,6 @@
 	do_action( 'ground_product_attributes' );
 ?>
 
-<div class="relative">
+<div class="relative mt-16">
 	<?php the_content(); ?>
 </div>
