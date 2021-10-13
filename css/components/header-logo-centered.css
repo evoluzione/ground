@@ -5,10 +5,10 @@
 		}
 	}
 
-	/* Minicart Buotton */
+	/* Minicart Button */
 	.shopping-cart__link {
 		span {
-			@apply hidden;
+			/* @apply hidden; */
 		}
 	}
 	/* Navigation Primary */

@@ -1,4 +1,4 @@
-/*! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*! tailwindcss v2.2.9 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -435,6 +435,18 @@ textarea::placeholder {
 button,
 [role="button"] {
   cursor: pointer;
+}
+
+/**
+ * Override legacy focus reset from Normalize with modern Firefox focus styles.
+ *
+ * This is actually an improvement over the new defaults in Firefox in our testing,
+ * as it triggers the better focus styles even for links, which still use a dotted
+ * outline in Firefox by default.
+ */
+ 
+:-moz-focusring {
+	outline: auto;
 }
 
 table {
@@ -2695,7 +2707,7 @@ img, figure {
 .breadcrumb {
 	position: relative;
 	margin-top: 1.5rem;
-	margin-bottom: 2.25rem;
+	margin-bottom: 1.5rem;
 	height: 1.5rem;
 	overflow-y: hidden;
 	font-size: 0.875rem;
@@ -3827,10 +3839,10 @@ hr {
 		top: 0px;
 	}
 	}
-/* Minicart Buotton */
+/* Minicart Button */
 .header-logo-centered .shopping-cart__link span {
-	display: none;
-}
+			/* @apply hidden; */
+		}
 /* Navigation Primary */
 .header-logo-centered .navigation--primary .navigation__item, .header-logo-centered .navigation--secondary .navigation__item {
 	display: block;
@@ -4981,6 +4993,7 @@ hr {
 	--tw-translate-x: -50%;
 	transform: var(--tw-transform);
 	transform: var(--tw-transform);
+	border-radius: 0px;
 	background-color: var(--ground-color-body-secondary);
 }
 @media (min-width: 1024px) {
@@ -5001,6 +5014,12 @@ hr {
 		--tw-translate-x: 0px;
 		transform: var(--tw-transform);
 	}
+        .hero__body {
+		    border-radius: var(--ground-rounded-theme);
+	    }
+}
+.hero--full-width .hero__body {
+	border-radius: 0px;
 }
 .hero__image {
 	position: absolute;
@@ -5013,15 +5032,32 @@ hr {
 	border-radius: 0px;
 	object-fit: cover;
 }
+@media (min-width: 1024px) {
+        .hero__image {
+		    border-radius: var(--ground-rounded-theme);
+	    }
+}
+.hero--full-width .hero__image {
+	border-radius: 0px;
+}
 .hero__image-filter {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
+	border-radius: 0px;
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-	opacity: 0.4;
+	opacity: 0.8;
+}
+@media (min-width: 1024px) {
+        .hero__image-filter {
+		    border-radius: var(--ground-rounded-theme);
+	    }
+}
+.hero--full-width .hero__image-filter {
+	border-radius: 0px;
 }
 .hero__content {
 	width: 100%;
@@ -5048,11 +5084,23 @@ hr {
 		padding-top: 7rem;
 		padding-bottom: 7rem;
 	}
+
+	.hero__content {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
 }
 /* py-12 lg:py-28  */
 .hero__content.hero-has-thumbnail {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	.hero--full-width .hero__content {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
 }
 .hero__title {
 	padding-top: 0.75rem;
@@ -5099,9 +5147,19 @@ hr {
 	.hero__highlights {
 		margin-top: -5rem;
 	}
+
+	.hero__highlights {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
 }
-.hero__highlights {
-    /* margin-bottom: 100px; */
+/* margin-bottom: 100px; */
+@media (min-width: 1024px) {
+
+	.hero--full-width .hero__highlights {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
 }
 .hero__cards {
       	-ms-overflow-style: none;  /* IE and Edge */
@@ -5352,6 +5410,22 @@ hr {
 		/* fill: $color-white; */
 		fill: currentColor;
 	}
+.logo {
+}
+.logo--primary {
+	display: block;
+	height: 3rem;
+}
+@media (min-width: 1024px) {
+
+	.header-logo-centered .logo--primary {
+		height: 4rem;
+	}
+}
+.logo--primary svg {
+	height: 100%;
+	width: 100%;
+}
 .media {
 	position: relative;
 	overflow: hidden;
@@ -5731,6 +5805,9 @@ hr {
 }
 .page__header {
 	margin-bottom: 1.5rem;
+}
+body.home .page__header {
+	display: none;
 }
 .page__title {
 	margin-bottom: 0px;
@@ -6812,24 +6889,27 @@ html.has-scroll-smooth .scroll-progress {
         background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 		transition: all var(--ease-speed) var(--ease-default);
     }
+.block-w-screen {
+	margin-left: 50% !important;
+	width: 100vw !important;
+	--tw-translate-x: -50% !important;
+	transform: var(--tw-transform) !important;
+	transform: var(--tw-transform) !important;
+	border-radius: 0px !important;
+}
+/* wp-block-image */
+.wp-block-image {}
 /* wp-block-gallery */
 .wp-block-gallery {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
 }
 .wp-block-gallery .blocks-gallery-grid {
 	margin: 0px;
-	margin-left: -0.25rem;
-	margin-right: -0.25rem;
+	margin-left: 0px;
+	margin-right: 0px;
 	list-style-type: none;
 	padding: 0px;
-}
-@media (min-width: 768px) {
-
-	.wp-block-gallery .blocks-gallery-grid {
-		margin-left: 0px;
-		margin-right: 0px;
-	}
 }
 .wp-block-gallery .blocks-gallery-grid .blocks-gallery-item {
 	margin-top: 0.5rem;
@@ -6841,17 +6921,19 @@ html.has-scroll-smooth .scroll-progress {
 .wp-block-gallery .blocks-gallery-grid .blocks-gallery-item:before {
 	display: none;
 }
-@media ( max-width: calc(768px -1px) ) {
-.wp-block-gallery .blocks-gallery-grid .blocks-gallery-item {
-		margin: 0.25rem;
-	}
-            }
 /* wp-block-cover */
 .wp-block-cover {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
 	overflow: hidden;
 		    border-radius: var(--ground-rounded-theme);
+}
+.wp-block-cover.block-w-screen {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+.wp-block-cover.block-w-screen .wp-block-cover__image-background {
+	border-radius: 0px;
 }
 .wp-block-cover .wp-block-cover__inner-container {
 	width: 100%;
@@ -6884,6 +6966,9 @@ html.has-scroll-smooth .scroll-progress {
 .wp-block-quote blockquote, .wp-block-pullquote blockquote {
 	border-width: 0px !important;
 }
+.wp-block-quote cite, .wp-block-pullquote cite {
+	margin-top: 1rem;
+}
 /* wp-block-verse */
 .wp-block-verse {
 	margin-top: 3rem !important;
@@ -6902,8 +6987,8 @@ html.has-scroll-smooth .scroll-progress {
 }
 /* wp-block-media-text */
 .wp-block-media-text {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
 }
 .wp-block-media-text .wp-block-media-text__media {
 	margin-bottom: 1.5rem !important;
@@ -7002,13 +7087,52 @@ html.has-scroll-smooth .scroll-progress {
 	animation: spin 1s linear infinite;
 	border-radius: 9999px;
 }
+.wp-block-media-text.has-background {
+		    border-radius: var(--ground-rounded-theme);
+	    }
+.wp-block-media-text.has-background .wp-block-media-text__content {
+	padding-left: 1.5rem !important;
+	padding-right: 1.5rem !important;
+	padding-bottom: 1.5rem !important;
+}
+@media (min-width: 640px) {
+
+	.wp-block-media-text.has-background .wp-block-media-text__content {
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+	}
+}
 /* wp-block-file */
 .wp-block-file {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
 }
 .wp-block-file .wp-block-file__button {
 	background-color: var(--ground-color-primary) !important;
+}
+/* wp-block-separator */
+.wp-block-separator {
+	border-color: var(--ground-color-line-primary) !important;
+}
+/* wp-block-audio */
+.wp-block-audio {
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
+}
+/* wp-block-columns */
+.wp-block-columns .wp-block-column {
+	flex-grow: 1 !important;
+}
+.wp-block-columns .wp-block-column > * {
+	margin-top: 0.75rem !important;
+	margin-bottom: 0.75rem !important;
+}
+@media (min-width: 1024px) {
+
+	.wp-block-columns .wp-block-column > * {
+		margin-top: 2.25rem !important;
+		margin-bottom: 2.25rem !important;
+	}
 }
 /* WooCommerce */
 .added_to_cart {
@@ -9460,7 +9584,13 @@ form.woocommerce-ResetPassword {
 .woocommerce-product-gallery__wrapper {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1.5rem;
+	gap: 1rem;
+}
+@media (min-width: 1024px) {
+
+	.woocommerce-product-gallery__wrapper {
+		gap: 1.5rem;
+	}
 }
 .flex-viewport .woocommerce-product-gallery__wrapper {
 	display: flex;
@@ -10326,14 +10456,14 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 /* wc-block-featured-product */
 /* wc-block-featured-category */
 .wc-block-featured-product, .wc-block-featured-category {
-	margin-top: 3rem !important;
-	margin-bottom: 3rem !important;
 	position: relative;
 	overflow: hidden;
 		    border-radius: var(--ground-rounded-theme);
 }
 .wc-block-featured-product__wrapper, .wc-block-featured-category__wrapper {
-    }
+	position: relative;
+	max-width: 56rem;
+}
 .wc-block-featured-product__title, .wc-block-featured-category__title {
 
     }
@@ -11330,10 +11460,5 @@ body.woocommerce-page.post-type-archive-product .products.columns-6, body.woocom
 		padding-right: 1.5rem;
 	}
 }
-
-
-
-
-
 
 /*# sourceMappingURL=styles.min.css.map */

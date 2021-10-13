@@ -1,4 +1,4 @@
-<?php get_template_part( 'partials/meassage', 'alert' ); ?>
+<?php get_template_part( 'partials/message', 'alert' ); ?>
 
 <header class="header header-logo-centered w-full z-30 bg-body-primary">
 
