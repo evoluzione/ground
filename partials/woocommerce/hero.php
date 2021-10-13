@@ -8,7 +8,7 @@
 			$ground_cat   = get_queried_object();
 			$thumbnail_id = get_term_meta( $ground_cat->term_id, 'thumbnail_id', true );
 			if ( $thumbnail_id ) { ?>
-				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0]; ?>">
+				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'large' )[0]; ?>">
 				<div class="hero__image-filter" aria-hidden="true"></div>
 				<div class="hero__content hero-has-thumbnail">				
 				<?php
@@ -23,7 +23,7 @@
 			$thumbnail_id = get_post_thumbnail_id( $page_id );
 			if ( $thumbnail_id ) {
 				?>
-				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0]; ?>">
+				<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'large' )[0]; ?>">
 				<div class="hero__image-filter" aria-hidden="true"></div>
 				<div class="hero__content hero-has-thumbnail">
 				<?php
@@ -68,7 +68,7 @@
 			$ground_title = $category_highlight['category_highlight_title'];
 			$ground_url   = $category_highlight['category_highlight_url'];
 			$ground_image = $category_highlight['category_highlight_image'];
-			$ground_size  = '4-3-small'; // (thumbnail, medium, large, full or custom size)
+			$ground_size  = 'woocommerce_thumbnail'; // (thumbnail, medium, large, full or custom size)
 			?>
 
 			<div class="hero__card">
