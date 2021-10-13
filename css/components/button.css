@@ -13,11 +13,11 @@
 		}
 
 		&--secondary {
-			@apply bg-secondary text-white border-secondary;
+			@apply bg-transparent text-primary border-primary;
 
 			&:hover,
 			&--active {
-				@apply bg-primary text-black border-primary;
+				@apply bg-primary text-white border-primary;
 			}
 
 		}

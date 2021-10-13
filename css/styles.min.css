@@ -7631,6 +7631,20 @@ html.has-scroll-smooth .scroll-progress {
 		padding-right: 2.25rem;
 	}
 }
+.minicart .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button:first-child {
+	order: 2;
+}
+.minicart .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.checkout {
+	border-color: var(--ground-color-primary);
+	background-color: transparent;
+	color: var(--ground-color-primary);
+}
+.minicart .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.checkout:hover, .minicart .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.checkout--active {
+	border-color: var(--ground-color-primary);
+	background-color: var(--ground-color-primary);
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
 .product-remove {
 	margin-top: 0.5rem;
 	display: flex;
