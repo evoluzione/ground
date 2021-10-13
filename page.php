@@ -13,7 +13,7 @@ get_template_part( 'partials/header' );
 
 	<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-	<div class="relative mt-12">
+	<div class="relative">
 
 		<?php
 		while ( have_posts() ) :

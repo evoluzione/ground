@@ -3,7 +3,6 @@
 /* wc-block-featured-category */
 .wc-block-featured-product,
 .wc-block-featured-category {
-    @apply my-12 !important;
     @apply relative overflow-hidden rounded-theme;
 
     &__wrapper {
