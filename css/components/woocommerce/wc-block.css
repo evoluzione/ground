@@ -6,7 +6,7 @@
     @apply relative overflow-hidden rounded-theme;
 
     &__wrapper {
-        @apply relative max-w-4xl;
+        @apply relative max-w-4xl lg:px-9;
     }
 
     &__title {

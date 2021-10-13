@@ -101,12 +101,7 @@
 
 /* wp-block-columns */
 .wp-block-columns {
-
     .wp-block-column {
         @apply flex-grow !important;
-
-        > * {
-            @apply my-3 lg:my-9 !important;
-        }
     }
 }
