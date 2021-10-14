@@ -13,7 +13,7 @@
 		}
 
 		.coupon {
-			@apply relative block lg:inline-block;
+			@apply relative block lg:inline-block mt-4 lg:mt-0;
 
 			.coupon__link {
 				@apply cursor-pointer underline;
@@ -46,7 +46,7 @@
 		@apply col-span-4 md:col-span-2;
 		.attachment-woocommerce_thumbnail,
 		.woocommerce-placeholder {
-			@apply rounded-theme w-full h-auto;
+			@apply rounded-theme w-full h-auto border border-line-primary;
 		}
 	}
 	

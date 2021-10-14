@@ -10,11 +10,11 @@
  /**
   * Add minicart
   */
-function ground_woocommerce_add_minicart() {
+function ground_woocommerce_minicart() {
 	get_template_part( 'partials/woocommerce/minicart' );
 }
 
-add_action( 'ground_before_header', 'ground_woocommerce_add_minicart' );
+add_action( 'ground_before_header', 'ground_woocommerce_minicart', 10 );
 
 
 /**

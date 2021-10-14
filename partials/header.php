@@ -18,7 +18,14 @@
 
 	<div class="scroll" id="js-scroll">
 
-		<?php do_action( 'ground_before_header' ); ?>
+		<?php
+		/**
+		 * Functions hooked in to ground_before_header action
+		 *
+		 * @hooked ground_woocommerce_minicart - 10
+		 */
+			do_action( 'ground_before_header' );
+		?>
 
 		<?php get_template_part( 'partials/content', 'header' ); ?>
 

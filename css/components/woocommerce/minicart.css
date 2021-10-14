@@ -46,7 +46,7 @@
 
 				.attachment-woocommerce_thumbnail,
 				.woocommerce-placeholder  {
-					@apply block rounded-theme mr-6 w-28 h-auto float-left;
+					@apply block rounded-theme mr-6 w-28 h-28 float-left object-cover border border-line-primary;
 				}
 
 				.quantity {
@@ -95,14 +95,14 @@
 		}
 
 		.woocommerce-mini-cart__buttons {
-			@apply relative z-10 bg-body-primary px-6 py-0 pb-4 border-b border-line-primary grid grid-cols-2 gap-6 lg:px-9;
+			@apply relative z-10 bg-body-primary px-6 py-0 pb-4 border-b border-line-primary grid sm:grid-cols-2 gap-6 lg:px-9;
 
 			.button {
 				&:first-child {
 					@apply order-2;
 				}
 				&.checkout {
-					@apply button--secondary;
+					@apply button--secondary hidden sm:inline-block;
 				}
 			}
 		}

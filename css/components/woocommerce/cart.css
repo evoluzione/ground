@@ -2,7 +2,7 @@ form.cart:not(.variations_form),
 .woocommerce-variation-add-to-cart {
 
     .summary & {
-        @apply flex items-center space-x-4 mt-6;
+        @apply flex items-center space-x-2 sm:space-x-4 mt-6;
 
         .button {
             @apply flex-grow mb-0 !important;

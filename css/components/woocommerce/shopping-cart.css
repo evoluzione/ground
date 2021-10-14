@@ -1,4 +1,8 @@
 .shopping-cart {
+
+	body.woocommerce-cart & {
+		@apply hidden;
+	}
 }
 
 .shopping-cart__icon {

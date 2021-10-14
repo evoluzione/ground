@@ -46,7 +46,7 @@
 
         .order-total {
             .amount {
-                @apply text-4xl;
+                @apply block text-xl lg:text-4xl;
             }
         }
     }
