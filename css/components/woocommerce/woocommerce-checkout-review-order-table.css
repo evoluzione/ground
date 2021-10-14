@@ -13,10 +13,10 @@
                 @apply relative pl-20 text-sm;
 
                 .product-thumbnail {
-                    @apply absolute top-2/4 left-0 h-16 w-auto -mt-8;
+                    @apply absolute top-2/4 left-0 h-16 w-16 -mt-8;
 
                     img {
-                        @apply relative h-16 w-auto;
+                        @apply relative h-16 w-16 object-cover border border-line-primary;
                     }
 
                 }

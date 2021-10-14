@@ -53,7 +53,7 @@
 body.woocommerce-page.post-type-archive-product,
 body.woocommerce-page.archive {
 	.products {
-		@apply relative block w-full gap-6;
+		@apply relative block w-full gap-x-6 gap-y-12;
 		&.columns-1 { @apply grid grid-cols-1; }
 		&.columns-2 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
 		&.columns-3 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
