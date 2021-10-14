@@ -46,7 +46,7 @@
 		@apply col-span-4 md:col-span-2;
 		.attachment-woocommerce_thumbnail,
 		.woocommerce-placeholder {
-			@apply rounded-theme w-full h-auto border border-line-primary;
+			@apply rounded-theme w-full h-auto;
 		}
 	}
 	
