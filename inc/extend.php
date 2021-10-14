@@ -583,7 +583,7 @@ add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
 /**
  * Header, Add header switch type
  */
-function ground_header_switch_type() {
+function ground_header_type() {
 
 	if ( class_exists( 'WooCommerce' ) && is_checkout() ) {
 		return;
@@ -606,5 +606,5 @@ function ground_header_switch_type() {
 
 }
 
-add_action( 'ground_header', 'ground_header_switch_type' );
+add_action( 'ground_header', 'ground_header_type', 10 );
 

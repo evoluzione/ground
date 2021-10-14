@@ -14,9 +14,11 @@
 
 <body id="scroll-top" <?php body_class( 'font-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
+	<?php do_action( 'ground_before_site' ); ?>
+
 	<div class="scroll" id="js-scroll">
 
-		<?php get_template_part( 'partials/woocommerce/minicart' ); ?>
+		<?php do_action( 'ground_before_header' ); ?>
 
 		<?php get_template_part( 'partials/content', 'header' ); ?>
 
@@ -24,6 +26,4 @@
 
 			<div <?php ground_view_name(); ?>>
 
-					<main role="main">
-
-
+				<main role="main">

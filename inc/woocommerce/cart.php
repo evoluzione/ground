@@ -7,6 +7,16 @@
  */
 
 
+ /**
+  * Add minicart
+  */
+function ground_woocommerce_add_minicart() {
+	get_template_part( 'partials/woocommerce/minicart' );
+}
+
+add_action( 'ground_before_header', 'ground_woocommerce_add_minicart' );
+
+
 /**
  * Add cross-sells products in minicart
  *
