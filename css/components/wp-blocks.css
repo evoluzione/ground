@@ -33,7 +33,7 @@
         }
     }
     .wp-block-cover__inner-container {
-        @apply container space-y-4;
+        @apply relative space-y-4 max-w-4xl px-6 lg:px-9;
     }
 }
 
