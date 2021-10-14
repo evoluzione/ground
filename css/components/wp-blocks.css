@@ -105,3 +105,28 @@
         @apply flex-grow !important;
     }
 }
+
+
+
+
+/* plugins - Yoast */
+
+/* wp-block-yoast-faq-block */
+.wp-block-yoast-faq-block {
+    @apply relative my-16;
+
+    .schema-faq-section {
+        @apply relative my-6;
+
+        .schema-faq-question {
+            @apply block text-xl mb-2 cursor-pointer;
+        }
+
+        .schema-faq-answer {
+            @apply text-base text-typo-secondary;
+
+        }
+
+    }
+
+}
