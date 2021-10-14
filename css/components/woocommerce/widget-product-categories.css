@@ -12,10 +12,10 @@
             }
 
             a {
-                @apply inline-block py-1;
+                @apply relative py-1 flex items-center pl-8;
                 &:before {
                     content: '';
-                    @apply inline-block align-middle border-t border-line-primary h-px w-4 mr-3;
+                    @apply absolute inline-block align-middle border-t border-line-primary h-px w-4 mr-3 left-0;
                 }
             }
 
