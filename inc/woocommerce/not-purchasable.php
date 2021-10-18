@@ -53,7 +53,7 @@ function ground_product_add_to_cart_text() {
 	$not_ready_to_sell = get_post_meta( get_the_ID(), '_not_purchasable', true );
 
 	if ( 'yes' === $not_ready_to_sell ) {
-		return __( SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON, 'woocommerce' );
+		return __( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON, 'woocommerce' );
 	} else {
 		return __( 'Add to cart', 'woocommerce' );
 	}
@@ -72,11 +72,11 @@ function ground_woocommerce_call_to_order_text() {
 	
 		<div class="border-t border-line-primary pt-5">
 			<p class="text-typo-secondary">
-				<?php echo SHOP_NOT_PURCHASABLE_PRODUCT_TEXT; ?>
+				<?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT; ?>
 			</p>
-			<?php if ( SHOP_NOT_PURCHASABLE_PRODUCT_LINK ) : ?>
+			<?php if ( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK ) : ?>
 				<div class="relative mt-4">
-					<a class="button button--secondary" target="<?php echo SHOP_NOT_PURCHASABLE_PRODUCT_LINK['target']; ?>" href="<?php echo SHOP_NOT_PURCHASABLE_PRODUCT_LINK['url']; ?>"><?php echo SHOP_NOT_PURCHASABLE_PRODUCT_LINK['title']; ?></a>
+					<a class="button button--secondary" target="<?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK['target']; ?>" href="<?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK['url']; ?>"><?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK['title']; ?></a>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -98,7 +98,7 @@ function ground_show_not_purchasable_label() {
 
 	if ( 'yes' === $not_ready_to_sell ) {
 		?>
-			<div class="not-purchasable"><?php echo SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON; ?></div>
+			<div class="not-purchasable"><?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON; ?></div>
 		<?php
 	}
 
