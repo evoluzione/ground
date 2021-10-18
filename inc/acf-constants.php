@@ -79,6 +79,10 @@ define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field
 define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
 define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
 define( 'GROUND_SHOP_PRODUCT_GALLERY_SLIDER', get_field( 'shop_product_gallery_slider', 'option' ) ? get_field( 'shop_product_gallery_slider', 'option' ) : '' );
+define( 'SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_field( 'shop_not_purchasable_product_button', 'option' ) ? get_field( 'shop_not_purchasable_product_button', 'option' ) : __( 'Call to order', 'ground' ) );
+define( 'SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_field( 'shop_not_purchasable_product_text', 'option' ) ? get_field( 'shop_not_purchasable_product_text', 'option' ) : __( 'Call to order', 'ground' ) );
+define( 'SHOP_NOT_PURCHASABLE_PRODUCT_LINK', get_field( 'shop_not_purchasable_product_link', 'option' ) ? get_field( 'shop_not_purchasable_product_link', 'option' ) : '' );
+
 
 
 // Scroll top.

@@ -27,6 +27,10 @@
 	
 }
 
+.woocommerce-loop-product__label {
+	@apply absolute top-3 left-3 flex flex-col space-y-2;
+}
+
 
 .woocommerce-loop-product__title {
 	@apply card-title;

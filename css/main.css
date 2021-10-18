@@ -86,6 +86,7 @@
 @import "components/woocommerce/woocommerce-loop-product.css";
 @import "components/woocommerce/woocommerce-privacy-policy-text.css";
 @import "components/woocommerce/woocommerce-result-count.css";
+@import "components/woocommerce/not-purchasable.css";
 @import "components/woocommerce/related.css";
 @import "components/woocommerce/up-sells.css";
 @import "components/woocommerce/shopping-cart.css";

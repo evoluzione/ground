@@ -146,6 +146,76 @@
             "toggle": 0,
             "return_format": "value",
             "save_custom": 0
+        },
+        {
+            "key": "field_616996f66af2e",
+            "label": "Not Purchasable",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_6169970e64c51",
+            "label": "Product Button",
+            "name": "shop_not_purchasable_product_button",
+            "type": "text",
+            "instructions": "Text visible on the archive page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61699740fe87b",
+            "label": "Single Product Message",
+            "name": "shop_not_purchasable_product_text",
+            "type": "text",
+            "instructions": "Text visible on the single product page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_616d2590b68a4",
+            "label": "Single Product Link",
+            "name": "shop_not_purchasable_product_link",
+            "type": "link",
+            "instructions": "Link\/button visible on the single product page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -165,5 +235,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631278487
+    "modified": 1634543066
 }

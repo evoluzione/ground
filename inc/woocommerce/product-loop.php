@@ -210,11 +210,42 @@ function ground_add_on_hover_shop_loop_image() {
 add_action( 'woocommerce_before_shop_loop_item_title', 'ground_add_on_hover_shop_loop_image' );
 
 
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+
+
+/**
+ * WooCommerce, Add Product label container
+ */
+function ground_product_loop_sale_flash() {
+
+	?>
+
+		<div class="woocommerce-loop-product__label">
+			<?php
+
+			/**
+			 * Functions hooked in to ground_sale_flash action
+			 *
+			 * @ ground_show_sale_percentage - 25
+			 * @ ground_show_not_purchasable_label - 30
+			 */
+			do_action( 'ground_sale_flash' );
+
+			?>
+		</div>
+
+		<?php
+
+}
+
+add_action( 'woocommerce_before_shop_loop_item_title', 'ground_product_loop_sale_flash' );
+
+
 
 /**
  * Display Discount Percentage @ Loop Pages - WooCommerce
  */
-function ground_show_sale_percentage_loop() {
+function ground_show_sale_percentage() {
 	global $product;
 	if ( ! $product->is_on_sale() ) {
 		return;
@@ -244,7 +275,7 @@ function ground_show_sale_percentage_loop() {
 	}
 }
 
-add_action( 'woocommerce_sale_flash', 'ground_show_sale_percentage_loop', 25 );
+add_action( 'ground_sale_flash', 'ground_show_sale_percentage', 25 );
 
 
 
@@ -267,3 +298,5 @@ function ground_add_shop_hero() {
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_shop_hero', 20 );
+
+

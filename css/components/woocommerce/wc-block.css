@@ -100,8 +100,7 @@
             }
 
             .wc-block-grid__product-onsale {
-                @apply border-0 px-4 py-2 text-sm !important;
-                @apply card-label;
+                @apply absolute top-3 left-3 border-0 px-4 py-2 text-sm text-white bg-green-500 rounded-theme z-10 !important;
             }
 
             .wc-block-grid__product-price {
