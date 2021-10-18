@@ -27,7 +27,14 @@
 			do_action( 'ground_before_header' );
 		?>
 
-		<?php get_template_part( 'partials/content', 'header' ); ?>
+		<?php
+		/**
+		 * Functions hooked into ground_header action
+		 *
+		 * @hooked ground_header_type - 10
+		 */
+		do_action( 'ground_header' );
+		?>
 
 		<div data-router-wrapper>
 
