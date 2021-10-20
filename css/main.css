@@ -86,12 +86,14 @@
 @import "components/woocommerce/woocommerce-loop-product.css";
 @import "components/woocommerce/woocommerce-privacy-policy-text.css";
 @import "components/woocommerce/woocommerce-result-count.css";
+@import "components/woocommerce/woocommerce-terms-and-conditions.css";
 @import "components/woocommerce/not-purchasable.css";
 @import "components/woocommerce/related.css";
 @import "components/woocommerce/up-sells.css";
 @import "components/woocommerce/shopping-cart.css";
 @import "components/woocommerce/summary.css";
 @import "components/woocommerce/stock.css";
+
 @import "components/woocommerce/wc-block.css";
 
 /* Utilities */

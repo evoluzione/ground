@@ -2,4 +2,7 @@
     * {
         @apply text-sm text-typo-secondary;
     }
+    .woocommerce-privacy-policy-link {
+        @apply text-primary;
+    }
 }

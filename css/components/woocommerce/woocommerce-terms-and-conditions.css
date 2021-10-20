@@ -1,0 +1,9 @@
+.woocommerce-terms-and-conditions {
+    @apply relative overflow-hidden bg-body-primary px-6 rounded-theme;
+}
+
+.woocommerce-terms-and-conditions-checkbox-text {
+  .woocommerce-terms-and-conditions-link {
+        @apply text-primary;
+    }  
+}

@@ -1,5 +1,5 @@
 .woocommerce-order {
-	@apply bg-gray-100 lg:py-16 p-12 rounded-theme text-center;
+	@apply bg-body-secondary px-6 py-9 rounded-theme text-center lg:px-12 lg:py-16;
 
 
 	.woocommerce-thankyou-order-received {
@@ -7,16 +7,22 @@
 
 	}
 
-	.woocommerce-column {
-		.woocommerce-column__title {
-			@apply text-base;
-		}
+	.woocommerce-column__title {
+		@apply text-base text-primary mb-2;
 	}
 
 	.woocommerce-order-details {
-		@apply relative mt-12 max-w-3xl mx-auto;
+		@apply relative my-12 max-w-2xl mx-auto bg-body-primary p-6 rounded-theme;
+
+
 		.woocommerce-order-details__title {
-			@apply text-base;
+			@apply relative text-base pb-6 border-b border-dashed border-line-primary;
+			&:after,&:before {
+				content: '';
+				@apply absolute h-6 w-6 top-9 rounded-full bg-body-secondary;
+			}
+			&:after { @apply -right-9; }
+			&:before { @apply -left-9; }
 		}
 		.woocommerce-table--order-details {
 			@apply bg-transparent;
