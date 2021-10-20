@@ -36,15 +36,19 @@ if ( post_password_required() ) {
 
 		<div class="col-span-full lg:col-span-7">
 
-			<?php
-				/**
-				 * Hook: woocommerce_before_single_product_summary.
-				 *
-				 * @hooked woocommerce_show_product_sale_flash - 10
-				 * @hooked woocommerce_show_product_images - 20
-				 */
-				do_action( 'woocommerce_before_single_product_summary' );
-			?>
+			<div class="woocommerce-product-media">
+
+				<?php
+					/**
+					 * Hook: woocommerce_before_single_product_summary.
+					 *
+					 * @hooked woocommerce_show_product_sale_flash - 10
+					 * @hooked woocommerce_show_product_images - 20
+					 */
+					do_action( 'woocommerce_before_single_product_summary' );
+				?>
+
+			</div>
 
 		</div>
 
