@@ -1,12 +1,12 @@
 .woocommerce-account {
 	.woocommerce {
 		> h2 {
-			@apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-gray-100 rounded-theme;
+			@apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-body-secondary rounded-theme;
 			@apply rounded-b-none !important;
 		}
 
 		form.woocommerce-form-login {
-			@apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme;
+			@apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme bg-body-secondary;
 			@apply rounded-t-none !important;
 
 			.woocommerce-form-login__submit {
@@ -33,7 +33,7 @@
 			}
 
 			.col-2 {
-				@apply py-3 lg:py-9;
+				@apply px-0 py-3 lg:py-9 lg:px-9;
 			}
 		}
 

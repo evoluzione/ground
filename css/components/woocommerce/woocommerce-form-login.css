@@ -16,5 +16,5 @@ form.woocommerce-form-login {
 }
 
 form.woocommerce-ResetPassword {
-    @apply relative py-9 px-6 lg:px-9 bg-gray-100 rounded-theme w-full lg:w-1/2;
+    @apply relative py-9 px-6 lg:px-9 bg-body-secondary rounded-theme w-full lg:w-1/2;
 }

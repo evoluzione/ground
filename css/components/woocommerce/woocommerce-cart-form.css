@@ -80,6 +80,11 @@
 }
 
 
+.cart-empty {
+	@apply mb-6;
+}
+
+
 /* .cart {
 	border: 10px solid red;
 	.quantity {

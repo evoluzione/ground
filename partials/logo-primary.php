@@ -5,7 +5,7 @@
 			echo GROUND_LOGO_SOURCE_PRIMARY;
 		} elseif ( GROUND_LOGO_URL_PRIMARY ) {
 			?>
-			<img class="w-20 h-auto" src="<?php echo esc_url( GROUND_LOGO_URL_PRIMARY['sizes']['medium'] ); ?>" alt="<?php echo esc_attr( GROUND_LOGO_URL_PRIMARY['alt'] ); ?>" />
+			<img src="<?php echo esc_url( GROUND_LOGO_URL_PRIMARY['sizes']['medium'] ); ?>" alt="<?php echo esc_attr( GROUND_LOGO_URL_PRIMARY['alt'] ); ?>" />
 		<?php } ?>
 	</a>
 <?php } else { ?>

@@ -2,7 +2,6 @@
     @apply transform -translate-x-2/4 w-screen ml-1/2 rounded-none !important;
 }
 
-
 /* wp-block-image */
 .wp-block-image {}
 
@@ -89,15 +88,23 @@
     }
 }
 
-/* wp-block-separator */
-.wp-block-separator {
-    @apply border-line-primary !important;
-}
 
 /* wp-block-audio */
 .wp-block-audio {
     @apply my-12 !important;
 }
+
+
+/* wp-block-video */
+.wp-block-video {
+    @apply overflow-hidden rounded-theme;
+}
+
+/* wp-block-separator */
+.wp-block-separator {
+    @apply border-line-primary !important;
+}
+
 
 /* wp-block-columns */
 .wp-block-columns {
@@ -130,3 +137,4 @@
     }
 
 }
+

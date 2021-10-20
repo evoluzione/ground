@@ -1,9 +1,8 @@
 .page {
-
 }
 
 .page__header {
-	@apply mb-6;
+	@apply my-6;
 
 	body.home & {
 		@apply hidden;

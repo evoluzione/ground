@@ -69,7 +69,9 @@
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-typo-primary' ); ?></div>
-								<div> <?php _e( 'All products', 'ground' ); ?></div>
+								<?php $locations = get_nav_menu_locations(); ?>								
+								<?php $titlePanelPrimary = wp_get_nav_menu_object( $locations['panel-primary'] ); ?>							
+								<div><?php echo $titlePanelPrimary->name; ?></div>
 							</a>
 							<div class="hidden lg:flex">
 								<?php get_template_part( 'partials/panel', 'primary' ); ?>

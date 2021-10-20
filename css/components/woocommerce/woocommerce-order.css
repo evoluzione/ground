@@ -1,5 +1,5 @@
 .woocommerce-order {
-	@apply bg-gray-100 p-12 rounded-theme text-center;
+	@apply bg-gray-100 lg:py-16 p-12 rounded-theme text-center;
 
 
 	.woocommerce-thankyou-order-received {
