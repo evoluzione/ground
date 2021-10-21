@@ -88,6 +88,10 @@ define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_field( 'shop_not_purch
 define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_field( 'shop_not_purchasable_product_text', 'option' ) ? get_field( 'shop_not_purchasable_product_text', 'option' ) : __( 'Call to order', 'ground' ) );
 define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK', get_field( 'shop_not_purchasable_product_link', 'option' ) ? get_field( 'shop_not_purchasable_product_link', 'option' ) : '' );
 
+// Native Customizer
+define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_option( 'shop_products_columns_mobile' ) ? get_option( 'shop_products_columns_mobile' ) : 'default' );
+
+
 
 
 // Scroll top.

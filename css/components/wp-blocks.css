@@ -123,17 +123,26 @@
 
 /* wp-block-yoast-faq-block */
 .wp-block-yoast-faq-block {
-    @apply relative my-16;
+    @apply relative my-12 border border-line-primary rounded-theme py-3 px-6 lg:py-9 lg:px-16;
 
     .schema-faq-section {
-        @apply relative my-6;
+        @apply relative my-2;
 
         .schema-faq-question {
-            @apply block text-xl mb-2 cursor-pointer;
+            @apply block text-base mb-2 cursor-pointer underline hover:no-underline;
         }
 
         .schema-faq-answer {
-            @apply text-base text-typo-secondary;
+            @apply text-base text-typo-secondary opacity-0 h-0 overflow-hidden;
+		    @apply transition-all ease-default transform translate-y-6 duration-300;
+        }
+
+        &.is-open {
+
+            .schema-faq-answer {
+                @apply opacity-100 h-auto transform-none mb-6;
+
+            }
 
         }
 
