@@ -1,10 +1,16 @@
 form.woocommerce-form-login {
     .woocommerce-checkout & {
-        @apply relative overflow-hidden my-6 w-full lg:w-1/2;
+        @apply relative overflow-hidden my-6 w-full lg:w-1/2 lg:pr-16;
+        p {
+            @apply text-typo-secondary mb-6;
+        }
         .form-row,
         .form-row-first,
         .form-row-last {
             @apply w-full px-0 py-0 mb-0 !important;
+        }
+        .woocommerce-form-login__submit {
+            @apply my-3;
         }
     }
 }

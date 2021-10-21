@@ -129,7 +129,7 @@
         @apply relative my-2;
 
         .schema-faq-question {
-            @apply block text-base mb-2 cursor-pointer underline hover:no-underline;
+            @apply block text-base font-normal mb-2 cursor-pointer underline hover:no-underline;
         }
 
         .schema-faq-answer {
