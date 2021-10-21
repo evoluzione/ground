@@ -95,24 +95,29 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 function ground_cart_refresh_update_qty() {
 	if ( is_cart() ) {
 		?>
+
 		<script type="text/javascript">
-			// jQuery("div.woocommerce input.qty").change(function() {
-				// 	jQuery(this).closest('form').data('changed', true);
-				// 	console.log('changed');
-				// 	jQuery("[name='update_cart']").trigger("click");
-			// });
-			jQuery('div.woocommerce').on('change', 'input.qty', function() {
-				console.log('change');
-				jQuery("[name='update_cart']").trigger("click");
+
+			// TO-DO : after the first AJAX call it doesn't work
+
+			const inputField = jQuery('div.woocommerce .qty');
+			const btnUpdate = jQuery("[name='update_cart']");
+			const btnPlus = jQuery('div.woocommerce .plus');
+			const btnMinus = jQuery('div.woocommerce .minus');
+
+			inputField.on('change', function(){
+				btnUpdate.trigger('click');
 			});
 
-			jQuery('div.woocommerce .quantity').on('click', '.plus', function() {
-				console.log('change 3');
-				jQuery('div.woocommerce .quantity input.qty').trigger('change');
+			function triggerChange() {
+				inputField.trigger('change');
+			}
 
-				jQuery("[name='update_cart']").trigger("click");
-			});
+			btnPlus.on('click', triggerChange);
+			btnMinus.on('click', triggerChange);
+
 		</script>
+
 		<?php
 	}
 }
