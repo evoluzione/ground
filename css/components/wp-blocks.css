@@ -1,3 +1,4 @@
+/* TO DO - Vedi la soluzione insieme al team per gestire il fullscreen dei blocchi ed eventualmente crea la relativa utils */
 .fullscreen {
     @apply transform -translate-x-2/4 w-screen ml-1/2 rounded-none !important;
 }
@@ -34,6 +35,11 @@
     .wp-block-cover__inner-container {
         @apply relative space-y-4 max-w-4xl px-6 lg:px-9;
     }
+}
+
+/* wp-block-code */
+.wp-block-code {
+    @apply p-6 bg-body-secondary rounded-theme;
 }
 
 /* wp-block-quote */
