@@ -90,43 +90,6 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 }
 
 /**
- * Automatically Update Cart on Quantity Change
- */
-function ground_cart_refresh_update_qty() {
-	if ( is_cart() ) {
-		?>
-
-		<script type="text/javascript">
-
-			// TO-DO : after the first AJAX call it doesn't work
-
-			const inputField = jQuery('div.woocommerce .qty');
-			const btnUpdate = jQuery("[name='update_cart']");
-			const btnPlus = jQuery('div.woocommerce .plus');
-			const btnMinus = jQuery('div.woocommerce .minus');
-
-			inputField.on('change', function(){
-				btnUpdate.trigger('click');
-			});
-
-			function triggerChange() {
-				inputField.trigger('change');
-			}
-
-			btnPlus.on('click', triggerChange);
-			btnMinus.on('click', triggerChange);
-
-		</script>
-
-		<?php
-	}
-}
-
-add_action( 'wp_footer', 'ground_cart_refresh_update_qty' );
-
-
-
-/**
  * Show SKU on cart pages
  */
 function ground_sku_below_cart_item_name( $cart_item, $cart_item_key ) {

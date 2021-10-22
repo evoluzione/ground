@@ -117,42 +117,6 @@ function ground_display_quantity_minus() {
 add_action( 'woocommerce_before_quantity_input_field', 'ground_display_quantity_minus' );
 
 /**
- * Plus Minus Quantity Buttons @ WooCommerce - 3 Trigger update quantity script
- */
-function ground_add_cart_quantity_plus_minus() {
-
-	if ( ! is_product() && ! is_cart() ) {
-		return;
-	}
-
-	wc_enqueue_js(
-		"$('form.cart,form.woocommerce-cart-form').on( 'click', 'button.plus, button.minus', function() {
-         	var qty = $( this ).parent( '.quantity' ).find( '.qty' );
-         	var val = parseFloat(qty.val());
-         	var max = parseFloat(qty.attr( 'max' ));
-         	var min = parseFloat(qty.attr( 'min' ));
-         	var step = parseFloat(qty.attr( 'step' ));
- 
-         	if ( $( this ).is( '.plus' ) ) {
-            	if ( max && ( max <= val ) ) {
-               		qty.val( max );
-            	} else {
-               		qty.val( val + step );
-            	}
-         	} else {
-            	if ( min && ( min >= val ) ) {
-               		qty.val( min );
-            	} else if ( val > 1 ) {
-               		qty.val( val - step );
-            	}
-         	}
-      	});"
-	);
-}
-add_action( 'wp_footer', 'ground_add_cart_quantity_plus_minus' );
-
-
-/**
  * Add Page Relation in product details
  */
 function ground_add_page_relation_below_product_summary() {
