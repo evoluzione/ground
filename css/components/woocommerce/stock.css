@@ -19,4 +19,9 @@
         &:before { @apply bg-red-500 border-4 border-body-primary; }		
     }
 
+
+    .cart.grouped_form & {
+        @apply mt-2;
+    }
+
 }
