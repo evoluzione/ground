@@ -9,4 +9,8 @@ form.cart:not(.variations_form),
         }
 
     }
+
+    &.grouped_form {
+        @apply block space-x-0;        
+    }
 }

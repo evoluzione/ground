@@ -52,3 +52,9 @@
 	}
 
 }
+
+
+.woocommerce-grouped-product-list-item__price {
+	del { @apply text-red-500; }
+	ins { @apply no-underline; }
+}
