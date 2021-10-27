@@ -10,7 +10,7 @@
  *  Remove add to cart button in product loop
  */
 function ground_woocommerce_remove_addtocart_button( $array ) {
-	if ( GROUND_SHOP_ADD_TO_CART == 1 ) {
+	if ( GROUND_SHOP_REMOVE_ADD_TO_CART == 1 ) {
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 	}
 };

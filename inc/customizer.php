@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Add New Settings Section : ground_section_settings
  */
@@ -646,40 +645,37 @@ function ground_customizer_shop( $wp_customize ) {
 	$wp_customize->add_setting(
 		'shop_products_columns_mobile',
 		array(
-			'default'    => 'no',
-			'type'       => 'option',
-			'capability' => 'manage_woocommerce',
+			'default' => '',
 			// 'sanitize_callback'    => 'wc_bool_to_string',
 			// 'sanitize_js_callback' => 'wc_string_to_bool',
 		)
 	);
 
 	$wp_customize->add_setting(
-		'shop_add_to_cart',
+		'shop_remove_add_to_cart',
 		array(
 			'default' => '1',
 		)
 	);
 
-	// add control
 	$wp_customize->add_control(
-		'shop_add_to_cart_control',
+		'shop_remove_add_to_cart_control',
 		array(
 			'label'    => 'Remove Add to cart button',
-			'type'     => 'checkbox', // this indicates the type of control
+			'type'     => 'checkbox',
 			'section'  => 'woocommerce_product_catalog',
-			'settings' => 'shop_add_to_cart',
+			'settings' => 'shop_remove_add_to_cart',
 		)
 	);
 
 	$wp_customize->add_control(
-		'shop_products_columns_mobile',
+		'shop_products_columns_mobile_control',
 		array(
 			'label'       => 'Products per row (Mobile)',
+			'type'        => 'checkbox',
 			'description' => 'Optionally switch to a 1-column catalog on mobile',
 			'section'     => 'woocommerce_product_catalog',
 			'settings'    => 'shop_products_columns_mobile',
-			'type'        => 'checkbox',
 		)
 	);
 

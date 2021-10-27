@@ -66,13 +66,13 @@ function ground_costants() {
 	define( 'GROUND_NO_IMAGE_URL', get_theme_mod( 'no_image_url' ) ? get_theme_mod( 'no_image_url' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
 
 	// Shop.
-	define( 'GROUND_SHOP_ADD_TO_CART', get_theme_mod( 'shop_add_to_cart' ) ? get_theme_mod( 'shop_add_to_cart' ) : '' );
+	define( 'GROUND_SHOP_REMOVE_ADD_TO_CART', get_theme_mod( 'shop_remove_add_to_cart' ) ? get_theme_mod( 'shop_remove_add_to_cart' ) : '' );
 	define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_theme_mod( 'shop_not_purchasable_product_button' ) ? get_theme_mod( 'shop_not_purchasable_product_button' ) : __( 'Call to order', 'ground' ) );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_theme_mod( 'shop_not_purchasable_product_text' ) ? get_theme_mod( 'shop_not_purchasable_product_text' ) : __( 'Call to order', 'ground' ) );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LINK', get_theme_mod( 'shop_not_purchasable_product_cta_link' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_link' ) : '' );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LABEL', get_theme_mod( 'shop_not_purchasable_product_cta_label' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_label' ) : '' );
-	define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_option( 'shop_products_columns_mobile' ) ? get_option( 'shop_products_columns_mobile' ) : 'default' );
+	define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_theme_mod( 'shop_products_columns_mobile' ) ? get_theme_mod( 'shop_products_columns_mobile' ) : 'default' );
 
 }
 
