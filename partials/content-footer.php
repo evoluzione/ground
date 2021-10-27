@@ -63,7 +63,7 @@
 				<?php echo GROUND_COMPANY_PIVA ? ' - P.IVA:' . GROUND_COMPANY_PIVA : null; ?>
 				<?php echo GROUND_COMPANY_CF ? ' - C.F.:' . GROUND_COMPANY_CF : null; ?> </p>
 			</div>
-			<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
+			<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_TWITTER_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
 			<div class="lg:border-l border-line-primary">
 
 				<div class="lg:flex items-center justify-center lg:space-x-6">
@@ -83,6 +83,14 @@
 						<span class="inline-block">
 							<a class="h-10 w-10 rounded-full text-white bg-blue-500 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_FACEBOOK_URL; ?>">
 								<?php ground_icon( 'facebook', 'mx-auto h-4' ); ?>
+							</a>
+						</span>
+						<?php endif; ?>
+
+						<?php if ( GROUND_SOCIAL_TWITTER_URL ) : ?>
+						<span class="inline-block">
+							<a class="h-10 w-10 rounded-full text-white bg-blue-400 p-2 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_TWITTER_URL; ?>">
+								<?php ground_icon( 'twitter', 'mx-auto h-4' ); ?>
 							</a>
 						</span>
 						<?php endif; ?>

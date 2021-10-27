@@ -9,9 +9,9 @@ function ground_woocommerce_add_gallery_support() {
 	// add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 
-	if ( GROUND_SHOP_PRODUCT_GALLERY_SLIDER == '1' ) {
-		add_theme_support( 'wc-product-gallery-slider' );
-	}
+	// if ( GROUND_SHOP_PRODUCT_GALLERY_SLIDER == '1' ) {
+	// add_theme_support( 'wc-product-gallery-slider' );
+	// }
 }
 
 add_action( 'after_setup_theme', 'ground_woocommerce_add_gallery_support' );
