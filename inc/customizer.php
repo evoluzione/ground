@@ -2,7 +2,118 @@
 
 
 /**
- * Add New Colors Section : ground_section_fonts
+ * Add New Settings Section : ground_section_settings
+ */
+function ground_customizer_settings( $wp_customize ) {
+
+	/**
+	 * Add New Section: ground_section_settings
+	 */
+	$wp_customize->add_section(
+		'ground_section_settings',
+		array(
+			'title'       => __( 'Settings', 'ground-admin' ),
+			'description' => '',
+			'priority'    => '50',
+			'capability'  => 'edit_theme_options',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'rounded_theme',
+		array(
+			'default'           => '10',
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'rounded_theme_control',
+				array(
+					'label'       => __( 'Border Radius', 'ground-admin' ),
+					'description' => __( 'Sets the border radius of the site elements', 'ground-admin' ),
+					'section'     => 'ground_section_settings',
+					'settings'    => 'rounded_theme',
+					'type'        => 'number',
+					'priority'    => 10,
+					'input_attrs' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				)
+			)
+		);
+
+}
+
+add_action( 'customize_register', 'ground_customizer_settings' );
+
+
+
+function ground_customizer_title_tagline( $wp_customize ) {
+
+	$wp_customize->add_setting(
+		'logo_url_primary',
+		array(
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'logo_source_primary',
+	);
+
+	$wp_customize->add_setting(
+		'no_image_url',
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'logo_url_primary_control',
+			array(
+				'label'    => __( 'Upload Logo', 'ground-admin' ),
+				'priority' => 20,
+				'section'  => 'title_tagline',
+				'settings' => 'logo_url_primary',
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		'logo_source_primary',
+		array(
+			'type'        => 'textarea',
+			'section'     => 'title_tagline',
+			'priority'    => 30,
+			'label'       => __( 'Logo SVG', 'ground-admin' ),
+			'description' => __( 'If you have the logo in SVG format put the code here', 'ground-admin' ),
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'no_image_url',
+			array(
+				'label'    => __( 'Upload No Image', 'ground-admin' ),
+				'priority' => 40,
+				'section'  => 'title_tagline',
+				'settings' => 'no_image_url',
+			)
+		)
+	);
+
+}
+
+add_action( 'customize_register', 'ground_customizer_title_tagline' );
+
+
+/**
+ * Add New Header Section : ground_section_header
  */
 function ground_customizer_header( $wp_customize ) {
 
@@ -37,10 +148,10 @@ function ground_customizer_header( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
-			'header_type',
+			'header_type_control',
 			array(
-				'label'       => __( 'Select Header Type', 'parsmizban' ),
-				'description' => __( 'Using this option you can change the Header' ),
+				'label'       => __( 'Select Header Type', 'ground-admin' ),
+				'description' => __( 'Using this option you can change the Header', 'ground-admin' ),
 				'settings'    => 'header_type',
 				'priority'    => 10,
 				'section'     => 'ground_section_header',
@@ -81,7 +192,7 @@ function ground_customizer_fonts( $wp_customize ) {
 		'ground_section_fonts',
 		array(
 			'title'       => __( 'Fonts', 'ground-admin' ),
-			'description' => 'Insert your Fonts here',
+			'description' => __( 'Insert your Fonts here', 'ground-admin' ),
 			'priority'    => '40',
 			'capability'  => 'edit_theme_options',
 		)
@@ -108,8 +219,8 @@ function ground_customizer_fonts( $wp_customize ) {
 		array(
 			'type'        => 'textarea',
 			'section'     => 'ground_section_fonts',
-			'label'       => __( 'Font Source Primary' ),
-			'description' => __( 'To embed a font, copy the source code here' ),
+			'label'       => __( 'Font Source Primary', 'ground-admin' ),
+			'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
 		)
 	);
 
@@ -118,8 +229,8 @@ function ground_customizer_fonts( $wp_customize ) {
 		array(
 			'type'        => 'text',
 			'section'     => 'ground_section_fonts',
-			'label'       => __( 'Font Family Primary' ),
-			'description' => __( 'Example: Roboto' ),
+			'label'       => __( 'Font Family Primary', 'ground-admin' ),
+			'description' => __( 'Example: Roboto', 'ground-admin' ),
 		)
 	);
 
@@ -128,8 +239,8 @@ function ground_customizer_fonts( $wp_customize ) {
 		array(
 			'type'        => 'textarea',
 			'section'     => 'ground_section_fonts',
-			'label'       => __( 'Font Source Secondary' ),
-			'description' => __( 'To embed a font, copy the source code here' ),
+			'label'       => __( 'Font Source Secondary', 'ground-admin' ),
+			'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
 		)
 	);
 
@@ -138,14 +249,17 @@ function ground_customizer_fonts( $wp_customize ) {
 		array(
 			'type'        => 'text',
 			'section'     => 'ground_section_fonts',
-			'label'       => __( 'Font Family Secondary' ),
-			'description' => __( 'Example: Playfair Display' ),
+			'label'       => __( 'Font Family Secondary', 'ground-admin' ),
+			'description' => __( 'Example: Playfair Display', 'ground-admin' ),
 		)
 	);
 
 }
 
 add_action( 'customize_register', 'ground_customizer_fonts' );
+
+
+
 
 /**
  * Add New Colors Section : ground_section_colors
@@ -159,7 +273,7 @@ function ground_customizer_colors( $wp_customize ) {
 		'ground_section_colors',
 		array(
 			'title'       => __( 'Colors', 'ground-admin' ),
-			'description' => 'Set Colors For Theme',
+			'description' => __( 'Set the site color palette', 'ground-admin' ),
 			'priority'    => '40',
 			'capability'  => 'edit_theme_options',
 		)
@@ -224,9 +338,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_primary',
+			'color_primary_control',
 			array(
-				'label'    => 'Color Primary',
+				'label'    => __( 'Color Primary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_primary',
 			)
@@ -236,9 +350,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_secondary',
+			'color_secondary_control',
 			array(
-				'label'    => 'Color Secondary',
+				'label'    => __( 'Color Secondary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_secondary',
 			)
@@ -248,9 +362,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_typo_primary',
+			'color_typo_primary_control',
 			array(
-				'label'    => 'Color Typo Primary',
+				'label'    => __( 'Color Typo Primary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_typo_primary',
 			)
@@ -260,9 +374,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_typo_secondary',
+			'color_typo_secondary_control',
 			array(
-				'label'    => 'Color Typo Secondary',
+				'label'    => __( 'Color Typo Secondary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_typo_secondary',
 			)
@@ -272,9 +386,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_body_primary',
+			'color_body_primary_control',
 			array(
-				'label'    => 'Color Body Primary',
+				'label'    => __( 'Color Body Primary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_body_primary',
 			)
@@ -284,9 +398,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_body_secondary',
+			'color_body_secondary_control',
 			array(
-				'label'    => 'Color Body Secondary',
+				'label'    => __( 'Color Body Secondary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_body_secondary',
 			)
@@ -296,9 +410,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_line_primary',
+			'color_line_primary_control',
 			array(
-				'label'    => 'Color Line Primary',
+				'label'    => __( 'Color Line Primary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_line_primary',
 			)
@@ -308,9 +422,9 @@ function ground_customizer_colors( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
-			'color_line_secondary',
+			'color_line_secondary_control',
 			array(
-				'label'    => 'Color Line Secondary',
+				'label'    => __( 'Color Line Secondary', 'ground-admin' ),
 				'section'  => 'ground_section_colors',
 				'settings' => 'color_line_secondary',
 			)
@@ -441,8 +555,87 @@ add_action( 'customize_register', 'ground_customizer_socials' );
 
 
 
+function ground_customizer_shop_not_purchasable( $wp_customize ) {
 
+	/**
+	 * Add New Section: ground_section_not_purchasable
+	 */
+	$wp_customize->add_section(
+		'ground_section_not_purchasable',
+		array(
+			'title'       => __( 'Not Purchasable Products', 'ground-admin' ),
+			'description' => 'Insert url of your social channels',
+			'priority'    => '15',
+			'capability'  => 'edit_theme_options',
+			'panel'       => 'woocommerce',
 
+		)
+	);
+
+	$wp_customize->add_setting(
+		'shop_not_purchasable_product_button',
+	);
+
+	$wp_customize->add_setting(
+		'shop_not_purchasable_product_text',
+	);
+
+	$wp_customize->add_setting(
+		'shop_not_purchasable_product_cta_link',
+		array(
+			'default'           => '',
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'esc_url',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'shop_not_purchasable_product_cta_label',
+	);
+
+	$wp_customize->add_control(
+		'shop_not_purchasable_product_button',
+		array(
+			'type'        => 'text',
+			'section'     => 'ground_section_not_purchasable',
+			'label'       => __( 'Product Button & Label', 'ground-admin' ),
+			'description' => __( 'Text visible on the archive page for each non-purchasable product', 'ground-admin' ),
+		)
+	);
+
+	$wp_customize->add_control(
+		'shop_not_purchasable_product_text',
+		array(
+			'type'        => 'textarea',
+			'section'     => 'ground_section_not_purchasable',
+			'label'       => __( 'Single Product Message', 'ground-admin' ),
+			'description' => __( 'Text visible on the single product page', 'ground-admin' ),
+		)
+	);
+
+	$wp_customize->add_control(
+		'shop_not_purchasable_product_cta_link',
+		array(
+			'type'        => 'url',
+			'section'     => 'ground_section_not_purchasable',
+			'label'       => __( 'Single Product Button Url', 'ground-admin' ),
+			'description' => __( 'Link button for each non-purchasable product', 'ground-admin' ),
+		)
+	);
+
+	$wp_customize->add_control(
+		'shop_not_purchasable_product_cta_label',
+		array(
+			'type'        => 'text',
+			'section'     => 'ground_section_not_purchasable',
+			'label'       => __( 'Single Product Button Label', 'ground-admin' ),
+			'description' => __( 'Label button for each non-purchasable product', 'ground-admin' ),
+		)
+	);
+
+}
+
+add_action( 'customize_register', 'ground_customizer_shop_not_purchasable' );
 
 
 /**
@@ -458,6 +651,24 @@ function ground_customizer_shop( $wp_customize ) {
 			'capability' => 'manage_woocommerce',
 			// 'sanitize_callback'    => 'wc_bool_to_string',
 			// 'sanitize_js_callback' => 'wc_string_to_bool',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'shop_add_to_cart',
+		array(
+			'default' => '1',
+		)
+	);
+
+	// add control
+	$wp_customize->add_control(
+		'shop_add_to_cart_control',
+		array(
+			'label'    => 'Remove Add to cart button',
+			'type'     => 'checkbox', // this indicates the type of control
+			'section'  => 'woocommerce_product_catalog',
+			'settings' => 'shop_add_to_cart',
 		)
 	);
 

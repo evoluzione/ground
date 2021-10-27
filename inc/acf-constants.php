@@ -8,9 +8,6 @@
 
 function ground_costants() {
 
-	// Dark Mode.
-	// define( 'GROUND_DARK_MODE', get_field( 'dark_mode', 'option' ) ? get_field( 'dark_mode', 'option' ) : '#6366F1' );
-
 	// Colors.
 	define( 'GROUND_COLOR_PRIMARY', get_theme_mod( 'color_primary' ) ? get_theme_mod( 'color_primary' ) : '#6366F1' );
 	define( 'GROUND_COLOR_SECONDARY', get_theme_mod( 'color_secondary' ) ? get_theme_mod( 'color_secondary' ) : '#14B8A6' );
@@ -28,7 +25,7 @@ function ground_costants() {
 	define( 'GROUND_FONT_FAMILY_SECONDARY', get_theme_mod( 'font_family_secondary' ) ? get_theme_mod( 'font_family_secondary' ) : '' );
 
 	// Styles.
-	define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '0' );
+	define( 'GROUND_ROUNDED_THEME', get_theme_mod( 'rounded_theme' ) ? get_theme_mod( 'rounded_theme' ) : '0' );
 
 	// Company.
 	define( 'GROUND_COMPANY_NAME', get_field( 'company_name', 'option' ) ? get_field( 'company_name', 'option' ) : '' );
@@ -62,29 +59,20 @@ function ground_costants() {
 	define( 'GROUND_HEADER_TYPE', get_theme_mod( 'header_type' ) ? get_theme_mod( 'header_type' ) : '' );
 
 	// Logos.
-	define( 'GROUND_LOGO_URL_PRIMARY', get_field( 'logo_url_primary', 'option' ) ? get_field( 'logo_url_primary', 'option' ) : '' );
-	define( 'GROUND_LOGO_SOURCE_PRIMARY', get_field( 'logo_source_primary', 'option' ) ? get_field( 'logo_source_primary', 'option' ) : '' );
-	define( 'GROUND_LOGO_TYPE_PRIMARY', get_field( 'logo_type_primary', 'option' ) ? get_field( 'logo_type_primary', 'option' ) : '' );
-	define( 'GROUND_LOGO_URL_SECONDARY', get_field( 'logo_url_secondary', 'option' ) ? get_field( 'logo_url_secondary', 'option' ) : '' );
-	define( 'GROUND_LOGO_SOURCE_SECONDARY', get_field( 'logo_source_secondary', 'option' ) ? get_field( 'logo_source_secondary', 'option' ) : '' );
-	define( 'GROUND_LOGO_TYPE_SECONDARY', get_field( 'logo_type_secondary', 'option' ) ? get_field( 'logo_type_secondary', 'option' ) : '' );
+	define( 'GROUND_LOGO_URL_PRIMARY', get_theme_mod( 'logo_url_primary' ) ? get_theme_mod( 'logo_url_primary' ) : '' );
+	define( 'GROUND_LOGO_SOURCE_PRIMARY', get_theme_mod( 'logo_source_primary' ) ? get_theme_mod( 'logo_source_primary' ) : '' );
 
 	// No image.
-	define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field( 'no_image_url', 'option' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
+	define( 'GROUND_NO_IMAGE_URL', get_theme_mod( 'no_image_url' ) ? get_theme_mod( 'no_image_url' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
 
 	// Shop.
-	define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
+	define( 'GROUND_SHOP_ADD_TO_CART', get_theme_mod( 'shop_add_to_cart' ) ? get_theme_mod( 'shop_add_to_cart' ) : '' );
 	define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
-	define( 'GROUND_SHOP_PRODUCT_GALLERY_SLIDER', get_field( 'shop_product_gallery_slider', 'option' ) ? get_field( 'shop_product_gallery_slider', 'option' ) : '' );
-	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_field( 'shop_not_purchasable_product_button', 'option' ) ? get_field( 'shop_not_purchasable_product_button', 'option' ) : __( 'Call to order', 'ground' ) );
-	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_field( 'shop_not_purchasable_product_text', 'option' ) ? get_field( 'shop_not_purchasable_product_text', 'option' ) : __( 'Call to order', 'ground' ) );
-	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK', get_field( 'shop_not_purchasable_product_link', 'option' ) ? get_field( 'shop_not_purchasable_product_link', 'option' ) : '' );
-
-	// Native Customizer
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_theme_mod( 'shop_not_purchasable_product_button' ) ? get_theme_mod( 'shop_not_purchasable_product_button' ) : __( 'Call to order', 'ground' ) );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_theme_mod( 'shop_not_purchasable_product_text' ) ? get_theme_mod( 'shop_not_purchasable_product_text' ) : __( 'Call to order', 'ground' ) );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LINK', get_theme_mod( 'shop_not_purchasable_product_cta_link' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_link' ) : '' );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LABEL', get_theme_mod( 'shop_not_purchasable_product_cta_label' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_label' ) : '' );
 	define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_option( 'shop_products_columns_mobile' ) ? get_option( 'shop_products_columns_mobile' ) : 'default' );
-
-	// Scroll top.
-	define( 'GROUND_SCROLL_TOP', get_field( 'scroll_top', 'option' ) ? get_field( 'scroll_top', 'option' ) : '' );
 
 }
 

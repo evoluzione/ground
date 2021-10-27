@@ -9,10 +9,14 @@
 /**
  *  Remove add to cart button in product loop
  */
+function ground_woocommerce_remove_addtocart_button( $array ) {
+	if ( GROUND_SHOP_ADD_TO_CART == 1 ) {
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+	}
+};
 
-// if ( GROUND_SHOP_ADD_TO_CART == '1' ) {
-// remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-// }
+add_action( 'wp_head', 'ground_woocommerce_remove_addtocart_button', 10, 1 );
+
 
 /**
  * Add term attribute in product loop
