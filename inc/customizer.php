@@ -836,7 +836,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		$wp_customize->add_section(
 			'ground_section_not_purchasable',
 			array(
-				'title'       => __( 'Not Purchasable Products', 'ground-admin' ),
+				'title'       => __( 'Products Not Purchasable', 'ground-admin' ),
 				'description' => 'Insert url of your social channels',
 				'priority'    => '15',
 				'capability'  => 'edit_theme_options',
@@ -909,6 +909,65 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	}
 
 	add_action( 'customize_register', 'ground_customizer_shop_not_purchasable' );
+
+
+	/**
+	 * Add New not_purchasable Section : ground_section_product_single
+	 */
+	function ground_customizer_shop_single_product( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_product_single
+		 */
+		$wp_customize->add_section(
+			'ground_section_product_single',
+			array(
+				'title'       => __( 'Product Single', 'ground-admin' ),
+				'description' => __( 'Select the pages you want to show on the product page after the summary', 'ground-admin' ),
+				'priority'    => '15',
+				'capability'  => 'edit_theme_options',
+				'panel'       => 'woocommerce',
+
+			)
+		);
+
+		// add setting
+		$wp_customize->add_setting( 'shop_product_summary_page_1' );
+		$wp_customize->add_setting( 'shop_product_summary_page_2' );
+		$wp_customize->add_setting( 'shop_product_summary_page_3' );
+
+		// add control
+		$wp_customize->add_control(
+			'shop_product_summary_page_1_control',
+			array(
+				'label'    => 'Select Page',
+				'type'     => 'dropdown-pages',
+				'section'  => 'ground_section_product_single',
+				'settings' => 'shop_product_summary_page_1',
+			)
+		);
+		$wp_customize->add_control(
+			'shop_product_summary_page_2_control',
+			array(
+				'label'    => 'Select Page',
+				'type'     => 'dropdown-pages',
+				'section'  => 'ground_section_product_single',
+				'settings' => 'shop_product_summary_page_2',
+			)
+		);
+		$wp_customize->add_control(
+			'shop_product_summary_page_3_control',
+			array(
+				'label'    => 'Select Page',
+				'type'     => 'dropdown-pages',
+				'section'  => 'ground_section_product_single',
+				'settings' => 'shop_product_summary_page_3',
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_shop_single_product' );
 
 
 	/**

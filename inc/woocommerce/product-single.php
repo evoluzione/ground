@@ -113,31 +113,30 @@ function ground_display_quantity_minus() {
 }
 add_action( 'woocommerce_before_quantity_input_field', 'ground_display_quantity_minus' );
 
+
 /**
  * Add Page Relation in product details
  */
 function ground_add_page_relation_below_product_summary() {
-	?>
 
-	<?php
-	$shop_product_page_relation = get_field( 'shop_product_page_relation', 'option' );
-	if ( $shop_product_page_relation ) :
+	if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) :
 		?>
-	<div class="relative mt-9">
-		<?php
-		foreach ( $shop_product_page_relation as $page_relation ) :
-			$permalink = get_permalink( $page_relation->ID );
-			$title     = get_the_title( $page_relation->ID );
-			?>
-		<div>
-			<a class="text-sm text-typo-secondary underline" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
+
+		<div class="relative mt-9">
+			<div>
+				<a class="text-sm text-typo-secondary underline" href="<?php echo esc_html( get_permalink( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 ) ); ?>"><?php echo esc_html( get_the_title( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 ) ); ?></a>
+			</div>
+			<div>
+				<a class="text-sm text-typo-secondary underline" href="<?php echo esc_html( get_permalink( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 ) ); ?>"><?php echo esc_html( get_the_title( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 ) ); ?></a>
+			</div>
+			<div>
+				<a class="text-sm text-typo-secondary underline" href="<?php echo esc_html( get_permalink( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) ); ?>"><?php echo esc_html( get_the_title( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) ); ?></a>
+			</div>
 		</div>
-		<?php endforeach; ?>
-	</div>
-	<?php endif; ?>
 
+		<?php
 
-	<?php
+	endif;
 }
 add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_below_product_summary', 55 );
 

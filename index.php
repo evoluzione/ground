@@ -8,7 +8,7 @@
 get_template_part( 'partials/header' );
 ?>
 
-	<div class="container mt-12">
+	<div class="container relative">
 
 		<?php get_template_part( 'partials/breadcrumbs' ); ?>
 

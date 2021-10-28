@@ -3,48 +3,6 @@
     "title": "Theme Settings: Shop",
     "fields": [
         {
-            "key": "field_613b53e7d76b1",
-            "label": "Single Product",
-            "name": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_611bbaf4e3dd3",
-            "label": "Product Page Relation",
-            "name": "shop_product_page_relation",
-            "type": "relationship",
-            "instructions": "Select the pages to show after the summary on the product page.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
             "key": "field_613b544a383e9",
             "label": "Payments",
             "name": "",
@@ -110,5 +68,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635330564
+    "modified": 1635409998
 }
