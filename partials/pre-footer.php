@@ -23,10 +23,10 @@ $repeater = GROUND_SHOP_PAYMENT;
 
 			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
 				<div class="text-2xl lg:text-3xl font-bold mb-4 ">
-					<?php _e( 'Types of payments', 'ground' ); ?>
+					<?php echo esc_html( GROUND_PAYMENTS_TITLE ); ?>
 				</div>
 				<div class="text-base lg:text-xl text-typo-secondary">
-					<?php _e( 'Maximum security during the purchase: all information is encrypted and transmitted without risk.', 'ground' ); ?>
+					<?php echo esc_html( GROUND_PAYMENTS_CONTENT ); ?>
 				</div>
 			</div>
 
@@ -40,10 +40,10 @@ $repeater = GROUND_SHOP_PAYMENT;
 
 			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
 				<div class="text-2xl lg:text-3xl font-bold mb-4">
-					<?php _e( 'Fast shipping for all orders', 'ground' ); ?>
+					<?php echo esc_html( GROUND_SHIPPING_TITLE ); ?>
 				</div>
 				<div class="text-base lg:text-xl text-typo-secondary">
-					<?php _e( 'We will take care to guarantee you the best possible service', 'ground' ); ?>
+					<?php echo esc_html( GROUND_SHIPPING_CONTENT ); ?>
 				</div>
 			</div>
 

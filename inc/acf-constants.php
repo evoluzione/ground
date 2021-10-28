@@ -58,6 +58,14 @@ function ground_costants() {
 	define( 'GROUND_HEADER_ADVICE', get_theme_mod( 'header_advice' ) ? get_theme_mod( 'header_advice' ) : '' );
 	define( 'GROUND_HEADER_TYPE', get_theme_mod( 'header_type' ) ? get_theme_mod( 'header_type' ) : '' );
 
+	// Shipping.
+	define( 'GROUND_SHIPPING_TITLE', get_theme_mod( 'shipping_title' ) ? get_theme_mod( 'shipping_title' ) : '' );
+	define( 'GROUND_SHIPPING_CONTENT', get_theme_mod( 'shipping_content' ) ? get_theme_mod( 'shipping_content' ) : '' );
+
+	// Payments.
+	define( 'GROUND_PAYMENTS_TITLE', get_theme_mod( 'payments_title' ) ? get_theme_mod( 'payments_title' ) : '' );
+	define( 'GROUND_PAYMENTS_CONTENT', get_theme_mod( 'payments_content' ) ? get_theme_mod( 'payments_content' ) : '' );
+
 	// Logos.
 	define( 'GROUND_LOGO_URL_PRIMARY', get_theme_mod( 'logo_url_primary' ) ? get_theme_mod( 'logo_url_primary' ) : '' );
 	define( 'GROUND_LOGO_SOURCE_PRIMARY', get_theme_mod( 'logo_source_primary' ) ? get_theme_mod( 'logo_source_primary' ) : '' );

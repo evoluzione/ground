@@ -19,54 +19,594 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 
 
 	/**
-	 * Add New Settings Section : ground_section_settings
+	 * Add New Controls for title_tagline Section
 	 */
-	function ground_customizer_settings( $wp_customize ) {
+	function ground_customizer_title_tagline( $wp_customize ) {
 
-		/**
-		 * Add New Section: ground_section_settings
-		 */
-		$wp_customize->add_section(
-			'ground_section_settings',
+		$wp_customize->add_setting(
+			'logo_url_primary',
 			array(
-				'title'       => __( 'Settings', 'ground-admin' ),
-				'description' => '',
-				'priority'    => '50',
-				'capability'  => 'edit_theme_options',
+				'sanitize_callback' => 'esc_url_raw',
 			)
 		);
 
 		$wp_customize->add_setting(
-			'rounded_theme',
-			array(
-				'default'           => '10',
-				'transport'         => 'refresh',
-				'sanitize_callback' => 'sanitize_text_field',
+			'logo_source_primary',
+		);
+
+		$wp_customize->add_setting(
+			'no_image_url',
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'logo_url_primary_control',
+				array(
+					'label'    => __( 'Upload Logo', 'ground-admin' ),
+					'priority' => 20,
+					'section'  => 'title_tagline',
+					'settings' => 'logo_url_primary',
+				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new WP_Customize_Control(
+			'logo_source_primary',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'title_tagline',
+				'priority'    => 30,
+				'label'       => __( 'Logo SVG', 'ground-admin' ),
+				'description' => __( 'If you have the logo in SVG format put the code here', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
 				$wp_customize,
-				'rounded_theme_control',
+				'no_image_url',
 				array(
-					'label'       => __( 'Border Radius', 'ground-admin' ),
-					'description' => __( 'Sets the border radius of the site elements', 'ground-admin' ),
-					'section'     => 'ground_section_settings',
-					'settings'    => 'rounded_theme',
-					'type'        => 'number',
-					'priority'    => 10,
-					'input_attrs' => array(
-						'min' => 0,
-						'max' => 100,
-					),
+					'label'    => __( 'Upload No Image', 'ground-admin' ),
+					'priority' => 40,
+					'section'  => 'title_tagline',
+					'settings' => 'no_image_url',
 				)
 			)
 		);
 
 	}
 
-	add_action( 'customize_register', 'ground_customizer_settings' );
+	add_action( 'customize_register', 'ground_customizer_title_tagline' );
+
+
+	/**
+	 * Add New Header Section : ground_section_header
+	 */
+	function ground_customizer_header( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_header
+		 */
+		$wp_customize->add_section(
+			'ground_section_header',
+			array(
+				'title'       => __( 'Header', 'ground-admin' ),
+				'description' => '',
+				'priority'    => 40,
+				'capability'  => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'header_type',
+			array(
+				'default' => 'megaMenu',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'header_advice',
+			array(
+				'type' => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'header_type_control',
+				array(
+					'label'       => __( 'Select Header Type', 'ground-admin' ),
+					'description' => __( 'Using this option you can change the Header', 'ground-admin' ),
+					'settings'    => 'header_type',
+					'priority'    => 10,
+					'section'     => 'ground_section_header',
+					'type'        => 'select',
+					'choices'     => array(
+						'menu'         => 'Simple menu',
+						'menuCentered' => 'Simple menu - Logo centered',
+						'megaMenu'     => 'Mega menu',
+					),
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			'header_advice',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_header',
+				'label'       => __( 'Header Advice', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_header' );
+
+
+	/**
+	 * Add New Header Section : ground_section_footer
+	 */
+	function ground_customizer_footer( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_footer
+		 */
+		$wp_customize->add_panel(
+			'ground_section_footer',
+			array(
+				'title'       => __( 'Footer', 'ground-admin' ),
+				'description' => __( 'Theme Modifications like color scheme, theme texts and layout preferences can be done here', 'ground-admin' ),
+				'priority'    => 41,
+			)
+		);
+
+		$wp_customize->add_section(
+			'ground_section_footer_payments',
+			array(
+				'title' => __( 'Payments', 'ground-admin' ),
+				'panel' => 'ground_section_footer',
+			)
+		);
+
+		$wp_customize->add_section(
+			'ground_section_footer_shipping',
+			array(
+				'title' => __( 'Shipping', 'ground-admin' ),
+				'panel' => 'ground_section_footer',
+			)
+		);
+
+		/* Footer: Payments */
+		$wp_customize->add_setting( 'payments_title' );
+		$wp_customize->add_setting( 'payments_content' );
+
+		/* Footer: Shipping */
+		$wp_customize->add_setting( 'shipping_title' );
+		$wp_customize->add_setting( 'shipping_content' );
+
+		/* Footer: Payments */
+		$wp_customize->add_control(
+			'payments_title',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_footer_payments',
+				'label'       => __( 'Payments Title', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'payments_content',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'ground_section_footer_payments',
+				'label'       => __( 'Payments Content', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+
+		/* Footer: Shipping */
+		$wp_customize->add_control(
+			'shipping_title',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_footer_shipping',
+				'label'       => __( 'Shipping Title', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'shipping_content',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'ground_section_footer_shipping',
+				'label'       => __( 'Shipping Content', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_footer' );
+
+
+
+	/**
+	 * Add New Fonts Section : ground_section_fonts
+	 */
+	function ground_customizer_fonts( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_fonts
+		 */
+		$wp_customize->add_section(
+			'ground_section_fonts',
+			array(
+				'title'       => __( 'Fonts', 'ground-admin' ),
+				'description' => __( 'Insert your Fonts here', 'ground-admin' ),
+				'priority'    => 42,
+				'capability'  => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'font_source_primary',
+		);
+
+		$wp_customize->add_setting(
+			'font_family_primary',
+		);
+
+		$wp_customize->add_setting(
+			'font_source_secondary',
+		);
+
+		$wp_customize->add_setting(
+			'font_family_secondary',
+		);
+
+		$wp_customize->add_control(
+			'font_source_primary',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'ground_section_fonts',
+				'label'       => __( 'Font Source Primary', 'ground-admin' ),
+				'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			'font_family_primary',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_fonts',
+				'label'       => __( 'Font Family Primary', 'ground-admin' ),
+				'description' => __( 'Example: Roboto', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			'font_source_secondary',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'ground_section_fonts',
+				'label'       => __( 'Font Source Secondary', 'ground-admin' ),
+				'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			'font_family_secondary',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_fonts',
+				'label'       => __( 'Font Family Secondary', 'ground-admin' ),
+				'description' => __( 'Example: Playfair Display', 'ground-admin' ),
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_fonts' );
+
+
+
+
+	/**
+	 * Add New Colors Section : ground_section_colors
+	 */
+	function ground_customizer_colors( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_colors
+		 */
+		$wp_customize->add_section(
+			'ground_section_colors',
+			array(
+				'title'       => __( 'Colors', 'ground-admin' ),
+				'description' => __( 'Set the site color palette', 'ground-admin' ),
+				'priority'    => 43,
+				'capability'  => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_primary',
+			array(
+				'default' => '#6366F1',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_secondary',
+			array(
+				'default' => '#14B8A6',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_typo_primary',
+			array(
+				'default' => '#000000',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_typo_secondary',
+			array(
+				'default' => '#71717A',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_body_primary',
+			array(
+				'default' => '#ffffff',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_body_secondary',
+			array(
+				'default' => '#F4F4F5',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_line_primary',
+			array(
+				'default' => '#D4D4D8',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'color_line_secondary',
+			array(
+				'default' => '#D4D4D8',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_primary_control',
+				array(
+					'label'    => __( 'Color Primary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_primary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_secondary_control',
+				array(
+					'label'    => __( 'Color Secondary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_secondary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_typo_primary_control',
+				array(
+					'label'    => __( 'Color Typo Primary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_typo_primary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_typo_secondary_control',
+				array(
+					'label'    => __( 'Color Typo Secondary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_typo_secondary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_body_primary_control',
+				array(
+					'label'    => __( 'Color Body Primary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_body_primary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_body_secondary_control',
+				array(
+					'label'    => __( 'Color Body Secondary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_body_secondary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_line_primary_control',
+				array(
+					'label'    => __( 'Color Line Primary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_line_primary',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_line_secondary_control',
+				array(
+					'label'    => __( 'Color Line Secondary', 'ground-admin' ),
+					'section'  => 'ground_section_colors',
+					'settings' => 'color_line_secondary',
+				)
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_colors' );
+
+
+
+	/**
+	 * Add New Socials Section : ground_section_socials
+	 */
+	function ground_customizer_socials( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_socials
+		 */
+		$wp_customize->add_section(
+			'ground_section_socials',
+			array(
+				'title'       => __( 'Socials', 'ground-admin' ),
+				'description' => 'Insert url of your social channels',
+				'priority'    => 44,
+				'capability'  => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'social_linkedin_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'esc_url',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'social_facebook_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'esc_url',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'social_twitter_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'esc_url',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'social_instagram_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'esc_url',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'social_youtube_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'esc_url',
+			)
+		);
+
+		$wp_customize->add_control(
+			'social_linkedin_url',
+			array(
+				'type'        => 'url',
+				'section'     => 'ground_section_socials',
+				'label'       => __( 'Linkedin', 'ground-admin' ),
+				'description' => '',
+				'input_attrs' => array(
+					'placeholder' => __( 'https://www.linkedin.com/...' ),
+				),
+			)
+		);
+		$wp_customize->add_control(
+			'social_facebook_url',
+			array(
+				'type'        => 'url',
+				'section'     => 'ground_section_socials',
+				'label'       => __( 'Facebook', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'social_twitter_url',
+			array(
+				'type'        => 'url',
+				'section'     => 'ground_section_socials',
+				'label'       => __( 'Twitter', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'social_instagram_url',
+			array(
+				'type'        => 'url',
+				'section'     => 'ground_section_socials',
+				'label'       => __( 'Instagram', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'social_youtube_url',
+			array(
+				'type'        => 'url',
+				'section'     => 'ground_section_socials',
+				'label'       => __( 'Youtube', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_socials' );
 
 
 
@@ -81,7 +621,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		$wp_customize->add_panel(
 			'ground_section_company',
 			array(
-				'priority'    => 60,
+				'priority'    => 45,
 				'title'       => __( 'Company', 'ground-admin' ),
 				'description' => __( 'Theme Modifications like color scheme, theme texts and layout preferences can be done here', 'ground-admin' ),
 			)
@@ -321,508 +861,56 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 
 
 
-	/**
-	 * Add New Controls for title_tagline Section
-	 */
-	function ground_customizer_title_tagline( $wp_customize ) {
-
-		$wp_customize->add_setting(
-			'logo_url_primary',
-			array(
-				'sanitize_callback' => 'esc_url_raw',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'logo_source_primary',
-		);
-
-		$wp_customize->add_setting(
-			'no_image_url',
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'logo_url_primary_control',
-				array(
-					'label'    => __( 'Upload Logo', 'ground-admin' ),
-					'priority' => 20,
-					'section'  => 'title_tagline',
-					'settings' => 'logo_url_primary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			'logo_source_primary',
-			array(
-				'type'        => 'textarea',
-				'section'     => 'title_tagline',
-				'priority'    => 30,
-				'label'       => __( 'Logo SVG', 'ground-admin' ),
-				'description' => __( 'If you have the logo in SVG format put the code here', 'ground-admin' ),
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'no_image_url',
-				array(
-					'label'    => __( 'Upload No Image', 'ground-admin' ),
-					'priority' => 40,
-					'section'  => 'title_tagline',
-					'settings' => 'no_image_url',
-				)
-			)
-		);
-
-	}
-
-	add_action( 'customize_register', 'ground_customizer_title_tagline' );
-
 
 	/**
-	 * Add New Header Section : ground_section_header
+	 * Add New Settings Section : ground_section_settings
 	 */
-	function ground_customizer_header( $wp_customize ) {
+	function ground_customizer_settings( $wp_customize ) {
 
 		/**
-		 * Add New Section: ground_section_header
+		 * Add New Section: ground_section_settings
 		 */
 		$wp_customize->add_section(
-			'ground_section_header',
+			'ground_section_settings',
 			array(
-				'title'       => __( 'Header', 'ground-admin' ),
+				'title'       => __( 'Settings', 'ground-admin' ),
 				'description' => '',
-				'priority'    => '40',
+				'priority'    => 46,
 				'capability'  => 'edit_theme_options',
 			)
 		);
 
 		$wp_customize->add_setting(
-			'header_type',
+			'rounded_theme',
 			array(
-				'default' => 'megaMenu',
-				'type'    => 'theme_mod',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'header_advice',
-			array(
-				'type' => 'theme_mod',
+				'default'           => '10',
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'header_type_control',
+				'rounded_theme_control',
 				array(
-					'label'       => __( 'Select Header Type', 'ground-admin' ),
-					'description' => __( 'Using this option you can change the Header', 'ground-admin' ),
-					'settings'    => 'header_type',
+					'label'       => __( 'Border Radius', 'ground-admin' ),
+					'description' => __( 'Sets the border radius of the site elements', 'ground-admin' ),
+					'section'     => 'ground_section_settings',
+					'settings'    => 'rounded_theme',
+					'type'        => 'number',
 					'priority'    => 10,
-					'section'     => 'ground_section_header',
-					'type'        => 'select',
-					'choices'     => array(
-						'menu'         => 'Simple menu',
-						'menuCentered' => 'Simple menu - Logo centered',
-						'megaMenu'     => 'Mega menu',
+					'input_attrs' => array(
+						'min' => 0,
+						'max' => 100,
 					),
 				)
 			)
 		);
 
-		$wp_customize->add_control(
-			'header_advice',
-			array(
-				'type'        => 'text',
-				'section'     => 'ground_section_header',
-				'label'       => __( 'Header Advice', 'ground-admin' ),
-				'description' => '',
-			)
-		);
-
 	}
 
-	add_action( 'customize_register', 'ground_customizer_header' );
-
-
-	/**
-	 * Add New Fonts Section : ground_section_fonts
-	 */
-	function ground_customizer_fonts( $wp_customize ) {
-
-		/**
-		 * Add New Section: ground_section_fonts
-		 */
-		$wp_customize->add_section(
-			'ground_section_fonts',
-			array(
-				'title'       => __( 'Fonts', 'ground-admin' ),
-				'description' => __( 'Insert your Fonts here', 'ground-admin' ),
-				'priority'    => '40',
-				'capability'  => 'edit_theme_options',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'font_source_primary',
-		);
-
-		$wp_customize->add_setting(
-			'font_family_primary',
-		);
-
-		$wp_customize->add_setting(
-			'font_source_secondary',
-		);
-
-		$wp_customize->add_setting(
-			'font_family_secondary',
-		);
-
-		$wp_customize->add_control(
-			'font_source_primary',
-			array(
-				'type'        => 'textarea',
-				'section'     => 'ground_section_fonts',
-				'label'       => __( 'Font Source Primary', 'ground-admin' ),
-				'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
-			)
-		);
-
-		$wp_customize->add_control(
-			'font_family_primary',
-			array(
-				'type'        => 'text',
-				'section'     => 'ground_section_fonts',
-				'label'       => __( 'Font Family Primary', 'ground-admin' ),
-				'description' => __( 'Example: Roboto', 'ground-admin' ),
-			)
-		);
-
-		$wp_customize->add_control(
-			'font_source_secondary',
-			array(
-				'type'        => 'textarea',
-				'section'     => 'ground_section_fonts',
-				'label'       => __( 'Font Source Secondary', 'ground-admin' ),
-				'description' => __( 'To embed a font, copy the source code here', 'ground-admin' ),
-			)
-		);
-
-		$wp_customize->add_control(
-			'font_family_secondary',
-			array(
-				'type'        => 'text',
-				'section'     => 'ground_section_fonts',
-				'label'       => __( 'Font Family Secondary', 'ground-admin' ),
-				'description' => __( 'Example: Playfair Display', 'ground-admin' ),
-			)
-		);
-
-	}
-
-	add_action( 'customize_register', 'ground_customizer_fonts' );
-
-
-
-
-	/**
-	 * Add New Colors Section : ground_section_colors
-	 */
-	function ground_customizer_colors( $wp_customize ) {
-
-		/**
-		 * Add New Section: ground_section_colors
-		 */
-		$wp_customize->add_section(
-			'ground_section_colors',
-			array(
-				'title'       => __( 'Colors', 'ground-admin' ),
-				'description' => __( 'Set the site color palette', 'ground-admin' ),
-				'priority'    => '40',
-				'capability'  => 'edit_theme_options',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_primary',
-			array(
-				'default' => '#6366F1',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_secondary',
-			array(
-				'default' => '#14B8A6',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_typo_primary',
-			array(
-				'default' => '#000000',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_typo_secondary',
-			array(
-				'default' => '#71717A',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_body_primary',
-			array(
-				'default' => '#ffffff',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_body_secondary',
-			array(
-				'default' => '#F4F4F5',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_line_primary',
-			array(
-				'default' => '#D4D4D8',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'color_line_secondary',
-			array(
-				'default' => '#D4D4D8',
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_primary_control',
-				array(
-					'label'    => __( 'Color Primary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_primary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_secondary_control',
-				array(
-					'label'    => __( 'Color Secondary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_secondary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_typo_primary_control',
-				array(
-					'label'    => __( 'Color Typo Primary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_typo_primary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_typo_secondary_control',
-				array(
-					'label'    => __( 'Color Typo Secondary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_typo_secondary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_body_primary_control',
-				array(
-					'label'    => __( 'Color Body Primary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_body_primary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_body_secondary_control',
-				array(
-					'label'    => __( 'Color Body Secondary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_body_secondary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_line_primary_control',
-				array(
-					'label'    => __( 'Color Line Primary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_line_primary',
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'color_line_secondary_control',
-				array(
-					'label'    => __( 'Color Line Secondary', 'ground-admin' ),
-					'section'  => 'ground_section_colors',
-					'settings' => 'color_line_secondary',
-				)
-			)
-		);
-
-	}
-
-	add_action( 'customize_register', 'ground_customizer_colors' );
-
-
-
-	/**
-	 * Add New Socials Section : ground_section_socials
-	 */
-	function ground_customizer_socials( $wp_customize ) {
-
-		/**
-		 * Add New Section: ground_section_socials
-		 */
-		$wp_customize->add_section(
-			'ground_section_socials',
-			array(
-				'title'       => __( 'Socials', 'ground-admin' ),
-				'description' => 'Insert url of your social channels',
-				'priority'    => '40',
-				'capability'  => 'edit_theme_options',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'social_linkedin_url',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'social_facebook_url',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'social_twitter_url',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'social_instagram_url',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'social_youtube_url',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_control(
-			'social_linkedin_url',
-			array(
-				'type'        => 'url',
-				'section'     => 'ground_section_socials',
-				'label'       => __( 'Linkedin', 'ground-admin' ),
-				'description' => '',
-				'input_attrs' => array(
-					'placeholder' => __( 'https://www.linkedin.com/...' ),
-				),
-			)
-		);
-		$wp_customize->add_control(
-			'social_facebook_url',
-			array(
-				'type'        => 'url',
-				'section'     => 'ground_section_socials',
-				'label'       => __( 'Facebook', 'ground-admin' ),
-				'description' => '',
-			)
-		);
-		$wp_customize->add_control(
-			'social_twitter_url',
-			array(
-				'type'        => 'url',
-				'section'     => 'ground_section_socials',
-				'label'       => __( 'Twitter', 'ground-admin' ),
-				'description' => '',
-			)
-		);
-		$wp_customize->add_control(
-			'social_instagram_url',
-			array(
-				'type'        => 'url',
-				'section'     => 'ground_section_socials',
-				'label'       => __( 'Instagram', 'ground-admin' ),
-				'description' => '',
-			)
-		);
-		$wp_customize->add_control(
-			'social_youtube_url',
-			array(
-				'type'        => 'url',
-				'section'     => 'ground_section_socials',
-				'label'       => __( 'Youtube', 'ground-admin' ),
-				'description' => '',
-			)
-		);
-
-	}
-
-	add_action( 'customize_register', 'ground_customizer_socials' );
+	add_action( 'customize_register', 'ground_customizer_settings' );
 
 
 	/**
