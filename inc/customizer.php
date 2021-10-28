@@ -845,26 +845,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			)
 		);
 
-		$wp_customize->add_setting(
-			'shop_not_purchasable_product_button',
-		);
-
-		$wp_customize->add_setting(
-			'shop_not_purchasable_product_text',
-		);
-
-		$wp_customize->add_setting(
-			'shop_not_purchasable_product_cta_link',
-			array(
-				'default'           => '',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'esc_url',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'shop_not_purchasable_product_cta_label',
-		);
+		$wp_customize->add_setting( 'shop_not_purchasable_product_button' );
+		$wp_customize->add_setting( 'shop_not_purchasable_product_text' );
+		$wp_customize->add_setting( 'shop_not_purchasable_product_cta' );
 
 		$wp_customize->add_control(
 			'shop_not_purchasable_product_button',
@@ -887,22 +870,13 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		);
 
 		$wp_customize->add_control(
-			'shop_not_purchasable_product_cta_link',
+			'shop_not_purchasable_product_cta_control',
 			array(
-				'type'        => 'url',
+				'label'       => 'Select Page',
+				'description' => __( 'Button visible on the single product page', 'ground-admin' ),
+				'type'        => 'dropdown-pages',
 				'section'     => 'ground_section_not_purchasable',
-				'label'       => __( 'Single Product Button Url', 'ground-admin' ),
-				'description' => __( 'Link button for each non-purchasable product', 'ground-admin' ),
-			)
-		);
-
-		$wp_customize->add_control(
-			'shop_not_purchasable_product_cta_label',
-			array(
-				'type'        => 'text',
-				'section'     => 'ground_section_not_purchasable',
-				'label'       => __( 'Single Product Button Label', 'ground-admin' ),
-				'description' => __( 'Label button for each non-purchasable product', 'ground-admin' ),
+				'settings'    => 'shop_not_purchasable_product_cta',
 			)
 		);
 
@@ -931,12 +905,10 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			)
 		);
 
-		// add setting
 		$wp_customize->add_setting( 'shop_product_summary_page_1' );
 		$wp_customize->add_setting( 'shop_product_summary_page_2' );
 		$wp_customize->add_setting( 'shop_product_summary_page_3' );
 
-		// add control
 		$wp_customize->add_control(
 			'shop_product_summary_page_1_control',
 			array(

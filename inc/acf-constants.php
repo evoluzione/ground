@@ -74,8 +74,7 @@ function ground_costants() {
 	define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_theme_mod( 'shop_not_purchasable_product_button' ) ? get_theme_mod( 'shop_not_purchasable_product_button' ) : __( 'Call to order', 'ground' ) );
 	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_theme_mod( 'shop_not_purchasable_product_text' ) ? get_theme_mod( 'shop_not_purchasable_product_text' ) : __( 'Call to order', 'ground' ) );
-	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LINK', get_theme_mod( 'shop_not_purchasable_product_cta_link' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_link' ) : '' );
-	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LABEL', get_theme_mod( 'shop_not_purchasable_product_cta_label' ) ? get_theme_mod( 'shop_not_purchasable_product_cta_label' ) : '' );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA', get_theme_mod( 'shop_not_purchasable_product_cta' ) ? get_theme_mod( 'shop_not_purchasable_product_cta' ) : '' );
 	define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_theme_mod( 'shop_products_columns_mobile' ) ? get_theme_mod( 'shop_products_columns_mobile' ) : 'default' );
 	define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1', get_theme_mod( 'shop_product_summary_page_1' ) ? get_theme_mod( 'shop_product_summary_page_1' ) : '' );
 	define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2', get_theme_mod( 'shop_product_summary_page_2' ) ? get_theme_mod( 'shop_product_summary_page_2' ) : '' );

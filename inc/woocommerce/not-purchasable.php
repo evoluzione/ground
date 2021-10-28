@@ -74,9 +74,9 @@ function ground_woocommerce_call_to_order_text() {
 			<p class="text-typo-secondary">
 				<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT ); ?>
 			</p>
-			<?php if ( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LINK ) : ?>
+			<?php if ( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) : ?>
 				<div class="relative mt-4">
-					<a class="button button--secondary" href="<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LINK ); ?>"><?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA_LABEL ); ?></a>
+					<a class="button button--secondary" href="<?php echo esc_html( get_permalink( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) ); ?>"><?php echo esc_html( get_the_title( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) ); ?></a>
 				</div>
 			<?php endif; ?>
 		</div>
