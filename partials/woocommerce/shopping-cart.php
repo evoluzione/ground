@@ -1,13 +1,16 @@
 <?php
+
+if ( class_exists( 'WooCommerce' ) ) :
+
 	$count = WC()->cart->get_cart_contents_count();
 	$class = '';
 
-if ( $count === 0 ) {
-	$class = 'is-empty ';
-} else {
-	$class = 'is-full js-toggle';
-}
-?>
+	if ( $count === 0 ) {
+		$class = 'is-empty ';
+	} else {
+		$class = 'is-full js-toggle';
+	}
+	?>
 
 <a class="shopping-cart <?php echo $class; ?> text-typo-primary hover:text-primary" data-toggle-target="#minicart html" data-toggle-class-name="is-overlay-panel-open" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
 
@@ -30,3 +33,5 @@ if ( $count === 0 ) {
 	</div>
 
 </a>
+
+<?php endif; ?>
