@@ -32,7 +32,6 @@ function ground_costants() {
 	define( 'GROUND_COMPANY_ZIP_CODE', get_theme_mod( 'company_zip_code' ) ? get_theme_mod( 'company_zip_code' ) : '' );
 	define( 'GROUND_COMPANY_VAT', get_theme_mod( 'company_vat' ) ? get_theme_mod( 'company_vat' ) : '' );
 	define( 'GROUND_COMPANY_FISCAL_CODE', get_theme_mod( 'company_fiscal_code' ) ? get_theme_mod( 'company_fiscal_code' ) : '' );
-
 	define( 'GROUND_COMPANY_ADDRESS', get_theme_mod( 'company_address' ) ? get_theme_mod( 'company_address' ) : '' );
 	define( 'GROUND_COMPANY_CITY', get_theme_mod( 'company_city' ) ? get_theme_mod( 'company_city' ) : '' );
 	define( 'GROUND_COMPANY_PROVINCE', get_theme_mod( 'company_province' ) ? get_theme_mod( 'company_province' ) : '' );
@@ -40,14 +39,11 @@ function ground_costants() {
 	define( 'GROUND_COMPANY_ADDRESS_URL', get_theme_mod( 'company_address_url' ) ? get_theme_mod( 'company_address_url' ) : '' );
 	define( 'GROUND_COMPANY_ADDRESS_LATITUDE', get_theme_mod( 'company_address_latitude' ) ? get_theme_mod( 'company_address_latitude' ) : '' );
 	define( 'GROUND_COMPANY_ADDRESS_LONGITUDE', get_theme_mod( 'company_address_longitude' ) ? get_theme_mod( 'company_address_longitude' ) : '' );
-
 	define( 'GROUND_COMPANY_PHONE', get_theme_mod( 'company_phone' ) ? get_theme_mod( 'company_phone' ) : '' );
 	define( 'GROUND_COMPANY_WHATSAPP', get_theme_mod( 'company_whatsapp' ) ? get_theme_mod( 'company_whatsapp' ) : '' );
 	define( 'GROUND_COMPANY_FAX', get_theme_mod( 'company_fax' ) ? get_theme_mod( 'company_fax' ) : '' );
-
 	define( 'GROUND_COMPANY_EMAIL', get_theme_mod( 'company_email' ) ? get_theme_mod( 'company_email' ) : '' );
 	define( 'GROUND_COMPANY_PEC', get_theme_mod( 'company_pec' ) ? get_theme_mod( 'company_pec' ) : '' );
-
 	define( 'GROUND_COMPANY_OPENING_HOURS', get_theme_mod( 'company_opening_hours' ) ? get_theme_mod( 'company_opening_hours' ) : '' );
 	define( 'GROUND_COMPANY_CLOSING_TIME', get_theme_mod( 'company_closing_time' ) ? get_theme_mod( 'company_closing_time' ) : '' );
 
