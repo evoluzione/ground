@@ -11,9 +11,12 @@
 						</div>
 
 						<?php
-						get_template_part( 'partials/pre-footer' );
-						get_template_part( 'partials/content', 'footer' );
-						get_template_part( 'partials/scroll-top' );
+						/**
+						 * Functions hooked into ground_footer action
+						 *
+						 * @hooked ground_footer_type - 10
+						 */
+						do_action( 'ground_footer' );
 						?>
 
 						</div><!-- End [data-router-view]  -->

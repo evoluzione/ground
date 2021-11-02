@@ -1,3 +1,56 @@
+<?php
+	$repeater = GROUND_SHOP_PAYMENT;
+?>
+
+<div class="container my-12 lg:my-24">
+
+	<div class="text-center mb-24 grid grid-cols-12 gap-6 lg:items-center">
+		<?php if ( $repeater ) : ?>
+			<div class="col-span-full lg:col-span-2">
+				<div class="grid grid-cols-4 gap-6 lg:grid-cols-2">
+					<?php
+
+					foreach ( $repeater as $row ) :
+						?>
+						<figure class="col-span-1 aspect-w-1 aspect-h-1 rounded-full bg-body-secondary flex justify-center">
+							<img class="object-contain p-4 md:p-12 lg:p-4 xl:p-6" src="<?php echo esc_html( GROUND_TEMPLATE_URL ) . '/img/getway-icons/' . $row . '.svg'; ?>"/>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<?php endif; ?>
+
+			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
+				<div class="text-2xl lg:text-3xl font-bold mb-4 ">
+					<?php echo esc_html( GROUND_PAYMENTS_TITLE ); ?>
+				</div>
+				<div class="text-base lg:text-xl text-typo-secondary">
+					<?php echo esc_html( GROUND_PAYMENTS_CONTENT ); ?>
+				</div>
+			</div>
+
+			<div class="col-start-5 col-span-4 lg:col-start-auto lg:col-span-2 ">
+				<div class="w-full aspect-w-1 aspect-h-1">
+					<div class="rounded-full text-black bg-body-secondary flex items-center justify-center mb-4">
+						<?php ground_icon( 'faster', 'icon--faster w-full p-6 lg:p-12 text-typo-primary' ); ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
+				<div class="text-2xl lg:text-3xl font-bold mb-4">
+					<?php echo esc_html( GROUND_SHIPPING_TITLE ); ?>
+				</div>
+				<div class="text-base lg:text-xl text-typo-secondary">
+					<?php echo esc_html( GROUND_SHIPPING_CONTENT ); ?>
+				</div>
+			</div>
+
+	</div>
+
+</div>
+
+
 <footer class="relative pt-16 bg-body-secondary">
 	<div class="container">
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -5,24 +58,24 @@
 
 			<?php if ( isset( $locations['footer-primary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterPrimary = wp_get_nav_menu_object( $locations['footer-primary'] ); ?>
-				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterPrimary->name; ?> </h3>
+				<?php $title_footer_primary = wp_get_nav_menu_object( $locations['footer-primary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo $title_footer_primary->name; ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'primary' ); ?>
 			</div>
 			<?php endif; ?>
 
 			<?php if ( isset( $locations['footer-secondary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterSecondary = wp_get_nav_menu_object( $locations['footer-secondary'] ); ?>
-				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterSecondary->name; ?> </h3>
+				<?php $title_footer_secondary = wp_get_nav_menu_object( $locations['footer-secondary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_secondary->name ); ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'secondary' ); ?>
 			</div>
 			<?php endif; ?>
 
 			<?php if ( isset( $locations['footer-tertiary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterTertiary = wp_get_nav_menu_object( $locations['footer-tertiary'] ); ?>
-				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterTertiary->name; ?> </h3>
+				<?php $title_footer_tertiary = wp_get_nav_menu_object( $locations['footer-tertiary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_tertiary->name ); ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'tertiary' ); ?>
 			</div>
 			<?php endif; ?>
@@ -32,13 +85,13 @@
 				<?php if ( GROUND_COMPANY_OPENING_HOURS ) : ?>
 				<div class="mb-4">
 					<h3 class="text-xl font-bold mb-4"><?php _e( 'Opening Hours', 'ground' ); ?></h3>
-					<span class="text-typo-secondary"><?php echo GROUND_COMPANY_OPENING_HOURS; ?></span>					
+					<span class="text-typo-secondary"><?php echo esc_html( GROUND_COMPANY_OPENING_HOURS ); ?></span>					
 				</div>
 				<?php endif; ?>
 				<?php if ( GROUND_COMPANY_CLOSING_TIME ) : ?>
 				<div>
 					<h3 class="text-xl font-bold mt-6 lg:mt-8 mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
-					<span class="text-typo-secondary"><?php echo GROUND_COMPANY_CLOSING_TIME; ?></span>
+					<span class="text-typo-secondary"><?php echo esc_html( GROUND_COMPANY_CLOSING_TIME ); ?></span>
 				</div>
 				<?php endif; ?>
 			</div>

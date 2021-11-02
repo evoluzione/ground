@@ -591,3 +591,15 @@ function ground_header_type() {
 
 add_action( 'ground_header', 'ground_header_type', 10 );
 
+
+
+/**
+ * Footer, Add footer switch type
+ */
+function ground_footer_type() {
+
+	get_template_part( 'partials/footers/footer', 'simple' );
+
+}
+
+add_action( 'ground_footer', 'ground_footer_type', 10 );
