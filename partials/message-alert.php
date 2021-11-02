@@ -1,7 +1,7 @@
-<?php if ( GROUND_HEADER_TEXT ) : ?>
-<div class="message-alert message-alert--primary <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white">
+<?php if ( GROUND_HEADER_ADVICE ) : ?>
+<div class="message-alert message-alert--primary <?php echo GROUND_HEADER_ADVICE ? 'bg-body-secondary py-2' : ''; ?> text-center text-typo-secondary">
 	<div class="container">
-		<?php echo GROUND_HEADER_TEXT; ?>
+		<?php echo GROUND_HEADER_ADVICE; ?>
 	</div>
 </div>
 <?php endif; ?>

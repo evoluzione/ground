@@ -27,7 +27,7 @@
 		<div class="js-menu-container header__container relative">
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 				<div class="hidden xl:flex">
-					<?php echo GROUND_HEADER_TEXT; ?>
+					<?php echo GROUND_HEADER_ADVICE; ?>
 				</div>
 				<div class="hidden lg:inline-block">
 					<?php get_template_part( 'partials/company', 'info-contacts' ); ?>

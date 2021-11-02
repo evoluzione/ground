@@ -1,11 +1,11 @@
 {
-    "key": "group_61010d9b72145",
-    "title": "Theme Settings: Header",
+    "key": "group_617aae51a1e50",
+    "title": "Block Ground Child: Hero",
     "fields": [
         {
-            "key": "field_610aabc74a718",
-            "label": "Advice",
-            "name": "header_text",
+            "key": "field_617aae686f9a1",
+            "label": "Title",
+            "name": "title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,10 +22,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_6111100be8230",
-            "label": "Type",
-            "name": "header_type",
-            "type": "select",
+            "key": "field_617aaf830e968",
+            "label": "Content",
+            "name": "content",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,36 +34,29 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "menu": "Simple menu",
-                "menuCentered": "Simple menu - Logo centered",
-                "megaMenu": "Mega menu"
-            },
-            "default_value": "menu",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "block",
                 "operator": "==",
-                "value": "acf-options-header"
+                "value": "acf\/hero"
             }
         ]
     ],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
-    "label_placement": "left",
+    "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629368292
+    "modified": 1635430282
 }

@@ -513,30 +513,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		)
 	);
 
-	acf_add_options_sub_page(
-		array(
-			'page_title'  => 'Theme Company',
-			'menu_title'  => 'Company',
-			'parent_slug' => 'theme-general-settings',
-		)
-	);
-
-	acf_add_options_sub_page(
-		array(
-			'page_title'  => 'Theme Socials',
-			'menu_title'  => 'Socials',
-			'parent_slug' => 'theme-general-settings',
-		)
-	);
-
-	acf_add_options_sub_page(
-		array(
-			'page_title'  => 'Theme Header Settings',
-			'menu_title'  => 'Header',
-			'parent_slug' => 'theme-general-settings',
-		)
-	);
-
 
 	acf_add_options_sub_page(
 		array(
@@ -568,16 +544,16 @@ function ground_log( $log ) {
 /**
  * Dark mode: Add HTML class
  */
-function ground_dark_mode( $output ) {
+// function ground_dark_mode( $output ) {
 
-	if ( GROUND_DARK_MODE == '1' ) {
-		$output .= ' class="dark"';
-		return $output;
-	}
+// if ( GROUND_DARK_MODE == '1' ) {
+// $output .= ' class="dark"';
+// return $output;
+// }
 
-}
+// }
 
-add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
+// add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
 
 
 /**

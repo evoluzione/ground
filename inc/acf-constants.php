@@ -6,97 +6,85 @@
  * @package Ground
  */
 
+function ground_costants() {
 
-// Dark Mode.
-define( 'GROUND_DARK_MODE', get_field( 'dark_mode', 'option' ) ? get_field( 'dark_mode', 'option' ) : '#6366F1' );
+	// Colors.
+	define( 'GROUND_COLOR_PRIMARY', get_theme_mod( 'color_primary' ) ? get_theme_mod( 'color_primary' ) : '#6366F1' );
+	define( 'GROUND_COLOR_SECONDARY', get_theme_mod( 'color_secondary' ) ? get_theme_mod( 'color_secondary' ) : '#14B8A6' );
+	define( 'GROUND_COLOR_TYPO_PRIMARY', get_theme_mod( 'color_typo_primary' ) ? get_theme_mod( 'color_typo_primary' ) : '#000000' );
+	define( 'GROUND_COLOR_TYPO_SECONDARY', get_theme_mod( 'color_typo_secondary' ) ? get_theme_mod( 'color_typo_secondary' ) : '#71717A' );
+	define( 'GROUND_COLOR_BODY_PRIMARY', get_theme_mod( 'color_body_primary' ) ? get_theme_mod( 'color_body_primary' ) : '#ffffff' );
+	define( 'GROUND_COLOR_BODY_SECONDARY', get_theme_mod( 'color_body_secondary' ) ? get_theme_mod( 'color_body_secondary' ) : '#F4F4F5' );
+	define( 'GROUND_COLOR_LINE_PRIMARY', get_theme_mod( 'color_line_primary' ) ? get_theme_mod( 'color_line_primary' ) : '#D4D4D8' );
+	define( 'GROUND_COLOR_LINE_SECONDARY', get_theme_mod( 'color_line_secondary' ) ? get_theme_mod( 'color_line_secondary' ) : '#D4D4D8' );
 
-// Colors.
-define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
-define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );
-define( 'GROUND_COLOR_TYPO_PRIMARY', get_field( 'color_typo_primary', 'option' ) ? get_field( 'color_typo_primary', 'option' ) : '#000000' );
-define( 'GROUND_COLOR_TYPO_SECONDARY', get_field( 'color_typo_secondary', 'option' ) ? get_field( 'color_typo_secondary', 'option' ) : '#71717A' );
-define( 'GROUND_COLOR_BODY_PRIMARY', get_field( 'color_body_primary', 'option' ) ? get_field( 'color_body_primary', 'option' ) : '#ffffff' );
-define( 'GROUND_COLOR_BODY_SECONDARY', get_field( 'color_body_secondary', 'option' ) ? get_field( 'color_body_secondary', 'option' ) : '#F4F4F5' );
+	// Fonts.
+	define( 'GROUND_FONT_SOURCE_PRIMARY', get_theme_mod( 'font_source_primary' ) ? get_theme_mod( 'font_source_primary' ) : '' );
+	define( 'GROUND_FONT_FAMILY_PRIMARY', get_theme_mod( 'font_family_primary' ) ? get_theme_mod( 'font_family_primary' ) : '' );
+	define( 'GROUND_FONT_SOURCE_SECONDARY', get_theme_mod( 'font_source_secondary' ) ? get_theme_mod( 'font_source_secondary' ) : '' );
+	define( 'GROUND_FONT_FAMILY_SECONDARY', get_theme_mod( 'font_family_secondary' ) ? get_theme_mod( 'font_family_secondary' ) : '' );
 
-// Test with Native Customizer
-// define( 'GROUND_COLOR_BODY_PRIMARY', get_theme_mod( 'color_body_primary' ) ? get_theme_mod( 'color_body_primary' ) : '#ffffff' );
-// define( 'GROUND_COLOR_BODY_SECONDARY', get_theme_mod( 'color_body_secondary' ) ? get_theme_mod( 'color_body_secondary' ) : '#F4F4F5' );
+	// Styles.
+	define( 'GROUND_ROUNDED_THEME', get_theme_mod( 'rounded_theme' ) ? get_theme_mod( 'rounded_theme' ) : '0' );
 
-define( 'GROUND_COLOR_LINE_PRIMARY', get_field( 'color_line_primary', 'option' ) ? get_field( 'color_line_primary', 'option' ) : '#D4D4D8' );
-define( 'GROUND_COLOR_LINE_SECONDARY', get_field( 'color_line_secondary', 'option' ) ? get_field( 'color_line_secondary', 'option' ) : '#D4D4D8' );
+	// Company.
+	define( 'GROUND_COMPANY_NAME', get_theme_mod( 'company_name' ) ? get_theme_mod( 'company_name' ) : '' );
+	define( 'GROUND_COMPANY_ZIP_CODE', get_theme_mod( 'company_zip_code' ) ? get_theme_mod( 'company_zip_code' ) : '' );
+	define( 'GROUND_COMPANY_VAT', get_theme_mod( 'company_vat' ) ? get_theme_mod( 'company_vat' ) : '' );
+	define( 'GROUND_COMPANY_FISCAL_CODE', get_theme_mod( 'company_fiscal_code' ) ? get_theme_mod( 'company_fiscal_code' ) : '' );
+	define( 'GROUND_COMPANY_ADDRESS', get_theme_mod( 'company_address' ) ? get_theme_mod( 'company_address' ) : '' );
+	define( 'GROUND_COMPANY_CITY', get_theme_mod( 'company_city' ) ? get_theme_mod( 'company_city' ) : '' );
+	define( 'GROUND_COMPANY_PROVINCE', get_theme_mod( 'company_province' ) ? get_theme_mod( 'company_province' ) : '' );
+	define( 'GROUND_COMPANY_COUNTRY', get_theme_mod( 'company_country' ) ? get_theme_mod( 'company_country' ) : '' );
+	define( 'GROUND_COMPANY_ADDRESS_URL', get_theme_mod( 'company_address_url' ) ? get_theme_mod( 'company_address_url' ) : '' );
+	define( 'GROUND_COMPANY_ADDRESS_LATITUDE', get_theme_mod( 'company_address_latitude' ) ? get_theme_mod( 'company_address_latitude' ) : '' );
+	define( 'GROUND_COMPANY_ADDRESS_LONGITUDE', get_theme_mod( 'company_address_longitude' ) ? get_theme_mod( 'company_address_longitude' ) : '' );
+	define( 'GROUND_COMPANY_PHONE', get_theme_mod( 'company_phone' ) ? get_theme_mod( 'company_phone' ) : '' );
+	define( 'GROUND_COMPANY_WHATSAPP', get_theme_mod( 'company_whatsapp' ) ? get_theme_mod( 'company_whatsapp' ) : '' );
+	define( 'GROUND_COMPANY_FAX', get_theme_mod( 'company_fax' ) ? get_theme_mod( 'company_fax' ) : '' );
+	define( 'GROUND_COMPANY_EMAIL', get_theme_mod( 'company_email' ) ? get_theme_mod( 'company_email' ) : '' );
+	define( 'GROUND_COMPANY_PEC', get_theme_mod( 'company_pec' ) ? get_theme_mod( 'company_pec' ) : '' );
+	define( 'GROUND_COMPANY_OPENING_HOURS', get_theme_mod( 'company_opening_hours' ) ? get_theme_mod( 'company_opening_hours' ) : '' );
+	define( 'GROUND_COMPANY_CLOSING_TIME', get_theme_mod( 'company_closing_time' ) ? get_theme_mod( 'company_closing_time' ) : '' );
 
-// Fonts.
-define( 'GROUND_FONT_SOURCE_PRIMARY', get_field( 'font_source_primary', 'option' ) ? get_field( 'font_source_primary', 'option' ) : '' );
-define( 'GROUND_FONT_FAMILY_PRIMARY', get_field( 'font_family_primary', 'option' ) ? get_field( 'font_family_primary', 'option' ) : '' );
-define( 'GROUND_FONT_SOURCE_SECONDARY', get_field( 'font_source_secondary', 'option' ) ? get_field( 'font_source_secondary', 'option' ) : '' );
-define( 'GROUND_FONT_FAMILY_SECONDARY', get_field( 'font_family_secondary', 'option' ) ? get_field( 'font_family_secondary', 'option' ) : '' );
+	// Socials.
+	define( 'GROUND_SOCIAL_LINKEDIN_URL', get_theme_mod( 'social_linkedin_url' ) ? get_theme_mod( 'social_linkedin_url' ) : '' );
+	define( 'GROUND_SOCIAL_FACEBOOK_URL', get_theme_mod( 'social_facebook_url' ) ? get_theme_mod( 'social_facebook_url' ) : '' );
+	define( 'GROUND_SOCIAL_TWITTER_URL', get_theme_mod( 'social_twitter_url' ) ? get_theme_mod( 'social_twitter_url' ) : '' );
+	define( 'GROUND_SOCIAL_INSTAGRAM_URL', get_theme_mod( 'social_instagram_url' ) ? get_theme_mod( 'social_instagram_url' ) : '' );
+	define( 'GROUND_SOCIAL_YOUTUBE_URL', get_theme_mod( 'social_youtube_url' ) ? get_theme_mod( 'social_youtube_url' ) : '' );
 
-// Styles.
-define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '0' );
+	// Header.
+	define( 'GROUND_HEADER_ADVICE', get_theme_mod( 'header_advice' ) ? get_theme_mod( 'header_advice' ) : '' );
+	define( 'GROUND_HEADER_TYPE', get_theme_mod( 'header_type' ) ? get_theme_mod( 'header_type' ) : '' );
 
-// Company.
-define( 'GROUND_COMPANY_NAME', get_field( 'company_name', 'option' ) ? get_field( 'company_name', 'option' ) : '' );
-define( 'GROUND_COMPANY_PIVA', get_field( 'company_piva', 'option' ) ? get_field( 'company_piva', 'option' ) : '' );
-define( 'GROUND_COMPANY_CF', get_field( 'company_cf', 'option' ) ? get_field( 'company_cf', 'option' ) : '' );
-define( 'GROUND_COMPANY_CITY', get_field( 'company_city', 'option' ) ? get_field( 'company_city', 'option' ) : '' );
-define( 'GROUND_COMPANY_PROVINCE', get_field( 'company_province', 'option' ) ? get_field( 'company_province', 'option' ) : '' );
-define( 'GROUND_COMPANY_COUNTRY', get_field( 'company_country', 'option' ) ? get_field( 'company_country', 'option' ) : '' );
-define( 'GROUND_COMPANY_CAP', get_field( 'company_cap', 'option' ) ? get_field( 'company_cap', 'option' ) : '' );
-define( 'GROUND_COMPANY_ADDRESS', get_field( 'company_address', 'option' ) ? get_field( 'company_address', 'option' ) : '' );
-define( 'GROUND_COMPANY_ADDRESS_URL', get_field( 'company_address_url', 'option' ) ? get_field( 'company_address_url', 'option' ) : '' );
-define( 'GROUND_COMPANY_ADDRESS_LATITUDE', get_field( 'company_address_latitude', 'option' ) ? get_field( 'company_address_latitude', 'option' ) : '' );
-define( 'GROUND_COMPANY_ADDRESS_LONGITUDE', get_field( 'company_address_longitude', 'option' ) ? get_field( 'company_address_longitude', 'option' ) : '' );
-define( 'GROUND_COMPANY_PHONE', get_field( 'company_phone', 'option' ) ? get_field( 'company_phone', 'option' ) : '' );
-define( 'GROUND_COMPANY_WHATSAPP', get_field( 'company_whatsapp', 'option' ) ? get_field( 'company_whatsapp', 'option' ) : '' );
-define( 'GROUND_COMPANY_FAX', get_field( 'company_fax', 'option' ) ? get_field( 'company_fax', 'option' ) : '' );
-define( 'GROUND_COMPANY_EMAIL', get_field( 'company_email', 'option' ) ? get_field( 'company_email', 'option' ) : '' );
-define( 'GROUND_COMPANY_PEC', get_field( 'company_pec', 'option' ) ? get_field( 'company_pec', 'option' ) : '' );
-define( 'GROUND_COMPANY_OPENING_HOURS', get_field( 'company_opening_hours', 'option' ) ? get_field( 'company_opening_hours', 'option' ) : '' );
-define( 'GROUND_COMPANY_CLOSING_TIME', get_field( 'company_closing time', 'option' ) ? get_field( 'company_closing time', 'option' ) : '' );
+	// Shipping.
+	define( 'GROUND_SHIPPING_TITLE', get_theme_mod( 'shipping_title' ) ? get_theme_mod( 'shipping_title' ) : '' );
+	define( 'GROUND_SHIPPING_CONTENT', get_theme_mod( 'shipping_content' ) ? get_theme_mod( 'shipping_content' ) : '' );
 
+	// Payments.
+	define( 'GROUND_PAYMENTS_TITLE', get_theme_mod( 'payments_title' ) ? get_theme_mod( 'payments_title' ) : '' );
+	define( 'GROUND_PAYMENTS_CONTENT', get_theme_mod( 'payments_content' ) ? get_theme_mod( 'payments_content' ) : '' );
 
-// Socials.
-define( 'GROUND_SOCIAL_LINKEDIN_URL', get_field( 'social_linkedin_url', 'option' ) ? get_field( 'social_linkedin_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_FACEBOOK_URL', get_field( 'social_facebook_url', 'option' ) ? get_field( 'social_facebook_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_TWITTER_URL', get_field( 'social_twitter_url', 'option' ) ? get_field( 'social_twitter_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_INSTAGRAM_URL', get_field( 'social_instagram_url', 'option' ) ? get_field( 'social_instagram_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_YOUTUBE_URL', get_field( 'social_youtube_url', 'option' ) ? get_field( 'social_youtube_url', 'option' ) : '' );
+	// Logos.
+	define( 'GROUND_LOGO_URL_PRIMARY', get_theme_mod( 'logo_url_primary' ) ? get_theme_mod( 'logo_url_primary' ) : '' );
+	define( 'GROUND_LOGO_SOURCE_PRIMARY', get_theme_mod( 'logo_source_primary' ) ? get_theme_mod( 'logo_source_primary' ) : '' );
 
+	// No image.
+	define( 'GROUND_NO_IMAGE_URL', get_theme_mod( 'no_image_url' ) ? get_theme_mod( 'no_image_url' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
 
-// Header.
-define( 'GROUND_HEADER_TEXT', get_field( 'header_text', 'option' ) ? get_field( 'header_text', 'option' ) : '' );
-define( 'GROUND_HEADER_TYPE', get_field( 'header_type', 'option' ) ? get_field( 'header_type', 'option' ) : '' );
-define( 'GROUND_HEADER_ALL_PRODUCTS', get_field( 'header_all_products', 'option' ) ? get_field( 'header_all_products', 'option' ) : '' );
+	// Shop.
+	define( 'GROUND_SHOP_REMOVE_ADD_TO_CART', get_theme_mod( 'shop_remove_add_to_cart' ) ? get_theme_mod( 'shop_remove_add_to_cart' ) : '' );
+	define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_theme_mod( 'shop_not_purchasable_product_button' ) ? get_theme_mod( 'shop_not_purchasable_product_button' ) : __( 'Call to order', 'ground' ) );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_theme_mod( 'shop_not_purchasable_product_text' ) ? get_theme_mod( 'shop_not_purchasable_product_text' ) : __( 'Call to order', 'ground' ) );
+	define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA', get_theme_mod( 'shop_not_purchasable_product_cta' ) ? get_theme_mod( 'shop_not_purchasable_product_cta' ) : '' );
+	define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_theme_mod( 'shop_products_columns_mobile' ) ? get_theme_mod( 'shop_products_columns_mobile' ) : 'default' );
+	define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1', get_theme_mod( 'shop_product_summary_page_1' ) ? get_theme_mod( 'shop_product_summary_page_1' ) : '' );
+	define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2', get_theme_mod( 'shop_product_summary_page_2' ) ? get_theme_mod( 'shop_product_summary_page_2' ) : '' );
+	define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3', get_theme_mod( 'shop_product_summary_page_3' ) ? get_theme_mod( 'shop_product_summary_page_3' ) : '' );
 
-// Logos.
-define( 'GROUND_LOGO_URL_PRIMARY', get_field( 'logo_url_primary', 'option' ) ? get_field( 'logo_url_primary', 'option' ) : '' );
-define( 'GROUND_LOGO_SOURCE_PRIMARY', get_field( 'logo_source_primary', 'option' ) ? get_field( 'logo_source_primary', 'option' ) : '' );
-define( 'GROUND_LOGO_TYPE_PRIMARY', get_field( 'logo_type_primary', 'option' ) ? get_field( 'logo_type_primary', 'option' ) : '' );
-define( 'GROUND_LOGO_URL_SECONDARY', get_field( 'logo_url_secondary', 'option' ) ? get_field( 'logo_url_secondary', 'option' ) : '' );
-define( 'GROUND_LOGO_SOURCE_SECONDARY', get_field( 'logo_source_secondary', 'option' ) ? get_field( 'logo_source_secondary', 'option' ) : '' );
-define( 'GROUND_LOGO_TYPE_SECONDARY', get_field( 'logo_type_secondary', 'option' ) ? get_field( 'logo_type_secondary', 'option' ) : '' );
+}
 
-// No image.
-define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field( 'no_image_url', 'option' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
-
-
-// Shop.
-define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
-define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
-define( 'GROUND_SHOP_PRODUCT_GALLERY_SLIDER', get_field( 'shop_product_gallery_slider', 'option' ) ? get_field( 'shop_product_gallery_slider', 'option' ) : '' );
-define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_field( 'shop_not_purchasable_product_button', 'option' ) ? get_field( 'shop_not_purchasable_product_button', 'option' ) : __( 'Call to order', 'ground' ) );
-define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT', get_field( 'shop_not_purchasable_product_text', 'option' ) ? get_field( 'shop_not_purchasable_product_text', 'option' ) : __( 'Call to order', 'ground' ) );
-define( 'GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_LINK', get_field( 'shop_not_purchasable_product_link', 'option' ) ? get_field( 'shop_not_purchasable_product_link', 'option' ) : '' );
-
-// Native Customizer
-define( 'GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE', get_option( 'shop_products_columns_mobile' ) ? get_option( 'shop_products_columns_mobile' ) : 'default' );
-
-
-
-
-// Scroll top.
-define( 'GROUND_SCROLL_TOP', get_field( 'scroll_top', 'option' ) ? get_field( 'scroll_top', 'option' ) : '' );
-
-
-
+add_action( 'wp_head', 'ground_costants' );
 

@@ -57,59 +57,50 @@
 				?>
 				<?php echo GROUND_COMPANY_NAME ? GROUND_COMPANY_NAME . ' - ' : null; ?>
 				<?php echo GROUND_COMPANY_ADDRESS ? GROUND_COMPANY_ADDRESS . ' - ' : null; ?>
-				<?php echo GROUND_COMPANY_CAP ? GROUND_COMPANY_CAP : null; ?> <?php echo GROUND_COMPANY_CITY ? GROUND_COMPANY_CITY : null; ?>
+				<?php echo GROUND_COMPANY_ZIP_CODE ? GROUND_COMPANY_ZIP_CODE : null; ?> <?php echo GROUND_COMPANY_CITY ? GROUND_COMPANY_CITY : null; ?>
 				<?php echo GROUND_COMPANY_PROVINCE ? ( '( ' . GROUND_COMPANY_PROVINCE . ' )' ) : null; ?>
 				<?php echo GROUND_COMPANY_COUNTRY ? GROUND_COMPANY_COUNTRY : null; ?>
-				<?php echo GROUND_COMPANY_PIVA ? ' - P.IVA:' . GROUND_COMPANY_PIVA : null; ?>
-				<?php echo GROUND_COMPANY_CF ? ' - C.F.:' . GROUND_COMPANY_CF : null; ?> </p>
-			</div>
-			<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
-			<div class="lg:border-l border-line-primary">
+				<?php echo GROUND_COMPANY_VAT ? ' - P.IVA:' . GROUND_COMPANY_VAT : null; ?>
+				<?php echo GROUND_COMPANY_FISCAL_CODE ? ' - C.F.:' . GROUND_COMPANY_FISCAL_CODE : null; ?> </p>
 
-				<div class="lg:flex items-center justify-center lg:space-x-6">
+				<div class="bg-red-500 p-12">
+					<p>Debug new options from customizer</p>
+					<h3>General info:</h3>
+					<p>GROUND_COMPANY_NAME: <strong><?php echo esc_html( GROUND_COMPANY_NAME ); ?></strong></p>
+					<p>GROUND_COMPANY_ZIP_CODE: <strong> <?php echo esc_html( GROUND_COMPANY_ZIP_CODE ); ?></strong></p>
+					<p>GROUND_COMPANY_VAT: <strong> <?php echo esc_html( GROUND_COMPANY_VAT ); ?></strong></p>
+					<p>GROUND_COMPANY_FISCAL_CODE: <strong> <?php echo esc_html( GROUND_COMPANY_FISCAL_CODE ); ?></strong></p>
 
-					<p class="pr-3 text-center mb-2 text-sm lg:text-xs lg:pl-6 lg:text-left text-typo-secondary lg:mb-0"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
+					<h3>Address:</h3>
+					<p>GROUND_COMPANY_ADDRESS: <strong> <?php echo esc_html( GROUND_COMPANY_ADDRESS ); ?></strong></p>
+					<p>GROUND_COMPANY_CITY: <strong> <?php echo esc_html( GROUND_COMPANY_CITY ); ?></strong></p>
+					<p>GROUND_COMPANY_PROVINCE: <strong> <?php echo esc_html( GROUND_COMPANY_PROVINCE ); ?></strong></p>
+					<p>GROUND_COMPANY_COUNTRY: <strong> <?php echo esc_html( GROUND_COMPANY_COUNTRY ); ?></strong></p>
+					<p>GROUND_COMPANY_ADDRESS_URL: <strong> <?php echo esc_html( GROUND_COMPANY_ADDRESS_URL ); ?></strong></p>
+					<p>GROUND_COMPANY_ADDRESS_LATITUDE: <strong> <?php echo esc_html( GROUND_COMPANY_ADDRESS_LATITUDE ); ?></strong></p>
+					<p>GROUND_COMPANY_ADDRESS_LONGITUDE: <strong> <?php echo esc_html( GROUND_COMPANY_ADDRESS_LONGITUDE ); ?></strong></p>
 
-					<div class="flex justify-center lg:justify-start space-x-3">
-						<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>
-						<span class="inline-block">
-							<a class="h-10 w-10 rounded-full text-white bg-blue-600 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_LINKEDIN_URL; ?>">
-								<?php ground_icon( 'linkedin', 'mx-auto h-3' ); ?>
-							</a>
-						</span>
-						<?php endif; ?>
+					<h3>Phones:</h3>
+					<p>GROUND_COMPANY_PHONE: <strong> <?php echo esc_html( GROUND_COMPANY_PHONE ); ?></strong></p>
+					<p>GROUND_COMPANY_WHATSAPP: <strong> <?php echo esc_html( GROUND_COMPANY_WHATSAPP ); ?></strong></p>
+					<p>GROUND_COMPANY_FAX: <strong> <?php echo esc_html( GROUND_COMPANY_FAX ); ?></strong></p>
 
-						<?php if ( GROUND_SOCIAL_FACEBOOK_URL ) : ?>
-						<span class="inline-block">
-							<a class="h-10 w-10 rounded-full text-white bg-blue-500 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_FACEBOOK_URL; ?>">
-								<?php ground_icon( 'facebook', 'mx-auto h-4' ); ?>
-							</a>
-						</span>
-						<?php endif; ?>
+					<h3>Emails:</h3>
+					<p>GROUND_COMPANY_EMAIL: <strong> <?php echo esc_html( GROUND_COMPANY_EMAIL ); ?></strong></p>
+					<p>GROUND_COMPANY_PEC: <strong> <?php echo esc_html( GROUND_COMPANY_PEC ); ?></strong></p>
 
-						<?php if ( GROUND_SOCIAL_INSTAGRAM_URL ) : ?>
-						<span class="inline-block">
-							<a class="h-10 w-10 rounded-full text-white bg-pink-500 p-2 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_INSTAGRAM_URL; ?>">
-								<?php ground_icon( 'instagram', 'mx-auto h-4' ); ?>
-							</a>
-						</span>
-						<?php endif; ?>
-
-						<?php if ( GROUND_SOCIAL_YOUTUBE_URL ) : ?>
-						<span class="inline-block">
-							<a class="h-10 w-10 rounded-full text-white bg-red-500 p-2 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_YOUTUBE_URL; ?>">
-								<?php ground_icon( 'youtube', 'mx-auto' ); ?>
-							</a>
-						</span>
-						<?php endif; ?>
-
-
-					</div>
+					<h3>Hours:</h3>
+					<p>GROUND_COMPANY_OPENING_HOURS: <strong> <?php echo esc_html( GROUND_COMPANY_OPENING_HOURS ); ?></strong></p>
+					<p>GROUND_COMPANY_CLOSING_TIME: <strong> <?php echo esc_html( GROUND_COMPANY_CLOSING_TIME ); ?></strong></p>
 
 				</div>
 
+
 			</div>
-			<?php endif; ?>
+			
+			<div class="lg:border-l border-line-primary">
+				<?php get_template_part( 'partials/socials' ); ?>
+			</div>
 
 		</div>
 

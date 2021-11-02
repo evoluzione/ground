@@ -11,13 +11,15 @@
 require_once 'inc/constants.php';
 require_once 'inc/extend.php';
 require_once 'inc/gutenberg.php';
+require_once 'inc/customizer.php';
 require_once 'inc/acf-constants.php';
 require_once 'inc/cpt-catalog.php';
 require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
 require_once 'inc/shortcode.php';
 require_once 'inc/walker.php';
-require_once 'inc/customizer.php';
+
+
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/breadcrumbs.php';
@@ -43,9 +45,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 // TODO - il codice funziona, aggiunge la classe al <p> ma genera degli errori nell'editor
 
 // add_action('enqueue_block_assets', function () {
-// 	wp_enqueue_script(
-// 		'ground-custom-class',
-// 		get_template_directory_uri() . '/src/blocks.js',
-// 		['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor']
-// 	);
+// wp_enqueue_script(
+// 'ground-custom-class',
+// get_template_directory_uri() . '/src/blocks.js',
+// ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor']
+// );
 // });

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="<?php echo GROUND_COLOR_PRIMARY; ?>">
+	<meta name="theme-color" content="">
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/img/favicon.png'; ?>">
 		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/img/icon.png'; ?>">
