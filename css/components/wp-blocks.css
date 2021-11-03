@@ -1,11 +1,5 @@
-/* TO DO - Vedi la soluzione insieme al team per gestire il fullscreen dei blocchi ed eventualmente crea la relativa utils */
-.fullscreen {
-    @apply transform -translate-x-2/4 w-screen ml-1/2 rounded-none !important;
-}
-
 /* wp-block-image */
 .wp-block-image {}
-
 
 /* wp-block-gallery */
 .wp-block-gallery {
