@@ -594,6 +594,20 @@ add_action( 'ground_header', 'ground_header_type', 10 );
 
 
 /**
+ * Footer, Add pre footer partials
+ */
+function ground_pre_footer() {
+
+	get_template_part( 'partials/pre-footer' );
+
+}
+
+add_action( 'ground_before_footer', 'ground_pre_footer', 10 );
+
+
+
+
+/**
  * Footer, Add footer switch type
  */
 function ground_footer_type() {

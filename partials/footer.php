@@ -12,6 +12,15 @@
 
 						<?php
 						/**
+						 * Functions hooked in to ground_before_footer action
+						 *
+						 * @hooked ground_pre_footer - 10
+						 */
+							do_action( 'ground_before_footer' );
+						?>
+
+						<?php
+						/**
 						 * Functions hooked into ground_footer action
 						 *
 						 * @hooked ground_footer_type - 10
