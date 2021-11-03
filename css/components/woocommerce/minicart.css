@@ -46,7 +46,7 @@
 
 				.attachment-woocommerce_thumbnail,
 				.woocommerce-placeholder  {
-					@apply block rounded-theme mr-6 w-28 h-28 float-left object-cover;
+					@apply block rounded-media mr-6 w-28 h-28 float-left object-cover;
 				}
 
 				.quantity {

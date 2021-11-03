@@ -46,6 +46,7 @@ function ground_add_css_theme_variables() {
 			--ground-font-primary:' . GROUND_FONT_FAMILY_PRIMARY . ';
 			--ground-font-secondary:' . GROUND_FONT_FAMILY_SECONDARY . ';
 			--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;
+			--ground-rounded-media:' . GROUND_ROUNDED_MEDIA . 'px;
 	} </style>';
 }
 

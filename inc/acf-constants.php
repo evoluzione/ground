@@ -26,6 +26,7 @@ function ground_costants() {
 
 	// Styles.
 	define( 'GROUND_ROUNDED_THEME', get_theme_mod( 'rounded_theme' ) ? get_theme_mod( 'rounded_theme' ) : '0' );
+	define( 'GROUND_ROUNDED_MEDIA', get_theme_mod( 'rounded_media' ) ? get_theme_mod( 'rounded_media' ) : '0' );
 
 	// Company.
 	define( 'GROUND_COMPANY_NAME', get_theme_mod( 'company_name' ) ? get_theme_mod( 'company_name' ) : '' );

@@ -3,7 +3,7 @@
 /* wc-block-featured-category */
 .wc-block-featured-product,
 .wc-block-featured-category {
-    @apply relative overflow-hidden rounded-theme;
+    @apply relative overflow-hidden rounded-media;
 
     &__wrapper {
         @apply relative max-w-4xl lg:px-9;

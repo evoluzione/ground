@@ -15,7 +15,7 @@
             }
 
             img {
-                @apply relative rounded-theme;
+                @apply relative rounded-media;
             }
 
             .product-title {

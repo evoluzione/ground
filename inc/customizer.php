@@ -889,15 +889,43 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'rounded_media',
+			array(
+				'default'           => '10',
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
 				'rounded_theme_control',
 				array(
-					'label'       => __( 'Border Radius', 'ground-admin' ),
-					'description' => __( 'Sets the border radius of the site elements', 'ground-admin' ),
+					'label'       => __( 'Border Radius Theme', 'ground-admin' ),
+					'description' => __( 'Sets the border radius of the site elements ( Buttons, forms )', 'ground-admin' ),
 					'section'     => 'ground_section_settings',
 					'settings'    => 'rounded_theme',
+					'type'        => 'number',
+					'priority'    => 10,
+					'input_attrs' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'rounded_media_control',
+				array(
+					'label'       => __( 'Border Radius Media', 'ground-admin' ),
+					'description' => __( 'Set the border radius of media / images', 'ground-admin' ),
+					'section'     => 'ground_section_settings',
+					'settings'    => 'rounded_media',
 					'type'        => 'number',
 					'priority'    => 10,
 					'input_attrs' => array(

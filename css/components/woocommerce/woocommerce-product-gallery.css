@@ -1,8 +1,8 @@
 .woocommerce-product-gallery {
-	@apply relative overflow-hidden rounded-theme;
+	@apply relative overflow-hidden rounded-media;
 
 	.flex-control-nav {
-		@apply flex mt-3 space-x-3 overflow-auto rounded-theme m-0 lg:absolute lg:top-0 lg:left-0 lg:w-24 lg:h-full lg:mt-0 lg:space-x-0 lg:space-y-3 lg:flex-col;
+		@apply flex mt-3 space-x-3 overflow-auto rounded-media m-0 lg:absolute lg:top-0 lg:left-0 lg:w-24 lg:h-full lg:mt-0 lg:space-x-0 lg:space-y-3 lg:flex-col;
 		-ms-overflow-style: none;  /* IE and Edge */
   		scrollbar-width: none;  /* Firefox */
 
@@ -11,12 +11,12 @@
 		}
 
 		img {
-			@apply rounded-theme cursor-pointer w-auto h-auto;
+			@apply rounded-media cursor-pointer w-auto h-auto;
 		}
 	}
 
 	.flex-viewport {
-		@apply flex overflow-hidden rounded-theme lg:ml-28;
+		@apply flex overflow-hidden rounded-media lg:ml-28;
 		@apply h-auto !important;
 	}
 }
@@ -33,10 +33,10 @@
 }
 
 .woocommerce-product-gallery__image {
-	@apply relative block overflow-hidden rounded-theme;
+	@apply relative block overflow-hidden rounded-media;
 
 	a {
-		@apply relative block overflow-hidden rounded-theme;
+		@apply relative block overflow-hidden rounded-media;
 	}
 
 	img {
