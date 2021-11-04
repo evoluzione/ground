@@ -111,8 +111,9 @@
 
 /* wp-block-columns */
 .wp-block-columns {
+    @apply my-0;
     .wp-block-column {
-        @apply flex-grow !important;
+        @apply mb-7 lg:mb-0 flex-grow !important;
     }
 }
 
