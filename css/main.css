@@ -99,6 +99,7 @@
 /* Utilities */
 @import "utilities/animate.css";
 @import "utilities/card.css";
+@import "utilities/gradient-radial.css";
 @import "utilities/rounded.css";
 @import "utilities/scroll-snap.css";
 @import "utilities/fullscreen.css";

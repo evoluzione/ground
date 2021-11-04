@@ -5,7 +5,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-bold;
+		@apply font-normal;
 	}
 
 	h1 {
@@ -49,7 +49,7 @@
 	kbd,
 	abbr,
 	code {
-		@apply inline-block align-top; 
+		@apply inline-block align-top;
 	}
 
 	pre {
@@ -72,7 +72,7 @@
 		@apply italic;
 
 		&:before {
-			content: '\2014 \00A0';
+			content: "\2014 \00A0";
 		}
 	}
 }
