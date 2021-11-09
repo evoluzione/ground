@@ -17,6 +17,7 @@ require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
 require_once 'inc/shortcode.php';
 require_once 'inc/walker.php';
+require_once 'inc/gutenberg-blocks.php';
 
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -38,14 +39,3 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/global.php';
 
 }
-
-
-// TODO - il codice funziona, aggiunge la classe al <p> ma genera degli errori nell'editor
-
-// add_action('enqueue_block_assets', function () {
-// wp_enqueue_script(
-// 'ground-custom-class',
-// get_template_directory_uri() . '/src/blocks.js',
-// ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor']
-// );
-// });

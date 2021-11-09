@@ -102,3 +102,6 @@
 @import "utilities/rounded.css";
 @import "utilities/scroll-snap.css";
 @import "utilities/fullscreen.css";
+
+/* Gutenberg */
+@import "components/gutenberg/spacer.css";
