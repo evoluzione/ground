@@ -1,0 +1,7 @@
+/* wp-block-video */
+.wp-block-video {
+	@apply overflow-hidden rounded-theme aspect-w-1 aspect-h-1 lg:aspect-w-16 lg:aspect-h-9;
+	video {
+		@apply object-cover;
+	}
+}

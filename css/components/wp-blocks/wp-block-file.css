@@ -1,0 +1,7 @@
+/* wp-block-file */
+.wp-block-file {
+	@apply my-0 !important;
+	.wp-block-file__button {
+		@apply bg-primary !important;
+	}
+}

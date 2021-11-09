@@ -1,0 +1,4 @@
+/* wp-block-separator */
+.wp-block-separator {
+	@apply border-line-primary !important;
+}

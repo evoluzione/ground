@@ -1,0 +1,4 @@
+/* wp-block-embed */
+.wp-block-embed {
+	@apply overflow-hidden rounded-theme my-0 !important;
+}
