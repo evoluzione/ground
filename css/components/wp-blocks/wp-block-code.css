@@ -1,0 +1,4 @@
+/* wp-block-code */
+.wp-block-code {
+	@apply p-6 bg-body-secondary rounded-theme;
+}

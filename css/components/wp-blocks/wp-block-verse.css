@@ -1,0 +1,4 @@
+/* wp-block-verse */
+.wp-block-verse {
+	@apply rounded-theme bg-body-secondary text-typo-primary p-6 my-0 !important;
+}

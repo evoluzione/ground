@@ -6823,8 +6823,10 @@ html.has-scroll-smooth .scroll-progress {
         background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 		transition: all var(--ease-speed) var(--ease-default);
     }
+/* wp-blocks */
 /* wp-block-image */
-.wp-block-image {}
+.wp-block-image {
+}
 /* wp-block-gallery */
 .wp-block-gallery {
 	margin-top: 0px !important;
@@ -7122,7 +7124,29 @@ html.has-scroll-smooth .scroll-progress {
 		margin-bottom: 0px !important;
 	}
 }
-/* plugins - Yoast */
+.wp-block-spacer.is-style-responsive-large {
+		height: 60px !important;
+	}
+.wp-block-spacer.is-style-responsive-medium {
+		height: 40px !important;
+	}
+.wp-block-spacer.is-style-responsive-small {
+		height: 20px !important;
+	}
+@media (min-width: 768px) {
+		.wp-block-spacer.is-style-responsive-large {
+			height: 100px !important;
+		}
+
+		.wp-block-spacer.is-style-responsive-medium {
+			height: 60px !important;
+		}
+
+		.wp-block-spacer.is-style-responsive-small {
+			height: 30px !important;
+		}
+	}
+/* yoast */
 /* wp-block-yoast-faq-block */
 .wp-block-yoast-faq-block {
 	position: relative;
@@ -11273,29 +11297,6 @@ body.woocommerce-cart .shopping-cart {
 .wc-block-product-categories .wc-block-product-categories-list .wc-block-product-categories-list-item .wc-block-product-categories-list-item-count span {}
 .wc-block-product-categories .wc-block-product-categories-list .wc-block-product-categories-list-item .wc-block-product-categories-list-item-count span.screen-reader-text {}
 /* Utilities */
-/* Gutenberg */
-.wp-block-spacer.is-style-responsive-large {
-		height: 60px !important;
-	}
-.wp-block-spacer.is-style-responsive-medium {
-		height: 40px !important;
-	}
-.wp-block-spacer.is-style-responsive-small {
-		height: 20px !important;
-	}
-@media (min-width: 768px) {
-		.wp-block-spacer.is-style-responsive-large {
-			height: 100px !important;
-		}
-
-		.wp-block-spacer.is-style-responsive-medium {
-			height: 60px !important;
-		}
-
-		.wp-block-spacer.is-style-responsive-small {
-			height: 30px !important;
-		}
-	}
 .hover\:text-white:hover {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
