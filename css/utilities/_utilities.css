@@ -1,0 +1,10 @@
+/*=====================================
+ Import from all utilities directory
+========================================*/
+
+@import "animate.css";
+@import "card.css";
+@import "gradient-radial.css";
+@import "rounded.css";
+@import "scroll-snap.css";
+@import "fullscreen.css";
