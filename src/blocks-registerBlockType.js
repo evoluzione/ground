@@ -30,3 +30,21 @@
 // 	return settings;
 // }
 // wp.hooks.addFilter('blocks.registerBlockType', 'ground/gutenberg/custom-attribute', customAttribute);
+
+/**
+ * Example to register plugin
+ */
+
+// wp.blocks.registerBlockType('example-plugin/example-custom-block', {
+// 	title: wp.i18n.__('Example Custom block', 'ground'),
+// 	category: 'common',
+// 	icon: 'filter',
+// 	keywords: [wp.i18n.__('Demo', 'ground')],
+// 	supports: { html: false },
+// 	edit: function () {
+// 		return wp.i18n.__('Show in editor.', 'ground');
+// 	},
+// 	save: function () {
+// 		return wp.i18n.__('Show in frontend.', 'ground');
+// 	}
+// });
