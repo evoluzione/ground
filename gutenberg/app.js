@@ -5,4 +5,4 @@ const blocksRegisterBlockStyle = new BlocksRegisterBlockStyle();
 blocksRegisterBlockStyle.registerBlockStyleSpacer();
 
 const blocksRegisterBlockAttribute = new BlocksRegisterBlockAttribute();
-blocksRegisterBlockAttribute.registerFullWidth();
+blocksRegisterBlockAttribute.registerFullscreen();

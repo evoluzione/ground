@@ -12,18 +12,14 @@ const { createHigherOrderComponent } = wp.compose;
 const { ToggleControl } = wp.components;
 
 export default class BlocksRegisterBlockAttribute {
-	registerFullWidth() {
-		const classToAdd = 'full-width';
-
-		//restrict to specific block names
-		const allowedBlocks = ['core/paragraph', 'core/heading'];
+	registerFullscreen() {
+		const classToAdd = 'fullscreen';
 
 		function addAttributes(settings) {
 			//check if object exists for old Gutenberg version compatibility
-			//add allowedBlocks restriction
-			if (typeof settings.attributes !== 'undefined' && allowedBlocks.includes(settings.name)) {
+			if (typeof settings.attributes !== 'undefined') {
 				settings.attributes = Object.assign(settings.attributes, {
-					fullWidth: {
+					fullscreen: {
 						type: 'boolean',
 						default: false
 					}
@@ -37,18 +33,18 @@ export default class BlocksRegisterBlockAttribute {
 			return (props) => {
 				const { name, attributes, setAttributes, isSelected } = props;
 
-				const { fullWidth } = attributes;
+				const { fullscreen } = attributes;
 
 				return (
 					<Fragment>
 						<BlockEdit {...props} />
-						{isSelected && allowedBlocks.includes(name) && (
+						{isSelected && (
 							<InspectorAdvancedControls>
 								<ToggleControl
-									label={__('Full width')}
-									checked={!!fullWidth}
-									onChange={() => setAttributes({ fullWidth: !fullWidth })}
-									help={!!fullWidth ? __('The block is fullwidth.') : __('The block is boxed.')}
+									label={__('Full screen')}
+									checked={!!fullscreen}
+									onChange={() => setAttributes({ fullscreen: !fullscreen })}
+									help={!!fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
 								/>
 							</InspectorAdvancedControls>
 						)}
@@ -58,12 +54,11 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
-			const { fullWidth } = attributes;
+			const { fullscreen } = attributes;
 
 			//check if attribute exists for old Gutenberg version compatibility
-			//add class only when fullWidth = true
-			//add allowedBlocks restriction
-			if (typeof fullWidth !== 'undefined' && fullWidth && allowedBlocks.includes(blockType.name)) {
+			//add class only when fullscreen = true
+			if (typeof fullscreen !== 'undefined' && fullscreen) {
 				extraProps.className = classnames(extraProps.className, classToAdd);
 			}
 
