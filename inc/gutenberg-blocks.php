@@ -7,15 +7,21 @@
 add_action(
 	'enqueue_block_assets',
 	function () {
-		$deps = array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' );
+		$deps      = array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' );
+		$path      = get_template_directory_uri() . '/gutenberg/dist/bundle.js';
+		$in_footer = true;
 
-		// wp_enqueue_script( 'ground-gutenberg-extraprops', get_template_directory_uri() . '/src/blocks-getSaveContent-extraProps.js', $deps );
-		wp_enqueue_script( 'ground-gutenberg-registerblockstyle', get_template_directory_uri() . '/src/blocks-registerBlockStyle.js', $deps );
-		// wp_enqueue_script( 'ground-gutenberg-registerblocktype', get_template_directory_uri() . '/src/blocks-registerBlockType.js', $deps );
+		wp_enqueue_script( 'ground/gutenberg', $path, $deps, false, $in_footer );
 	}
 );
 
-
+/**
+ * Function to add custom class to core blocks
+ *
+ * @param string $block_content The content of the block.
+ * @param array  $block The object block.
+ * @return string
+ */
 function ground_wp_blocks_add_custom_class( string $block_content, array $block ) {
 
 	$has_class       = strpos( $block_content, 'class="' );
