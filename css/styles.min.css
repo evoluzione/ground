@@ -6648,27 +6648,63 @@ html.has-scroll-smooth .scroll-progress {
 		margin-bottom: 0px !important;
 	}
 }
-.wp-block-spacer.is-style-responsive-large {
-		height: 60px !important;
-	}
-.wp-block-spacer.is-style-responsive-medium {
-		height: 40px !important;
-	}
-.wp-block-spacer.is-style-responsive-small {
-		height: 20px !important;
-	}
+.wp-block-spacer.spacer-1 {
+	height: 1rem !important;
+}
+.wp-block-spacer.spacer-2 {
+	height: 2rem !important;
+}
+.wp-block-spacer.spacer-3 {
+	height: 3rem !important;
+}
+.wp-block-spacer.spacer-4 {
+	height: 4rem !important;
+}
+.wp-block-spacer.spacer-5 {
+	height: 5rem !important;
+}
+.wp-block-spacer.spacer-6 {
+	height: 6rem !important;
+}
 @media (min-width: 768px) {
-		.wp-block-spacer.is-style-responsive-large {
-			height: 100px !important;
-		}
-
-		.wp-block-spacer.is-style-responsive-medium {
-			height: 60px !important;
-		}
-
-		.wp-block-spacer.is-style-responsive-small {
-			height: 30px !important;
-		}
+		.wp-block-spacer.spacer-md-1 {
+		height: 1rem !important;
+	}
+		.wp-block-spacer.spacer-md-2 {
+		height: 2rem !important;
+	}
+		.wp-block-spacer.spacer-md-3 {
+		height: 3rem !important;
+	}
+		.wp-block-spacer.spacer-md-4 {
+		height: 4rem !important;
+	}
+		.wp-block-spacer.spacer-md-5 {
+		height: 5rem !important;
+	}
+		.wp-block-spacer.spacer-md-6 {
+		height: 6rem !important;
+	}
+	}
+@media (min-width: 1024px) {
+		.wp-block-spacer.spacer-lg-1 {
+		height: 1rem !important;
+	}
+		.wp-block-spacer.spacer-lg-2 {
+		height: 2rem !important;
+	}
+		.wp-block-spacer.spacer-lg-3 {
+		height: 3rem !important;
+	}
+		.wp-block-spacer.spacer-lg-4 {
+		height: 4rem !important;
+	}
+		.wp-block-spacer.spacer-lg-5 {
+		height: 5rem !important;
+	}
+		.wp-block-spacer.spacer-lg-6 {
+		height: 6rem !important;
+	}
 	}
 /* yoast */
 /* wp-block-yoast-faq-block */
