@@ -1,0 +1,4 @@
+/* wp-block-heading */
+.wp-block-heading {
+    @apply my-6;
+}

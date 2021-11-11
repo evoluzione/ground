@@ -1,0 +1,4 @@
+/* wp-block-paragraph */
+.wp-block-paragraph {
+    @apply my-3 text-typo-secondary;
+}

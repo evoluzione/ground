@@ -11,6 +11,9 @@
 @import "wp-block-embed.css";
 @import "wp-block-media-text.css";
 @import "wp-block-file.css";
+@import "wp-block-paragraph.css";
+@import "wp-block-heading.css";
+@import "wp-block-list.css";
 @import "wp-block-audio.css";
 @import "wp-block-video.css";
 @import "wp-block-separator.css";
