@@ -1,3 +1,7 @@
+/*=====================================
+ Import from all wp-blocks directory
+========================================*/
+
 @import "wp-block-image.css";
 @import "wp-block-gallery.css";
 @import "wp-block-cover.css";

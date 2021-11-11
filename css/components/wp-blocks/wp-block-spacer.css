@@ -1,27 +1,61 @@
 .wp-block-spacer {
-	&.is-style-responsive-large {
-		height: 60px !important;
+	&.spacer-1 {
+		@apply h-4 !important;
 	}
-
-	&.is-style-responsive-medium {
-		height: 40px !important;
+	&.spacer-2 {
+		@apply h-8 !important;
 	}
-
-	&.is-style-responsive-small {
-		height: 20px !important;
+	&.spacer-3 {
+		@apply h-12 !important;
+	}
+	&.spacer-4 {
+		@apply h-16 !important;
+	}
+	&.spacer-5 {
+		@apply h-20 !important;
+	}
+	&.spacer-6 {
+		@apply h-24 !important;
 	}
 
 	@screen md {
-		&.is-style-responsive-large {
-			height: 100px !important;
+		&.spacer-md-1 {
+			@apply h-4 !important;
 		}
-
-		&.is-style-responsive-medium {
-			height: 60px !important;
+		&.spacer-md-2 {
+			@apply h-8 !important;
 		}
-
-		&.is-style-responsive-small {
-			height: 30px !important;
+		&.spacer-md-3 {
+			@apply h-12 !important;
+		}
+		&.spacer-md-4 {
+			@apply h-16 !important;
+		}
+		&.spacer-md-5 {
+			@apply h-20 !important;
+		}
+		&.spacer-md-6 {
+			@apply h-24 !important;
+		}
+	}
+	@screen lg {
+		&.spacer-lg-1 {
+			@apply h-4 !important;
+		}
+		&.spacer-lg-2 {
+			@apply h-8 !important;
+		}
+		&.spacer-lg-3 {
+			@apply h-12 !important;
+		}
+		&.spacer-lg-4 {
+			@apply h-16 !important;
+		}
+		&.spacer-lg-5 {
+			@apply h-20 !important;
+		}
+		&.spacer-lg-6 {
+			@apply h-24 !important;
 		}
 	}
 }
