@@ -92,7 +92,7 @@ function ground_add_short_description_to_product_loop() {
 	global $product;
 	if ( $product->get_short_description() ) : ?>
 		<div class="woocommerce-loop-product__description">
-			<?php echo apply_filters( 'woocommerce_short_description', $product->get_short_description() ); ?>
+			<?php echo substr( ucfirst( strtolower( strip_tags( $product->get_short_description() ) ) ), 0, 100 ) . '...'; ?>
 		</div>
 		<?php
 endif;
