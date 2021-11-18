@@ -359,14 +359,9 @@ add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
 function ground_acf_json_load_point( $paths ) {
 
 	unset( $paths[0] );
-
-	$paths[] = GROUND_TEMPLATE_PATH . '/data/acf';
-
-	// $paths will already include the result of get_stylesheet_directory ie. parent theme's acf-json
-	if ( is_child_theme() ) {
-		$paths[] = get_template_directory() . '/data/acf';
-	}
+	$paths[] = get_stylesheet_directory() . '/data/acf';
 	return $paths;
+
 }
 
 add_filter( 'acf/settings/load_json', 'ground_acf_json_load_point' );
