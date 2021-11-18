@@ -7,9 +7,6 @@
 	textarea,
 	select {
 		@apply focus:ring-primary text-typo-primary border-line-primary rounded-theme w-full bg-transparent;
-		.woocommerce-invalid & {
-			@apply border-red-500 !important;
-		}
 	}
 
 	input[type="number"] {
@@ -36,28 +33,27 @@
 		@apply block text-base font-medium text-typo-primary text-opacity-50 !important;
 	}
 
-	.select2-hidden-accessible {
-		@apply h-0 -m-1 !important;
-	} 
+}
 
-	.select2-container {
-		@apply rounded-theme border border-line-primary align-middle !important;
 
-		.select2-dropdown.select2-dropdown--below {
-			@apply border-t border-b border border-line-primary rounded-none !important;
+.select2-hidden-accessible {
+	@apply h-0 -m-1 !important;
+} 
+.select2-container {
+	@apply rounded-theme border border-line-primary align-middle !important;
+	.select2-dropdown.select2-dropdown--below {
+		@apply border border-line-primary rounded-none !important;
+		.select2-search--dropdown {
+			@apply border-t border-b border-line-primary !important;
 		}
-
-		.select2-selection--single {
-			@apply rounded-theme m-0 h-10 border-0 border-line-primary focus:ring-primary !important;
-
-			.select2-selection__rendered {
-				@apply rounded-theme h-10 px-3 leading-10 text-gray-500;
-			}
-
-			.select2-selection__arrow {
-				@apply top-px h-9 leading-10 right-3;
-			}
+	}
+	.select2-selection--single {
+		@apply rounded-theme m-0 h-10 border-0 border-line-primary focus:ring-primary !important;
+		.select2-selection__rendered {
+			@apply rounded-theme h-10 px-3 leading-10 text-gray-500 !important;
 		}
-
+		.select2-selection__arrow {
+			@apply top-px h-9 leading-10 right-3 !important;
+		}
 	}
 }
