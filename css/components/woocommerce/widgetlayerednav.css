@@ -25,10 +25,20 @@
 				}
 
 				a {
-					&:before {
+					@apply pl-10;
+					&:before,
+					&:after {
 						content: '';
-						@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-line-primary h-5 w-5;
+						@apply top-0 left-0 absolute h-6 w-6 rounded-full;
 						@apply transition-all ease-default duration-500;
+					}
+
+
+					&:before {
+						@apply border border-line-primary;	
+					}
+
+					&:after {				
 					}
 				}
 
@@ -38,12 +48,10 @@
 						@apply text-primary font-bold;
 
 						&:before {
-							content: "";
-							@apply bg-primary border-primary;
-							background-image: url('../img/icons/check-light.svg');
-							background-position: center center;
-							background-repeat: no-repeat;
-							background-size: 10px 10px;
+							@apply border-primary;
+						}
+						&:after {
+							@apply bg-primary transform scale-50;
 						}
 					}
 
@@ -56,7 +64,7 @@
 				&:hover {
 					a {
 						&:before {
-							@apply bg-primary border-primary;
+							@apply border-primary;
 						}
 					}	
 				}
@@ -90,19 +98,6 @@
 
 	.widgettitle {
 		@apply text-sm inline-block lg:text-lg items-center;
-
-		&:before {
-			content: '';
-			display: inline-block;
-			background-image: url('../img/icons/options.svg');
-			height: 22px;
-			width: 22px;
-			margin-right: 10px;
-			vertical-align: middle;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: contain;
-		}
 	}
 
 	ul {
@@ -112,24 +107,33 @@
 			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:my-px;
 
 			a {
-				@apply border border-primary no-underline text-primary pl-4 pr-3 py-1 rounded-theme align-middle flex items-center font-bold;
+				@apply relative border border-primary no-underline text-primary pl-4 pr-12 py-1 rounded-theme align-middle flex items-center font-bold;
 				@apply transition-all ease-default duration-300;
 
-				&:after {
+				&:before,
+				&:after, {
 					content: '';
-					@apply inline-block text-center border border-primary right-3 rounded-full align-middle h-5 w-5 ml-2;
+					@apply absolute text-center right-3 rounded-full align-middle h-6 w-6 ml-2;
 					@apply transition-all ease-default duration-300;
+				}
+				&:before {
+					@apply border border-primary;	
+				}
 
+				&:after {				
 				}
 			}
 
 			&.chosen {
 				a {
+					&:before {
+						@apply border-primary;
+					}
 					&:after {
-						content: "";
-						@apply border border-primary;
-						background: url('../img/icons/close.svg') center center no-repeat;
-						background-size: 10px 10px;
+						@apply bg-primary rounded-none border-0;
+						height: 2px;
+						width: 12px;
+						margin: 0 6px;
 					}
 				}
 			}
@@ -137,8 +141,11 @@
 			&:hover {
 				a {
 					@apply bg-primary text-white;
+					&:before {
+						@apply bg-red-500 border-red-500;
+					}
 					&:after {
-						@apply bg-white border-white;
+						@apply bg-white;
 					}
 				}
 			}
