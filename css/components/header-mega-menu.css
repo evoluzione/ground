@@ -15,7 +15,7 @@
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-line-primary border-opacity-20 font-bold lg:block lg:py-3 lg:text-lg lg:border-0;
+			@apply block text-lg py-4 border-b border-line-primary border-opacity-20 lg:block lg:py-3 lg:text-lg lg:border-0;
 		}
 
 		.navigation__list {
