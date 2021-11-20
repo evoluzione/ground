@@ -31,10 +31,6 @@
 	@apply text-typo-primary relative container py-16 lg:py-32 lg:px-16;
 	/* py-12 lg:py-28  */
 
-	&.hero-has-thumbnail {
-		@apply text-typo-primary;
-	}
-
 	.hero--full-width & {
 		@apply lg:px-6;
 	}
