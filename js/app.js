@@ -97,7 +97,7 @@ const carousel = new Slider('.js-carousel', {
 	spaceBetween: 24,
 	parallax: false,
 	autoplay: false,
-	freeMode: true,
+	freeMode: false,
 	speed: 1000,
 	touchEventsTarget: '.swiper-wrapper',
 	pagination: {
