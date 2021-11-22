@@ -80,7 +80,7 @@ if ( $category_highlights ) {
 								<a class="no-underline" href="<?php echo esc_attr( $url ); ?>">
 							<?php } ?>
 								<div class="max-w-2xl md:max-w-lg">
-									<h2 class="text-lg md:text-3xl text-white lg:mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
+									<h2 class="text-lg md:text-3xl text-white lg:mb-6 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 								</div>
 							<?php if ( $url ) { ?>
 								</a>
@@ -144,7 +144,7 @@ if ( $category_highlights ) {
 								<a class="no-underline" href="<?php echo esc_attr( $url ); ?>">
 							<?php } ?>
 								<div class="max-w-2xl md:max-w-lg">
-									<h2 class="text-lg md:text-3xl text-white lg:mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
+									<h2 class="text-lg md:text-3xl text-white lg:mb-6 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 								</div>
 							<?php if ( $url ) { ?>
 								</a>
