@@ -7,9 +7,11 @@ if ( is_product_category() ) {
 
 $category_highlights = get_field( 'category_highlights', $page_id );
 
-if ( $category_highlights ) :
+if ( $category_highlights ) {
 	$repeater_count = count( get_field( 'category_highlights', $page_id ) );
-	endif;
+} else {
+	$repeater_count = 0;
+}
 ?>
 
 	<div class="hero hero--full-width">
@@ -41,7 +43,7 @@ if ( $category_highlights ) :
 					</div>
 				</div>
 
-				<?php if ( $repeater_count <= 1 ) : ?>
+				<?php if ( $repeater_count == 1 ) : ?>
 				<div class="relative col-span-full lg:col-start-7 lg:col-span-6">
 
 					<?php
