@@ -140,7 +140,7 @@
 
 			&:hover {
 				a {
-					@apply bg-primary text-white;
+					/* @apply bg-primary text-white; */
 					&:before {
 						@apply bg-red-500 border-red-500;
 					}
