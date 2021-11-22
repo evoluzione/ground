@@ -1,19 +1,30 @@
 .woocommerce-checkout-review-order-table {
     @apply bg-transparent;
 
+    td {
+        @apply text-right;
+    }
+
     thead {
         @apply hidden;
     }
     tbody {
         @apply relative;
 
+        
+
         .cart_item {
             @apply relative border-0 border-b border-line-primary;
             .product-name {
-                @apply relative pl-20 text-sm;
+                @apply relative text-sm pr-3 lg:pl-20 lg:pr-0 text-left;
+                max-width: 120px;
+
+                @screen md {
+                    @apply max-w-full;
+                }
 
                 .product-thumbnail {
-                    @apply absolute top-2/4 left-0 h-16 w-16 -mt-8;
+                    @apply mb-3 lg:absolute lg:top-2/4 lg:left-0 h-16 w-16 lg:-mt-8 lg:mb-0;
 
                     img {
                         @apply relative h-16 w-16 object-cover;
