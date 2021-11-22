@@ -2,8 +2,6 @@
 	<?php get_template_part( 'partials/message', 'alert' ); ?>
 </div>
 
-
-
 <header class="header header-mega-menu w-full z-30 bg-body-primary">
 
 	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
@@ -24,13 +22,17 @@
 	</div>
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+		
 		<div class="js-menu-container header__container relative">
-			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
-				<div class="hidden xl:flex">
-					<?php echo GROUND_HEADER_ADVICE; ?>
-				</div>
-				<div class="hidden lg:inline-block">
-					<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+
+			<div class="bg-body-secondary">
+				<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
+					<div class="hidden xl:flex text-typo-secondary">
+						<?php echo GROUND_HEADER_ADVICE; ?>
+					</div>
+					<div class="hidden lg:inline-block">
+						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+					</div>
 				</div>
 			</div>
 
