@@ -5,7 +5,10 @@ form.cart:not(.variations_form),
         @apply flex items-center space-x-2 sm:space-x-4 mt-6;
 
         .button {
-            @apply flex-grow mb-0 !important;
+            @apply px-0 lg:px-3 flex-grow mb-0 !important;
+            .button__icon {
+                @apply hidden sm:inline-block;
+            }
         }
 
     }

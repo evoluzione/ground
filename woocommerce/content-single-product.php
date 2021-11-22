@@ -52,7 +52,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="col-span-full lg:col-span-4 lg:col-start-9">
+		<div class="col-span-full lg:col-span-5 xl:col-span-4 lg:col-start-8 xl:col-start-9">
 
 			<div class="summary entry-summary">
 				<?php

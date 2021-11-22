@@ -118,4 +118,3 @@ function ground_free_shipping_notice() {
 }
 
 // add_action( 'ground_notice', 'ground_free_shipping_notice', 5 );
-
