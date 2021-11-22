@@ -42,7 +42,7 @@
 .woocommerce-loop-product__description {
 	@apply card-description block;
 	.minicart & {
-		@apply text-sm;
+		@apply hidden;
 	}
 }
 
