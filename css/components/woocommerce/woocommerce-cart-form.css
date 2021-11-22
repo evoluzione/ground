@@ -23,7 +23,7 @@
 				@apply items-center py-6 max-w-3xl hidden;
 
 				&.is-coupon-open {
-					@apply flex;
+					@apply block md:flex;
 				}
 				
 				label {
@@ -31,7 +31,7 @@
 				}
 
 				.button {
-					@apply mb-0 ml-3 py-2;
+					@apply mb-0 py-2 mt-2 w-full md:ml-3 md:mt-0 md:w-auto;
 				}
 			}
 		}
