@@ -80,7 +80,7 @@ if ( $category_highlights ) {
 								<a class="no-underline" href="<?php echo esc_attr( $url ); ?>">
 							<?php } ?>
 								<div class="max-w-2xl md:max-w-lg">
-									<h2 class="text-lg md:text-3xl text-typo-primary mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
+									<h2 class="text-lg md:text-3xl text-white mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 								</div>
 							<?php if ( $url ) { ?>
 								</a>
@@ -89,7 +89,7 @@ if ( $category_highlights ) {
 							<?php if ( $url ) : ?>
 							<a href="<?php echo esc_attr( $url ); ?>">
 						<?php endif; ?>
-						<div class="absolute inset-0 bg-gradient-to-t from-body-primary opacity-80 rounded-none lg:rounded-media z-1"> </div>
+						<div class="absolute inset-0 bg-gradient-to-t from-black opacity-80 rounded-none lg:rounded-media z-1"> </div>
 							<?php if ( $url ) { ?>
 							</a>
 						<?php } ?>
@@ -144,7 +144,7 @@ if ( $category_highlights ) {
 								<a class="no-underline" href="<?php echo esc_attr( $url ); ?>">
 							<?php } ?>
 								<div class="max-w-2xl md:max-w-lg">
-									<h2 class="text-lg md:text-3xl text-typo-primary mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
+									<h2 class="text-lg md:text-3xl text-white mb-3 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 								</div>
 							<?php if ( $url ) { ?>
 								</a>
@@ -153,7 +153,7 @@ if ( $category_highlights ) {
 							<?php if ( $url ) : ?>
 							<a href="<?php echo esc_attr( $url ); ?>">
 						<?php endif; ?>
-						<div class="absolute inset-0 bg-gradient-to-t from-body-primary opacity-80 rounded-none lg:rounded-media z-1"> </div>
+						<div class="absolute inset-0 bg-gradient-to-t from-black opacity-80 rounded-none lg:rounded-media z-1"> </div>
 							<?php if ( $url ) { ?>
 							</a>
 						<?php } ?>
