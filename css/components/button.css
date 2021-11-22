@@ -21,7 +21,7 @@
 		}
 
 		&--tertiary {
-			@apply bg-transparent text-typo-primary border-typo-primary;
+			@apply bg-transparent text-typo-primary border border-line-primary;
 
 			&:hover,
 			&--active {

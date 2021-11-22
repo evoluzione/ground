@@ -7,11 +7,12 @@
 
 get_template_part( 'partials/header' );
 ?>
+<div class="container">
+	<?php get_template_part( 'partials/breadcrumbs' ); ?>
+</div>
+	<div class="container relative mb-12 lg:mb-32">
 
-	<div class="container relative">
-
-		<?php get_template_part( 'partials/breadcrumbs' ); ?>
-
+		<?php get_template_part( 'partials/navigation', 'blog' ); ?>
 		<section class="page page--blog">
 
 			<?php

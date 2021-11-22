@@ -43,6 +43,69 @@
 		<?php the_content(); ?>
 	</div> <!-- End .page__body -->
 
+
+	<div class="mt-24 mb-24">
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+		<div class="relative">
+			<h3 class="text-4xl no-underline mb-4 relative"> <?php _e( 'Other news', 'ground' ); ?> </h3>
+	  		<a class="text-base underline text-primary" href="<?php echo get_post_type_archive_link( 'post' ); ?>"> <?php _e( 'Discover all news', 'ground' ); ?> </a>
+		</div>
+			<div class="lg:col-span-2">
+				<div class="carousel-css">
+
+					<?php
+					$args   = array(
+						'posts_per_page' => 3,
+						'post__not_in'   => array( get_the_ID() ),
+					);
+					$parent = new WP_Query( $args );
+					?>
+					<?php if ( $parent->have_posts() ) : ?>
+						<?php
+						while ( $parent->have_posts() ) :
+							$parent->the_post();
+							?>
+							<article class="relative">
+								<div class="mb-12 grid grid-cols-1 lg:grid-cols-12">
+
+									<div class="lg:col-start-1 lg:col-end-4 mb-6 lg:mb-0">
+										<a class="no-underline w-full" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+											<div class="overflow-hidden aspect-w-1 aspect-h-1 rounded-full">
+												<img class="object-cover"
+													<?php if ( has_post_thumbnail() ) { ?>
+														srcset="<?php ground_image( '1-1-small' ); ?> 480w,
+																<?php ground_image( '1-1-medium' ); ?> 900w,
+																<?php ground_image( '1-1-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
+														(min-width: 768px) 900px,
+														100vh" src="<?php ground_image( '1-1-large' ); ?>"
+													<?php } else { ?>
+														src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg"
+													<?php } ?>
+														alt="" loading="lazy">
+											</div>
+										</a>
+									</div>
+
+									<div class="lg:col-start-6 lg:col-end-12">
+										<div class="text-typo-secondary mb-4"><time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></div>
+										<a class="no-underline mb-4" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h3 class="text-2xl text-typo-primary"> <?php the_title(); ?> </h3> </a>
+										<div class="text-typo-secondary my-4"><?php ground_excerpt( 100 ); ?> </div>
+										<a class="text-primary inline-block underline" href="<?php the_permalink(); ?>"><?php _e( 'Discover', 'ground' ); ?></a>
+									</div>
+
+								</div>
+							</article>
+
+						<?php endwhile; ?>
+					<?php endif; ?>
+
+					<?php wp_reset_postdata(); ?>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<footer class="page__footer hidden">
 		<span class="page__data page__data--category"><?php _e( 'Category', 'ground' ); ?>: <?php the_category( ', ' ); ?></span>
 		<?php if ( comments_open() && ! post_password_required() ) { ?>

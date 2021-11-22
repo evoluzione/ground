@@ -8,9 +8,14 @@
 get_template_part( 'partials/header' );
 ?>
 
-	<div class="container">
+<div class="container">
+	<?php get_template_part( 'partials/breadcrumbs' ); ?>
+</div>
 
-		<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	<div class="container mb-12 lg:mb-32">
+
+		<?php get_template_part( 'partials/navigation', 'blog' ); ?>
+
 
 		<section class="page page--archive">
 
