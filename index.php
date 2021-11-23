@@ -6,37 +6,67 @@
  */
 
 $categories_ids = get_terms(
-						array( 'category' ), // Taxonomies
-						array( 'fields' => 'ids' ) // Fields
-					);
+		array( 'category' ), // Taxonomies
+		array( 'fields' => 'ids' ) // Fields
+	);
 
 get_template_part( 'partials/header' );
 ?>
-<div class="container">
-	<?php get_template_part( 'partials/breadcrumbs' ); ?>
-</div>
+	<div class="container">
+		<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	</div>
+
 	<div class="container relative mb-12 lg:mb-24">
 		<?php if ( single_post_title( '', false ) ) : ?>
 			<header class="page__header">
 				<h1 class="page__title"><?php single_post_title(); ?></h1>
+				<?php if(count($categories_ids) > 1) { ?>
+					<?php get_template_part( 'partials/navigation', 'blog' ); ?>
+				<?php } ?>
 			</header>
 		<?php endif; ?>
 
-		<div class="posts items-count-3">
 		<?php
 			$args = array(
-					'posts_per_page' => 3,
+					'posts_per_page' => 3 ,
 					'post__in' => get_option( 'sticky_posts' ),
-					'ignore_sticky_posts' => 1
 			);
-			$sticky_posts = new WP_Query( $args );
+			$sticky_posts = new WP_Query( $args ); ?>
 
-			if ( $sticky_posts->have_posts() ) {
+		<div class="posts items-count-<?php count($sticky_posts->posts); ?>">
+
+		<?php if ( $sticky_posts->have_posts() ) {
 				while ( $sticky_posts->have_posts() ) {
 						$sticky_posts->the_post();
 					?>
 						<div class="post">
-							<?php get_template_part( 'partials/abstract', 'post' ); ?>
+							<?php if(count($sticky_posts->posts) == 1) { ?>
+								<article class="item js-infinite-post">
+									<a class="item__link margin-bottom-1" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+											<img class="item__media"
+												<?php if ( has_post_thumbnail() ) { ?>
+														srcset="<?php ground_image( '16-9-small' ); ?> 480w,
+													<?php ground_image( '16-9-medium' ); ?> 900w,
+													<?php ground_image( '16-9-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
+													(min-width: 768px) 900px,
+													100vh" src="<?php ground_image( '16-9-large' ); ?>"
+												<?php
+												} else {
+													?>
+												src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
+									</a>
+									<header class="item__header">
+										<a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h2 class="mt-6"><?php the_title(); ?></h2></a>
+										<time class="inline-block mt-3" datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
+									</header>
+
+									<div class="item__body mt-3">
+										<p><?php ground_excerpt( 100 ); ?></p>
+									</div>
+								</article>
+							<?php } else { ?>
+									<?php get_template_part( 'partials/abstract', 'post' ); ?>
+							<?php } ?>
 						</div>
 					<?php
 				}
@@ -45,70 +75,68 @@ get_template_part( 'partials/header' );
 		?>
 		</div>
 
-
-		<?php if(count($categories_ids) == 1) { ?>
-		<section class="page page--blog">
-			<?php
-			if ( have_posts() ) : ?>
-				<div class="page__body">
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
-
-						<?php
-						while ( have_posts() ) :
-							the_post();
-
-							get_template_part( 'partials/abstract', 'post' );
-						endwhile;
-						wp_reset_query();
-						?>
-					</div>
-				</div> <!-- End .page__body -->
-				<?php get_template_part( 'partials/pagination' ); ?>
+		<div class="mt-12 lg:mt-32">
+			<?php if(count($categories_ids) == 1) { ?>
+			<section class="page page--blog">
 				<?php
-			endif;
-			?>
-		</section> <!-- End .page -->
-		<?php } else { ?>
-		<div class="lg:pb-24">
-		<?php get_template_part( 'partials/navigation', 'blog' ); ?>
-		</div>
+				if ( have_posts() ) : ?>
+					<div class="page__body">
+						<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
 
-		<section class="page page--blog">
-			<?php foreach ( $categories_ids as $row ) {
+							<?php
+							while ( have_posts() ) :
+								the_post();
+
+								get_template_part( 'partials/abstract', 'post' );
+							endwhile;
+							wp_reset_query();
+							?>
+						</div>
+					</div> <!-- End .page__body -->
+					<?php get_template_part( 'partials/pagination' ); ?>
+					<?php
+				endif;
 				?>
-				<div class="page__body grid grid-cols-12 gap-6 mb-12 lg:mb-24">
-					<div class="col-span-full flex justify-between items-center lg:inline-block lg:col-span-4">
-						<a class="no-underline" href="<?php echo get_category_link( $row ); ?>"> <h2 class="lg:mb-6"> <?php echo get_the_category_by_ID( $row ); ?> </h2> </a>
-						<div class="hidden lg:flex lg:mb-6"> <?php echo substr(strip_tags(category_description( $row )),0,120) . "..."; ?> </div>
-						<a class="underline" href="<?php echo get_category_link( $row ); ?>"> <?php _e( 'Discover' ); ?> </a>
-					</div>
+			</section> <!-- End .page -->
+			<?php } else { ?>
 
-						<?php
-						$args = array(
-							'post_type'      => 'post',
-							'orderby'        => 'date',
-							'posts_per_page' => 2,
-							'cat'            => $row,
-						);
+			<section class="page page--blog">
+				<?php foreach ( $categories_ids as $row ) {
+					?>
+					<div class="page__body grid grid-cols-12 gap-6 mb-12 lg:mb-24">
+						<div class="col-span-full flex justify-between items-center lg:inline-block lg:col-span-4">
+							<a class="no-underline" href="<?php echo get_category_link( $row ); ?>"> <h2 class="lg:mb-6"> <?php echo get_the_category_by_ID( $row ); ?> </h2> </a>
+							<div class="hidden lg:flex lg:mb-6"> <?php echo substr(strip_tags(category_description( $row )),0,120) . "..."; ?> </div>
+							<a class="underline" href="<?php echo get_category_link( $row ); ?>"> <?php _e( 'Discover' ); ?> </a>
+						</div>
 
-						$recent = new WP_Query( $args );
-						if ( $recent->have_posts() ) {
-							while ( $recent->have_posts() ) {
-									$recent->the_post();
-								?>
-									<div class="col-span-full lg:col-span-4">
-										<?php get_template_part( 'partials/abstract', 'post' ); ?>
-									</div>
-								<?php
+							<?php
+							$args = array(
+								'post_type'      => 'post',
+								'orderby'        => 'date',
+								'posts_per_page' => 2,
+								'cat'            => $row,
+							);
+
+							$recent = new WP_Query( $args );
+							if ( $recent->have_posts() ) {
+								while ( $recent->have_posts() ) {
+										$recent->the_post();
+									?>
+										<div class="col-span-full lg:col-span-4">
+											<?php get_template_part( 'partials/abstract', 'post' ); ?>
+										</div>
+									<?php
+								}
 							}
-						}
 
-						wp_reset_query();
-						?>
-				</div>
+							wp_reset_query();
+							?>
+					</div>
+				<?php } ?>
+			</section>
 			<?php } ?>
-		</section>
-		<?php } ?>
+		</div>
 
 	</div> <!-- End .container -->
 
