@@ -1,4 +1,8 @@
 /* wp-block-paragraph */
 .wp-block-paragraph {
     @apply my-3 text-typo-secondary;
+
+    a {
+        @apply text-primary underline hover:no-underline;
+    }
 }
