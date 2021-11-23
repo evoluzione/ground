@@ -104,6 +104,7 @@ if ( $category_highlights ) {
 	</div>
 
 	<?php if ( $category_highlights && $repeater_count > 1 ) : ?>
+			<!-- safelist bug <div class="grid-cols-3"></div> -->
 			<div class="hero__highlights">
 
 				<div class="hero__cards grid grid-cols-<?php echo esc_attr( $repeater_count ); ?> gap-x-6">
