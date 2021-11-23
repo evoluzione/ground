@@ -53,7 +53,7 @@
 }
 
 .navigation--blog {
-	@apply m-0 px-6 space-x-3 block lg:px-0 lg:flex lg:items-center text-typo-primary;
+	@apply m-0 mt-12 px-6 text-typo-primary space-x-3 block lg:px-0 lg:flex lg:items-center;
 	@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
 	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
 	-ms-overflow-style: none; /* IE and Edge */
@@ -78,7 +78,7 @@
 			@apply border-primary text-white;
 
 			.blog & {
-				@apply border-primary text-typo-primary;
+				@apply border-line-primary text-typo-primary;
 			}
 		}
 	}

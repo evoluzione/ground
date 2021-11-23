@@ -1,23 +1,18 @@
 <article class="item js-infinite-post">
-	
+
 
 	<a class="item__link margin-bottom-1" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-
-		<img class="item__media" 
+		<img class="item__media"
+		<?php if ( has_post_thumbnail() ) { ?>
+				srcset="<?php ground_image( '16-9-small' ); ?> 480w,
+			<?php ground_image( '16-9-medium' ); ?> 900w,
+			<?php ground_image( '16-9-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
+			(min-width: 768px) 900px,
+			100vh" src="<?php ground_image( '16-9-large' ); ?>"
 		<?php
-		if ( has_post_thumbnail() ) {
-			?>
-						 srcset="<?php ground_image( '4-3-small' ); ?> 480w,
-						<?php ground_image( '4-3-medium' ); ?> 900w,
-						<?php ground_image( '4-3-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
-						(min-width: 768px) 900px,
-						100vh" src="<?php ground_image( '4-3-large' ); ?>" 
-																	 <?php
 		} else {
 			?>
-																			 src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
-
-
+		src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
 	</a>
 
 	<header class="item__header">
