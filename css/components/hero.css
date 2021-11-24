@@ -37,7 +37,7 @@
 }
 
 .hero__title {
-	@apply text-3xl font-bold py-3 lg:py-0;
+	@apply text-3xl py-3 lg:py-0;
 }
 
 .hero__excerpt {
