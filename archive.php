@@ -14,8 +14,6 @@ get_template_part( 'partials/header' );
 
 	<div class="container mb-12 lg:mb-32">
 
-		<?php get_template_part( 'partials/navigation', 'blog' ); ?>
-
 
 		<section class="page page--archive">
 
@@ -36,10 +34,10 @@ get_template_part( 'partials/header' );
 						}
 						?>
 
-						<div class="hero__content">
+						<div class="hero__content bg-body-primary">
 							<div class="grid grid-cols-12 gap-x-6">
 								<div class="col-span-full lg:col-span-3">
-									<h1 class="color-typo-primary text-3xl font-bold py-3 lg:py-0"><?php the_archive_title(); ?></h1>
+									<h1 class="color-typo-primary text-3xl py-3 lg:py-0"><?php the_archive_title(); ?></h1>
 								</div>
 								<div class="col-span-full lg:col-start-6 lg:col-span-7">
 									<div class="text-typo-primary text-base">
@@ -55,17 +53,29 @@ get_template_part( 'partials/header' );
 
 				<div class="page__body">
 
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 mt-6 js-infinite-container">
+					<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
 
-					<?php
-					while ( have_posts() ) :
-						the_post();
+						<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
+						<div class="col-span-3">
+							<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target=".sidebar--archive-post html" data-toggle-class-name="is-sidebar-open">
+								<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
+							</button>
+							<?php get_template_part( 'partials/sidebar','archive-post' ); ?>
 
-						get_template_part( 'partials/abstract', 'post' );
+						</div>
+						<?php endif; ?>
+						<div class="<?php echo is_active_sidebar( 'sidebar-archive-post' ) ? "col-span-9" : "col-span-full" ?>">
+							<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
+								<?php
+								while ( have_posts() ) :
+									the_post();
 
-					endwhile;
-					?>
+									get_template_part( 'partials/abstract', 'post' );
 
+								endwhile;
+								?>
+							</div>
+						</div>
 					</div>
 				</div> <!-- End .page__body -->
 

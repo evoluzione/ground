@@ -612,3 +612,45 @@ function ground_footer_type() {
 }
 
 add_action( 'ground_footer', 'ground_footer_type', 10 );
+
+
+
+/**
+ * Register custom Sidebar archive post
+ *
+ * @return void
+ */
+function ground_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar archive post', 'ground' ),
+			'id'            => 'sidebar-archive-post',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+}
+
+add_action( 'widgets_init', 'ground_widgets_init' );
+
+
+/**
+ * Remove "Category:", "Tag:", "Author:" from the_archive_title
+ *
+ * @return void
+ */
+
+add_filter( 'get_the_archive_title', function ($title) {
+	if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+		} elseif ( is_tax() ) { //for custom post types
+			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+		} elseif (is_post_type_archive()) {
+			$title = post_type_archive_title( '', false );
+		}
+	return $title;
+});
