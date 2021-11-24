@@ -60,7 +60,7 @@
 							$parent->the_post();
 							?>
 							<article class="relative">
-								<div class="mb-12 grid grid-cols-1 lg:grid-cols-12">
+								<div class="mb-12 grid grid-cols-1 lg:grid-cols-12 items-center">
 
 									<div class="lg:col-start-1 lg:col-end-4 mb-6 lg:mb-0">
 										<a class="no-underline w-full" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
