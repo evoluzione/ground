@@ -27,7 +27,7 @@ if ( $category_highlights ) {
 		?>
 		<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'large' )[0]; ?>">
 		<div class="hero__image-filter" aria-hidden="true"></div>
-		<div class="hero__content text-typo-primary">
+		<div class="hero__content text-typo-primary container">
 			<div class="grid grid-cols-12 gap-x-6 <?php echo $repeater_count == 1 ? 'lg:items-center' : ''; ?>">
 				<div class="col-span-full lg:col-span-5">
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
