@@ -28,13 +28,12 @@ get_template_part( 'partials/header' );
 
 		<?php
 			$args = array(
-					'posts_per_page' => 1,
+					'posts_per_page' => 4,
 					'post__in' => get_option( 'sticky_posts' ),
-					'ignore_sticky_posts' => 1
 			);
 			$sticky_posts = new WP_Query( $args ); ?>
-
-		<?php if ( count($sticky_posts->posts) > 1 ) { ?>
+		<?php
+		if ( count($sticky_posts->posts) >= 1 && count($sticky_posts->posts)< 4 ) { ?>
 			<div class="posts mb-12 lg:mb-24 items-count-<?php echo count($sticky_posts->posts) >= 3 ? 3 : count($sticky_posts->posts); ?>">
 
 
