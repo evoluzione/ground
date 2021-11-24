@@ -14,7 +14,7 @@
 	</a>
 
 	<header class="item__header">
-		<a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h6 class="mt-6"><?php the_title(); ?></h2></a>
+		<a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h2 class="text-2xl mt-6"><?php the_title(); ?></h2></a>
 		<time class="inline-block text-sm mt-3" datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
 	</header>
 
