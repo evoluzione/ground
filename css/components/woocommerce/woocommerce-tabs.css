@@ -69,7 +69,7 @@
 } */
 
 .woocommerce-product-attributes {
-	@apply relative;
+	@apply relative mb-0;
 
 	tr {
 		@apply border-b border-line-primary;
