@@ -17,9 +17,10 @@
 
 			<div class="hero__content">
 			<?php } ?>
-
-			 <h1 class="text-center"><?php the_title(); ?></h1>
-
+			<div class="text-center">
+			 	<h1 class="mb-3"><?php the_title(); ?></h1>
+			 	<time datetime="<?php echo get_the_date( 'c' ); ?>" class="text-typo-secondary"><?php echo get_the_date(); ?></time></span>
+			</div>
 			</div>
 
 		</div>

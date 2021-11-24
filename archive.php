@@ -18,11 +18,11 @@ get_template_part( 'partials/header' );
 		<section class="page page--archive">
 
 			<?php if ( have_posts() ) : ?>
-				<div class="hero overflow-hidden my-6 lg:my-24 lg:mt-12 relative">
+				<div class="hero overflow-hidden my-6 lg:my-24 lg:mt-12 relative rounded-theme">
 					<div class="relative text-typo-primary py-16 lg:py-32">
 						<div class="grid grid-cols-12 gap-x-6 items-center">
 							<div class="col-span-full lg:col-span-4">
-								<div class="mb-6 flex items-center gap-6 lg:mb-0">
+								<div class="mb-6 flex items-center gap-6 lg:mb-0 lg:ml-6">
 								<?php
 									$term = get_queried_object();
 									$image = get_field('image', $term);?>
@@ -52,9 +52,9 @@ get_template_part( 'partials/header' );
 							</div>
 						</div>
 
-						<!-- <?php if($image) : ?>
-							<div class="hidden absolute -z-1 top-0 left-0 lg:flex lg:w-56">
-								<img class="object-cover opacity-50"
+						<?php if($image) : ?>
+							<div class="hidden absolute -z-1 top-0 left-0 lg:flex lg:w-4/6">
+								<img class="object-cover opacity-50 w-full"
 									srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
 											<?php echo $image['sizes']['1-1-medium']; ?> 900w,
 											<?php echo $image['sizes']['1-1-large']; ?> 1200w"
@@ -65,9 +65,10 @@ get_template_part( 'partials/header' );
 
 									alt=""
 									loading="lazy">
+								<div class="absolute inset-0 bg-gradient-to-l from-body-primary z-2"> </div>
 								<div class="absolute inset-0 bg-gradient-to-t from-body-primary z-1"> </div>
 							</div>
-						<?php endif; ?> -->
+						<?php endif; ?>
 
 					</div>
 				</div>
