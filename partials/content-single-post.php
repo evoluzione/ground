@@ -10,17 +10,31 @@
 							<?php ground_image( 'medium_large' ); ?> 768w,
 							<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
 					<div class="hero__image-filter" aria-hidden="true"></div>
-					<div class="hero__content hero-has-thumbnail">
+					<div class="hero__content hero-has-thumbnail container">
 					<?php
 			} else {
 				?>
-
-			<div class="hero__content">
+			<div class="hero__content container">
 			<?php } ?>
-			<div class="text-center">
-			 	<h1 class="mb-3"><?php the_title(); ?></h1>
-			 	<time datetime="<?php echo get_the_date( 'c' ); ?>" class="text-typo-secondary"><?php echo get_the_date(); ?></time></span>
-			</div>
+				<div class="max-w-xl mx-auto">
+					<div class="text-center">
+						<h1 class="mb-3"><?php the_title(); ?></h1>
+						<time datetime="<?php echo get_the_date( 'c' ); ?>" class="text-typo-secondary"><?php echo get_the_date(); ?></time></span>
+					</div>
+				</div>
+				<div class="rounded-theme">
+					<img class="item__media mt-12 lg:mt-24"
+						<?php if ( has_post_thumbnail() ) { ?>
+								srcset="<?php ground_image( '16-9-small' ); ?> 480w,
+							<?php ground_image( '16-9-medium' ); ?> 900w,
+							<?php ground_image( '16-9-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
+							(min-width: 768px) 900px,
+							100vh" src="<?php ground_image( '16-9-large' ); ?>"
+						<?php
+						} else {
+							?>
+						src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
+				</div>
 			</div>
 
 		</div>
@@ -32,7 +46,7 @@
 		<span class="page__data page__data--date"><time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
 	</header>
 
-	<div class="page__body mt-12">
+	<div class="page__body mt-12 mb-24 lg:mb-72">
 		<?php the_content(); ?>
 	</div> <!-- End .page__body -->
 
