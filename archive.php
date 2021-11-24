@@ -18,43 +18,62 @@ get_template_part( 'partials/header' );
 		<section class="page page--archive">
 
 			<?php if ( have_posts() ) : ?>
-
-				<div class="hero">
-
-					<div class="hero__body">
-
-						<?php
-						if ( has_post_thumbnail() ) {
-							?>
-						<img class="hero__image" srcset="<?php ground_image( 'large' ); ?> 1200w,
-										<?php ground_image( 'medium_large' ); ?> 768w,
-										<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
-							<div class="hero__image-filter" aria-hidden="true"></div>
+				<div class="hero overflow-hidden my-6 lg:my-24 lg:mt-12 relative">
+					<div class="relative text-typo-primary py-16 lg:py-32">
+						<div class="grid grid-cols-12 gap-x-6 items-center">
+							<div class="col-span-full lg:col-span-4">
+								<div class="mb-6 flex items-center gap-6 lg:mb-0">
 								<?php
-						}
-						?>
+									$term = get_queried_object();
+									$image = get_field('image', $term);?>
+									<?php if($image) : ?>
+									<div class="overflow-hidden h-12 w-12 lg:h-24 lg:w-24 rounded-full">
+										<img class="object-cover"
+											srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
+													<?php echo $image['sizes']['1-1-medium']; ?> 900w,
+													<?php echo $image['sizes']['1-1-large']; ?> 1200w"
+											sizes="(min-width: 1200px) 1200px,
+													(min-width: 768px) 900px,
+													100vh"
+											src="<?php echo $image['sizes']['16-9-large']; ?>"
 
-						<div class="hero__content bg-body-primary">
-							<div class="grid grid-cols-12 gap-x-6">
-								<div class="col-span-full lg:col-span-3">
+											alt=""
+											loading="lazy">
+									</div>
+									<?php endif; ?>
+
 									<h1 class="color-typo-primary text-3xl py-3 lg:py-0"><?php the_archive_title(); ?></h1>
 								</div>
-								<div class="col-span-full lg:col-start-6 lg:col-span-7">
-									<div class="text-typo-primary text-base">
-										<?php the_archive_description(); ?>
-									</div>
+							</div>
+							<div class="col-span-full lg:col-start-6 lg:col-span-7">
+								<div class="text-typo-primary text-base">
+									<?php the_archive_description(); ?>
 								</div>
 							</div>
 						</div>
 
-					</div>
+						<!-- <?php if($image) : ?>
+							<div class="hidden absolute -z-1 top-0 left-0 lg:flex lg:w-56">
+								<img class="object-cover opacity-50"
+									srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
+											<?php echo $image['sizes']['1-1-medium']; ?> 900w,
+											<?php echo $image['sizes']['1-1-large']; ?> 1200w"
+									sizes="(min-width: 1200px) 1200px,
+											(min-width: 768px) 900px,
+											100vh"
+									src="<?php echo $image['sizes']['16-9-large']; ?>"
 
+									alt=""
+									loading="lazy">
+								<div class="absolute inset-0 bg-gradient-to-t from-body-primary z-1"> </div>
+							</div>
+						<?php endif; ?> -->
+
+					</div>
 				</div>
 
-				<div class="page__body">
-
+				<div class="page__body relative">
 					<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
-
 						<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
 						<div class="col-span-3">
 							<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target=".sidebar--archive-post html" data-toggle-class-name="is-sidebar-open">
