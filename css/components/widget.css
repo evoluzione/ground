@@ -6,4 +6,11 @@
 			@apply relative text-lg font-bold mb-3;
 		}
 	}
+	.tagcloud {
+		@apply flex;
+
+		a {
+			@apply text-base items-center px-3 border border-line-primary rounded-theme mr-2;
+		}
+	}
 }

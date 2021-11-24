@@ -18,16 +18,8 @@
 			<div class="hero__content">
 			<?php } ?>
 
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-full lg:col-span-3">
-						<h1 class="hero__title"><?php the_title(); ?></h1>
-					</div>
-					<div class="col-span-full lg:col-start-6 lg:col-span-7">
-						<div class="hero__excerpt">
-							<?php ground_excerpt( 9999 ); ?>
-						</div>
-					</div>
-				</div>
+			 <h1 class="text-center"><?php the_title(); ?></h1>
+
 			</div>
 
 		</div>
@@ -43,7 +35,15 @@
 		<?php the_content(); ?>
 	</div> <!-- End .page__body -->
 
+	<?php
+		$args   = array(
+			'posts_per_page' => 3,
+			'post__not_in'   => array( get_the_ID() ),
+		);
+		$parent = new WP_Query( $args );
+	?>
 
+	<?php if ( count($parent->posts) > 0 ) { ?>
 	<div class="mt-24 mb-24">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 		<div class="relative">
@@ -53,13 +53,7 @@
 			<div class="lg:col-span-2">
 				<div class="carousel-css">
 
-					<?php
-					$args   = array(
-						'posts_per_page' => 3,
-						'post__not_in'   => array( get_the_ID() ),
-					);
-					$parent = new WP_Query( $args );
-					?>
+
 					<?php if ( $parent->have_posts() ) : ?>
 						<?php
 						while ( $parent->have_posts() ) :
@@ -105,6 +99,7 @@
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 
 	<footer class="page__footer hidden">
 		<span class="page__data page__data--category"><?php _e( 'Category', 'ground' ); ?>: <?php the_category( ', ' ); ?></span>

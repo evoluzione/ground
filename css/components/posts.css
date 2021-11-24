@@ -1,0 +1,56 @@
+.posts {
+	/* COUNTS 1 */
+	&.items-count-1 {
+		@apply lg:grid lg:grid-cols-12 gap-12;
+		.post {
+			@apply lg:col-span-12;
+		}
+	}
+
+	/* COUNTS 2 */
+	&.items-count-2 {
+		@apply lg:grid lg:grid-cols-12 gap-12;
+		.post {
+			@apply lg:col-span-6;
+		}
+	}
+
+	/* COUNTS 3 */
+	&.items-count-3 {
+		@apply lg:grid lg:grid-rows-6 lg:grid-flow-col lg:grid-cols-9 lg:gap-12;
+		.post {
+			&:first-child {
+				@apply lg:row-span-6 lg:col-span-6 lg:bg-body-secondary lg:rounded-theme;
+				.item__header {
+					@apply pt-9;
+				}
+				.item__header,
+				.item__body {
+					@apply px-9;
+				}
+			}
+			&:not(:first-child) {
+				@apply lg:row-span-3 lg:col-span-3;
+			}
+		}
+	}
+
+	/* SCROLLSNAP ONLY ON MOBILE */
+	&--scrollsnap {
+		@media (max-width: calc(theme("screens.lg") -1px)) {
+			@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+			&::-webkit-scrollbar {
+				@apply hidden;
+			}
+			.post {
+				@apply scroll-snap-align-center inline-block align-top whitespace-normal w-10/12 pl-2 pr-2;
+				&:first-child {
+					@apply ml-4;
+				}
+				&:last-child {
+					@apply mr-4;
+				}
+			}
+		}
+	}
+}
