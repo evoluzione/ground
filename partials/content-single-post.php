@@ -22,7 +22,7 @@
 						<time datetime="<?php echo get_the_date( 'c' ); ?>" class="text-typo-secondary"><?php echo get_the_date(); ?></time></span>
 					</div>
 				</div>
-				<div class="rounded-theme">
+				<!-- <div class="rounded-theme">
 					<img class="item__media mt-12 lg:mt-24"
 						<?php if ( has_post_thumbnail() ) { ?>
 								srcset="<?php ground_image( '16-9-small' ); ?> 480w,
@@ -34,7 +34,7 @@
 						} else {
 							?>
 						src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
-				</div>
+				</div> -->
 			</div>
 
 		</div>
