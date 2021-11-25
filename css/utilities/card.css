@@ -10,7 +10,7 @@
 			@apply block text-xs font-bold mb-3;
 		}
 		.card-description {
-			@apply block text-typo-secondary text-base mb-3;
+			@apply block text-typo-secondary text-sm lg:text-base mb-3;
 		}
 		.card-label {
 			@apply relative block px-4 py-1 text-sm rounded-theme z-10;
