@@ -2,7 +2,6 @@
  Import from all components directory (no sub-directory)
 ========================================*/
 
-@import "accordion.css";
 @import "icons.css";
 @import "breadcrumb.css";
 @import "button.css";
