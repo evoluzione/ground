@@ -25,12 +25,12 @@
 		
 		<div class="js-menu-container header__container relative">
 
-			<div class="bg-body-secondary">
+			<div class="bg-primary">
 				<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
-					<div class="hidden xl:flex text-typo-secondary">
+					<div class="hidden xl:flex text-white">
 						<?php echo GROUND_HEADER_ADVICE; ?>
 					</div>
-					<div class="hidden lg:inline-block">
+					<div class="hidden lg:inline-block text-white">
 						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
 					</div>
 				</div>
