@@ -1,3 +1,4 @@
-img, figure {
-    @apply rounded-media;
+img,
+figure {
+	@apply rounded-media;
 }
