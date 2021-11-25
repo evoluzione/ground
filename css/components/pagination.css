@@ -7,30 +7,38 @@
 
 	&.pagination__item--prev,
 	&.pagination__item--next {
-		@apply flex sm:flex w-auto px-9 transition-all duration-500 ease-default;
+		@apply flex sm:flex w-auto transition-all duration-500 ease-default;
+
+		.pagination__text {
+			@apply px-9;
+		}
 
 		&:hover {
 			@apply border-primary;
-			a {
+			.pagination__text {
 				@apply bg-transparent border-primary text-primary;
 			}
 		}
 	}
 
 	&.pagination__item--dots {
-
+		&:hover {
+			.pagination__text {
+				@apply bg-transparent text-typo-secondary;
+			}
+		}
 	}
 
 	&.is-active {
 		@apply flex sm:flex bg-primary text-white border-primary animate-bounce;
 	}
 
-	a {
+	.pagination__text {
 		@apply flex h-full w-full items-center justify-center rounded-full;
 	}
 
 	&:hover {
-		a {
+		.pagination__text {
 			@apply bg-primary border-primary text-white;
 		}
 	}
