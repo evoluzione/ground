@@ -1,5 +1,4 @@
 .shopping-cart {
-
 	body.woocommerce-cart & {
 		@apply hidden;
 	}
@@ -28,4 +27,10 @@
 
 .shopping-cart__count-label {
 	@apply sr-only;
+}
+
+.shopping-cart__link {
+	span {
+		@apply font-normal !important;
+	}
 }

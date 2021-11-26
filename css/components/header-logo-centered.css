@@ -23,7 +23,7 @@
 		}
 
 		.navigation__list {
-			@apply m-0 lg:flex lg:justify-start;
+			@apply m-0 lg:flex lg:justify-start font-normal;
 		}
 
 		.navigation__sub-menu {

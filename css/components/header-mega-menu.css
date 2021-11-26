@@ -8,6 +8,12 @@
 		}
 	}
 
+	/* Logo */
+
+	.logo--primary {
+		@apply block h-10 lg:h-14;
+	}
+
 	/* Navigation Primary */
 	.navigation--primary {
 		.navigation__item {
@@ -137,7 +143,7 @@
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-line-primary border-opacity-20 font-bold;
+			@apply block text-lg py-4 border-b border-line-primary border-opacity-20;
 		}
 
 		.navigation__sub-menu {
