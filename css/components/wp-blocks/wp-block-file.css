@@ -1,7 +1,11 @@
 /* wp-block-file */
 .wp-block-file {
-	@apply my-0 !important;
+	@apply my-12 lg:my-24;
+    border: 2px dashed green;	
 	.wp-block-file__button {
-		@apply bg-primary !important;
+		@apply button;
+		&:hover {
+			@apply bg-transparent text-primary border-primary !important;
+		}
 	}
 }

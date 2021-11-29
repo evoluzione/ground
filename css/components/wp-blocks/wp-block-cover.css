@@ -1,7 +1,7 @@
 /* wp-block-cover */
 .wp-block-cover {
-	@apply my-0 !important;
-	@apply overflow-hidden rounded-theme;
+	@apply overflow-hidden rounded-theme my-12 lg:my-24;
+    border: 2px dashed green;
 	&.fullscreen {
 		@apply px-6;
 		.wp-block-cover__image-background {

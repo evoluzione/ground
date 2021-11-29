@@ -1,4 +1,5 @@
 /* wp-block-embed */
 .wp-block-embed {
-	@apply overflow-hidden rounded-theme my-0 !important;
+	@apply overflow-hidden rounded-theme my-12 lg:my-24;
+    border: 2px dashed green;
 }
