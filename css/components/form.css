@@ -36,6 +36,22 @@
 }
 
 
+
+form.wpcf7-form {
+
+	.wpcf7-not-valid {
+		@apply border-dashed border-red-500;
+	}
+
+	label {
+		@apply mt-4;
+	}
+	input,textarea {
+		@apply mt-1;
+	}
+}
+
+
 .select2-hidden-accessible {
 	@apply h-0 -m-1 !important;
 } 
