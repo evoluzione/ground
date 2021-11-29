@@ -3,7 +3,7 @@
 /* wc-block-featured-category */
 .wc-block-featured-product,
 .wc-block-featured-category {
-    @apply relative overflow-hidden rounded-media my-0;
+    @apply relative overflow-hidden rounded-media my-12 lg:my-24;
 
     &__wrapper {
         @apply relative max-w-4xl lg:px-9;
@@ -69,7 +69,7 @@
 
 /* wc-block-grid */
 .wc-block-grid {
-    @apply my-12 !important;
+    @apply my-12 lg:my-24;
     
     &__products {
         @apply gap-y-6 gap-x-6 lg:gap-y-16;

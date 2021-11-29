@@ -2,5 +2,4 @@
 .wp-block-verse {
 	@apply rounded-theme bg-body-secondary text-typo-primary p-6 !important;
 	@apply my-12 lg:my-24;
-    border: 2px dashed green;
 }

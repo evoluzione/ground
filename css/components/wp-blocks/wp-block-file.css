@@ -1,7 +1,6 @@
 /* wp-block-file */
 .wp-block-file {
 	@apply my-12 lg:my-24;
-    border: 2px dashed green;	
 	.wp-block-file__button {
 		@apply button;
 		&:hover {
