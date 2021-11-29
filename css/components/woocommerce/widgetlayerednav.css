@@ -107,7 +107,7 @@
 			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:my-px;
 
 			a {
-				@apply relative border border-primary no-underline text-primary pl-4 pr-12 py-1 rounded-theme align-middle flex items-center font-bold;
+				@apply relative border border-primary no-underline text-primary pl-4 pr-12 py-1 rounded-theme align-middle flex items-center font-bold whitespace-nowrap;
 				@apply transition-all ease-default duration-300;
 
 				&:before,
