@@ -68,21 +68,21 @@
 	}
 } */
 
-
 .woocommerce-product-attributes {
-	@apply relative;
+	@apply relative mb-0;
 
 	tr {
-		/* @apply border-b border-line-primary; */
+		@apply border-b border-line-primary;
 	}
 
 	th {
-		@apply text-base font-normal;
+		@apply text-lg lg:text-3xl font-normal;
 	}
 
 	td {
+		@apply border-0 text-typo-secondary text-lg lg:text-3xl;
 		* {
-			@apply text-typo-secondary text-base;
+			@apply text-typo-secondary text-lg lg:text-3xl;
 		}
 	}
 }

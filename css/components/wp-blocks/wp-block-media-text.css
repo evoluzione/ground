@@ -1,6 +1,6 @@
 /* wp-block-media-text */
 .wp-block-media-text {
-	@apply my-0 !important;
+	@apply my-12 lg:my-24;
 
 	.wp-block-media-text__media {
 		@apply mb-6 lg:mb-0 !important;

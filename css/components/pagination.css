@@ -1,110 +1,46 @@
 .pagination {
-	list-style: none;
-	@apply my-12 mx-0;
-	text-align: center;
-
-	@screen md {
-		display: table-row;
-	}
-
-	.is-active {
-		display: inline-block;
-		text-align: center;
-		@screen md {
-			text-align: left;
-			display: table-cell;
-		}
-		.pagination__text {
-			text-decoration: none;
-			@apply bg-black;
-			@apply text-white;
-			cursor: default;
-			@apply md:text-black md:border-0;
-			&:before {
-				content: attr(data-page);
-			}
-		}
-	}
-
-}
-
-.pagination__text {
-	@apply p-5;
-	text-decoration: none;
-	@apply text-gray-500;
-	cursor: pointer;
-	position: relative;
-	display: block;
-	line-height: 1.25;
-	margin-left: -1px;
-
-	&:hover {
-		@apply bg-primary;
-		@apply text-white;
-	}
-
+	@apply relative flex justify-center my-16 space-x-2;
 }
 
 .pagination__item {
-	display: none;
-	@apply text-black;
-	line-height: 1.25;
-	text-align: center;
+	@apply hidden sm:flex h-12 w-12 border border-line-primary rounded-full items-center justify-center text-typo-secondary;
 
-	@screen md {
-		display: table-cell;
-		margin-left: -1px;
-		width: auto;
-		text-align: left;
-	}
+	&.pagination__item--prev,
+	&.pagination__item--next {
+		@apply flex sm:flex w-auto transition-all duration-500 ease-default;
 
-	&--prev,
-	&--next {
-		display: inline-block !important;
 		.pagination__text {
-			@apply bg-black;
-			@apply text-white md:bg-none md:text-gray-500;
-			border: none;
-			cursor:pointer;
-			&:hover {
-				@apply bg-primary;
-			}
-
-			@screen md {
-				&:hover {
-					@apply text-black;
-					background-color: transparent;
-				}
-			}
-
+			@apply px-9;
 		}
-	}
 
-	&--prev {
-		.pagination__text {
-			&:before {
-				content: "< ";
+		&:hover {
+			@apply border-primary;
+			.pagination__text {
+				@apply bg-transparent border-primary text-primary;
 			}
 		}
 	}
 
-	&--next {
-		.pagination__text {
-			&:after {
-				content: " >";
+	&.pagination__item--dots {
+		&:hover {
+			.pagination__text {
+				@apply bg-transparent text-typo-secondary;
 			}
 		}
 	}
 
-	&--dots {
-		.pagination__text {
-			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-			cursor: default;
+	&.is-active {
+		@apply flex sm:flex bg-primary text-white border-primary animate-bounce;
+	}
 
-			&:hover {
-				background: none;
-				@apply text-gray-500;
-			}
+	.pagination__text {
+		@apply flex h-full w-full items-center justify-center rounded-full;
+	}
+
+	&:hover {
+		.pagination__text {
+			@apply bg-primary border-primary text-white;
 		}
 	}
+
 }

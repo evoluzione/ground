@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { gsap } from 'gsap';
-import InfiniteScroll from './components/infiniteScroll';
+// import InfiniteScroll from './components/infiniteScroll';
 import Modal from './components/modal';
 // import AjaxNavigation from './components/ajaxNavigation';
 import Slider from './components/slider';
@@ -35,7 +35,7 @@ import AnimationsFlip from './animations/animationsFlip';
 import AnimationWebGl from './animations/animationWebGl';
 // import AnimationDefault from './animations/animationDefault'
 
-const infiniteScroll = new InfiniteScroll();
+// const infiniteScroll = new InfiniteScroll();
 const loader = new Loader();
 const modal = new Modal();
 // const ajaxNavigation = new AjaxNavigation();
@@ -97,7 +97,7 @@ const carousel = new Slider('.js-carousel', {
 	spaceBetween: 24,
 	parallax: false,
 	autoplay: false,
-	freeMode: true,
+	freeMode: false,
 	speed: 1000,
 	touchEventsTarget: '.swiper-wrapper',
 	pagination: {

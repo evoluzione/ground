@@ -2,8 +2,6 @@
 	<?php get_template_part( 'partials/message', 'alert' ); ?>
 </div>
 
-
-
 <header class="header header-mega-menu w-full z-30 bg-body-primary">
 
 	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
@@ -24,13 +22,17 @@
 	</div>
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+
 		<div class="js-menu-container header__container relative">
-			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
-				<div class="hidden xl:flex">
-					<?php echo GROUND_HEADER_ADVICE; ?>
-				</div>
-				<div class="hidden lg:inline-block">
-					<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+
+			<div class="bg-body-secondary">
+				<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
+					<div class="hidden xl:flex text-typo-secondary">
+						<?php echo GROUND_HEADER_ADVICE; ?>
+					</div>
+					<div class="hidden lg:inline-block">
+						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+					</div>
 				</div>
 			</div>
 
@@ -42,10 +44,10 @@
 							<?php get_template_part( 'partials/logo', 'primary' ); ?>
 						</div>
 
-						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 						<div id="js-search-desktop" class="relative">
 							<?php get_template_part( 'partials/search', 'form-input' ); ?>
 						</div>
+						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 					</div>
 
 					<ul class="relative z-0 border-b border-line-primary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
@@ -69,8 +71,8 @@
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-typo-primary' ); ?></div>
-								<?php $locations = get_nav_menu_locations(); ?>								
-								<?php $titlePanelPrimary = wp_get_nav_menu_object( $locations['panel-primary'] ); ?>							
+								<?php $locations = get_nav_menu_locations(); ?>
+								<?php $titlePanelPrimary = wp_get_nav_menu_object( $locations['panel-primary'] ); ?>
 								<div><?php echo $titlePanelPrimary->name; ?></div>
 							</a>
 							<div class="hidden lg:flex">

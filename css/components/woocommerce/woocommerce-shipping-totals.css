@@ -2,14 +2,18 @@
     @apply relative;
     
     .woocommerce-shipping-methods {
-        @apply ml-0 mb-6;
+        @apply ml-0 mb-0;
+
+        body.woocommerce-checkout & {
+            @apply float-right;
+        }
 
         li {
-            @apply pl-0 flex items-center cursor-pointer;
+            @apply pl-0 text-left flex items-center cursor-pointer;
         
             &:before { @apply hidden; }
 
-            label { @apply pl-2; }
+            label { @apply pl-2 text-sm !important; }
 
             input:checked + label {
                 @apply text-primary underline !important;
@@ -18,7 +22,7 @@
     }
 
     .woocommerce-shipping-destination {
-        @apply text-sm;
+        @apply text-sm mt-3;
     }
     .shipping-calculator-button {
         @apply block mt-2 text-sm font-bold underline;

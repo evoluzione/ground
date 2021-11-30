@@ -1,106 +1,21 @@
+/* 1. Tailwind */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Variables */
+/* 2. Variables */
 @import "variables.css";
 
-/* Base */
-@import "base/root.css";
-@import "base/text.css";
-@import "base/link.css";
-@import "base/list.css";
-@import "base/image.css";
+/* 3. Base */
+@import "base/_base.css";
 
-/* Components */
-@import "components/accordion.css";
-@import "components/icons.css";
-@import "components/breadcrumb.css";
-@import "components/button.css";
-@import "components/card.css";
-@import "components/carousel-css.css";
-@import "components/cursor.css";
-@import "components/divider.css";
-@import "components/footer.css";
-@import "components/form.css";
-@import "components/header.css";
-@import "components/header-simple.css";
-@import "components/header-logo-centered.css";
-@import "components/header-mega-menu.css";
-@import "components/hero.css";
-@import "components/item.css";
-@import "components/loader.css";
-@import "components/logo.css";
-@import "components/media.css";
-@import "components/message-alert.css";
-@import "components/message.css";
-/* @import "components/modal.css"; */
-@import "components/navicon.css";
-@import "components/navigation.css";
-@import "components/overlay-panel.css";
-@import "components/page.css";
-@import "components/pagination.css";
-@import "components/search.css";
-@import "components/social.css";
-@import "components/sidebar.css";
-@import "components/slider.css";
-@import "components/spinner.css";
-@import "components/table.css";
-@import "components/tooltip.css";
-@import "components/widget.css";
-@import "components/scrollbar.css";
-@import "components/scroll-progress.css";
+/* 4. Layouts */
+@import "layouts/_layouts.css";
 
-/* wp-blocks */
+/* 5. Components */
+@import "components/_components.css";
 @import "components/wp-blocks/_wp-blocks.css";
+@import "components/woocommerce/_woocommerce.css";
 
-/* WooCommerce */
-@import "components/woocommerce/added-to-cart.css";
-@import "components/woocommerce/cart.css";
-@import "components/woocommerce/cart-totals.css";
-@import "components/woocommerce/cross-sells.css";
-@import "components/woocommerce/minicart.css";
-@import "components/woocommerce/price.css";
-@import "components/woocommerce/product-remove.css";
-@import "components/woocommerce/woocommerce-product-details.css";
-@import "components/woocommerce/variations.css";
-@import "components/woocommerce/quantity.css";
-@import "components/woocommerce/onsale.css";
-@import "components/woocommerce/widget-products.css";
-@import "components/woocommerce/widget-product-categories.css";
-@import "components/woocommerce/widgetpricefilter.css";
-@import "components/woocommerce/widgetlayerednav.css";
-@import "components/woocommerce/woocommerce-account.css";
-@import "components/woocommerce/woocommerce-cart-form.css";
-@import "components/woocommerce/woocommerce-form.css";
-@import "components/woocommerce/woocommerce-form-login.css";
-@import "components/woocommerce/woocommerce-order.css";
-@import "components/woocommerce/woocommerce-ordering.css";
-@import "components/woocommerce/woocommerce-checkout.css";
-@import "components/woocommerce/woocommerce-checkout-payment.css";
-@import "components/woocommerce/woocommerce-checkout-review-order-table.css";
-@import "components/woocommerce/woocommerce-message.css";
-@import "components/woocommerce/woocommerce-shipping-totals.css";
-@import "components/woocommerce/woocommerce-product-gallery.css";
-@import "components/woocommerce/woocommerce-tabs.css";
-@import "components/woocommerce/woocommerce-loop-category.css";
-@import "components/woocommerce/woocommerce-loop-product.css";
-@import "components/woocommerce/woocommerce-privacy-policy-text.css";
-@import "components/woocommerce/woocommerce-result-count.css";
-@import "components/woocommerce/woocommerce-terms-and-conditions.css";
-@import "components/woocommerce/not-purchasable.css";
-@import "components/woocommerce/product-columns.css";
-@import "components/woocommerce/related.css";
-@import "components/woocommerce/up-sells.css";
-@import "components/woocommerce/shopping-cart.css";
-@import "components/woocommerce/summary.css";
-@import "components/woocommerce/stock.css";
-@import "components/woocommerce/wc-blocks.css";
-
-/* Utilities */
-@import "utilities/animate.css";
-@import "utilities/card.css";
-@import "utilities/gradient-radial.css";
-@import "utilities/rounded.css";
-@import "utilities/scroll-snap.css";
-@import "utilities/fullscreen.css";
+/* 6. Utilities */
+@import "utilities/_utilities.css";

@@ -1,6 +1,6 @@
 @layer base {
 	a {
-		@apply transition-all duration-500;
+		@apply transition-all duration-500 ease-default;
 
 		&:hover,
 		&:active,

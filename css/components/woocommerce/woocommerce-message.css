@@ -16,3 +16,7 @@
 .woocommerce-error {
 	@apply bg-red-500;
 }
+
+ul.woocommerce-error {
+	@apply list-disc text-left pl-9;
+}

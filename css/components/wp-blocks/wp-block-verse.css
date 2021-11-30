@@ -1,4 +1,5 @@
 /* wp-block-verse */
 .wp-block-verse {
-	@apply rounded-theme bg-body-secondary text-typo-primary p-6 my-0 !important;
+	@apply rounded-theme bg-body-secondary text-typo-primary p-6 !important;
+	@apply my-12 lg:my-24;
 }

@@ -1,11 +1,10 @@
 @layer utilities {
-
 	.price,
 	.ground__price-range {
 		@apply flex items-baseline w-full text-typo-primary;
 
 		.amount {
-			@apply text-lg font-bold lg:text-4xl;
+			@apply text-lg font-bold;
 			.summary & {
 				@apply text-3xl lg:text-4xl;
 			}
@@ -36,7 +35,6 @@
 		}
 	}
 
-
 	.product-price {
 		@apply text-sm;
 
@@ -50,11 +48,13 @@
 			@apply no-underline;
 		}
 	}
-
 }
 
-
 .woocommerce-grouped-product-list-item__price {
-	del { @apply text-red-500; }
-	ins { @apply no-underline; }
+	del {
+		@apply text-red-500;
+	}
+	ins {
+		@apply no-underline;
+	}
 }
