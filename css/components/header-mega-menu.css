@@ -108,21 +108,14 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
-				@apply lg:relative lg:pr-10;
+				@apply flex items-center lg:relative lg:pr-5;
 				&:after {
 					content: "";
-					position: absolute;
-					height: 24px;
-					width: 24px;
-					border-radius: 50%;
-					right: 8px;
-					background: url("../img/icons/chevron-right.svg");
+					@apply absolute h-2 w-2 right-0;
 				}
 				@screen lg {
 					&:after {
-						margin-top: 4px;
-						right: 12px;
-						background: url("../img/icons/chevron-down.svg");
+						@apply transform rotate-45 border-b-2 border-r-2 border-typo-primary; 
 					}
 				}
 			}
@@ -181,20 +174,10 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
+				@apply relative flex items-center;
 				&:after {
 					content: "";
-					position: absolute;
-					height: 24px;
-					width: 24px;
-					border-radius: 50%;
-					right: 8px;
-					background: url("../img/icons/chevron-right.svg");
-				}
-
-				@screen lg {
-					&:after {
-						right: 32px;
-					}
+					@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-typo-primary;			
 				}
 			}
 		}
@@ -294,22 +277,10 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
-				@apply lg:relative lg:pr-10;
+				@apply flex items-center lg:relative lg:pr-5;
 				&:after {
 					content: "";
-					position: absolute;
-					height: 24px;
-					width: 24px;
-					border-radius: 50%;
-					right: 8px;
-					background: url("../img/icons/chevron-right.svg");
-				}
-				@screen lg {
-					&:after {
-						margin-top: 4px;
-						right: 12px;
-						background: url("../img/icons/chevron-down.svg");
-					}
+					@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-typo-primary lg:border-t-0 lg:border-b-2; 
 				}
 			}
 

@@ -39,12 +39,12 @@
 			<div class="flex flex-col-reverse lg:block">
 
 				<div class="container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
+					
 					<div class="relative z-1 lg:flex lg:items-center lg:justify-start lg:space-x-3">
-						<div class="hidden lg:inline-block mr-8">
+						<div class="hidden lg:inline-block">
 							<?php get_template_part( 'partials/logo', 'primary' ); ?>
 						</div>
-
-						<div id="js-search-desktop" class="relative">
+						<div id="js-search-desktop" class="relative w-96">
 							<?php get_template_part( 'partials/search', 'form-input' ); ?>
 						</div>
 						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
