@@ -12,16 +12,26 @@ $domain   = $_SERVER['HTTP_HOST'];
 
 /**
  * MySQL and url settings
+ * Enviroment: production, staging, development and local.
+ * Set server enviroment: SetEnv WP_ENVIRONMENT_TYPE local
  */
 
 switch ( getenv( 'WP_ENVIRONMENT_TYPE' ) ) {
 
 	case 'local':
 		define( 'DB_NAME', 'database_name_here' );
-		define( 'DB_USER', 'username_here' );
-		define( 'DB_PASSWORD', 'password_here' );
+		define( 'DB_USER', 'root' );
+		define( 'DB_PASSWORD', 'root' );
 		define( 'WP_SITEURL', $protocol . $domain . '/path/to/wordpress' );
 		define( 'WP_HOME', $protocol . $domain . '/path/to/wordpress' );
+		break;
+
+	case 'staging':
+		define( 'DB_NAME', 'database_name_here' );
+		define( 'DB_USER', 'username_here' );
+		define( 'DB_PASSWORD', 'password_here' );
+		define( 'WP_SITEURL', $protocol . $domain );
+		define( 'WP_HOME', $protocol . $domain );
 		break;
 
 	default:
@@ -37,7 +47,7 @@ switch ( getenv( 'WP_ENVIRONMENT_TYPE' ) ) {
 /**
  * MySQL database table prefix
  */
-$table_prefix = 'gr_'; // Only numbers, letters, and underscores.
+$table_prefix = 'wp_'; // Only numbers, letters, and underscores.
 
 /**
  * Database internals
@@ -67,12 +77,12 @@ define( 'WPLANG', 'it_IT' ); // Default en_EN.
 /**
  * Debug
  */
-define( 'WP_DEBUG', false ); // Turn debugging on.
+define( 'WP_DEBUG', true ); // Turn debugging on.
 define( 'WP_DEBUG_DISPLAY', false ); // Display errors and warnings on your site.
+@ini_set( 'display_errors', 0 );
 define( 'WP_DEBUG_LOG', true ); // Log errors and warnings (/wp-content/debug.log).
 define( 'SAVEQUERIES', false ); // Save database queries in an array. ( Show with: "global $wpdb; print_r( $wpdb->queries );" ).
 define( 'WP_DISABLE_FATAL_ERROR_HANDLER', false ); // Disable Fatal Error Handler.
-// @ini_set('display_errors',0);
 
 /**
  * Memory allocated to PHP
