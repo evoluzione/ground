@@ -8,7 +8,7 @@
 	}
 
 	.woocommerce-column__title {
-		@apply text-base text-primary mb-2;
+		@apply text-lg text-primary mt-6 mb-2 font-bold;
 	}
 
 	.woocommerce-order-details {

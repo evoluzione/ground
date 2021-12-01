@@ -13,15 +13,15 @@
 function ground_woocommerce_billing_fields( $fields ) {
 
 	// Remove fields.
-	unset( $fields['billing_address_1'] );
-	unset( $fields['billing_address_2'] );
-	unset( $fields['billing_city'] );
-	unset( $fields['billing_postcode'] );
-	unset( $fields['billing_country'] );
-	unset( $fields['billing_state'] );
+	// unset( $fields['billing_address_1'] );
+	// unset( $fields['billing_address_2'] );
+	// unset( $fields['billing_city'] );
+	// unset( $fields['billing_postcode'] );
+	// unset( $fields['billing_country'] );
+	// unset( $fields['billing_state'] );
 
-	// Force required.
-	$fields['billing_phone']['required'] = true;
+	// // Force required.
+	// $fields['billing_phone']['required'] = true;
 
 	// New fields.
 	$fields['billing_invoice'] = array(
@@ -257,7 +257,7 @@ add_action( 'woocommerce_thankyou', 'ground_woocommerce_custom_checkout_field_or
  * Shipping title
  */
 function ground_woocommerce_checkout_shipping_title() {
-	echo '<h3 class="margin-top-2">' . __( "Dove vuoi spedire l'acquisto?", 'ground' ) . '</h3>';
+	echo '<h3 class="pt-6 mb-5 border-t border-dashed border-line-primary">' . __( "Dove vuoi spedire l'acquisto?", 'ground' ) . '</h3>';
 }
 
 add_action( 'woocommerce_before_checkout_shipping_form', 'ground_woocommerce_checkout_shipping_title' );
@@ -360,3 +360,20 @@ function ground_header_checkout() {
 }
 
 add_action( 'ground_header', 'ground_header_checkout' );
+
+
+
+/**
+ * Checkout, Customize wc errors
+ */
+function ground_woocommerce_customize_wc_errors( $error ) {
+
+	if ( strpos( $error, 'di fatturazione' ) !== false ) {
+		$error = str_replace( 'di fatturazione', '(Dati personali) ', $error );
+	}
+	if ( strpos( $error, 'di spedizione' ) !== false ) {
+		$error = str_replace( 'di spedizione', '(Spedizione) ', $error );
+	}
+	return $error;
+}
+add_filter( 'woocommerce_add_error', 'ground_woocommerce_customize_wc_errors' );

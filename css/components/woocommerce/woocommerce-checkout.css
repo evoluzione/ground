@@ -14,11 +14,11 @@
 		@apply col-span-1 lg:pr-12;
 
 		h3 {
-			@apply text-xl mt-6 mb-3;
+			@apply text-xl font-bold;
 		}
 
 		.woocommerce-shipping-fields {
-			@apply mt-9;
+			/* @apply mt-9; */
 		}
 	}
 
@@ -27,7 +27,7 @@
 	}
 
 	#ship-to-different-address {
-		display: none;
+        @apply mb-8;
 	}
 
     .form-row-first {
@@ -58,6 +58,10 @@
             @apply px-4;
         } */
     }
+
+    /* .woocommerce-shipping-fields__field-wrapper {
+        border: 2px solid red;
+    } */
 
 }
 

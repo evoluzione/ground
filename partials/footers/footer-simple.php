@@ -1,4 +1,4 @@
-<footer class="relative pt-16 bg-body-secondary">
+<footer class="footer footer--simple relative pt-16 bg-body-secondary">
 	<div class="container">
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 			<?php $locations = get_nav_menu_locations(); ?>
