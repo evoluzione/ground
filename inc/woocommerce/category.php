@@ -28,7 +28,7 @@ function ground_woocommerce_category_image() {
  * Display term hero on category archive
  */
 function ground_add_term_hero() {
-	if ( is_tax( 'product_cat' ) ) {
+	if ( is_tax( 'product_cat' ) || is_tax( 'product_tag' ) || is_tax( 'product_brand' ) ) {
 
 		$min_price = isset( $_GET['min_price'] ) ? esc_attr( $_GET['min_price'] ) : 0;
 		$max_price = isset( $_GET['max_price'] ) ? esc_attr( $_GET['max_price'] ) : 0;

@@ -1,5 +1,5 @@
 <?php
-if ( is_product_category() ) {
+if ( is_tax( 'product_cat' ) ) {
 	$page_id = get_queried_object();
 } else {
 	$page_id = wc_get_page_id( 'shop' );
@@ -12,21 +12,27 @@ if ( $category_highlights ) {
 } else {
 	$repeater_count = 0;
 }
+
 ?>
 
 	<div class="hero hero--full-width">
-
 		<div class="hero__body">
 		<?php
-		if ( is_product_category() ) {
+		if ( is_tax( 'product_cat' ) ) {
 			$ground_cat   = get_queried_object();
 			$thumbnail_id = get_term_meta( $ground_cat->term_id, 'thumbnail_id', true );
+		} elseif ( is_tax( 'product_brand' ) ) {
+			$ground_cat      = get_queried_object();
+			$thumbnail_image = get_field( 'image', $ground_cat );
+			$thumbnail_id    = $thumbnail_image['id'];
 		} else {
 			$thumbnail_id = get_post_thumbnail_id( wc_get_page_id( 'shop' ) );
 		}
 		?>
-		<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'large' )[0]; ?>">
-		<div class="hero__image-filter" aria-hidden="true"></div>
+		<?php if ( $thumbnail_id ) : ?>
+			<img class="hero__image" loading="lazy" src="<?php echo wp_get_attachment_image_src( $thumbnail_id, 'large' )[0]; ?>">
+			<div class="hero__image-filter" aria-hidden="true"></div>
+		<?php endif; ?>
 		<div class="hero__content text-typo-primary container font-normal">
 			<div class="grid grid-cols-12 gap-x-6 <?php echo $repeater_count == 1 ? 'lg:items-center' : ''; ?>">
 				<div class="col-span-full lg:col-span-5">
@@ -169,4 +175,3 @@ if ( $category_highlights ) {
 	<?php endif; ?>
 
 </div>
-

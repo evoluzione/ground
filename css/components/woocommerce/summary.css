@@ -28,7 +28,8 @@
 	}
 
 	.posted_in,
-	.tagged_as {
+	.tagged_as,
+	.product_brand {
 		@apply block text-typo-secondary;
 
 		a {

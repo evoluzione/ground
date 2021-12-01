@@ -21,6 +21,7 @@ require_once 'inc/gutenberg-blocks.php';
 
 
 if ( class_exists( 'WooCommerce' ) ) {
+	require_once 'inc/woocommerce/brand.php';
 	require_once 'inc/woocommerce/breadcrumbs.php';
 	require_once 'inc/woocommerce/cart.php';
 	require_once 'inc/woocommerce/cart-item-quantity.php';

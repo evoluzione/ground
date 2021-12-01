@@ -436,3 +436,12 @@ function ground_woocommerce_after_single_product_summary_info() {
 };
 
 add_action( 'woocommerce_after_single_product_summary', 'ground_woocommerce_after_single_product_summary_info', 10, 2 );
+
+
+/**
+ * Add product brand single_product_summary
+ */
+function add_product_brand_single_product_summary() {
+	echo get_the_term_list( $post->ID, 'product_brand', '<span class="product_brand">Brand: ', ',<a>', '</a></span>' );
+}
+add_action( 'woocommerce_product_meta_end', 'add_product_brand_single_product_summary', 5 );
