@@ -1,6 +1,12 @@
 .cross-sells {
     @apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
 
+    body.woocommerce-cart & {
+        .product-columns {
+            @apply sm:grid-cols-2 lg:grid-cols-4;
+        }
+    }
+
     .minicart & {
         @apply py-9 px-6 lg:px-9;
     }
