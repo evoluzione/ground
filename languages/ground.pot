@@ -1,0 +1,292 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Ground\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-01 13:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.2\n"
+"X-Domain: ground"
+
+#: ../ground/partials/sidebar-archive-post.php:5
+msgid "<"
+msgstr ""
+
+#: ../ground/partials/headers/header-mega-menu.php:54
+#: ../ground/partials/headers/header-simple.php:42
+msgid "Account"
+msgstr ""
+
+#: ../ground/inc/woocommerce/product-loop.php:151
+msgid "Advanced Filters"
+msgstr ""
+
+#: ../ground/partials/footers/footer-simple.php:54
+msgid "All rights reserved - © copyright"
+msgstr ""
+
+#. Name of the template
+msgid "Animation"
+msgstr ""
+
+#: ../ground/partials/sidebar-archive-post.php:5
+msgid "Back to "
+msgstr ""
+
+#: ../ground/inc/acf-constants.php:80 ../ground/inc/acf-constants.php:81
+msgid "Call to order"
+msgstr ""
+
+#: ../ground/partials/woocommerce/shopping-cart.php:18
+msgid "Cart"
+msgstr ""
+
+#: ../ground/inc/woocommerce/payments.php:18
+msgid "Cash on delivery charges"
+msgstr ""
+
+#. Name of the template
+msgid "Catalog"
+msgstr ""
+
+#: ../ground/partials/content-single-post.php:120
+#: ../ground/partials/navigation-blog.php:34
+msgid "Category"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:44
+#: ../ground/inc/woocommerce/checkout.php:154
+msgid "Cliente privato"
+msgstr ""
+
+#: ../ground/partials/footers/footer-simple.php:40
+msgid "Closing Time"
+msgstr ""
+
+#: ../ground/inc/woocommerce/cart.php:101
+msgid "Code"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:58
+#: ../ground/inc/woocommerce/checkout.php:78
+#: ../ground/inc/woocommerce/checkout.php:169
+#: ../ground/inc/woocommerce/checkout.php:247
+msgid "Codice destinatario (SDI)"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:56
+#: ../ground/inc/woocommerce/checkout.php:60
+#: ../ground/inc/woocommerce/checkout.php:164
+#: ../ground/inc/woocommerce/checkout.php:241
+msgid "Codice fiscale"
+msgstr ""
+
+#: ../ground/partials/content-single-post.php:122
+#: ../ground/partials/comments.php:68
+msgid "Comments"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:219
+msgid "Dati Fatturazione"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:284
+msgid "Dati personali"
+msgstr ""
+
+#: ../ground/partials/content-single-post.php:102
+msgid "Discover"
+msgstr ""
+
+#: ../ground/partials/content-single-post.php:66
+msgid "Discover all news"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:42
+#: ../ground/inc/woocommerce/checkout.php:152
+msgid "Ditta individuale/Professionista"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:260
+msgid "Dove vuoi spedire l'acquisto?"
+msgstr ""
+
+#: ../ground/partials/comments-form.php:9
+msgid "Email"
+msgstr ""
+
+#: ../ground/404.php:20
+msgid "Error code: 404"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:222
+msgid "Fattura non richiesta"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:196
+msgid "Fattura richiesta?"
+msgstr ""
+
+#: ../ground/archive.php:81 ../ground/inc/woocommerce/product-loop.php:120
+msgid "Filters"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:287
+msgid "Hai altro da comunicare?"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:29
+msgid "Hai bisogno della fattura?"
+msgstr ""
+
+#: ../ground/woocommerce/cart/cart.php:139
+#: ../ground/woocommerce/cart/cart-original.php:141
+msgid "Hai un codice promozionale?"
+msgstr ""
+
+#. Name of the template
+msgid "Home page"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:201
+msgid "Il cliente ha richiesto la fattura"
+msgstr ""
+
+#: ../ground/partials/panel-primary.php:15
+#: ../ground/partials/headers/header-mega-menu.php:8
+#: ../ground/partials/headers/header-simple.php:6
+#: ../ground/partials/headers/header-logo-centered.php:6
+msgid "Indietro"
+msgstr ""
+
+#: ../ground/partials/company-info-contacts.php:4
+msgid "Language"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:269
+msgid "Metodo di pagamento"
+msgstr ""
+
+#: ../ground/partials/comments-form.php:8
+msgid "Name"
+msgstr ""
+
+#: ../ground/partials/pagination.php:42
+msgid "Next"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:54
+#: ../ground/inc/woocommerce/checkout.php:235
+msgid "Nome della società"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:199
+msgid "Non è richiesta fattura"
+msgstr ""
+
+#: ../ground/404.php:15
+msgid "Oops!"
+msgstr ""
+
+#: ../ground/partials/footers/footer-simple.php:34
+msgid "Opening Hours"
+msgstr ""
+
+#: ../ground/partials/content-single-post.php:65
+msgid "Other news"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:55
+#: ../ground/inc/woocommerce/checkout.php:51
+#: ../ground/inc/woocommerce/checkout.php:159
+#: ../ground/inc/woocommerce/checkout.php:238
+msgid "P.IVA"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:57
+#: ../ground/inc/woocommerce/checkout.php:69
+#: ../ground/inc/woocommerce/checkout.php:174
+#: ../ground/inc/woocommerce/checkout.php:244
+msgid "Pec"
+msgstr ""
+
+#: ../ground/partials/pagination.php:41
+msgid "Prev"
+msgstr ""
+
+#: ../ground/partials/woocommerce/content-single-product-meta-field.php:20
+msgid "Product specifications"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:43
+#: ../ground/inc/woocommerce/checkout.php:153
+msgid "Pubblica amministrazione"
+msgstr ""
+
+#: ../ground/partials/search-form-input.php:3
+msgid "Search products"
+msgstr ""
+
+#. %s: search query.
+#: ../ground/search.php:21
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:350
+msgid "Secure order"
+msgstr ""
+
+#: ../ground/partials/socials.php:5
+msgid "Seguici sui social network"
+msgstr ""
+
+#: ../ground/inc/woocommerce/sidebar.php:27
+msgid "Shop Sidebar"
+msgstr ""
+
+#: ../ground/inc/woocommerce/sidebar.php:35
+msgid "Shop Sidebar Advanced"
+msgstr ""
+
+#: ../ground/inc/extend.php:626
+msgid "Sidebar archive post"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:41
+#: ../ground/inc/woocommerce/checkout.php:151
+msgid "Società"
+msgstr ""
+
+#: ../ground/search.php:42 ../ground/partials/abstract-ajax-search.php:33
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../ground/partials/woocommerce/content-single-product-meta-field.php:63
+msgid "Technical info"
+msgstr ""
+
+#: ../ground/404.php:19
+msgid "The page you're looking for can't be found"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:53
+#: ../ground/inc/woocommerce/checkout.php:38
+#: ../ground/inc/woocommerce/checkout.php:147
+#: ../ground/inc/woocommerce/checkout.php:232
+msgid "Tipologia cliente"
+msgstr ""
+
+#: ../ground/partials/comments-form.php:10
+msgid "Website"
+msgstr ""
