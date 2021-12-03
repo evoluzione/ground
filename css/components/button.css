@@ -7,6 +7,7 @@
 		}
 
 		&:hover,
+		&:focus,
 		&--active {
 			@apply bg-transparent text-primary border-primary;
 		}
@@ -15,6 +16,7 @@
 			@apply bg-transparent text-primary border-primary;
 
 			&:hover,
+			&:focus,
 			&--active {
 				@apply bg-primary text-white border-primary;
 			}
@@ -24,6 +26,7 @@
 			@apply bg-transparent text-typo-primary border border-line-primary;
 
 			&:hover,
+			&:focus,
 			&--active {
 				@apply bg-transparent text-primary border-primary;
 			}
