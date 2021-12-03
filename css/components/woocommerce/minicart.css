@@ -99,7 +99,7 @@
 
 			.button {
 				&:first-child {
-					@apply order-2;
+					/* @apply order-2; */
 				}
 				&.checkout {
 					@apply button--secondary hidden sm:inline-block;
