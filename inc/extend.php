@@ -654,3 +654,22 @@ add_filter( 'get_the_archive_title', function ($title) {
 		}
 	return $title;
 });
+
+//Create your own pattern block
+// function ground_block_patterns() {
+
+//     register_block_pattern(
+//         'page-intro-block/my-custom-pattern',
+//         array(
+//             'title'       => __( 'Page Intro Blocks', 'page-intro-block' ),
+
+//             'description' => _x( 'Includes a cover block, two columns with headings and text, a separator and a single-column text block.', 'Block pattern description', 'page-intro-block' ),
+
+//             'content'     => "<!-- wp:acf/table {\"id\":\"block_618d7a3d0e32c\",\"name\":\"acf/table\",\"data\":{\"table\":{\"acftf\":{\"v\":\"1.3.14\"},\"p\":{\"o\":{\"uh\":1},\"ca\":\"Prova\"},\"c\":[{\"p\":\"\"},{\"p\":\"\"}],\"h\":[{\"c\":\"prova\"},{\"c\":\"asfasfas\"}],\"b\":[[{\"c\":\"Windproof\"},{\"c\":\"Waterproof\"}],[{\"c\":\"Brathable\"},{\"c\":\"Good to -°5C\"}]]},\"_table\":\"field_612904fe94e16\"},\"align\":\"\",\"mode\":\"edit\"} /-->",
+
+//             'categories'  => array('header'),
+//         )
+//     );
+
+// }
+// add_action( 'init', 'ground_block_patterns' );
