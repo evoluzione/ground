@@ -8,7 +8,7 @@ import Loader from './components/loader';
 import Toggle from './components/toggle';
 import Menu from './components/menu';
 import Cart from './components/cart';
-import Cursor from './components/cursorV2';
+// import Cursor from './components/cursorV2';
 import Search from './components/search';
 import Magnet from './components/magnetV2';
 import Billing from './components/billing';
@@ -32,7 +32,7 @@ import AnimationsFlip from './animations/animationsFlip';
 // import AnimationSplitText from './animations/animationSplitText'
 // import AnimationSpriteImages from './animations/animationSpriteImages'
 // import AnimationVideo from './animations/animationVideo'
-import AnimationWebGl from './animations/animationWebGl';
+// import AnimationWebGl from './animations/animationWebGl';
 // import AnimationDefault from './animations/animationDefault'
 
 // const infiniteScroll = new InfiniteScroll();
@@ -63,7 +63,7 @@ const widgetAccordion = new WidgetAccordion();
 // const animationScale = new AnimationScale()
 // const animationSpriteImages = new AnimationSpriteImages()
 // const animationVideo = new AnimationVideo()
-const animationWebGl = new AnimationWebGl();
+// const animationWebGl = new AnimationWebGl();
 // const animationSplitText = new AnimationSplitText()
 // const animationPin = new AnimationPin()
 // const animationDefault = new AnimationDefault()
