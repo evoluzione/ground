@@ -1,11 +1,6 @@
 module.exports = {
-	mode: 'jit',
-	purge: {
-		content: ['./**/*.php', './js/scripts.min.js'],
-		options: {
-			safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3']
-		}
-	},
+	content: ['./**/*.php', './js/scripts.min.js'],
+	safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
 	darkMode: 'class', // false, 'media' or 'class'
 	theme: {
 		container: {
@@ -145,9 +140,6 @@ module.exports = {
 				'scale-in': 'scale-in 0.5s ease-in-out forwards'
 			}
 		}
-	},
-	variants: {
-		extend: {}
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
