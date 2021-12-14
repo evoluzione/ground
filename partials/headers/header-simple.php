@@ -37,11 +37,11 @@
 						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
 					</div>
 
-					<?php if ( ! function_exists( 'is_woocommerce_activated' ) ) : ?>
-					<ul class=" relative z-0 lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:border-l lg:border-gray-200 lg:pl-6 lg:text-base"><a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
-						<li class="hidden minicart-wrapper py-4 lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
-					</ul>
+					<?php if ( function_exists( 'is_woocommerce_activated' ) ) : ?>
+						<ul class=" relative z-0 lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
+							<li class="text-lg lg:border-l lg:border-gray-200 lg:pl-6 lg:text-base"><a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
+							<li class="hidden minicart-wrapper py-4 lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
+						</ul>
 					<?php endif; ?>
 				</div>
 
