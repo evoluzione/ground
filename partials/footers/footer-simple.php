@@ -1,9 +1,10 @@
+<?php $locations = get_nav_menu_locations(); ?>
+
 <footer class="footer footer--simple relative pt-16 bg-body-secondary">
 	<div class="container">
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-			<?php $locations = get_nav_menu_locations(); ?>
 
-			<?php if ( isset( $locations['footer-primary'] ) ) : ?>
+			<?php if ( $locations['footer-primary'] !== 0 ) : ?>
 				<div class="mb-12">
 					<?php $title_footer_primary = wp_get_nav_menu_object( $locations['footer-primary'] ); ?>
 					<h3 class="text-xl font-bold mb-4"> <?php echo $title_footer_primary->name; ?> </h3>
@@ -11,7 +12,7 @@
 				</div>
 			<?php endif; ?>
 
-			<?php if ( isset( $locations['footer-secondary'] ) ) : ?>
+			<?php if ( $locations['footer-secondary'] !== 0 ) : ?>
 				<div class="mb-12">
 					<?php $title_footer_secondary = wp_get_nav_menu_object( $locations['footer-secondary'] ); ?>
 					<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_secondary->name ); ?> </h3>
@@ -19,7 +20,7 @@
 				</div>
 			<?php endif; ?>
 
-			<?php if ( isset( $locations['footer-tertiary'] ) ) : ?>
+			<?php if ( $locations['footer-tertiary'] !== 0 ) : ?>
 				<div class="mb-12">
 					<?php $title_footer_tertiary = wp_get_nav_menu_object( $locations['footer-tertiary'] ); ?>
 					<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_tertiary->name ); ?> </h3>
