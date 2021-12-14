@@ -28,9 +28,9 @@
 		<div class="js-menu-container header__container relative">
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16 xl:justify-end xl:space-x-6">
 				<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
-				<div class="xl:border-r xl:border-gray-200 xl:pr-6">
-					<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
-				</div>
+					<div class="xl:border-r xl:border-gray-200 xl:pr-6">
+						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
+					</div>
 				<?php endif; ?>
 				<div class="pl-6 lg:items-center lg:space-x-6 lg:pl-0 lg:flex lg:justify-end xl:justify-start">
 					<div class="hidden lg:inline-block ">
@@ -79,5 +79,3 @@
 	</div>
 
 </header> <!-- End header -->
-
-
