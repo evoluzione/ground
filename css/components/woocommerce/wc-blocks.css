@@ -1,48 +1,48 @@
-
 /* wc-block-featured-product */
 /* wc-block-featured-category */
 .wc-block-featured-product,
 .wc-block-featured-category {
-    @apply relative overflow-hidden rounded-media my-12 lg:my-24;
+	@apply relative overflow-hidden rounded-media my-12 lg:my-24;
 
-    &__wrapper {
-        @apply relative max-w-4xl lg:px-9;
-    }
+	&__wrapper {
+		@apply relative max-w-4xl lg:px-9;
+	}
 
-    &__title {
+	&__title {
+	}
+	&__description {
+	}
 
-    }
-    &__description {
-    }
+	&__price {
+		@apply price !important;
 
-    &__price {
-        @apply price !important;
+		.alignnone & {
+			@apply justify-center;
+		}
+		.has-left-content & {
+			@apply justify-start;
+		}
+		.has-right-content & {
+			@apply justify-end;
+		}
+	}
 
-        .alignnone & { @apply justify-center; }
-        .has-left-content & { @apply justify-start; }
-        .has-right-content & { @apply justify-end; }
+	&__link {
+		@apply mt-3;
 
-    }
+		.wp-block-button {
+			&.alignright {
+				@apply text-right;
+			}
+		}
 
-    &__link {
-        @apply mt-3;
-
-        .wp-block-button {
-            &.alignright {
-                @apply text-right; 
-            }
-        }
-
-        .wp-block-button__link {
-            @apply button;
-        }
-    }
-
+		.wp-block-button__link {
+			@apply button;
+		}
+	}
 }
 
-
-
-/* 
+/*
 
 .wp-block-woocommerce-attribute-filter {
 
@@ -64,106 +64,117 @@
 }
 
 .wp-block-woocommerce-active-filters {
-    
+
 } */
 
 /* wc-block-grid */
 .wc-block-grid {
-    @apply my-12 lg:my-24;
-    
-    &__products {
-        @apply gap-y-6 gap-x-6 lg:gap-y-16;
-        .has-1-columns & { @apply grid grid-cols-1 gap-12; }
-        .has-2-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
-        .has-3-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
-        .has-4-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4; }
-        .has-5-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5; }
-        .has-6-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6; }
-    }
+	@apply my-12 lg:my-24;
 
-    .wc-block-grid__products {
-        @apply m-0;
+	&__products {
+		@apply gap-y-6 gap-x-6 lg:gap-y-16;
+		.has-1-columns & {
+			@apply grid grid-cols-1 gap-12;
+		}
+		.has-2-columns & {
+			@apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2;
+		}
+		.has-3-columns & {
+			@apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3;
+		}
+		.has-4-columns & {
+			@apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4;
+		}
+		.has-5-columns & {
+			@apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5;
+		}
+		.has-6-columns & {
+			@apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6;
+		}
+	}
 
-        .wc-block-grid__product {
-            @apply text-left border-0 p-0 flex-shrink-0 max-w-full !important;
+	.wc-block-grid__products {
+		@apply m-0;
 
-            &:before { @apply hidden; }
+		.wc-block-grid__product {
+			@apply text-left border-0 p-0 shrink-0 max-w-full !important;
 
-            .wc-block-grid__product-link { @apply no-underline; }
+			&:before {
+				@apply hidden;
+			}
 
-            .wc-block-grid__product-image {
-                @apply card-image;
-            }
+			.wc-block-grid__product-link {
+				@apply no-underline;
+			}
 
-            .wc-block-grid__product-title {
-                @apply card-title;
-            }
+			.wc-block-grid__product-image {
+				@apply card-image;
+			}
 
-            .wc-block-grid__product-onsale {
-                @apply absolute top-3 left-3 border-0 px-4 py-2 text-sm text-white bg-green-500 rounded-theme z-10 !important;
-            }
+			.wc-block-grid__product-title {
+				@apply card-title;
+			}
 
-            .wc-block-grid__product-price {
-                @apply price;
-            }
+			.wc-block-grid__product-onsale {
+				@apply absolute top-3 left-3 border-0 px-4 py-2 text-sm text-white bg-green-500 rounded-theme z-10 !important;
+			}
 
-            .wp-block-button {
-                @apply mt-5;
+			.wc-block-grid__product-price {
+				@apply price;
+			}
 
-                .wp-block-button__link {
-                    @apply button !important;
+			.wp-block-button {
+				@apply mt-5;
 
-                    &:after {
-                        @apply hidden;
-                    }
-                }
-            }
+				.wp-block-button__link {
+					@apply button !important;
 
-        }
-
-    }
+					&:after {
+						@apply hidden;
+					}
+				}
+			}
+		}
+	}
 }
-
-
 
 /* wc-block-product-categories */
 .wc-block-product-categories {
-    @apply relative;
+	@apply relative;
 
-    .wc-block-product-categories-list {
-        @apply relative pl-4;
+	.wc-block-product-categories-list {
+		@apply relative pl-4;
 
-        .wc-block-product-categories-list-item {
-            @apply relative ml-0 my-2 pl-4;
+		.wc-block-product-categories-list-item {
+			@apply relative ml-0 my-2 pl-4;
 
-            .wc-block-product-categories-list {
-                @apply list-none pl-0;
-            }
+			.wc-block-product-categories-list {
+				@apply list-none pl-0;
+			}
 
-            a {
-                @apply relative flex items-center;
+			a {
+				@apply relative flex items-center;
 
-                &:before {
-                    content: '';
-                    @apply absolute inline-block align-middle border-t border-line-primary h-px w-4 mr-3 -left-8;
-                }
+				&:before {
+					content: "";
+					@apply absolute inline-block align-middle border-t border-line-primary h-px w-4 mr-3 -left-8;
+				}
 
-                .wc-block-product-categories-list-item__image {
-                    @apply absolute top-0 left-6 border-0 h-6 w-6;
+				.wc-block-product-categories-list-item__image {
+					@apply absolute top-0 left-6 border-0 h-6 w-6;
 
-                    img { @apply block h-full w-full object-cover; }
+					img {
+						@apply block h-full w-full object-cover;
+					}
+				}
+			}
 
-                }
-
-            }
-
-            .wc-block-product-categories-list-item-count {
-                span {}
-                span.screen-reader-text {}
-            }
-
-        }
-
-    }
-
+			.wc-block-product-categories-list-item-count {
+				span {
+				}
+				span.screen-reader-text {
+				}
+			}
+		}
+	}
 }

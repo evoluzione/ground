@@ -42,7 +42,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="bg-green-500 h-screen w-screen flex items-center justify-center" data-scroll-panel>
 				<div class="relative text-5xl text-white">Scroll down to animate horizontally ></div>
 			</div>
-			
+
 			<div class="bg-green-600 h-screen w-screen flex items-center justify-center" data-scroll-panel>
 				<div class="js-box-1 relative bg-white p-9 text-xl">js-box-1</div>
 			</div>
@@ -257,22 +257,22 @@ get_template_part( 'partials/header' ); ?>
 			<h2 class="mb-9 text-gray-300 text-center">Pin <strong class="text-gray-500">Horizontal Section</strong></h2>
 			<div class="relative overflow-hidden flex flex-nowrap">
 
-				<section data-scroll-section class="flex-shrink-0 w-screen bg-white bg-opacity-10 py-44">
+				<section data-scroll-section class="shrink-0 w-screen bg-white bg-opacity-10 py-44">
 					<h1 class="text-9xl text-center text-white">Part One</h1>
 				</section>
-				<section data-scroll-section class="flex-shrink-0 bg-white py-44">
+				<section data-scroll-section class="shrink-0 bg-white py-44">
 					<h1 class="text-9xl text-center px-20 text-black">Part Two</h1>
 				</section>
-				<section data-scroll-section class="flex-shrink-0 bg-white bg-opacity-10 py-44">
+				<section data-scroll-section class="shrink-0 bg-white bg-opacity-10 py-44">
 					<h1 class="text-9xl text-center text-white px-20">Part Three</h1>
 				</section>
-				<section data-scroll-section class="flex-shrink-0 w-screen bg-white py-44">
+				<section data-scroll-section class="shrink-0 w-screen bg-white py-44">
 					<h1 class="text-9xl text-center text-black">Part Four</h1>
 				</section>
-				<section data-scroll-section class="flex-shrink-0 bg-white bg-opacity-10 py-44">
+				<section data-scroll-section class="shrink-0 bg-white bg-opacity-10 py-44">
 					<h1 class="text-9xl text-center text-white px-20">Part Five</h1>
 				</section>
-				<section data-scroll-section class="flex-shrink-0 w-screen bg-white py-44">
+				<section data-scroll-section class="shrink-0 w-screen bg-white py-44">
 					<h1 class="text-9xl text-center text-black">Part Six</h1>
 				</section>
 
