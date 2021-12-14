@@ -1,19 +1,17 @@
 @layer utilities {
-	@variants responsive {
-		.card-image {
-			@apply relative overflow-hidden w-full rounded-media;
-		}
-		.card-title {
-			@apply block text-lg font-bold mt-4 mb-3 line-clamp-3 lg:mt-5;
-		}
-		.card-subtitle {
-			@apply block text-xs font-bold mb-3;
-		}
-		.card-description {
-			@apply block text-typo-secondary text-sm md:text-base mb-3;
-		}
-		.card-label {
-			@apply relative block px-4 py-1 text-sm rounded-theme z-10;
-		}
+	.card-image {
+		@apply relative overflow-hidden w-full rounded-media;
+	}
+	.card-title {
+		@apply block text-lg font-bold mt-4 mb-3 line-clamp-3 lg:mt-5;
+	}
+	.card-subtitle {
+		@apply block text-xs font-bold mb-3;
+	}
+	.card-description {
+		@apply block text-typo-secondary text-sm md:text-base mb-3;
+	}
+	.card-label {
+		@apply relative block px-4 py-1 text-sm rounded-theme z-10;
 	}
 }
