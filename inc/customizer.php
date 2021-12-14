@@ -43,7 +43,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				$wp_customize,
 				'logo_url_primary_control',
 				array(
-					'label'    => __( 'Upload Logo', 'ground-admin' ),
+					'label'    => __( 'Logo', 'ground-admin' ),
 					'priority' => 20,
 					'section'  => 'title_tagline',
 					'settings' => 'logo_url_primary',
@@ -58,7 +58,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				'section'     => 'title_tagline',
 				'priority'    => 30,
 				'label'       => __( 'Logo SVG', 'ground-admin' ),
-				'description' => __( 'If you have the logo in SVG format put the code here', 'ground-admin' ),
+				'description' => __( 'Paste the SVG code', 'ground-admin' ),
 			)
 		);
 
@@ -67,7 +67,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				$wp_customize,
 				'no_image_url',
 				array(
-					'label'    => __( 'Upload No Image', 'ground-admin' ),
+					'label'    => __( 'Placeholder image', 'ground-admin' ),
 					'priority' => 40,
 					'section'  => 'title_tagline',
 					'settings' => 'no_image_url',
