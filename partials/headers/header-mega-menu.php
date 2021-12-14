@@ -39,7 +39,7 @@
 			<div class="flex flex-col-reverse lg:block">
 
 				<div class="container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
-					
+
 					<div class="relative z-1 lg:flex lg:items-center lg:justify-start lg:space-x-3">
 						<div class="hidden lg:inline-block">
 							<?php get_template_part( 'partials/logo', 'primary' ); ?>
@@ -50,17 +50,17 @@
 						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 					</div>
 
-					<ul class="relative z-0 border-b border-line-primary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
-						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
-					</ul>
+					<?php if ( function_exists( 'is_woocommerce_activated' ) ) : ?>
+						<ul class="relative z-0 border-b border-line-primary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
+							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
+							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
+						</ul>
+					<?php endif; ?>
 
 					<div class="block lg:hidden">
 						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
 					</div>
 				</div>
-
-
 
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
 					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
@@ -93,4 +93,3 @@
 </header> <!-- End header -->
 
 <div id="js-search-mobile" class="pt-3 h-16 lg:hidden"></div>
-
