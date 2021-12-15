@@ -38,12 +38,12 @@
 	/* SCROLLSNAP ONLY ON MOBILE */
 	&--scrollsnap {
 		@media (max-width: calc(theme("screens.lg") -1px)) {
-			@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+			@apply snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
 			&::-webkit-scrollbar {
 				@apply hidden;
 			}
 			.post {
-				@apply scroll-snap-align-center inline-block align-top whitespace-normal w-10/12 pl-2 pr-2;
+				@apply snap-center inline-block align-top whitespace-normal w-10/12 pl-2 pr-2;
 				&:first-child {
 					@apply ml-4;
 				}

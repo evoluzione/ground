@@ -29,7 +29,7 @@
 	@apply block mb-12 lg:mt-6;
 
 	.navigation__list {
-		@apply px-6 space-x-1 scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:space-x-0;
+		@apply px-6 space-x-1 snap-x snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:space-x-0;
 		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto lg:px-0;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
@@ -39,7 +39,7 @@
 	}
 
 	.navigation__item {
-		@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:block;
+		@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal snap-center lg:block;
 		&.is-active {
 			@apply bg-primary rounded-full text-typo-secondary lg:rounded-none lg:bg-transparent;
 		}
@@ -54,7 +54,7 @@
 
 .navigation--blog {
 	@apply m-0 mt-12 px-6 text-typo-primary space-x-3 block lg:px-0 lg:flex lg:items-center;
-	@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+	@apply snap-x snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
 	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
@@ -63,7 +63,7 @@
 	}
 
 	li {
-		@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center;
+		@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal snap-center;
 		&.current-cat {
 			@apply bg-primary rounded-full text-white;
 
