@@ -1,64 +1,62 @@
-.woocommerce-checkout-review-order-table {
-    @apply bg-transparent;
+@layer components {
+	.woocommerce-checkout-review-order-table {
+		@apply bg-transparent;
 
-    td {
-        @apply text-right;
-    }
+		td {
+			@apply text-right;
+		}
 
-    thead {
-        @apply hidden;
-    }
-    tbody {
-        @apply relative;
+		thead {
+			@apply hidden;
+		}
+		tbody {
+			@apply relative;
 
-        
+			.cart_item {
+				@apply relative border-0 border-b border-line-primary;
+				.product-name {
+					@apply relative text-sm pr-3 lg:pl-20 lg:pr-0 text-left;
+					max-width: 120px;
 
-        .cart_item {
-            @apply relative border-0 border-b border-line-primary;
-            .product-name {
-                @apply relative text-sm pr-3 lg:pl-20 lg:pr-0 text-left;
-                max-width: 120px;
+					@screen md {
+						@apply max-w-full;
+					}
 
-                @screen md {
-                    @apply max-w-full;
-                }
+					.product-thumbnail {
+						@apply mb-3 lg:absolute lg:top-2/4 lg:left-0 h-16 w-16 lg:-mt-8 lg:mb-0;
 
-                .product-thumbnail {
-                    @apply mb-3 lg:absolute lg:top-2/4 lg:left-0 h-16 w-16 lg:-mt-8 lg:mb-0;
+						img {
+							@apply relative h-16 w-16 object-cover;
+						}
+					}
 
-                    img {
-                        @apply relative h-16 w-16 object-cover;
-                    }
+					.product-quantity {
+						* {
+							@apply font-normal;
+						}
+					}
+				}
 
-                }
+				.product-total {
+					@apply font-bold;
+				}
+			}
+		}
 
-                .product-quantity {
-                    * {
-                        @apply font-normal;
-                    }
-                }
+		tfoot {
+			tr {
+				@apply border-b border-line-primary;
+			}
 
-            }
+			.cart-subtotal {
+				@apply font-bold;
+			}
 
-            .product-total {
-                @apply font-bold;
-            }
-        }
-    }
-
-    tfoot {
-        tr {
-            @apply border-b border-line-primary;
-        }
-
-        .cart-subtotal {
-            @apply font-bold;
-        }
-
-        .order-total {
-            .amount {
-                @apply block text-xl lg:text-4xl;
-            }
-        }
-    }
+			.order-total {
+				.amount {
+					@apply block text-xl lg:text-4xl;
+				}
+			}
+		}
+	}
 }

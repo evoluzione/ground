@@ -1,8 +1,10 @@
-.woocommerce-privacy-policy-text {
-    * {
-        @apply text-sm text-typo-secondary;
-    }
-    .woocommerce-privacy-policy-link {
-        @apply text-primary;
-    }
+@layer components {
+	.woocommerce-privacy-policy-text {
+		* {
+			@apply text-sm text-typo-secondary;
+		}
+		.woocommerce-privacy-policy-link {
+			@apply text-primary;
+		}
+	}
 }

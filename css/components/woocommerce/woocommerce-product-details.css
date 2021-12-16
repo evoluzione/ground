@@ -1,24 +1,21 @@
-.woocommerce-product-details {
-	@apply relative;
+@layer components {
+	.woocommerce-product-details {
+		@apply relative;
 
-	.product_title {
-		@apply text-2xl font-bold lg:text-4xl;
+		.product_title {
+			@apply text-2xl font-bold lg:text-4xl;
+		}
+
+		.woocommerce-Price-amount {
+		}
+
+		.woocommerce-Price-currencySymbol {
+		}
+
+		.woocommerce-price-suffix {
+		}
 	}
-	
-	.woocommerce-Price-amount {
 
+	.woocommerce-product-details__short-description {
 	}
-
-	.woocommerce-Price-currencySymbol {
-
-	}
-
-	.woocommerce-price-suffix {
-
-	}
-
-}
-
-.woocommerce-product-details__short-description {
-
 }

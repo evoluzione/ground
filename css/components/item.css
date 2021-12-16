@@ -1,31 +1,31 @@
-.item {
-}
+@layer components {
+	.item {
+	}
 
-.item__link {
-	@apply block no-underline; 
-}
+	.item__link {
+		@apply block no-underline;
+	}
 
-.item__footer {
+	.item__footer {
+	}
 
-}
+	.item__media {
+		@apply card-image;
+	}
 
-.item__media {
-	@apply card-image;
-}
+	.item__title {
+		@apply card-title;
+	}
 
-.item__title {
-	@apply card-title;
-}
+	.item__data {
+		@apply card-subtitle;
+	}
 
-.item__data {
-	@apply card-subtitle;
-}
+	.item__body {
+		@apply card-description;
+	}
 
-.item__body {
-	@apply card-description;
-}
-
-/* .item--small {
+	/* .item--small {
 	@apply mb-6;
 
 	.item__media {
@@ -47,3 +47,4 @@
 		}
 	}
 } */
+}

@@ -1,27 +1,39 @@
-.stock {
-    @apply relative text-xs pl-8 flex items-center;
+@layer components {
+	.stock {
+		@apply relative text-xs pl-8 flex items-center;
 
-    &:after,
-    &:before {
-        content: '';
-        @apply absolute left-0 w-5 h-5 rounded-full;
-    }
+		&:after,
+		&:before {
+			content: "";
+			@apply absolute left-0 w-5 h-5 rounded-full;
+		}
 
-    &:after { @apply animate-ping; }
-    &:before { @apply animate-pulse; }
+		&:after {
+			@apply animate-ping;
+		}
+		&:before {
+			@apply animate-pulse;
+		}
 
-    &.in-stock {
-        &:after { @apply border border-green-500; }
-        &:before { @apply bg-green-500 border-4 border-body-primary; }			
-    }
-    &.out-of-stock {
-        &:after { @apply border border-red-500; }
-        &:before { @apply bg-red-500 border-4 border-body-primary; }		
-    }
+		&.in-stock {
+			&:after {
+				@apply border border-green-500;
+			}
+			&:before {
+				@apply bg-green-500 border-4 border-body-primary;
+			}
+		}
+		&.out-of-stock {
+			&:after {
+				@apply border border-red-500;
+			}
+			&:before {
+				@apply bg-red-500 border-4 border-body-primary;
+			}
+		}
 
-
-    .cart.grouped_form & {
-        @apply mt-2;
-    }
-
+		.cart.grouped_form & {
+			@apply mt-2;
+		}
+	}
 }

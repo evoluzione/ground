@@ -1,21 +1,21 @@
-.product-remove {
-	@apply flex text-xs text-typo-primary mt-2;
-	.icon {
-		@apply transition-all;
-	}
-	.remove {
-		@apply text-xs text-typo-primary pl-1 transition;
-	}
-
-	&:hover {
+@layer components {
+	.product-remove {
+		@apply flex text-xs text-typo-primary mt-2;
 		.icon {
-			@apply transform scale-125 text-red-500;
+			@apply transition-all;
 		}
-
 		.remove {
-			@apply text-red-500 underline;
+			@apply text-xs text-typo-primary pl-1 transition;
 		}
 
-	}
+		&:hover {
+			.icon {
+				@apply transform scale-125 text-red-500;
+			}
 
+			.remove {
+				@apply text-red-500 underline;
+			}
+		}
+	}
 }

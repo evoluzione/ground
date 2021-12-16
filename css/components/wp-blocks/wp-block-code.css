@@ -1,4 +1,6 @@
 /* wp-block-code */
-.wp-block-code {
-	@apply bg-body-secondary rounded-theme p-6 my-12 lg:my-24;
+@layer components {
+	.wp-block-code {
+		@apply bg-body-secondary rounded-theme p-6 my-12 lg:my-24;
+	}
 }

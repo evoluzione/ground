@@ -1,7 +1,9 @@
-.added_to_cart {
-    @apply block text-primary pt-4 animate-bounce;
-    &:before {
-        content: '';
-        @apply inline-block align-middle bg-line-primary h-px w-4 mr-3;
-    }
+@layer components {
+	.added_to_cart {
+		@apply block text-primary pt-4 animate-bounce;
+		&:before {
+			content: "";
+			@apply inline-block align-middle bg-line-primary h-px w-4 mr-3;
+		}
+	}
 }

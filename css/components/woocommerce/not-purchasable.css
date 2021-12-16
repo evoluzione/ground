@@ -1,3 +1,5 @@
-.not-purchasable {
-    @apply card-label text-white bg-primary;
+@layer components {
+	.not-purchasable {
+		@apply card-label text-white bg-primary;
+	}
 }
