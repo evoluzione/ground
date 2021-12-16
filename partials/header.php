@@ -16,28 +16,26 @@
 
 	<?php do_action( 'ground_before_site' ); ?>
 
-	<div class="scroll" id="js-scroll">
+	<?php
+	/**
+	 * Functions hooked in to ground_before_header action
+	 *
+	 * @hooked ground_woocommerce_minicart - 10
+	 */
+	do_action( 'ground_before_header' );
+	?>
 
-		<?php
-		/**
-		 * Functions hooked in to ground_before_header action
-		 *
-		 * @hooked ground_woocommerce_minicart - 10
-		 */
-		do_action( 'ground_before_header' );
-		?>
+	<?php
+	/**
+	 * Functions hooked into ground_header action
+	 *
+	 * @hooked ground_header_type - 10
+	 */
+	do_action( 'ground_header' );
+	?>
 
-		<?php
-		/**
-		 * Functions hooked into ground_header action
-		 *
-		 * @hooked ground_header_type - 10
-		 */
-		do_action( 'ground_header' );
-		?>
+	<div data-router-wrapper>
 
-		<div data-router-wrapper>
+		<div <?php ground_view_name(); ?>>
 
-			<div <?php ground_view_name(); ?>>
-
-				<main role="main">
+			<main role="main">
