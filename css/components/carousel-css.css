@@ -1,7 +1,7 @@
 @layer utilities {
 	.carousel-css {
-		@apply block snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-hidden lg:whitespace-normal !important;
-		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto !important;
+		@apply block snap-mandatory snap-x overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-hidden lg:whitespace-normal !important;
+		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-media lg:ml-auto lg:translate-x-0 lg:w-auto !important;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 
