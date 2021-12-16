@@ -1,7 +1,6 @@
 			</main>
 
 			<div class="fixed bottom-0 right-0 z-50">
-
 				<?php
 				/**
 				 * Hook: ground_notice.
@@ -12,7 +11,7 @@
 
 			<?php
 			/**
-			 * Functions hooked in to ground_before_footer action
+			 * Hook: ground_before_content.
 			 *
 			 * @hooked ground_pre_footer - 10
 			 */
@@ -21,7 +20,7 @@
 
 			<?php
 			/**
-			 * Functions hooked into ground_footer action
+			 * Hook: ground_footer.
 			 *
 			 * @hooked ground_footer_type - 10
 			 */

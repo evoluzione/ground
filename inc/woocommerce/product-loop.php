@@ -226,15 +226,13 @@ function ground_product_loop_sale_flash() {
 
 		<div class="woocommerce-loop-product__label">
 			<?php
-
 			/**
-			 * Functions hooked in to ground_sale_flash action
+			 * Hook: ground_sale_flash.
 			 *
 			 * @ ground_show_sale_percentage - 25
 			 * @ ground_show_not_purchasable_label - 30
 			 */
 			do_action( 'ground_sale_flash' );
-
 			?>
 		</div>
 

@@ -18,7 +18,7 @@
 
 	<?php
 	/**
-	 * Functions hooked in to ground_before_header action
+	 * Hook: ground_before_header.
 	 *
 	 * @hooked ground_woocommerce_minicart - 10
 	 */
@@ -27,7 +27,7 @@
 
 	<?php
 	/**
-	 * Functions hooked into ground_header action
+	 * Hook: ground_header.
 	 *
 	 * @hooked ground_header_type - 10
 	 */
