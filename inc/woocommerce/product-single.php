@@ -441,7 +441,9 @@ add_action( 'woocommerce_after_single_product_summary', 'ground_woocommerce_afte
 /**
  * Add product brand single_product_summary
  */
-function add_product_brand_single_product_summary() {
+function ground_woocommerce_add_product_brand_single_product_summary() {
+	global $post;
 	echo get_the_term_list( $post->ID, 'product_brand', '<span class="product_brand">Brand: ', ',<a>', '</a></span>' );
 }
-add_action( 'woocommerce_product_meta_end', 'add_product_brand_single_product_summary', 5 );
+
+add_action( 'woocommerce_product_meta_end', 'ground_woocommerce_add_product_brand_single_product_summary', 5 );
