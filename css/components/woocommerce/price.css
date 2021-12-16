@@ -1,4 +1,4 @@
-@layer utilities {
+@layer components {
 	.price,
 	.ground__price-range {
 		@apply flex items-baseline w-full text-typo-primary;

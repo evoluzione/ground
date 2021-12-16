@@ -1,11 +1,13 @@
-.related {
-    @apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
+@layer components {
+	.related {
+		@apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
 
-    > h2 {
-        @apply text-left px-6 lg:text-center text-2xl mb-6 lg:mb-12 lg:px-0;
-    }
+		> h2 {
+			@apply text-left px-6 lg:text-center text-2xl mb-6 lg:mb-12 lg:px-0;
+		}
 
-    .products {
-        @apply carousel-css container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
-    }
+		.products {
+			@apply carousel-css container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+		}
+	}
 }

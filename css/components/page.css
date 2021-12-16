@@ -1,47 +1,46 @@
-.page {
-}
-
-.page__header {
-	@apply my-6;
-
-	body.home & {
-		@apply hidden;
+@layer components {
+	.page {
 	}
 
-}
+	.page__header {
+		@apply my-6;
 
-.page__title {
-	@apply text-4xl mb-0;
-}
+		body.home & {
+			@apply hidden;
+		}
+	}
 
-.page__subtitle {
+	.page__title {
+		@apply text-4xl mb-0;
+	}
 
-}
+	.page__subtitle {
+	}
 
-.page__body {
+	.page__body {
+	}
 
-}
+	.page__footer {
+		@apply mb-6;
+	}
 
-.page__footer {
-	@apply mb-6;
-}
+	.page__data {
+		@apply block text-sm text-gray-600;
+	}
 
-.page__data {
-	@apply block text-sm text-gray-600;
-}
+	.page__data--date {
+		@apply text-xs font-bold;
+	}
 
-.page__data--date {
-	@apply text-xs font-bold;
-}
+	.page__data--tag {
+		@apply block mt-6;
 
-.page__data--tag {
-	@apply block mt-6;
+		a {
+			@apply inline-block py-3 px-2 mr-3 text-5xl text-black font-bold uppercase border border-gray-500 rounded-md no-underline;
 
-	a {
-		@apply inline-block py-3 px-2 mr-3 text-5xl text-black font-bold uppercase border border-gray-500 rounded-md no-underline;
-
-		&:hover {
-			@apply text-primary;
+			&:hover {
+				@apply text-primary;
+			}
 		}
 	}
 }

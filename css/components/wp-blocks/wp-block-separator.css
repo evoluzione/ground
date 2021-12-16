@@ -1,12 +1,14 @@
 /* wp-block-separator */
-.wp-block-separator {
-	@apply my-12 lg:my-24 border-line-primary w-40 mx-auto border-t-0;
+@layer components {
+	.wp-block-separator {
+		@apply my-12 lg:my-24 border-line-primary w-40 mx-auto border-t-0;
 
-	&.is-style-wide {
-		@apply w-full;
-	}
+		&.is-style-wide {
+			@apply w-full;
+		}
 
-	&.is-style-dots {
-		@apply text-typo-secondary w-full;
+		&.is-style-dots {
+			@apply text-typo-secondary w-full;
+		}
 	}
 }

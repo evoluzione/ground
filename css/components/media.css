@@ -1,11 +1,13 @@
-.media {
-	@apply relative overflow-hidden; 
-}
+@layer components {
+	.media {
+		@apply relative overflow-hidden;
+	}
 
-.media__img--zoom {
-	transition: transform 0.2s ease-in-out;
+	.media__img--zoom {
+		transition: transform 0.2s ease-in-out;
 
-	&:hover {
-		transform: scale(1.1);
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 }

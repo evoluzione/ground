@@ -1,17 +1,19 @@
-.logo {
-	img {
-		@apply block rounded-none;
-	}
-}
-
-.logo--primary {
-	@apply block h-10 lg:h-12;
-
-	svg {
-		@apply h-full w-full;
+@layer components {
+	.logo {
+		img {
+			@apply block rounded-none;
+		}
 	}
 
-	img {
-		@apply h-full w-auto;
+	.logo--primary {
+		@apply block h-10 lg:h-12;
+
+		svg {
+			@apply h-full w-full;
+		}
+
+		img {
+			@apply h-full w-auto;
+		}
 	}
 }

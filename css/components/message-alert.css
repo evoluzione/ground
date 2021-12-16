@@ -1,8 +1,10 @@
-.message-alert {
-}
+@layer components {
+	.message-alert {
+	}
 
-.message-alert--primary {
-	.is-search-open & {
-		@apply py-12;
+	.message-alert--primary {
+		.is-search-open & {
+			@apply py-12;
+		}
 	}
 }

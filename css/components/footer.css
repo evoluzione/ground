@@ -1,5 +1,7 @@
-.footer {
-	body.woocommerce-checkout & {
-		@apply hidden;
+@layer components {
+	.footer {
+		body.woocommerce-checkout & {
+			@apply hidden;
+		}
 	}
 }

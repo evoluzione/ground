@@ -1,79 +1,81 @@
-.hero {
-	@apply relative;
+@layer components {
+	.hero {
+		@apply relative;
 
-	&.hero--full-width {
-		@apply transform -translate-x-2/4 w-screen ml-1/2;
-	}
-}
-
-.hero__body {
-	@apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto rounded-none lg:rounded-media;
-	.hero--full-width & {
-		@apply rounded-none;
-	}
-}
-
-.hero__image {
-	@apply absolute inset-0 object-cover w-full h-full rounded-none lg:rounded-media opacity-30;
-	.hero--full-width & {
-		@apply rounded-none;
-	}
-}
-
-.hero__image-filter {
-	@apply absolute inset-0 bg-gradient-to-t from-body-primary opacity-100 rounded-none lg:rounded-media;
-	.hero--full-width & {
-		@apply rounded-none;
-	}
-}
-
-.hero__content {
-	@apply text-typo-primary relative py-16 lg:py-32;
-	/* py-12 lg:py-28  */
-
-	.hero--full-width & {
-		@apply lg:px-6;
-	}
-}
-
-.hero__title {
-	@apply text-3xl py-3 lg:py-0;
-}
-
-.hero__excerpt {
-	@apply text-base;
-}
-
-.hero__highlights {
-	@apply relative container -mt-6 mb-9 lg:-mt-20 lg:px-16;
-	/* margin-bottom: 100px; */
-
-	.hero--full-width & {
-		@apply lg:px-6;
-	}
-}
-
-.hero__cards {
-	@apply carousel-css;
-}
-
-.hero__card {
-	@apply overflow-hidden rounded-media bg-black;
-	&:hover {
-		.hero__card-thumb {
-			@apply transform scale-110;
+		&.hero--full-width {
+			@apply transform -translate-x-2/4 w-screen ml-1/2;
 		}
 	}
-}
 
-.hero__card-body {
-	@apply flex items-center justify-center h-36 sm:h-44 lg:h-48;
-}
+	.hero__body {
+		@apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto rounded-none lg:rounded-media;
+		.hero--full-width & {
+			@apply rounded-none;
+		}
+	}
 
-.hero__card-text {
-	@apply relative text-white;
-}
+	.hero__image {
+		@apply absolute inset-0 object-cover w-full h-full rounded-none lg:rounded-media opacity-30;
+		.hero--full-width & {
+			@apply rounded-none;
+		}
+	}
 
-.hero__card-thumb {
-	@apply absolute inset-0 object-cover object-center opacity-60 h-full w-full transition-all ease-default duration-500;
+	.hero__image-filter {
+		@apply absolute inset-0 bg-gradient-to-t from-body-primary opacity-100 rounded-none lg:rounded-media;
+		.hero--full-width & {
+			@apply rounded-none;
+		}
+	}
+
+	.hero__content {
+		@apply text-typo-primary relative py-16 lg:py-32;
+		/* py-12 lg:py-28  */
+
+		.hero--full-width & {
+			@apply lg:px-6;
+		}
+	}
+
+	.hero__title {
+		@apply text-3xl py-3 lg:py-0;
+	}
+
+	.hero__excerpt {
+		@apply text-base;
+	}
+
+	.hero__highlights {
+		@apply relative container -mt-6 mb-9 lg:-mt-20 lg:px-16;
+		/* margin-bottom: 100px; */
+
+		.hero--full-width & {
+			@apply lg:px-6;
+		}
+	}
+
+	.hero__cards {
+		@apply carousel-css;
+	}
+
+	.hero__card {
+		@apply overflow-hidden rounded-media bg-black;
+		&:hover {
+			.hero__card-thumb {
+				@apply transform scale-110;
+			}
+		}
+	}
+
+	.hero__card-body {
+		@apply flex items-center justify-center h-36 sm:h-44 lg:h-48;
+	}
+
+	.hero__card-text {
+		@apply relative text-white;
+	}
+
+	.hero__card-thumb {
+		@apply absolute inset-0 object-cover object-center opacity-60 h-full w-full transition-all ease-default duration-500;
+	}
 }

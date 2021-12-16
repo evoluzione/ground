@@ -1,16 +1,18 @@
-.widget {
-	.sidebar &,
-	.overlay-panel & {
-		@apply relative mb-9;
-		.widgettitle {
-			@apply relative text-lg font-bold mb-3;
+@layer components {
+	.widget {
+		.sidebar &,
+		.overlay-panel & {
+			@apply relative mb-9;
+			.widgettitle {
+				@apply relative text-lg font-bold mb-3;
+			}
 		}
-	}
-	.tagcloud {
-		@apply flex;
+		.tagcloud {
+			@apply flex;
 
-		a {
-			@apply text-base items-center px-3 border border-line-primary rounded-theme mr-2;
+			a {
+				@apply text-base items-center px-3 border border-line-primary rounded-theme mr-2;
+			}
 		}
 	}
 }

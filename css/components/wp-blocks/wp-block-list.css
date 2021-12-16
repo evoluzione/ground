@@ -1,12 +1,14 @@
 /* wp-block-list */
-.wp-block-list {
-    @apply my-6 ml-5 space-y-2 text-typo-secondary;
-}
+@layer components {
+	.wp-block-list {
+		@apply my-6 ml-5 space-y-2 text-typo-secondary;
+	}
 
-ul.wp-block-list {
-    @apply list-disc;
-}
+	ul.wp-block-list {
+		@apply list-disc;
+	}
 
-ol.wp-block-list {
-    @apply list-decimal;
+	ol.wp-block-list {
+		@apply list-decimal;
+	}
 }

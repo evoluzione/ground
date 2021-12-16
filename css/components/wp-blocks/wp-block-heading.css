@@ -1,7 +1,9 @@
 /* wp-block-heading */
-.wp-block-heading {
-    @apply my-6;
-    a {
-        @apply text-primary underline hover:no-underline;
-    }
+@layer components {
+	.wp-block-heading {
+		@apply my-6;
+		a {
+			@apply text-primary underline hover:no-underline;
+		}
+	}
 }
