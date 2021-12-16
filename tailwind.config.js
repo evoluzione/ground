@@ -1,7 +1,7 @@
 module.exports = {
 	content: ['./**/*.php', './js/scripts.min.js'],
 	safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
-	darkMode: 'class', // false, 'media' or 'class'
+	darkMode: 'media', // false, 'media' or 'class'
 	theme: {
 		container: {
 			center: true,
