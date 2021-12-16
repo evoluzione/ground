@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="has-no-js is-loading">
+<html <?php language_attributes(); ?> class="has-no-js is-loading scroll-smooth">
 
 <head>
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
@@ -12,7 +12,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body id="scroll-top" <?php body_class( 'font-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
+<body id="scroll-top" <?php body_class( 'font-primary bg-body-primary text-typo-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
 	<?php do_action( 'ground_before_site' ); ?>
 
@@ -24,7 +24,7 @@
 		 *
 		 * @hooked ground_woocommerce_minicart - 10
 		 */
-			do_action( 'ground_before_header' );
+		do_action( 'ground_before_header' );
 		?>
 
 		<?php

@@ -1,7 +1,5 @@
 @layer base {
 	html {
-		scroll-behavior: smooth;
-
 		&.has-scroll-dragging {
 			@apply select-none;
 		}
@@ -44,7 +42,6 @@
 	}
 
 	body {
-		@apply bg-body-primary text-typo-primary;
 		.is-search-open & {
 			@apply overflow-y-hidden;
 		}
