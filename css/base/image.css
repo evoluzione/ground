@@ -1,4 +1,6 @@
-img,
-figure {
-	@apply rounded-media;
+@layer base {
+	img,
+	figure {
+		@apply rounded-media;
+	}
 }
