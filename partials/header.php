@@ -14,8 +14,6 @@
 
 <body id="scroll-top" <?php body_class( 'font-primary bg-body-primary text-typo-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
-	<?php do_action( 'ground_before_site' ); ?>
-
 	<?php
 	/**
 	 * Hook: ground_before_header.
@@ -23,15 +21,18 @@
 	 * @hooked ground_woocommerce_minicart - 10
 	 */
 	do_action( 'ground_before_header' );
-	?>
 
-	<?php
 	/**
 	 * Hook: ground_header.
 	 *
 	 * @hooked ground_header_type - 10
 	 */
 	do_action( 'ground_header' );
+
+	/**
+	 * Hook: ground_after_header.
+	 */
+	do_action( 'ground_after_header' );
 	?>
 
 	<div data-router-wrapper>

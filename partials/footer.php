@@ -16,15 +16,18 @@
 			 * @hooked ground_pre_footer - 10
 			 */
 			do_action( 'ground_before_footer' );
-			?>
 
-			<?php
 			/**
 			 * Hook: ground_footer.
 			 *
 			 * @hooked ground_footer_type - 10
 			 */
 			do_action( 'ground_footer' );
+
+			/**
+			 * Hook: ground_after_content.
+			 */
+			do_action( 'ground_after_footer' );
 			?>
 
 		</div><!-- End [data-router-view]  -->
