@@ -1,21 +1,21 @@
-/* 1. Tailwind */
+/* Tailwind */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* 2. Variables */
+/* Variables */
 @import "variables.css";
 
-/* 3. Base */
+/* Base */
 @import "base/_base.css";
 
-/* 4. Layouts */
+/* Layouts */
 @import "layouts/_layouts.css";
 
-/* 5. Components */
+/* Components */
 @import "components/_components.css";
 @import "components/wp-blocks/_wp-blocks.css";
 @import "components/woocommerce/_woocommerce.css";
 
-/* 6. Utilities */
+/* Utilities */
 @import "utilities/_utilities.css";
