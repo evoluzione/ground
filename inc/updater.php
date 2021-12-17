@@ -5,6 +5,6 @@ $ground_update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'ground'
 );
 
-$ground_update_checker->getVcsApi()->enableReleaseAssets();
-// $ground_update_checker->setBranch( 'feature/2.0' );
+// $ground_update_checker->getVcsApi()->enableReleaseAssets();
+$ground_update_checker->setBranch( 'feature/2.0' );
 // $ground_update_checker->setBranch( 'master' );
