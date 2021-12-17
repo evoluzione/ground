@@ -6,6 +6,11 @@
  */
 
 /**
+ * Composer autoloader
+ */
+require __DIR__ . '/vendor/autoload.php';
+
+/**
  * Require files
  */
 require_once 'inc/constants.php';
@@ -18,7 +23,7 @@ require_once 'inc/navigations.php';
 require_once 'inc/shortcode.php';
 require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
-
+require_once 'inc/updater.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/brand.php';
@@ -38,5 +43,4 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/rest-user.php';
 	require_once 'inc/woocommerce/sidebar.php';
 	require_once 'inc/woocommerce/global.php';
-
 }
