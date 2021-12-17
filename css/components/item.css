@@ -10,19 +10,19 @@
 	}
 
 	.item__media {
-		@apply card-image;
+		@apply card__image;
 	}
 
 	.item__title {
-		@apply card-title;
+		@apply card__title;
 	}
 
 	.item__data {
-		@apply card-subtitle;
+		@apply card__subtitle;
 	}
 
 	.item__body {
-		@apply card-description;
+		@apply card__description;
 	}
 
 	/* .item--small {

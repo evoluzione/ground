@@ -1,6 +1,6 @@
 @layer components {
 	.onsale {
-		@apply card-label text-white bg-green-500;
+		@apply card__label text-white bg-green-500;
 
 		.onsale__label {
 		}

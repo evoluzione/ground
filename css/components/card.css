@@ -19,6 +19,26 @@
 		@apply flow-root p-3;
 	}
 
+	.card__image {
+		@apply relative overflow-hidden w-full rounded-media;
+	}
+
+	.card__title {
+		@apply block text-lg font-bold mt-4 mb-3 line-clamp-3 lg:mt-5;
+	}
+
+	.card__subtitle {
+		@apply block text-xs font-bold mb-3;
+	}
+
+	.card__description {
+		@apply block text-typo-secondary text-sm md:text-base mb-3;
+	}
+
+	.card__label {
+		@apply relative block px-4 py-1 text-sm rounded-theme z-10;
+	}
+
 	.card__footer {
 		@apply p-3 border-t border-black;
 	}

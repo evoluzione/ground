@@ -8,7 +8,7 @@
 
 		.woocommerce-placeholder,
 		.attachment-woocommerce_thumbnail {
-			@apply card-image;
+			@apply card__image;
 		}
 
 		.button {
@@ -32,14 +32,14 @@
 	}
 
 	.woocommerce-loop-product__title {
-		@apply card-title;
+		@apply card__title;
 		.minicart & {
 			@apply text-base;
 		}
 	}
 
 	.woocommerce-loop-product__description {
-		@apply card-description block;
+		@apply card__description block;
 		.minicart & {
 			@apply hidden;
 		}
@@ -48,7 +48,7 @@
 	.woocommerce-loop-product__additional-image {
 		@apply absolute top-0 w-full h-auto opacity-0 transition-all duration-300 hidden lg:block;
 		img {
-			@apply card-image;
+			@apply card__image;
 		}
 	}
 }

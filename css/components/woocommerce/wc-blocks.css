@@ -109,11 +109,11 @@
 				}
 
 				.wc-block-grid__product-image {
-					@apply card-image;
+					@apply card__image;
 				}
 
 				.wc-block-grid__product-title {
-					@apply card-title;
+					@apply card__title;
 				}
 
 				.wc-block-grid__product-onsale {

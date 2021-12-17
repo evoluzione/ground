@@ -3,18 +3,18 @@
 		@apply relative overflow-hidden;
 
 		img {
-			@apply card-image;
+			@apply card__image;
 		}
 	}
 
 	.woocommerce-loop-category__title {
-		@apply card-title;
+		@apply card__title;
 		.count {
 			@apply hidden;
 		}
 	}
 
 	.woocommerce-loop-category__description {
-		@apply card-description;
+		@apply card__description;
 	}
 }
