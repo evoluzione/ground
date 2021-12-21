@@ -24,7 +24,8 @@ function ground_costants() {
 	define( 'GROUND_FONT_SOURCE_SECONDARY', get_theme_mod( 'font_source_secondary' ) ? get_theme_mod( 'font_source_secondary' ) : '' );
 	define( 'GROUND_FONT_FAMILY_SECONDARY', get_theme_mod( 'font_family_secondary' ) ? get_theme_mod( 'font_family_secondary' ) : '' );
 
-	// Styles.
+	// Settings.
+	define( 'GROUND_CONTAINER', get_theme_mod( 'container' ) ? get_theme_mod( 'container' ) : 'container' );
 	define( 'GROUND_ROUNDED_THEME', get_theme_mod( 'rounded_theme' ) ? get_theme_mod( 'rounded_theme' ) : '0' );
 	define( 'GROUND_ROUNDED_MEDIA', get_theme_mod( 'rounded_media' ) ? get_theme_mod( 'rounded_media' ) : '0' );
 

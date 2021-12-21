@@ -9,22 +9,16 @@
 get_template_part( 'partials/header' );
 ?>
 
-<div class="container relative">
-
 	<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-	<div class="relative">
+	<?php
+	while ( have_posts() ) :
+		the_post();
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+		get_template_part( 'partials/content', 'page' );
 
-			get_template_part( 'partials/content', 'page' );
-
-		endwhile;
-		?>
-
-	</div>
+	endwhile;
+	?>
 
 <?php
 get_template_part( 'partials/footer' );

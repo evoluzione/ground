@@ -881,6 +881,14 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		);
 
 		$wp_customize->add_setting(
+			'container',
+			array(
+				'default' => 'container',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
 			'rounded_theme',
 			array(
 				'default'           => '10',
@@ -895,6 +903,25 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				'default'           => '10',
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'container_control',
+				array(
+					'label'       => __( 'Select Container Size', 'ground-admin' ),
+					'description' => __( 'Using this option you can change the container size', 'ground-admin' ),
+					'settings'    => 'container',
+					'priority'    => 10,
+					'section'     => 'ground_section_settings',
+					'type'        => 'select',
+					'choices'     => array(
+						'container'      => 'Container boxed',
+						'container-full' => 'Container full',
+					),
+				)
 			)
 		);
 

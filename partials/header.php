@@ -35,7 +35,7 @@
 	do_action( 'ground_after_header' );
 	?>
 
-	<div data-router-wrapper>
+	<div data-router-wrapper class="<?php esc_attr( GROUND_CONTAINER ); ?>">
 
 		<div <?php ground_view_name(); ?>>
 
