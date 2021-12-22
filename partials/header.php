@@ -39,4 +39,4 @@
 
 		<div <?php ground_view_name(); ?>>
 
-			<main role="main">
+			<main role="main" class="<?php echo esc_attr( GROUND_CONTAINER ); ?>">
