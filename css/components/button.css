@@ -79,7 +79,7 @@
 
 		&.loading {
 			color: transparent;
-			@apply relative bg-primary border-primary;
+			@apply relative bg-primary border-primary !important;
 
 			&:after {
 				content: "";
