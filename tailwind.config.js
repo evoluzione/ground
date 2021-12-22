@@ -1,6 +1,6 @@
 module.exports = {
 	content: ['./**/*.php', './js/scripts.min.js'],
-	safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
+	safelist: ['aspect-w-21', 'aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3', 'columns-2', 'columns-3', 'columns-4'],
 	darkMode: 'media', // false, 'media' or 'class'
 	theme: {
 		container: {

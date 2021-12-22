@@ -113,7 +113,7 @@ if ( $category_highlights ) {
 			<!-- safelist bug <div class="grid-cols-3"></div> -->
 			<div class="hero__highlights">
 
-				<div class="hero__cards grid grid-cols-<?php echo esc_attr( $repeater_count ); ?> gap-x-6">
+				<div class="hero__cards grid grid-cols-<?php echo esc_attr( $repeater_count ); ?> gap-x-6 mb-24 lg:mb-48">
 
 				<?php
 				foreach ( $category_highlights as $category_highlight ) :
