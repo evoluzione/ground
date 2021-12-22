@@ -1,5 +1,5 @@
 module.exports = {
-	content: ['./**/*.php', './js/scripts.min.js'],
+	content: ['./**/*.php', './js/scripts.min.js','../../plugins/woocommerce/**/*.php'],
 	safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
 	darkMode: 'media', // false, 'media' or 'class'
 	theme: {
