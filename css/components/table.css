@@ -30,10 +30,11 @@
 		overflow-x: auto;
 	}
 
-	.table--responsive {
+	.table--responsive,
+	.shop_table_responsive {
 		display: block;
 
-		@screen sm {
+		@screen md {
 			display: table;
 		}
 
@@ -47,7 +48,7 @@
 		}
 
 		thead {
-			@screen sm {
+			@screen md {
 				display: table-header-group;
 			}
 
@@ -56,7 +57,7 @@
 				top: -9999px;
 				left: -9999px;
 
-				@screen sm {
+				@screen md {
 					position: relative;
 					top: auto;
 					left: auto;
@@ -65,13 +66,13 @@
 		}
 
 		tbody {
-			@screen sm {
+			@screen md {
 				display: table-row-group;
 			}
 		}
 
 		tfoot {
-			@screen sm {
+			@screen md {
 				display: table-footer-group;
 			}
 		}
@@ -79,27 +80,25 @@
 		tr {
 			@apply mb-6;
 
-			@screen sm {
+			@screen md {
 				display: table-row;
 			}
 		}
 
 		td,
 		th {
-			@screen sm {
+			@screen md {
 				display: table-cell;
 			}
 		}
 
 		td {
 			vertical-align: top;
-			@apply bg-gray-300;
-
 			@media (max-width: theme("screens.sm")) {
 				border: 0;
 			}
 
-			@screen sm {
+			@screen md {
 				background-color: transparent;
 				//width: 1px;
 				white-space: nowrap;
@@ -113,7 +112,7 @@
 				display: block;
 				font-weight: bold;
 
-				@screen sm {
+				@screen md {
 					display: none;
 				}
 			}

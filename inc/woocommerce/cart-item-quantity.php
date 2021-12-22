@@ -3,11 +3,11 @@
 /**
  * Automatically Update Cart on Quantity Change
  */
-function ground_cart_refresh_update_qty()
-{
-
-	if (!is_cart() && !is_product()) return;
-?>
+function ground_cart_refresh_update_qty() {
+	if ( ! is_cart() && ! is_product() ) {
+		return;
+	}
+	?>
 
 	<script type="text/javascript">
 		function clickButtonUpdate() {
@@ -53,9 +53,9 @@ function ground_cart_refresh_update_qty()
 		});
 	</script>
 
-<?php
+	<?php
 }
 
-add_action('wp_footer', 'ground_cart_refresh_update_qty');
+add_action( 'wp_footer', 'ground_cart_refresh_update_qty' );
 
 ?>
