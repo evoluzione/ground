@@ -500,30 +500,6 @@ function ground_language_switch() {
 	return ob_get_clean();
 }
 
-/**
- * ACF Add Options Page
- */
-if ( function_exists( 'acf_add_options_page' ) ) {
-
-	acf_add_options_page(
-		array(
-			'page_title' => 'Theme General Settings',
-			'menu_title' => 'Theme Settings',
-			'menu_slug'  => 'theme-general-settings',
-			'capability' => 'edit_posts',
-			'redirect'   => false,
-		)
-	);
-
-
-	acf_add_options_sub_page(
-		array(
-			'page_title'  => 'Theme Shop',
-			'menu_title'  => 'Shop',
-			'parent_slug' => 'theme-general-settings',
-		)
-	);
-}
 
 /**
  * Write log in /wp-content/debug.log
@@ -640,36 +616,39 @@ add_action( 'widgets_init', 'ground_widgets_init' );
  * @return void
  */
 
-add_filter( 'get_the_archive_title', function ($title) {
-	if ( is_category() ) {
+add_filter(
+	'get_the_archive_title',
+	function ( $title ) {
+		if ( is_category() ) {
 			$title = single_cat_title( '', false );
 		} elseif ( is_tag() ) {
 			$title = single_tag_title( '', false );
 		} elseif ( is_author() ) {
-			$title = '<span class="vcard">' . get_the_author() . '</span>' ;
-		} elseif ( is_tax() ) { //for custom post types
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_tax() ) { // for custom post types
 			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
-		} elseif (is_post_type_archive()) {
+		} elseif ( is_post_type_archive() ) {
 			$title = post_type_archive_title( '', false );
 		}
-	return $title;
-});
+		return $title;
+	}
+);
 
-//Create your own pattern block
+// Create your own pattern block
 // function ground_block_patterns() {
 
-//     register_block_pattern(
-//         'page-intro-block/my-custom-pattern',
-//         array(
-//             'title'       => __( 'Page Intro Blocks', 'page-intro-block' ),
+// register_block_pattern(
+// 'page-intro-block/my-custom-pattern',
+// array(
+// 'title'       => __( 'Page Intro Blocks', 'page-intro-block' ),
 
-//             'description' => _x( 'Includes a cover block, two columns with headings and text, a separator and a single-column text block.', 'Block pattern description', 'page-intro-block' ),
+// 'description' => _x( 'Includes a cover block, two columns with headings and text, a separator and a single-column text block.', 'Block pattern description', 'page-intro-block' ),
 
-//             'content'     => "<!-- wp:acf/table {\"id\":\"block_618d7a3d0e32c\",\"name\":\"acf/table\",\"data\":{\"table\":{\"acftf\":{\"v\":\"1.3.14\"},\"p\":{\"o\":{\"uh\":1},\"ca\":\"Prova\"},\"c\":[{\"p\":\"\"},{\"p\":\"\"}],\"h\":[{\"c\":\"prova\"},{\"c\":\"asfasfas\"}],\"b\":[[{\"c\":\"Windproof\"},{\"c\":\"Waterproof\"}],[{\"c\":\"Brathable\"},{\"c\":\"Good to -°5C\"}]]},\"_table\":\"field_612904fe94e16\"},\"align\":\"\",\"mode\":\"edit\"} /-->",
+// 'content'     => "<!-- wp:acf/table {\"id\":\"block_618d7a3d0e32c\",\"name\":\"acf/table\",\"data\":{\"table\":{\"acftf\":{\"v\":\"1.3.14\"},\"p\":{\"o\":{\"uh\":1},\"ca\":\"Prova\"},\"c\":[{\"p\":\"\"},{\"p\":\"\"}],\"h\":[{\"c\":\"prova\"},{\"c\":\"asfasfas\"}],\"b\":[[{\"c\":\"Windproof\"},{\"c\":\"Waterproof\"}],[{\"c\":\"Brathable\"},{\"c\":\"Good to -°5C\"}]]},\"_table\":\"field_612904fe94e16\"},\"align\":\"\",\"mode\":\"edit\"} /-->",
 
-//             'categories'  => array('header'),
-//         )
-//     );
+// 'categories'  => array('header'),
+// )
+// );
 
 // }
 // add_action( 'init', 'ground_block_patterns' );

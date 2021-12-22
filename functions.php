@@ -16,7 +16,6 @@ require __DIR__ . '/vendor/autoload.php';
 require_once 'inc/constants.php';
 require_once 'inc/extend.php';
 require_once 'inc/customizer.php';
-require_once 'inc/acf-constants.php';
 require_once 'inc/cpt-catalog.php';
 require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
