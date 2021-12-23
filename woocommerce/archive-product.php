@@ -32,6 +32,8 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 
+<section class="page page--woocommerce-archive">
+
 <div class="grid grid-cols-12 gap-x-6 lg:mt-12">
 
 	<div class="
@@ -63,7 +65,7 @@ do_action( 'woocommerce_before_main_content' );
 	}
 	?>
 	">
-		<section class="page page--woocommerce-archive">
+		
 
 			<div class="page__body">
 
@@ -120,12 +122,12 @@ do_action( 'woocommerce_before_main_content' );
 				?>
 
 			</div>
-		</section>
-
-	</div>
-
-</div> <!-- End flex -->
-
+			
+		</div>
+		
+	</div> <!-- End flex -->
+	
+</section>
 <?php
 /**
  * Hook: woocommerce_after_main_content.

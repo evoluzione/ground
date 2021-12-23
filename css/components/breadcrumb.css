@@ -1,6 +1,11 @@
 @layer components {
 	.breadcrumb {
 		@apply relative overflow-y-hidden h-6 my-6 text-sm md:relative;
+
+		.container-full & {
+			@apply px-6;
+		}
+		
 		@screen md {
 			&:after {
 				@apply hidden;

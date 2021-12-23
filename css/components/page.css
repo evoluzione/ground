@@ -2,12 +2,15 @@
 	.page {
 	}
 
+	.page--woocommerce-archive,
+	.page--woocommerce-single {
+		.container-full & {
+			@apply px-6;		
+		}
+	}
+
 	.page__header {
 		@apply my-6;
-
-		body.home & {
-			@apply hidden;
-		}
 	}
 
 	.page__title {

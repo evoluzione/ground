@@ -39,4 +39,5 @@
 
 		<div <?php ground_view_name(); ?>>
 
-			<main role="main" class="<?php echo esc_attr( GROUND_CONTAINER ); ?>">
+			<main role="main" class="<?php echo is_cart() || is_checkout() || is_account_page() ? 'container' : esc_attr( GROUND_CONTAINER ); ?>">
+

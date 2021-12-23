@@ -1,8 +1,10 @@
 <article class="page">
 
-	<header class="page__header">
-		<h1 class="page__title"><?php the_title(); ?></h1>
-	</header>
+	<?php if ( ! is_front_page() ) : ?>
+		<header class="page__header">
+			<h1 class="page__title"><?php the_title(); ?></h1>
+		</header>
+	<?php endif; ?>
 
 	<div class="page__body">
 		<?php if ( has_post_thumbnail() ) { ?>

@@ -23,10 +23,10 @@
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
-		<div class="js-menu-container header__container relative">
+		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?>">
 
-			<div class="bg-body-secondary">
-				<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
+			<div class="header__advice bg-body-secondary">
+				<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
 					<div class="hidden xl:flex text-typo-secondary">
 						<?php echo GROUND_HEADER_ADVICE; ?>
 					</div>
@@ -38,7 +38,7 @@
 
 			<div class="flex flex-col-reverse lg:block">
 
-				<div class="container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
+				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 
 					<div class="relative z-1 lg:flex lg:items-center lg:justify-start lg:space-x-3">
 						<div class="hidden lg:inline-block">
@@ -62,7 +62,7 @@
 					</div>
 				</div>
 
-				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
+				<div class="lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
 					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					</div>
