@@ -40,6 +40,7 @@
 
 	.woocommerce-loop-product__description {
 		@apply card__description block;
+		@apply hidden md:block;
 		.minicart & {
 			@apply hidden;
 		}
