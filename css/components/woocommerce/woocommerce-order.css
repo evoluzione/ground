@@ -3,11 +3,11 @@
 		@apply bg-body-secondary px-6 py-9 rounded-theme text-center lg:px-12 lg:py-16;
 
 		.woocommerce-thankyou-order-received {
-			@apply text-center text-primary text-4xl font-bold mb-6;
+			@apply text-center text-primary text-4xl font-normal mb-6;
 		}
 
 		.woocommerce-column__title {
-			@apply text-lg text-primary mt-6 mb-2 font-bold;
+			@apply text-lg text-primary mt-6 mb-2 font-normal;
 		}
 
 		.woocommerce-order-details {

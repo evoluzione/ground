@@ -4,7 +4,7 @@
 		.overlay-panel & {
 			@apply relative mb-9;
 			.widgettitle {
-				@apply relative text-lg font-bold mb-3;
+				@apply relative text-lg font-normal mb-3;
 			}
 		}
 		.tagcloud {

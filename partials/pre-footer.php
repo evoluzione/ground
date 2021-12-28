@@ -2,12 +2,12 @@
 	<div class="text-center mb-24 grid grid-cols-12 gap-6 lg:text-left">
 		<div class="col-span-full lg:col-span-5">
 			<?php if ( GROUND_PAYMENTS_TITLE ) : ?>
-				<div class="text-xl font-bold mb-4">
+				<div class="text-xl mb-4">
 					<?php echo esc_html( GROUND_PAYMENTS_TITLE ); ?>
 				</div>
 			<?php endif; ?>
 
-			<?php get_template_part( 'partials/payments-method' ); ?>		
+			<?php get_template_part( 'partials/payments-method' ); ?>
 
 			<?php if ( GROUND_PAYMENTS_CONTENT ) : ?>
 				<div class="text-typo-secondary">
@@ -22,7 +22,7 @@
 			<?php endif; ?>
 
 			<div class="col-span-full lg:col-span-4 lg:text-left">
-				<div class="text-xl font-bold mb-3">
+				<div class="text-xl mb-3">
 					<?php echo esc_html( GROUND_SHIPPING_TITLE ); ?>
 				</div>
 				<div class="text-typo-secondary">

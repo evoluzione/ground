@@ -596,19 +596,27 @@ add_action( 'ground_footer', 'ground_footer_type', 10 );
  *
  * @return void
  */
-function ground_widgets_init() {
+function widget_registration( $name, $id ) {
 	register_sidebar(
 		array(
-			'name'          => __( 'Sidebar archive post', 'ground' ),
-			'id'            => 'sidebar-archive-post',
+			'name'          => $name,
+			'id'            => $id,
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 		)
 	);
 }
 
-add_action( 'widgets_init', 'ground_widgets_init' );
 
+function multiple_widget_init() {
+	widget_registration( __( 'Sidebar archive post', 'ground' ), 'sidebar-archive-post' );
+	widget_registration( __( 'Sidebar footer primary', 'ground' ), 'sidebar-footer-primary' );
+	widget_registration( __( 'Sidebar footer secondary', 'ground' ), 'sidebar-footer-secondary' );
+	widget_registration( __( 'Sidebar footer tertiary', 'ground' ), 'sidebar-footer-tertiary' );
+	widget_registration( __( 'Sidebar footer quaternary', 'ground' ), 'sidebar-footer-quaternary' );
+}
+
+add_action( 'widgets_init', 'multiple_widget_init' );
 
 /**
  * Remove "Category:", "Tag:", "Author:" from the_archive_title

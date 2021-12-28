@@ -3,5 +3,9 @@
 		body.woocommerce-checkout & {
 			@apply hidden;
 		}
+
+		.widgettitle {
+			@apply mb-6;
+		}
 	}
 }

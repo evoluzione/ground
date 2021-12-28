@@ -4,7 +4,7 @@
 		@apply flex items-baseline w-full text-typo-primary;
 
 		.amount {
-			@apply text-lg font-bold;
+			@apply text-lg font-normal;
 			.summary & {
 				@apply text-3xl lg:text-4xl;
 			}

@@ -1,47 +1,29 @@
-<?php $locations = get_nav_menu_locations(); ?>
 
 <footer class="footer footer--simple relative pt-16 bg-body-secondary">
 	<div class="container">
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 
-			<?php if ( $locations['footer-primary'] !== 0 ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-primary' ) ) : ?>
 				<div class="mb-12">
-					<?php $title_footer_primary = wp_get_nav_menu_object( $locations['footer-primary'] ); ?>
-					<h3 class="text-xl font-bold mb-4"> <?php echo $title_footer_primary->name; ?> </h3>
-					<?php get_template_part( 'partials/navigation-footer', 'primary' ); ?>
+					<?php get_template_part( 'partials/sidebar', 'footer-primary' ); ?>
 				</div>
 			<?php endif; ?>
 
-			<?php if ( $locations['footer-secondary'] !== 0 ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-secondary' ) ) : ?>
 				<div class="mb-12">
-					<?php $title_footer_secondary = wp_get_nav_menu_object( $locations['footer-secondary'] ); ?>
-					<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_secondary->name ); ?> </h3>
-					<?php get_template_part( 'partials/navigation-footer', 'secondary' ); ?>
+					<?php get_template_part( 'partials/sidebar', 'footer-secondary' ); ?>
 				</div>
 			<?php endif; ?>
 
-			<?php if ( $locations['footer-tertiary'] !== 0 ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-tertiary' ) ) : ?>
 				<div class="mb-12">
-					<?php $title_footer_tertiary = wp_get_nav_menu_object( $locations['footer-tertiary'] ); ?>
-					<h3 class="text-xl font-bold mb-4"> <?php echo esc_html( $title_footer_tertiary->name ); ?> </h3>
-					<?php get_template_part( 'partials/navigation-footer', 'tertiary' ); ?>
+					<?php get_template_part( 'partials/sidebar', 'footer-tertiary' ); ?>
 				</div>
 			<?php endif; ?>
 
-			<?php if ( GROUND_COMPANY_OPENING_HOURS || GROUND_COMPANY_CLOSING_TIME ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-quaternary' ) ) : ?>
 				<div class="mb-12">
-					<?php if ( GROUND_COMPANY_OPENING_HOURS ) : ?>
-						<div class="mb-4">
-							<h3 class="text-xl font-bold mb-4"><?php _e( 'Opening Hours', 'ground' ); ?></h3>
-							<span class="text-typo-secondary"><?php echo esc_html( GROUND_COMPANY_OPENING_HOURS ); ?></span>
-						</div>
-					<?php endif; ?>
-					<?php if ( GROUND_COMPANY_CLOSING_TIME ) : ?>
-						<div>
-							<h3 class="text-xl font-bold mt-6 lg:mt-8 mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
-							<span class="text-typo-secondary"><?php echo esc_html( GROUND_COMPANY_CLOSING_TIME ); ?></span>
-						</div>
-					<?php endif; ?>
+					<?php get_template_part( 'partials/sidebar', 'footer-quanternary' ); ?>
 				</div>
 			<?php endif; ?>
 		</div>

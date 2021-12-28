@@ -25,7 +25,7 @@
 	}
 
 	dt {
-		@apply font-bold mb-0;
+		@apply font-normal mb-0;
 	}
 
 	dd {
