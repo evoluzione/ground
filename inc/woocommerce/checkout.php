@@ -346,7 +346,7 @@ function ground_header_checkout() {
 					<?php get_template_part( 'partials/logo-primary' ); ?>
 				</div>
 				<div>
-					<div class="font-bold lg:text-right">
+					<div class="lg:text-right">
 						<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
 					</div>
 				</div>

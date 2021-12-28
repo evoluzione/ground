@@ -5,7 +5,7 @@
 	.page--woocommerce-archive,
 	.page--woocommerce-single {
 		.container-full & {
-			@apply px-6;		
+			@apply px-6;
 		}
 	}
 
@@ -32,7 +32,7 @@
 	}
 
 	.page__data--date {
-		@apply text-xs font-bold;
+		@apply text-xs font-normal;
 	}
 
 	.page__data--tag {

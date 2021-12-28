@@ -54,7 +54,7 @@
 						@apply flex items-baseline;
 
 						> .amount {
-							@apply pl-1 font-bold;
+							@apply pl-1 font-normal;
 						}
 
 						del {
@@ -87,7 +87,7 @@
 					@apply text-xl font-normal text-typo-primary;
 				}
 				.amount {
-					@apply inline-block text-4xl font-bold text-typo-primary animate-bounce;
+					@apply inline-block text-4xl font-normal text-typo-primary animate-bounce;
 					* {
 						@apply text-typo-primary;
 					}

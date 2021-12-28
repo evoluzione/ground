@@ -34,7 +34,7 @@
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					<?php endif; ?>
 
-					<div class="font-bold block lg:hidden ">
+					<div class="block lg:hidden ">
 						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 					</div>
 
@@ -47,18 +47,18 @@
 					<?php get_template_part( 'partials/logo', 'primary' ); ?>
 				</div>
 
-				<div class="hidden lg:col-span-5 lg:relative lg:flex lg:justify-end lg:items-center font-bold ">
+				<div class="hidden lg:col-span-5 lg:relative lg:flex lg:justify-end lg:items-center">
 					<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
 						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 					<?php endif; ?>
 
-					<button class="js-toggle lg:block lg:pr-3 lg:pl-3 lg:ml-3 lg:border-l lg:border-gray-200" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
+					<button class="js-toggle lg:block lg:pr-3 lg:pl-3 lg:ml-3" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
 						<?php ground_icon( 'search', 'icon--filled text-typo-primary' ); ?>
 					</button>
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 						<ul class=" relative z-0 lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:border-l lg:border-gray-200 lg:pl-3 lg:text-base"><a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></a></li>
+							<li class="text-lg lg:pl-3 lg:text-base"><a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></a></li>
 							<li class="minicart-wrapper py-4 lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
 						</ul>
 					<?php endif; ?>

@@ -21,7 +21,7 @@
 
 				&.current-cat {
 					> a {
-						@apply text-primary font-bold;
+						@apply text-primary font-normal;
 
 						&:before {
 							@apply bg-primary;

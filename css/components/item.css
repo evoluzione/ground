@@ -33,7 +33,7 @@
 	}
 
 	.item__title {
-		@apply my-1 font-bold text-black;
+		@apply my-1 font-normal text-black;
 	}
 
 	.item__body {

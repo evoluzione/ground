@@ -3,7 +3,7 @@
 		@apply relative;
 
 		.product_title {
-			@apply text-2xl font-bold lg:text-4xl;
+			@apply text-2xl lg:text-4xl;
 		}
 
 		.woocommerce-Price-amount {
