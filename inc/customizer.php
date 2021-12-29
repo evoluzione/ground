@@ -678,9 +678,6 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				'section'     => 'ground_section_socials',
 				'label'       => __( 'Linkedin', 'ground-admin' ),
 				'description' => '',
-				'input_attrs' => array(
-					'placeholder' => __( 'https://www.linkedin.com/...' ),
-				),
 			)
 		);
 		$wp_customize->add_control(
@@ -1085,6 +1082,118 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	}
 
 	add_action( 'customize_register', 'ground_customizer_settings' );
+
+
+		/**
+		 * Add New Newsletter Section : ground_section_newsletter
+		 */
+	function ground_customizer_newsletter( $wp_customize ) {
+
+		/**
+		 * Add New Section: ground_section_newsletter
+		 */
+		$wp_customize->add_section(
+			'ground_section_newsletter',
+			array(
+				'title'       => __( 'Newsletter', 'ground-admin' ),
+				'description' => 'Insert newsletter information (Remember to install this plugin: MC4WP - Mailchimp for WordPress',
+				'priority'    => 47,
+				'capability'  => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'newsletter_title',
+			array(
+				'default' => '',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'newsletter_content',
+			array(
+				'default' => '',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'newsletter_shortcode',
+			array(
+				'default' => '',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'newsletter_auto_modal',
+			array(
+				'default' => '',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'newsletter_footer',
+			array(
+				'default' => '',
+				'type'    => 'theme_mod',
+			)
+		);
+
+		$wp_customize->add_control(
+			'newsletter_title',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_newsletter',
+				'label'       => __( 'Title', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'newsletter_content',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'ground_section_newsletter',
+				'label'       => __( 'Description', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'newsletter_shortcode',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_newsletter',
+				'label'       => __( 'MC4WP Shortcode', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_control(
+			'newsletter_auto_modal',
+			array(
+				'label'   => 'Do you want it to open automatically after 10s?',
+				'type'    => 'checkbox',
+				'section' => 'ground_section_newsletter',
+			)
+		);
+
+		$wp_customize->add_control(
+			'newsletter_footer',
+			array(
+				'label'   => 'Do you want newsletter section before footer?',
+				'type'    => 'checkbox',
+				'section' => 'ground_section_newsletter',
+			)
+		);
+
+	}
+
+	add_action( 'customize_register', 'ground_customizer_newsletter' );
+
+
+
 
 
 	/**

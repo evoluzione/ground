@@ -241,6 +241,23 @@ function ground_theme_costants() {
 	if ( ! defined( 'GROUND_PAYMENT_VISA' ) ) {
 		define( 'GROUND_PAYMENT_VISA', get_theme_mod( 'payment_visa' ) ? get_theme_mod( 'payment_visa' ) : '' );
 	}
+
+	// Newsletter
+	if ( ! defined( 'GROUND_NEWSLETTER_TITLE' ) ) {
+		define( 'GROUND_NEWSLETTER_TITLE', get_theme_mod( 'newsletter_title' ) ? get_theme_mod( 'newsletter_title' ) : '' );
+	}
+	if ( ! defined( 'GROUND_NEWSLETTER_CONTENT' ) ) {
+		define( 'GROUND_NEWSLETTER_CONTENT', get_theme_mod( 'newsletter_content' ) ? get_theme_mod( 'newsletter_content' ) : '' );
+	}
+	if ( ! defined( 'GROUND_NEWSLETTER_SHORTCODE' ) ) {
+		define( 'GROUND_NEWSLETTER_SHORTCODE', get_theme_mod( 'newsletter_shortcode' ) ? get_theme_mod( 'newsletter_shortcode' ) : '' );
+	}
+	if ( ! defined( 'GROUND_NEWSLETTER_AUTO_MODAL' ) ) {
+		define( 'GROUND_NEWSLETTER_AUTO_MODAL', get_theme_mod( 'newsletter_auto_modal' ) ? get_theme_mod( 'newsletter_auto_modal' ) : '' );
+	}
+	if ( ! defined( 'GROUND_NEWSLETTER_FOOTER' ) ) {
+		define( 'GROUND_NEWSLETTER_FOOTER', get_theme_mod( 'newsletter_footer' ) ? get_theme_mod( 'newsletter_footer' ) : '' );
+	}
 }
 
 add_action( 'init', 'ground_theme_costants' );
