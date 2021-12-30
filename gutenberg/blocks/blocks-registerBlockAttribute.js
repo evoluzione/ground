@@ -78,9 +78,9 @@ export default class BlocksRegisterBlockAttribute {
 	 */
 	registerSpacerVariation() {
 		const ALLOWED_BLOCKS = ['core/spacer'];
-		const sizeSmallDefault = '1';
-		const sizeMediumDefault = '3';
-		const sizeLargeDefault = '5';
+		const sizeSmallDefault = '!h-3';
+		const sizeMediumDefault = '!md:h-6';
+		const sizeLargeDefault = '!lg:h-12';
 
 		function addAttributes(settings) {
 			//check if object exists for old Gutenberg version compatibility
@@ -111,7 +111,33 @@ export default class BlocksRegisterBlockAttribute {
 					return <BlockEdit {...props} />;
 				}
 
-				const options = ['0', '1', '2', '3', '4', '5', '6'].map((i) => ({ label: i, value: i }));
+				const formatOptions = (list) => list.map(
+					(i) => ({ label: i.label, value: i.value })
+				);
+				
+				const optionsSmall = formatOptions([
+					{ label: 'Disattivato', value: '0' },
+					{ label: '3', value: '!h-3' },
+					{ label: '6', value: '!h-6' },
+					{ label: '12', value: '!h-12' },
+					{ label: '24', value: '!h-24' },
+				]);
+
+				const optionsMedium = formatOptions([
+					{ label: 'Disattivato', value: '0' },
+					{ label: '3', value: '!md:h-3' },
+					{ label: '6', value: '!md:h-6' },
+					{ label: '12', value: '!md:h-12' },
+					{ label: '24', value: '!md:h-24' },
+				]);
+
+				const optionsLarge = formatOptions([
+					{ label: 'Disattivato', value: '0' },
+					{ label: '3', value: '!lg:h-3' },
+					{ label: '6', value: '!lg:h-6' },
+					{ label: '12', value: '!lg:h-12' },
+					{ label: '24', value: '!lg:h-24' },
+				]);
 
 				setAttributes({ sizeSmall: sizeSmall || sizeSmallDefault });
 				setAttributes({ sizeMedium: sizeMedium || sizeMediumDefault });
@@ -128,7 +154,7 @@ export default class BlocksRegisterBlockAttribute {
 											<SelectControl
 												label="Small"
 												value={sizeSmall}
-												options={options}
+												options={optionsSmall}
 												onChange={(newSize) => setAttributes({ sizeSmall: newSize })}
 											/>
 										</fieldset>
@@ -139,7 +165,7 @@ export default class BlocksRegisterBlockAttribute {
 											<SelectControl
 												label="Medium"
 												value={sizeMedium}
-												options={options}
+												options={optionsMedium}
 												onChange={(newSize) => setAttributes({ sizeMedium: newSize })}
 											/>
 										</fieldset>
@@ -150,7 +176,7 @@ export default class BlocksRegisterBlockAttribute {
 											<SelectControl
 												label="Large"
 												value={sizeLarge}
-												options={options}
+												options={optionsLarge}
 												onChange={(newSize) => setAttributes({ sizeLarge: newSize })}
 											/>
 										</fieldset>
@@ -164,6 +190,7 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
+			
 			if (!ALLOWED_BLOCKS.includes(blockType.name)) {
 				return extraProps;
 			}
@@ -171,61 +198,13 @@ export default class BlocksRegisterBlockAttribute {
 			const { sizeSmall, sizeMedium, sizeLarge } = attributes;
 
 			if (typeof sizeSmall !== 'undefined' && sizeSmall !== '0') {
-
-				extraProps.className = classnames(extraProps.className, getSpacerClass('sm', sizeSmall));
+				extraProps.className = classnames(extraProps.className, sizeSmall);
 			}
-
 			if (typeof sizeMedium !== 'undefined' && sizeMedium !== '0') {
-				extraProps.className = classnames(extraProps.className, getSpacerClass('md', sizeMedium));
+				extraProps.className = classnames(extraProps.className, sizeMedium);
 			}
-
 			if (typeof sizeLarge !== 'undefined' && sizeLarge !== '0') {
-				extraProps.className = classnames(extraProps.className, getSpacerClass('lg', sizeLarge));
-			}
-
-			/**
-			 * 
-			 * @param {string} breakpoint 
-			 * @param {number} size 
-			 * @returns {string}
-			 */
-			function getSpacerClass(breakpoint, size) {
-
-				const classNameMap = {
-					'sm' : [
-						'spacer-0',
-						'spacer-1',
-						'spacer-2',
-						'spacer-3',
-						'spacer-4',
-						'spacer-5',
-						'spacer-6'
-					],
-					'md' : [
-						'spacer-md-0',
-						'spacer-md-1',
-						'spacer-md-2',
-						'spacer-md-3',
-						'spacer-md-4',
-						'spacer-md-5',
-						'spacer-md-6'
-					],
-					'lg' : [
-						'spacer-lg-0',
-						'spacer-lg-1',
-						'spacer-lg-2',
-						'spacer-lg-3',
-						'spacer-lg-4',
-						'spacer-lg-5',
-						'spacer-lg-6'
-					],
-				};
-
-
-
-				return classNameMap[breakpoint][size] || '';
-
-
+				extraProps.className = classnames(extraProps.className, sizeLarge);
 			}
 
 			return extraProps;
