@@ -31,7 +31,7 @@
 		}
 
 		&.is-active {
-			@apply flex sm:flex bg-primary text-white border-primary animate-bounce;
+			@apply flex sm:flex bg-primary text-white border-primary;
 		}
 
 		.pagination__text {

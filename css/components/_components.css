@@ -1,6 +1,5 @@
 /* Import from all components directory (no sub-directory) */
 
-@import "advise.css";
 @import "breadcrumb.css";
 @import "button.css";
 @import "card.css";

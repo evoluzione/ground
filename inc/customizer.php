@@ -107,7 +107,19 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'header_advice',
+			'header_advice_primary',
+			array(
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_setting(
+			'header_advice_secondary',
+			array(
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_setting(
+			'header_advice_tertiary',
 			array(
 				'type' => 'theme_mod',
 			)
@@ -134,11 +146,29 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		);
 
 		$wp_customize->add_control(
-			'header_advice',
+			'header_advice_primary',
 			array(
 				'type'        => 'text',
 				'section'     => 'ground_section_header',
-				'label'       => __( 'Header Advice', 'ground-admin' ),
+				'label'       => __( 'Header advice primary', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'header_advice_secondary',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_header',
+				'label'       => __( 'Header advice secondary', 'ground-admin' ),
+				'description' => '',
+			)
+		);
+		$wp_customize->add_control(
+			'header_advice_tertiary',
+			array(
+				'type'        => 'text',
+				'section'     => 'ground_section_header',
+				'label'       => __( 'Header advice tertiary', 'ground-admin' ),
 				'description' => '',
 			)
 		);
@@ -1084,9 +1114,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	add_action( 'customize_register', 'ground_customizer_settings' );
 
 
-		/**
-		 * Add New Newsletter Section : ground_section_newsletter
-		 */
+	/**
+	 * Add New Newsletter Section : ground_section_newsletter
+	 */
 	function ground_customizer_newsletter( $wp_customize ) {
 
 		/**
@@ -1157,6 +1187,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	}
 
 	add_action( 'customize_register', 'ground_customizer_newsletter' );
+
+
+
 
 
 

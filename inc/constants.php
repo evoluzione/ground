@@ -148,8 +148,14 @@ function ground_theme_costants() {
 	}
 
 	// Header.
-	if ( ! defined( 'GROUND_HEADER_ADVICE' ) ) {
-		define( 'GROUND_HEADER_ADVICE', get_theme_mod( 'header_advice' ) ? get_theme_mod( 'header_advice' ) : '' );
+	if ( ! defined( 'GROUND_HEADER_ADVICE_PRIMARY' ) ) {
+		define( 'GROUND_HEADER_ADVICE_PRIMARY', get_theme_mod( 'header_advice_primary' ) ? get_theme_mod( 'header_advice_primary' ) : '' );
+	}
+	if ( ! defined( 'GROUND_HEADER_ADVICE_SECONDARY' ) ) {
+		define( 'GROUND_HEADER_ADVICE_SECONDARY', get_theme_mod( 'header_advice_secondary' ) ? get_theme_mod( 'header_advice_secondary' ) : '' );
+	}
+	if ( ! defined( 'GROUND_HEADER_ADVICE_TERTIARY' ) ) {
+		define( 'GROUND_HEADER_ADVICE_TERTIARY', get_theme_mod( 'header_advice_tertiary' ) ? get_theme_mod( 'header_advice_tertiary' ) : '' );
 	}
 	if ( ! defined( 'GROUND_HEADER_TYPE' ) ) {
 		define( 'GROUND_HEADER_TYPE', get_theme_mod( 'header_type' ) ? get_theme_mod( 'header_type' ) : '' );
