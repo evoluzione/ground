@@ -1096,7 +1096,7 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			'ground_section_newsletter',
 			array(
 				'title'       => __( 'Newsletter', 'ground-admin' ),
-				'description' => 'Insert newsletter information (Remember to install this plugin: MC4WP - Mailchimp for WordPress',
+				'description' => 'Insert newsletter information',
 				'priority'    => 47,
 				'capability'  => 'edit_theme_options',
 			)
@@ -1126,22 +1126,6 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			)
 		);
 
-		$wp_customize->add_setting(
-			'newsletter_auto_modal',
-			array(
-				'default' => '',
-				'type'    => 'theme_mod',
-			)
-		);
-
-		$wp_customize->add_setting(
-			'newsletter_footer',
-			array(
-				'default' => '',
-				'type'    => 'theme_mod',
-			)
-		);
-
 		$wp_customize->add_control(
 			'newsletter_title',
 			array(
@@ -1165,26 +1149,8 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			array(
 				'type'        => 'text',
 				'section'     => 'ground_section_newsletter',
-				'label'       => __( 'MC4WP Shortcode', 'ground-admin' ),
+				'label'       => __( 'Shortcode', 'ground-admin' ),
 				'description' => '',
-			)
-		);
-
-		$wp_customize->add_control(
-			'newsletter_auto_modal',
-			array(
-				'label'   => 'Do you want it to open automatically after 10s?',
-				'type'    => 'checkbox',
-				'section' => 'ground_section_newsletter',
-			)
-		);
-
-		$wp_customize->add_control(
-			'newsletter_footer',
-			array(
-				'label'   => 'Do you want newsletter section before footer?',
-				'type'    => 'checkbox',
-				'section' => 'ground_section_newsletter',
 			)
 		);
 

@@ -581,9 +581,7 @@ add_action( 'ground_before_footer', 'ground_pre_footer', 10 );
  * Footer, Add newsletter partials
  */
 function ground_newsletter() {
-	if ( GROUND_NEWSLETTER_FOOTER ) :
 		get_template_part( 'partials/newsletter' );
-	endif;
 }
 
 add_action( 'ground_before_footer', 'ground_newsletter', 11 );

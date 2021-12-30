@@ -5,14 +5,5 @@
 		&.is-overlay-modal-open {
 			@apply opacity-100 visible transform-none;
 		}
-
-		.mc4wp-form-fields p {
-			@apply mb-6;
-		}
-
-		input[type="submit"],
-		input[type="button"] {
-			@apply text-center mt-6 w-full;
-		}
 	}
 }

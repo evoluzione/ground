@@ -252,12 +252,6 @@ function ground_theme_costants() {
 	if ( ! defined( 'GROUND_NEWSLETTER_SHORTCODE' ) ) {
 		define( 'GROUND_NEWSLETTER_SHORTCODE', get_theme_mod( 'newsletter_shortcode' ) ? get_theme_mod( 'newsletter_shortcode' ) : '' );
 	}
-	if ( ! defined( 'GROUND_NEWSLETTER_AUTO_MODAL' ) ) {
-		define( 'GROUND_NEWSLETTER_AUTO_MODAL', get_theme_mod( 'newsletter_auto_modal' ) ? get_theme_mod( 'newsletter_auto_modal' ) : '' );
-	}
-	if ( ! defined( 'GROUND_NEWSLETTER_FOOTER' ) ) {
-		define( 'GROUND_NEWSLETTER_FOOTER', get_theme_mod( 'newsletter_footer' ) ? get_theme_mod( 'newsletter_footer' ) : '' );
-	}
 }
 
 add_action( 'init', 'ground_theme_costants' );

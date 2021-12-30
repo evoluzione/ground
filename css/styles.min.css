@@ -799,19 +799,6 @@ label {
     content: 'screen: 2xl';
   }
 }
-.icon {
-  display: inline-block;
-  vertical-align: top;
-}
-.icon svg {
-  height: 100%;
-  width: 100%;
-  vertical-align: top;
-}
-.icon path {
-			/* fill: currentColor; */
-			fill: currentColor;
-		}
 .breadcrumb {
   position: relative;
   margin-top: 1.5rem;
@@ -3308,6 +3295,19 @@ body.woocommerce-checkout .footer {
     margin-right: 0px !important;
   }
 }
+.icon {
+  display: inline-block;
+  vertical-align: top;
+}
+.icon svg {
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+}
+.icon path {
+			/* fill: currentColor; */
+			fill: currentColor;
+		}
 .item {
 	}
 .\!item {
@@ -3776,14 +3776,6 @@ body.woocommerce-checkout .footer {
   visibility: visible;
   transform: none;
   opacity: 1;
-}
-.overlay-modal .mc4wp-form-fields p {
-  margin-bottom: 1.5rem;
-}
-.overlay-modal input[type="submit"], .overlay-modal input[type="button"] {
-  margin-top: 1.5rem;
-  width: 100%;
-  text-align: center;
 }
 .overlay-panel__mask {
   visibility: hidden;
@@ -11000,6 +10992,62 @@ body.woocommerce-cart .shopping-cart {
 /* Import from all layout directory */
 /* Components */
 /* Import from all components directory (no sub-directory) */
+/* @layer components {
+
+ . marquee {
+   margin: 2rem 0;
+   font-size: 8vw;
+   overflow: hidden;
+}
+
+. marquee--long {
+   font -size: 1.25vw;
+}
+
+. marquee span {
+	display: inline - block;
+	white - space: nowrap;
+	color: // 00112C;
+	width: var( --tw );
+	text - shadow: var( --tw ) 0 currentColor,
+				 calc( var( --tw ) * 2 ) 0 currentColor,
+				 calc( var( --tw ) * 3 ) 0 currentColor,
+				 calc( var( --tw ) * 4 ) 0 currentColor;
+
+	will - change: transform;
+	animation: marquee var( --ad ) linear infinite;
+	animation - play - state: paused;
+}
+
+. marquee:hover span {
+	animation - play - state: running;
+}
+
+@keyframes marquee {
+	0 % { transform: translateX( 0 ); }
+	100 % { transform: translateX( -100 % ); }
+}
+
+/*
+ * on MacOs: System Preferences >
+ *           Accessibility >
+ *           Display > Reduce motion
+ */
+/* @media( prefers - reduced - motion: reduce ) {
+  . marquee span {
+	animation: none;
+	text - shadow: none;
+	width: auto;
+	display: block;
+	line - height: 1.5;
+	text - align: center;
+	white - space: normal;
+  }
+} */
+/* :checked ~ . marquee span { animation - play - state: running; }
+label { font: .85rem Courier; margin - left: .5em}
+
+}  */
 form.wpcf7-form .wpcf7-not-valid {
   border-style: dashed;
   --tw-border-opacity: 1;
