@@ -171,15 +171,61 @@ export default class BlocksRegisterBlockAttribute {
 			const { sizeSmall, sizeMedium, sizeLarge } = attributes;
 
 			if (typeof sizeSmall !== 'undefined' && sizeSmall !== '0') {
-				extraProps.className = classnames(extraProps.className, 'spacer-' + sizeSmall);
+
+				extraProps.className = classnames(extraProps.className, getSpacerClass('sm', sizeSmall));
 			}
 
 			if (typeof sizeMedium !== 'undefined' && sizeMedium !== '0') {
-				extraProps.className = classnames(extraProps.className, 'spacer-md-' + sizeMedium);
+				extraProps.className = classnames(extraProps.className, getSpacerClass('md', sizeMedium));
 			}
 
 			if (typeof sizeLarge !== 'undefined' && sizeLarge !== '0') {
-				extraProps.className = classnames(extraProps.className, 'spacer-lg-' + sizeLarge);
+				extraProps.className = classnames(extraProps.className, getSpacerClass('lg', sizeLarge));
+			}
+
+			/**
+			 * 
+			 * @param {string} breakpoint 
+			 * @param {number} size 
+			 * @returns {string}
+			 */
+			function getSpacerClass(breakpoint, size) {
+
+				const classNameMap = {
+					'sm' : [
+						'spacer-0',
+						'spacer-1',
+						'spacer-2',
+						'spacer-3',
+						'spacer-4',
+						'spacer-5',
+						'spacer-6'
+					],
+					'md' : [
+						'spacer-md-0',
+						'spacer-md-1',
+						'spacer-md-2',
+						'spacer-md-3',
+						'spacer-md-4',
+						'spacer-md-5',
+						'spacer-md-6'
+					],
+					'lg' : [
+						'spacer-lg-0',
+						'spacer-lg-1',
+						'spacer-lg-2',
+						'spacer-lg-3',
+						'spacer-lg-4',
+						'spacer-lg-5',
+						'spacer-lg-6'
+					],
+				};
+
+
+
+				return classNameMap[breakpoint][size] || '';
+
+
 			}
 
 			return extraProps;

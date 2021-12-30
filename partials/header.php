@@ -12,7 +12,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body id="scroll-top" <?php body_class('font-primary bg-body-primary text-typo-primary debug-screens'); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
+<body id="scroll-top" <?php body_class('font-primary bg-body-primary text-typo-primary debug-screens overflow-x-hidden'); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
 	<?php
 	/**
