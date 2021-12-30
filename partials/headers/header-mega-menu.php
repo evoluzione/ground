@@ -23,19 +23,21 @@
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
-		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?>">
-
-			<div class="header__advice bg-body-secondary">
-				<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
-					<div class="hidden xl:flex text-typo-secondary">
-						<?php echo GROUND_HEADER_ADVICE; ?>
-					</div>
-					<div class="hidden lg:inline-block">
-						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
+			<?php if ( GROUND_HEADER_ADVICE || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) : ?>
+			<div class="header__advice bg-body-secondary fullscreen">
+				<div class="header__advice bg-body-secondary <?php echo esc_attr( GROUND_CONTAINER ); ?>">
+					<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
+						<div class="hidden xl:flex text-typo-primary">
+							<?php echo GROUND_HEADER_ADVICE; ?>
+						</div>
+						<div class="hidden lg:inline-block">
+							<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+						</div>
 					</div>
 				</div>
 			</div>
-
+			<?php endif; ?>
 			<div class="flex flex-col-reverse lg:block">
 
 				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
@@ -52,7 +54,7 @@
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 						<ul class="relative z-0 border-b border-line-primary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
+							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
 							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
 						</ul>
 					<?php endif; ?>

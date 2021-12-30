@@ -191,10 +191,10 @@
 		}
 		/* Navigation Secondary */
 		.navigation--secondary {
-			@apply relative w-full;
+			@apply relative w-full -z-1;
 
 			@screen lg {
-				width: auto;
+				@apply w-auto;
 			}
 
 			.navigation__item {
@@ -223,7 +223,7 @@
 					}
 
 					.navigation__link {
-						@apply opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
+						@apply opacity-0 bg-body-secondary top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
 					}
 				}
 

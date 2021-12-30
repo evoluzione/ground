@@ -7,7 +7,7 @@
 			}
 
 			.navigation__link {
-				@apply block text-lg py-4 border-b border-gray-400 border-opacity-20  lg:block lg:py-3 lg:text-lg lg:border-0;
+				@apply block text-lg py-4 border-b border-line-primary border-opacity-20  lg:block lg:py-3 lg:text-lg lg:border-0;
 			}
 
 			.navigation__list {
@@ -30,7 +30,7 @@
 				}
 
 				.navigation__link {
-					@apply lg:border-b lg:border-gray-400 lg:border-opacity-20 lg:opacity-0 lg:bg-gray-200 lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
+					@apply lg:border-b lg:border-line-primary lg:border-opacity-20 lg:opacity-0 lg:bg-body-secondary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 				}
 
 				.navigation__item {
@@ -42,7 +42,7 @@
 					}
 
 					.navigation__link {
-						@apply block text-base py-3 border-b border-gray-400 border-opacity-20;
+						@apply block text-base py-3 border-b border-line-primary border-opacity-20;
 						@screen lg {
 							&:after {
 								@apply hidden;
@@ -133,7 +133,7 @@
 			}
 
 			.navigation__link {
-				@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 lg:text-base lg:py-0 lg:border-0;
+				@apply block text-lg py-4 border-b border-line-primary border-opacity-20 lg:text-base lg:py-0 lg:border-0;
 			}
 
 			.navigation__list {
@@ -157,7 +157,7 @@
 				}
 
 				.navigation__link {
-					@apply lg:border-b lg:border-gray-400 lg:border-opacity-20 lg:opacity-0 lg:bg-gray-200 lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
+					@apply lg:border-b lg:border-line-primary lg:border-opacity-20 lg:opacity-0 lg:bg-body-secondary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 				}
 
 				.navigation__item {
@@ -169,7 +169,7 @@
 					}
 
 					.navigation__link {
-						@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+						@apply block text-lg py-3 border-b border-line-primary border-opacity-20;
 						&:after {
 							@apply lg:hidden;
 						}
