@@ -23,11 +23,11 @@ export default class Toggle {
 		this.updateEvents = this.updateEvents.bind(this);
 		this.toggle = this.toggle.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	init() {

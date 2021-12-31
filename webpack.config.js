@@ -7,6 +7,7 @@ module.exports = {
 	entry: './js/app.js',
 
 	output: {
+        chunkFilename: '[name].bundle.js',
 		// This option determines the name of each output bundle.
 		filename: 'scripts.min.js',
 		// The bundle is written to the directory specified by the output.path option.

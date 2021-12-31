@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
-import { getTemplateUrl } from '../utilities/paths';
+// import { getTemplateUrl } from '../utilities/paths';
 import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -51,11 +51,11 @@ export default class AnimationsAll {
 
 		window.addEventListener('NAVIGATE_END', () => {});
 
-		window.addEventListener('LOADER_COMPLETE', () => {
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
