@@ -79,8 +79,8 @@ export default class BlocksRegisterBlockAttribute {
 	registerSpacerVariation() {
 		const ALLOWED_BLOCKS = ['core/spacer'];
 		const sizeSmallDefault = '!h-3';
-		const sizeMediumDefault = '!md:h-6';
-		const sizeLargeDefault = '!lg:h-12';
+		const sizeMediumDefault = 'md:!h-6';
+		const sizeLargeDefault = 'lg:!h-12';
 
 		function addAttributes(settings) {
 			//check if object exists for old Gutenberg version compatibility
@@ -110,34 +110,30 @@ export default class BlocksRegisterBlockAttribute {
 				if (!ALLOWED_BLOCKS.includes(name)) {
 					return <BlockEdit {...props} />;
 				}
-
-				const formatOptions = (list) => list.map(
-					(i) => ({ label: i.label, value: i.value })
-				);
 				
-				const optionsSmall = formatOptions([
+				const optionsSmall = [
 					{ label: 'Disattivato', value: '0' },
 					{ label: '3', value: '!h-3' },
 					{ label: '6', value: '!h-6' },
 					{ label: '12', value: '!h-12' },
 					{ label: '24', value: '!h-24' },
-				]);
+				];
 
-				const optionsMedium = formatOptions([
+				const optionsMedium = [
 					{ label: 'Disattivato', value: '0' },
-					{ label: '3', value: '!md:h-3' },
-					{ label: '6', value: '!md:h-6' },
-					{ label: '12', value: '!md:h-12' },
-					{ label: '24', value: '!md:h-24' },
-				]);
+					{ label: '3', value: 'md:!h-3' },
+					{ label: '6', value: 'md:!h-6' },
+					{ label: '12', value: 'md:!h-12' },
+					{ label: '24', value: 'md:!h-24' },
+				];
 
-				const optionsLarge = formatOptions([
+				const optionsLarge = [
 					{ label: 'Disattivato', value: '0' },
-					{ label: '3', value: '!lg:h-3' },
-					{ label: '6', value: '!lg:h-6' },
-					{ label: '12', value: '!lg:h-12' },
-					{ label: '24', value: '!lg:h-24' },
-				]);
+					{ label: '3', value: 'lg:!h-3' },
+					{ label: '6', value: 'lg:!h-6' },
+					{ label: '12', value: 'lg:!h-12' },
+					{ label: '24', value: 'lg:!h-24' },
+				];
 
 				setAttributes({ sizeSmall: sizeSmall || sizeSmallDefault });
 				setAttributes({ sizeMedium: sizeMedium || sizeMediumDefault });
@@ -148,7 +144,7 @@ export default class BlocksRegisterBlockAttribute {
 						<BlockEdit {...props} />
 						{isSelected && (
 							<InspectorControls>
-								<PanelBody title={__('Size (rem)', 'ground')} initialOpen={true}>
+								<PanelBody title={__('Size', 'ground')} initialOpen={true}>
 									<PanelRow>
 										<fieldset>
 											<SelectControl
