@@ -1,6 +1,6 @@
 @layer components {
 	.added_to_cart {
-		@apply block text-primary pt-4 animate-bounce;
+		@apply block text-primary pt-4;
 		&:before {
 			content: "";
 			@apply inline-block align-middle bg-line-primary h-px w-4 mr-3;

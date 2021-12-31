@@ -23,13 +23,13 @@
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
-		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
-			<?php if ( GROUND_HEADER_ADVICE || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) : ?>
+		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
+			<?php if ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) : ?>
 			<div class="header__advice bg-body-secondary fullscreen">
 				<div class="header__advice bg-body-secondary <?php echo esc_attr( GROUND_CONTAINER ); ?>">
 					<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
 						<div class="hidden xl:flex text-typo-primary">
-							<?php echo GROUND_HEADER_ADVICE; ?>
+							<?php get_template_part( 'partials', 'message-alert' ); ?>
 						</div>
 						<div class="hidden lg:inline-block">
 							<?php get_template_part( 'partials/company', 'info-contacts' ); ?>

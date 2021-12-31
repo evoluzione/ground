@@ -87,7 +87,7 @@
 					@apply text-xl font-normal text-typo-primary;
 				}
 				.amount {
-					@apply inline-block text-4xl font-normal text-typo-primary animate-bounce;
+					@apply inline-block text-4xl font-normal text-typo-primary;
 					* {
 						@apply text-typo-primary;
 					}

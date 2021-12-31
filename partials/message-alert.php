@@ -1,23 +1,17 @@
-<?php if ( GROUND_HEADER_ADVICE ) : ?>
-<div class="message-alert message-alert--primary <?php echo GROUND_HEADER_ADVICE ? 'bg-body-secondary py-2' : ''; ?> text-center text-typo-primary">
-	<div class="<?php echo esc_attr( GROUND_CONTAINER ); ?>">
-		<?php echo GROUND_HEADER_ADVICE; ?>
+<?php if ( GROUND_HEADER_ADVICE_PRIMARY ) : ?>
+<div class="px-6 <?php echo GROUND_HEADER_ADVICE_PRIMARY ? 'bg-body-secondary py-2' : ''; ?>">
+	<div class="message-alert message-alert--primary relative h-10 text-center text-typo-primary">
+		<p class="message-alert__content text-typo-primary">
+			<?php echo GROUND_HEADER_ADVICE_PRIMARY; ?>
+		</p>
+
+		<p class="message-alert__content text-typo-primary">
+			<?php echo GROUND_HEADER_ADVICE_SECONDARY; ?>
+		</p>
+
+		<p class="message-alert__content text-typo-primary">
+			<?php echo GROUND_HEADER_ADVICE_TERTIARY; ?>
+		</p>
 	</div>
 </div>
 <?php endif; ?>
-
-
-<!-- <input type="checkbox" /><label>Auto animate</label>
-
-<div class="marquee" style="--tw: 40vw; --ad: 2.5s;">
-	<span>Showreel</span>
-</div>
-
-<div class="marquee marquee--long" style="--tw: 189ch; --ad: 12s;">
-	<span>Windows 8 and Windows RT are focused
-	  on your life—your friends and family, your apps,
-	  and your stuff. With new things like the Start
-	  screen, charms and a Microsoft account, you can
-	  spend less time searching and more time doing.
-   </span>
-</div> -->

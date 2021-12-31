@@ -107,7 +107,19 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'header_advice',
+			'header_advice_primary',
+			array(
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_setting(
+			'header_advice_secondary',
+			array(
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_setting(
+			'header_advice_tertiary',
 			array(
 				'type' => 'theme_mod',
 			)
@@ -133,13 +145,51 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 			)
 		);
 
-		$wp_customize->add_control(
-			'header_advice',
+		$wp_customize->add_setting(
+			'header_advice_primary',
 			array(
-				'type'        => 'text',
-				'section'     => 'ground_section_header',
-				'label'       => __( 'Header Advice', 'ground-admin' ),
-				'description' => '',
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			'header_advice_primary',
+			array(
+				'type'    => 'textarea',
+				'section' => 'ground_section_header',
+				'label'   => __( 'Header advice primary', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'header_advice_secondary',
+			array(
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			'header_advice_secondary',
+			array(
+				'type'    => 'textarea',
+				'section' => 'ground_section_header',
+				'label'   => __( 'Header advice secondary', 'ground-admin' ),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'header_advice_tertiary',
+			array(
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			'header_advice_tertiary',
+			array(
+				'type'    => 'textarea',
+				'section' => 'ground_section_header',
+				'label'   => __( 'Header advice tertiary', 'ground-admin' ),
 			)
 		);
 
@@ -1084,9 +1134,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	add_action( 'customize_register', 'ground_customizer_settings' );
 
 
-		/**
-		 * Add New Newsletter Section : ground_section_newsletter
-		 */
+	/**
+	 * Add New Newsletter Section : ground_section_newsletter
+	 */
 	function ground_customizer_newsletter( $wp_customize ) {
 
 		/**
@@ -1147,9 +1197,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 		$wp_customize->add_control(
 			'newsletter_shortcode',
 			array(
-				'type'        => 'text',
+				'type'        => 'textarea',
 				'section'     => 'ground_section_newsletter',
-				'label'       => __( 'Shortcode', 'ground-admin' ),
+				'label'       => __( 'Shortcode/Form', 'ground-admin' ),
 				'description' => '',
 			)
 		);
@@ -1157,6 +1207,9 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	}
 
 	add_action( 'customize_register', 'ground_customizer_newsletter' );
+
+
+
 
 
 
