@@ -1,4 +1,4 @@
-import BlocksRegisterBlockStyle from './blocks/blocks-registerBlockStyle';
+// import BlocksRegisterBlockStyle from './blocks/blocks-registerBlockStyle';
 import BlocksRegisterBlockAttribute from './blocks/blocks-registerBlockAttribute';
 
 // const blocksRegisterBlockStyle = new BlocksRegisterBlockStyle();
