@@ -117,6 +117,7 @@ export default class BlocksRegisterBlockAttribute {
 					{ label: '6', value: '!h-6' },
 					{ label: '12', value: '!h-12' },
 					{ label: '24', value: '!h-24' },
+					{ label: '48', value: '!h-48' },
 				];
 
 				const optionsMedium = [
@@ -125,6 +126,7 @@ export default class BlocksRegisterBlockAttribute {
 					{ label: '6', value: 'md:!h-6' },
 					{ label: '12', value: 'md:!h-12' },
 					{ label: '24', value: 'md:!h-24' },
+					{ label: '48', value: 'md:!h-48' },
 				];
 
 				const optionsLarge = [
@@ -133,6 +135,7 @@ export default class BlocksRegisterBlockAttribute {
 					{ label: '6', value: 'lg:!h-6' },
 					{ label: '12', value: 'lg:!h-12' },
 					{ label: '24', value: 'lg:!h-24' },
+					{ label: '48', value: 'lg:!h-48' },
 				];
 
 				setAttributes({ sizeSmall: sizeSmall || sizeSmallDefault });
