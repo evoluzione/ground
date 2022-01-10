@@ -1,21 +1,21 @@
 <div class="xl:hidden">
-	<?php get_template_part( 'partials/message', 'alert' ); ?>
+	<?php get_template_part('partials/message', 'alert'); ?>
 </div>
 
 <header class="header header-mega-menu w-full z-30 bg-body-primary">
 
 	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon('chevron-left', 'text-black'); ?> </span> <?php _e('Indietro', 'ground'); ?> </a>
 
 		<div class="header__bar-mobile container py-2 bg-body-primary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
-				<?php get_template_part( 'partials/navicon', 'primary' ); ?>
+				<?php get_template_part('partials/navicon', 'primary'); ?>
 			</div>
 			<div class="col-span-4 flex justify-center header__logo">
-				<?php get_template_part( 'partials/logo', 'primary' ); ?>
+				<?php get_template_part('partials/logo', 'primary'); ?>
 			</div>
 			<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">
-				<?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?>
+				<?php get_template_part('partials/woocommerce/shopping-cart'); ?>
 			</div>
 		</div>
 
@@ -23,20 +23,20 @@
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
-		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
-			<?php if ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) : ?>
-			<div class="header__advice bg-body-secondary fullscreen">
-				<div class="header__advice bg-body-secondary <?php echo esc_attr( GROUND_CONTAINER ); ?>">
-					<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
-						<div class="hidden xl:flex text-typo-primary">
-							<?php get_template_part( 'partials', 'message-alert' ); ?>
-						</div>
-						<div class="hidden lg:inline-block">
-							<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+		<div class="js-menu-container header__container relative <?php echo esc_attr(GROUND_CONTAINER); ?> <?php echo (GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP) ? '' : 'lg:pt-4'; ?>">
+			<?php if (GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP) : ?>
+				<div class="header__advice bg-body-secondary fullscreen">
+					<div class="header__advice bg-body-secondary <?php echo esc_attr(GROUND_CONTAINER); ?>">
+						<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
+							<div class="hidden xl:flex text-typo-primary">
+								<?php get_template_part('partials', 'message-alert'); ?>
+							</div>
+							<div class="hidden lg:inline-block">
+								<?php get_template_part('partials/company', 'info-contacts'); ?>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			<?php endif; ?>
 			<div class="flex flex-col-reverse lg:block">
 
@@ -44,44 +44,44 @@
 
 					<div class="relative z-1 lg:flex lg:items-center lg:justify-start lg:space-x-3">
 						<div class="hidden lg:inline-block">
-							<?php get_template_part( 'partials/logo', 'primary' ); ?>
+							<?php get_template_part('partials/logo', 'primary'); ?>
 						</div>
 						<div id="js-search-desktop" class="relative w-96">
-							<?php get_template_part( 'partials/search', 'form-input' ); ?>
+							<?php get_template_part('partials/search', 'form-input'); ?>
 						</div>
-						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
+						<?php get_template_part('partials/navigation', 'header-secondary'); ?>
 					</div>
 
-					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+					<?php if (class_exists('WooCommerce')) : ?>
 						<ul class="relative z-0 border-b border-line-primary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-typo-primary' ); ?></span></a></li>
-							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
+							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink(wc_get_page_id('myaccount')); ?>"><span class="hidden ml-2 lg:inline-block"><?php ground_icon('user', 'icon--filled text-typo-primary'); ?></span></a></li>
+							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part('partials/woocommerce/shopping-cart'); ?> </li>
 						</ul>
 					<?php endif; ?>
 
 					<div class="block lg:hidden">
-						<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
+						<?php get_template_part('partials/company', 'info-contacts'); ?>
 					</div>
 				</div>
 
 				<div class="lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
-					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
-						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
+					<div class="<?php echo has_nav_menu('panel-primary') ? 'hidden lg:flex' : ''; ?>">
+						<?php get_template_part('partials/navigation', 'header-primary'); ?>
 					</div>
 
-					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
+					<?php if (has_nav_menu('panel-primary')) { ?>
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
-								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-typo-primary' ); ?></div>
+								<div class="mr-2 flex justify-end items-center"> <?php ground_icon('menu-left', 'icon--filled text-typo-primary'); ?></div>
 								<?php $locations = get_nav_menu_locations(); ?>
-								<?php $titlePanelPrimary = wp_get_nav_menu_object( $locations['panel-primary'] ); ?>
+								<?php $titlePanelPrimary = wp_get_nav_menu_object($locations['panel-primary']); ?>
 								<div><?php echo $titlePanelPrimary->name; ?></div>
 							</a>
 							<div class="hidden lg:flex">
-								<?php get_template_part( 'partials/panel', 'primary' ); ?>
+								<?php get_template_part('partials/panel', 'primary'); ?>
 							</div>
 							<div class="lg:hidden">
-								<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
+								<?php get_template_part('partials/navigation', 'panel-primary'); ?>
 							</div>
 						</div>
 					<?php } ?>
