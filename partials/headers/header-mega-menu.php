@@ -78,4 +78,4 @@
 
 </header> <!-- End header -->
 
-<div id="js-search-mobile" class="pt-3 h-16 lg:hidden"></div>
+<div id="js-search-mobile" class="pt-6 h-16 lg:hidden"></div>
