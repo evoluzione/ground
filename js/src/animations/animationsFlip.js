@@ -32,11 +32,20 @@ export default class AnimationsFlip {
 
 		window.addEventListener('NAVIGATE_END', () => {});
 
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		if (document.readyState !== "loading"){
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+
+		} else{
+			window.addEventListener('LOADER_COMPLETE', () => {
+				this.init();
+				this.initEvents(this.options.triggers);
+				initObserver(this.options.triggers, this.updateEvents);
+			});
+		}
+
 	}
 
 	/**

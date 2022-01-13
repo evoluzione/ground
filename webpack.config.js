@@ -4,14 +4,14 @@ const mode = process.env.WEBPACK_MODE
 
 module.exports = {
 	// The point or points where to start the application bundling process.
-	entry: './js/app.js',
+	entry: './js/src/app.js',
 
 	output: {
         chunkFilename: '[name].bundle.js',
 		// This option determines the name of each output bundle.
 		filename: 'scripts.min.js',
 		// The bundle is written to the directory specified by the output.path option.
-		path: path.resolve(__dirname, 'js'),
+		path: path.resolve(__dirname, 'js/dist'),
 	},
 
 	// This option controls if and how source maps are generated.

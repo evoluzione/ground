@@ -1,6 +1,5 @@
 import * as deepmerge from 'deepmerge';
 import isMobile from 'ismobilejs';
-import { gsap } from 'gsap';
 
 export default class Cursor {
 	/**
@@ -18,9 +17,9 @@ export default class Cursor {
 		// 	this.init();
 		// })
 
-		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
+		// window.addEventListener('DOMContentLoaded', () => {
+		// 	this.init();
+		// });
 	}
 
 	/**

@@ -6,6 +6,7 @@ import { getSiteUrl } from '../utilities/paths';
 import { debounce } from '../utilities/debounce';
 import { DEBUG_MODE } from '../utilities/environment';
 import isMobile from 'ismobilejs';
+
 export default class Search {
 	/**
 	 * @param {string} element - Selector
