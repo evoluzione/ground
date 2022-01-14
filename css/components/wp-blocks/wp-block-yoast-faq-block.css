@@ -1,23 +1,21 @@
 /* wp-block-yoast-faq-block */
-@layer components {
-	.wp-block-yoast-faq-block {
-		@apply relative border border-line-primary rounded-theme py-3 px-6 lg:py-9 lg:px-16;
+.wp-block-yoast-faq-block {
+	@apply relative border border-line-primary rounded-theme py-3 px-6 lg:py-9 lg:px-16;
 
-		.schema-faq-section {
-			@apply relative my-2;
+	.schema-faq-section {
+		@apply relative my-2;
 
-			.schema-faq-question {
-				@apply block text-base font-normal mb-2 cursor-pointer underline hover:no-underline;
-			}
+		.schema-faq-question {
+			@apply block text-base font-normal mb-2 cursor-pointer underline hover:no-underline;
+		}
 
+		.schema-faq-answer {
+			@apply text-base text-typo-secondary opacity-0 h-0 overflow-hidden;
+		}
+
+		&.is-open {
 			.schema-faq-answer {
-				@apply text-base text-typo-secondary opacity-0 h-0 overflow-hidden;
-			}
-
-			&.is-open {
-				.schema-faq-answer {
-					@apply opacity-100 h-auto mb-6;
-				}
+				@apply opacity-100 h-auto mb-6;
 			}
 		}
 	}
