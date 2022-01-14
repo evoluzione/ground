@@ -12,11 +12,10 @@ $categories_ids = get_terms(
 
 get_template_part( 'partials/header' );
 ?>
-	<div class="container">
-		<?php get_template_part( 'partials/breadcrumbs' ); ?>
-	</div>
 
-	<div class="container relative mb-12 lg:mb-24">
+	<?php get_template_part( 'partials/breadcrumbs' ); ?>
+
+	<div class="relative mb-12 lg:mb-24">
 		<?php if ( single_post_title( '', false ) ) : ?>
 			<header class="page__header">
 				<h1 class="page__title lg:mt-24"><?php single_post_title(); ?></h1>

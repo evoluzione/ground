@@ -14,7 +14,7 @@
 					<?php
 			} else {
 				?>
-			<div class="hero__content container">
+			<div class="hero__content">
 			<?php } ?>
 				<div class="max-w-xl mx-auto">
 					<div class="text-center">
@@ -30,7 +30,7 @@
 							<?php ground_image( '16-9-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 							(min-width: 768px) 900px,
 							100vh" src="<?php ground_image( '16-9-large' ); ?>"
-						<?php
+							<?php
 						} else {
 							?>
 						src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
@@ -56,14 +56,14 @@
 			'post__not_in'   => array( get_the_ID() ),
 		);
 		$parent = new WP_Query( $args );
-	?>
+		?>
 
-	<?php if ( count($parent->posts) > 0 ) { ?>
+	<?php if ( count( $parent->posts ) > 0 ) { ?>
 	<div class="mt-24 mb-24">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 		<div class="relative">
 			<h3 class="text-4xl no-underline mb-4 relative"> <?php _e( 'Other news', 'ground' ); ?> </h3>
-	  		<a class="text-base underline text-primary" href="<?php echo get_post_type_archive_link( 'post' ); ?>"> <?php _e( 'Discover all news', 'ground' ); ?> </a>
+			  <a class="text-base underline text-primary" href="<?php echo get_post_type_archive_link( 'post' ); ?>"> <?php _e( 'Discover all news', 'ground' ); ?> </a>
 		</div>
 			<div class="lg:col-span-2">
 				<div class="carousel-css">

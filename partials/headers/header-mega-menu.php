@@ -1,6 +1,4 @@
-<div class="xl:hidden">
-	<?php get_template_part( 'partials/message', 'alert' ); ?>
-</div>
+<?php get_template_part( 'partials/message', 'alert' ); ?>
 
 <header class="header header-mega-menu w-full z-30 bg-body-primary">
 
@@ -24,20 +22,6 @@
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
 		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
-			<?php if ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) : ?>
-			<div class="header__advice bg-body-secondary fullscreen">
-				<div class="header__advice bg-body-secondary <?php echo esc_attr( GROUND_CONTAINER ); ?>">
-					<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-12 mb-4">
-						<div class="hidden xl:flex text-typo-primary">
-							<?php get_template_part( 'partials', 'message-alert' ); ?>
-						</div>
-						<div class="hidden lg:inline-block">
-							<?php get_template_part( 'partials/company', 'info-contacts' ); ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<?php endif; ?>
 			<div class="flex flex-col-reverse lg:block">
 
 				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
@@ -94,4 +78,4 @@
 
 </header> <!-- End header -->
 
-<div id="js-search-mobile" class="pt-3 h-16 lg:hidden"></div>
+<div id="js-search-mobile" class="pt-6 h-16 lg:hidden"></div>

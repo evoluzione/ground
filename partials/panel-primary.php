@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="overlay-panel__content">
-			<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+			<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?> </a>
 			<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
 		</div>
 
