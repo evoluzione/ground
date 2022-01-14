@@ -11,7 +11,7 @@
  */
 function ground_enqueue_styles()
 {
-	wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/css/styles.min.css', array(), GROUND_VERSION, 'all');
+	wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles.min.css', array(), GROUND_VERSION, 'all');
 	wp_enqueue_style('swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), null, 'all');
 }
 
@@ -61,7 +61,7 @@ function ground_enqueue_scripts()
 {
 	// wp_deregister_script( 'jquery' );
 	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.5.0.min.js", array(), null, true );
-	wp_enqueue_script('ground-scripts', GROUND_TEMPLATE_URL . '/js/dist/scripts.min.js', array('jquery'), GROUND_VERSION, true);
+	wp_enqueue_script('ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/scripts.min.js', array('jquery'), GROUND_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
