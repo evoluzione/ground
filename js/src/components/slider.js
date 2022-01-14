@@ -5,8 +5,7 @@
  */
 //import Swiper from 'swiper/bundle';
 import { Swiper, Navigation, Pagination, Autoplay, Lazy, EffectFade } from 'swiper';
-
-const Deepmerge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade]);
 export default class Slider {
@@ -75,11 +74,11 @@ export default class Slider {
 				},
 			}, */
 		};
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
+		// });
 
 		window.addEventListener('NAVIGATE_END', () => {
 			this.init();

@@ -5,8 +5,6 @@
 
 import { gsap } from 'gsap';
 
-const Deepmerge = require('deepmerge');
-
 export default class Magnet {
 	/**
 	 * @param {string} element - Selector
@@ -15,9 +13,9 @@ export default class Magnet {
 	constructor(element, options) {
 		this.element = element || '.js-magnet';
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
+		// });
 	}
 
 	init() {

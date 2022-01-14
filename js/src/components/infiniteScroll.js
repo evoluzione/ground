@@ -8,8 +8,8 @@
 import { initObserver } from '../utilities/observer';
 import { DEBUG_MODE } from '../utilities/environment';
 
-const Deepmerge = require('deepmerge');
-const InfScroll = require('infinite-scroll');
+import deepmerge from 'deepmerge';
+import InfScroll from 'infinite-scroll';
 
 export default class InfiniteScroll {
 	/**
@@ -31,13 +31,13 @@ export default class InfiniteScroll {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			initObserver(this.element, this.updateEvents);
-		});
+		// });
 
 		// TODO: Destroy with observer
 		window.addEventListener('NAVIGATE_OUT', () => {

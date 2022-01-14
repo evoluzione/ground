@@ -1,5 +1,4 @@
-import * as deepmerge from 'deepmerge';
-import isMobile from 'ismobilejs';
+import { deepmerge } from 'deepmerge';
 
 export default class Cursor {
 	/**
@@ -13,12 +12,12 @@ export default class Cursor {
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
-		// window.addEventListener('load', () => {
-		// 	this.init();
-		// })
+		window.addEventListener('load', () => {
+			this.init();
+		})
 
 		// window.addEventListener('DOMContentLoaded', () => {
-		// 	this.init();
+			this.init();
 		// });
 	}
 
@@ -26,9 +25,6 @@ export default class Cursor {
 	 * Init
 	 */
 	init() {
-		if (isMobile.any) {
-			return;
-		}
 
 		const cursor = document.querySelector('.js-cursor');
 		const cursorCircle = cursor.querySelector('.js-cursor-outer');

@@ -2,15 +2,14 @@
  * Loader module
  * Initial site loader
  */
-import { gsap } from 'gsap';
 import isMobile from 'ismobilejs';
 import { trigger } from '../utilities/trigger';
-
-const imagesLoaded = require('imagesloaded');
-const Deepmerge = require('deepmerge');
+import imagesLoaded from 'imagesloaded';
+import deepmerge from 'deepmerge';
 
 export default class Loader {
 	constructor(options) {
+
 		this.defaults = {
 			animation: false
 		};
@@ -19,7 +18,7 @@ export default class Loader {
 			body: document.body
 		};
 
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
@@ -46,6 +45,7 @@ export default class Loader {
 
 	onLoaderComplete() {
 		this.DOM.html.classList.add('is-loader-complete');
+		jQuery('#js-loader').fadeOut();
 		trigger('LOADER_COMPLETE');
 	}
 }

@@ -1,54 +1,31 @@
 /* eslint-disable no-unused-vars */
-import Loader from './components/loader';
-import GdprCompliance from './components/gdprCompliance';
-
-// const infiniteScroll = new InfiniteScroll();
-const loader = new Loader();
-const gdprCompliance = new GdprCompliance();
-
-// ----- TO DO -----
-// Test this solution and move inside Javascript Class: Soluzione basata sul blocco FAQ di Yoast SEO.
-const faqSingleTriggers = document.querySelectorAll('.schema-faq-question');
-faqSingleTriggers.forEach((trigger) => trigger.addEventListener('click', toggleAccordion));
-function toggleAccordion() {
-	const items = document.querySelectorAll('.schema-faq-section');
-	const thisItem = this.parentNode;
-
-	items.forEach((item) => {
-		if (thisItem == item) {
-			thisItem.classList.toggle('is-open');
-			return;
-		}
-		item.classList.remove('is-open');
-	});
-}
-
-// Refactor lazy loading
-// https://webpack.js.org/guides/lazy-loading/
+import { elementExist } from './utilities/selector';
+import isMobile from 'ismobilejs';
 
 window.addEventListener('DOMContentLoaded', () => {
+
 	// Cursor
-	if (document.getElementsByClassName('js-cursor').length > 0) {
+	if (elementExist('.js-cursor') && !isMobile().any) {
 		import(/* webpackChunkName: "cursor" */'./components/cursorV2')
 			.then((module) => {
 				const Cursor = module.default;
-				new Cursor().init();
+				new Cursor();
 			})
 			.catch((error) => console.log(error));
 	}
 
 	// Modal - TODO
-	if (document.querySelectorAll('[data-modal]').length > 0) {
+	if (elementExist('[data-modal]')) {
 		import(/* webpackChunkName: "modal" */'./components/modal')
 			.then((module) => {
 				const Modal = module.default;
-				new Modal().init();
+				new Modal();
 			})
 			.catch((error) => console.log(error));
 	}
 
 	// Toggle
-	if (document.getElementsByClassName('js-toggle').length > 0) {
+	if (elementExist('.js-toggle')) {
 		import(/* webpackChunkName: "toggle" */'./components/toggle')
 			.then((module) => {
 				const Toggle = module.default;
@@ -58,17 +35,18 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Magnet
-	if (document.getElementsByClassName('js-magnet').length > 0) {
+	if (elementExist('.js-magnet')) {
 		import(/* webpackChunkName: "magnet" */'./components/magnetV2')
 			.then((module) => {
 				const Magnet = module.default;
-				new Magnet().init(); // fire manually because async
+				new Magnet();
 			})
 			.catch((error) => console.log(error));
 	}
 
+	// TODO: scomporre nelle single animazioni
 	// Animations
-	if (document.querySelectorAll('[data-scroll]').length > 0) {
+	if (elementExist('[data-scroll]')) {
 		import(/* webpackChunkName: "animationAll" */'./animations/animationAll')
 			.then((module) => {
 				const AnimationsAll = module.default;
@@ -78,7 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// AnimationsFlip
-	if (document.querySelectorAll('[data-flip]').length > 0) {
+	if (elementExist('[data-flip]')) {
 		import(/* webpackChunkName: "animationsFlip" */'./animations/animationsFlip')
 			.then((module) => {
 				const AnimationsFlip = module.default;
@@ -89,28 +67,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// Slider
 	if (
-		document.getElementsByClassName('js-slider-primary').length > 0 || 
-		document.getElementsByClassName('js-slider').length > 0 || 
-		document.getElementsByClassName('js-carousel').length > 0 || 
-		document.getElementsByClassName('js-slider-gallery').length > 0
+		elementExist('.js-slider-primary')
+		|| elementExist('.js-slider')
+		|| elementExist('.js-carousel')
+		|| elementExist('.js-slider-gallery')
 	) {
 		import(/* webpackChunkName: "slider" */'./components/slider')
 			.then((module) => {
 				const Slider = module.default;
 
-				if(document.getElementsByClassName('js-slider').length > 0) {
-					new Slider.init();
+				if(elementExist('.js-slider')) {
+					new Slider;
 				}
 
-
-				if (
-					document.getElementsByClassName('js-slider-primary').length > 0
-				) {
-					const sliderPrimary = new Slider('.js-slider-primary')
-					sliderPrimary.init();
+				if (elementExist('.js-slider-primary')) {
+					new Slider('.js-slider-primary')
 				}
 
-				if (document.getElementsByClassName('js-carousel').length > 0) {
+				if (elementExist('.js-carousel')) {
 
 					const carousel = new Slider('.js-carousel', {
 						loop: false,
@@ -132,9 +106,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 				}
 
-				if (document.getElementsByClassName('js-slider-gallery').length > 0) {
+				if (elementExist('.js-slider-gallery')) {
 
-					const sliderGallery = new Slider('.js-slider-gallery', {
+					new Slider('.js-slider-gallery', {
 						direction: 'horizontal',
 						loop: false,
 						effect: 'slide',
@@ -152,7 +126,6 @@ window.addEventListener('DOMContentLoaded', () => {
 							}
 						}
 					});
-					sliderGallery.init();
 				}
 
 			})
@@ -160,61 +133,93 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Search
-	if (document.getElementById('js-ajax-search')) {
+	if (elementExist('#js-ajax-search')) {
 		import(/* webpackChunkName: "search" */'./components/search')
 			.then((module) => {
 				const Search = module.default;
-				new Search().init(); // fire manually because async
+				new Search();
 			})
 			.catch((error) => console.log(error));
 	}
 
 	// Menu
-	if (document.querySelectorAll('.navigation__item.has-children').length > 0) {
+	if (elementExist('.navigation__item.has-children')) {
 		import(/* webpackChunkName: "menu" */'./components/menu')
 			.then((module) => {
 				const Menu = module.default;
-				new Menu().init(); // fire manually because async
+				new Menu();
 			})
 			.catch((error) => console.log(error));
 	}
 
 	// Cart
-	if (document.querySelectorAll('.minicart').length > 0) {
+	if (elementExist('.minicart')) {
 		import(/* webpackChunkName: "cart" */'./components/cart')
 			.then((module) => {
 				const Cart = module.default;
-				new Cart().init(); // fire manually because async
+				new Cart();
 			})
 			.catch((error) => console.log(error));
 	}
 
 	// ScrollDirection
-	import(/* webpackChunkName: "scrollDirection" */'./components/scrollDirection')
-		.then((module) => {
-			const ScrollDirection = module.default;
-			new ScrollDirection().initEvents(); // fire manually because async
-		})
-		.catch((error) => console.log(error));
+	if(!isMobile().any){
+		import(/* webpackChunkName: "scrollDirection" */'./components/scrollDirection')
+			.then((module) => {
+				const ScrollDirection = module.default;
+				new ScrollDirection();
+			})
+	}
 	
 	// WidgetAccordion
-	if (document.querySelectorAll('.woocommerce-widget-layered-nav').length > 0) {
+	if (elementExist('.woocommerce-widget-layered-nav')) {
 		import(/* webpackChunkName: "widgetAccordion" */'./components/widgetAccordion')
 			.then((module) => {
 				const WidgetAccordion = module.default;
-				new WidgetAccordion().initEvents(); // fire manually because async
+				new WidgetAccordion();
 			})
 			.catch((error) => console.log(error));
 	}
 
-	if(document.getElementById('billing_invoice')){
+	// Billing Invoices
+	if(elementExist('#billing_invoice')){
 		import(/* webpackChunkName: "billing" */'./components/billing')
 			.then((module) => {
 				const Billing = module.default;
-				new Billing().init(); // fire manually because async
+				new Billing();
 			})
 			.catch((error) => console.log(error));
 	}
+
+	// JS Loader
+	if(elementExist('#js-loader')){
+		import(/* webpackChunkName: "loader" */'./components/loader')
+			.then((module) => {
+				const Loader = module.default;
+				new Loader();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// InfiniteScroll
+	if (elementExist('.js-infinite-container')) {
+		import(/* webpackChunkName: "infiniteScroll" */'./components/infiniteScroll')
+			.then((module) => {
+				const InfiniteScroll = module.default;
+				new InfiniteScroll();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// YoastFaqBlock
 	
+	if (elementExist('.schema-faq-question')) {
+		import(/* webpackChunkName: "yoastFaqBlock" */'./components/yoastFaqBlock')
+			.then((module) => {
+				const YoastFaqBlock = module.default;
+				new YoastFaqBlock();
+			})
+			.catch((error) => console.log(error));
+	}
 
 });

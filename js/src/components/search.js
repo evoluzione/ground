@@ -28,9 +28,9 @@ export default class Search {
 		this.adminAjaxUrl = `${getSiteUrl()}/wp-admin/admin-ajax.php`;
 		this.searchLoadingClass = 'is-search-loading';
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
+		// });
 
 		window.addEventListener('resize', () => {
 			if (!isMobile().any) {

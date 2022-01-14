@@ -1,4 +1,3 @@
-import * as deepmerge from 'deepmerge';
 import isMobile from 'ismobilejs';
 
 export default class Menu {
@@ -24,9 +23,9 @@ export default class Menu {
 			menuPanel: document.querySelector('.js-navigation-panel')
 		};
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
+		// });
 
 		window.addEventListener('resize', () => {
 			if (!isMobile.any) {

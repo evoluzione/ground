@@ -37,7 +37,7 @@
 			<?php get_template_part('partials/search', 'form'); ?>
 			<?php // get_template_part( 'partials/modal' ); 
 			?>
-			<?php // get_template_part( 'partials/cursor' ); 
+			<?php get_template_part('partials/cursor');
 			?>
 			<?php // get_template_part( 'partials/debug-grid' ); 
 			?>

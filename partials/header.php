@@ -15,7 +15,7 @@
 <body id="scroll-top" <?php body_class('font-primary bg-body-primary text-typo-primary debug-screens overflow-x-hidden'); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
 	<?php
-	// get_template_part('partials/loader'); 
+	// get_template_part('partials/loader');
 	?>
 
 	<?php

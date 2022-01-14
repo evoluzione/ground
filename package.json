@@ -4,9 +4,9 @@
 	"description": "WordPress starter theme for front-end developers",
 	"license": "MIT",
 	"scripts": {
-		"start": "npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
-		"build": "npm-run-all \"styles -- --env production\" \"js -- --mode=production\"",
-		"js:clean": "rm -r ./js/dist",
+		"start": "npm-run-all -p \"styles -- --watch\"  js:clean \"js -- --mode=development\" sync",
+		"build": "npm-run-all \"styles -- --env production\" js:clean \"js -- --mode=production --profile --json=compilation-stats.json\"",
+		"js:clean": "rm -f ./js/dist/*",
 		"styles": "postcss css/main.css -o css/styles.min.css --verbose --map",
 		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
 		"js": "webpack"

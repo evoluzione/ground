@@ -1,4 +1,4 @@
-const imagesLoaded = require('imagesloaded');
+import imagesLoaded from 'imagesloaded';
 
 export default class Billing {
 	constructor() {

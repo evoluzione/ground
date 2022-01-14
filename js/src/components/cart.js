@@ -1,4 +1,4 @@
-import * as deepmerge from 'deepmerge';
+import deepmerge from 'deepmerge';
 
 export default class Cart {
 	/**
@@ -12,9 +12,9 @@ export default class Cart {
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
+		// });
 	}
 
 	/**

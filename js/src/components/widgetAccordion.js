@@ -4,9 +4,9 @@ export default class WidgetAccordion {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.initEvents();
-		});
+		// });
 	}
 
 	/**
@@ -25,7 +25,7 @@ export default class WidgetAccordion {
 			const currentWidget = value;
 			const currentWidgetTitle = jQuery(currentWidget).find('.widgettitle');
 
-			jQuery(currentWidgetTitle).click(() => {
+			jQuery(currentWidgetTitle).on('click', () => {
 				jQuery(currentWidget).toggleClass('widget-is-open');
 			});
 		});

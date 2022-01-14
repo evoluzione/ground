@@ -1,11 +1,9 @@
 import { initObserver } from '../utilities/observer';
-import * as deepmerge from 'deepmerge';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Flip } from 'gsap/Flip';
-import { Draggable } from 'gsap/Draggable';
+import { Draggable, Flip } from 'gsap/all';
 
-gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
+gsap.registerPlugin( Flip, Draggable);
 
 export default class AnimationsFlip {
 	/**

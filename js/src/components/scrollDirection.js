@@ -1,14 +1,12 @@
-const isMobile = require('ismobilejs');
-
 export default class ScrollDirection {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.initEvents();
-		});
+		// });
 	}
 
 	/**
@@ -16,9 +14,6 @@ export default class ScrollDirection {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents() {
-		if (isMobile.any) {
-			return;
-		}
 		// Initial state
 		let scrollPos = 0;
 		// adding scroll event

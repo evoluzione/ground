@@ -4,8 +4,8 @@
  */
 
 import { initObserver } from '../utilities/observer';
-import * as PhotoSwipe from 'photoswipe';
-import * as PhotoSwipeUIDefault from 'photoswipe/dist/photoswipe-ui-default';
+import { PhotoSwipe } from 'photoswipe';
+import { PhotoSwipeUIDefault } from 'photoswipe/dist/photoswipe-ui-default';
 
 const Deepmerge = require('deepmerge');
 
@@ -28,11 +28,11 @@ export default class Modal {
 		this.openPhotoSwipe = this.openPhotoSwipe.bind(this);
 		this.clickedItem = this.clickedItem.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {
+		// window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	init() {

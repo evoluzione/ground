@@ -1,12 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
 // import { getTemplateUrl } from '../utilities/paths';
-import * as deepmerge from 'deepmerge';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
-import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
-import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+import { MorphSVGPlugin, DrawSVGPlugin, SplitText, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
@@ -51,19 +48,11 @@ export default class AnimationsAll {
 
 		window.addEventListener('NAVIGATE_END', () => {});
 
-		if (document.readyState !== "loading"){
-			
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-
-		} else{
-			window.addEventListener('LOADER_COMPLETE', () => {
-				this.init();
-				this.initEvents(this.options.triggers);
-				initObserver(this.options.triggers, this.updateEvents);
-			});
-		}
+		// });
 	}
 
 	/**
