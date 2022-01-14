@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "npm run clean && npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
-		"build": "npm-run-all clean \"styles -- --env production\" \"js -- --mode=production --profile --json=compilation-stats.json\"",
+		"build": "npm-run-all clean \"styles -- --env production\" \"js -- --mode=production\"",
 		"styles": "postcss css/main.css -o dist/css/styles.min.css --verbose --map",
 		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
 		"js": "webpack",
