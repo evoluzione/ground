@@ -15,7 +15,6 @@
 /* Components */
 @import "components/_components.css";
 @import "components/wp-blocks/_wp-blocks.css";
-@import "components/woocommerce/_woocommerce.css";
 
 /* Utilities */
 @import "utilities/_utilities.css";

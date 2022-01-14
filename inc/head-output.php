@@ -11,7 +11,12 @@
  */
 function ground_enqueue_styles()
 {
-	wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles.min.css', array(), GROUND_VERSION, 'all');
+	if (class_exists('WooCommerce')) {
+		wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles-wc.min.css', array(), GROUND_VERSION, 'all');
+	} else {
+		wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles.min.css', array(), GROUND_VERSION, 'all');
+	}
+
 	wp_enqueue_style('swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), null, 'all');
 }
 
