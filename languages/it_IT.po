@@ -38,7 +38,7 @@ msgstr ""
 
 #: ../ground/partials/sidebar-archive-post.php:5
 msgid "Back to "
-msgstr ""
+msgstr "Torna indietro"
 
 #: ../ground/inc/acf-constants.php:80 ../ground/inc/acf-constants.php:81
 msgid "Call to order"
@@ -54,12 +54,12 @@ msgstr ""
 
 #. Name of the template
 msgid "Catalog"
-msgstr ""
+msgstr "Catalogo"
 
 #: ../ground/partials/content-single-post.php:120
 #: ../ground/partials/navigation-blog.php:34
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: ../ground/inc/woocommerce/checkout.php:44
 #: ../ground/inc/woocommerce/checkout.php:154
