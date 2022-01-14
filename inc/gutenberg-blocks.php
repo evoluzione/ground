@@ -4,25 +4,26 @@
  * Aggiungo i file js che servono a gestire i blocchi Gutenberg
  */
 
-add_action(
-	'enqueue_block_assets',
-	function () {
 
-		global $pagenow;
+function ground_enqueue_gutenberg_script()
+{
+	global $pagenow;
 
-		// In widget page wp-editor is already a dependency.
-		if ($pagenow === 'widgets.php') {
-			$deps      = array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components');
-		} else {
-			$deps      = array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor');
-		}
-
-		$path      = get_template_directory_uri() . '/gutenberg/dist/bundle.js';
-		$in_footer = true;
-
-		wp_enqueue_script('ground/gutenberg', $path, $deps, false, $in_footer);
+	// In widget page wp-editor is already a dependency.
+	if ($pagenow === 'widgets.php') {
+		$deps      = array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components');
+	} else {
+		$deps      = array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor');
 	}
-);
+
+	$path      = get_template_directory_uri() . '/gutenberg/dist/bundle.js';
+	$in_footer = true;
+
+	wp_enqueue_script('ground/gutenberg', $path, $deps, false, $in_footer);
+}
+if (is_admin()) {
+	add_action('enqueue_block_assets', 'ground_enqueue_gutenberg_script');
+}
 
 /**
  * Function to add custom class to core blocks
