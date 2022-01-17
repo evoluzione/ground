@@ -1,2 +1,283 @@
-"use strict";(self.webpackChunkground=self.webpackChunkground||[]).push([[641],{990:function(t,e,n){n.r(e),n.d(e,{default:function(){return g}});var r=n(274),a=n(996),o=n.n(a),i=n(358),l=n(82),s=n(578),c=n(898),u=n(179);function d(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}i.p8.registerPlugin(l.i,s.C,c.W,u.W);var g=function(){function t(e,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.element=e||"[data-scroll]",this.defaults={triggers:this.element},this.DOM={html:document.documentElement,body:document.body},this.options=n?o()(this.defaults,n):this.defaults,this.updateEvents=this.updateEvents.bind(this),window.addEventListener("DOMContentLoaded",(function(){})),l.i.addEventListener("scrollStart",(function(){})),l.i.addEventListener("scrollEnd",(function(){})),l.i.addEventListener("refreshInit",(function(){})),l.i.addEventListener("refresh",(function(){})),window.addEventListener("NAVIGATE_OUT",(function(){})),window.addEventListener("resize",(function(){})),window.addEventListener("NAVIGATE_IN",(function(){})),window.addEventListener("NAVIGATE_END",(function(){})),this.init(),this.initEvents(this.options.triggers),(0,r.g)(this.options.triggers,this.updateEvents)}var e,n;return e=t,(n=[{key:"init",value:function(){this.DOM.element=document.querySelectorAll(this.element)}},{key:"initEvents",value:function(t){var e=this;i.p8.utils.toArray(t).forEach((function(t){"js-split-text"===t.dataset.scroll?e.animationSplitText(t):"js-rotation"===t.dataset.scroll?e.animationRotation(t):"js-batch"===t.dataset.scroll?e.animationBatch(t):"js-scale"===t.dataset.scroll?e.animationScale(t):"js-draw"===t.dataset.scroll?e.animationDraw(t):"js-bg-color"===t.dataset.scroll?e.animationChangeBgColor(t):"js-pin"===t.dataset.scroll?e.animationPin(t):"js-sprite-images"===t.dataset.scroll?e.animationSpriteImages(t):"js-horizontal-scroll"===t.dataset.scroll?e.animationHorizontalScroll(t):"js-horizontal-scroll-container"===t.dataset.scroll?e.animationHorizontalScrollContainer(t):"js-horizontal-scroll-section"===t.dataset.scroll?e.animationHorizontalScrollSection(t):"js-comparison"===t.dataset.scroll?e.animationComparison(t):"js-parallax"===t.dataset.scroll?e.animationParallax(t):"js-video"===t.dataset.scroll?e.animationVideo(t):e.animationDefault(t)}))}},{key:"updateEvents",value:function(t){var e=this;this.init(),setTimeout((function(){"js-split-text"===t.dataset.scroll?e.animationSplitText(t):"js-rotation"===t.dataset.scroll?e.animationRotation(t):"js-batch"===t.dataset.scroll?e.animationBatch(t):"js-scale"===t.dataset.scroll?e.animationScale(t):"js-draw"===t.dataset.scroll?e.animationDraw(t):"js-bg-color"===t.dataset.scroll?e.animationChangeBgColor(t):"js-pin"===t.dataset.scroll?e.animationPin(t):"js-sprite-images"===t.dataset.scroll?e.animationSpriteImages(t):"js-horizontal-scroll"===t.dataset.scroll?e.animationHorizontalScroll(t):"js-horizontal-scroll-container"===t.dataset.scroll?e.animationHorizontalScrollContainer(t):"js-horizontal-scroll-section"===t.dataset.scroll?e.animationHorizontalScrollSection(t):"js-comparison"===t.dataset.scroll?e.animationComparison(t):"js-parallax"===t.dataset.scroll?e.animationParallax(t):"js-video"===t.dataset.scroll?e.animationVideo(t):e.animationDefault(t)}),1e3)}},{key:"animationDefault",value:function(t){var e=t.dataset.scroll;l.i.create({trigger:t,start:"top 100%",toggleClass:e,toggleActions:"play none none none"})}},{key:"animationSplitText",value:function(t){i.p8.set(t,{autoAlpha:1});var e=t.dataset.scrollSplittext,n=parseInt(t.dataset.scrollScrub,10),r=i.p8.timeline({scrollTrigger:{trigger:t,start:"top 90%",end:"bottom 60%",scrub:n||!1,toggleActions:"play none play reset"}});if("chars"===e){var a=new s.C(t,{type:"chars"});r.from(a.chars,{yPercent:100,opacity:0,stagger:.05,duration:.5,ease:"back.inOut"})}if("words"===e){var o=new s.C(t,{type:"words"});r.from(o.words,{yPercent:100,opacity:0,stagger:.05,duration:.5,ease:"back.inOut"})}if("lines"===e){var l=new s.C(t,{type:"lines"});r.from(l.lines,{y:20,opacity:0,stagger:.01,duration:.01,ease:"back.inOut"})}}},{key:"animationRotation",value:function(t){var e=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:t,start:"top 90%",end:"bottom 80%",scrub:e||!1,toggleActions:"play none play reverse"}}).from(t,{x:400,rotation:360})}},{key:"animationBatch",value:function(t){var e=t.querySelectorAll("[data-scroll-target]");l.i.batch(e,{interval:.1,batchMax:3,onEnter:function(t){return i.p8.to(t,{autoAlpha:1,stagger:.1,overwrite:!0})},onLeave:function(t){return i.p8.set(t,{autoAlpha:0,overwrite:!0})},onEnterBack:function(t){return i.p8.to(t,{autoAlpha:1,stagger:.1,overwrite:!0})},onLeaveBack:function(t){return i.p8.set(t,{autoAlpha:0,overwrite:!0})}})}},{key:"animationScale",value:function(t){var e=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:t,start:"top 100%",end:"bottom 0%",scrub:e||!1,toggleActions:"play none play reverse"}}).to(t,{scale:1.5})}},{key:"animationParallax",value:function(t){var e=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:t,toggleActions:"play pause none none",scrub:e||2}}).to(t,{y:100*-t.dataset.scrollSpeedY||0,x:100*-t.dataset.scrollSpeedX||0})}},{key:"animationVideo",value:function(t){var e=t.querySelector("[data-scroll-target]");i.p8.timeline({scrollTrigger:{trigger:t,start:"top bottom",end:"bottom top",markers:!1,onEnter:function(){return e.play()},onLeave:function(){e.pause(),e.currentTime=0},onEnterBack:function(){return e.play()},onLeaveBack:function(){e.pause(),e.currentTime=0}}})}},{key:"animationDraw",value:function(t){var e=t.querySelectorAll("path"),n=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:t,scrub:n||!1,toggleActions:"play none none none"}}).from(e,{drawSVG:0})}},{key:"animationChangeBgColor",value:function(t){var e=document.body,n=t.dataset.scrollBgcolor;i.p8.timeline({scrollTrigger:{trigger:t,scrub:1,toggleActions:"play reset play reset"}}).to(e,{backgroundColor:n,ease:"power1"})}},{key:"animationPin",value:function(t){var e=t.querySelectorAll("[data-scroll-target]"),n=t.querySelectorAll("[data-scroll-target-animate]"),r=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:e,start:"center center",scrub:r||!1,pin:!0,pinReparent:!0,anticipatePin:1}}).from(n,{scale:.6,transformOrigin:"center center"})}},{key:"animationSpriteImages",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=t.querySelector("[data-scroll-canvas]"),r=t.querySelector("[data-scroll-target-animate]"),a=n.getContext("2d"),o=parseInt(t.dataset.scrollFrames,10),l=t.dataset.scrollPath;n.width=900,n.height=859;for(var s,c=[],u={frame:0},d=0;d<o;d++){var g=new Image;g.src=(s=d,"".concat(l,"/").concat((s+1).toString().padStart(4,"0"),".jpg")),c.push(g)}function f(){a.clearRect(0,0,n.width,n.height),a.drawImage(c[u.frame],0,0)}i.p8.timeline({scrollTrigger:{trigger:e,start:"center center",end:"+=400%",scrub:.5,pin:!0,pinReparent:!0,anticipatePin:1}}).to(u,{frame:o-1,snap:"frame",onUpdate:f,duration:20},"together").fromTo(r,{scale:.95},{scale:1,duration:20},"together"),c[0].onload=f}},{key:"animationHorizontalScroll",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=t.querySelector("[data-scroll-target-animate]"),r=parseInt(t.dataset.scrollScrub,10);i.p8.to(n,{x:function(){return-n.getBoundingClientRect().width+e.getBoundingClientRect().width},ease:"none",scrollTrigger:{trigger:e,invalidateOnRefresh:!0,start:"center center",end:function(){return"+="+n.offsetWidth},pin:!0,pinReparent:!0,anticipatePin:1,scrub:r||!1}})}},{key:"animationHorizontalScrollContainer",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=t.querySelectorAll("[data-scroll-panel]"),r=t.dataset.scrollScrub;console.log(r);var a=i.p8.utils.toArray(n),o=i.p8.to(a,{xPercent:-100*(a.length-1),ease:"none",scrollTrigger:{trigger:e,pin:!0,scrub:r||!1,end:"+=3000"}});i.p8.to(".js-box-1",{y:-130,duration:2,ease:"elastic",scrollTrigger:{trigger:".js-box-1",containerAnimation:o,start:"left center",toggleActions:"play none play reverse"}}),i.p8.to(".js-box-2",{y:320,backgroundColor:"red",ease:"none",scrollTrigger:{trigger:".js-box-2",containerAnimation:o,start:"center 80%",end:"center 20%",scrub:2}})}},{key:"animationHorizontalScrollSection",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=t.querySelectorAll("[data-scroll-section]"),r=parseInt(t.dataset.scrollScrub,10),a=i.p8.utils.toArray(n),o=0,s=function(){o=0,a.forEach((function(t){o+=t.offsetWidth}))};s(),l.i.addEventListener("refreshInit",s),i.p8.to(a,{x:function(){return"-".concat(o-window.innerWidth)},ease:"none",scrollTrigger:{trigger:e,pin:!0,pinReparent:!0,scrub:r||!1,start:"center center",end:function(){return"+=".concat(o)},invalidateOnRefresh:!0}}),a.forEach((function(t,e){l.i.create({trigger:t,start:function(){return"top top-="+(t.offsetLeft-window.innerWidth/2)*(o/(o-window.innerWidth))},end:function(){return"+="+t.offsetWidth*(o/(o-window.innerWidth))},toggleClass:{targets:t,className:"active"}})}))}},{key:"animationComparison",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=t.querySelectorAll("[data-scroll-target-media]"),r=t.querySelectorAll("[data-scroll-target-media] img"),a=parseInt(t.dataset.scrollScrub,10);i.p8.timeline({scrollTrigger:{trigger:e,start:"center center",end:function(){return"+=".concat(e.offsetWidth)},scrub:a||!1,pin:!0,pinReparent:!0,anticipatePin:1},defaults:{ease:"none"}}).fromTo(n,{xPercent:100,x:0},{xPercent:0}).fromTo(r,{xPercent:-100,x:0},{xPercent:0},0)}}])&&d(e.prototype,n),Object.defineProperty(e,"prototype",{writable:!1}),t}()},274:function(t,e,n){function r(t,e){var n="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(!n){if(Array.isArray(t)||(n=a(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var r=0,o=function(){};return{s:o,n:function(){return r>=t.length?{done:!0}:{done:!1,value:t[r++]}},e:function(t){throw t},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,l=!0,s=!1;return{s:function(){n=n.call(t)},n:function(){var t=n.next();return l=t.done,t},e:function(t){s=!0,i=t},f:function(){try{l||null==n.return||n.return()}finally{if(s)throw i}}}}function a(t,e){if(t){if("string"==typeof t)return o(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);return"Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?o(t,e):void 0}}function o(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}function i(t,e){new MutationObserver((function(n){(function(t,e){var n,i,l=new Set,s=r(e);try{for(s.s();!(n=s.n()).done;){var c,u=r(n.value.addedNodes);try{for(u.s();!(c=u.n()).done;){var d=c.value;if(1===d.nodeType){d.matches(t)&&l.add(d);var g,f=r(d.querySelectorAll(t));try{for(f.s();!(g=f.n()).done;){var p=g.value;l.add(p)}}catch(t){f.e(t)}finally{f.f()}}}}catch(t){u.e(t)}finally{u.f()}}}catch(t){s.e(t)}finally{s.f()}return function(t){if(Array.isArray(t))return o(t)}(i=l)||function(t){if("undefined"!=typeof Symbol&&null!=t[Symbol.iterator]||null!=t["@@iterator"])return Array.from(t)}(i)||a(i)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()})(t,n).forEach((function(t){e(t)}))})).observe(document.documentElement,{childList:!0,attributes:!1,characterData:!1,subtree:!0})}n.d(e,{g:function(){return i}})}}]);
+"use strict";
+(self["webpackChunkground"] = self["webpackChunkground"] || []).push([["animationAll"],{
+
+/***/ "./js/animations/animationAll.js":
+/*!***************************************!*\
+  !*** ./js/animations/animationAll.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationsAll; }
+/* harmony export */ });
+/* harmony import */ var _utilities_observer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/observer */ "./js/utilities/observer.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/* eslint-disable no-unused-vars */
+ // import { getTemplateUrl } from '../utilities/paths';
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger);
+
+var AnimationsAll = /*#__PURE__*/function () {
+  /**
+   * @param {string} element - Selector
+   * @param {Object} options - User options
+   */
+  function AnimationsAll(element, options) {
+    _classCallCheck(this, AnimationsAll);
+
+    this.element = element || '[data-scroll]';
+    this.defaults = {
+      triggers: this.element
+    };
+    this.DOM = {
+      html: document.documentElement,
+      body: document.body
+    };
+    this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_1___default()(this.defaults, options) : this.defaults;
+    this.updateEvents = this.updateEvents.bind(this);
+    window.addEventListener('DOMContentLoaded', function () {});
+    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollStart', function () {});
+    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollEnd', function () {});
+    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refreshInit', function () {});
+    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refresh', function () {});
+    window.addEventListener('NAVIGATE_OUT', function () {// ScrollTrigger.update();
+      // ScrollTrigger.refresh();
+    });
+    window.addEventListener('resize', function () {// ScrollTrigger.update();
+      // ScrollTrigger.refresh();
+    });
+    window.addEventListener('NAVIGATE_IN', function () {});
+    window.addEventListener('NAVIGATE_END', function () {}); // window.addEventListener('LOADER_COMPLETE', () => {
+
+    this.init();
+    this.initEvents(this.options.triggers);
+    (0,_utilities_observer__WEBPACK_IMPORTED_MODULE_0__.initObserver)(this.options.triggers, this.updateEvents); // });
+  }
+  /**
+   * Init
+   */
+
+
+  _createClass(AnimationsAll, [{
+    key: "init",
+    value: function init() {
+      this.DOM.element = document.querySelectorAll(this.element);
+    }
+    /**
+     * Initialize events
+     * @param {string} triggers - Selectors
+     */
+
+  }, {
+    key: "initEvents",
+    value: function initEvents(triggers) {
+      // TODO: js pin non funziona
+      gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.utils.toArray(triggers).forEach(function (element) {// else {
+        // 	this.animationDefault(element);
+        // }
+      });
+    }
+    /**
+     * Update events
+     * @param {Object} target - New selector
+     */
+
+  }, {
+    key: "updateEvents",
+    value: function updateEvents(target) {
+      this.init();
+      setTimeout(function () {// else {
+        // 	this.animationDefault(target);
+        // }
+      }, 1000);
+    }
+    /**
+     * default Animation
+     */
+
+  }, {
+    key: "animationDefault",
+    value: function animationDefault(item) {
+      var targetClass = item.dataset.scroll;
+      gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.create({
+        trigger: item,
+        start: 'top 100%',
+        toggleClass: targetClass,
+        toggleActions: 'play none none none' // markers: true,
+        // once: true,
+
+      });
+    }
+    /**
+     * video Animation
+     */
+
+  }, {
+    key: "animationVideo",
+    value: function animationVideo(item) {
+      var targetVideo = item.querySelector('[data-scroll-target]');
+      gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          markers: false,
+          onEnter: function onEnter() {
+            return targetVideo.play();
+          },
+          onLeave: function onLeave() {
+            targetVideo.pause();
+            targetVideo.currentTime = 0;
+          },
+          onEnterBack: function onEnterBack() {
+            return targetVideo.play();
+          },
+          onLeaveBack: function onLeaveBack() {
+            targetVideo.pause();
+            targetVideo.currentTime = 0;
+          }
+        }
+      });
+    }
+  }]);
+
+  return AnimationsAll;
+}();
+
+
+
+/***/ }),
+
+/***/ "./js/utilities/observer.js":
+/*!**********************************!*\
+  !*** ./js/utilities/observer.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "initObserver": function() { return /* binding */ initObserver; }
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/**
+ * Observe DOM Node Changes
+ * @param {string} triggers - Selectors
+ * @param {requestCallback} cb - The callback that handles the response.
+ *
+ * @see https://stackoverflow.com/questions/56608748/how-to-use-queryselectorall-on-the-added-nodes-in-a-mutationobserver
+ */
+function initObserver(triggers, callback) {
+  var filterSelector = function filterSelector(selector, mutationsList) {
+    // We can't create a NodeList; let's use a Set
+    var result = new Set(); // Loop through the mutationsList...
+
+    var _iterator = _createForOfIteratorHelper(mutationsList),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var addedNodes = _step.value.addedNodes;
+
+        var _iterator2 = _createForOfIteratorHelper(addedNodes),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var node = _step2.value;
+
+            // console.log(node);
+            // If it's an element...
+            if (node.nodeType === 1) {
+              // Add it if it's a match
+              if (node.matches(selector)) {
+                result.add(node);
+              } // Add any children
+
+
+              var _iterator3 = _createForOfIteratorHelper(node.querySelectorAll(selector)),
+                  _step3;
+
+              try {
+                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                  var entry = _step3.value;
+                  result.add(entry);
+                }
+              } catch (err) {
+                _iterator3.e(err);
+              } finally {
+                _iterator3.f();
+              }
+            }
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+      }
+      /* mutationsList.map((e) => e.addedNodes).forEach((n) => {
+      		if (n.nodeType === 1) {
+      			if (n.matches(selector)) {
+      				result.add(n);
+      			}
+      			// Add any children
+      			n.querySelectorAll(selector).forEach((c) => result.add(c));
+      		}
+      	}); */
+
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return _toConsumableArray(result); // Result is an array, or just return the set
+  };
+
+  var observerCallback = function observerCallback(mutationsList) {
+    var result = filterSelector(triggers, mutationsList);
+    result.forEach(function (element) {
+      callback(element);
+    });
+  };
+
+  var config = {
+    childList: true,
+    attributes: false,
+    characterData: false,
+    subtree: true
+  };
+  var observer = new MutationObserver(observerCallback);
+  observer.observe(document.documentElement, config); //observer.disconnect();
+}
+
+/***/ })
+
+}]);
 //# sourceMappingURL=animationAll.bundle.js.map

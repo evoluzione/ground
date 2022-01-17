@@ -1,25 +1,57 @@
 /* eslint-disable no-unused-vars */
+import deepmerge from 'deepmerge';
 import { initObserver } from '../utilities/observer';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class animationHorizontalScroll {
-	constructor() {
-		this.element = '[data-scroll="js-horizontal-scroll"]';
+export default class AnimationHorizontalScroll {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '[data-scroll="js-horizontal-scroll"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
@@ -34,8 +66,9 @@ export default class animationHorizontalScroll {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
+		// TODO: js pin non funziona
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			this.animationHorizontalScroll(element);
 		});
 	}
 
@@ -45,13 +78,33 @@ export default class animationHorizontalScroll {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+
+		setTimeout(() => {
+			this.animationHorizontalScroll(element);
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * default Animation
 	 */
-	startAnimation(item) {
+	animationDefault(item) {
+		const targetClass = item.dataset.scroll;
+
+		ScrollTrigger.create({
+			trigger: item,
+			start: 'top 100%',
+			toggleClass: targetClass,
+			toggleActions: 'play none none none'
+			// markers: true,
+			// once: true,
+		});
+	}
+
+
+	/**
+	 * pin Horizontal Animation
+	 */
+	animationHorizontalScroll(item) {
 		const target = item.querySelector('[data-scroll-target]');
 		const targetContainer = item.querySelector('[data-scroll-target-animate]');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
@@ -71,4 +124,5 @@ export default class animationHorizontalScroll {
 			}
 		});
 	}
+
 }

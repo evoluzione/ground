@@ -1,25 +1,58 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MorphSVGPlugin, DrawSVGPlugin, SplitText, ScrollTrigger } from 'gsap/all';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
-export default class animationParallax {
-	constructor() {
-		this.element = '[data-scroll="js-rotation"]';
+export default class AnimationRotation {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '[data-scroll="js-rotation"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
@@ -34,8 +67,13 @@ export default class animationParallax {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
+		// ScrollTrigger.defaults({
+		// 	markers: false,
+		// 	ease: 'power3',
+		// })
+
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			this.animationRotation(element);
 		});
 	}
 
@@ -45,13 +83,17 @@ export default class animationParallax {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+		// console.log(target.dataset.scroll);
+
+		setTimeout(() => {
+			this.animationRotation(element);
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * rotation Animation
 	 */
-	startAnimation(item) {
+	animationRotation(item) {
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
@@ -69,4 +111,5 @@ export default class animationParallax {
 			rotation: 360
 		});
 	}
+
 }

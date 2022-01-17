@@ -1,25 +1,57 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class animationPin {
-	constructor() {
-		this.element = '[data-scroll="js-pin"]';
+export default class AnimationPin {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '[data-scroll="js-pin"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
@@ -35,7 +67,7 @@ export default class animationPin {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			this.animationPin(element);
 		});
 	}
 
@@ -45,13 +77,17 @@ export default class animationPin {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+		// console.log(target.dataset.scroll);
+
+		setTimeout(() => {
+			this.animationPin(element);
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * pin Animation
 	 */
-	startAnimation(item) {
+	animationPin(item) {
 		const target = item.querySelectorAll('[data-scroll-target]');
 		const targetElement = item.querySelectorAll('[data-scroll-target-animate]');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
@@ -74,4 +110,5 @@ export default class animationPin {
 			transformOrigin: 'center center'
 		});
 	}
+
 }

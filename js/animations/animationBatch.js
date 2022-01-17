@@ -1,25 +1,58 @@
 /* eslint-disable no-unused-vars */
+import deepmerge from 'deepmerge';
 import { initObserver } from '../utilities/observer';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class animationBatch {
-	constructor() {
-		this.element = '[data-scroll="js-batch"]';
+export default class AnimationBatch {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+	
+		this.element = element || '[data-scroll="js-batch"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
@@ -34,8 +67,13 @@ export default class animationBatch {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
+		// ScrollTrigger.defaults({
+		// 	markers: false,
+		// 	ease: 'power3',
+		// })
+
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			this.animationBatch(element);
 		});
 	}
 
@@ -45,13 +83,15 @@ export default class animationBatch {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+		setTimeout(() => {
+			this.animationBatch(element);
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * batch Animation
 	 */
-	startAnimation(item) {
+	animationBatch(item) {
 		const target = item.querySelectorAll('[data-scroll-target]');
 
 		// gsap.set(target, { y: 100, opacity: 0 });
@@ -64,6 +104,7 @@ export default class animationBatch {
 			onEnterBack: (batch) => gsap.to(batch, { autoAlpha: 1, stagger: 0.1, overwrite: true }),
 			onLeaveBack: (batch) => gsap.set(batch, { autoAlpha: 0, overwrite: true })
 		});
+
 		// ScrollTrigger.addEventListener('refreshInit', () =>
 		// 	gsap.set(target, { y: 0 })
 		// )

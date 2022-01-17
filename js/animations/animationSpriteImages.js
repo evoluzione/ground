@@ -1,25 +1,58 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class animationParallax {
-	constructor() {
-		this.element = '[data-scroll="js-sprite-images"]';
+export default class AnimationSpriteImages {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '[data-scroll="js-sprite-images"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
@@ -35,7 +68,7 @@ export default class animationParallax {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			this.animationSpriteImages(element);
 		});
 	}
 
@@ -45,13 +78,16 @@ export default class animationParallax {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+
+		setTimeout(() => {
+			this.animationSpriteImages(element);
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * pin Image Sequence https://codepen.io/GreenSock/pen/yLOVJxd
 	 */
-	startAnimation(item) {
+	animationSpriteImages(item) {
 		const target = item.querySelector('[data-scroll-target]');
 		const canvas = item.querySelector('[data-scroll-canvas]');
 		const targetContainer = item.querySelector('[data-scroll-target-animate]');
@@ -106,4 +142,5 @@ export default class animationParallax {
 			context.drawImage(images[frames.frame], 0, 0);
 		}
 	}
+
 }

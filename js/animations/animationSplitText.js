@@ -1,26 +1,58 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
+import { SplitText, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export default class animationSplitText {
-	constructor() {
-		this.element = '[data-scroll="js-split-text"]';
+export default class AnimationSplitText {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '[data-scroll="js-split-text"]';
+		this.defaults = {
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body
 		};
-		this.options = { triggers: this.element };
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
+
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+
+		ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {});
+
+		//  window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		//  });
 	}
 
 	/**
@@ -36,7 +68,11 @@ export default class animationSplitText {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element);
+			if (element.dataset.scroll === 'js-split-text') {
+				this.animationSplitText(element);
+			}  else {
+				this.animationDefault(target);
+			}
 		});
 	}
 
@@ -46,13 +82,35 @@ export default class animationSplitText {
 	 */
 	updateEvents(target) {
 		this.init();
-		this.startAnimation(target);
+		setTimeout(() => {
+			if (element.dataset.scroll === 'js-split-text') {
+				this.animationSplitText(element);
+			}  else {
+				this.animationDefault(target);
+			}
+		}, 1000);
 	}
 
 	/**
-	 *  Start Animation
+	 * default Animation
 	 */
-	startAnimation(item) {
+	 animationDefault(item) {
+		const targetClass = item.dataset.scroll;
+
+		ScrollTrigger.create({
+			trigger: item,
+			start: 'top 100%',
+			toggleClass: targetClass,
+			toggleActions: 'play none none none'
+			// markers: true,
+			// once: true,
+		});
+	}
+
+	/**
+	 * splitText Animation
+	 */
+	animationSplitText(item) {
 		gsap.set(item, { autoAlpha: 1 });
 		const targetSplitBy = item.dataset.scrollSplittext;
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
@@ -63,7 +121,7 @@ export default class animationSplitText {
 				start: 'top 90%',
 				end: 'bottom 60%',
 				scrub: targetScrub || false,
-				markers: true,
+				// markers: true,
 				toggleActions: 'play none play reset'
 			}
 		});
