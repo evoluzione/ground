@@ -10,7 +10,7 @@
 	}
 
 	.search__content {
-		@apply bg-body-primary relative lg:bg-body-primary lg:relative lg:w-full;
+		@apply bg-quinary relative lg:bg-quinary lg:relative lg:w-full;
 
 		@screen lg {
 			transition: transform var(--ease-speed) var(--ease-in-out-quint);
@@ -27,7 +27,7 @@
 		transition: opacity 0.5s ease;
 		&:before {
 			content: "";
-			@apply opacity-0 invisible fixed top-16 left-0 right-0 bottom-0 -z-1 lg:top-36 bg-body-primary;
+			@apply opacity-0 invisible fixed top-16 left-0 right-0 bottom-0 -z-1 lg:top-36 bg-quinary;
 		}
 		.is-search-open & {
 			@apply opacity-100;
@@ -66,7 +66,7 @@
 	.search__form {
 		&:before {
 			content: "";
-			@apply opacity-0 invisible fixed top-0 left-0 right-0 bottom-0 -z-1 bg-body-primary;
+			@apply opacity-0 invisible fixed top-0 left-0 right-0 bottom-0 -z-1 bg-quinary;
 		}
 
 		.is-search-open & {

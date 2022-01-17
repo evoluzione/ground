@@ -36,7 +36,7 @@
 
 					&:after {
 						content: "";
-						@apply absolute top-0 bg-body-primary;
+						@apply absolute top-0 bg-quinary;
 						left: -100vw;
 						height: calc(100% + 24px);
 						width: 200vw;
@@ -92,7 +92,7 @@
 
 					&:after {
 						content: "";
-						@apply absolute top-0 bg-body-primary;
+						@apply absolute top-0 bg-quinary;
 						left: -100vw;
 						height: calc(100% + 24px);
 						width: 200vw;

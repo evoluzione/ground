@@ -22,7 +22,7 @@
 	}
 
 	.hero__image-filter {
-		@apply absolute inset-0 bg-gradient-to-t from-body-primary opacity-100 rounded-none lg:rounded-media;
+		@apply absolute inset-0 bg-gradient-to-t from-quinary opacity-100 rounded-none lg:rounded-media;
 		.hero--full-width & {
 			@apply rounded-none;
 		}

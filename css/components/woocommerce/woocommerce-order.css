@@ -11,7 +11,7 @@
 		}
 
 		.woocommerce-order-details {
-			@apply relative my-12 max-w-2xl mx-auto bg-body-primary p-6 rounded-theme;
+			@apply relative my-12 max-w-2xl mx-auto bg-quinary p-6 rounded-theme;
 
 			.woocommerce-order-details__title {
 				@apply relative text-base pb-6 border-b border-dashed border-line-primary;

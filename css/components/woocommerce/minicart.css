@@ -81,7 +81,7 @@
 			}
 
 			.woocommerce-mini-cart__total {
-				@apply relative z-10 bg-body-primary px-6 py-6 lg:px-9;
+				@apply relative z-10 bg-quinary px-6 py-6 lg:px-9;
 
 				strong {
 					@apply text-xl font-normal text-tertiary;
@@ -95,7 +95,7 @@
 			}
 
 			.woocommerce-mini-cart__buttons {
-				@apply relative z-10 bg-body-primary px-6 py-0 pb-4 border-b border-line-primary grid sm:grid-cols-2 gap-6 lg:px-9;
+				@apply relative z-10 bg-quinary px-6 py-0 pb-4 border-b border-line-primary grid sm:grid-cols-2 gap-6 lg:px-9;
 
 				.button {
 					&:first-child {

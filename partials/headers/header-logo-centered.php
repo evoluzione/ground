@@ -1,11 +1,11 @@
 <?php get_template_part('partials/message', 'alert'); ?>
 
-<header class="header header-logo-centered w-full z-30 bg-body-primary">
+<header class="header header-logo-centered w-full z-30 bg-quinary">
 
-	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
+	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon('chevron-left', 'text-tertiary'); ?> </span> <?php _e('Indietro', 'ground'); ?> </a>
 
-		<div class="header__bar-mobile container py-2 bg-body-primary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
+		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
 				<?php get_template_part('partials/navicon', 'primary'); ?>
 			</div>
@@ -25,7 +25,7 @@
 
 	</div>
 
-	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-quinary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
 
 			<div class="container lg:relative lg:grid lg:grid-cols-12 lg:items-center lg:h-32">

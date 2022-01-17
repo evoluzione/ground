@@ -54,8 +54,8 @@ get_template_part('partials/header');
 											<?php echo $image['sizes']['1-1-large']; ?> 1200w" sizes="(min-width: 1200px) 1200px,
 											(min-width: 768px) 900px,
 											100vh" src="<?php echo $image['sizes']['16-9-large']; ?>" alt="" loading="lazy">
-							<div class="absolute inset-0 bg-gradient-to-l from-body-primary z-2"> </div>
-							<div class="absolute inset-0 bg-gradient-to-t from-body-primary z-1"> </div>
+							<div class="absolute inset-0 bg-gradient-to-l from-quinary z-2"> </div>
+							<div class="absolute inset-0 bg-gradient-to-t from-quinary z-1"> </div>
 						</div>
 					<?php endif; ?>
 

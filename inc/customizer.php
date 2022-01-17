@@ -532,7 +532,7 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		);
 
 		$wp_customize->add_setting(
-			'color_body_primary',
+			'color_quinary',
 			array(
 				'default' => '#ffffff',
 			)
@@ -604,7 +604,7 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 				'color_quaternary_control',
 				array(
 					'label'    => __('Color Quaternary', 'ground-admin'),
-					'description' => __('Color used for secondary typo', 'ground-admin'),
+					'description' => __('Color used for secondary typography', 'ground-admin'),
 					'section'  => $section_name,
 					'settings' => 'color_quaternary',
 				)
@@ -614,12 +614,12 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_body_primary_control',
+				'color_quinary_control',
 				array(
-					'label'    => __('Color Body Primary', 'ground-admin'),
-					'description' => __('Color used for ', 'ground-admin'),
+					'label'    => __('Color Quinary', 'ground-admin'),
+					'description' => __('Color used for primary body', 'ground-admin'),
 					'section'  => $section_name,
-					'settings' => 'color_body_primary',
+					'settings' => 'color_quinary',
 				)
 			)
 		);

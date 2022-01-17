@@ -1,6 +1,6 @@
 @layer components {
 	.woocommerce-terms-and-conditions {
-		@apply relative overflow-hidden bg-body-primary px-6 rounded-theme;
+		@apply relative overflow-hidden bg-quinary px-6 rounded-theme;
 	}
 
 	.woocommerce-terms-and-conditions-checkbox-text {

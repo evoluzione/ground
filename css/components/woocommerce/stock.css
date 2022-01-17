@@ -20,7 +20,7 @@
 				@apply border border-green-500;
 			}
 			&:before {
-				@apply bg-green-500 border-4 border-body-primary;
+				@apply bg-green-500 border-4 border-quinary;
 			}
 		}
 		&.out-of-stock {
@@ -28,7 +28,7 @@
 				@apply border border-red-500;
 			}
 			&:before {
-				@apply bg-red-500 border-4 border-body-primary;
+				@apply bg-red-500 border-4 border-quinary;
 			}
 		}
 

@@ -1,11 +1,11 @@
 <?php get_template_part('partials/message', 'alert'); ?>
 
-<header class="header header-mega-menu w-full z-30 bg-body-primary">
+<header class="header header-mega-menu w-full z-30 bg-quinary">
 
-	<div class="bg-body-primary h-16 w-full z-30 lg:hidden">
+	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon('chevron-left', 'text-black dark:text-white'); ?> </span> <?php _e('Indietro', 'ground'); ?> </a>
 
-		<div class="header__bar-mobile container py-2 bg-body-primary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
+		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
 				<?php get_template_part('partials/navicon', 'primary'); ?>
 			</div>
@@ -19,7 +19,7 @@
 
 	</div>
 
-	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-body-primary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-quinary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
 		<div class="js-menu-container header__container relative <?php echo esc_attr(GROUND_CONTAINER); ?> <?php echo (GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP) ? '' : 'lg:pt-4'; ?>">
 			<div class="flex flex-col-reverse lg:block">

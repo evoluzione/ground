@@ -46,7 +46,7 @@ function ground_add_css_theme_variables()
 			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
 			--ground-color-tertiary:' . GROUND_COLOR_TERTIARY . ';
 			--ground-color-quaternary:' . GROUND_COLOR_QUATERNARY . ';
-			--ground-color-body-primary:' . GROUND_COLOR_BODY_PRIMARY . ';
+			--ground-color-quinary:' . GROUND_COLOR_QUINARY . ';
 			--ground-color-body-secondary:' . GROUND_COLOR_BODY_SECONDARY . ';
 			--ground-color-line-primary:' . GROUND_COLOR_LINE_PRIMARY . ';
 			--ground-color-line-secondary:' . GROUND_COLOR_LINE_SECONDARY . ';
