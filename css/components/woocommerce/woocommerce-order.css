@@ -14,7 +14,7 @@
 			@apply relative my-12 max-w-2xl mx-auto bg-quinary p-6 rounded-theme;
 
 			.woocommerce-order-details__title {
-				@apply relative text-base pb-6 border-b border-dashed border-line-primary;
+				@apply relative text-base pb-6 border-b border-dashed border-septenary;
 				&:after,
 				&:before {
 					content: "";
@@ -35,7 +35,7 @@
 				}
 				tfoot {
 					tr {
-						@apply border-b border-line-primary;
+						@apply border-b border-septenary;
 					}
 					td {
 						@apply text-right;

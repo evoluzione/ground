@@ -1,6 +1,6 @@
 <?php if (GROUND_NEWSLETTER_SHORTCODE) : ?>
 	<div class="container">
-		<div class="bg-tertiary border-b border-line-primary py-12 my-12 rounded-theme lg:py-24 lg:my-24">
+		<div class="bg-tertiary border-b border-septenary py-12 my-12 rounded-theme lg:py-24 lg:my-24">
 			<div class="mx-auto max-w-5xl text-center px-6">
 				<?php if (GROUND_NEWSLETTER_TITLE) : ?>
 					<div class="text-2xl lg:text-4xl mb-4 text-quinary">

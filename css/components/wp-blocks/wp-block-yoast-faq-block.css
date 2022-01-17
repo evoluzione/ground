@@ -1,6 +1,6 @@
 /* wp-block-yoast-faq-block */
 .wp-block-yoast-faq-block {
-	@apply relative border border-line-primary rounded-theme py-3 px-6 lg:py-9 lg:px-16;
+	@apply relative border border-septenary rounded-theme py-3 px-6 lg:py-9 lg:px-16;
 
 	.schema-faq-section {
 		@apply relative my-2;

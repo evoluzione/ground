@@ -546,14 +546,14 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		);
 
 		$wp_customize->add_setting(
-			'color_line_primary',
+			'color_septenary',
 			array(
 				'default' => '#D4D4D8',
 			)
 		);
 
 		$wp_customize->add_setting(
-			'color_line_secondary',
+			'color_octonary',
 			array(
 				'default' => '#D4D4D8',
 			)
@@ -640,12 +640,12 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_line_primary_control',
+				'color_septenary_control',
 				array(
-					'label'    => __('Color Line Primary', 'ground-admin'),
-					'description' => __('Color used for ', 'ground-admin'),
+					'label'    => __('Color Septenary', 'ground-admin'),
+					'description' => __('Color used for primary line', 'ground-admin'),
 					'section'  => $section_name,
-					'settings' => 'color_line_primary',
+					'settings' => 'color_septenary',
 				)
 			)
 		);
@@ -653,12 +653,12 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_line_secondary_control',
+				'color_octonary_control',
 				array(
-					'label'    => __('Color Line Secondary', 'ground-admin'),
-					'description' => __('Color used for ', 'ground-admin'),
+					'label'    => __('Color Octonary', 'ground-admin'),
+					'description' => __('Color used for secondary line', 'ground-admin'),
 					'section'  => $section_name,
-					'settings' => 'color_line_secondary',
+					'settings' => 'color_octonary',
 				)
 			)
 		);

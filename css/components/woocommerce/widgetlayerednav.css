@@ -16,7 +16,7 @@
 			}
 
 			.woocommerce-widget-layered-nav-list {
-				@apply m-0 list-none border-b border-line-primary lg:border-0;
+				@apply m-0 list-none border-b border-septenary lg:border-0;
 
 				&__item {
 					@apply relative mb-2 hidden lg:block;
@@ -35,7 +35,7 @@
 						}
 
 						&:before {
-							@apply border border-line-primary;
+							@apply border border-septenary;
 						}
 
 						&:after {

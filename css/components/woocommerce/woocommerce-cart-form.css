@@ -24,7 +24,7 @@
 	}
 
 	.woocommerce-cart-form__contents {
-		@apply relative border-t border-line-primary;
+		@apply relative border-t border-septenary;
 
 		td {
 			@apply align-top;

@@ -158,7 +158,7 @@
 
 					&:before {
 						content: "";
-						@apply absolute inline-block align-middle border-t border-line-primary h-px w-4 mr-3 -left-8;
+						@apply absolute inline-block align-middle border-t border-septenary h-px w-4 mr-3 -left-8;
 					}
 
 					.wc-block-product-categories-list-item__image {

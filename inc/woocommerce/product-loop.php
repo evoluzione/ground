@@ -117,7 +117,7 @@ function ground_archive_filters_buttons()
 {
 	?>
 
-	<div class="sticky top-16 bg-quinary border-b border-line-primary z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
+	<div class="sticky top-16 bg-quinary border-b border-septenary z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
 		<div class="container px-6 lg:px-0 overflow-hidden">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">

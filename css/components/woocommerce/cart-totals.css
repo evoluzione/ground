@@ -10,7 +10,7 @@
 			@apply bg-transparent;
 
 			tr {
-				@apply border-b border-line-primary;
+				@apply border-b border-septenary;
 				&:last-child {
 					@apply border-0;
 

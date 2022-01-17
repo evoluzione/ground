@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="container">
-		<div class="mt-6 py-9 border-t border-line-primary lg:flex lg:items-center lg:justify-between lg:space-x-9 lg:pt-9">
+		<div class="mt-6 py-9 border-t border-septenary lg:flex lg:items-center lg:justify-between lg:space-x-9 lg:pt-9">
 			<div class="mb-6 lg:mb-0">
 				<p class="text-center lg:text-left text-quaternary text-sm lg:text-xs">
 					<?php echo __('All rights reserved - © copyright', 'ground') . ' ' . date('Y') . ' '; ?>
@@ -43,7 +43,7 @@
 				</p>
 			</div>
 
-			<div class="lg:border-l border-line-primary">
+			<div class="lg:border-l border-septenary">
 				<?php get_template_part('partials/socials'); ?>
 			</div>
 		</div>

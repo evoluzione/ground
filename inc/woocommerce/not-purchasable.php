@@ -75,7 +75,7 @@ function ground_woocommerce_call_to_order_text()
 
 	if ('yes' === $not_ready_to_sell) { ?>
 
-		<div class="border-t border-line-primary pt-5">
+		<div class="border-t border-septenary pt-5">
 			<p class="text-quaternary">
 				<?php echo esc_html(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT); ?>
 			</p>

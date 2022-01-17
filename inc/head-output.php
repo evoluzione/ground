@@ -48,8 +48,8 @@ function ground_add_css_theme_variables()
 			--ground-color-quaternary:' . GROUND_COLOR_QUATERNARY . ';
 			--ground-color-quinary:' . GROUND_COLOR_QUINARY . ';
 			--ground-color-senary:' . GROUND_COLOR_SENARY . ';
-			--ground-color-line-primary:' . GROUND_COLOR_LINE_PRIMARY . ';
-			--ground-color-line-secondary:' . GROUND_COLOR_LINE_SECONDARY . ';
+			--ground-color-septenary:' . GROUND_COLOR_SEPTENARY . ';
+			--ground-color-octonary:' . GROUND_COLOR_OCTONARY . ';
 			--ground-font-primary:' . GROUND_FONT_FAMILY_PRIMARY . ';
 			--ground-font-secondary:' . GROUND_FONT_FAMILY_SECONDARY . ';
 			--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;

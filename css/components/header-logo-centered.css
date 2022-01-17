@@ -20,7 +20,7 @@
 			}
 
 			.navigation__link {
-				@apply block text-lg py-4 border-b border-line-primary border-opacity-20 lg:block lg:py-2 lg:text-base lg:border-0;
+				@apply block text-lg py-4 border-b border-septenary border-opacity-20 lg:block lg:py-2 lg:text-base lg:border-0;
 			}
 
 			.navigation__list {
@@ -43,7 +43,7 @@
 				}
 
 				.navigation__link {
-					@apply lg:border-b lg:border-line-primary lg:border-opacity-20 lg:opacity-0 lg:bg-senary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
+					@apply lg:border-b lg:border-septenary lg:border-opacity-20 lg:opacity-0 lg:bg-senary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 				}
 
 				.navigation__item {
@@ -57,7 +57,7 @@
 					}
 
 					.navigation__link {
-						@apply block text-base py-3 border-b border-line-primary border-opacity-20;
+						@apply block text-base py-3 border-b border-septenary border-opacity-20;
 						@apply lg:pr-0 !important;
 						&:after {
 							@apply lg:hidden lg:text-base;

@@ -73,7 +73,7 @@
 		@apply relative mb-0;
 
 		tr {
-			@apply border-b border-line-primary;
+			@apply border-b border-septenary;
 		}
 
 		th {

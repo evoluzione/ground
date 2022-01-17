@@ -11,7 +11,7 @@
 			@apply flex;
 
 			a {
-				@apply text-base items-center px-3 border border-line-primary rounded-theme mr-2;
+				@apply text-base items-center px-3 border border-septenary rounded-theme mr-2;
 			}
 		}
 	}

@@ -13,7 +13,7 @@
 			@apply relative;
 
 			.cart_item {
-				@apply relative border-0 border-b border-line-primary;
+				@apply relative border-0 border-b border-septenary;
 				.product-name {
 					@apply relative text-sm pr-3 lg:pl-20 lg:pr-0 text-left;
 					max-width: 120px;
@@ -45,7 +45,7 @@
 
 		tfoot {
 			tr {
-				@apply border-b border-line-primary;
+				@apply border-b border-septenary;
 			}
 
 			.cart-subtotal {

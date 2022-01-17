@@ -45,7 +45,7 @@
 				@apply bg-primary rounded-full text-quaternary lg:rounded-none lg:bg-transparent;
 			}
 			a {
-				@apply border border-line-primary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center lg:p-0 lg:border-0 lg:mb-2;
+				@apply border border-septenary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center lg:p-0 lg:border-0 lg:mb-2;
 			}
 			&.is-active a {
 				@apply border-primary text-white lg:text-primary;
@@ -73,13 +73,13 @@
 				}
 			}
 			a {
-				@apply border border-line-primary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center;
+				@apply border border-septenary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center;
 			}
 			&.current-cat a {
 				@apply border-primary text-white;
 
 				.blog & {
-					@apply border-line-primary text-tertiary;
+					@apply border-septenary text-tertiary;
 				}
 			}
 		}

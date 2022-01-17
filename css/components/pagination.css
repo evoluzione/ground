@@ -4,7 +4,7 @@
 	}
 
 	.pagination__item {
-		@apply hidden sm:flex h-12 w-12 border border-line-primary rounded-full items-center justify-center text-quaternary;
+		@apply hidden sm:flex h-12 w-12 border border-septenary rounded-full items-center justify-center text-quaternary;
 
 		&.pagination__item--prev,
 		&.pagination__item--next {

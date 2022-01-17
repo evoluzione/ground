@@ -153,7 +153,7 @@
 
 	.table__cell,
 	td {
-		@apply py-6 align-middle border-0 border-b border-line-primary;
+		@apply py-6 align-middle border-0 border-b border-septenary;
 	}
 
 	.shop_table td {

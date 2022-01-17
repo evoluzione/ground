@@ -6,7 +6,7 @@
 	input[type="number"],
 	textarea,
 	select {
-		@apply focus:ring-primary text-tertiary border-line-primary rounded-theme w-full bg-transparent;
+		@apply focus:ring-primary text-tertiary border-septenary rounded-theme w-full bg-transparent;
 	}
 
 	input[type="number"] {
@@ -18,11 +18,11 @@
 	}
 
 	input[type="checkbox"] {
-		@apply focus:ring-primary h-4 w-4 text-primary border-line-primary rounded-theme mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-4 w-4 text-primary border-septenary rounded-theme mr-1 cursor-pointer !important;
 	}
 
 	input[type="radio"] {
-		@apply focus:ring-primary h-4 w-4 text-primary border-line-primary mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-4 w-4 text-primary border-septenary mr-1 cursor-pointer !important;
 	}
 
 	input[type="submit"] {
@@ -52,15 +52,15 @@ form.wpcf7-form {
 	@apply h-0 -m-1 !important;
 }
 .select2-container {
-	@apply rounded-theme border border-line-primary align-middle !important;
+	@apply rounded-theme border border-septenary align-middle !important;
 	.select2-dropdown.select2-dropdown--below {
-		@apply border border-line-primary rounded-none !important;
+		@apply border border-septenary rounded-none !important;
 		.select2-search--dropdown {
-			@apply border-t border-b border-line-primary !important;
+			@apply border-t border-b border-septenary !important;
 		}
 	}
 	.select2-selection--single {
-		@apply rounded-theme m-0 h-10 border-0 border-line-primary focus:ring-primary !important;
+		@apply rounded-theme m-0 h-10 border-0 border-septenary focus:ring-primary !important;
 		.select2-selection__rendered {
 			@apply rounded-theme h-10 px-3 leading-10 text-gray-500 !important;
 		}

@@ -44,11 +44,11 @@ function ground_theme_costants()
 	if (!defined('GROUND_COLOR_SENARY')) {
 		define('GROUND_COLOR_SENARY', get_theme_mod('color_senary') ?: '#F4F4F5');
 	}
-	if (!defined('GROUND_COLOR_LINE_PRIMARY')) {
-		define('GROUND_COLOR_LINE_PRIMARY', get_theme_mod('color_line_primary') ?: '#D4D4D8');
+	if (!defined('GROUND_COLOR_SEPTENARY')) {
+		define('GROUND_COLOR_SEPTENARY', get_theme_mod('color_septenary') ?: '#D4D4D8');
 	}
-	if (!defined('GROUND_COLOR_LINE_SECONDARY')) {
-		define('GROUND_COLOR_LINE_SECONDARY', get_theme_mod('color_line_secondary') ?: '#D4D4D8');
+	if (!defined('GROUND_COLOR_OCTONARY')) {
+		define('GROUND_COLOR_OCTONARY', get_theme_mod('color_octonary') ?: '#D4D4D8');
 	}
 
 	// Fonts.
