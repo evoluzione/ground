@@ -21,7 +21,7 @@
 			@apply lg:grid lg:grid-rows-6 lg:grid-flow-col lg:grid-cols-9 lg:gap-12;
 			.post {
 				&:first-child {
-					@apply lg:row-span-6 lg:col-span-6 lg:bg-body-secondary lg:rounded-theme;
+					@apply lg:row-span-6 lg:col-span-6 lg:bg-senary lg:rounded-theme;
 					.item__header {
 						@apply pt-9;
 					}

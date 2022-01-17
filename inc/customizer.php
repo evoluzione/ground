@@ -539,7 +539,7 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		);
 
 		$wp_customize->add_setting(
-			'color_body_secondary',
+			'color_senary',
 			array(
 				'default' => '#F4F4F5',
 			)
@@ -627,12 +627,12 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_body_secondary_control',
+				'color_senary_control',
 				array(
-					'label'    => __('Color Body Secondary', 'ground-admin'),
-					'description' => __('Color used for ', 'ground-admin'),
+					'label'    => __('Color Senary', 'ground-admin'),
+					'description' => __('Color used for secondary body', 'ground-admin'),
 					'section'  => $section_name,
-					'settings' => 'color_body_secondary',
+					'settings' => 'color_senary',
 				)
 			)
 		);

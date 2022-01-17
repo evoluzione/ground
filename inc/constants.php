@@ -41,8 +41,8 @@ function ground_theme_costants()
 	if (!defined('GROUND_COLOR_QUINARY')) {
 		define('GROUND_COLOR_QUINARY', get_theme_mod('color_quinary') ?: '#ffffff');
 	}
-	if (!defined('GROUND_COLOR_BODY_SECONDARY')) {
-		define('GROUND_COLOR_BODY_SECONDARY', get_theme_mod('color_body_secondary') ?: '#F4F4F5');
+	if (!defined('GROUND_COLOR_SENARY')) {
+		define('GROUND_COLOR_SENARY', get_theme_mod('color_senary') ?: '#F4F4F5');
 	}
 	if (!defined('GROUND_COLOR_LINE_PRIMARY')) {
 		define('GROUND_COLOR_LINE_PRIMARY', get_theme_mod('color_line_primary') ?: '#D4D4D8');

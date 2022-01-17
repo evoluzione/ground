@@ -223,7 +223,7 @@
 					}
 
 					.navigation__link {
-						@apply opacity-0 bg-body-secondary top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
+						@apply opacity-0 bg-senary top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
 					}
 				}
 

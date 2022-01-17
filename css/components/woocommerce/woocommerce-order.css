@@ -1,6 +1,6 @@
 @layer components {
 	.woocommerce-order {
-		@apply bg-body-secondary px-6 py-9 rounded-theme text-center lg:px-12 lg:py-16;
+		@apply bg-senary px-6 py-9 rounded-theme text-center lg:px-12 lg:py-16;
 
 		.woocommerce-thankyou-order-received {
 			@apply text-center text-primary text-4xl font-normal mb-6;
@@ -18,7 +18,7 @@
 				&:after,
 				&:before {
 					content: "";
-					@apply absolute h-6 w-6 top-9 rounded-full bg-body-secondary;
+					@apply absolute h-6 w-6 top-9 rounded-full bg-senary;
 				}
 				&:after {
 					@apply -right-9;

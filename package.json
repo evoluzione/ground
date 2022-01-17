@@ -24,7 +24,7 @@
 		"@babel/eslint-parser": "^7.16.5",
 		"@babel/preset-env": "^7.16.5",
 		"@babel/preset-react": "^7.16.5",
-		"@evoluzione/tailwind-config": "^1.0.5",
+		"@evoluzione/tailwind-config": "^1.0.6",
 		"autoprefixer": "^10.4.0",
 		"babel-loader": "^8.2.3",
 		"browser-sync": "^2.27.7",

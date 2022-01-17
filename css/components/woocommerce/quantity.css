@@ -1,7 +1,7 @@
 @layer components {
 	.quantity {
 		.cart & {
-			@apply flex flex-none justify-center items-center relative bg-body-secondary overflow-hidden w-24 sm:w-32 rounded-theme;
+			@apply flex flex-none justify-center items-center relative bg-senary overflow-hidden w-24 sm:w-32 rounded-theme;
 
 			.screen-reader-text {
 				@apply sr-only;

@@ -1,7 +1,7 @@
 /* wp-block-verse */
 @layer components {
 	.wp-block-verse {
-		@apply rounded-theme bg-body-secondary text-tertiary p-6 !important;
+		@apply rounded-theme bg-senary text-tertiary p-6 !important;
 		@apply my-12 lg:my-24;
 	}
 }

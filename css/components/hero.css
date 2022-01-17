@@ -8,7 +8,7 @@
 	}
 
 	.hero__body {
-		@apply relative lg:mb-9 bg-body-secondary transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto rounded-none lg:rounded-media;
+		@apply relative lg:mb-9 bg-senary transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto rounded-none lg:rounded-media;
 		.hero--full-width & {
 			@apply rounded-none;
 		}

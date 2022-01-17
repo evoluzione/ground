@@ -12,7 +12,7 @@ $product_info_content3 = get_post_meta($product_id, 'product_info_content3', tru
 
 <?php if (!empty(get_the_content() || $product_video)) : ?>
 
-	<div class="relative my-16 bg-body-secondary py-6 px-6 lg:py-12 lg:px-0 transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto">
+	<div class="relative my-16 bg-senary py-6 px-6 lg:py-12 lg:px-0 transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-0 lg:translate-x-0 lg:w-auto">
 
 		<?php if (!empty(get_the_content())) : ?>
 			<div class="grid grid-cols-12 gap-6 pt-3 pb-6 lg:py-12">

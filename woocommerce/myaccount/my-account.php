@@ -16,20 +16,20 @@
  * @version 3.5.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * My Account navigation.
  *
  * @since 2.6.0
  */
-do_action( 'woocommerce_account_navigation' ); ?>
+do_action('woocommerce_account_navigation'); ?>
 
 <?php
 // .row is opened in myaccount/navigation.php
 ?>
 
-<div class="w-full lg:col-span-4 lg:col-start-4 max-w-5xl lg:p-24 lg:rounded-theme lg:bg-body-secondary">
+<div class="w-full lg:col-span-4 lg:col-start-4 max-w-5xl lg:p-24 lg:rounded-theme lg:bg-senary">
 	<div class="woocommerce-MyAccount-content">
 		<?php
 		/**
@@ -37,7 +37,7 @@ do_action( 'woocommerce_account_navigation' ); ?>
 		 *
 		 * @since 2.6.0
 		 */
-		do_action( 'woocommerce_account_content' );
+		do_action('woocommerce_account_content');
 		?>
 	</div>
 </div>

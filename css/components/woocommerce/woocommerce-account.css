@@ -2,12 +2,12 @@
 	.woocommerce-account {
 		.woocommerce {
 			> h2 {
-				@apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-body-secondary rounded-theme;
+				@apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-senary rounded-theme;
 				@apply rounded-b-none !important;
 			}
 
 			form.woocommerce-form-login {
-				@apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme bg-body-secondary;
+				@apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme bg-senary;
 				@apply rounded-t-none !important;
 
 				.woocommerce-form-login__submit {
@@ -27,7 +27,7 @@
 				}
 
 				.col-1 {
-					@apply overflow-hidden rounded-theme bg-body-secondary rounded-theme;
+					@apply overflow-hidden rounded-theme bg-senary rounded-theme;
 					form.woocommerce-form-login {
 						@apply w-full p-0;
 					}

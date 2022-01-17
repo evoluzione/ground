@@ -9,7 +9,7 @@
 				<?php endif; ?>
 
 				<?php if (GROUND_NEWSLETTER_CONTENT) : ?>
-					<div class="text-xl lg:text-2xl mb-4 text-body-secondary lg:mb-8">
+					<div class="text-xl lg:text-2xl mb-4 text-senary lg:mb-8">
 						<?php echo esc_html(GROUND_NEWSLETTER_CONTENT); ?>
 					</div>
 				<?php endif; ?>

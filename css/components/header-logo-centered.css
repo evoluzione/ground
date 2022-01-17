@@ -43,7 +43,7 @@
 				}
 
 				.navigation__link {
-					@apply lg:border-b lg:border-line-primary lg:border-opacity-20 lg:opacity-0 lg:bg-body-secondary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
+					@apply lg:border-b lg:border-line-primary lg:border-opacity-20 lg:opacity-0 lg:bg-senary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 				}
 
 				.navigation__item {
