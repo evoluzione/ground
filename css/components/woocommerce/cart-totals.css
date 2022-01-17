@@ -24,10 +24,18 @@
 						@apply text-4xl;
 					}
 				}
+
+				th {
+					@apply pb-0 lg:pb-6;
+				}
 			}
 
 			td {
 				@apply border-0;
+
+				&:before {
+					@apply hidden;
+				}
 			}
 		}
 

@@ -35,40 +35,29 @@
 		}
 
 		.actions {
-			@apply relative py-9 lg:py-12;
+			@apply relative pt-3 pb-9 lg:pt-12 lg:pb-6 border-0;
 
 			.button[name="update_cart"] {
-				@apply relative p-0 text-typo-primary underline bg-transparent border-0 md:absolute md:right-0;
+				@apply hidden relative p-0 text-typo-primary underline bg-transparent border-0 md:absolute md:right-0;
 			}
 
 			.coupon {
-				@apply relative block lg:inline-block mt-4 lg:mt-0;
+				@apply max-w-2xl relative flex items-center mt-4 lg:mt-0;
 
-				.coupon__link {
-					@apply cursor-pointer underline;
+				input {
+					@apply mr-3;
 				}
 
-				.coupon__content {
-					@apply items-center py-6 max-w-3xl hidden;
-
-					&.is-coupon-open {
-						@apply block md:flex;
-					}
-
-					label {
-						@apply hidden !important;
-					}
-
-					.button {
-						@apply mb-0 py-2 mt-2 w-full md:ml-3 md:mt-0 md:w-auto;
-					}
+				label {
+					@apply hidden !important;
 				}
+
 			}
 		}
 	}
 
 	.woocommerce-cart-form__cart-item {
-		@apply relative;
+		@apply relative border-b border-line-primary;
 
 		&:hover {
 			.product-remove {
@@ -84,13 +73,13 @@
 			border: 0;
 
 			.remove {
-				@apply absolute h-5 w-5 leading-5 top-2 -left-5 lg:-left-2 text-white text-center rounded-full no-underline bg-red-500 p-0 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
+				@apply absolute h-5 w-5 leading-5 top-2 -left-2 text-white text-center rounded-full no-underline bg-red-500 p-0 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
 			}
 		}
 
 		/* THUMBNAIL */
 		.product-thumbnail {
-			@apply w-44;
+			@apply w-44 py-0 lg:py-6;
 
 			.attachment-woocommerce_thumbnail,
 			.woocommerce-placeholder {
@@ -116,10 +105,11 @@
 
 		/* QUANTITY */
 		.product-quantity {
+			@apply py-0 lg:py-6;
 		}
 
 		.product-subtotal {
-			@apply text-right text-2xl md:text-4xl font-bold;
+			@apply lg:text-right text-2xl md:text-4xl font-bold;
 		}
 
 		td {

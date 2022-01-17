@@ -17,7 +17,7 @@
 				}
 
 				label {
-					@apply pl-2 text-sm !important;
+					@apply text-sm !important;
 				}
 
 				input:checked + label {
