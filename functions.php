@@ -25,7 +25,7 @@ require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
 
-if (class_exists('WooCommerce')) {
+if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/brand.php';
 	require_once 'inc/woocommerce/breadcrumbs.php';
 	require_once 'inc/woocommerce/cart.php';
@@ -42,5 +42,6 @@ if (class_exists('WooCommerce')) {
 	require_once 'inc/woocommerce/rest-order.php';
 	require_once 'inc/woocommerce/rest-user.php';
 	require_once 'inc/woocommerce/sidebar.php';
+	require_once 'inc/woocommerce/shipping.php';
 	require_once 'inc/woocommerce/global.php';
 }
