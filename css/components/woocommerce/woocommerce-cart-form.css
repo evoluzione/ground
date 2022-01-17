@@ -38,7 +38,7 @@
 			@apply relative pt-6 pb-3 md:pt-12 md:pb-6 border-0;
 
 			.button[name="update_cart"] {
-				@apply hidden relative p-0 text-typo-primary underline bg-transparent border-0 md:absolute md:right-0;
+				@apply hidden relative p-0 text-tertiary underline bg-transparent border-0 md:absolute md:right-0;
 			}
 
 			.coupon {
@@ -56,7 +56,7 @@
 	}
 
 	.woocommerce-cart-form__cart-item {
-		@apply relative border-b border-line-primary;
+		@apply relative border-b border-septenary;
 		@apply mb-0 !important;
 
 		&:hover {
