@@ -1,7 +1,7 @@
 @layer components {
 	.price,
 	.ground__price-range {
-		@apply flex items-baseline w-full text-typo-primary;
+		@apply flex items-baseline w-full text-tertiary;
 
 		.amount {
 			@apply text-lg font-normal;

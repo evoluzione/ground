@@ -44,7 +44,7 @@ function ground_add_css_theme_variables()
 		:root {
 			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
 			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
-			--ground-color-typo-primary:' . GROUND_COLOR_TYPO_PRIMARY . ';
+			--ground-color-tertiary:' . GROUND_COLOR_TERTIARY . ';
 			--ground-color-typo-secondary:' . GROUND_COLOR_TYPO_SECONDARY . ';
 			--ground-color-body-primary:' . GROUND_COLOR_BODY_PRIMARY . ';
 			--ground-color-body-secondary:' . GROUND_COLOR_BODY_SECONDARY . ';

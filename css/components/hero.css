@@ -29,7 +29,7 @@
 	}
 
 	.hero__content {
-		@apply text-typo-primary relative py-16 lg:py-32;
+		@apply text-tertiary relative py-16 lg:py-32;
 		/* py-12 lg:py-28  */
 
 		.hero--full-width & {

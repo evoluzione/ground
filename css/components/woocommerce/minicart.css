@@ -18,7 +18,7 @@
 			}
 
 			.woocommerce-mini-cart {
-				@apply absolute inset-0 h-screen w-full pt-40 pb-12 m-0 overflow-y-auto text-typo-primary;
+				@apply absolute inset-0 h-screen w-full pt-40 pb-12 m-0 overflow-y-auto text-tertiary;
 				-ms-overflow-style: none; /* IE and Edge */
 				scrollbar-width: none; /* Firefox */
 				&::-webkit-scrollbar {
@@ -84,12 +84,12 @@
 				@apply relative z-10 bg-body-primary px-6 py-6 lg:px-9;
 
 				strong {
-					@apply text-xl font-normal text-typo-primary;
+					@apply text-xl font-normal text-tertiary;
 				}
 				.amount {
-					@apply inline-block text-4xl font-normal text-typo-primary;
+					@apply inline-block text-4xl font-normal text-tertiary;
 					* {
-						@apply text-typo-primary;
+						@apply text-tertiary;
 					}
 				}
 			}

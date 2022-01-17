@@ -22,7 +22,7 @@
 		}
 
 		&__close {
-			@apply absolute top-8 right-9 z-40 text-center text-typo-primary cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
+			@apply absolute top-8 right-9 z-40 text-center text-tertiary cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
 		}
 
 		&.is-overlay-panel-open {

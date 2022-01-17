@@ -23,7 +23,7 @@
 		}
 
 		&--tertiary {
-			@apply bg-transparent text-typo-primary border border-line-primary;
+			@apply bg-transparent text-tertiary border border-line-primary;
 
 			&:hover,
 			&:focus,
@@ -61,7 +61,7 @@
 		}
 
 		&--bordered {
-			@apply bg-transparent text-typo-primary border border-line-primary;
+			@apply bg-transparent text-tertiary border border-line-primary;
 
 			.button__icon {
 				@apply text-primary;

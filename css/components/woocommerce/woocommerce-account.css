@@ -40,7 +40,7 @@
 
 			.table__head,
 			thead {
-				@apply bg-transparent border-b border-line-primary text-typo-primary !important;
+				@apply bg-transparent border-b border-line-primary text-tertiary !important;
 			}
 		}
 	}

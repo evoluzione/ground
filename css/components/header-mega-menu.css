@@ -116,7 +116,7 @@
 					}
 					@screen lg {
 						&:after {
-							@apply transform rotate-45 border-b-2 border-r-2 border-typo-primary;
+							@apply transform rotate-45 border-b-2 border-r-2 border-tertiary;
 						}
 					}
 				}
@@ -178,7 +178,7 @@
 					@apply relative flex items-center;
 					&:after {
 						content: "";
-						@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-typo-primary;
+						@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-tertiary;
 					}
 				}
 			}
@@ -281,7 +281,7 @@
 					@apply flex items-center lg:relative lg:pr-5;
 					&:after {
 						content: "";
-						@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-typo-primary lg:border-t-0 lg:border-b-2;
+						@apply absolute h-2 w-2 right-0 transform rotate-45 border-t-2 border-r-2 border-tertiary lg:border-t-0 lg:border-b-2;
 					}
 				}
 

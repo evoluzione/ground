@@ -1,11 +1,11 @@
 @layer components {
 	.product-remove {
-		@apply flex text-xs text-typo-primary mt-2;
+		@apply flex text-xs text-tertiary mt-2;
 		.icon {
 			@apply transition-all;
 		}
 		.remove {
-			@apply text-xs text-typo-primary pl-1 transition;
+			@apply text-xs text-tertiary pl-1 transition;
 		}
 
 		&:hover {

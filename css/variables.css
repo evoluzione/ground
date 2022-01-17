@@ -1,13 +1,13 @@
 :root {
-	--ground-color-primary: #6366F1;
-	--ground-color-secondary: #6366F1;
-	--ground-color-typo-primary: #000000;
-	--ground-color-typo-secondary: #71717A;
+	--ground-color-primary: #6366f1;
+	--ground-color-secondary: #6366f1;
+	--ground-color-tertiary: #000000;
+	--ground-color-typo-secondary: #71717a;
 	--ground-color-body-primary: #ffffff;
 	--ground-color-body-secondary: #f4f4f5;
-	--ground-color-line-primary: #D4D4D8;
-	--ground-color-line-secondary: #D4D4D8;
-	--ground-font-primary: 'Mulish', sans-serif;
+	--ground-color-line-primary: #d4d4d8;
+	--ground-color-line-secondary: #d4d4d8;
+	--ground-font-primary: "Mulish", sans-serif;
 	--ground-font-secondary: ui-serif;
 	--ground-rounded-theme: 0px;
 	--ground-rounded-media: 0px;

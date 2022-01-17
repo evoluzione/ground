@@ -10,7 +10,7 @@
 		&__line {
 			fill: none;
 			transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
-			@apply stroke-current text-typo-primary;
+			@apply stroke-current text-tertiary;
 			stroke-width: 4;
 			stroke-linecap: round;
 

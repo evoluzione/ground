@@ -38,7 +38,7 @@
 			@apply relative py-9 lg:py-12;
 
 			.button[name="update_cart"] {
-				@apply relative p-0 text-typo-primary underline bg-transparent border-0 md:absolute md:right-0;
+				@apply relative p-0 text-tertiary underline bg-transparent border-0 md:absolute md:right-0;
 			}
 
 			.coupon {
@@ -103,7 +103,7 @@
 			@apply md:pl-6;
 
 			a {
-				@apply text-typo-primary font-normal text-base;
+				@apply text-tertiary font-normal text-base;
 			}
 		}
 

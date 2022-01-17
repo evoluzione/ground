@@ -21,7 +21,7 @@
 		}
 
 		.sku {
-			@apply text-typo-primary font-bold;
+			@apply text-tertiary font-bold;
 		}
 
 		.price {

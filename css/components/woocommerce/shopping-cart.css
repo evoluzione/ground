@@ -6,7 +6,7 @@
 	}
 
 	.shopping-cart__icon {
-		@apply relative inline-block align-middle text-typo-primary h-6;
+		@apply relative inline-block align-middle text-tertiary h-6;
 		@apply transition-all ease-default duration-500;
 	}
 

@@ -6,7 +6,7 @@
 	input[type="number"],
 	textarea,
 	select {
-		@apply focus:ring-primary text-typo-primary border-line-primary rounded-theme w-full bg-transparent;
+		@apply focus:ring-primary text-tertiary border-line-primary rounded-theme w-full bg-transparent;
 	}
 
 	input[type="number"] {
@@ -30,15 +30,11 @@
 	}
 
 	label {
-		@apply block text-base font-medium text-typo-primary text-opacity-50 !important;
+		@apply block text-base font-medium text-tertiary text-opacity-50 !important;
 	}
-
 }
 
-
-
 form.wpcf7-form {
-
 	.wpcf7-not-valid {
 		@apply border-dashed border-red-500;
 	}
@@ -46,15 +42,15 @@ form.wpcf7-form {
 	label {
 		@apply mt-4;
 	}
-	input,textarea {
+	input,
+	textarea {
 		@apply mt-1;
 	}
 }
 
-
 .select2-hidden-accessible {
 	@apply h-0 -m-1 !important;
-} 
+}
 .select2-container {
 	@apply rounded-theme border border-line-primary align-middle !important;
 	.select2-dropdown.select2-dropdown--below {
