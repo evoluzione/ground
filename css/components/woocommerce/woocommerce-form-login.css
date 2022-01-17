@@ -3,7 +3,7 @@
 		.woocommerce-checkout & {
 			@apply relative overflow-hidden my-6 w-full lg:w-1/2 lg:pr-16;
 			p {
-				@apply text-typo-secondary mb-6;
+				@apply text-quaternary mb-6;
 			}
 			.form-row,
 			.form-row-first,

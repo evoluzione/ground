@@ -525,7 +525,7 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		);
 
 		$wp_customize->add_setting(
-			'color_typo_secondary',
+			'color_quaternary',
 			array(
 				'default' => '#71717A',
 			)
@@ -601,12 +601,12 @@ if (!function_exists('wpc_panel_wpcustomize')) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_typo_secondary_control',
+				'color_quaternary_control',
 				array(
-					'label'    => __('Color Typo Secondary', 'ground-admin'),
-					'description' => __('Color used for ', 'ground-admin'),
+					'label'    => __('Color Quaternary', 'ground-admin'),
+					'description' => __('Color used for secondary typo', 'ground-admin'),
 					'section'  => $section_name,
-					'settings' => 'color_typo_secondary',
+					'settings' => 'color_quaternary',
 				)
 			)
 		);

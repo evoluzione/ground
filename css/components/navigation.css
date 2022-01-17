@@ -17,7 +17,7 @@
 			@apply ml-0;
 		}
 		.navigation__link {
-			@apply text-typo-secondary;
+			@apply text-quaternary;
 			&:hover,
 			&.is-active,
 			.is-parent & {
@@ -42,7 +42,7 @@
 		.navigation__item {
 			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal snap-center lg:block;
 			&.is-active {
-				@apply bg-primary rounded-full text-typo-secondary lg:rounded-none lg:bg-transparent;
+				@apply bg-primary rounded-full text-quaternary lg:rounded-none lg:bg-transparent;
 			}
 			a {
 				@apply border border-line-primary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center lg:p-0 lg:border-0 lg:mb-2;

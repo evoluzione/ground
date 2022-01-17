@@ -8,7 +8,7 @@
 		}
 
 		&.is-style-dots {
-			@apply text-typo-secondary w-full;
+			@apply text-quaternary w-full;
 		}
 	}
 }

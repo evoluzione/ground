@@ -4,7 +4,7 @@
 	}
 
 	.pagination__item {
-		@apply hidden sm:flex h-12 w-12 border border-line-primary rounded-full items-center justify-center text-typo-secondary;
+		@apply hidden sm:flex h-12 w-12 border border-line-primary rounded-full items-center justify-center text-quaternary;
 
 		&.pagination__item--prev,
 		&.pagination__item--next {
@@ -25,7 +25,7 @@
 		&.pagination__item--dots {
 			&:hover {
 				.pagination__text {
-					@apply bg-transparent text-typo-secondary;
+					@apply bg-transparent text-quaternary;
 				}
 			}
 		}

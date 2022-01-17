@@ -32,7 +32,7 @@
 	}
 
 	.card__description {
-		@apply block text-typo-secondary text-sm md:text-base mb-3;
+		@apply block text-quaternary text-sm md:text-base mb-3;
 	}
 
 	.card__label {

@@ -9,7 +9,7 @@
 		}
 
 		.woocommerce-product-details__short-description {
-			@apply relative text-base text-typo-secondary my-3;
+			@apply relative text-base text-quaternary my-3;
 		}
 
 		.product_meta {
@@ -17,7 +17,7 @@
 		}
 
 		.sku_wrapper {
-			@apply block text-typo-secondary;
+			@apply block text-quaternary;
 		}
 
 		.sku {
@@ -31,7 +31,7 @@
 		.posted_in,
 		.tagged_as,
 		.product_brand {
-			@apply block text-typo-secondary;
+			@apply block text-quaternary;
 
 			a {
 				@apply text-primary hover:underline;

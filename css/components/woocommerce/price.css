@@ -16,7 +16,7 @@
 		del {
 			@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 			.amount {
-				@apply text-typo-secondary text-sm lg:text-xl font-normal;
+				@apply text-quaternary text-sm lg:text-xl font-normal;
 
 				.summary & {
 					@apply text-lg lg:text-xl;
@@ -41,7 +41,7 @@
 		del {
 			@apply text-sm text-red-500;
 			.amount {
-				@apply text-sm font-normal text-typo-secondary;
+				@apply text-sm font-normal text-quaternary;
 			}
 		}
 		ins {

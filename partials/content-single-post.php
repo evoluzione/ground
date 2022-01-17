@@ -19,7 +19,7 @@
 					<div class="max-w-xl mx-auto">
 						<div class="text-center">
 							<h1 class="mb-3"><?php the_title(); ?></h1>
-							<time datetime="<?php echo get_the_date('c'); ?>" class="text-typo-secondary"><?php echo get_the_date(); ?></time></span>
+							<time datetime="<?php echo get_the_date('c'); ?>" class="text-quaternary"><?php echo get_the_date(); ?></time></span>
 						</div>
 					</div>
 					<!-- <div class="rounded-theme">
@@ -90,11 +90,11 @@
 											</div>
 
 											<div class="lg:col-start-6 lg:col-end-12">
-												<div class="text-typo-secondary mb-4"><time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time></div>
+												<div class="text-quaternary mb-4"><time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time></div>
 												<a class="no-underline mb-4" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 													<h3 class="text-2xl text-tertiary"> <?php the_title(); ?> </h3>
 												</a>
-												<div class="text-typo-secondary my-4"><?php ground_excerpt(100); ?> </div>
+												<div class="text-quaternary my-4"><?php ground_excerpt(100); ?> </div>
 												<a class="text-primary inline-block underline" href="<?php the_permalink(); ?>"><?php _e('Discover', 'ground'); ?></a>
 											</div>
 

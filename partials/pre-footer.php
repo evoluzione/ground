@@ -10,7 +10,7 @@
 			<?php get_template_part('partials/payments-method'); ?>
 
 			<?php if (GROUND_PAYMENTS_CONTENT) : ?>
-				<div class="text-typo-secondary">
+				<div class="text-quaternary">
 					<?php echo esc_html(GROUND_PAYMENTS_CONTENT); ?>
 				</div>
 			<?php endif; ?>
@@ -25,7 +25,7 @@
 				<div class="text-xl mb-3">
 					<?php echo esc_html(GROUND_SHIPPING_TITLE); ?>
 				</div>
-				<div class="text-typo-secondary">
+				<div class="text-quaternary">
 					<?php echo esc_html(GROUND_SHIPPING_CONTENT); ?>
 				</div>
 			</div>

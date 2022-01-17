@@ -1,7 +1,7 @@
 /* wp-block-paragraph */
 @layer components {
 	.wp-block-paragraph {
-		@apply my-3 text-typo-secondary;
+		@apply my-3 text-quaternary;
 
 		a {
 			@apply text-primary underline hover:no-underline;

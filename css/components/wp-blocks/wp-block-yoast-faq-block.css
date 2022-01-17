@@ -10,7 +10,7 @@
 		}
 
 		.schema-faq-answer {
-			@apply text-base text-typo-secondary opacity-0 h-0 overflow-hidden;
+			@apply text-base text-quaternary opacity-0 h-0 overflow-hidden;
 		}
 
 		&.is-open {

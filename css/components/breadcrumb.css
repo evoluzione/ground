@@ -5,7 +5,7 @@
 		.container-full & {
 			@apply px-6;
 		}
-		
+
 		@screen md {
 			&:after {
 				@apply hidden;
@@ -23,7 +23,7 @@
 
 		&:after {
 			content: "▸";
-			@apply text-typo-secondary px-3;
+			@apply text-quaternary px-3;
 		}
 
 		&:last-child {
@@ -40,7 +40,7 @@
 	}
 
 	.breadcrumb__link {
-		@apply text-typo-secondary no-underline;
+		@apply text-quaternary no-underline;
 
 		&:hover {
 			@apply underline text-primary;

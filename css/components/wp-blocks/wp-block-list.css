@@ -1,7 +1,7 @@
 /* wp-block-list */
 @layer components {
 	.wp-block-list {
-		@apply my-6 ml-5 space-y-2 text-typo-secondary;
+		@apply my-6 ml-5 space-y-2 text-quaternary;
 	}
 
 	ul.wp-block-list {
