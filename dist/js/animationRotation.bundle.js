@@ -1,6 +1,124 @@
 "use strict";
 (self["webpackChunkground"] = self["webpackChunkground"] || []).push([["animationRotation"],{
 
+/***/ "./js/animations/animationDefault.js":
+/*!*******************************************!*\
+  !*** ./js/animations/animationDefault.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationDefault; }
+/* harmony export */ });
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/* eslint-disable no-unused-vars */
+// import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+var AnimationDefault = /*#__PURE__*/function () {
+  /**
+   * @param {string} element - Selector
+   * @param {Object} options - User options
+   */
+  function AnimationDefault(element, options) {
+    _classCallCheck(this, AnimationDefault);
+
+    this.element = element;
+    this.defaults = {
+      triggers: this.element
+    };
+    this.DOM = {
+      html: document.documentElement,
+      body: document.body
+    };
+    this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_0___default()(this.defaults, options) : this.defaults; // this.updateEvents = this.updateEvents.bind(this);
+    //  window.addEventListener('LOADER_COMPLETE', () => {
+
+    this.init();
+    this.initEvents(this.options.triggers); // initObserver(this.options.triggers, this.updateEvents);
+    //  });
+  }
+  /**
+   * Init
+   */
+
+
+  _createClass(AnimationDefault, [{
+    key: "init",
+    value: function init() {
+      this.DOM.element = this.element;
+    }
+    /**
+     * Initialize events
+     * @param {string} triggers - Selectors
+     */
+
+  }, {
+    key: "initEvents",
+    value: function initEvents(triggers) {
+      this.fireAnimation(triggers); // gsap.utils.toArray(triggers).forEach((element) => {
+      // 	if (element.dataset.scroll === 'js-split-text') {
+      // 	}  else {
+      // 		this.animationDefault(target);
+      // 	}
+      // });
+    }
+    /**
+     * Update events
+     * @param {Object} target - New selector
+     */
+
+  }, {
+    key: "updateEvents",
+    value: function updateEvents(target) {
+      var _this = this;
+
+      this.init();
+      setTimeout(function () {
+        _this.fireAnimation(target);
+      }, 1000);
+    }
+    /**
+     * Fire the animation
+     * @param {node} item 
+     */
+
+  }, {
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
+      var targetClass = item.dataset.scroll;
+      gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+        trigger: item,
+        start: 'top 100%',
+        toggleClass: targetClass,
+        toggleActions: 'play none none none' // markers: true,
+        // once: true,
+
+      });
+    }
+  }]);
+
+  return AnimationDefault;
+}();
+
+
+
+/***/ }),
+
 /***/ "./js/animations/animationRotation.js":
 /*!********************************************!*\
   !*** ./js/animations/animationRotation.js ***!
@@ -11,100 +129,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ AnimationRotation; }
 /* harmony export */ });
-/* harmony import */ var _utilities_observer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/observer */ "./js/utilities/observer.js");
-/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
-/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/SplitText.js");
-/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/DrawSVGPlugin.js");
-/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/MorphSVGPlugin.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _animationDefault__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animationDefault */ "./js/animations/animationDefault.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 /* eslint-disable no-unused-vars */
- // import { getTemplateUrl } from '../utilities/paths';
 
 
 
+var AnimationRotation = /*#__PURE__*/function (_AnimationDefault) {
+  _inherits(AnimationRotation, _AnimationDefault);
 
-gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger, gsap_all__WEBPACK_IMPORTED_MODULE_4__.SplitText, gsap_all__WEBPACK_IMPORTED_MODULE_5__.DrawSVGPlugin, gsap_all__WEBPACK_IMPORTED_MODULE_6__.MorphSVGPlugin);
+  var _super = _createSuper(AnimationRotation);
 
-var AnimationRotation = /*#__PURE__*/function () {
   /**
    * @param {string} element - Selector
    * @param {Object} options - User options
    */
   function AnimationRotation(element, options) {
+    var _this;
+
     _classCallCheck(this, AnimationRotation);
 
-    this.element = element || '[data-scroll="js-rotation"]';
-    this.defaults = {
-      triggers: this.element
-    };
-    this.DOM = {
-      html: document.documentElement,
-      body: document.body
-    };
-    this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_1___default()(this.defaults, options) : this.defaults;
-    this.updateEvents = this.updateEvents.bind(this); // window.addEventListener('LOADER_COMPLETE', () => {
-
-    this.init();
-    this.initEvents(this.options.triggers);
-    (0,_utilities_observer__WEBPACK_IMPORTED_MODULE_0__.initObserver)(this.options.triggers, this.updateEvents); // });
+    _this = _super.call(this, element, options);
+    _this.element = element || '[data-scroll="js-rotation"]';
+    return _this;
   }
   /**
-   * Init
+   * rotation Animation
    */
 
 
   _createClass(AnimationRotation, [{
-    key: "init",
-    value: function init() {
-      this.DOM.element = document.querySelectorAll(this.element);
-    }
-    /**
-     * Initialize events
-     * @param {string} triggers - Selectors
-     */
-
-  }, {
-    key: "initEvents",
-    value: function initEvents(triggers) {
-      var _this = this;
-
-      gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.utils.toArray(triggers).forEach(function (element) {
-        _this.animationRotation(element);
-      });
-    }
-    /**
-     * Update events
-     * @param {Object} target - New selector
-     */
-
-  }, {
-    key: "updateEvents",
-    value: function updateEvents(target) {
-      var _this2 = this;
-
-      this.init(); // console.log(target.dataset.scroll);
-
-      setTimeout(function () {
-        _this2.animationRotation(element);
-      }, 1000);
-    }
-    /**
-     * rotation Animation
-     */
-
-  }, {
-    key: "animationRotation",
-    value: function animationRotation(item) {
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
       var targetScrub = parseInt(item.dataset.scrollScrub, 10);
-      var tl = gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.timeline({
+      var tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
         scrollTrigger: {
           trigger: item,
           start: 'top 90%',
@@ -121,127 +201,9 @@ var AnimationRotation = /*#__PURE__*/function () {
   }]);
 
   return AnimationRotation;
-}();
+}(_animationDefault__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
-
-/***/ }),
-
-/***/ "./js/utilities/observer.js":
-/*!**********************************!*\
-  !*** ./js/utilities/observer.js ***!
-  \**********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "initObserver": function() { return /* binding */ initObserver; }
-/* harmony export */ });
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-/**
- * Observe DOM Node Changes
- * @param {string} triggers - Selectors
- * @param {requestCallback} cb - The callback that handles the response.
- *
- * @see https://stackoverflow.com/questions/56608748/how-to-use-queryselectorall-on-the-added-nodes-in-a-mutationobserver
- */
-function initObserver(triggers, callback) {
-  var filterSelector = function filterSelector(selector, mutationsList) {
-    // We can't create a NodeList; let's use a Set
-    var result = new Set(); // Loop through the mutationsList...
-
-    var _iterator = _createForOfIteratorHelper(mutationsList),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var addedNodes = _step.value.addedNodes;
-
-        var _iterator2 = _createForOfIteratorHelper(addedNodes),
-            _step2;
-
-        try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var node = _step2.value;
-
-            // console.log(node);
-            // If it's an element...
-            if (node.nodeType === 1) {
-              // Add it if it's a match
-              if (node.matches(selector)) {
-                result.add(node);
-              } // Add any children
-
-
-              var _iterator3 = _createForOfIteratorHelper(node.querySelectorAll(selector)),
-                  _step3;
-
-              try {
-                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                  var entry = _step3.value;
-                  result.add(entry);
-                }
-              } catch (err) {
-                _iterator3.e(err);
-              } finally {
-                _iterator3.f();
-              }
-            }
-          }
-        } catch (err) {
-          _iterator2.e(err);
-        } finally {
-          _iterator2.f();
-        }
-      }
-      /* mutationsList.map((e) => e.addedNodes).forEach((n) => {
-      		if (n.nodeType === 1) {
-      			if (n.matches(selector)) {
-      				result.add(n);
-      			}
-      			// Add any children
-      			n.querySelectorAll(selector).forEach((c) => result.add(c));
-      		}
-      	}); */
-
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-
-    return _toConsumableArray(result); // Result is an array, or just return the set
-  };
-
-  var observerCallback = function observerCallback(mutationsList) {
-    var result = filterSelector(triggers, mutationsList);
-    result.forEach(function (element) {
-      callback(element);
-    });
-  };
-
-  var config = {
-    childList: true,
-    attributes: false,
-    characterData: false,
-    subtree: true
-  };
-  var observer = new MutationObserver(observerCallback);
-  observer.observe(document.documentElement, config); //observer.disconnect();
-}
 
 /***/ })
 

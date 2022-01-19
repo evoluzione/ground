@@ -44,23 +44,12 @@ window.addEventListener('DOMContentLoaded', () => {
 			.catch((error) => console.log(error));
 	}
 
-	// TODO: scomporre nelle single animazioni
-	// Animations
-	// if (elementExist('[data-scroll]')) {
-	// 	import(/* webpackChunkName: "animationAll" */'./animations/animationAll')
-	// 		.then((module) => {
-	// 			const AnimationsAll = module.default;
-	// 			new AnimationsAll();
-	// 		})
-	// 		.catch((error) => console.log(error));
-	// }
-
 	// Animations
 	if (elementExist('[data-scroll]')) {
-		import(/* webpackChunkName: "animationAll" */'./animations/animationAllCopy')
+		import(/* webpackChunkName: "handleAnimation" */'./animations/handleAnimation')
 			.then((module) => {
-				const AnimationsAll = module.default;
-				new AnimationsAll();
+				const HandleAnimation = module.default;
+				new HandleAnimation();
 			})
 			.catch((error) => console.log(error));
 	}
@@ -74,26 +63,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			})
 			.catch((error) => console.log(error));
 	}
-
-	// // animationSplitText
-	// if (elementExist('[data-scroll="js-split-text"]')) {
-	// 	import(/* webpackChunkName: "animationSplitText" */'./animations/animationSplitText')
-	// 		.then((module) => {
-	// 			const AnimationSplitText = module.default;
-	// 			new AnimationSplitText();
-	// 		})
-	// 		.catch((error) => console.log(error));
-	// }
-
-	// // animationRotation
-	// if (elementExist('[data-scroll="js-rotation"]')) {
-	// 	import(/* webpackChunkName: "animationRotation" */'./animations/animationRotation')
-	// 		.then((module) => {
-	// 			const AnimationRotation = module.default;
-	// 			new AnimationRotation();
-	// 		})
-	// 		.catch((error) => console.log(error));
-	// }
 
 	// // animationBatch
 	// if (elementExist('[data-scroll="js-batch"]')) {
