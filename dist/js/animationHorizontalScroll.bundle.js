@@ -46,20 +46,7 @@ var AnimationHorizontalScroll = /*#__PURE__*/function () {
       body: document.body
     };
     this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_0___default()(this.defaults, options) : this.defaults;
-    this.updateEvents = this.updateEvents.bind(this);
-    window.addEventListener('DOMContentLoaded', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollStart', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollEnd', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refreshInit', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refresh', function () {});
-    window.addEventListener('NAVIGATE_OUT', function () {// ScrollTrigger.update();
-      // ScrollTrigger.refresh();
-    });
-    window.addEventListener('resize', function () {// ScrollTrigger.update();
-      // ScrollTrigger.refresh();
-    });
-    window.addEventListener('NAVIGATE_IN', function () {});
-    window.addEventListener('NAVIGATE_END', function () {}); // window.addEventListener('LOADER_COMPLETE', () => {
+    this.updateEvents = this.updateEvents.bind(this); // window.addEventListener('LOADER_COMPLETE', () => {
 
     this.init();
     this.initEvents(this.options.triggers);
@@ -85,7 +72,6 @@ var AnimationHorizontalScroll = /*#__PURE__*/function () {
     value: function initEvents(triggers) {
       var _this = this;
 
-      // TODO: js pin non funziona
       gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.utils.toArray(triggers).forEach(function (element) {
         _this.animationHorizontalScroll(element);
       });
@@ -102,7 +88,7 @@ var AnimationHorizontalScroll = /*#__PURE__*/function () {
 
       this.init();
       setTimeout(function () {
-        _this2.animationHorizontalScroll(element);
+        _this2.animationHorizontalScroll(target);
       }, 1000);
     }
     /**
@@ -145,8 +131,6 @@ var AnimationHorizontalScroll = /*#__PURE__*/function () {
             return '+=' + targetContainer.offsetWidth;
           },
           pin: true,
-          pinReparent: true,
-          anticipatePin: 1,
           scrub: targetScrub || false
         }
       });

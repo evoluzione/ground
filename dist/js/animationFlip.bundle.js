@@ -36,8 +36,6 @@ var AnimationFlip = /*#__PURE__*/function () {
    * @param {Object} options - User options
    */
   function AnimationFlip(element, options) {
-    var _this = this;
-
     _classCallCheck(this, AnimationFlip);
 
     this.element = element || '[data-flip]';
@@ -49,25 +47,11 @@ var AnimationFlip = /*#__PURE__*/function () {
       body: document.body
     };
     this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_1___default()(this.defaults, options) : this.defaults;
-    this.updateEvents = this.updateEvents.bind(this);
-    window.addEventListener('DOMContentLoaded', function () {});
-    window.addEventListener('NAVIGATE_OUT', function () {});
-    window.addEventListener('NAVIGATE_IN', function () {});
-    window.addEventListener('NAVIGATE_END', function () {});
+    this.updateEvents = this.updateEvents.bind(this); // window.addEventListener('LOADER_COMPLETE', () => {
 
-    if (document.readyState !== "loading") {
-      this.init();
-      this.initEvents(this.options.triggers);
-      (0,_utilities_observer__WEBPACK_IMPORTED_MODULE_0__.initObserver)(this.options.triggers, this.updateEvents);
-    } else {
-      window.addEventListener('LOADER_COMPLETE', function () {
-        _this.init();
-
-        _this.initEvents(_this.options.triggers);
-
-        (0,_utilities_observer__WEBPACK_IMPORTED_MODULE_0__.initObserver)(_this.options.triggers, _this.updateEvents);
-      });
-    }
+    this.init();
+    this.initEvents(this.options.triggers);
+    (0,_utilities_observer__WEBPACK_IMPORTED_MODULE_0__.initObserver)(this.options.triggers, this.updateEvents); // });
   }
   /**
    * Init
@@ -87,10 +71,10 @@ var AnimationFlip = /*#__PURE__*/function () {
   }, {
     key: "initEvents",
     value: function initEvents(triggers) {
-      var _this2 = this;
+      var _this = this;
 
       gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.utils.toArray(triggers).forEach(function (element) {
-        _this2.defaultAnimation(element);
+        _this.defaultAnimation(element);
       });
     }
     /**

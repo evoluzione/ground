@@ -46,20 +46,7 @@ var AnimationPin = /*#__PURE__*/function () {
       body: document.body
     };
     this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_1___default()(this.defaults, options) : this.defaults;
-    this.updateEvents = this.updateEvents.bind(this);
-    window.addEventListener('DOMContentLoaded', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollStart', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('scrollEnd', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refreshInit', function () {});
-    gsap_all__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger.addEventListener('refresh', function () {});
-    window.addEventListener('NAVIGATE_OUT', function () {// ScrollTrigger.update();
-      // ScrollTrigger.refresh();
-    });
-    window.addEventListener('resize', function () {// ScrollTrigger.update();
-      // ScrollTrigger.refresh();
-    });
-    window.addEventListener('NAVIGATE_IN', function () {});
-    window.addEventListener('NAVIGATE_END', function () {}); // window.addEventListener('LOADER_COMPLETE', () => {
+    this.updateEvents = this.updateEvents.bind(this); // window.addEventListener('LOADER_COMPLETE', () => {
 
     this.init();
     this.initEvents(this.options.triggers);
@@ -99,8 +86,7 @@ var AnimationPin = /*#__PURE__*/function () {
     value: function updateEvents(target) {
       var _this2 = this;
 
-      this.init(); // console.log(target.dataset.scroll);
-
+      this.init();
       setTimeout(function () {
         _this2.animationPin(element);
       }, 1000);
@@ -122,9 +108,7 @@ var AnimationPin = /*#__PURE__*/function () {
           // end: '+=200%',
           // toggleClass: 'active',
           scrub: targetScrub || false,
-          pin: true,
-          pinReparent: true,
-          anticipatePin: 1
+          pin: true
         }
       });
       tl.from(targetElement, {

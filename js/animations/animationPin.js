@@ -23,30 +23,6 @@ export default class AnimationPin {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {});
-
-		ScrollTrigger.addEventListener('scrollStart', () => {});
-
-		ScrollTrigger.addEventListener('scrollEnd', () => {});
-
-		ScrollTrigger.addEventListener('refreshInit', () => {});
-
-		ScrollTrigger.addEventListener('refresh', () => {});
-
-		window.addEventListener('NAVIGATE_OUT', () => {
-			// ScrollTrigger.update();
-			// ScrollTrigger.refresh();
-		});
-
-		window.addEventListener('resize', () => {
-			// ScrollTrigger.update();
-			// ScrollTrigger.refresh();
-		});
-
-		window.addEventListener('NAVIGATE_IN', () => {});
-
-		window.addEventListener('NAVIGATE_END', () => {});
-
 		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
@@ -77,8 +53,6 @@ export default class AnimationPin {
 	 */
 	updateEvents(target) {
 		this.init();
-		// console.log(target.dataset.scroll);
-
 		setTimeout(() => {
 			this.animationPin(element);
 		}, 1000);
@@ -99,9 +73,7 @@ export default class AnimationPin {
 				// end: '+=200%',
 				// toggleClass: 'active',
 				scrub: targetScrub || false,
-				pin: true,
-				pinReparent: true,
-				anticipatePin: 1
+				pin: true
 			}
 		});
 

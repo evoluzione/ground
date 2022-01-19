@@ -55,6 +55,16 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 		.catch((error) => console.log(error));
 	// }
 
+	// Animations
+	if (elementExist('[data-scroll]')) {
+		import(/* webpackChunkName: "animationAll" */'./animations/animationAllCopy')
+			.then((module) => {
+				const AnimationsAll = module.default;
+				new AnimationsAll();
+			})
+			.catch((error) => console.log(error));
+	}
+
 	// AnimationFlip
 	if (elementExist('[data-flip]')) {
 		import(/* webpackChunkName: "animationFlip" */'./animations/animationFlip')
@@ -65,145 +75,145 @@ window.addEventListener('DOMContentLoaded', () => {
 			.catch((error) => console.log(error));
 	}
 
-	// animationSplitText
-	if (elementExist('[data-scroll="js-split-text"]')) {
-		import(/* webpackChunkName: "animationSplitText" */'./animations/animationSplitText')
-			.then((module) => {
-				const AnimationSplitText = module.default;
-				new AnimationSplitText();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationSplitText
+	// if (elementExist('[data-scroll="js-split-text"]')) {
+	// 	import(/* webpackChunkName: "animationSplitText" */'./animations/animationSplitText')
+	// 		.then((module) => {
+	// 			const AnimationSplitText = module.default;
+	// 			new AnimationSplitText();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationRotation
-	if (elementExist('[data-scroll="js-rotation"]')) {
-		import(/* webpackChunkName: "animationRotation" */'./animations/animationRotation')
-			.then((module) => {
-				const AnimationRotation = module.default;
-				new AnimationRotation();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationRotation
+	// if (elementExist('[data-scroll="js-rotation"]')) {
+	// 	import(/* webpackChunkName: "animationRotation" */'./animations/animationRotation')
+	// 		.then((module) => {
+	// 			const AnimationRotation = module.default;
+	// 			new AnimationRotation();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationBatch
-	if (elementExist('[data-scroll="js-batch"]')) {
-		import(/* webpackChunkName: "animationBatch" */'./animations/animationBatch')
-			.then((module) => {
-				const AnimationBatch = module.default;
-				new AnimationBatch();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationBatch
+	// if (elementExist('[data-scroll="js-batch"]')) {
+	// 	import(/* webpackChunkName: "animationBatch" */'./animations/animationBatch')
+	// 		.then((module) => {
+	// 			const AnimationBatch = module.default;
+	// 			new AnimationBatch();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationScale
-	if (elementExist('[data-scroll="js-scale"]')) {
-		import(/* webpackChunkName: "animationScale" */'./animations/animationScale')
-			.then((module) => {
-				const AnimationScale = module.default;
-				new AnimationScale();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationScale
+	// if (elementExist('[data-scroll="js-scale"]')) {
+	// 	import(/* webpackChunkName: "animationScale" */'./animations/animationScale')
+	// 		.then((module) => {
+	// 			const AnimationScale = module.default;
+	// 			new AnimationScale();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationDraw
-	if (elementExist('[data-scroll="js-draw"]')) {
-		import(/* webpackChunkName: "animationDraw" */'./animations/animationDraw')
-			.then((module) => {
-				const AnimationDraw = module.default;
-				new AnimationDraw();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationDraw
+	// if (elementExist('[data-scroll="js-draw"]')) {
+	// 	import(/* webpackChunkName: "animationDraw" */'./animations/animationDraw')
+	// 		.then((module) => {
+	// 			const AnimationDraw = module.default;
+	// 			new AnimationDraw();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationBgColor
-	if (elementExist('[data-scroll="js-bg-color"]')) {
-		import(/* webpackChunkName: "animationBgColor" */'./animations/animationBgColor')
-			.then((module) => {
-				const AnimationBgColor = module.default;
-				new AnimationBgColor();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationBgColor
+	// if (elementExist('[data-scroll="js-bg-color"]')) {
+	// 	import(/* webpackChunkName: "animationBgColor" */'./animations/animationBgColor')
+	// 		.then((module) => {
+	// 			const AnimationBgColor = module.default;
+	// 			new AnimationBgColor();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationPin
-	if (elementExist('[data-scroll="js-pin"]')) {
-		import(/* webpackChunkName: "animationPin" */'./animations/animationPin')
-			.then((module) => {
-				const AnimationPin = module.default;
-				new AnimationPin();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationPin
+	// if (elementExist('[data-scroll="js-pin"]')) {
+	// 	import(/* webpackChunkName: "animationPin" */'./animations/animationPin')
+	// 		.then((module) => {
+	// 			const AnimationPin = module.default;
+	// 			new AnimationPin();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationSpriteImages
-	if (elementExist('[data-scroll="js-sprite-images"]')) {
-		import(/* webpackChunkName: "animationSpriteImages" */'./animations/animationSpriteImages')
-			.then((module) => {
-				const AnimationSpriteImages = module.default;
-				new AnimationSpriteImages();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationSpriteImages
+	// if (elementExist('[data-scroll="js-sprite-images"]')) {
+	// 	import(/* webpackChunkName: "animationSpriteImages" */'./animations/animationSpriteImages')
+	// 		.then((module) => {
+	// 			const AnimationSpriteImages = module.default;
+	// 			new AnimationSpriteImages();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 	
-	// animationHorizontalScroll
-	if (elementExist('[data-scroll="js-horizontal-scroll"]')) {
-		import(/* webpackChunkName: "animationHorizontalScroll" */'./animations/animationHorizontalScroll')
-			.then((module) => {
-				const AnimationHorizontalScroll = module.default;
-				new AnimationHorizontalScroll();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationHorizontalScroll
+	// if (elementExist('[data-scroll="js-horizontal-scroll"]')) {
+	// 	import(/* webpackChunkName: "animationHorizontalScroll" */'./animations/animationHorizontalScroll')
+	// 		.then((module) => {
+	// 			const AnimationHorizontalScroll = module.default;
+	// 			new AnimationHorizontalScroll();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationHorizontalScrollContainer
-	if (elementExist('[data-scroll="js-horizontal-scroll-container"]')) {
-		import(/* webpackChunkName: "animationHorizontalScrollContainer" */'./animations/animationHorizontalScrollContainer')
-			.then((module) => {
-				const AnimationHorizontalScrollContainer = module.default;
-				new AnimationHorizontalScrollContainer();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationHorizontalScrollContainer
+	// if (elementExist('[data-scroll="js-horizontal-scroll-container"]')) {
+	// 	import(/* webpackChunkName: "animationHorizontalScrollContainer" */'./animations/animationHorizontalScrollContainer')
+	// 		.then((module) => {
+	// 			const AnimationHorizontalScrollContainer = module.default;
+	// 			new AnimationHorizontalScrollContainer();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationHorizontalScrollSection
-	if (elementExist('[data-scroll="js-horizontal-scroll-section"]')) {
-		import(/* webpackChunkName: "animationHorizontalScrollSection" */'./animations/animationHorizontalScrollSection')
-			.then((module) => {
-				const AnimationHorizontalScrollSection = module.default;
-				new AnimationHorizontalScrollSection();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationHorizontalScrollSection
+	// if (elementExist('[data-scroll="js-horizontal-scroll-section"]')) {
+	// 	import(/* webpackChunkName: "animationHorizontalScrollSection" */'./animations/animationHorizontalScrollSection')
+	// 		.then((module) => {
+	// 			const AnimationHorizontalScrollSection = module.default;
+	// 			new AnimationHorizontalScrollSection();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationComparison
-	if (elementExist('[data-scroll="js-comparison"]')) {
-		import(/* webpackChunkName: "animationComparison" */'./animations/animationComparison')
-			.then((module) => {
-				const AnimationComparison = module.default;
-				new AnimationComparison();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationComparison
+	// if (elementExist('[data-scroll="js-comparison"]')) {
+	// 	import(/* webpackChunkName: "animationComparison" */'./animations/animationComparison')
+	// 		.then((module) => {
+	// 			const AnimationComparison = module.default;
+	// 			new AnimationComparison();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationParallax
-	if (elementExist('[data-scroll="js-parallax"]')) {
-		import(/* webpackChunkName: "animationParallax" */'./animations/animationParallax')
-			.then((module) => {
-				const AnimationParallax = module.default;
-				new AnimationParallax();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationParallax
+	// if (elementExist('[data-scroll="js-parallax"]')) {
+	// 	import(/* webpackChunkName: "animationParallax" */'./animations/animationParallax')
+	// 		.then((module) => {
+	// 			const AnimationParallax = module.default;
+	// 			new AnimationParallax();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
-	// animationVideo
-	if (elementExist('[data-scroll="js-video"]')) {
-		import(/* webpackChunkName: "animationVideo" */'./animations/animationVideo')
-			.then((module) => {
-				const AnimationVideo = module.default;
-				new AnimationVideo();
-			})
-			.catch((error) => console.log(error));
-	}
+	// // animationVideo
+	// if (elementExist('[data-scroll="js-video"]')) {
+	// 	import(/* webpackChunkName: "animationVideo" */'./animations/animationVideo')
+	// 		.then((module) => {
+	// 			const AnimationVideo = module.default;
+	// 			new AnimationVideo();
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
 	
 

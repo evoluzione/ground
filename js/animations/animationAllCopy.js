@@ -62,6 +62,44 @@ export default class AnimationsAll {
 		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
+
+	getAnimation(element){
+
+		console.log('getAnimation');
+
+		if (element.dataset.scroll === 'js-split-text') {
+			this.animationSplitText(element);
+		} else if (element.dataset.scroll === 'js-rotation') {
+			this.animationRotation(element);
+		} else if (element.dataset.scroll === 'js-batch') {
+			this.animationBatch(element);
+		} else if (element.dataset.scroll === 'js-scale') {
+			this.animationScale(element);
+		} else if (element.dataset.scroll === 'js-draw') {
+			this.animationDraw(element);
+		} else if (element.dataset.scroll === 'js-bg-color') {
+			this.animationChangeBgColor(element);
+		} else if (element.dataset.scroll === 'js-pin') {
+			this.animationPin(element);
+		} else if (element.dataset.scroll === 'js-sprite-images') {
+			this.animationSpriteImages(element);
+		} else if (element.dataset.scroll === 'js-horizontal-scroll') {
+			this.animationHorizontalScroll(element);
+		} else if (element.dataset.scroll === 'js-horizontal-scroll-container') {
+			this.animationHorizontalScrollContainer(element);
+		} else if (element.dataset.scroll === 'js-horizontal-scroll-section') {
+			this.animationHorizontalScrollSection(element);
+		} else if (element.dataset.scroll === 'js-comparison') {
+			this.animationComparison(element);
+		} else if (element.dataset.scroll === 'js-parallax') {
+			this.animationParallax(element);
+		} else if (element.dataset.scroll === 'js-video') {
+			this.animationVideo(element);
+		} else {
+			this.animationDefault(element);
+		}
+	}
+
 	/**
 	 * Initialize events
 	 * @param {string} triggers - Selectors
@@ -73,38 +111,9 @@ export default class AnimationsAll {
 		// })
 
 		gsap.utils.toArray(triggers).forEach((element) => {
-			if (element.dataset.scroll === 'js-split-text') {
-				this.animationSplitText(element);
-			} else if (element.dataset.scroll === 'js-rotation') {
-				this.animationRotation(element);
-			} else if (element.dataset.scroll === 'js-batch') {
-				this.animationBatch(element);
-			} else if (element.dataset.scroll === 'js-scale') {
-				this.animationScale(element);
-			} else if (element.dataset.scroll === 'js-draw') {
-				this.animationDraw(element);
-			} else if (element.dataset.scroll === 'js-bg-color') {
-				this.animationChangeBgColor(element);
-			} else if (element.dataset.scroll === 'js-pin') {
-				this.animationPin(element);
-			} else if (element.dataset.scroll === 'js-sprite-images') {
-				this.animationSpriteImages(element);
-			} else if (element.dataset.scroll === 'js-horizontal-scroll') {
-				this.animationHorizontalScroll(element);
-			} else if (element.dataset.scroll === 'js-horizontal-scroll-container') {
-				this.animationHorizontalScrollContainer(element);
-			} else if (element.dataset.scroll === 'js-horizontal-scroll-section') {
-				this.animationHorizontalScrollSection(element);
-			} else if (element.dataset.scroll === 'js-comparison') {
-				this.animationComparison(element);
-			} else if (element.dataset.scroll === 'js-parallax') {
-				this.animationParallax(element);
-			} else if (element.dataset.scroll === 'js-video') {
-				this.animationVideo(element);
-			} else {
-				this.animationDefault(element);
-			}
+			this.getAnimation(element);
 		});
+
 	}
 
 	/**
@@ -116,37 +125,9 @@ export default class AnimationsAll {
 		// console.log(target.dataset.scroll);
 
 		setTimeout(() => {
-			if (target.dataset.scroll === 'js-split-text') {
-				this.animationSplitText(target);
-			} else if (target.dataset.scroll === 'js-rotation') {
-				this.animationRotation(target);
-			} else if (target.dataset.scroll === 'js-batch') {
-				this.animationBatch(target);
-			} else if (target.dataset.scroll === 'js-scale') {
-				this.animationScale(target);
-			} else if (target.dataset.scroll === 'js-draw') {
-				this.animationDraw(target);
-			} else if (target.dataset.scroll === 'js-bg-color') {
-				this.animationChangeBgColor(target);
-			} else if (target.dataset.scroll === 'js-pin') {
-				this.animationPin(target);
-			} else if (target.dataset.scroll === 'js-sprite-images') {
-				this.animationSpriteImages(target);
-			} else if (target.dataset.scroll === 'js-horizontal-scroll') {
-				this.animationHorizontalScroll(target);
-			} else if (target.dataset.scroll === 'js-horizontal-scroll-container') {
-				this.animationHorizontalScrollContainer(target);
-			} else if (target.dataset.scroll === 'js-horizontal-scroll-section') {
-				this.animationHorizontalScrollSection(target);
-			} else if (target.dataset.scroll === 'js-comparison') {
-				this.animationComparison(target);
-			} else if (target.dataset.scroll === 'js-parallax') {
-				this.animationParallax(target);
-			} else if (target.dataset.scroll === 'js-video') {
-				this.animationVideo(target);
-			} else {
-				this.animationDefault(target);
-			}
+
+			this.getAnimation(target);
+
 		}, 1000);
 	}
 
@@ -381,8 +362,6 @@ export default class AnimationsAll {
 				// toggleClass: 'active',
 				scrub: targetScrub || false,
 				pin: true,
-				pinReparent: true,
-				anticipatePin: 1
 			}
 		});
 
@@ -427,8 +406,6 @@ export default class AnimationsAll {
 				end: '+=400%',
 				scrub: 0.5,
 				pin: true,
-				pinReparent: true,
-				anticipatePin: 1
 			}
 		});
 
@@ -468,8 +445,6 @@ export default class AnimationsAll {
 				start: 'center center',
 				end: () => '+=' + targetContainer.offsetWidth,
 				pin: true,
-				pinReparent: true,
-				anticipatePin: 1,
 				scrub: targetScrub || false
 			}
 		});
@@ -482,8 +457,6 @@ export default class AnimationsAll {
 		const target = item.querySelector('[data-scroll-target]');
 		const panel = item.querySelectorAll('[data-scroll-panel]');
 		const targetScrub = item.dataset.scrollScrub;
-
-		console.log(targetScrub);
 
 		let sections = gsap.utils.toArray(panel);
 
@@ -554,7 +527,6 @@ export default class AnimationsAll {
 			scrollTrigger: {
 				trigger: target,
 				pin: true,
-				pinReparent: true,
 				scrub: targetScrub || false,
 				start: 'center center',
 				end: () => `+=${maxWidth}`,
@@ -616,8 +588,6 @@ export default class AnimationsAll {
 				end: () => `+=${target.offsetWidth}`,
 				scrub: targetScrub || false,
 				pin: true,
-				pinReparent: true,
-				anticipatePin: 1
 			},
 			defaults: { ease: 'none' }
 		});

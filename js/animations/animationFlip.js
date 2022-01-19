@@ -23,27 +23,11 @@ export default class AnimationFlip {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {});
-
-		window.addEventListener('NAVIGATE_OUT', () => {});
-
-		window.addEventListener('NAVIGATE_IN', () => {});
-
-		window.addEventListener('NAVIGATE_END', () => {});
-
-
-		if (document.readyState !== "loading"){
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-
-		} else{
-			window.addEventListener('LOADER_COMPLETE', () => {
-				this.init();
-				this.initEvents(this.options.triggers);
-				initObserver(this.options.triggers, this.updateEvents);
-			});
-		}
+		// });
 
 	}
 
