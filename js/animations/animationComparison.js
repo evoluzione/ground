@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import AnimationDefault from './animationDefault';
 import deepmerge from 'deepmerge';
 import { initObserver } from '../utilities/observer';
 import { gsap } from 'gsap';
@@ -6,63 +7,14 @@ import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class AnimationComparison {
-	/**
-	 * @param {string} element - Selector
-	 * @param {Object} options - User options
-	 */
+export default class AnimationComparison extends AnimationDefault {
+
 	constructor(element, options) {
+		super(element, options);
 		this.element = element || '[data-scroll="js-comparison"]';;
-		this.defaults = {
-			triggers: this.element
-		};
-		this.DOM = {
-			html: document.documentElement,
-			body: document.body
-		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.updateEvents = this.updateEvents.bind(this);
-
-		// window.addEventListener('LOADER_COMPLETE', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			initObserver(this.options.triggers, this.updateEvents);
-		// });
 	}
 
-	/**
-	 * Init
-	 */
-	init() {
-		this.DOM.element = document.querySelectorAll(this.element);
-	}
-
-	/**
-	 * Initialize events
-	 * @param {string} triggers - Selectors
-	 */
-	initEvents(triggers) {
-		gsap.utils.toArray(triggers).forEach((element) => {
-			this.animationComparison(element);
-		});
-	}
-
-	/**
-	 * Update events
-	 * @param {Object} target - New selector
-	 */
-	updateEvents(target) {
-		this.init();
-
-		setTimeout(() => {
-			this.animationComparison(target);
-		}, 1000);
-	}
-
-	/**
-	 * comparison Animation
-	 */
-	animationComparison(item) {
+	fireAnimation(item) {
 		const target = item.querySelector('[data-scroll-target]');
 		const targetMedia = item.querySelectorAll('[data-scroll-target-media]');
 		const targetImage = item.querySelectorAll('[data-scroll-target-media] img');

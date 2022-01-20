@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { gsap } from 'gsap';
 import AnimationDefault from './animationDefault';
+import { gsap } from 'gsap';
 export default class AnimationRotation extends AnimationDefault {
 	/**
 	 * @param {string} element - Selector

@@ -24,11 +24,35 @@ export default class AnimationDefault {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		// this.updateEvents = this.updateEvents.bind(this);
 
+		// window.addEventListener('DOMContentLoaded', () => {});
+
+		// ScrollTrigger.addEventListener('scrollStart', () => {});
+
+		// ScrollTrigger.addEventListener('scrollEnd', () => {});
+
+		// ScrollTrigger.addEventListener('refreshInit', () => {});
+
+		// ScrollTrigger.addEventListener('refresh', () => {});
+
+		// window.addEventListener('NAVIGATE_OUT', () => {
+		// 	// ScrollTrigger.update();
+		// 	// ScrollTrigger.refresh();
+		// });
+
+		// window.addEventListener('resize', () => {
+		// 	// ScrollTrigger.update();
+		// 	// ScrollTrigger.refresh();
+		// });
+
+		// window.addEventListener('NAVIGATE_IN', () => {});
+
+		// window.addEventListener('NAVIGATE_END', () => {});
+
 		//  window.addEventListener('LOADER_COMPLETE', () => {
 		this.init();
 		this.initEvents(this.options.triggers);
 		// initObserver(this.options.triggers, this.updateEvents);
-		//  });
+		//  });		
 	}
 
 	/**

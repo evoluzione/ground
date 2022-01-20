@@ -312,14 +312,14 @@ get_template_part('partials/header'); ?>
 		</div>
 
 
-		<!-- <div class="relative my-44" data-scroll="js-pin" data-scroll-scrub="1">
+		<div class="relative my-44" data-scroll="js-pin" data-scroll-scrub="1">
 			<div data-scroll-target>
 				<h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Scale</strong></h2>
 				<div class="bg-white bg-opacity-10 rounded-lg">
 					<div data-scroll-target-animate class="bg-green-300 rounded-lg w-full h-80"></div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<div class="my-44">
 			<h2 class="mt-28 mb-9 text-gray-300">Video <strong class="text-gray-500">Play if Inview</strong></h2>

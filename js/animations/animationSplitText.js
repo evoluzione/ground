@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer';
-// import { getTemplateUrl } from '../utilities/paths';
-import deepmerge from 'deepmerge';
+import AnimationDefault from './animationDefault';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/all';
-import AnimationDefault from './animationDefault';
 
 gsap.registerPlugin(SplitText);
 
 export default class AnimationSplitText extends AnimationDefault {
 	
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
 	constructor(element, options) {
 		super(element, options);
 		this.element = element || '[data-scroll="js-split-text"]';

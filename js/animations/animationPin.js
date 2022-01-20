@@ -1,67 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer';
-import deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import AnimationDefault from './animationDefault';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class AnimationPin {
+export default class AnimationPin extends AnimationDefault {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
+		super(element, options);
 		this.element = element || '[data-scroll="js-pin"]';
-		this.defaults = {
-			triggers: this.element
-		};
-		this.DOM = {
-			html: document.documentElement,
-			body: document.body
-		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.updateEvents = this.updateEvents.bind(this);
-
-		// window.addEventListener('LOADER_COMPLETE', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			initObserver(this.options.triggers, this.updateEvents);
-		// });
 	}
 
-	/**
-	 * Init
-	 */
-	init() {
-		this.DOM.element = document.querySelectorAll(this.element);
-	}
-
-	/**
-	 * Initialize events
-	 * @param {string} triggers - Selectors
-	 */
-	initEvents(triggers) {
-		gsap.utils.toArray(triggers).forEach((element) => {
-			this.animationPin(element);
-		});
-	}
-
-	/**
-	 * Update events
-	 * @param {Object} target - New selector
-	 */
-	updateEvents(target) {
-		this.init();
-		setTimeout(() => {
-			this.animationPin(element);
-		}, 1000);
-	}
-
-	/**
-	 * pin Animation
-	 */
-	animationPin(item) {
+	fireAnimation(item) {
 		const target = item.querySelectorAll('[data-scroll-target]');
 		const targetElement = item.querySelectorAll('[data-scroll-target-animate]');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);

@@ -1,68 +1,19 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer';
-import deepmerge from 'deepmerge';
+import AnimationDefault from './animationDefault';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default class AnimationHorizontalScrollSection {
-	/**
-	 * @param {string} element - Selector
-	 * @param {Object} options - User options
-	 */
+export default class AnimationHorizontalScrollSection extends AnimationDefault {
+	
+
 	constructor(element, options) {
+		super(element, options);
 		this.element = element || '[data-scroll="js-horizontal-scroll-section"]';
-		this.defaults = {
-			triggers: this.element
-		};
-		this.DOM = {
-			html: document.documentElement,
-			body: document.body
-		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.updateEvents = this.updateEvents.bind(this);
-
-		// window.addEventListener('LOADER_COMPLETE', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			initObserver(this.options.triggers, this.updateEvents);
-		// });
 	}
 
-	/**
-	 * Init
-	 */
-	init() {
-		this.DOM.element = document.querySelectorAll(this.element);
-	}
-
-	/**
-	 * Initialize events
-	 * @param {string} triggers - Selectors
-	 */
-	initEvents(triggers) {
-		gsap.utils.toArray(triggers).forEach((element) => {
-			this.animationHorizontalScrollSection(element);
-		});
-	}
-
-	/**
-	 * Update events
-	 * @param {Object} target - New selector
-	 */
-	updateEvents(target) {
-		this.init();
-
-		setTimeout(() => {
-			this.animationHorizontalScrollSection(target);
-		}, 1000);
-	}
-
-	/**
-	 * pin Horizontal Section Animation
-	 */
-	animationHorizontalScrollSection(item) {
+	fireAnimation(item) {
 		const target = item.querySelector('[data-scroll-target]');
 		const section = item.querySelectorAll('[data-scroll-section]');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
