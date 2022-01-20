@@ -1,16 +1,34 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
 import { getTemplateUrl } from '../utilities/paths';
-import * as dat from 'dat.gui';
+import { GUI } from 'dat.gui';
 
 // Gsap
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-
 // Three
-import * as THREE from 'three';
+import { 
+	Scene, 
+	CubeTextureLoader, 
+	Mesh, 
+	MeshStandardMaterial, 
+	sRGBEncoding, 
+	AnimationMixer, 
+	DirectionalLight, 
+	BoxGeometry, 
+	PerspectiveCamera,
+	WebGLRenderer,
+	Clock,
+	NoToneMapping,
+	ACESFilmicToneMapping,
+	PCFSoftShadowMap,
+	LinearToneMapping,
+	ReinhardToneMapping,
+	CineonToneMapping
+} from 'three';
+
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 // Loaders
@@ -27,11 +45,11 @@ export default class AnimationWebGl {
 		};
 		this.options = { triggers: this.element };
 		this.updateEvents = this.updateEvents.bind(this);
-		window.addEventListener('DOMContentLoaded', () => {});
+		window.addEventListener('DOMContentLoaded', () => { });
 		// window.addEventListener('LOADER_COMPLETE', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			initObserver(this.options.triggers, this.updateEvents);
+		this.init();
+		this.initEvents(this.options.triggers);
+		initObserver(this.options.triggers, this.updateEvents);
 		// });
 	}
 
@@ -74,18 +92,18 @@ export default class AnimationWebGl {
 		 * Loaders
 		 */
 		const gltfLoader = new GLTFLoader();
-		const cubeTextureLoader = new THREE.CubeTextureLoader();
+		const cubeTextureLoader = new CubeTextureLoader();
 
 		/**
 		 * Base
 		 */
 		// Debug
-		const gui = new dat.GUI();
+		const gui = new GUI();
 		const debugObject = {};
 		gui.hide();
 
 		// Scene
-		const scene = new THREE.Scene();
+		const scene = new Scene();
 
 		// Sizes
 		const sizes = {
@@ -115,7 +133,7 @@ export default class AnimationWebGl {
 
 		const updateAllMaterials = () => {
 			scene.traverse((child) => {
-				if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+				if (child instanceof Mesh && child.material instanceof MeshStandardMaterial) {
 					// child.material.envMap = environmentMap
 					child.material.envMapIntensity = debugObject.envMapIntensity;
 					child.material.needsUpdate = true;
@@ -141,7 +159,7 @@ export default class AnimationWebGl {
 			templateUrl + '/img/textures/environmentMaps/2/pz.jpg',
 			templateUrl + '/img/textures/environmentMaps/2/nz.jpg'
 		]);
-		environmentMap.encoding = THREE.sRGBEncoding;
+		environmentMap.encoding = sRGBEncoding;
 		// scene.background = environmentMap
 		scene.environment = environmentMap;
 
@@ -155,7 +173,7 @@ export default class AnimationWebGl {
 
 		gltfLoader.load(templateUrl + '/img/models/iphone_12_pro/scene.gltf', (gltf) => {
 			// Animate
-			mixer = new THREE.AnimationMixer(gltf.scene);
+			mixer = new AnimationMixer(gltf.scene);
 			if (gltf.animations[0]) {
 				const action = mixer.clipAction(gltf.animations[0]);
 				action.play();
@@ -178,14 +196,14 @@ export default class AnimationWebGl {
 		/**
 		 * Lights
 		 */
-		const directionalLight = new THREE.DirectionalLight('#ffffff', 3);
+		const directionalLight = new DirectionalLight('#ffffff', 3);
 		directionalLight.position.set(0.25, 3, -2.25);
 		directionalLight.castShadow = true;
 		directionalLight.shadow.camera.far = 15;
 		directionalLight.shadow.mapSize.set(1024, 1024);
 		scene.add(directionalLight);
 
-		// const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+		// const directionalLightCameraHelper = new CameraHelper(directionalLight.shadow.camera)
 		// scene.add(directionalLightCameraHelper)
 
 		gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity');
@@ -197,11 +215,11 @@ export default class AnimationWebGl {
 		 * Objects
 		 */
 		// Material
-		const material = new THREE.MeshStandardMaterial();
+		const material = new MeshStandardMaterial();
 		material.roughness = 0.4;
 		material.wireframe = false;
 
-		const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+		const cube = new Mesh(new BoxGeometry(2, 2, 2), material);
 
 		cube.receiveShadow = true;
 		cube.wireframe = true;
@@ -217,7 +235,7 @@ export default class AnimationWebGl {
 		 * Camera
 		 */
 		// Base camera
-		const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+		const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 		camera.position.set(4, 1, -4);
 		scene.add(camera);
 
@@ -232,7 +250,7 @@ export default class AnimationWebGl {
 		/**
 		 * Renderer
 		 */
-		const renderer = new THREE.WebGLRenderer({
+		const renderer = new WebGLRenderer({
 			canvas: canvas,
 			// alpha: true,
 			antialias: true
@@ -240,18 +258,18 @@ export default class AnimationWebGl {
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 		renderer.physicallyCorrectLights = true;
-		renderer.outputEncoding = THREE.sRGBEncoding;
-		renderer.toneMapping = THREE.ACESFilmicToneMapping;
+		renderer.outputEncoding = sRGBEncoding;
+		renderer.toneMapping = ACESFilmicToneMapping;
 		renderer.toneMappingExposure = 3;
 		renderer.shadowMap.enabled = true;
-		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		renderer.shadowMap.type = PCFSoftShadowMap;
 
 		gui.add(renderer, 'toneMapping', {
-			No: THREE.NoToneMapping,
-			Linear: THREE.LinearToneMapping,
-			Reinhard: THREE.ReinhardToneMapping,
-			Cineon: THREE.CineonToneMapping,
-			ACESFilmic: THREE.ACESFilmicToneMapping
+			No: NoToneMapping,
+			Linear: LinearToneMapping,
+			Reinhard: ReinhardToneMapping,
+			Cineon: CineonToneMapping,
+			ACESFilmic: ACESFilmicToneMapping
 		}).onFinishChange(() => {
 			renderer.toneMapping = Number(renderer.toneMapping);
 			updateAllMaterials();
@@ -262,7 +280,7 @@ export default class AnimationWebGl {
 		/**
 		 * Animate
 		 */
-		const clock = new THREE.Clock();
+		const clock = new Clock();
 		let previousTime = 0;
 
 		const tick = () => {
