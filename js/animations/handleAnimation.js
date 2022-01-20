@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 
 export default class HandleAnimation {
 
+	// List all the Classes we can add dynamically
 	AnimationSplitText;
 	AnimationRotation;
 	AnimationPin;
@@ -20,7 +21,14 @@ export default class HandleAnimation {
 	AnimationParallax;
 	AnimationVideo;
 
+	/**
+	 * @type {string[]}
+	 */
 	animationToActivate = [];
+	
+	/**
+	 * @type {promise[]}
+	 */
 	promiseList = [];
 	hasCssAnimation = false;
 
@@ -29,13 +37,20 @@ export default class HandleAnimation {
 		initObserver('[data-scroll]', this.updateEvents);
 	}
 
+	/**
+	 * Init events to run animations
+	 * @param {*} triggers 
+	 */
 	initEvents(triggers) {
 		this.getAnimationToActivate(triggers);
 		this.populatePromiseList();
 		this.resolveAllPromise(triggers);
 	}
 
-	// get all animations we need
+	/**
+	 * Get all animations we need in array 
+	 * @param {*} triggers 
+	 */
 	getAnimationToActivate(triggers) {
 
 		gsap.utils.toArray(triggers).forEach((element) => {
@@ -56,7 +71,9 @@ export default class HandleAnimation {
 
 	}
 
-	// Create an array of promises to import partials
+	/**
+	 * Create an array of promises to import partials
+	 */
 	populatePromiseList() {
 
 		if (this.animationToActivate.includes('js-split-text')) {
@@ -122,7 +139,7 @@ export default class HandleAnimation {
 					return module.default.name;
 				})
 				.catch((error) => console.log(error));
-	
+
 			this.promiseList.push(promise)
 		}
 
@@ -189,7 +206,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-				this.promiseList.push(promise);
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-parallax')) {
@@ -227,22 +244,33 @@ export default class HandleAnimation {
 
 	}
 
+	/**
+	 * Resolve all promises and then fire animation instances
+	 * @param {*} triggers 
+	 */
 	resolveAllPromise(triggers) {
 		// Once all promises are resolved
 		Promise.all(this.promiseList).then(res => {
 			// console.log(res);
-			this.activateAnimations(triggers)
+			this.fireAnimations(triggers)
 		});
-
 	}
 
-	activateAnimations(triggers) {
+	/**
+	 * Loop the nodes to activate correct animation
+	 * @param {*} triggers 
+	 */
+	fireAnimations(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.fireAnimation(element);
+			this.getAnimation(element);
 		});
 	}
 
-	fireAnimation(element) {
+	/**
+	 * Select the correct animation to fire
+	 * @param {*} element 
+	 */
+	getAnimation(element) {
 
 		switch (element.dataset.scroll) {
 

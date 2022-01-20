@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			.catch((error) => console.log(error));
 	}
 
-	// Animations
+	// HandleAnimation
 	if (elementExist('[data-scroll]')) {
 		import(/* webpackChunkName: "handleAnimation" */'./animations/handleAnimation')
 			.then((module) => {
@@ -60,6 +60,17 @@ window.addEventListener('DOMContentLoaded', () => {
 			.then((module) => {
 				const AnimationFlip = module.default;
 				new AnimationFlip();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// AnimationFlip
+	if (elementExist('[data-scroll="js-webgl"]')) {
+		import(/* webpackChunkName: "animationWebGl" */'./webGl/animationWebGl')
+			.then((module) => {
+				const AnimationWebGl = module.default;
+				console.log(AnimationWebGl);
+				new AnimationWebGl();
 			})
 			.catch((error) => console.log(error));
 	}

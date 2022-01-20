@@ -1,17 +1,24 @@
 /* eslint-disable no-unused-vars */
 import { initObserver } from '../utilities/observer';
 import { getTemplateUrl } from '../utilities/paths';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import * as dat from 'dat.gui';
 
+// Gsap
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export default class animationWebGl {
+
+// Three
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+// Loaders
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
+
+
+export default class AnimationWebGl {
 	constructor() {
 		this.element = '[data-scroll="js-webgl"]';
 		this.DOM = {
@@ -21,11 +28,11 @@ export default class animationWebGl {
 		this.options = { triggers: this.element };
 		this.updateEvents = this.updateEvents.bind(this);
 		window.addEventListener('DOMContentLoaded', () => {});
-		window.addEventListener('LOADER_COMPLETE', () => {
+		// window.addEventListener('LOADER_COMPLETE', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
 			initObserver(this.options.triggers, this.updateEvents);
-		});
+		// });
 	}
 
 	/**
