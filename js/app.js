@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			.catch((error) => console.log(error));
 	}
 
-	// Modal - TODO
+	// Modal
 	if (elementExist('[data-modal]')) {
 		import(/* webpackChunkName: "modal" */'./components/modal')
 			.then((module) => {
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			.then((module) => {
 				const Slider = module.default;
 
-				if(elementExist('.js-slider')) {
+				if (elementExist('.js-slider')) {
 					new Slider;
 				}
 
@@ -172,14 +172,14 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// ScrollDirection
-	if(!isMobile().any){
+	if (!isMobile().any) {
 		import(/* webpackChunkName: "scrollDirection" */'./components/scrollDirection')
 			.then((module) => {
 				const ScrollDirection = module.default;
 				new ScrollDirection();
 			})
 	}
-	
+
 	// WidgetAccordion
 	if (elementExist('.woocommerce-widget-layered-nav')) {
 		import(/* webpackChunkName: "widgetAccordion" */'./components/widgetAccordion')
@@ -191,7 +191,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Billing Invoices
-	if(elementExist('#billing_invoice')){
+	if (elementExist('#billing_invoice')) {
 		import(/* webpackChunkName: "billing" */'./components/billing')
 			.then((module) => {
 				const Billing = module.default;
@@ -201,7 +201,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// JS Loader
-	if(elementExist('#js-loader')){
+	if (elementExist('#js-loader')) {
 		import(/* webpackChunkName: "loader" */'./components/loader')
 			.then((module) => {
 				const Loader = module.default;
@@ -221,7 +221,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// YoastFaqBlock
-	
 	if (elementExist('.schema-faq-question')) {
 		import(/* webpackChunkName: "yoastFaqBlock" */'./components/yoastFaqBlock')
 			.then((module) => {
