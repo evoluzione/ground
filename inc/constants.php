@@ -197,7 +197,7 @@ function ground_theme_costants()
 		define('GROUND_SHOP_REMOVE_ADD_TO_CART', get_theme_mod('shop_remove_add_to_cart') ? get_theme_mod('shop_remove_add_to_cart') : '');
 	}
 	if (!defined('GROUND_SHOP_PAYMENT')) {
-		define('GROUND_SHOP_PAYMENT', get_field('shop_payment', 'option') ? get_field('shop_payment', 'option') : '');
+		define('GROUND_SHOP_PAYMENT', class_exists('ACF') && get_field('shop_payment', 'option') ? get_field('shop_payment', 'option') : '');
 	}
 	if (!defined('GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON')) {
 		define('GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON', get_theme_mod('shop_not_purchasable_product_button') ? get_theme_mod('shop_not_purchasable_product_button') : __('Call to order', 'ground'));
