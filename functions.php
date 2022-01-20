@@ -24,8 +24,9 @@ require_once 'inc/shortcode.php';
 require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
+require_once 'inc/tgm-plugin-activation.php';
 
-if ( class_exists( 'WooCommerce' ) ) {
+if (class_exists('WooCommerce')) {
 	require_once 'inc/woocommerce/brand.php';
 	require_once 'inc/woocommerce/breadcrumbs.php';
 	require_once 'inc/woocommerce/cart.php';
