@@ -1,1 +1,30 @@
-{"version":3,"file":"widgetAccordion.bundle.js","mappings":"4TAAqBA,EAAAA,WAKpB,WAAYC,EAASC,I,4FAAS,SAE5BC,KAAKC,a,+CAQP,WACC,IAAMC,EAAS,kCAGG,GAFNC,OAAOD,GAEXE,QAIRD,OAAOD,GAAQG,MAAK,SAACC,EAAKC,GACzB,IAAMC,EAAgBD,EAChBE,EAAqBN,OAAOK,GAAeE,KAAK,gBAEtDP,OAAOM,GAAoBE,GAAG,SAAS,WACtCR,OAAOK,GAAeI,YAAY,6B,sEA5BjBf","sources":["webpack://ground/./js/components/widgetAccordion.js"],"sourcesContent":["export default class WidgetAccordion {\n\t/**\n\t * @param {string} element - Selector\n\t * @param {Object} options - User options\n\t */\n\tconstructor(element, options) {\n\t\t// window.addEventListener('DOMContentLoaded', () => {\n\t\t\tthis.initEvents();\n\t\t// });\n\t}\n\n\t/**\n\t * Initialize events\n\t * @param {string} triggers - Selectors\n\t */\n\tinitEvents() {\n\t\tconst elName = '.woocommerce-widget-layered-nav';\n\t\tconst $el = jQuery(elName);\n\n\t\tif ($el.length == 0) {\n\t\t\treturn;\n\t\t}\n\n\t\tjQuery(elName).each((key, value) => {\n\t\t\tconst currentWidget = value;\n\t\t\tconst currentWidgetTitle = jQuery(currentWidget).find('.widgettitle');\n\n\t\t\tjQuery(currentWidgetTitle).on('click', () => {\n\t\t\t\tjQuery(currentWidget).toggleClass('widget-is-open');\n\t\t\t});\n\t\t});\n\t}\n}\n"],"names":["WidgetAccordion","element","options","this","initEvents","elName","jQuery","length","each","key","value","currentWidget","currentWidgetTitle","find","on","toggleClass"],"sourceRoot":""}
+{
+	"version": 3,
+	"file": "widgetAccordion.bundle.js",
+	"mappings": "4TAAqBA,EAAAA,WAKpB,WAAYC,EAASC,I,4FAAS,SAE5BC,KAAKC,a,+CAQP,WACC,IAAMC,EAAS,kCAGG,GAFNC,OAAOD,GAEXE,QAIRD,OAAOD,GAAQG,MAAK,SAACC,EAAKC,GACzB,IAAMC,EAAgBD,EAChBE,EAAqBN,OAAOK,GAAeE,KAAK,gBAEtDP,OAAOM,GAAoBE,GAAG,SAAS,WACtCR,OAAOK,GAAeI,YAAY,6B,sEA5BjBf",
+	"sources": [
+		"webpack://ground/./js/components/widgetAccordion.js"
+	],
+	"sourcesContent": [
+		"export default class WidgetAccordion {\n\t/**\n\t * @param {string} element - Selector\n\t * @param {Object} options - User options\n\t */\n\tconstructor(element, options) {\n\t\t// window.addEventListener('DOMContentLoaded', () => {\n\t\t\tthis.initEvents();\n\t\t// });\n\t}\n\n\t/**\n\t * Initialize events\n\t * @param {string} triggers - Selectors\n\t */\n\tinitEvents() {\n\t\tconst elName = '.woocommerce-widget-layered-nav';\n\t\tconst $el = jQuery(elName);\n\n\t\tif ($el.length == 0) {\n\t\t\treturn;\n\t\t}\n\n\t\tjQuery(elName).each((key, value) => {\n\t\t\tconst currentWidget = value;\n\t\t\tconst currentWidgetTitle = jQuery(currentWidget).find('.widgettitle');\n\n\t\t\tjQuery(currentWidgetTitle).on('click', () => {\n\t\t\t\tjQuery(currentWidget).toggleClass('widget-is-open');\n\t\t\t});\n\t\t});\n\t}\n}\n"
+	],
+	"names": [
+		"WidgetAccordion",
+		"element",
+		"options",
+		"this",
+		"initEvents",
+		"elName",
+		"jQuery",
+		"length",
+		"each",
+		"key",
+		"value",
+		"currentWidget",
+		"currentWidgetTitle",
+		"find",
+		"on",
+		"toggleClass"
+	],
+	"sourceRoot": ""
+}
