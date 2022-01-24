@@ -2,5 +2,9 @@
 	img,
 	figure {
 		@apply rounded-media;
+
+		.fullscreen & {
+			@apply rounded-none;
+		}
 	}
 }

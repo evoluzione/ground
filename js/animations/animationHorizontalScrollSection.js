@@ -37,7 +37,6 @@ export default class AnimationHorizontalScrollSection extends AnimationDefault {
 			scrollTrigger: {
 				trigger: target,
 				pin: true,
-				pinReparent: true,
 				scrub: targetScrub || false,
 				start: 'center center',
 				end: () => `+=${maxWidth}`,

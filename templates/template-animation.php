@@ -6,7 +6,7 @@
  * @package Ground
  */
 
-get_template_part('partials/header'); ?>
+get_template_part( 'partials/header' ); ?>
 
 <div class="relative overflow-hidden">
 
@@ -20,7 +20,7 @@ get_template_part('partials/header'); ?>
 			<p class="animate-pulse text-2xl">Ground</p>
 		</div>
 		<div class="animate-bounce inline-block mt-9">
-			<?php ground_icon('arrow-long-down'); ?>
+			<?php ground_icon( 'arrow-long-down' ); ?>
 		</div>
 	</div>
 
@@ -34,10 +34,13 @@ get_template_part('partials/header'); ?>
 		</div>
 	</div>
 
+</div>
 
-	<div class="relative" data-scroll="js-horizontal-scroll-container" data-scroll-scrub="0.2">
+<div class="relative">
 
-		<div class="flex flex-nowrap h-full w-[500%]" data-scroll-target>
+	<div class="relative my-20" data-scroll="js-horizontal-scroll-container" data-scroll-scrub="0.2">
+
+		<div class="flex flex-nowrap h-screen w-[500%]" data-scroll-target>
 
 			<div class="bg-green-500 h-screen w-screen flex items-center justify-center" data-scroll-panel>
 				<div class="relative text-5xl text-white">Scroll down to animate horizontally ></div>
@@ -210,20 +213,11 @@ get_template_part('partials/header'); ?>
 			<h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Comparison</strong></h2>
 			<div class="position-relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
 				<div class="h-full w-full">
-					<img class="absolute h-full w-full top-0" src="<?php echo esc_url(GROUND_TEMPLATE_URL); ?>/img/sample-before.jpg" alt="before">
+					<img class="absolute h-full w-full top-0" src="<?php echo esc_url( GROUND_TEMPLATE_URL ); ?>/img/sample-before.jpg" alt="before">
 				</div>
 				<div class="h-full w-full absolute overflow-hidden top-0 translate-x-full" data-scroll-target-media>
-					<img class="-translate-x-full" src="<?php echo esc_url(GROUND_TEMPLATE_URL); ?>/img/sample-after.jpg" alt="after">
+					<img class="-translate-x-full" src="<?php echo esc_url( GROUND_TEMPLATE_URL ); ?>/img/sample-after.jpg" alt="after">
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="relative container my-44" data-scroll="js-pin" data-scroll-scrub="1">
-		<div data-scroll-target>
-			<h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Scale</strong></h2>
-			<div class="bg-white bg-opacity-10 rounded-lg">
-				<div data-scroll-target-animate class="bg-green-300 rounded-lg w-full h-80"></div>
 			</div>
 		</div>
 	</div>
@@ -344,4 +338,4 @@ get_template_part('partials/header'); ?>
 </div>
 
 <?php
-get_template_part('partials/footer');
+get_template_part( 'partials/footer' );

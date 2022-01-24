@@ -50,8 +50,6 @@ export default class AnimationSpriteImages extends AnimationDefault {
 				end: '+=400%',
 				scrub: 0.5,
 				pin: true,
-				pinReparent: true,
-				anticipatePin: 1
 			}
 		});
 
