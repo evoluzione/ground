@@ -88,13 +88,13 @@
 						width: 24px;
 						border-radius: 50%;
 						right: 8px;
-						background: url("../img/icons/chevron-right.svg");
+						background: url("../../img/icons/chevron-right.svg");
 					}
 					@screen lg {
 						&:after {
 							margin-top: 4px;
 							right: 12px;
-							background: url("../img/icons/chevron-down.svg");
+							background: url("../../img/icons/chevron-down.svg");
 						}
 					}
 				}
@@ -212,13 +212,13 @@
 						width: 24px;
 						border-radius: 50%;
 						right: 8px;
-						background: url("../img/icons/chevron-right.svg");
+						background: url("../../img/icons/chevron-right.svg");
 					}
 					@screen lg {
 						&:after {
 							margin-top: 4px;
 							right: 12px;
-							background: url("../img/icons/chevron-down.svg");
+							background: url("../../img/icons/chevron-down.svg");
 						}
 					}
 				}
