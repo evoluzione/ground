@@ -31,25 +31,26 @@ export default class HandleAnimation {
 	 */
 	promiseList = [];
 	hasCssAnimation = false;
+	triggers = '[data-scroll]';
 
 	constructor() {
-		this.initEvents('[data-scroll]');
-		initObserver('[data-scroll]', this.updateEvents);
+		this.initEvents();
 	}
 
 	/**
 	 * Init events to run animations
 	 * @param {*} triggers 
 	 */
-	initEvents(triggers) {
-		this.getAnimationToActivate(triggers);
+	initEvents() {
+		this.getAnimationToActivate(this.triggers);
 		this.populatePromiseList();
-		this.resolveAllPromise(triggers);
+		this.resolveAllPromise(this.triggers);
+		initObserver('[data-scroll]', this.updateEvents);
 	}
 
 	/**
 	 * Get all animations we need in array 
-	 * @param {*} triggers 
+	 * @param {string} triggers 
 	 */
 	getAnimationToActivate(triggers) {
 
@@ -246,7 +247,7 @@ export default class HandleAnimation {
 
 	/**
 	 * Resolve all promises and then fire animation instances
-	 * @param {*} triggers 
+	 * @param {string} triggers 
 	 */
 	resolveAllPromise(triggers) {
 		// Once all promises are resolved
@@ -258,17 +259,18 @@ export default class HandleAnimation {
 
 	/**
 	 * Loop the nodes to activate correct animation
-	 * @param {*} triggers 
+	 * @param {object} triggers 
 	 */
 	fireAnimations(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
+			// console.log(element);
 			this.getAnimation(element);
 		});
 	}
 
 	/**
 	 * Select the correct animation to fire
-	 * @param {*} element 
+	 * @param {any} element 
 	 */
 	getAnimation(element) {
 

@@ -17,7 +17,7 @@ export default class AnimationHorizontalScrollContainer extends AnimationDefault
 		const panel = item.querySelectorAll('[data-scroll-panel]');
 		const targetScrub = item.dataset.scrollScrub;
 
-		console.log(targetScrub);
+		// console.log(targetScrub);
 
 		let sections = gsap.utils.toArray(panel);
 

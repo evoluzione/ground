@@ -6,7 +6,7 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' ); ?>
+get_template_part('partials/header'); ?>
 
 <div class="relative overflow-hidden">
 
@@ -20,7 +20,7 @@ get_template_part( 'partials/header' ); ?>
 			<p class="animate-pulse text-2xl">Ground</p>
 		</div>
 		<div class="animate-bounce inline-block mt-9">
-			<?php ground_icon( 'arrow-long-down' ); ?>
+			<?php ground_icon('arrow-long-down'); ?>
 		</div>
 	</div>
 
@@ -213,10 +213,10 @@ get_template_part( 'partials/header' ); ?>
 			<h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Comparison</strong></h2>
 			<div class="position-relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
 				<div class="h-full w-full">
-					<img class="absolute h-full w-full top-0" src="<?php echo esc_url( GROUND_TEMPLATE_URL ); ?>/img/sample-before.jpg" alt="before">
+					<img class="absolute h-full w-full top-0" src="<?php echo esc_url(GROUND_TEMPLATE_URL); ?>/img/sample-before.jpg" alt="before">
 				</div>
 				<div class="h-full w-full absolute overflow-hidden top-0 translate-x-full" data-scroll-target-media>
-					<img class="-translate-x-full" src="<?php echo esc_url( GROUND_TEMPLATE_URL ); ?>/img/sample-after.jpg" alt="after">
+					<img class="-translate-x-full" src="<?php echo esc_url(GROUND_TEMPLATE_URL); ?>/img/sample-after.jpg" alt="after">
 				</div>
 			</div>
 		</div>
@@ -324,6 +324,16 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 		</div>
 
+
+		<!-- <div class="my-44">
+			<h2 class="mt-28 mb-9 text-gray-300">Video Child <strong class="text-gray-500">Play if Inview</strong></h2>
+			<div class="rounded-lg overflow-hidden border border-white aspect-w-16 aspect-h-9" data-scroll="js-video-child">
+				<video data-scroll-target preload="none" playsinline muted loop>
+					<source src="https://res.cloudinary.com/dhcuygjf8/video/upload/v1609172097/Evoluzione/Video/video-404_ohherb.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div> -->
+
 		<div class="relative my-44" data-scroll="js-sprite-images" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/digital-thinker-srl/image/upload/v1628248910/Coltri/Rotazioni_360/ICON_100_SH/">
 			<div class="relative" data-scroll-target>
 				<h2 class="text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
@@ -338,4 +348,4 @@ get_template_part( 'partials/header' ); ?>
 </div>
 
 <?php
-get_template_part( 'partials/footer' );
+get_template_part('partials/footer');
