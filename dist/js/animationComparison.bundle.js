@@ -1,2 +1,385 @@
-"use strict";(self.webpackChunkground=self.webpackChunkground||[]).push([[794,488],{1437:function(e,t,r){r.r(t),r.d(t,{default:function(){return s}});var n=r(952),o=(r(9996),r(6358)),i=r(7082);function c(e){return(c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function u(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function a(e,t){return(a=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function f(e,t){if(t&&("object"===c(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}o.p8.registerPlugin(i.i);var s=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");Object.defineProperty(e,"prototype",{value:Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),writable:!1}),t&&a(e,t)}(s,e);var t,r,n,i,c=(n=s,i=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}(),function(){var e,t=l(n);if(i){var r=l(this).constructor;e=Reflect.construct(t,arguments,r)}else e=t.apply(this,arguments);return f(this,e)});function s(e,t){var r;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,s),(r=c.call(this,e,t)).element=e||'[data-scroll="js-comparison"]',r}return t=s,(r=[{key:"fireAnimation",value:function(e){var t=e.querySelector("[data-scroll-target]"),r=e.querySelectorAll("[data-scroll-target-media]"),n=e.querySelectorAll("[data-scroll-target-media] img"),i=parseInt(e.dataset.scrollScrub,10);o.p8.timeline({scrollTrigger:{trigger:t,start:"center center",end:function(){return"+=".concat(t.offsetWidth)},scrub:i||!1,pin:!0},defaults:{ease:"none"}}).fromTo(r,{xPercent:100,x:0},{xPercent:0}).fromTo(n,{xPercent:-100,x:0},{xPercent:0},0)}}])&&u(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),s}(n.default)},952:function(e,t,r){r.r(t),r.d(t,{default:function(){return a}});var n=r(9996),o=r.n(n),i=r(6358),c=r(7082);function u(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}i.p8.registerPlugin(c.i);var a=function(){function e(t,r){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.element=t,this.defaults={triggers:this.element},this.DOM={html:document.documentElement,body:document.body},this.options=r?o()(this.defaults,r):this.defaults,this.init(),this.initEvents(this.options.triggers)}var t,r;return t=e,(r=[{key:"init",value:function(){this.DOM.element=this.element}},{key:"initEvents",value:function(e){this.fireAnimation(e)}},{key:"updateEvents",value:function(e){var t=this;this.init(),setTimeout((function(){t.fireAnimation(e)}),1e3)}},{key:"fireAnimation",value:function(e){var t=e.dataset.scroll;c.i.create({trigger:e,start:"top 100%",toggleClass:t,toggleActions:"play none none none"})}}])&&u(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),e}()},9996:function(e){var t=function(e){return function(e){return!!e&&"object"==typeof e}(e)&&!function(e){var t=Object.prototype.toString.call(e);return"[object RegExp]"===t||"[object Date]"===t||function(e){return e.$$typeof===r}(e)}(e)},r="function"==typeof Symbol&&Symbol.for?Symbol.for("react.element"):60103;function n(e,t){return!1!==t.clone&&t.isMergeableObject(e)?u((r=e,Array.isArray(r)?[]:{}),e,t):e;var r}function o(e,t,r){return e.concat(t).map((function(e){return n(e,r)}))}function i(e){return Object.keys(e).concat(function(e){return Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e).filter((function(t){return e.propertyIsEnumerable(t)})):[]}(e))}function c(e,t){try{return t in e}catch(e){return!1}}function u(e,r,a){(a=a||{}).arrayMerge=a.arrayMerge||o,a.isMergeableObject=a.isMergeableObject||t,a.cloneUnlessOtherwiseSpecified=n;var f=Array.isArray(r);return f===Array.isArray(e)?f?a.arrayMerge(e,r,a):function(e,t,r){var o={};return r.isMergeableObject(e)&&i(e).forEach((function(t){o[t]=n(e[t],r)})),i(t).forEach((function(i){(function(e,t){return c(e,t)&&!(Object.hasOwnProperty.call(e,t)&&Object.propertyIsEnumerable.call(e,t))})(e,i)||(c(e,i)&&r.isMergeableObject(t[i])?o[i]=function(e,t){if(!t.customMerge)return u;var r=t.customMerge(e);return"function"==typeof r?r:u}(i,r)(e[i],t[i],r):o[i]=n(t[i],r))})),o}(e,r,a):n(r,a)}u.all=function(e,t){if(!Array.isArray(e))throw new Error("first argument should be an array");return e.reduce((function(e,r){return u(e,r,t)}),{})};var a=u;e.exports=a}}]);
+"use strict";
+(self["webpackChunkground"] = self["webpackChunkground"] || []).push([["animationComparison"],{
+
+/***/ "./js/animations/animationComparison.js":
+/*!**********************************************!*\
+  !*** ./js/animations/animationComparison.js ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationComparison; }
+/* harmony export */ });
+/* harmony import */ var _animationDefault__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animationDefault */ "./js/animations/animationDefault.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utilities_observer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/observer */ "./js/utilities/observer.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+/* eslint-disable no-unused-vars */
+
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_4__.ScrollTrigger);
+
+var AnimationComparison = /*#__PURE__*/function (_AnimationDefault) {
+  _inherits(AnimationComparison, _AnimationDefault);
+
+  var _super = _createSuper(AnimationComparison);
+
+  function AnimationComparison(element, options) {
+    var _this;
+
+    _classCallCheck(this, AnimationComparison);
+
+    _this = _super.call(this, element, options);
+    _this.element = element || '[data-scroll="js-comparison"]';
+    ;
+    return _this;
+  }
+
+  _createClass(AnimationComparison, [{
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
+      var target = item.querySelector('[data-scroll-target]');
+      var targetMedia = item.querySelectorAll('[data-scroll-target-media]');
+      var targetImage = item.querySelectorAll('[data-scroll-target-media] img');
+      var targetScrub = parseInt(item.dataset.scrollScrub, 10);
+      var tl = gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.timeline({
+        scrollTrigger: {
+          trigger: target,
+          start: 'center center',
+          end: function end() {
+            return "+=".concat(target.offsetWidth);
+          },
+          scrub: targetScrub || false,
+          pin: true
+        },
+        defaults: {
+          ease: 'none'
+        }
+      });
+      tl.fromTo(targetMedia, {
+        xPercent: 100,
+        x: 0
+      }, {
+        xPercent: 0
+      }).fromTo(targetImage, {
+        xPercent: -100,
+        x: 0
+      }, {
+        xPercent: 0
+      }, 0);
+    }
+  }]);
+
+  return AnimationComparison;
+}(_animationDefault__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./js/animations/animationDefault.js":
+/*!*******************************************!*\
+  !*** ./js/animations/animationDefault.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationDefault; }
+/* harmony export */ });
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/* eslint-disable no-unused-vars */
+// import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+var AnimationDefault = /*#__PURE__*/function () {
+  /**
+   * @param {string} element - Selector
+   * @param {Object} options - User options
+   */
+  function AnimationDefault(element, options) {
+    _classCallCheck(this, AnimationDefault);
+
+    this.element = element;
+    this.defaults = {
+      triggers: this.element
+    };
+    this.DOM = {
+      html: document.documentElement,
+      body: document.body
+    };
+    this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_0___default()(this.defaults, options) : this.defaults; // this.updateEvents = this.updateEvents.bind(this);
+    // window.addEventListener('DOMContentLoaded', () => {});
+    // ScrollTrigger.addEventListener('scrollStart', () => {});
+    // ScrollTrigger.addEventListener('scrollEnd', () => {});
+    // ScrollTrigger.addEventListener('refreshInit', () => {});
+    // ScrollTrigger.addEventListener('refresh', () => {});
+    // window.addEventListener('NAVIGATE_OUT', () => {
+    // 	// ScrollTrigger.update();
+    // 	// ScrollTrigger.refresh();
+    // });
+    // window.addEventListener('resize', () => {
+    // 	// ScrollTrigger.update();
+    // 	// ScrollTrigger.refresh();
+    // });
+    // window.addEventListener('NAVIGATE_IN', () => {});
+    // window.addEventListener('NAVIGATE_END', () => {});
+    //  window.addEventListener('LOADER_COMPLETE', () => {
+
+    this.init();
+    this.initEvents(this.options.triggers); // initObserver(this.options.triggers, this.updateEvents);
+    //  });		
+  }
+  /**
+   * Init
+   */
+
+
+  _createClass(AnimationDefault, [{
+    key: "init",
+    value: function init() {
+      this.DOM.element = this.element;
+    }
+    /**
+     * Initialize events
+     * @param {string} triggers - Selectors
+     */
+
+  }, {
+    key: "initEvents",
+    value: function initEvents(triggers) {
+      this.fireAnimation(triggers); // gsap.utils.toArray(triggers).forEach((element) => {
+      // 	if (element.dataset.scroll === 'js-split-text') {
+      // 	}  else {
+      // 		this.animationDefault(target);
+      // 	}
+      // });
+    }
+    /**
+     * Update events
+     * @param {Object} target - New selector
+     */
+
+  }, {
+    key: "updateEvents",
+    value: function updateEvents(target) {
+      var _this = this;
+
+      this.init();
+      setTimeout(function () {
+        _this.fireAnimation(target);
+      }, 1000);
+    }
+    /**
+     * Fire the animation
+     * @param {node} item 
+     */
+
+  }, {
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
+      var targetClass = item.dataset.scroll;
+      gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+        trigger: item,
+        start: 'top 100%',
+        toggleClass: targetClass,
+        toggleActions: 'play none none none' // markers: true,
+        // once: true,
+
+      });
+    }
+  }]);
+
+  return AnimationDefault;
+}();
+
+
+
+/***/ }),
+
+/***/ "./node_modules/deepmerge/dist/cjs.js":
+/*!********************************************!*\
+  !*** ./node_modules/deepmerge/dist/cjs.js ***!
+  \********************************************/
+/***/ (function(module) {
+
+
+
+var isMergeableObject = function isMergeableObject(value) {
+	return isNonNullObject(value)
+		&& !isSpecial(value)
+};
+
+function isNonNullObject(value) {
+	return !!value && typeof value === 'object'
+}
+
+function isSpecial(value) {
+	var stringValue = Object.prototype.toString.call(value);
+
+	return stringValue === '[object RegExp]'
+		|| stringValue === '[object Date]'
+		|| isReactElement(value)
+}
+
+// see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+function isReactElement(value) {
+	return value.$$typeof === REACT_ELEMENT_TYPE
+}
+
+function emptyTarget(val) {
+	return Array.isArray(val) ? [] : {}
+}
+
+function cloneUnlessOtherwiseSpecified(value, options) {
+	return (options.clone !== false && options.isMergeableObject(value))
+		? deepmerge(emptyTarget(value), value, options)
+		: value
+}
+
+function defaultArrayMerge(target, source, options) {
+	return target.concat(source).map(function(element) {
+		return cloneUnlessOtherwiseSpecified(element, options)
+	})
+}
+
+function getMergeFunction(key, options) {
+	if (!options.customMerge) {
+		return deepmerge
+	}
+	var customMerge = options.customMerge(key);
+	return typeof customMerge === 'function' ? customMerge : deepmerge
+}
+
+function getEnumerableOwnPropertySymbols(target) {
+	return Object.getOwnPropertySymbols
+		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+			return target.propertyIsEnumerable(symbol)
+		})
+		: []
+}
+
+function getKeys(target) {
+	return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target))
+}
+
+function propertyIsOnObject(object, property) {
+	try {
+		return property in object
+	} catch(_) {
+		return false
+	}
+}
+
+// Protects from prototype poisoning and unexpected merging up the prototype chain.
+function propertyIsUnsafe(target, key) {
+	return propertyIsOnObject(target, key) // Properties are safe to merge if they don't exist in the target yet,
+		&& !(Object.hasOwnProperty.call(target, key) // unsafe if they exist up the prototype chain,
+			&& Object.propertyIsEnumerable.call(target, key)) // and also unsafe if they're nonenumerable.
+}
+
+function mergeObject(target, source, options) {
+	var destination = {};
+	if (options.isMergeableObject(target)) {
+		getKeys(target).forEach(function(key) {
+			destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+		});
+	}
+	getKeys(source).forEach(function(key) {
+		if (propertyIsUnsafe(target, key)) {
+			return
+		}
+
+		if (propertyIsOnObject(target, key) && options.isMergeableObject(source[key])) {
+			destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+		} else {
+			destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+		}
+	});
+	return destination
+}
+
+function deepmerge(target, source, options) {
+	options = options || {};
+	options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+	options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+	// cloneUnlessOtherwiseSpecified is added to `options` so that custom arrayMerge()
+	// implementations can use it. The caller may not replace it.
+	options.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+
+	var sourceIsArray = Array.isArray(source);
+	var targetIsArray = Array.isArray(target);
+	var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+	if (!sourceAndTargetTypesMatch) {
+		return cloneUnlessOtherwiseSpecified(source, options)
+	} else if (sourceIsArray) {
+		return options.arrayMerge(target, source, options)
+	} else {
+		return mergeObject(target, source, options)
+	}
+}
+
+deepmerge.all = function deepmergeAll(array, options) {
+	if (!Array.isArray(array)) {
+		throw new Error('first argument should be an array')
+	}
+
+	return array.reduce(function(prev, next) {
+		return deepmerge(prev, next, options)
+	}, {})
+};
+
+var deepmerge_1 = deepmerge;
+
+module.exports = deepmerge_1;
+
+
+/***/ })
+
+}]);
 //# sourceMappingURL=animationComparison.bundle.js.map

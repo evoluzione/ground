@@ -1,9 +1,9 @@
 @layer components {
 	.woocommerce-checkout-payment {
-		@apply relative prose;
+		@apply relative;
 
 		.wc_payment_methods {
-			@apply relative my-9;
+			@apply relative my-9 space-y-1;
 
 			.wc_payment_method {
 				@apply flex flex-wrap items-center pl-0;
@@ -29,7 +29,7 @@
 				}
 
 				.payment_box {
-					@apply w-full block mb-0;
+					@apply w-full block my-2;
 					* {
 						@apply text-sm text-gray-500;
 					}
