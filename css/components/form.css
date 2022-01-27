@@ -40,12 +40,28 @@ form.wpcf7-form {
 	}
 
 	label {
+		@apply mb-4;
+	}
+
+	.wpcf7-list-item {
+		@apply m-0;
+	}
+
+	.wpcf7-acceptance {
+		label {
+			@apply flex items-center mb-2 !important;
+		}
+	}
+
+	.wpcf7-submit {
 		@apply mt-4;
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: not-allowed !important;
+		}
 	}
-	input,
-	textarea {
-		@apply mt-1;
-	}
+
 }
 
 .select2-hidden-accessible {
