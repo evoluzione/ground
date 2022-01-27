@@ -65,7 +65,7 @@ if ( post_password_required() ) {
 		);
 		?>
 
-		<h2 class="comments__title"><?php _e( 'Comments', 'ground' ); ?></h2>
+		<h3 class="comments__title"><?php _e( 'Comments', 'ground' ); ?></h3>
 
 		<ol class="comments__list">
 			<?php wp_list_comments( $args ); ?>

@@ -1,2 +1,281 @@
-"use strict";(self.webpackChunkground=self.webpackChunkground||[]).push([[882],{910:function(e,t,r){r.r(t),r.d(t,{default:function(){return a}});var n=r(9996);function o(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}var a=function(){function e(t,r){var o=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.element=t||".js-cursor",this.defaults={triggers:this.element},this.options=r?(0,n.deepmerge)(this.defaults,r):this.defaults,window.addEventListener("load",(function(){o.init()})),this.init()}var t,r;return t=e,(r=[{key:"init",value:function(){var e=document.querySelector(".js-cursor"),t=e.querySelector(".js-cursor-outer"),r={x:-100,y:-100},n={x:0,y:0};window.addEventListener("mousemove",(function(e){r.x=e.clientX,r.y=e.clientY}));requestAnimationFrame((function o(){(function(){var o=Math.round(r.x-n.x),a=Math.round(r.y-n.y);n.x+=.1*o,n.y+=.1*a;var u=function(e,t){return 180*Math.atan2(t,e)/Math.PI}(o,a),i=function(e,t){var r=Math.sqrt(Math.pow(e,2)+Math.pow(t,2));return Math.min(r/1500,.15)}(o,a),c="scale("+(1+i)+", "+(1-i)+")",s="rotate("+u+"deg)",f="translate3d("+n.x+"px ,"+n.y+"px, 0)";e.style.transform=f,t.style.transform=s+c})(),requestAnimationFrame(o)})),document.querySelectorAll("[cursor-class]").forEach((function(t){t.addEventListener("mouseenter",(function(){var t=this.getAttribute("cursor-class");e.classList.add(t)})),t.addEventListener("mouseleave",(function(){var t=this.getAttribute("cursor-class");e.classList.remove(t)}))})),document.querySelectorAll("a, button, input, .js-cursor-hover").forEach((function(t){t.addEventListener("mouseenter",(function(){e.classList.add("hover")})),t.addEventListener("mouseleave",(function(){e.classList.remove("hover")}))}))}}])&&o(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),e}()},9996:function(e){var t=function(e){return function(e){return!!e&&"object"==typeof e}(e)&&!function(e){var t=Object.prototype.toString.call(e);return"[object RegExp]"===t||"[object Date]"===t||function(e){return e.$$typeof===r}(e)}(e)},r="function"==typeof Symbol&&Symbol.for?Symbol.for("react.element"):60103;function n(e,t){return!1!==t.clone&&t.isMergeableObject(e)?i((r=e,Array.isArray(r)?[]:{}),e,t):e;var r}function o(e,t,r){return e.concat(t).map((function(e){return n(e,r)}))}function a(e){return Object.keys(e).concat(function(e){return Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e).filter((function(t){return e.propertyIsEnumerable(t)})):[]}(e))}function u(e,t){try{return t in e}catch(e){return!1}}function i(e,r,c){(c=c||{}).arrayMerge=c.arrayMerge||o,c.isMergeableObject=c.isMergeableObject||t,c.cloneUnlessOtherwiseSpecified=n;var s=Array.isArray(r);return s===Array.isArray(e)?s?c.arrayMerge(e,r,c):function(e,t,r){var o={};return r.isMergeableObject(e)&&a(e).forEach((function(t){o[t]=n(e[t],r)})),a(t).forEach((function(a){(function(e,t){return u(e,t)&&!(Object.hasOwnProperty.call(e,t)&&Object.propertyIsEnumerable.call(e,t))})(e,a)||(u(e,a)&&r.isMergeableObject(t[a])?o[a]=function(e,t){if(!t.customMerge)return i;var r=t.customMerge(e);return"function"==typeof r?r:i}(a,r)(e[a],t[a],r):o[a]=n(t[a],r))})),o}(e,r,c):n(r,c)}i.all=function(e,t){if(!Array.isArray(e))throw new Error("first argument should be an array");return e.reduce((function(e,r){return i(e,r,t)}),{})};var c=i;e.exports=c}}]);
+"use strict";
+(self["webpackChunkground"] = self["webpackChunkground"] || []).push([["cursor"],{
+
+/***/ "./js/components/cursorV2.js":
+/*!***********************************!*\
+  !*** ./js/components/cursorV2.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Cursor; }
+/* harmony export */ });
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+var Cursor = /*#__PURE__*/function () {
+  /**
+   * @param {string} element - Selector
+   * @param {Object} options - User options
+   */
+  function Cursor(element, options) {
+    var _this = this;
+
+    _classCallCheck(this, Cursor);
+
+    this.element = element || '.js-cursor';
+    this.defaults = {
+      triggers: this.element
+    };
+    this.options = options ? (0,deepmerge__WEBPACK_IMPORTED_MODULE_0__.deepmerge)(this.defaults, options) : this.defaults;
+    window.addEventListener('load', function () {
+      _this.init();
+    }); // window.addEventListener('DOMContentLoaded', () => {
+
+    this.init(); // });
+  }
+  /**
+   * Init
+   */
+
+
+  _createClass(Cursor, [{
+    key: "init",
+    value: function init() {
+      var cursor = document.querySelector('.js-cursor');
+      var cursorCircle = cursor.querySelector('.js-cursor-outer');
+      var mouse = {
+        x: -100,
+        y: -100
+      }; // mouse pointer's coordinates
+
+      var pos = {
+        x: 0,
+        y: 0
+      }; // cursor's coordinates
+
+      var speed = 0.1; // between 0 and 1
+
+      var updateCoordinates = function updateCoordinates(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      };
+
+      window.addEventListener('mousemove', updateCoordinates);
+
+      function getAngle(diffX, diffY) {
+        return Math.atan2(diffY, diffX) * 180 / Math.PI;
+      }
+
+      function getSqueeze(diffX, diffY) {
+        var distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+        var maxSqueeze = 0.15;
+        var accelerator = 1500;
+        return Math.min(distance / accelerator, maxSqueeze);
+      }
+
+      var updateCursor = function updateCursor() {
+        var diffX = Math.round(mouse.x - pos.x);
+        var diffY = Math.round(mouse.y - pos.y);
+        pos.x += diffX * speed;
+        pos.y += diffY * speed;
+        var angle = getAngle(diffX, diffY);
+        var squeeze = getSqueeze(diffX, diffY);
+        var scale = 'scale(' + (1 + squeeze) + ', ' + (1 - squeeze) + ')';
+        var rotate = 'rotate(' + angle + 'deg)';
+        var translate = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+        cursor.style.transform = translate;
+        cursorCircle.style.transform = rotate + scale;
+      };
+
+      function loop() {
+        updateCursor();
+        requestAnimationFrame(loop);
+      }
+
+      requestAnimationFrame(loop);
+      var cursorModifiers = document.querySelectorAll('[cursor-class]');
+      cursorModifiers.forEach(function (cursorModifier) {
+        cursorModifier.addEventListener('mouseenter', function () {
+          var className = this.getAttribute('cursor-class');
+          cursor.classList.add(className);
+        });
+        cursorModifier.addEventListener('mouseleave', function () {
+          var className = this.getAttribute('cursor-class');
+          cursor.classList.remove(className);
+        });
+      });
+      var cursorModifiersDefaultHover = document.querySelectorAll('a, button, input, .js-cursor-hover');
+      cursorModifiersDefaultHover.forEach(function (cursorModifierDefaultHover) {
+        cursorModifierDefaultHover.addEventListener('mouseenter', function () {
+          var className = 'hover';
+          cursor.classList.add(className);
+        });
+        cursorModifierDefaultHover.addEventListener('mouseleave', function () {
+          var className = 'hover';
+          cursor.classList.remove(className);
+        });
+      });
+    }
+  }]);
+
+  return Cursor;
+}();
+
+
+
+/***/ }),
+
+/***/ "./node_modules/deepmerge/dist/cjs.js":
+/*!********************************************!*\
+  !*** ./node_modules/deepmerge/dist/cjs.js ***!
+  \********************************************/
+/***/ (function(module) {
+
+
+
+var isMergeableObject = function isMergeableObject(value) {
+	return isNonNullObject(value)
+		&& !isSpecial(value)
+};
+
+function isNonNullObject(value) {
+	return !!value && typeof value === 'object'
+}
+
+function isSpecial(value) {
+	var stringValue = Object.prototype.toString.call(value);
+
+	return stringValue === '[object RegExp]'
+		|| stringValue === '[object Date]'
+		|| isReactElement(value)
+}
+
+// see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+function isReactElement(value) {
+	return value.$$typeof === REACT_ELEMENT_TYPE
+}
+
+function emptyTarget(val) {
+	return Array.isArray(val) ? [] : {}
+}
+
+function cloneUnlessOtherwiseSpecified(value, options) {
+	return (options.clone !== false && options.isMergeableObject(value))
+		? deepmerge(emptyTarget(value), value, options)
+		: value
+}
+
+function defaultArrayMerge(target, source, options) {
+	return target.concat(source).map(function(element) {
+		return cloneUnlessOtherwiseSpecified(element, options)
+	})
+}
+
+function getMergeFunction(key, options) {
+	if (!options.customMerge) {
+		return deepmerge
+	}
+	var customMerge = options.customMerge(key);
+	return typeof customMerge === 'function' ? customMerge : deepmerge
+}
+
+function getEnumerableOwnPropertySymbols(target) {
+	return Object.getOwnPropertySymbols
+		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+			return target.propertyIsEnumerable(symbol)
+		})
+		: []
+}
+
+function getKeys(target) {
+	return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target))
+}
+
+function propertyIsOnObject(object, property) {
+	try {
+		return property in object
+	} catch(_) {
+		return false
+	}
+}
+
+// Protects from prototype poisoning and unexpected merging up the prototype chain.
+function propertyIsUnsafe(target, key) {
+	return propertyIsOnObject(target, key) // Properties are safe to merge if they don't exist in the target yet,
+		&& !(Object.hasOwnProperty.call(target, key) // unsafe if they exist up the prototype chain,
+			&& Object.propertyIsEnumerable.call(target, key)) // and also unsafe if they're nonenumerable.
+}
+
+function mergeObject(target, source, options) {
+	var destination = {};
+	if (options.isMergeableObject(target)) {
+		getKeys(target).forEach(function(key) {
+			destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+		});
+	}
+	getKeys(source).forEach(function(key) {
+		if (propertyIsUnsafe(target, key)) {
+			return
+		}
+
+		if (propertyIsOnObject(target, key) && options.isMergeableObject(source[key])) {
+			destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+		} else {
+			destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+		}
+	});
+	return destination
+}
+
+function deepmerge(target, source, options) {
+	options = options || {};
+	options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+	options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+	// cloneUnlessOtherwiseSpecified is added to `options` so that custom arrayMerge()
+	// implementations can use it. The caller may not replace it.
+	options.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+
+	var sourceIsArray = Array.isArray(source);
+	var targetIsArray = Array.isArray(target);
+	var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+	if (!sourceAndTargetTypesMatch) {
+		return cloneUnlessOtherwiseSpecified(source, options)
+	} else if (sourceIsArray) {
+		return options.arrayMerge(target, source, options)
+	} else {
+		return mergeObject(target, source, options)
+	}
+}
+
+deepmerge.all = function deepmergeAll(array, options) {
+	if (!Array.isArray(array)) {
+		throw new Error('first argument should be an array')
+	}
+
+	return array.reduce(function(prev, next) {
+		return deepmerge(prev, next, options)
+	}, {})
+};
+
+var deepmerge_1 = deepmerge;
+
+module.exports = deepmerge_1;
+
+
+/***/ })
+
+}]);
 //# sourceMappingURL=cursor.bundle.js.map
