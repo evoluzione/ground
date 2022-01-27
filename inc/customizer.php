@@ -24,31 +24,11 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	function ground_customizer_title_tagline( $wp_customize ) {
 
 		$wp_customize->add_setting(
-			'logo_url_primary',
-			array(
-				'sanitize_callback' => 'esc_url_raw',
-			)
-		);
-
-		$wp_customize->add_setting(
 			'logo_source_primary',
 		);
 
 		$wp_customize->add_setting(
 			'no_image_url',
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'logo_url_primary_control',
-				array(
-					'label'    => __( 'Logo', 'ground-admin' ),
-					'priority' => 20,
-					'section'  => 'title_tagline',
-					'settings' => 'logo_url_primary',
-				)
-			)
 		);
 
 		$wp_customize->add_control(
