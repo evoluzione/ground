@@ -73,6 +73,9 @@ function ground_theme_costants() {
 	if ( ! defined( 'GROUND_ROUNDED_MEDIA' ) ) {
 		define( 'GROUND_ROUNDED_MEDIA', get_theme_mod( 'rounded_media' ) ? get_theme_mod( 'rounded_media' ) : '0' );
 	}
+	if ( ! defined( 'GROUND_INFINITE_SCROLL' ) ) {
+		define( 'GROUND_INFINITE_SCROLL', get_theme_mod( 'infinite_scroll' ) ? get_theme_mod( 'infinite_scroll' ) : '' );
+	}
 
 	// Company.
 	if ( ! defined( 'GROUND_COMPANY_NAME' ) ) {

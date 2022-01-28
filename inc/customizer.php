@@ -1024,6 +1024,24 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				)
 			)
 		);
+
+		$wp_customize->add_setting(
+			'infinite_scroll',
+			array(
+				'default' => '',
+			)
+		);
+
+		$wp_customize->add_control(
+			'infinite_scroll_control',
+			array(
+				'label'    => 'Enable Infinite Scroll',
+				'type'     => 'checkbox',
+				'section'  => 'ground_section_settings',
+				'settings' => 'infinite_scroll',
+			)
+		);
+
 	}
 
 	add_action( 'customize_register', 'ground_customizer_settings' );
