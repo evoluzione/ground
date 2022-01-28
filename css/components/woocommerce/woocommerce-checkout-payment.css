@@ -35,6 +35,30 @@
 					}
 				}
 			}
+
+			/* STRIPE */
+			.payment_method_stripe {
+
+				.wc-saved-payment-methods {
+					@apply mt-3;
+				}
+
+				.wc-credit-card-form {
+					@apply mt-3;
+					.form-row {
+						@apply my-1 p-0 w-full !important;
+					}
+				}
+
+				.woocommerce-SavedPaymentMethods-new,
+				.woocommerce-SavedPaymentMethods-saveNew {
+					@apply flex items-center;
+					label {
+						@apply mb-0;
+					}
+				}
+
+			}
 		}
 
 		/* PLACE HOLDER */
