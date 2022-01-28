@@ -215,6 +215,9 @@ function ground_theme_costants() {
 	if ( ! defined( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3' ) ) {
 		define( 'GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3', get_theme_mod( 'shop_product_summary_page_3' ) ? get_theme_mod( 'shop_product_summary_page_3' ) : '' );
 	}
+	if ( ! defined( 'GROUND_SHOP_ORDER_COMMENTS_DETAILS' ) ) {
+		define( 'GROUND_SHOP_ORDER_COMMENTS_DETAILS', get_theme_mod( 'shop_order_comments_details' ) ? get_theme_mod( 'shop_order_comments_details' ) : '' );
+	}
 
 	// Payments.
 	if ( ! defined( 'GROUND_PAYMENT_AMEX' ) ) {

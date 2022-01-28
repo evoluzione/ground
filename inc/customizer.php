@@ -1265,6 +1265,20 @@ if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 				'settings'    => 'shop_products_columns_mobile',
 			)
 		);
+
+		$wp_customize->add_setting( 'shop_order_comments_details' );
+
+		$wp_customize->add_control(
+			'shop_order_comments_details_control',
+			array(
+				'type'        => 'textarea',
+				'section'     => 'woocommerce_checkout',
+				'settings'    => 'shop_order_comments_details',
+				'priority'    => 30,
+				'label'       => __( 'Order Comments Details', 'ground-admin' ),
+				'description' => __( 'Add Order Comments Details', 'ground-admin' ),
+			)
+		);
 	}
 
 	add_action( 'customize_register', 'ground_customizer_shop' );
