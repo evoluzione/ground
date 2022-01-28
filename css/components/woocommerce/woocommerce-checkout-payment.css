@@ -50,11 +50,18 @@
 					}
 				}
 
+				.woocommerce-SavedPaymentMethods-token,
 				.woocommerce-SavedPaymentMethods-new,
 				.woocommerce-SavedPaymentMethods-saveNew {
 					@apply flex items-center;
 					label {
 						@apply mb-0;
+					}
+				}
+
+				.wc-stripe-error {
+					* {
+						@apply text-white;
 					}
 				}
 
