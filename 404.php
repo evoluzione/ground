@@ -8,7 +8,7 @@
 get_template_part( 'partials/header' );
 ?>
 
-	<div class="container">
+
 		<article class="page page--404">
 
 			<header class="page__header">
@@ -21,7 +21,7 @@ get_template_part( 'partials/header' );
 			</div> <!-- End .page__body -->
 
 		</article> <!-- End .page -->
-	</div> <!-- End .container -->
+
 
 <?php
 get_template_part( 'partials/footer' );
