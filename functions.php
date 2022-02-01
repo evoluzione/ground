@@ -17,7 +17,7 @@ require __DIR__ . '/vendor/autoload.php';
 require_once 'inc/constants.php';
 require_once 'inc/extend.php';
 require_once 'inc/customizer.php';
-require_once 'inc/cpt-catalog.php';
+// require_once 'inc/cpt-catalog.php';
 require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
 require_once 'inc/shortcode.php';
@@ -26,7 +26,7 @@ require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
 require_once 'inc/tgm-plugin-activation.php';
 
-if (class_exists('WooCommerce')) {
+if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/brand.php';
 	require_once 'inc/woocommerce/breadcrumbs.php';
 	require_once 'inc/woocommerce/cart.php';
