@@ -203,14 +203,12 @@ function initGenericScripts() {
 	}
 
 	// JS Loader
-	if (elementExist('#js-loader')) {
-		import(/* webpackChunkName: "loader" */'./components/loader')
-			.then((module) => {
-				const Loader = module.default;
-				new Loader();
-			})
-			.catch((error) => console.log(error));
-	}
+	import(/* webpackChunkName: "loader" */'./components/loader')
+		.then((module) => {
+			const Loader = module.default;
+			new Loader();
+		})
+		.catch((error) => console.log(error));
 
 	// InfiniteScroll
 	if (elementExist('.js-pagination')) {
