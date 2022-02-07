@@ -34,7 +34,7 @@ if ( post_password_required() ) {
 
 	<div class="grid grid-cols-12 gap-6">
 
-		<div class="col-span-full lg:col-span-7">
+		<div class="col-span-full lg:col-span-6">
 
 			<div class="woocommerce-product-media">
 
@@ -52,7 +52,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="col-span-full lg:col-span-5 xl:col-span-4 lg:col-start-8 xl:col-start-9">
+		<div class="col-span-full lg:col-span-5 xl:col-span-4 lg:col-start-7 xl:col-start-8">
 
 			<div class="summary entry-summary">
 				<?php
