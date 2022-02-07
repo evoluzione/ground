@@ -1,36 +1,34 @@
-@layer components {
-	.cross-sells {
-		@apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
+.cross-sells {
+	@apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
 
-		body.woocommerce-cart & {
-			.product-columns {
-				@apply sm:grid-cols-2 lg:grid-cols-4;
-			}
+	body.woocommerce-cart & {
+		.product-columns {
+			@apply sm:grid-cols-2 lg:grid-cols-4;
 		}
+	}
 
+	.minicart & {
+		@apply py-9 px-6 lg:px-9;
+	}
+
+	> h2 {
+		@apply text-center text-2xl mb-6 lg:mb-12;
 		.minicart & {
-			@apply py-9 px-6 lg:px-9;
+			@apply text-left text-xl lg:mb-6;
 		}
+	}
 
-		> h2 {
-			@apply text-center text-2xl mb-6 lg:mb-12;
-			.minicart & {
-				@apply text-left text-xl lg:mb-6;
-			}
+	.products {
+		@apply container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+		.woocommerce-cart & {
+			@apply carousel-css;
 		}
-
-		.products {
-			@apply container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
-			.woocommerce-cart & {
-				@apply carousel-css;
-			}
-			.minicart & {
-				@apply px-0 grid-cols-2 md:grid-cols-3 !important;
-			}
-		}
-
 		.minicart & {
-			@apply transform-none w-full ml-0 translate-x-0;
+			@apply px-0 grid-cols-2 md:grid-cols-3 !important;
 		}
+	}
+
+	.minicart & {
+		@apply transform-none w-full ml-0 translate-x-0;
 	}
 }

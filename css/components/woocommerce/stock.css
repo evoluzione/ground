@@ -1,39 +1,37 @@
-@layer components {
-	.stock {
-		@apply relative text-xs pl-8 flex items-center;
+.stock {
+	@apply relative text-xs pl-8 flex items-center;
 
-		&:after,
-		&:before {
-			content: "";
-			@apply absolute left-0 w-5 h-5 rounded-full;
-		}
+	&:after,
+	&:before {
+		content: "";
+		@apply absolute left-0 w-5 h-5 rounded-full;
+	}
 
+	&:after {
+		@apply animate-ping;
+	}
+	&:before {
+		@apply animate-pulse;
+	}
+
+	&.in-stock {
 		&:after {
-			@apply animate-ping;
+			@apply border border-green-500;
 		}
 		&:before {
-			@apply animate-pulse;
+			@apply bg-green-500 border-4 border-quinary;
 		}
+	}
+	&.out-of-stock {
+		&:after {
+			@apply border border-red-500;
+		}
+		&:before {
+			@apply bg-red-500 border-4 border-quinary;
+		}
+	}
 
-		&.in-stock {
-			&:after {
-				@apply border border-green-500;
-			}
-			&:before {
-				@apply bg-green-500 border-4 border-quinary;
-			}
-		}
-		&.out-of-stock {
-			&:after {
-				@apply border border-red-500;
-			}
-			&:before {
-				@apply bg-red-500 border-4 border-quinary;
-			}
-		}
-
-		.cart.grouped_form & {
-			@apply mt-2;
-		}
+	.cart.grouped_form & {
+		@apply mt-2;
 	}
 }

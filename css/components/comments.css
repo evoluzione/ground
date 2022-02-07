@@ -1,78 +1,70 @@
-.comments {
-    @apply relative mt-16 prose;
-}
+@layer components {
+	.comments {
+		@apply relative mt-16 prose;
+	}
 
-.comments__list {
-    /* @apply my-6; */
-}
+	.comments__list {
+		/* @apply my-6; */
+	}
 
-.comments__item {
-    @apply my-3 bg-senary p-6 lg:px-9 lg:py-6 rounded-theme;
-}
+	.comments__item {
+		@apply my-3 bg-senary p-6 lg:px-9 lg:py-6 rounded-theme;
+	}
 
-.comments__body {
-}
+	.comments__body {
+	}
 
-.comments__img {
-    @apply h-16 w-16 mt-0 mb-3 object-cover border border-septenary;
+	.comments__img {
+		@apply h-16 w-16 mt-0 mb-3 object-cover border border-septenary;
+	}
 
-}
+	.comments__author {
+	}
 
-.comments__author {
+	.comments__date {
+	}
 
-}
+	.comments__edit {
+		@apply text-primary;
+	}
 
-.comments__date {
+	.comments__content {
+		@apply relative my-3;
+		* {
+			@apply text-quaternary;
+		}
+	}
 
-}
+	.comments__reply {
+		.comments__reply-link {
+		}
+	}
 
-.comments__edit {
-    @apply text-primary;
+	.comment-respond {
+		@apply w-full lg:w-2/4;
 
-}
+		#reply-title {
+			@apply mb-3;
+		}
+	}
 
-.comments__content {
-    @apply relative my-3;
-    * {
-        @apply text-quaternary;
-    }
+	#commentform {
+		@apply prose;
 
-}
+		p {
+			@apply text-quaternary;
+		}
 
-.comments__reply {
+		.form__group {
+			@apply mb-3;
+		}
 
-    .comments__reply-link {
+		.comment-form-cookies-consent {
+			@apply flex items-center;
 
-    }
-
-}
-
-.comment-respond {
-    @apply w-full lg:w-2/4;
-
-    #reply-title {
-        @apply mb-3;
-    }
-
-}
-
-#commentform {
-    @apply prose;
-
-    p {
-        @apply text-quaternary;
-    }
-
-    .form__group {
-        @apply mb-3;
-    }
-
-    .comment-form-cookies-consent {
-        @apply flex items-center;
-
-        label {
-            @apply text-quaternary text-xs !important;
-        }
-    }
-
+			label {
+				@apply text-quaternary text-xs !important;
+			}
+		}
+	}
 }

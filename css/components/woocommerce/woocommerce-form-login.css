@@ -1,29 +1,27 @@
-@layer components {
-	form.woocommerce-form-login {
-		.woocommerce-checkout & {
-			@apply relative overflow-hidden my-6 w-full lg:w-1/2 lg:pr-16;
-			p {
-				@apply text-quaternary mb-6;
-			}
-			.form-row,
-			.form-row-first,
-			.form-row-last {
-				@apply w-full px-0 py-0 mb-0 !important;
-			}
-			.woocommerce-form-login__submit {
-				@apply my-3;
-			}
+form.woocommerce-form-login {
+	.woocommerce-checkout & {
+		@apply relative overflow-hidden my-6 w-full lg:w-1/2 lg:pr-16;
+		p {
+			@apply text-quaternary mb-6;
+		}
+		.form-row,
+		.form-row-first,
+		.form-row-last {
+			@apply w-full px-0 py-0 mb-0 !important;
+		}
+		.woocommerce-form-login__submit {
+			@apply my-3;
 		}
 	}
+}
 
-	.woocommerce-form-login-toggle {
-		@apply mb-6;
-		.showlogin {
-			@apply text-primary underline;
-		}
+.woocommerce-form-login-toggle {
+	@apply mb-6;
+	.showlogin {
+		@apply text-primary underline;
 	}
+}
 
-	form.woocommerce-ResetPassword {
-		@apply relative py-9 px-6 lg:px-9 bg-senary rounded-theme w-full lg:w-1/2;
-	}
+form.woocommerce-ResetPassword {
+	@apply relative py-9 px-6 lg:px-9 bg-senary rounded-theme w-full lg:w-1/2;
 }

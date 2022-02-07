@@ -1,36 +1,34 @@
-@layer components {
-	.woocommerce-shipping-totals {
-		@apply relative;
+.woocommerce-shipping-totals {
+	@apply relative;
 
-		.woocommerce-shipping-methods {
-			@apply ml-0 mb-0;
+	.woocommerce-shipping-methods {
+		@apply ml-0 mb-0;
 
-			body.woocommerce-checkout & {
-				@apply float-right;
+		body.woocommerce-checkout & {
+			@apply float-right;
+		}
+
+		li {
+			@apply pl-0 text-left flex items-center cursor-pointer;
+
+			&:before {
+				@apply hidden;
 			}
 
-			li {
-				@apply pl-0 text-left flex items-center cursor-pointer;
+			label {
+				@apply text-sm !important;
+			}
 
-				&:before {
-					@apply hidden;
-				}
-
-				label {
-					@apply text-sm !important;
-				}
-
-				input:checked + label {
-					@apply text-primary underline !important;
-				}
+			input:checked + label {
+				@apply text-primary underline !important;
 			}
 		}
+	}
 
-		.woocommerce-shipping-destination {
-			@apply text-sm mt-3;
-		}
-		.shipping-calculator-button {
-			@apply block mt-2 text-sm font-bold underline;
-		}
+	.woocommerce-shipping-destination {
+		@apply text-sm mt-3;
+	}
+	.shipping-calculator-button {
+		@apply block mt-2 text-sm font-bold underline;
 	}
 }

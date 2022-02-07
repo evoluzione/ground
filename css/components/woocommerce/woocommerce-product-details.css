@@ -1,21 +1,19 @@
-@layer components {
-	.woocommerce-product-details {
-		@apply relative;
+.woocommerce-product-details {
+	@apply relative;
 
-		.product_title {
-			@apply text-2xl lg:text-4xl;
-		}
-
-		.woocommerce-Price-amount {
-		}
-
-		.woocommerce-Price-currencySymbol {
-		}
-
-		.woocommerce-price-suffix {
-		}
+	.product_title {
+		@apply text-2xl lg:text-4xl;
 	}
 
-	.woocommerce-product-details__short-description {
+	.woocommerce-Price-amount {
 	}
+
+	.woocommerce-Price-currencySymbol {
+	}
+
+	.woocommerce-price-suffix {
+	}
+}
+
+.woocommerce-product-details__short-description {
 }

@@ -1,5 +1,4 @@
-@layer components {
-	/* .woocommerce-tabs {
+/* .woocommerce-tabs {
 	@apply flow-root;
 	@apply mt-20 mb-12;
 
@@ -69,22 +68,21 @@
 	}
 } */
 
-	.woocommerce-product-attributes {
-		@apply relative mb-0;
+.woocommerce-product-attributes {
+	@apply relative mb-0;
 
-		tr {
-			@apply border-b border-septenary;
-		}
+	tr {
+		@apply border-b border-septenary;
+	}
 
-		th {
-			@apply text-lg lg:text-3xl font-normal;
-		}
+	th {
+		@apply text-lg lg:text-3xl font-normal;
+	}
 
-		td {
-			@apply border-0 text-quaternary text-lg lg:text-3xl;
-			* {
-				@apply text-quaternary text-lg lg:text-3xl;
-			}
+	td {
+		@apply border-0 text-quaternary text-lg lg:text-3xl;
+		* {
+			@apply text-quaternary text-lg lg:text-3xl;
 		}
 	}
 }

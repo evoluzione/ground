@@ -1,31 +1,29 @@
-@layer components {
-	.widget_product_categories,
-	.widget_categories {
-		@apply relative;
+.widget_product_categories,
+.widget_categories {
+	@apply relative;
 
-		ul {
-			li {
-				@apply block list-none;
+	ul {
+		li {
+			@apply block list-none;
 
-				.children {
-					@apply mt-0 pl-5;
+			.children {
+				@apply mt-0 pl-5;
+			}
+
+			a {
+				@apply relative py-1 flex items-center pl-8;
+				&:before {
+					content: "";
+					@apply absolute inline-block align-middle border-t border-septenary h-px w-4 mr-3 left-0;
 				}
+			}
 
-				a {
-					@apply relative py-1 flex items-center pl-8;
+			&.current-cat {
+				> a {
+					@apply text-primary font-normal;
+
 					&:before {
-						content: "";
-						@apply absolute inline-block align-middle border-t border-septenary h-px w-4 mr-3 left-0;
-					}
-				}
-
-				&.current-cat {
-					> a {
-						@apply text-primary font-normal;
-
-						&:before {
-							@apply bg-primary;
-						}
+						@apply bg-primary;
 					}
 				}
 			}

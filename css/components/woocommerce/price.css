@@ -1,52 +1,50 @@
-@layer components {
-	.price,
-	.ground__price-range {
-		@apply flex items-baseline w-full text-tertiary;
+.price,
+.ground__price-range {
+	@apply flex items-baseline w-full text-tertiary;
 
+	.amount {
+		@apply text-lg font-normal;
+		.summary & {
+			@apply text-3xl lg:text-4xl;
+		}
+		.minicart & {
+			@apply text-xl;
+		}
+	}
+
+	del {
+		@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 		.amount {
-			@apply text-lg font-normal;
+			@apply text-quaternary text-sm lg:text-xl font-normal;
+
 			.summary & {
-				@apply text-3xl lg:text-4xl;
+				@apply text-lg lg:text-xl;
 			}
-			.minicart & {
-				@apply text-xl;
-			}
-		}
-
-		del {
-			@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
-			.amount {
-				@apply text-quaternary text-sm lg:text-xl font-normal;
-
-				.summary & {
-					@apply text-lg lg:text-xl;
-				}
-			}
-		}
-
-		ins {
-			@apply no-underline;
 		}
 	}
 
-	.ground__price-range {
-		.price__label {
-			@apply pr-1 lg:pr-2;
+	ins {
+		@apply no-underline;
+	}
+}
+
+.ground__price-range {
+	.price__label {
+		@apply pr-1 lg:pr-2;
+	}
+}
+
+.product-price {
+	@apply text-sm;
+
+	del {
+		@apply text-sm text-red-500;
+		.amount {
+			@apply text-sm font-normal text-quaternary;
 		}
 	}
-
-	.product-price {
-		@apply text-sm;
-
-		del {
-			@apply text-sm text-red-500;
-			.amount {
-				@apply text-sm font-normal text-quaternary;
-			}
-		}
-		ins {
-			@apply no-underline;
-		}
+	ins {
+		@apply no-underline;
 	}
 }
 

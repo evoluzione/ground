@@ -1,16 +1,14 @@
-@layer components {
-	.onsale {
-		@apply card__label text-white bg-green-500;
+.onsale {
+	@apply card__label text-white bg-green-500;
 
-		.onsale__label {
-		}
+	.onsale__label {
+	}
 
-		.onsale__percentage {
-			@apply hidden sm:inline-block;
-		}
+	.onsale__percentage {
+		@apply hidden sm:inline-block;
+	}
 
-		.woocommerce-product-media & {
-			@apply absolute top-3 left-3;
-		}
+	.woocommerce-product-media & {
+		@apply absolute top-3 left-3;
 	}
 }

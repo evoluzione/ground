@@ -1,116 +1,114 @@
-@layer components {
-	.minicart {
-		.overlay-panel__content {
-			@apply overflow-y-hidden;
+.minicart {
+	.overlay-panel__content {
+		@apply overflow-y-hidden;
+	}
+
+	.woocommerce-cart & {
+		@apply hidden;
+	}
+
+	.widgettitle {
+		@apply hidden;
+	}
+
+	.widget_shopping_cart_content {
+		.woocommerce-mini-cart__empty-message {
+			@apply p-8;
 		}
 
-		.woocommerce-cart & {
-			@apply hidden;
-		}
-
-		.widgettitle {
-			@apply hidden;
-		}
-
-		.widget_shopping_cart_content {
-			.woocommerce-mini-cart__empty-message {
-				@apply p-8;
+		.woocommerce-mini-cart {
+			@apply absolute inset-0 h-screen w-full pt-40 pb-12 m-0 overflow-y-auto text-tertiary;
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+			&::-webkit-scrollbar {
+				@apply hidden;
 			}
 
-			.woocommerce-mini-cart {
-				@apply absolute inset-0 h-screen w-full pt-40 pb-12 m-0 overflow-y-auto text-tertiary;
-				-ms-overflow-style: none; /* IE and Edge */
-				scrollbar-width: none; /* Firefox */
-				&::-webkit-scrollbar {
-					@apply hidden;
-				}
+			.woocommerce-mini-cart-item {
+				@apply relative block overflow-hidden py-1 px-6 mt-2 mb-1 leading-7 lg:px-9;
 
-				.woocommerce-mini-cart-item {
-					@apply relative block overflow-hidden py-1 px-6 mt-2 mb-1 leading-7 lg:px-9;
-
-					&:hover {
-						.remove {
-							@apply opacity-100 visible transform-none;
-						}
-					}
-
-					a:not(.remove) {
-						@apply font-bold;
-					}
-
+				&:hover {
 					.remove {
-						@apply absolute top-0 left-5 lg:left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
-						height: 20px;
-						width: 20px;
-						line-height: 18px;
+						@apply opacity-100 visible transform-none;
+					}
+				}
+
+				a:not(.remove) {
+					@apply font-bold;
+				}
+
+				.remove {
+					@apply absolute top-0 left-5 lg:left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
+					height: 20px;
+					width: 20px;
+					line-height: 18px;
+				}
+
+				.attachment-woocommerce_thumbnail,
+				.woocommerce-placeholder {
+					@apply block rounded-media mr-6 w-28 h-28 float-left object-cover;
+				}
+
+				.quantity {
+					@apply flex items-baseline;
+
+					> .amount {
+						@apply pl-1 font-normal;
 					}
 
-					.attachment-woocommerce_thumbnail,
-					.woocommerce-placeholder {
-						@apply block rounded-media mr-6 w-28 h-28 float-left object-cover;
-					}
+					del {
+						@apply text-red-500 text-base order-2 pl-1;
 
-					.quantity {
-						@apply flex items-baseline;
-
-						> .amount {
-							@apply pl-1 font-normal;
-						}
-
-						del {
-							@apply text-red-500 text-base order-2 pl-1;
-
-							.amount {
-								@apply text-base font-normal text-gray-300;
-							}
-						}
-
-						ins {
-							@apply no-underline;
-
-							.amount {
-								@apply pl-1;
-							}
-
-							* {
-								@apply font-bold;
-							}
+						.amount {
+							@apply text-base font-normal text-gray-300;
 						}
 					}
-				}
-			}
 
-			.woocommerce-mini-cart__total {
-				@apply relative z-10 bg-quinary px-6 py-6 lg:px-9;
+					ins {
+						@apply no-underline;
 
-				strong {
-					@apply text-xl font-normal text-tertiary;
-				}
-				.amount {
-					@apply inline-block text-4xl font-normal text-tertiary;
-					* {
-						@apply text-tertiary;
+						.amount {
+							@apply pl-1;
+						}
+
+						* {
+							@apply font-bold;
+						}
 					}
 				}
 			}
+		}
 
-			.woocommerce-mini-cart__buttons {
-				@apply relative z-10 bg-quinary px-6 py-0 pb-4 border-b border-septenary grid sm:grid-cols-2 gap-6 lg:px-9;
+		.woocommerce-mini-cart__total {
+			@apply relative z-10 bg-quinary px-6 py-6 lg:px-9;
 
-				.button {
-					&:first-child {
-						/* @apply order-2; */
-					}
-					&.checkout {
-						@apply button--secondary hidden sm:inline-block;
-					}
+			strong {
+				@apply text-xl font-normal text-tertiary;
+			}
+			.amount {
+				@apply inline-block text-4xl font-normal text-tertiary;
+				* {
+					@apply text-tertiary;
 				}
 			}
+		}
 
-			/* PAYPAL */
-			#ppc-button-minicart {
-				@apply hidden !important;
+		.woocommerce-mini-cart__buttons {
+			@apply relative z-10 bg-quinary px-6 py-0 pb-4 border-b border-septenary grid sm:grid-cols-2 gap-6 lg:px-9;
+
+			.button {
+				&:first-child {
+					/* @apply order-2; */
+				}
+				&.checkout {
+					@apply button--secondary hidden sm:inline-block;
+				}
 			}
+		}
+
+		/* PAYPAL */
+		#ppc-button-minicart {
+			@apply hidden !important;
 		}
 	}
 }

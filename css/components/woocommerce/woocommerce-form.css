@@ -1,17 +1,15 @@
-@layer components {
-	.woocommerce-form {
-		.lost_password {
-			a {
-				@apply text-primary underline;
-			}
+.woocommerce-form {
+	.lost_password {
+		a {
+			@apply text-primary underline;
 		}
 	}
+}
 
-	.form-row {
-		@apply my-3;
+.form-row {
+	@apply my-3;
 
-		label {
-			@apply mb-1;
-		}
+	label {
+		@apply mb-1;
 	}
 }

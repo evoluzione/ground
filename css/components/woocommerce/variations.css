@@ -1,65 +1,63 @@
-@layer components {
-	.variations {
-		@apply relative mt-3 mb-0 lg:w-2/4;
+.variations {
+	@apply relative mt-3 mb-0 lg:w-2/4;
 
-		td,
-		th {
-			border: 0;
-		}
+	td,
+	th {
+		border: 0;
+	}
 
-		.label,
-		.value {
-			@apply block;
-		}
+	.label,
+	.value {
+		@apply block;
+	}
 
-		.label {
-			@apply p-0;
-			label {
-				@apply text-sm text-quaternary mb-1;
-			}
-		}
-
-		.value {
-			@apply p-0 mb-3;
-		}
-
-		.reset_variations {
-			@apply block text-sm text-quaternary mt-2 underline;
+	.label {
+		@apply p-0;
+		label {
+			@apply text-sm text-quaternary mb-1;
 		}
 	}
 
-	.single_variation {
-		.woocommerce-variation-description {
-			@apply relative mt-3 mb-6;
-			* {
-				@apply text-sm text-quaternary;
-			}
-		}
-		.woocommerce-variation-price {
-		}
-
-		.woocommerce-variation-availability {
-			@apply relative my-3;
-		}
+	.value {
+		@apply p-0 mb-3;
 	}
 
+	.reset_variations {
+		@apply block text-sm text-quaternary mt-2 underline;
+	}
+}
+
+.single_variation {
+	.woocommerce-variation-description {
+		@apply relative mt-3 mb-6;
+		* {
+			@apply text-sm text-quaternary;
+		}
+	}
 	.woocommerce-variation-price {
-		@apply text-3xl;
-		@apply mb-6;
 	}
 
-	.variation {
-		@apply flex mt-1 mb-2;
+	.woocommerce-variation-availability {
+		@apply relative my-3;
+	}
+}
 
-		dd {
-			@apply ml-1 mr-2 text-xs mb-0;
-			* {
-				@apply text-xs;
-			}
-		}
+.woocommerce-variation-price {
+	@apply text-3xl;
+	@apply mb-6;
+}
 
-		dt {
+.variation {
+	@apply flex mt-1 mb-2;
+
+	dd {
+		@apply ml-1 mr-2 text-xs mb-0;
+		* {
 			@apply text-xs;
 		}
+	}
+
+	dt {
+		@apply text-xs;
 	}
 }

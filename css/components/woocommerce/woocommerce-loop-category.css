@@ -1,20 +1,18 @@
-@layer components {
-	.woocommerce-loop-category {
-		@apply relative overflow-hidden;
+.woocommerce-loop-category {
+	@apply relative overflow-hidden;
 
-		img {
-			@apply card__image;
-		}
+	img {
+		@apply card__image;
 	}
+}
 
-	.woocommerce-loop-category__title {
-		@apply card__title;
-		.count {
-			@apply hidden;
-		}
+.woocommerce-loop-category__title {
+	@apply card__title;
+	.count {
+		@apply hidden;
 	}
+}
 
-	.woocommerce-loop-category__description {
-		@apply card__description;
-	}
+.woocommerce-loop-category__description {
+	@apply card__description;
 }

@@ -1,125 +1,123 @@
-@layer components {
-	.woocommerce-cart-form {
-		@apply relative;
+.woocommerce-cart-form {
+	@apply relative;
 
-		&.processing {
-			.blockOverlay {
-				&:after {
-					content: "";
-					top: 50%;
-					left: 50%;
-					margin-left: -20px;
-					margin-top: -20px;
-					border: 3px solid #d3d3d3;
-					border-top: 3px solid theme("colors.primary");
-					width: 40px;
-					height: 40px;
-					@apply absolute rounded-full animate-spin;
-				}
-			}
-		}
-		thead {
-			@apply hidden;
-		}
-	}
-
-	.woocommerce-cart-form__contents {
-		@apply relative border-t border-septenary;
-
-		td {
-			@apply align-top;
-		}
-
-		.product-price {
-			@apply hidden;
-		}
-
-		.actions {
-			@apply relative pt-6 pb-3 md:pt-12 md:pb-6 border-0;
-
-			.button[name="update_cart"] {
-				@apply hidden relative p-0 text-tertiary underline bg-transparent border-0 md:absolute md:right-0;
-			}
-
-			.coupon {
-				@apply max-w-2xl relative flex items-center mt-4 lg:mt-0;
-
-				input {
-					@apply mr-3;
-				}
-
-				label {
-					@apply hidden !important;
-				}
+	&.processing {
+		.blockOverlay {
+			&:after {
+				content: "";
+				top: 50%;
+				left: 50%;
+				margin-left: -20px;
+				margin-top: -20px;
+				border: 3px solid #d3d3d3;
+				border-top: 3px solid theme("colors.primary");
+				width: 40px;
+				height: 40px;
+				@apply absolute rounded-full animate-spin;
 			}
 		}
 	}
+	thead {
+		@apply hidden;
+	}
+}
 
-	.woocommerce-cart-form__cart-item {
-		@apply relative border-b border-septenary;
-		@apply mb-0 !important;
+.woocommerce-cart-form__contents {
+	@apply relative border-t border-septenary;
 
-		&:hover {
-			.product-remove {
-				.remove {
-					@apply visible opacity-100 transform-none;
-				}
-			}
+	td {
+		@apply align-top;
+	}
+
+	.product-price {
+		@apply hidden;
+	}
+
+	.actions {
+		@apply relative pt-6 pb-3 md:pt-12 md:pb-6 border-0;
+
+		.button[name="update_cart"] {
+			@apply hidden relative p-0 text-tertiary underline bg-transparent border-0 md:absolute md:right-0;
 		}
 
-		/* REMOVE */
+		.coupon {
+			@apply max-w-2xl relative flex items-center mt-4 lg:mt-0;
+
+			input {
+				@apply mr-3;
+			}
+
+			label {
+				@apply hidden !important;
+			}
+		}
+	}
+}
+
+.woocommerce-cart-form__cart-item {
+	@apply relative border-b border-septenary;
+	@apply mb-0 !important;
+
+	&:hover {
 		.product-remove {
-			position: absolute;
-			border: 0;
-
 			.remove {
-				@apply absolute h-5 w-5 leading-5 top-2 -left-2 text-white text-center rounded-full no-underline bg-red-500 p-0 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
+				@apply visible opacity-100 transform-none;
 			}
 		}
+	}
 
-		/* THUMBNAIL */
-		.product-thumbnail {
-			@apply w-44 pt-6 pb-0 md:py-6;
+	/* REMOVE */
+	.product-remove {
+		position: absolute;
+		border: 0;
 
-			.attachment-woocommerce_thumbnail,
-			.woocommerce-placeholder {
-				@apply rounded-media w-full h-36 object-cover;
-			}
+		.remove {
+			@apply absolute h-5 w-5 leading-5 top-2 -left-2 text-white text-center rounded-full no-underline bg-red-500 p-0 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
 		}
+	}
 
-		/* NAME */
-		.product-name {
-			@apply pt-6 pb-3 md:py-6 md:pl-6 border-0;
+	/* THUMBNAIL */
+	.product-thumbnail {
+		@apply w-44 pt-6 pb-0 md:py-6;
 
-			a {
-				@apply text-tertiary font-normal text-base;
-			}
+		.attachment-woocommerce_thumbnail,
+		.woocommerce-placeholder {
+			@apply rounded-media w-full h-36 object-cover;
 		}
+	}
 
-		.product-price {
+	/* NAME */
+	.product-name {
+		@apply pt-6 pb-3 md:py-6 md:pl-6 border-0;
+
+		a {
+			@apply text-tertiary font-normal text-base;
+		}
+	}
+
+	.product-price {
+		@apply hidden;
+		del {
+			@apply order-2 pl-2;
+		}
+	}
+
+	/* QUANTITY */
+	.product-quantity {
+		@apply py-0 md:py-6 border-0;
+	}
+
+	.product-subtotal {
+		@apply lg:text-right text-2xl md:text-4xl font-bold border-0;
+	}
+
+	td {
+		&:before {
 			@apply hidden;
-			del {
-				@apply order-2 pl-2;
-			}
-		}
-
-		/* QUANTITY */
-		.product-quantity {
-			@apply py-0 md:py-6 border-0;
-		}
-
-		.product-subtotal {
-			@apply lg:text-right text-2xl md:text-4xl font-bold border-0;
-		}
-
-		td {
-			&:before {
-				@apply hidden;
-			}
 		}
 	}
+}
 
-	.cart-empty {
-		@apply mb-6;
-	}
+.cart-empty {
+	@apply mb-6;
 }
