@@ -1,13 +1,13 @@
-const path = require('path')
-const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
-const mode = process.env.WEBPACK_MODE
+const path = require('path');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const mode = process.env.WEBPACK_MODE;
 
 module.exports = {
 	// The point or points where to start the application bundling process.
 	entry: './js/app.js',
 
 	output: {
-        chunkFilename: '[name].bundle.js',
+		chunkFilename: '[name].bundle.js',
 		// This option determines the name of each output bundle.
 		filename: 'scripts.min.js',
 		// The bundle is written to the directory specified by the output.path option.
@@ -48,4 +48,4 @@ module.exports = {
 			},
 		],
 	},
-}
+};
