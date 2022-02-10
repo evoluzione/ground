@@ -25,7 +25,7 @@ export default class HandleAnimation {
 	 * @type {string[]}
 	 */
 	animationToActivate = [];
-	
+
 	/**
 	 * @type {promise[]}
 	 */
@@ -39,7 +39,7 @@ export default class HandleAnimation {
 
 	/**
 	 * Init events to run animations
-	 * @param {*} triggers 
+	 * @param {*} triggers
 	 */
 	initEvents() {
 		this.getAnimationToActivate(this.triggers);
@@ -49,8 +49,8 @@ export default class HandleAnimation {
 	}
 
 	/**
-	 * Get all animations we need in array 
-	 * @param {string} triggers 
+	 * Get all animations we need in array
+	 * @param {string} triggers
 	 */
 	getAnimationToActivate(triggers) {
 
@@ -78,7 +78,7 @@ export default class HandleAnimation {
 	populatePromiseList() {
 
 		if (this.animationToActivate.includes('js-split-text')) {
-			const promise = import(/* webpackChunkName: "animationSplitText" */'./animationSplitText')
+			const promise = import(/* webpackChunkName: "ground-animationSplitText" */'./animationSplitText')
 				.then((module) => {
 					this.AnimationSplitText = module.default;
 					return module.default.name;
@@ -89,7 +89,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-rotation')) {
-			const promise = import(/* webpackChunkName: "animationRotation" */'./animationRotation')
+			const promise = import(/* webpackChunkName: "ground-animationRotation" */'./animationRotation')
 				.then((module) => {
 					this.AnimationRotation = module.default;
 					return module.default.name;
@@ -100,7 +100,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-pin')) {
-			const promise = import(/* webpackChunkName: "animationPin" */'./animationPin')
+			const promise = import(/* webpackChunkName: "ground-animationPin" */'./animationPin')
 				.then((module) => {
 					this.AnimationPin = module.default;
 					return module.default.name;
@@ -111,7 +111,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-comparison')) {
-			const promise = import(/* webpackChunkName: "animationComparison" */'./animationComparison')
+			const promise = import(/* webpackChunkName: "ground-animationComparison" */'./animationComparison')
 				.then((module) => {
 					this.AnimationComparison = module.default;
 					return module.default.name;
@@ -122,7 +122,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-batch')) {
-			const promise = import(/* webpackChunkName: "animationBatch" */'./animationBatch')
+			const promise = import(/* webpackChunkName: "ground-animationBatch" */'./animationBatch')
 				.then((module) => {
 					this.AnimationBatch = module.default;
 					return module.default.name;
@@ -134,7 +134,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-scale')) {
-			const promise = import(/* webpackChunkName: "animationScale" */'./animationScale')
+			const promise = import(/* webpackChunkName: "ground-animationScale" */'./animationScale')
 				.then((module) => {
 					this.AnimationScale = module.default;
 					return module.default.name;
@@ -145,7 +145,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-draw')) {
-			const promise = import(/* webpackChunkName: "animationDraw" */'./animationDraw')
+			const promise = import(/* webpackChunkName: "ground-animationDraw" */'./animationDraw')
 				.then((module) => {
 					this.AnimationDraw = module.default;
 					return module.default.name;
@@ -156,7 +156,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-bg-color')) {
-			const promise = import(/* webpackChunkName: "animationBgColor" */'./animationBgColor')
+			const promise = import(/* webpackChunkName: "ground-animationBgColor" */'./animationBgColor')
 				.then((module) => {
 					this.AnimationBgColor = module.default;
 					return module.default.name;
@@ -167,7 +167,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-sprite-images')) {
-			const promise = import(/* webpackChunkName: "animationSpriteImages" */'./animationSpriteImages')
+			const promise = import(/* webpackChunkName: "ground-animationSpriteImages" */'./animationSpriteImages')
 				.then((module) => {
 					this.AnimationSpriteImages = module.default;
 					return module.default.name;
@@ -178,7 +178,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-horizontal-scroll')) {
-			const promise = import(/* webpackChunkName: "animationHorizontalScroll" */'./animationHorizontalScroll')
+			const promise = import(/* webpackChunkName: "ground-animationHorizontalScroll" */'./animationHorizontalScroll')
 				.then((module) => {
 					this.AnimationHorizontalScroll = module.default;
 					return module.default.name;
@@ -189,7 +189,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-horizontal-scroll-container')) {
-			const promise = import(/* webpackChunkName: "animationHorizontalScrollContainer" */'./animationHorizontalScrollContainer')
+			const promise = import(/* webpackChunkName: "ground-animationHorizontalScrollContainer" */'./animationHorizontalScrollContainer')
 				.then((module) => {
 					this.AnimationHorizontalScrollContainer = module.default;
 					return module.default.name;
@@ -200,7 +200,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-horizontal-scroll-section')) {
-			const promise = import(/* webpackChunkName: "animationHorizontalScrollSection" */'./animationHorizontalScrollSection')
+			const promise = import(/* webpackChunkName: "ground-animationHorizontalScrollSection" */'./animationHorizontalScrollSection')
 				.then((module) => {
 					this.AnimationHorizontalScrollSection = module.default;
 					return module.default.name;
@@ -211,7 +211,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-parallax')) {
-			const promise = import(/* webpackChunkName: "animationParallax" */'./animationParallax')
+			const promise = import(/* webpackChunkName: "ground-animationParallax" */'./animationParallax')
 				.then((module) => {
 					this.AnimationParallax = module.default;
 					return module.default.name;
@@ -222,7 +222,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.animationToActivate.includes('js-video')) {
-			const promise = import(/* webpackChunkName: "animationVideo" */'./animationVideo')
+			const promise = import(/* webpackChunkName: "ground-animationVideo" */'./animationVideo')
 				.then((module) => {
 					this.AnimationVideo = module.default;
 					return module.default.name;
@@ -233,7 +233,7 @@ export default class HandleAnimation {
 		}
 
 		if (this.hasCssAnimation) {
-			const promise = import(/* webpackChunkName: "animationDefault" */'./animationDefault')
+			const promise = import(/* webpackChunkName: "ground-animationDefault" */'./animationDefault')
 				.then((module) => {
 					this.AnimationDefault = module.default;
 					return module.default.name;
@@ -247,7 +247,7 @@ export default class HandleAnimation {
 
 	/**
 	 * Resolve all promises and then fire animation instances
-	 * @param {string} triggers 
+	 * @param {string} triggers
 	 */
 	resolveAllPromise(triggers) {
 		// Once all promises are resolved
@@ -259,7 +259,7 @@ export default class HandleAnimation {
 
 	/**
 	 * Loop the nodes to activate correct animation
-	 * @param {object} triggers 
+	 * @param {object} triggers
 	 */
 	fireAnimations(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
@@ -270,7 +270,7 @@ export default class HandleAnimation {
 
 	/**
 	 * Select the correct animation to fire
-	 * @param {any} element 
+	 * @param {any} element
 	 */
 	getAnimation(element) {
 

@@ -5,7 +5,7 @@ function initAnimationScripts() {
 
 	// HandleAnimation
 	if (elementExist('[data-scroll]')) {
-		import(/* webpackChunkName: "handleAnimation" */'./animations/handleAnimation')
+		import(/* webpackChunkName: "ground-handleAnimation" */'./animations/handleAnimation')
 			.then((module) => {
 				const HandleAnimation = module.default;
 				new HandleAnimation();
@@ -18,7 +18,7 @@ function initGenericScripts() {
 
 	// Cursor
 	if (elementExist('.js-cursor') && !isMobile().any) {
-		import(/* webpackChunkName: "cursor" */'./components/cursorV2')
+		import(/* webpackChunkName: "ground-cursor" */'./components/cursorV2')
 			.then((module) => {
 				const Cursor = module.default;
 				new Cursor();
@@ -28,7 +28,7 @@ function initGenericScripts() {
 
 	// Modal
 	if (elementExist('[data-modal]')) {
-		import(/* webpackChunkName: "modal" */'./components/modal')
+		import(/* webpackChunkName: "ground-modal" */'./components/modal')
 			.then((module) => {
 				const Modal = module.default;
 				new Modal();
@@ -38,7 +38,7 @@ function initGenericScripts() {
 
 	// Toggle
 	if (elementExist('.js-toggle')) {
-		import(/* webpackChunkName: "toggle" */'./components/toggle')
+		import(/* webpackChunkName: "ground-toggle" */'./components/toggle')
 			.then((module) => {
 				const Toggle = module.default;
 				new Toggle;
@@ -48,7 +48,7 @@ function initGenericScripts() {
 
 	// Magnet
 	if (elementExist('.js-magnet')) {
-		import(/* webpackChunkName: "magnet" */'./components/magnetV2')
+		import(/* webpackChunkName: "ground-magnet" */'./components/magnetV2')
 			.then((module) => {
 				const Magnet = module.default;
 				new Magnet();
@@ -58,7 +58,7 @@ function initGenericScripts() {
 
 	// AnimationFlip
 	if (elementExist('[data-flip]')) {
-		import(/* webpackChunkName: "animationFlip" */'./animations/animationFlip')
+		import(/* webpackChunkName: "ground-animationFlip" */'./animations/animationFlip')
 			.then((module) => {
 				const AnimationFlip = module.default;
 				new AnimationFlip();
@@ -68,7 +68,7 @@ function initGenericScripts() {
 
 	// AnimationWebGl
 	if (elementExist('[data-scroll="js-webgl"]')) {
-		import(/* webpackChunkName: "animationWebGl" */'./webGl/animationWebGl')
+		import(/* webpackChunkName: "ground-animationWebGl" */'./webGl/animationWebGl')
 			.then((module) => {
 				const AnimationWebGl = module.default;
 				new AnimationWebGl();
@@ -83,7 +83,7 @@ function initGenericScripts() {
         || elementExist('.js-carousel')
         || elementExist('.js-slider-gallery')
 	) {
-		import(/* webpackChunkName: "slider" */'./components/slider')
+		import(/* webpackChunkName: "ground-slider" */'./components/slider')
 			.then((module) => {
 				const Slider = module.default;
 
@@ -145,7 +145,7 @@ function initGenericScripts() {
 
 	// Search
 	if (elementExist('#js-ajax-search')) {
-		import(/* webpackChunkName: "search" */'./components/search')
+		import(/* webpackChunkName: "ground-search" */'./components/search')
 			.then((module) => {
 				const Search = module.default;
 				new Search();
@@ -155,7 +155,7 @@ function initGenericScripts() {
 
 	// Menu
 	if (elementExist('.navigation__item.has-children')) {
-		import(/* webpackChunkName: "menu" */'./components/menu')
+		import(/* webpackChunkName: "ground-menu" */'./components/menu')
 			.then((module) => {
 				const Menu = module.default;
 				new Menu();
@@ -165,7 +165,7 @@ function initGenericScripts() {
 
 	// Cart
 	if (elementExist('.minicart')) {
-		import(/* webpackChunkName: "cart" */'./components/cart')
+		import(/* webpackChunkName: "ground-cart" */'./components/cart')
 			.then((module) => {
 				const Cart = module.default;
 				new Cart();
@@ -175,7 +175,7 @@ function initGenericScripts() {
 
 	// ScrollDirection
 	if (!isMobile().any) {
-		import(/* webpackChunkName: "scrollDirection" */'./components/scrollDirection')
+		import(/* webpackChunkName: "ground-scrollDirection" */'./components/scrollDirection')
 			.then((module) => {
 				const ScrollDirection = module.default;
 				new ScrollDirection();
@@ -184,7 +184,7 @@ function initGenericScripts() {
 
 	// WidgetAccordion
 	if (elementExist('.woocommerce-widget-layered-nav')) {
-		import(/* webpackChunkName: "widgetAccordion" */'./components/widgetAccordion')
+		import(/* webpackChunkName: "ground-widgetAccordion" */'./components/widgetAccordion')
 			.then((module) => {
 				const WidgetAccordion = module.default;
 				new WidgetAccordion();
@@ -194,7 +194,7 @@ function initGenericScripts() {
 
 	// Billing Invoices
 	if (elementExist('#billing_invoice')) {
-		import(/* webpackChunkName: "billing" */'./components/billing')
+		import(/* webpackChunkName: "ground-billing" */'./components/billing')
 			.then((module) => {
 				const Billing = module.default;
 				new Billing();
@@ -203,7 +203,7 @@ function initGenericScripts() {
 	}
 
 	// JS Loader
-	import(/* webpackChunkName: "loader" */'./components/loader')
+	import(/* webpackChunkName: "ground-loader" */'./components/loader')
 		.then((module) => {
 			const Loader = module.default;
 			new Loader();
@@ -212,7 +212,7 @@ function initGenericScripts() {
 
 	// InfiniteScroll
 	if (elementExist('.js-pagination')) {
-		import(/* webpackChunkName: "infiniteScroll" */'./components/infiniteScroll')
+		import(/* webpackChunkName: "ground-infiniteScroll" */'./components/infiniteScroll')
 			.then((module) => {
 				const InfiniteScroll = module.default;
 				new InfiniteScroll();
@@ -222,7 +222,7 @@ function initGenericScripts() {
 
 	// YoastFaqBlock
 	if (elementExist('.schema-faq-question')) {
-		import(/* webpackChunkName: "yoastFaqBlock" */'./components/yoastFaqBlock')
+		import(/* webpackChunkName: "ground-yoastFaqBlock" */'./components/yoastFaqBlock')
 			.then((module) => {
 				const YoastFaqBlock = module.default;
 				new YoastFaqBlock();
