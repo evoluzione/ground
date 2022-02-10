@@ -333,25 +333,21 @@ function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item 
 add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 2 );
 
 /**
- * BEM body classes
+ * Custom body class
  *
  * @param string|string[] $classes Space-separated string or array of class names to add to the class list.
  * @return string|string[]
  */
-function ground_body_class_bem( $classes ) {
+function ground_body_class( $classes ) {
 
-	foreach ( $classes as &$value ) {
-		if ( strpos( $value, 'is-' ) !== false || strpos( $value, 'woo' ) !== false ) {
-			$value = $value;
-		} else {
-			$value = 'body--' . $value;
-		}
+	if ( current_user_can( 'administrator' ) ) {
+		$classes[] = 'debug-screens';
 	}
-	array_unshift( $classes, 'body' );
+
 	return $classes;
 }
 
-// add_filter( 'body_class', 'ground_body_class_bem' );
+add_filter( 'body_class', 'ground_body_class' );
 
 /**
  * Save ACF local JSON
