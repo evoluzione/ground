@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "npm run clean && npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
 		"build": "npm-run-all clean \"styles -- --env production\" \"js -- --mode=production\"",
-		"styles": "postcss css/export --dir dist/css --verbose --map",
+		"styles": "postcss css/main-wc.css -o dist/css/styles.min.css --verbose --map",
 		"sync": "browser-sync start -p 'https://ground.develop' -f 'dist/css/styles.min.css' '**/*.php' 'dist/js/scripts.min.js' -w",
 		"js": "webpack",
 		"clean": "rm -rf ./dist/"

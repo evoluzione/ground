@@ -9,37 +9,44 @@
 /**
  * Register and enqueue CSS
  */
-function ground_enqueue_styles()
-{
-	if (class_exists('WooCommerce')) {
-		wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles-wc.min.css', array(), GROUND_VERSION, 'all');
-	} else {
-		wp_enqueue_style('ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles.min.css', array(), GROUND_VERSION, 'all');
-	}
-
-	wp_enqueue_style('swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), null, 'all');
+function ground_enqueue_styles() {
+	wp_enqueue_style( 'ground-styles', GROUND_TEMPLATE_URL . '/dist/css/styles.min.css', array(), GROUND_VERSION, 'all' );
+	wp_enqueue_style( 'swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), null, 'all' );
 }
 
-add_action('wp_enqueue_scripts', 'ground_enqueue_styles', 9);
+add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
+
+/**
+ * Register and enqueue JS
+ */
+function ground_enqueue_scripts() {
+	// wp_deregister_script( 'jquery' );
+	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.5.0.min.js", array(), null, true );
+	wp_enqueue_script( 'ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/scripts.min.js', array( 'jquery' ), GROUND_VERSION, true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
 
 /**
  * Add CSS Fonts Source
  */
-function ground_add_fonts_source()
-{
+function ground_add_fonts_source() {
 	echo GROUND_FONT_SOURCE_PRIMARY;
 	echo GROUND_FONT_SOURCE_SECONDARY;
 }
 
-add_action('wp_head', 'ground_add_fonts_source');
+add_action( 'wp_head', 'ground_add_fonts_source' );
 
 
 /**
  * Add CSS theme variables
  */
-function ground_add_css_theme_variables()
-{
+function ground_add_css_theme_variables() {
 	echo '<style type="text/css">
 		:root {
 			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
@@ -57,62 +64,44 @@ function ground_add_css_theme_variables()
 	} </style>';
 }
 
-add_action('wp_head', 'ground_add_css_theme_variables');
-
-/**
- * Register and enqueue JS
- */
-function ground_enqueue_scripts()
-{
-	// wp_deregister_script( 'jquery' );
-	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.5.0.min.js", array(), null, true );
-	wp_enqueue_script('ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/scripts.min.js', array('jquery'), GROUND_VERSION, true);
-
-	if (is_singular() && comments_open() && get_option('thread_comments')) {
-		wp_enqueue_script('comment-reply');
-	}
-}
-
-add_action('wp_enqueue_scripts', 'ground_enqueue_scripts', 1);
+add_action( 'wp_head', 'ground_add_css_theme_variables' );
 
 /**
  * Clean up head output
  */
-function ground_head_output()
-{
+function ground_head_output() {
 	// Enables RSS posts and comments.
-	add_theme_support('automatic-feed-links');
+	add_theme_support( 'automatic-feed-links' );
 	// Allows themes to add document title tag to HTML <head>.
-	add_theme_support('title-tag');
+	add_theme_support( 'title-tag' );
 	// Remove adjacent posts links to the current post.
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	// Remove the Really Simple Discovery service endpoint, EditURI link.
-	remove_action('wp_head', 'rsd_link');
+	remove_action( 'wp_head', 'rsd_link' );
 	// Remove the link to Windows Live Writer.
-	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action( 'wp_head', 'wlwmanifest_link' );
 	// Remove WordPress version.
-	remove_action('wp_head', 'wp_generator');
+	remove_action( 'wp_head', 'wp_generator' );
 	// Remove post, page, attachment shortlink.
-	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 	// Remove recent comments inline styles.
-	add_filter('show_recent_comments_widget_style', '__return_false');
+	add_filter( 'show_recent_comments_widget_style', '__return_false' );
 	// Remove rel canonical.
 	// remove_action( 'wp_head', 'rel_canonical' );
 }
 
-add_action('init', 'ground_head_output');
+add_action( 'init', 'ground_head_output' );
 
 /**
  * Remove login logo
  */
-function ground_login_css()
-{  ?>
+function ground_login_css() {    ?>
 	<style type="text/css">
 		#login h1 {
 			display: none;
 		}
 	</style>
-<?php
+	<?php
 }
 
-add_action('login_enqueue_scripts', 'ground_login_css');
+add_action( 'login_enqueue_scripts', 'ground_login_css' );
