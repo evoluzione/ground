@@ -28,8 +28,4 @@
 	do_action( 'ground_header' );
 	?>
 
-	<div data-router-wrapper>
-
-		<div <?php ground_view_name(); ?>>
-
-			<main role="main" class="<?php echo class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ? 'container' : esc_attr( GROUND_CONTAINER ); ?>">
+	<main role="main" class="<?php echo class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ? 'container' : esc_attr( GROUND_CONTAINER ); ?>">
