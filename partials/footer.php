@@ -1,14 +1,5 @@
 			</main>
 
-			<div class="fixed bottom-0 right-0 z-50">
-				<?php
-				/**
-				 * Hook: ground_notice.
-				 */
-				do_action( 'ground_notice' );
-				?>
-			</div>
-
 			<?php
 			/**
 			 * Hook: ground_footer.
