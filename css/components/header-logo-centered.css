@@ -20,15 +20,15 @@
 			}
 
 			.navigation__link {
-				@apply block text-lg py-4 border-b border-septenary border-opacity-20 lg:block lg:py-2 lg:text-base lg:border-0;
+				@apply block border-b border-septenary border-opacity-20 py-4 text-lg lg:block lg:border-0 lg:py-2 lg:text-base;
 			}
 
 			.navigation__list {
-				@apply m-0 lg:flex lg:justify-start font-normal;
+				@apply m-0 font-normal lg:flex lg:justify-start;
 			}
 
 			.navigation__sub-menu {
-				@apply relative hidden m-0 lg:block lg:text-center lg:m-auto lg:absolute lg:bg-transparent lg:opacity-0 lg:invisible lg:top-10 lg:left-2/4 lg:w-56 lg:z-40;
+				@apply relative m-0 hidden lg:invisible lg:absolute lg:top-10 lg:left-2/4 lg:z-40 lg:m-auto lg:block lg:w-56 lg:bg-transparent lg:text-center lg:opacity-0;
 				@screen lg {
 					transform: translateX(calc(-50% - 24px));
 				}
@@ -37,13 +37,13 @@
 				}
 
 				&.is-active {
-					@apply inline-block absolute top-0 h-auto opacity-100 visible lg:relative lg:left-auto lg:top-auto lg:w-auto;
+					@apply visible absolute top-0 inline-block h-auto opacity-100 lg:relative lg:left-auto lg:top-auto lg:w-auto;
 					left: 100vw;
 					width: 100%;
 				}
 
 				.navigation__link {
-					@apply lg:border-b lg:border-septenary lg:border-opacity-20 lg:opacity-0 lg:bg-senary lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
+					@apply lg:animate-fade-in-staggered lg:relative lg:top-3 lg:border-b lg:border-septenary lg:border-opacity-20 lg:bg-senary lg:opacity-0 lg:transition-all lg:duration-300 lg:ease-in-out;
 				}
 
 				.navigation__item {
@@ -57,7 +57,7 @@
 					}
 
 					.navigation__link {
-						@apply block text-base py-3 border-b border-septenary border-opacity-20;
+						@apply block border-b border-septenary border-opacity-20 py-3 text-base;
 						@apply lg:pr-0 !important;
 						&:after {
 							@apply lg:hidden lg:text-base;
@@ -73,7 +73,7 @@
 					@apply lg:visible lg:opacity-100;
 
 					.navigation__link {
-						@apply lg:opacity-100 lg:top-0;
+						@apply lg:top-0 lg:opacity-100;
 					}
 
 					.navigation__image {
@@ -102,13 +102,13 @@
 						width: 24px;
 						border-radius: 50%;
 						right: 8px;
-						background: url("../../img/icons/chevron-right.svg");
+						background: url("../../img/icons/css-gg/chevron-right.svg");
 					}
 					@screen lg {
 						&:after {
 							margin-top: 4px;
 							right: 12px;
-							background: url("../../img/icons/chevron-down.svg");
+							background: url("../../img/icons/css-gg/chevron-down.svg");
 						}
 					}
 				}
