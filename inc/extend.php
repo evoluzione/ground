@@ -510,11 +510,10 @@ add_action( 'wp_ajax_nopriv_data_fetch', 'ground_ajax_search_data_fetch' );
  * WMPL - Switch Language
  */
 function ground_language_switch() {
-	 ob_start();
+	ob_start();
 	get_template_part( 'partials/switch-language' );
 	return ob_get_clean();
 }
-
 
 /**
  * Write log in /wp-content/debug.log
@@ -532,23 +531,6 @@ function ground_log( $log ) {
 	}
 }
 
-
-
-/**
- * Dark mode: Add HTML class
- */
-// function ground_dark_mode( $output ) {
-
-// if ( GROUND_DARK_MODE == '1' ) {
-// $output .= ' class="dark"';
-// return $output;
-// }
-
-// }
-
-// add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
-
-
 /**
  * Header, Add header switch type
  */
@@ -560,13 +542,13 @@ function ground_header_type() {
 
 	$header_type = GROUND_HEADER_TYPE;
 	switch ( $header_type ) {
-		case $header_type == 'menu':
+		case 'menu':
 			get_template_part( 'partials/headers/header', 'simple' );
 			break;
-		case $header_type == 'menuCentered':
+		case 'menuCentered':
 			get_template_part( 'partials/headers/header', 'logo-centered' );
 			break;
-		case $header_type == 'megaMenu':
+		case 'megaMenu':
 			get_template_part( 'partials/headers/header', 'mega-menu' );
 			break;
 		default:
@@ -577,51 +559,39 @@ function ground_header_type() {
 
 add_action( 'ground_header', 'ground_header_type', 10 );
 
-
-
 /**
  * Footer, Add pre footer partials
  */
 function ground_pre_footer() {
-
 	get_template_part( 'partials/pre-footer' );
-
 }
 
-add_action( 'ground_before_footer', 'ground_pre_footer', 10 );
-
-
+add_action( 'ground_footer', 'ground_pre_footer', 5 );
 
 /**
  * Footer, Add newsletter partials
  */
 function ground_newsletter() {
-		get_template_part( 'partials/newsletter' );
+	get_template_part( 'partials/newsletter' );
 }
 
-add_action( 'ground_before_footer', 'ground_newsletter', 11 );
-
-
+add_action( 'ground_footer', 'ground_newsletter', 8 );
 
 /**
  * Footer, Add footer switch type
  */
 function ground_footer_type() {
-
 	get_template_part( 'partials/footers/footer', 'simple' );
-
 }
 
 add_action( 'ground_footer', 'ground_footer_type', 10 );
-
-
 
 /**
  * Register custom Sidebar archive post
  *
  * @return void
  */
-function widget_registration( $name, $id ) {
+function ground_widget_registration( $name, $id ) {
 	register_sidebar(
 		array(
 			'name'          => $name,
@@ -632,16 +602,15 @@ function widget_registration( $name, $id ) {
 	);
 }
 
-
-function multiple_widget_init() {
-	widget_registration( __( 'Sidebar archive post', 'ground' ), 'sidebar-archive-post' );
-	widget_registration( __( 'Sidebar footer primary', 'ground' ), 'sidebar-footer-primary' );
-	widget_registration( __( 'Sidebar footer secondary', 'ground' ), 'sidebar-footer-secondary' );
-	widget_registration( __( 'Sidebar footer tertiary', 'ground' ), 'sidebar-footer-tertiary' );
-	widget_registration( __( 'Sidebar footer quaternary', 'ground' ), 'sidebar-footer-quaternary' );
+function ground_multiple_widget_init() {
+	ground_widget_registration( __( 'Sidebar archive post', 'ground' ), 'sidebar-archive-post' );
+	ground_widget_registration( __( 'Sidebar footer primary', 'ground' ), 'sidebar-footer-primary' );
+	ground_widget_registration( __( 'Sidebar footer secondary', 'ground' ), 'sidebar-footer-secondary' );
+	ground_widget_registration( __( 'Sidebar footer tertiary', 'ground' ), 'sidebar-footer-tertiary' );
+	ground_widget_registration( __( 'Sidebar footer quaternary', 'ground' ), 'sidebar-footer-quaternary' );
 }
 
-add_action( 'widgets_init', 'multiple_widget_init' );
+add_action( 'widgets_init', 'ground_multiple_widget_init' );
 
 /**
  * Remove "Category:", "Tag:", "Author:" from the_archive_title
@@ -666,22 +635,3 @@ add_filter(
 		return $title;
 	}
 );
-
-// Create your own pattern block
-// function ground_block_patterns() {
-
-// register_block_pattern(
-// 'page-intro-block/my-custom-pattern',
-// array(
-// 'title'       => __( 'Page Intro Blocks', 'page-intro-block' ),
-
-// 'description' => _x( 'Includes a cover block, two columns with headings and text, a separator and a single-column text block.', 'Block pattern description', 'page-intro-block' ),
-
-// 'content'     => "<!-- wp:acf/table {\"id\":\"block_618d7a3d0e32c\",\"name\":\"acf/table\",\"data\":{\"table\":{\"acftf\":{\"v\":\"1.3.14\"},\"p\":{\"o\":{\"uh\":1},\"ca\":\"Prova\"},\"c\":[{\"p\":\"\"},{\"p\":\"\"}],\"h\":[{\"c\":\"prova\"},{\"c\":\"asfasfas\"}],\"b\":[[{\"c\":\"Windproof\"},{\"c\":\"Waterproof\"}],[{\"c\":\"Brathable\"},{\"c\":\"Good to -°5C\"}]]},\"_table\":\"field_612904fe94e16\"},\"align\":\"\",\"mode\":\"edit\"} /-->",
-
-// 'categories'  => array('header'),
-// )
-// );
-
-// }
-// add_action( 'init', 'ground_block_patterns' );
