@@ -14,7 +14,7 @@ function ground_woocommerce_minicart() {
 	get_template_part( 'partials/woocommerce/minicart' );
 }
 
-add_action( 'ground_before_header', 'ground_woocommerce_minicart', 10 );
+add_action( 'ground_header', 'ground_woocommerce_minicart', 9 );
 
 
 /**

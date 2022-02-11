@@ -20,23 +20,12 @@
 	wp_body_open();
 
 	/**
-	 * Hook: ground_before_header.
-	 *
-	 * @hooked ground_woocommerce_minicart - 10
-	 */
-	do_action( 'ground_before_header' );
-
-	/**
 	 * Hook: ground_header.
 	 *
+	 * @hooked ground_woocommerce_minicart - 9
 	 * @hooked ground_header_type - 10
 	 */
 	do_action( 'ground_header' );
-
-	/**
-	 * Hook: ground_after_header.
-	 */
-	do_action( 'ground_after_header' );
 	?>
 
 	<div data-router-wrapper>
