@@ -13,12 +13,12 @@
 </head>
 
 <body id="scroll-top" <?php body_class( 'font-primary bg-quinary text-tertiary overflow-x-hidden' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
-
 	<?php
-	// get_template_part('partials/loader');
-	?>
+	/**
+	 * Hook: wp_body_open.
+	 */
+	wp_body_open();
 
-	<?php
 	/**
 	 * Hook: ground_before_header.
 	 *
