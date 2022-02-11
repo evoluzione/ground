@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="has-no-js is-loading scroll-smooth">
+<html <?php language_attributes(); ?> class="has-no-js is-loading">
 
 <head>
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
