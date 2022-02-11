@@ -281,15 +281,16 @@ function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = t
  * @param string  $tag Optional. HTML tag wrapper.
  * @param boolean $return Optional. Return string instead echo.
  */
-function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg', $tag = 'span', $return = false ) {
+function ground_icon( $name = '', $additional_class = '', $icon_set = 'css-gg', $url = false, $extension = 'svg', $tag = 'span', $return = false ) {
 	if ( '' === $name ) {
 		return;
 	}
+
 	if ( $url ) {
-		return GROUND_TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
+		return GROUND_TEMPLATE_URL . '/img/icons/' . $icon_set . '/' . $name . '.' . $extension;
 	} else {
 		$markup  = '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
-		$markup .= file_get_contents( GROUND_TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
+		$markup .= file_get_contents( GROUND_TEMPLATE_PATH . '/img/icons/' . $icon_set . '/' . $name . '.' . $extension );
 		$markup .= '</' . $tag . '>';
 
 		if ( $return ) {
