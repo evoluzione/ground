@@ -3,14 +3,14 @@
 		<div class="slider__item swiper-slide">
 			<div data-swiper-parallax="50%">
 				<div class="position-relative">
-					<img class="slider__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-1.jpg">
+					<img class="slider__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img//sample/sample-1.jpg">
 				</div>
 			</div>
 		</div>
 		<div class="slider__item swiper-slide">
 			<div data-swiper-parallax="50%">
 				<div class="position-relative">
-					<img class="slider__img cover swiper-lazy" data-src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-2.jpg">
+					<img class="slider__img cover swiper-lazy" data-src="<?php echo GROUND_TEMPLATE_URL; ?>/img//sample/sample-2.jpg">
 					<div class="swiper-lazy-preloader"></div>
 				</div>
 			</div>
@@ -18,7 +18,7 @@
 		<div class="slider__item swiper-slide">
 			<div data-swiper-parallax="50%">
 				<div class="position-relative">
-					<img class="slider__img cover swiper-lazy" data-src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-3.jpg">
+					<img class="slider__img cover swiper-lazy" data-src="<?php echo GROUND_TEMPLATE_URL; ?>/img//sample/sample-3.jpg">
 					<div class="swiper-lazy-preloader"></div>
 				</div>
 			</div>
