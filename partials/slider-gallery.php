@@ -1,4 +1,4 @@
-<div class="slider slider--gallery slider--cursor-navigation swiper-container overflow-visible js-slider-gallery">
+<div class="slider slider--gallery slider--cursor-navigation swiper-container overflow-visible js-slider js-slider-gallery">
 	<div class="swiper-wrapper">
 		<div class="slider__item swiper-slide">
 			<div data-swiper-parallax="50%">

@@ -1,4 +1,4 @@
-<div class="carousel carousel--primary swiper-container js-carousel overflow-visible">
+<div class="carousel carousel--primary swiper-container js-slider js-carousel overflow-visible">
 	<div class="swiper-wrapper js-cursor-drag">
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">

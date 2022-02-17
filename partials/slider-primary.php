@@ -1,4 +1,4 @@
-<div class="slider slider--primary slider--full swiper-container js-slider-primary">
+<div class="slider slider--primary slider--full swiper-container js-slider js-slider-primary">
 	<div class="slider__wrapper swiper-wrapper">
 		<div class="slider__item swiper-slide">
 			<img class="slider__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img//sample/sample-1.jpg">

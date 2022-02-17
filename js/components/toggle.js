@@ -10,6 +10,7 @@ export default class Toggle {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
+
 		this.element = element || '.js-toggle';
 		this.defaults = {
 			triggers: this.element,
@@ -24,9 +25,9 @@ export default class Toggle {
 		this.toggle = this.toggle.bind(this);
 
 		// window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			initObserver(this.options.triggers, this.updateEvents);
+		this.init();
+		this.initEvents(this.options.triggers);
+		initObserver(this.options.triggers, this.updateEvents);
 		// });
 	}
 
