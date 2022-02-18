@@ -85,7 +85,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-rotation')) {
@@ -96,7 +96,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-pin')) {
@@ -107,7 +107,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-comparison')) {
@@ -118,7 +118,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-batch')) {
@@ -129,7 +129,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 
 		}
 
@@ -141,7 +141,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 		if (this.animationToActivate.includes('js-draw')) {
@@ -240,7 +240,7 @@ export default class HandleAnimation {
 				})
 				.catch((error) => console.log(error));
 
-			this.promiseList.push(promise)
+			this.promiseList.push(promise);
 		}
 
 	}
@@ -253,7 +253,7 @@ export default class HandleAnimation {
 		// Once all promises are resolved
 		Promise.all(this.promiseList).then(res => {
 			// console.log(res);
-			this.fireAnimations(triggers)
+			this.fireAnimations(triggers);
 		});
 	}
 
@@ -276,65 +276,65 @@ export default class HandleAnimation {
 
 		switch (element.dataset.scroll) {
 
-			case 'js-split-text':
-				new this.AnimationSplitText(element);
-				break;
+		case 'js-split-text':
+			new this.AnimationSplitText(element);
+			break;
 
-			case 'js-rotation':
-				new this.AnimationRotation(element);
-				break;
+		case 'js-rotation':
+			new this.AnimationRotation(element);
+			break;
 
-			case 'js-batch':
-				new this.AnimationBatch(element);
-				break;
+		case 'js-batch':
+			new this.AnimationBatch(element);
+			break;
 
-			case 'js-scale':
-				new this.AnimationScale(element);
-				break;
+		case 'js-scale':
+			new this.AnimationScale(element);
+			break;
 
-			case 'js-draw':
-				new this.AnimationDraw(element);
-				break;
+		case 'js-draw':
+			new this.AnimationDraw(element);
+			break;
 
-			case 'js-bg-color':
-				new this.AnimationBgColor(element);
-				break;
+		case 'js-bg-color':
+			new this.AnimationBgColor(element);
+			break;
 
-			case 'js-pin':
-				new this.AnimationPin(element);
-				break;
+		case 'js-pin':
+			new this.AnimationPin(element);
+			break;
 
-			case 'js-sprite-images':
-				new this.AnimationSpriteImages(element);
-				break;
+		case 'js-sprite-images':
+			new this.AnimationSpriteImages(element);
+			break;
 
-			case 'js-horizontal-scroll':
-				new this.AnimationHorizontalScroll(element);
-				break;
+		case 'js-horizontal-scroll':
+			new this.AnimationHorizontalScroll(element);
+			break;
 
-			case 'js-horizontal-scroll-container':
-				new this.AnimationHorizontalScrollContainer(element);
-				break;
+		case 'js-horizontal-scroll-container':
+			new this.AnimationHorizontalScrollContainer(element);
+			break;
 
-			case 'js-horizontal-scroll-section':
-				new this.AnimationHorizontalScrollSection(element);
-				break;
+		case 'js-horizontal-scroll-section':
+			new this.AnimationHorizontalScrollSection(element);
+			break;
 
-			case 'js-comparison':
-				new this.AnimationComparison(element);
-				break;
+		case 'js-comparison':
+			new this.AnimationComparison(element);
+			break;
 
-			case 'js-parallax':
-				new this.AnimationParallax(element);
-				break;
+		case 'js-parallax':
+			new this.AnimationParallax(element);
+			break;
 
-			case 'js-video':
-				new this.AnimationVideo(element);
-				break;
+		case 'js-video':
+			new this.AnimationVideo(element);
+			break;
 
-			default:
-				new this.AnimationDefault(element);
-				break;
+		default:
+			new this.AnimationDefault(element);
+			break;
 		}
 
 	}

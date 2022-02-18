@@ -1,5 +1,6 @@
 import { elementExist } from './utilities/selector';
 import isMobile from 'ismobilejs';
+import { trigger } from './utilities/trigger';
 
 function initAnimationScripts() {
 
@@ -14,24 +15,23 @@ function initAnimationScripts() {
 	}
 }
 
-function initGenericScripts() {
+function initAlwaysRunScripts() {
 
-	// Cursor
-	if (elementExist('.js-cursor') && !isMobile().any) {
-		import(/* webpackChunkName: "ground-cursor" */'./components/cursorV2')
+	// ScrollDirection
+	if (!isMobile().any) {
+		import(/* webpackChunkName: "ground-scrollDirection" */'./components/scrollDirection')
 			.then((module) => {
-				const Cursor = module.default;
-				new Cursor();
-			})
-			.catch((error) => console.log(error));
+				const ScrollDirection = module.default;
+				new ScrollDirection();
+			});
 	}
 
-	// Modal
-	if (elementExist('[data-modal]')) {
-		import(/* webpackChunkName: "ground-modal" */'./components/modal')
+	// Search
+	if (elementExist('#js-ajax-search')) {
+		import(/* webpackChunkName: "ground-search" */'./components/search')
 			.then((module) => {
-				const Modal = module.default;
-				new Modal();
+				const Search = module.default;
+				new Search();
 			})
 			.catch((error) => console.log(error));
 	}
@@ -46,15 +46,77 @@ function initGenericScripts() {
 			.catch((error) => console.log(error));
 	}
 
-	// Magnet
-	if (elementExist('.js-magnet')) {
-		import(/* webpackChunkName: "ground-magnet" */'./components/magnetV2')
+}
+
+function initCustomizerScripts() {
+
+	// InfiniteScroll
+	if (elementExist('.js-pagination')) {
+		import(/* webpackChunkName: "ground-infiniteScroll" */'./components/infiniteScroll')
 			.then((module) => {
-				const Magnet = module.default;
-				new Magnet();
+				const InfiniteScroll = module.default;
+				new InfiniteScroll();
 			})
 			.catch((error) => console.log(error));
 	}
+
+	// Menu
+	if (elementExist('.navigation__item.has-children')) {
+		import(/* webpackChunkName: "ground-menu" */'./components/menu')
+			.then((module) => {
+				const Menu = module.default;
+				new Menu();
+			})
+			.catch((error) => console.log(error));
+	}
+}
+
+function initWoocommerceScripts() {
+
+	// Billing Invoices
+	if (elementExist('#billing_invoice')) {
+		import(/* webpackChunkName: "ground-billing" */'./components/billing')
+			.then((module) => {
+				const Billing = module.default;
+				new Billing();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// Cart
+	if (elementExist('.minicart')) {
+		import(/* webpackChunkName: "ground-cart" */'./components/cart')
+			.then((module) => {
+				const Cart = module.default;
+				new Cart();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// WidgetAccordion
+	if (elementExist('.woocommerce-widget-layered-nav')) {
+		import(/* webpackChunkName: "ground-widgetAccordion" */'./components/widgetAccordion')
+			.then((module) => {
+				const WidgetAccordion = module.default;
+				new WidgetAccordion();
+			})
+			.catch((error) => console.log(error));
+	}
+
+}
+
+function initGenericScripts() {
+
+	// Modal
+	if (elementExist('[data-modal]')) {
+		import(/* webpackChunkName: "ground-modal" */'./components/modal')
+			.then((module) => {
+				const Modal = module.default;
+				new Modal();
+			})
+			.catch((error) => console.log(error));
+	}
+
 
 	// AnimationFlip
 	if (elementExist('[data-flip]')) {
@@ -66,55 +128,20 @@ function initGenericScripts() {
 			.catch((error) => console.log(error));
 	}
 
-	// AnimationWebGl
-	if (elementExist('[data-scroll="js-webgl"]')) {
-		import(/* webpackChunkName: "ground-animationWebGl" */'./webGl/animationWebGl')
-			.then((module) => {
-				const AnimationWebGl = module.default;
-				new AnimationWebGl();
-			})
-			.catch((error) => console.log(error));
-	}
-
 	// Slider
-	if (
-		elementExist('.js-slider-primary')
-        || elementExist('.js-slider')
-        || elementExist('.js-carousel')
-        || elementExist('.js-slider-gallery')
-	) {
+	if (elementExist('.js-slider')) {
 		import(/* webpackChunkName: "ground-slider" */'./components/slider')
 			.then((module) => {
+
+				trigger('MODULE_SLIDER_LOADED', module);
 				const Slider = module.default;
 
-				if (elementExist('.js-slider')) {
+				if (elementExist('.js-slider-default')) {
 					new Slider;
-				}
+				} 
 
 				if (elementExist('.js-slider-primary')) {
 					new Slider('.js-slider-primary');
-				}
-
-				if (elementExist('.js-carousel')) {
-
-					const carousel = new Slider('.js-carousel', {
-						loop: false,
-						autoHeight: false,
-						effect: 'slide',
-						slidesPerView: 'auto',
-						spaceBetween: 24,
-						parallax: false,
-						autoplay: false,
-						freeMode: false,
-						speed: 1000,
-						touchEventsTarget: '.swiper-wrapper',
-						pagination: {
-							el: '.swiper-pagination',
-							type: 'progressbar'
-						}
-					});
-					carousel.init();
-
 				}
 
 				if (elementExist('.js-slider-gallery')) {
@@ -143,83 +170,6 @@ function initGenericScripts() {
 			.catch((error) => console.log(error));
 	}
 
-	// Search
-	if (elementExist('#js-ajax-search')) {
-		import(/* webpackChunkName: "ground-search" */'./components/search')
-			.then((module) => {
-				const Search = module.default;
-				new Search();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// Menu
-	if (elementExist('.navigation__item.has-children')) {
-		import(/* webpackChunkName: "ground-menu" */'./components/menu')
-			.then((module) => {
-				const Menu = module.default;
-				new Menu();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// Cart
-	if (elementExist('.minicart')) {
-		import(/* webpackChunkName: "ground-cart" */'./components/cart')
-			.then((module) => {
-				const Cart = module.default;
-				new Cart();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// ScrollDirection
-	if (!isMobile().any) {
-		import(/* webpackChunkName: "ground-scrollDirection" */'./components/scrollDirection')
-			.then((module) => {
-				const ScrollDirection = module.default;
-				new ScrollDirection();
-			});
-	}
-
-	// WidgetAccordion
-	if (elementExist('.woocommerce-widget-layered-nav')) {
-		import(/* webpackChunkName: "ground-widgetAccordion" */'./components/widgetAccordion')
-			.then((module) => {
-				const WidgetAccordion = module.default;
-				new WidgetAccordion();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// Billing Invoices
-	if (elementExist('#billing_invoice')) {
-		import(/* webpackChunkName: "ground-billing" */'./components/billing')
-			.then((module) => {
-				const Billing = module.default;
-				new Billing();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// JS Loader
-	import(/* webpackChunkName: "ground-loader" */'./components/loader')
-		.then((module) => {
-			const Loader = module.default;
-			new Loader();
-		})
-		.catch((error) => console.log(error));
-
-	// InfiniteScroll
-	if (elementExist('.js-pagination')) {
-		import(/* webpackChunkName: "ground-infiniteScroll" */'./components/infiniteScroll')
-			.then((module) => {
-				const InfiniteScroll = module.default;
-				new InfiniteScroll();
-			})
-			.catch((error) => console.log(error));
-	}
-
 	// YoastFaqBlock
 	if (elementExist('.schema-faq-question')) {
 		import(/* webpackChunkName: "ground-yoastFaqBlock" */'./components/yoastFaqBlock')
@@ -231,4 +181,10 @@ function initGenericScripts() {
 	}
 }
 
-export { initGenericScripts, initAnimationScripts };
+export {
+	initAnimationScripts,
+	initAlwaysRunScripts,
+	initCustomizerScripts,
+	initWoocommerceScripts,
+	initGenericScripts
+};
