@@ -3,10 +3,9 @@ export default class ScrollDirection {
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
+	// eslint-disable-next-line no-unused-vars
 	constructor(element, options) {
-		// window.addEventListener('DOMContentLoaded', () => {
-			this.initEvents();
-		// });
+		this.initEvents();
 	}
 
 	/**
@@ -15,30 +14,29 @@ export default class ScrollDirection {
 	 */
 	initEvents() {
 		// Initial state
-		let scrollPos = 0;
+		let scrollPos = document.body.getBoundingClientRect().top;
+		const offset = -100;
+		const htmlEl = document.documentElement.classList;
+
 		// adding scroll event
 		window.addEventListener('scroll', () => {
-			if (scrollPos < -96) {
-				// detects new state and compares it with the new one
-				if (document.body.getBoundingClientRect().top > scrollPos) {
-					if (document.documentElement.classList.contains('scroll-direction-down')) {
-						document.documentElement.classList.replace('scroll-direction-down', 'scroll-direction-up');
-					} else {
-						document.documentElement.classList.add('scroll-direction-up');
-					}
-				} else if (document.documentElement.classList.contains('scroll-direction-up')) {
-					document.documentElement.classList.replace('scroll-direction-up', 'scroll-direction-down');
+			const currentPos = document.body.getBoundingClientRect().top;
+			if (scrollPos < offset) {
+				htmlEl.add('body-scrolled');
+				if (currentPos > scrollPos) {
+					// scrolling up
+					htmlEl.remove('scroll-direction-down');
+					htmlEl.add('scroll-direction-up');
 				} else {
-					document.documentElement.classList.add('scroll-direction-down');
+					// Scrolling down
+					htmlEl.remove('scroll-direction-up');
+					htmlEl.add('scroll-direction-down');
 				}
-				document.documentElement.classList.add('body-scrolled');
 			} else {
-				if (document.documentElement.classList.contains('body-scrolled')) {
-					document.documentElement.classList.remove('body-scrolled');
-				}
+				htmlEl.remove('body-scrolled');
 			}
 			// saves the new position for iteration.
-			scrollPos = document.body.getBoundingClientRect().top;
-		});
+			scrollPos = currentPos;
+		} );
 	}
 }
