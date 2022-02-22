@@ -1,2 +1,244 @@
-"use strict";(self.webpackChunkground=self.webpackChunkground||[]).push([[670,388],{952:function(t,e,n){n.r(e),n.d(e,{default:function(){return a}});var r=n(9996),o=n.n(r),i=n(6358),u=n(7082);function c(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}i.p8.registerPlugin(u.i);var a=function(){function t(e,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.element=e,this.defaults={triggers:this.element},this.DOM={html:document.documentElement,body:document.body},this.options=n?o()(this.defaults,n):this.defaults,this.init(),this.initEvents(this.options.triggers)}var e,n;return e=t,(n=[{key:"init",value:function(){this.DOM.element=this.element}},{key:"initEvents",value:function(t){this.fireAnimation(t)}},{key:"updateEvents",value:function(t){var e=this;this.init(),setTimeout((function(){e.fireAnimation(t)}),1e3)}},{key:"fireAnimation",value:function(t){var e=t.dataset.scroll;u.i.create({trigger:t,start:"top 100%",toggleClass:e,toggleActions:"play none none none"})}}])&&c(e.prototype,n),Object.defineProperty(e,"prototype",{writable:!1}),t}()},8496:function(t,e,n){n.r(e),n.d(e,{default:function(){return s}});var r=n(952),o=n(6358),i=n(7082);function u(t){return(u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function c(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function a(t,e){return(a=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}function f(t,e){if(e&&("object"===u(e)||"function"==typeof e))return e;if(void 0!==e)throw new TypeError("Derived constructors may only return object or undefined");return function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t)}function l(t){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}o.p8.registerPlugin(i.i);var s=function(t){!function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");Object.defineProperty(t,"prototype",{value:Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),writable:!1}),e&&a(t,e)}(s,t);var e,n,r,i,u=(r=s,i=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(t){return!1}}(),function(){var t,e=l(r);if(i){var n=l(this).constructor;t=Reflect.construct(e,arguments,n)}else t=e.apply(this,arguments);return f(this,t)});function s(t,e){var n;return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,s),(n=u.call(this,t,e)).element=t||"[data-scroll]",n}return e=s,(n=[{key:"fireAnimation",value:function(t){var e=t.querySelector("[data-scroll-target]"),n=function(t){t.paused||(t.pause(),t.currentTime=0)},r=function(t){t.paused&&t.play()};o.p8.timeline({scrollTrigger:{trigger:t,start:"top bottom",end:"bottom top",markers:!1,onEnter:function(){return r(e)},onLeave:function(){return n(e)},onEnterBack:function(){return r(e)},onLeaveBack:function(){return n(e)}}})}}])&&c(e.prototype,n),Object.defineProperty(e,"prototype",{writable:!1}),s}(r.default)}}]);
+"use strict";
+(self["webpackChunkground"] = self["webpackChunkground"] || []).push([["ground-animationVideo"],{
+
+/***/ "./js/animations/animationDefault.js":
+/*!*******************************************!*\
+  !*** ./js/animations/animationDefault.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationDefault; }
+/* harmony export */ });
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js");
+/* harmony import */ var deepmerge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(deepmerge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/* eslint-disable no-unused-vars */
+// import { initObserver } from '../utilities/observer';
+// import { getTemplateUrl } from '../utilities/paths';
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+var AnimationDefault = /*#__PURE__*/function () {
+  /**
+   * @param {string} element - Selector
+   * @param {Object} options - User options
+   */
+  function AnimationDefault(element, options) {
+    _classCallCheck(this, AnimationDefault);
+
+    this.element = element;
+    this.defaults = {
+      triggers: this.element
+    };
+    this.DOM = {
+      html: document.documentElement,
+      body: document.body
+    };
+    this.options = options ? deepmerge__WEBPACK_IMPORTED_MODULE_0___default()(this.defaults, options) : this.defaults; // this.updateEvents = this.updateEvents.bind(this);
+    // window.addEventListener('DOMContentLoaded', () => {});
+    // ScrollTrigger.addEventListener('scrollStart', () => {});
+    // ScrollTrigger.addEventListener('scrollEnd', () => {});
+    // ScrollTrigger.addEventListener('refreshInit', () => {});
+    // ScrollTrigger.addEventListener('refresh', () => {});
+    // window.addEventListener('NAVIGATE_OUT', () => {
+    // 	// ScrollTrigger.update();
+    // 	// ScrollTrigger.refresh();
+    // });
+    // window.addEventListener('resize', () => {
+    // 	// ScrollTrigger.update();
+    // 	// ScrollTrigger.refresh();
+    // });
+    // window.addEventListener('NAVIGATE_IN', () => {});
+    // window.addEventListener('NAVIGATE_END', () => {});
+    //  window.addEventListener('LOADER_COMPLETE', () => {
+
+    this.init();
+    this.initEvents(this.options.triggers); // initObserver(this.options.triggers, this.updateEvents);
+    //  });
+  }
+  /**
+   * Init
+   */
+
+
+  _createClass(AnimationDefault, [{
+    key: "init",
+    value: function init() {
+      this.DOM.element = this.element;
+    }
+    /**
+     * Initialize events
+     * @param {string} triggers - Selectors
+     */
+
+  }, {
+    key: "initEvents",
+    value: function initEvents(triggers) {
+      this.fireAnimation(triggers); // gsap.utils.toArray(triggers).forEach((element) => {
+      // 	if (element.dataset.scroll === 'js-split-text') {
+      // 	}  else {
+      // 		this.animationDefault(target);
+      // 	}
+      // });
+    }
+    /**
+     * Update events
+     * @param {Object} target - New selector
+     */
+
+  }, {
+    key: "updateEvents",
+    value: function updateEvents(target) {
+      var _this = this;
+
+      this.init();
+      setTimeout(function () {
+        _this.fireAnimation(target);
+      }, 1000);
+    }
+    /**
+     * Fire the animation
+     * @param {node} item
+     */
+
+  }, {
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
+      var targetClass = item.dataset.scroll;
+      gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+        trigger: item,
+        start: 'top 100%',
+        toggleClass: targetClass,
+        toggleActions: 'play none none none',
+        once: true // markers: true,
+
+      });
+    }
+  }]);
+
+  return AnimationDefault;
+}();
+
+
+
+/***/ }),
+
+/***/ "./js/animations/animationVideo.js":
+/*!*****************************************!*\
+  !*** ./js/animations/animationVideo.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ AnimationVideo; }
+/* harmony export */ });
+/* harmony import */ var _animationDefault__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animationDefault */ "./js/animations/animationDefault.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/ScrollTrigger.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+/* eslint-disable no-unused-vars */
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+var AnimationVideo = /*#__PURE__*/function (_AnimationDefault) {
+  _inherits(AnimationVideo, _AnimationDefault);
+
+  var _super = _createSuper(AnimationVideo);
+
+  function AnimationVideo(element, options) {
+    var _this;
+
+    _classCallCheck(this, AnimationVideo);
+
+    _this = _super.call(this, element, options);
+    _this.element = element || '[data-scroll]';
+    return _this;
+  }
+
+  _createClass(AnimationVideo, [{
+    key: "fireAnimation",
+    value: function fireAnimation(item) {
+      var targetVideo = item.querySelector('[data-scroll-target]');
+
+      var pauseVideo = function pauseVideo(targetVideo) {
+        // check if is already pause to avoid conflicts
+        if (!targetVideo.paused) {
+          targetVideo.pause();
+          targetVideo.currentTime = 0;
+        }
+      };
+
+      var playVideo = function playVideo(targetVideo) {
+        // check if is NOT already pause to avoid conflicts
+        if (targetVideo.paused) {
+          targetVideo.play();
+        }
+      };
+
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          markers: false,
+          onEnter: function onEnter() {
+            return playVideo(targetVideo);
+          },
+          onLeave: function onLeave() {
+            return pauseVideo(targetVideo);
+          },
+          onEnterBack: function onEnterBack() {
+            return playVideo(targetVideo);
+          },
+          onLeaveBack: function onLeaveBack() {
+            return pauseVideo(targetVideo);
+          }
+        }
+      });
+    }
+  }]);
+
+  return AnimationVideo;
+}(_animationDefault__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ })
+
+}]);
 //# sourceMappingURL=ground-animationVideo.bundle.js.map
