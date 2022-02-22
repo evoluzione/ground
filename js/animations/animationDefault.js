@@ -52,7 +52,7 @@ export default class AnimationDefault {
 		this.init();
 		this.initEvents(this.options.triggers);
 		// initObserver(this.options.triggers, this.updateEvents);
-		//  });		
+		//  });
 	}
 
 	/**
@@ -90,7 +90,7 @@ export default class AnimationDefault {
 
 	/**
 	 * Fire the animation
-	 * @param {node} item 
+	 * @param {node} item
 	 */
 	fireAnimation(item) {
 
@@ -100,9 +100,9 @@ export default class AnimationDefault {
 			trigger: item,
 			start: 'top 100%',
 			toggleClass: targetClass,
-			toggleActions: 'play none none none'
+			toggleActions: 'play none none none',
+			once: true
 			// markers: true,
-			// once: true,
 		});
 	}
 }
