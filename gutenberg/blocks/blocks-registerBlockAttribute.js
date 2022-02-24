@@ -7,9 +7,10 @@ import classnames from 'classnames';
 const { __ } = wp.i18n;
 const { addFilter } = wp.hooks;
 const { Fragment } = wp.element;
-const { InspectorControls, InspectorAdvancedControls } = wp.editor;
 const { createHigherOrderComponent } = wp.compose;
 const { ToggleControl, SelectControl, PanelBody, PanelRow } = wp.components;
+const { InspectorAdvancedControls, InspectorControls } = wp.blockEditor;
+
 export default class BlocksRegisterBlockAttribute {
 	/**
 	 * Fullscreen
@@ -17,9 +18,10 @@ export default class BlocksRegisterBlockAttribute {
 	registerFullscreen() {
 		const classToAdd = 'fullscreen';
 
-		function addAttributes(settings) {
-			//check if object exists for old Gutenberg version compatibility
-			if (typeof settings.attributes !== 'undefined') {
+		function addAttributes(settings, name) {
+			// Check if object exists for old Gutenberg version compatibility
+			// Woocommerce blocks generate an error
+			if (typeof settings.attributes !== 'undefined' && !name.includes('woocommerce')) {
 				settings.attributes = Object.assign(settings.attributes, {
 					fullscreen: {
 						type: 'boolean',
