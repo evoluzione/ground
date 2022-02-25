@@ -4,25 +4,25 @@
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-primary' ) ) : ?>
 				<div class="mb-12">
-					<?php get_template_part( 'partials/sidebar', 'footer-primary' ); ?>
+					<?php get_template_part( 'template-parts/sidebar', 'footer-primary' ); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-secondary' ) ) : ?>
 				<div class="mb-12">
-					<?php get_template_part( 'partials/sidebar', 'footer-secondary' ); ?>
+					<?php get_template_part( 'template-parts/sidebar', 'footer-secondary' ); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-tertiary' ) ) : ?>
 				<div class="mb-12">
-					<?php get_template_part( 'partials/sidebar', 'footer-tertiary' ); ?>
+					<?php get_template_part( 'template-parts/sidebar', 'footer-tertiary' ); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-quaternary' ) ) : ?>
 				<div class="mb-12">
-					<?php get_template_part( 'partials/sidebar', 'footer-quanternary' ); ?>
+					<?php get_template_part( 'template-parts/sidebar', 'footer-quanternary' ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -44,7 +44,7 @@
 			</div>
 
 			<div class="lg:border-l border-septenary">
-				<?php get_template_part( 'partials/socials' ); ?>
+				<?php get_template_part( 'template-parts/socials' ); ?>
 			</div>
 		</div>
 

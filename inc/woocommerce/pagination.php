@@ -9,7 +9,7 @@
  * WooCommerce custom pagination
  */
 function ground_woocommerce_pagination() {
-	get_template_part( 'partials/pagination' );
+	get_template_part( 'template-parts/pagination' );
 }
 
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );

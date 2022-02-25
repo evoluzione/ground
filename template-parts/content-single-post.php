@@ -50,7 +50,7 @@
 			<?php the_content(); ?>
 			<?php
 			if ( comments_open() || get_comments_number() ) {
-				comments_template( '/partials/comments.php' );
+				comments_template( '/template-parts/comments.php' );
 			}
 			?>
 		</div> <!-- End .page__body -->
@@ -86,7 +86,7 @@
 											<div class="lg:col-start-1 lg:col-end-4 mb-6 lg:mb-0">
 												<a class="no-underline w-full" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 													<div class="overflow-hidden aspect-w-1 aspect-h-1 rounded-full">
-														<img class="object-cover" 
+														<img class="object-cover"
 														<?php
 														if ( has_post_thumbnail() ) {
 															?>
@@ -94,7 +94,7 @@
 																<?php ground_image( '1-1-medium' ); ?> 900w,
 																<?php ground_image( '1-1-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 														(min-width: 768px) 900px,
-														100vh" src="<?php ground_image( '1-1-large' ); ?>" 
+														100vh" src="<?php ground_image( '1-1-large' ); ?>"
 																						<?php
 														} else {
 															?>

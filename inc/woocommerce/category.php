@@ -35,9 +35,9 @@ function ground_add_term_hero() {
 
 		if ( 0 < count( WC_Query::get_layered_nav_chosen_attributes() ) || 0 < $min_price || 0 < $max_price ) {
 			// Ci sono filtri attivi
-			// get_template_part( 'partials/woocommerce/hero' );
+			// get_template_part( 'template-parts/woocommerce/hero' );
 		} else {
-			get_template_part( 'partials/woocommerce/hero' );
+			get_template_part( 'template-parts/woocommerce/hero' );
 		}
 	}
 }

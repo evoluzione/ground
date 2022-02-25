@@ -342,7 +342,7 @@ function ground_header_checkout() {
 		<div class="container">
 			<div class="flex items-center justify-between py-6 border-b border-septenary">
 				<div>
-					<?php get_template_part( 'partials/logo-primary' ); ?>
+					<?php get_template_part( 'template-parts/logo-primary' ); ?>
 				</div>
 				<div>
 					<div class="lg:text-right">

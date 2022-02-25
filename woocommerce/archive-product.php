@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_template_part( 'partials/header' ); ?>
+get_template_part( 'template-parts/header' ); ?>
 
 <?php
 /**
@@ -65,7 +65,7 @@ do_action( 'woocommerce_before_main_content' );
 	}
 	?>
 	">
-		
+
 
 			<div class="page__body">
 
@@ -122,11 +122,11 @@ do_action( 'woocommerce_before_main_content' );
 				?>
 
 			</div>
-			
+
 		</div>
-		
+
 	</div> <!-- End flex -->
-	
+
 </section>
 <?php
 /**
@@ -137,4 +137,4 @@ do_action( 'woocommerce_before_main_content' );
 do_action( 'woocommerce_after_main_content' );
 ?>
 
-<?php get_template_part( 'partials/footer' ); ?>
+<?php get_template_part( 'template-parts/footer' ); ?>

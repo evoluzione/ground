@@ -12,7 +12,7 @@ if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
 
-		get_template_part( 'partials/abstract', 'post' );
+		get_template_part( 'template-parts/abstract', 'post' );
 	}
 }
 

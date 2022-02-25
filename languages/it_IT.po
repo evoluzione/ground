@@ -15,12 +15,12 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.2\n"
 "X-Domain: ground"
 
-#: ../ground/partials/sidebar-archive-post.php:5
+#: ../ground/template-parts/sidebar-archive-post.php:5
 msgid "<"
 msgstr ""
 
-#: ../ground/partials/headers/header-mega-menu.php:54
-#: ../ground/partials/headers/header-simple.php:42
+#: ../ground/template-parts/header/header-mega-menu.php:54
+#: ../ground/template-parts/header/header-simple.php:42
 msgid "Account"
 msgstr ""
 
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Advanced Filters"
 msgstr "Filtri avanzati"
 
-#: ../ground/partials/footers/footer-simple.php:54
+#: ../ground/template-parts/footer/footer-simple.php:54
 msgid "All rights reserved - © copyright"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Animation"
 msgstr ""
 
-#: ../ground/partials/sidebar-archive-post.php:5
+#: ../ground/template-parts/sidebar-archive-post.php:5
 msgid "Back to "
 msgstr "Torna indietro"
 
@@ -44,7 +44,7 @@ msgstr "Torna indietro"
 msgid "Call to order"
 msgstr ""
 
-#: ../ground/partials/woocommerce/shopping-cart.php:18
+#: ../ground/template-parts/woocommerce/shopping-cart.php:18
 msgid "Cart"
 msgstr "Carrello"
 
@@ -56,8 +56,8 @@ msgstr ""
 msgid "Catalog"
 msgstr "Catalogo"
 
-#: ../ground/partials/content-single-post.php:120
-#: ../ground/partials/navigation-blog.php:34
+#: ../ground/template-parts/content-single-post.php:120
+#: ../ground/template-parts/navigation-blog.php:34
 msgid "Category"
 msgstr "Categoria"
 
@@ -66,7 +66,7 @@ msgstr "Categoria"
 msgid "Cliente privato"
 msgstr ""
 
-#: ../ground/partials/footers/footer-simple.php:40
+#: ../ground/template-parts/footer/footer-simple.php:40
 msgid "Closing Time"
 msgstr ""
 
@@ -88,8 +88,8 @@ msgstr ""
 msgid "Codice fiscale"
 msgstr ""
 
-#: ../ground/partials/content-single-post.php:122
-#: ../ground/partials/comments.php:68
+#: ../ground/template-parts/content-single-post.php:122
+#: ../ground/template-parts/comments.php:68
 msgid "Comments"
 msgstr ""
 
@@ -101,11 +101,11 @@ msgstr ""
 msgid "Dati personali"
 msgstr ""
 
-#: ../ground/partials/content-single-post.php:102
+#: ../ground/template-parts/content-single-post.php:102
 msgid "Discover"
 msgstr "Approfondisci"
 
-#: ../ground/partials/content-single-post.php:66
+#: ../ground/template-parts/content-single-post.php:66
 msgid "Discover all news"
 msgstr "Scopri di più"
 
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Dove vuoi spedire l'acquisto?"
 msgstr ""
 
-#: ../ground/partials/comments-form.php:9
+#: ../ground/template-parts/comments-form.php:9
 msgid "Email"
 msgstr ""
 
@@ -159,14 +159,14 @@ msgstr ""
 msgid "Il cliente ha richiesto la fattura"
 msgstr ""
 
-#: ../ground/partials/panel-primary.php:15
-#: ../ground/partials/headers/header-mega-menu.php:8
-#: ../ground/partials/headers/header-simple.php:6
-#: ../ground/partials/headers/header-logo-centered.php:6
+#: ../ground/template-parts/panel-primary.php:15
+#: ../ground/template-parts/header/header-mega-menu.php:8
+#: ../ground/template-parts/header/header-simple.php:6
+#: ../ground/template-parts/header/header-logo-centered.php:6
 msgid "Indietro"
 msgstr ""
 
-#: ../ground/partials/company-info-contacts.php:4
+#: ../ground/template-parts/company-info-contacts.php:4
 msgid "Language"
 msgstr ""
 
@@ -174,11 +174,11 @@ msgstr ""
 msgid "Metodo di pagamento"
 msgstr ""
 
-#: ../ground/partials/comments-form.php:8
+#: ../ground/template-parts/comments-form.php:8
 msgid "Name"
 msgstr ""
 
-#: ../ground/partials/pagination.php:42
+#: ../ground/template-parts/pagination.php:42
 msgid "Next"
 msgstr ""
 
@@ -195,11 +195,11 @@ msgstr ""
 msgid "Oops!"
 msgstr ""
 
-#: ../ground/partials/footers/footer-simple.php:34
+#: ../ground/template-parts/footer/footer-simple.php:34
 msgid "Opening Hours"
 msgstr ""
 
-#: ../ground/partials/content-single-post.php:65
+#: ../ground/template-parts/content-single-post.php:65
 msgid "Other news"
 msgstr "Altre news"
 
@@ -217,11 +217,11 @@ msgstr ""
 msgid "Pec"
 msgstr ""
 
-#: ../ground/partials/pagination.php:41
+#: ../ground/template-parts/pagination.php:41
 msgid "Prev"
 msgstr ""
 
-#: ../ground/partials/woocommerce/content-single-product-meta-field.php:20
+#: ../ground/template-parts/woocommerce/content-single-product-meta-field.php:20
 msgid "Product specifications"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Pubblica amministrazione"
 msgstr ""
 
-#: ../ground/partials/search-form-input.php:3
+#: ../ground/template-parts/search-form-input.php:3
 msgid "Search products"
 msgstr "Cerca prodotti"
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Secure order"
 msgstr ""
 
-#: ../ground/partials/socials.php:5
+#: ../ground/template-parts/socials.php:5
 msgid "Seguici sui social network"
 msgstr ""
 
@@ -265,13 +265,13 @@ msgstr ""
 msgid "Società"
 msgstr ""
 
-#: ../ground/search.php:42 ../ground/partials/abstract-ajax-search.php:33
+#: ../ground/search.php:42 ../ground/template-parts/abstract-ajax-search.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: ../ground/partials/woocommerce/content-single-product-meta-field.php:63
+#: ../ground/template-parts/woocommerce/content-single-product-meta-field.php:63
 msgid "Technical info"
 msgstr ""
 
@@ -286,6 +286,6 @@ msgstr ""
 msgid "Tipologia cliente"
 msgstr ""
 
-#: ../ground/partials/comments-form.php:10
+#: ../ground/template-parts/comments-form.php:10
 msgid "Website"
 msgstr ""

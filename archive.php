@@ -6,11 +6,11 @@
  * @package Ground
  */
 
-get_template_part('partials/header');
+get_template_part( 'template-parts/header' );
 ?>
 
 <div class="container">
-	<?php get_template_part('partials/breadcrumbs'); ?>
+	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 </div>
 
 <div class="container mb-12 lg:mb-32">
@@ -18,16 +18,17 @@ get_template_part('partials/header');
 
 	<section class="page page--archive">
 
-		<?php if (have_posts()) : ?>
+		<?php if ( have_posts() ) : ?>
 			<div class="hero overflow-hidden my-6 lg:my-24 lg:mt-12 relative rounded-theme">
 				<div class="relative text-tertiary py-16 lg:py-32">
 					<div class="grid grid-cols-12 gap-x-6 items-center">
 						<div class="col-span-full lg:col-span-4">
 							<div class="mb-6 flex items-center gap-6 lg:mb-0 lg:ml-6">
 								<?php
-								$term = get_queried_object();
-								$image = get_field('image', $term); ?>
-								<?php if ($image) : ?>
+								$term  = get_queried_object();
+								$image = get_field( 'image', $term );
+								?>
+								<?php if ( $image ) : ?>
 									<div class="overflow-hidden h-12 w-12 lg:h-24 lg:w-24 rounded-full">
 										<img class="object-cover" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
 													<?php echo $image['sizes']['1-1-medium']; ?> 900w,
@@ -47,7 +48,7 @@ get_template_part('partials/header');
 						</div>
 					</div>
 
-					<?php if ($image) : ?>
+					<?php if ( $image ) : ?>
 						<div class="hidden absolute -z-1 top-0 left-0 lg:flex lg:w-4/6">
 							<img class="object-cover opacity-50 w-full" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
 											<?php echo $image['sizes']['1-1-medium']; ?> 900w,
@@ -64,22 +65,22 @@ get_template_part('partials/header');
 
 			<div class="page__body relative">
 				<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
-					<?php if (is_active_sidebar('sidebar-archive-post')) : ?>
+					<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
 						<div class="col-span-3">
 							<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target=".sidebar--archive-post html" data-toggle-class-name="is-sidebar-open">
-								<?php ground_icon('options', 'button__icon'); ?> <?php _e('Filters', 'ground'); ?>
+								<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 							</button>
-							<?php get_template_part('partials/sidebar', 'archive-post'); ?>
+							<?php get_template_part( 'template-parts/sidebar', 'archive-post' ); ?>
 
 						</div>
 					<?php endif; ?>
-					<div class="<?php echo is_active_sidebar('sidebar-archive-post') ? "col-span-9" : "col-span-full" ?>">
+					<div class="<?php echo is_active_sidebar( 'sidebar-archive-post' ) ? 'col-span-9' : 'col-span-full'; ?>">
 						<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
 							<?php
-							while (have_posts()) :
+							while ( have_posts() ) :
 								the_post();
 
-								get_template_part('partials/abstract', 'post');
+								get_template_part( 'template-parts/abstract', 'post' );
 
 							endwhile;
 							?>
@@ -88,7 +89,7 @@ get_template_part('partials/header');
 				</div>
 			</div> <!-- End .page__body -->
 
-			<?php get_template_part('partials/pagination'); ?>
+			<?php get_template_part( 'template-parts/pagination' ); ?>
 
 		<?php endif; ?>
 
@@ -97,4 +98,4 @@ get_template_part('partials/header');
 </div> <!-- End .container -->
 
 <?php
-get_template_part('partials/footer');
+get_template_part( 'template-parts/footer' );

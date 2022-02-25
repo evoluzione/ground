@@ -6,19 +6,19 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' );
+get_template_part( 'template-parts/header' );
 ?>
 
-	<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 
 	<?php
 	while ( have_posts() ) :
 		the_post();
 
-		get_template_part( 'partials/content', 'page' );
+		get_template_part( 'template-parts/content', 'page' );
 
 	endwhile;
 	?>
 
 <?php
-get_template_part( 'partials/footer' );
+get_template_part( 'template-parts/footer' );

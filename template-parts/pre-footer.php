@@ -7,7 +7,7 @@
 				</div>
 			<?php endif; ?>
 
-			<?php get_template_part( 'partials/payments-method' ); ?>
+			<?php get_template_part( 'template-parts/payments-method' ); ?>
 
 			<?php if ( GROUND_PAYMENTS_CONTENT ) : ?>
 				<div class="text-quaternary">

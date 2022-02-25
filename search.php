@@ -5,12 +5,12 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' );
+get_template_part( 'template-parts/header' );
 ?>
 
 	<div class="container">
 
-		<?php get_template_part( 'partials/breadcrumbs' ); ?>
+		<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 
 		<section class="page page--search">
 
@@ -30,11 +30,11 @@ get_template_part( 'partials/header' );
 					while ( have_posts() ) :
 						the_post();
 
-						get_template_part( 'partials/abstract', 'post' );
+						get_template_part( 'template-parts/abstract', 'post' );
 
 				endwhile;
 
-					get_template_part( 'partials/pagination' );
+					get_template_part( 'template-parts/pagination' );
 
 				else :
 					?>
@@ -50,4 +50,4 @@ get_template_part( 'partials/header' );
 	</div> <!-- End .container -->
 
 <?php
-get_template_part( 'partials/footer' );
+get_template_part( 'template-parts/footer' );

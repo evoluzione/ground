@@ -11,7 +11,7 @@
   * Add minicart
   */
 function ground_woocommerce_minicart() {
-	get_template_part( 'partials/woocommerce/minicart' );
+	get_template_part( 'template-parts/woocommerce/minicart' );
 }
 
 add_action( 'ground_header', 'ground_woocommerce_minicart', 9 );
@@ -85,7 +85,7 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 	 * @since  1.0.0
 	 */
 	function ground_woocommerce_cart_link() {
-		get_template_part( 'partials/woocommerce/shopping-cart' );
+		get_template_part( 'template-parts/woocommerce/shopping-cart' );
 	}
 }
 

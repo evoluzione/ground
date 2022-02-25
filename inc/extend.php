@@ -500,7 +500,7 @@ function ground_yoast_breadcrumb() {
  */
 function ground_ajax_search_data_fetch() {
 	ob_start();
-	get_template_part( 'partials/abstract-ajax-search' );
+	get_template_part( 'template-parts/abstract-ajax-search' );
 	return ob_get_clean();
 }
 
@@ -512,7 +512,7 @@ add_action( 'wp_ajax_nopriv_data_fetch', 'ground_ajax_search_data_fetch' );
  */
 function ground_language_switch() {
 	ob_start();
-	get_template_part( 'partials/switch-language' );
+	get_template_part( 'template-parts/switch-language' );
 	return ob_get_clean();
 }
 
