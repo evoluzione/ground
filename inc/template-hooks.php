@@ -11,16 +11,16 @@ function ground_header_type() {
 	$header_type = GROUND_HEADER_TYPE;
 	switch ( $header_type ) {
 		case 'menu':
-			get_template_part( 'template-parts/headers/header', 'simple' );
+			get_template_part( 'template-parts/header/header', 'simple' );
 			break;
 		case 'menuCentered':
-			get_template_part( 'template-parts/headers/header', 'logo-centered' );
+			get_template_part( 'template-parts/header/header', 'logo-centered' );
 			break;
 		case 'megaMenu':
-			get_template_part( 'template-parts/headers/header', 'mega-menu' );
+			get_template_part( 'template-parts/header/header', 'mega-menu' );
 			break;
 		default:
-			get_template_part( 'template-parts/headers/header', 'simple' );
+			get_template_part( 'template-parts/header/header', 'simple' );
 	}
 }
 

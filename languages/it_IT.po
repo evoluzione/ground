@@ -19,8 +19,8 @@ msgstr ""
 msgid "<"
 msgstr ""
 
-#: ../ground/template-parts/headers/header-mega-menu.php:54
-#: ../ground/template-parts/headers/header-simple.php:42
+#: ../ground/template-parts/header/header-mega-menu.php:54
+#: ../ground/template-parts/header/header-simple.php:42
 msgid "Account"
 msgstr ""
 
@@ -160,9 +160,9 @@ msgid "Il cliente ha richiesto la fattura"
 msgstr ""
 
 #: ../ground/template-parts/panel-primary.php:15
-#: ../ground/template-parts/headers/header-mega-menu.php:8
-#: ../ground/template-parts/headers/header-simple.php:6
-#: ../ground/template-parts/headers/header-logo-centered.php:6
+#: ../ground/template-parts/header/header-mega-menu.php:8
+#: ../ground/template-parts/header/header-simple.php:6
+#: ../ground/template-parts/header/header-logo-centered.php:6
 msgid "Indietro"
 msgstr ""
 
