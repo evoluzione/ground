@@ -28,7 +28,7 @@ export default class Menu {
 		// });
 
 		window.addEventListener('resize', () => {
-			if (!isMobile.any) {
+			if (isMobile.any) {
 				if (this.DOM.menuContainer) this.DOM.menuContainer.style.cssText += 'transform: none';
 
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
