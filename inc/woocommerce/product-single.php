@@ -432,7 +432,7 @@ add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_belo
  * Include single product additional info
  */
 function ground_woocommerce_after_single_product_summary_info() {
-	get_template_part( 'partials/woocommerce/content-single-product' );
+	get_template_part( 'template-parts/woocommerce/content-single-product' );
 };
 
 add_action( 'woocommerce_after_single_product_summary', 'ground_woocommerce_after_single_product_summary_info', 10, 2 );

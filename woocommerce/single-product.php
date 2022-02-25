@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_template_part( 'partials/header' ); ?>
+get_template_part( 'template-parts/header' ); ?>
 
 <?php
 /**
@@ -75,6 +75,6 @@ do_action( 'woocommerce_before_main_content' );
 </div>
 
 <?php
-get_template_part( 'partials/footer' );
+get_template_part( 'template-parts/footer' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
