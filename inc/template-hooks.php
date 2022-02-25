@@ -48,7 +48,7 @@ add_action( 'ground_footer', 'ground_newsletter', 8 );
  * Footer, Add footer switch type
  */
 function ground_footer_type() {
-	 get_template_part( 'template-parts/footers/footer', 'simple' );
+	 get_template_part( 'template-parts/footer/footer', 'simple' );
 }
 
 add_action( 'ground_footer', 'ground_footer_type', 10 );

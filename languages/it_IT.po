@@ -28,7 +28,7 @@ msgstr ""
 msgid "Advanced Filters"
 msgstr "Filtri avanzati"
 
-#: ../ground/template-parts/footers/footer-simple.php:54
+#: ../ground/template-parts/footer/footer-simple.php:54
 msgid "All rights reserved - © copyright"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr "Categoria"
 msgid "Cliente privato"
 msgstr ""
 
-#: ../ground/template-parts/footers/footer-simple.php:40
+#: ../ground/template-parts/footer/footer-simple.php:40
 msgid "Closing Time"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Oops!"
 msgstr ""
 
-#: ../ground/template-parts/footers/footer-simple.php:34
+#: ../ground/template-parts/footer/footer-simple.php:34
 msgid "Opening Hours"
 msgstr ""
 
