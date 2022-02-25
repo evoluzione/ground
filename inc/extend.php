@@ -508,15 +508,6 @@ add_action( 'wp_ajax_data_fetch', 'ground_ajax_search_data_fetch' );
 add_action( 'wp_ajax_nopriv_data_fetch', 'ground_ajax_search_data_fetch' );
 
 /**
- * WMPL - Switch Language
- */
-function ground_language_switch() {
-	ob_start();
-	get_template_part( 'template-parts/shared/switch-language' );
-	return ob_get_clean();
-}
-
-/**
  * Write log in /wp-content/debug.log
  * Enable WP_DEBUG and WP_DEBUG_LOG
  *
