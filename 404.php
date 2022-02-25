@@ -5,7 +5,7 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header' );
+get_template_part( 'template-parts/header/header' );
 ?>
 
 	<article class="page page--404">
@@ -22,4 +22,4 @@ get_template_part( 'template-parts/header' );
 	</article> <!-- End .page -->
 
 <?php
-get_template_part( 'template-parts/footer' );
+get_template_part( 'template-parts/footer/footer' );

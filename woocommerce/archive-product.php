@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_template_part( 'template-parts/header' ); ?>
+get_template_part( 'template-parts/header/header' ); ?>
 
 <?php
 /**
@@ -97,7 +97,7 @@ do_action( 'woocommerce_before_main_content' );
 							do_action( 'woocommerce_shop_loop' );
 							?>
 
-							<?php wc_get_template_part( 'content', 'product' ); ?>
+							<?php wc_get_template_part( 'content-product' ); ?>
 
 							<?php
 						}
@@ -137,4 +137,4 @@ do_action( 'woocommerce_before_main_content' );
 do_action( 'woocommerce_after_main_content' );
 ?>
 
-<?php get_template_part( 'template-parts/footer' ); ?>
+<?php get_template_part( 'template-parts/footer/footer' ); ?>

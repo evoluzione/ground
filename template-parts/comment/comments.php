@@ -73,6 +73,6 @@ if ( post_password_required() ) {
 
 	<?php } ?>
 
-	<?php get_template_part( 'template-parts/comments', 'form' ); ?>
+	<?php get_template_part( 'template-parts/comment/comments-form' ); ?>
 
 </div> <!-- .comments -->

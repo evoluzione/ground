@@ -22,9 +22,9 @@ if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post(); ?>
 
-			<div class="col-span-6 md:col-span-3 mb-12 lg:mb-24">
-				<?php get_template_part( 'woocommerce/content-product' ); ?>
-			</div>
+		<div class="col-span-6 md:col-span-3 mb-12 lg:mb-24">
+			<?php get_template_part( 'woocommerce/content-product' ); ?>
+		</div>
 
 		<?php
 	}

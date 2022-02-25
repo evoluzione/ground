@@ -10,17 +10,17 @@ $categories_ids = get_terms(
 	array( 'fields' => 'ids' ) // Fields
 );
 
-get_template_part( 'template-parts/header' );
+get_template_part( 'template-parts/header/header' );
 ?>
 
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	<?php get_template_part( 'template-parts/shared/breadcrumbs' ); ?>
 
 	<div class="relative mb-12 lg:mb-24">
 		<?php if ( single_post_title( '', false ) ) : ?>
 			<header class="page__header">
 				<h1 class="page__title lg:mt-24"><?php single_post_title(); ?></h1>
 				<?php if ( count( $categories_ids ) > 1 ) { ?>
-					<?php get_template_part( 'template-parts/navigation', 'blog' ); ?>
+					<?php get_template_part( 'template-parts/navigation/navigation-blog' ); ?>
 				<?php } ?>
 
 				<?php
@@ -79,7 +79,7 @@ get_template_part( 'template-parts/header' );
 										</div>
 									</article>
 								<?php } else { ?>
-										<?php get_template_part( 'template-parts/abstract', 'post' ); ?>
+										<?php get_template_part( 'template-parts/post/post-preview' ); ?>
 								<?php } ?>
 							</div>
 						<?php
@@ -104,13 +104,13 @@ get_template_part( 'template-parts/header' );
 							while ( have_posts() ) :
 								the_post();
 
-								get_template_part( 'template-parts/abstract', 'post' );
+								get_template_part( 'template-parts/post/post-preview' );
 							endwhile;
 							wp_reset_query();
 							?>
 						</div>
 					</div> <!-- End .page__body -->
-					<?php get_template_part( 'template-parts/pagination' ); ?>
+					<?php get_template_part( 'template-parts/shared/pagination' ); ?>
 					<?php
 				endif;
 				?>
@@ -142,7 +142,7 @@ get_template_part( 'template-parts/header' );
 										$recent->the_post();
 									?>
 										<div class="col-span-full lg:col-span-4">
-											<?php get_template_part( 'template-parts/abstract', 'post' ); ?>
+											<?php get_template_part( 'template-parts/post/post-preview' ); ?>
 										</div>
 									<?php
 								}
@@ -159,4 +159,4 @@ get_template_part( 'template-parts/header' );
 	</div> <!-- End .container -->
 
 <?php
-get_template_part( 'template-parts/footer' );
+get_template_part( 'template-parts/footer/footer' );

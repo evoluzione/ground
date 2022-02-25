@@ -8,12 +8,12 @@
 		</div>
 
 		<div class="inline-block mt-8 mb-12 ml-8">
-			<?php get_template_part( 'template-parts/logo', 'primary' ); ?>
+			<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 		</div>
 
 		<div class="overlay-panel__content">
 			<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?> </a>
-			<?php get_template_part( 'template-parts/navigation', 'panel-primary' ); ?>
+			<?php get_template_part( 'template-parts/navigation/navigation-panel-primary' ); ?>
 		</div>
 
 	</div>

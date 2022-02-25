@@ -6,11 +6,11 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header' );
+get_template_part( 'template-parts/header/header' );
 ?>
 
 <div class="container">
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	<?php get_template_part( 'template-parts/shared/breadcrumbs' ); ?>
 </div>
 
 <div class="container mb-12 lg:mb-32">
@@ -70,7 +70,7 @@ get_template_part( 'template-parts/header' );
 							<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target=".sidebar--archive-post html" data-toggle-class-name="is-sidebar-open">
 								<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 							</button>
-							<?php get_template_part( 'template-parts/sidebar', 'archive-post' ); ?>
+							<?php get_template_part( 'template-parts/sidebar/sidebar-archive-post' ); ?>
 
 						</div>
 					<?php endif; ?>
@@ -80,7 +80,7 @@ get_template_part( 'template-parts/header' );
 							while ( have_posts() ) :
 								the_post();
 
-								get_template_part( 'template-parts/abstract', 'post' );
+								get_template_part( 'template-parts/post/post-preview' );
 
 							endwhile;
 							?>
@@ -89,7 +89,7 @@ get_template_part( 'template-parts/header' );
 				</div>
 			</div> <!-- End .page__body -->
 
-			<?php get_template_part( 'template-parts/pagination' ); ?>
+			<?php get_template_part( 'template-parts/shared/pagination' ); ?>
 
 		<?php endif; ?>
 
@@ -98,4 +98,4 @@ get_template_part( 'template-parts/header' );
 </div> <!-- End .container -->
 
 <?php
-get_template_part( 'template-parts/footer' );
+get_template_part( 'template-parts/footer/footer' );

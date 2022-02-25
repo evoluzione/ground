@@ -1,4 +1,4 @@
-<?php get_template_part( 'template-parts/meassage', 'alert' ); ?>
+<?php get_template_part( 'template-parts/meassage-alert' ); ?>
 
 <header class="header header-simple w-full z-30 bg-white">
 
@@ -7,10 +7,10 @@
 
 		<div class="header__bar-mobile container py-2 bg-white grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
-				<?php get_template_part( 'template-parts/navicon', 'primary' ); ?>
+				<?php get_template_part( 'template-parts/header/navicon-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-center header__logo">
-				<?php get_template_part( 'template-parts/logo', 'primary' ); ?>
+				<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-end items-center">
 				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
@@ -29,12 +29,12 @@
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16 xl:justify-end xl:space-x-6">
 				<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
 					<div class="xl:border-r xl:border-gray-200 xl:pr-6">
-						<?php get_template_part( 'template-parts/navigation', 'header-secondary' ); ?>
+						<?php get_template_part( 'template-parts/navigation/navigation-header-secondary' ); ?>
 					</div>
 				<?php endif; ?>
 				<div class="pl-6 lg:items-center lg:space-x-6 lg:pl-0 lg:flex lg:justify-end xl:justify-start">
 					<div class="hidden lg:inline-block ">
-						<?php get_template_part( 'template-parts/company', 'info-contacts' ); ?>
+						<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
@@ -52,23 +52,23 @@
 				<div class="container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 
 					<div class="hidden lg:inline-block mr-8">
-						<?php get_template_part( 'template-parts/logo', 'primary' ); ?>
+						<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 					</div>
 
 					<div class="relative lg:flex lg:justify-end lg:items-center">
 
-						<?php get_template_part( 'template-parts/navigation', 'header-primary' ); ?>
+						<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
 
 						<button class="hidden js-toggle lg:block" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
 							<?php ground_icon( 'search', 'icon--filled text-black' ); ?>
 						</button>
 
 						<div class="block lg:hidden">
-							<?php get_template_part( 'template-parts/navigation', 'header-secondary' ); ?>
+							<?php get_template_part( 'template-parts/navigation/navigation-header-secondary' ); ?>
 						</div>
 
 						<div class="block lg:hidden">
-							<?php get_template_part( 'template-parts/company', 'info-contacts' ); ?>
+							<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
 						</div>
 
 					</div>

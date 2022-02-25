@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.2\n"
 "X-Domain: ground"
 
-#: ../ground/template-parts/sidebar-archive-post.php:5
+#: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
 msgid "<"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Animation"
 msgstr ""
 
-#: ../ground/template-parts/sidebar-archive-post.php:5
+#: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
 msgid "Back to "
 msgstr ""
 
@@ -57,8 +57,8 @@ msgstr ""
 msgid "Catalog"
 msgstr ""
 
-#: ../ground/template-parts/content-single-post.php:120
-#: ../ground/template-parts/navigation-blog.php:34
+#: ../ground/template-parts/content/content-single-post.php:120
+#: ../ground/template-parts/navigation/navigation-blog.php:34
 msgid "Category"
 msgstr ""
 
@@ -89,8 +89,8 @@ msgstr ""
 msgid "Codice fiscale"
 msgstr ""
 
-#: ../ground/template-parts/content-single-post.php:122
-#: ../ground/template-parts/comments.php:68
+#: ../ground/template-parts/content/content-single-post.php:122
+#: ../ground/template-parts/comment/comments.php:68
 msgid "Comments"
 msgstr ""
 
@@ -102,11 +102,11 @@ msgstr ""
 msgid "Dati personali"
 msgstr ""
 
-#: ../ground/template-parts/content-single-post.php:102
+#: ../ground/template-parts/content/content-single-post.php:102
 msgid "Discover"
 msgstr ""
 
-#: ../ground/template-parts/content-single-post.php:66
+#: ../ground/template-parts/content/content-single-post.php:66
 msgid "Discover all news"
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Dove vuoi spedire l'acquisto?"
 msgstr ""
 
-#: ../ground/template-parts/comments-form.php:9
+#: ../ground/template-parts/comment/comments-form.php:9
 msgid "Email"
 msgstr ""
 
@@ -160,14 +160,14 @@ msgstr ""
 msgid "Il cliente ha richiesto la fattura"
 msgstr ""
 
-#: ../ground/template-parts/panel-primary.php:15
+#: ../ground/template-parts/shared/panel-primary.php:15
 #: ../ground/template-parts/header/header-mega-menu.php:8
 #: ../ground/template-parts/header/header-simple.php:6
 #: ../ground/template-parts/header/header-logo-centered.php:6
 msgid "Indietro"
 msgstr ""
 
-#: ../ground/template-parts/company-info-contacts.php:4
+#: ../ground/template-parts/footer/company-info-contacts.php:4
 msgid "Language"
 msgstr ""
 
@@ -175,11 +175,11 @@ msgstr ""
 msgid "Metodo di pagamento"
 msgstr ""
 
-#: ../ground/template-parts/comments-form.php:8
+#: ../ground/template-parts/comment/comments-form.php:8
 msgid "Name"
 msgstr ""
 
-#: ../ground/template-parts/pagination.php:42
+#: ../ground/template-parts/shared/pagination.php:42
 msgid "Next"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Opening Hours"
 msgstr ""
 
-#: ../ground/template-parts/content-single-post.php:65
+#: ../ground/template-parts/content/content-single-post.php:65
 msgid "Other news"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Pec"
 msgstr ""
 
-#: ../ground/template-parts/pagination.php:41
+#: ../ground/template-parts/shared/pagination.php:41
 msgid "Prev"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Pubblica amministrazione"
 msgstr ""
 
-#: ../ground/template-parts/search-form-input.php:3
+#: ../ground/template-parts/search/search-form-input.php:3
 msgid "Search products"
 msgstr ""
 
@@ -266,7 +266,7 @@ msgstr ""
 msgid "Società"
 msgstr ""
 
-#: ../ground/search.php:42 ../ground/template-parts/abstract-ajax-search.php:33
+#: ../ground/search.php:42 ../ground/template-parts/search/search-ajax-preview.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -287,6 +287,6 @@ msgstr ""
 msgid "Tipologia cliente"
 msgstr ""
 
-#: ../ground/template-parts/comments-form.php:10
+#: ../ground/template-parts/comment/comments-form.php:10
 msgid "Website"
 msgstr ""

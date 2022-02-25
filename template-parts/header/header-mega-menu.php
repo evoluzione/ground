@@ -1,4 +1,4 @@
-<?php get_template_part( 'template-parts/message', 'alert' ); ?>
+<?php get_template_part( 'template-parts/header/message-alert' ); ?>
 
 <header class="header header-mega-menu w-full z-30 bg-quinary">
 
@@ -7,10 +7,10 @@
 
 		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
-				<?php get_template_part( 'template-parts/navicon', 'primary' ); ?>
+				<?php get_template_part( 'template-parts/header/navicon-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-center header__logo">
-				<?php get_template_part( 'template-parts/logo', 'primary' ); ?>
+				<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 			</div>
 			<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">
 				<?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?>
@@ -28,12 +28,12 @@
 
 					<div class="relative z-1 lg:flex lg:items-center lg:justify-start lg:space-x-3">
 						<div class="hidden lg:inline-block">
-							<?php get_template_part( 'template-parts/logo', 'primary' ); ?>
+							<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 						</div>
 						<div id="js-search-desktop" class="relative w-96">
-							<?php get_template_part( 'template-parts/search', 'form-input' ); ?>
+							<?php get_template_part( 'template-parts/search/search-form-input' ); ?>
 						</div>
-						<?php get_template_part( 'template-parts/navigation', 'header-secondary' ); ?>
+						<?php get_template_part( 'template-parts/navigation/navigation-header-secondary' ); ?>
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
@@ -44,13 +44,13 @@
 					<?php endif; ?>
 
 					<div class="block lg:hidden">
-						<?php get_template_part( 'template-parts/company', 'info-contacts' ); ?>
+						<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
 					</div>
 				</div>
 
 				<div class="lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
 					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
-						<?php get_template_part( 'template-parts/navigation', 'header-primary' ); ?>
+						<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
 					</div>
 
 					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
@@ -62,10 +62,10 @@
 								<div><?php echo $titlePanelPrimary->name; ?></div>
 							</a>
 							<div class="hidden lg:flex">
-								<?php get_template_part( 'template-parts/panel', 'primary' ); ?>
+								<?php get_template_part( 'template-parts/shared/panel-primary' ); ?>
 							</div>
 							<div class="lg:hidden">
-								<?php get_template_part( 'template-parts/navigation', 'panel-primary' ); ?>
+								<?php get_template_part( 'template-parts/navigation/navigation-panel-primary' ); ?>
 							</div>
 						</div>
 					<?php } ?>

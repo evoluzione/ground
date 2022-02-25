@@ -50,7 +50,7 @@
 			<?php the_content(); ?>
 			<?php
 			if ( comments_open() || get_comments_number() ) {
-				comments_template( '/template-parts/comments.php' );
+				comments_template( '/template-parts/comment/comments.php' );
 			}
 			?>
 		</div> <!-- End .page__body -->
