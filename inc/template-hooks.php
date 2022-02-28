@@ -19,6 +19,9 @@ function ground_header_type() {
 		case 'megaMenu':
 			get_template_part( 'template-parts/header/header-mega-menu' );
 			break;
+		case 'custom':
+			get_template_part( 'template-parts/header/header-custom' );
+			break;
 		default:
 			get_template_part( 'template-parts/header/header-simple' );
 	}
