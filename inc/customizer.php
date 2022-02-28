@@ -1,22 +1,14 @@
 <?php
-
 /**
- * Section: Customizer
- *
- * Basic Customizer section with basic controls.
+ * Customizer
  *
  * @package Ground
  */
 
-// Exit if accessed directly.
-if (!defined('ABSPATH')) {
-	exit;
-}
-
-
-// Customize function.
-if (!function_exists('wpc_panel_wpcustomize')) {
-
+/**
+ * Customizer functions.
+ */
+if ( ! function_exists( 'wpc_panel_wpcustomize' ) ) {
 	require_once 'customizer/customizer-colors.php';
 	require_once 'customizer/customizer-company.php';
 	require_once 'customizer/customizer-fonts.php';
