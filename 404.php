@@ -6,6 +6,11 @@
  */
 
 get_template_part( 'template-parts/header/header' );
+
+/**
+ * Hook: ground_404_before.
+ */
+do_action( 'ground_404_before' );
 ?>
 
 	<article class="page page--404">
@@ -22,4 +27,9 @@ get_template_part( 'template-parts/header/header' );
 	</article> <!-- End .page -->
 
 <?php
+/**
+ * Hook: ground_404_after.
+ */
+do_action( 'ground_404_after' );
+
 get_template_part( 'template-parts/footer/footer' );

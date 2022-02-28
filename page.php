@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Pages
  *
@@ -7,18 +6,25 @@
  */
 
 get_template_part( 'template-parts/header/header' );
-?>
 
-	<?php get_template_part( 'template-parts/shared/breadcrumbs' ); ?>
+while ( have_posts() ) :
 
-	<?php
-	while ( have_posts() ) :
-		the_post();
+	the_post();
 
-		get_template_part( 'template-parts/page/page-content' );
+	/**
+	 * Hook: ground_page_before.
+	 *
+	 * @hooked ground_breadcrumbs - 20
+	 */
+	do_action( 'ground_page_before' );
 
-	endwhile;
-	?>
+	get_template_part( 'template-parts/page/page-content' );
 
-<?php
+	/**
+	 * Hook: ground_page_after.
+	 */
+	do_action( 'ground_page_after' );
+
+endwhile;
+
 get_template_part( 'template-parts/footer/footer' );

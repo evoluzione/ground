@@ -53,14 +53,6 @@ function ground_footer_type() {
 
 add_action( 'wp_footer', 'ground_footer_type', 10 );
 
-
-
-
-
-
-
-
-
 /**
  * Search form
  */
@@ -70,8 +62,6 @@ function ground_search_form() {
 
 add_action( 'wp_footer', 'ground_search_form', 15 );
 
-
-
 /**
  * Modal
  */
@@ -80,3 +70,46 @@ function ground_modal() {
 }
 
 // add_action( 'wp_footer', 'ground_modal', 20 );
+
+/**
+ * Main open
+ */
+function ground_main_content_open() {
+
+	if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) {
+		$classes = 'container';
+	} else {
+		$classes = esc_attr( GROUND_CONTAINER );
+	}
+
+	?>
+	<main role="main" id="main" class="<?php echo $classes; ?>">
+	<?php
+}
+
+add_action( 'wp_body_open', 'ground_main_content_open', 50 );
+
+/**
+ * Main close
+ */
+function ground_main_content_close() {
+	?>
+	</main>
+	<?php
+}
+
+add_action( 'wp_footer', 'ground_main_content_close', 3 );
+
+
+/**
+ * Breadcrumbs
+ */
+function ground_breadcrumbs() {
+	get_template_part( 'template-parts/shared/breadcrumbs' );
+}
+
+add_action( 'ground_single_post_before', 'ground_breadcrumbs', 20 );
+add_action( 'ground_page_before', 'ground_breadcrumbs', 20 );
+add_action( 'ground_search_before', 'ground_breadcrumbs', 20 );
+add_action( 'ground_index_before', 'ground_breadcrumbs', 20 );
+add_action( 'ground_archive_before', 'ground_breadcrumbs', 20 );

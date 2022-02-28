@@ -1,9 +1,8 @@
-		</main>
-
 		<?php
 		/**
 		 * Hook: wp_footer.
 		 *
+		 * @hooked ground_main_content_close - 3
 		 * @hooked ground_pre_footer - 5
 		 * @hooked ground_newsletter - 8
 		 * @hooked ground_footer_type - 10

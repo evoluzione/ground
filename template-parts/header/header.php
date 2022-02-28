@@ -20,8 +20,7 @@
 	 * @hooked ground_woocommerce_minicart - 5
 	 * @hooked ground_header_checkout - 10
 	 * @hooked ground_header_type - 15
+	 * @hooked ground_main_content_open - 50
 	 */
 	wp_body_open();
 	?>
-
-	<main role="main" class="<?php echo class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ? 'container' : esc_attr( GROUND_CONTAINER ); ?>">

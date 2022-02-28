@@ -11,9 +11,14 @@ $categories_ids = get_terms(
 );
 
 get_template_part( 'template-parts/header/header' );
-?>
 
-	<?php get_template_part( 'template-parts/shared/breadcrumbs' ); ?>
+/**
+ * Hook: ground_index_before.
+ *
+ * @hooked ground_breadcrumbs - 20
+ */
+do_action( 'ground_index_before' );
+?>
 
 	<div class="relative mb-12 lg:mb-24">
 		<?php if ( single_post_title( '', false ) ) : ?>
@@ -42,7 +47,6 @@ get_template_part( 'template-parts/header/header' );
 		if ( count( $sticky_posts->posts ) >= 1 && count( $sticky_posts->posts ) < 4 ) {
 			?>
 			<div class="posts mb-12 lg:mb-24 items-count-<?php echo count( $sticky_posts->posts ) >= 3 ? 3 : count( $sticky_posts->posts ); ?>">
-
 
 			<?php
 			if ( $sticky_posts->have_posts() ) {
@@ -159,4 +163,9 @@ get_template_part( 'template-parts/header/header' );
 	</div> <!-- End .container -->
 
 <?php
+/**
+ * Hook: ground_index_after.
+ */
+do_action( 'ground_index_after' );
+
 get_template_part( 'template-parts/footer/footer' );

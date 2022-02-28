@@ -8,12 +8,23 @@
 get_template_part( 'template-parts/header/header' );
 
 while ( have_posts() ) :
-	the_post(); ?>
 
-		<?php get_template_part( 'template-parts/shared/breadcrumbs' ); ?>
-		<?php get_template_part( 'template-parts/content/post-content' ); ?>
+	the_post();
 
-	<?php
+	/**
+	 * Hook: ground_single_post_before.
+	 *
+	 * @hooked ground_breadcrumbs - 20
+	 */
+	do_action( 'ground_single_post_before' );
+
+	get_template_part( 'template-parts/post/post-content' );
+
+	/**
+	 * Hook: ground_single_post_after.
+	 */
+	do_action( 'ground_single_post_after' );
+
 endwhile;
 
 get_template_part( 'template-parts/footer/footer' );
