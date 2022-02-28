@@ -20,7 +20,7 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
  * Register and enqueue JS
  */
 function ground_enqueue_scripts() {
-	 // wp_deregister_script( 'jquery' );
+	// wp_deregister_script( 'jquery' );
 	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.6.0.min.js", array(), null, true );
 	wp_enqueue_script( 'ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/scripts.min.js', array( 'jquery' ), GROUND_VERSION, true );
 
@@ -112,3 +112,13 @@ function ground_login_css() {     ?>
 }
 
 add_action( 'login_enqueue_scripts', 'ground_login_css' );
+
+
+/**
+ * Theme color
+ */
+function ground_theme_color() {
+	echo '<meta name="theme-color" content="' . GROUND_COLOR_PRIMARY . '" />';
+}
+
+add_action( 'wp_head', 'ground_theme_color' );
