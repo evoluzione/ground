@@ -574,3 +574,18 @@ add_filter(
 		return $title;
 	}
 );
+
+
+/**
+ * Redirect lost password
+ *
+ * @return void
+ */
+
+
+add_filter( 'lostpassword_url', function( $url, $redirect )
+{
+    remove_all_filters( 'lostpassword_url' );
+
+    return wp_lostpassword_url( $redirect );
+}, PHP_INT_MAX, 2 );
