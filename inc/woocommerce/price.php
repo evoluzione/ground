@@ -81,7 +81,7 @@ function ground_buy_now_save_x_notice() {
 		<?php
 	}
 }
-// add_action( 'ground_footer', 'ground_buy_now_save_x_notice', 10 );
+// add_action( 'wp_footer', 'ground_buy_now_save_x_notice', 10 );
 
 
 
@@ -117,4 +117,4 @@ function ground_free_shipping_notice() {
 
 }
 
-// add_action( 'ground_footer', 'ground_free_shipping_notice', 5 );
+// add_action( 'wp_footer', 'ground_free_shipping_notice', 5 );

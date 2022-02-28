@@ -357,7 +357,7 @@ function ground_header_checkout() {
 	}
 }
 
-add_action( 'ground_header', 'ground_header_checkout' );
+add_action( 'wp_body_open', 'ground_header_checkout', 10 );
 
 
 

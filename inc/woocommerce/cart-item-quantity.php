@@ -56,4 +56,4 @@ function ground_cart_refresh_update_qty()
 <?php
 }
 
-add_action('wp_footer', 'ground_cart_refresh_update_qty');
+add_action('wp_footer', 'ground_cart_refresh_update_qty', 35);

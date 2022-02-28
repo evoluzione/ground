@@ -16,16 +16,12 @@
 	<?php
 	/**
 	 * Hook: wp_body_open.
+	 *
+	 * @hooked ground_woocommerce_minicart - 5
+	 * @hooked ground_header_checkout - 10
+	 * @hooked ground_header_type - 15
 	 */
 	wp_body_open();
-
-	/**
-	 * Hook: ground_header.
-	 *
-	 * @hooked ground_woocommerce_minicart - 9
-	 * @hooked ground_header_type - 10
-	 */
-	do_action( 'ground_header' );
 	?>
 
 	<main role="main" class="<?php echo class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ? 'container' : esc_attr( GROUND_CONTAINER ); ?>">

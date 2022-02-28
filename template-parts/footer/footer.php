@@ -2,7 +2,7 @@
 
 		<?php
 		/**
-		 * Hook: ground_footer.
+		 * Hook: wp_footer.
 		 *
 		 * @hooked ground_pre_footer - 5
 		 * @hooked ground_newsletter - 8
@@ -11,11 +11,10 @@
 		 * @hooked ground_modal - 20
 		 * @hooked ground_cursor - 25
 		 * @hooked ground_debug_grid - 30
+		 * @hooked ground_cart_refresh_update_qty - 35
+		 *
 		 */
-		do_action( 'ground_footer' );
-		?>
-
-		<?php wp_footer(); ?>
+		 wp_footer(); ?>
 
 	</body>
 
