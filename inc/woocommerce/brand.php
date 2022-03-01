@@ -6,13 +6,13 @@
 function ground_register_taxonomy_product_brand() {
 
 	$labels = array(
-		'name'          => _x( 'Brand', 'Post Type General Name', 'ground-admin' ),
-		'singular_name' => _x( 'Brand', 'Post Type General Name', 'ground-admin' ),
-		'menu_name'     => __( 'Brand', 'ground-admin' ),
+		'name'          => _x( 'Brand', 'Post Type General Name', 'ground' ),
+		'singular_name' => _x( 'Brand', 'Post Type General Name', 'ground' ),
+		'menu_name'     => __( 'Brand', 'ground' ),
 	);
 
 	$rewrite = array(
-		'slug'         => __( 'product-brand', 'ground-admin' ),
+		'slug'         => __( 'product-brand', 'ground' ),
 		'hierarchical' => true,
 		'with_front'   => true,
 	);

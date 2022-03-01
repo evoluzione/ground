@@ -49,12 +49,12 @@ function ground_register_menu() {
 
 	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'header-primary'   => __( 'Navigation header primary ', 'ground-admin' ),
-		'header-secondary' => __( 'Navigation header secondary', 'ground-admin' ),
-		'footer-primary'   => __( 'Navigation footer primary', 'ground-admin' ),
-		'footer-secondary' => __( 'Navigation footer secondary', 'ground-admin' ),
-		'footer-tertiary'  => __( 'Navigation footer tertiary', 'ground-admin' ),
-		'panel-primary'    => __( 'Navigation panel primary', 'ground-admin' ),
+		'header-primary'   => __( 'Navigation header primary ', 'ground' ),
+		'header-secondary' => __( 'Navigation header secondary', 'ground' ),
+		'footer-primary'   => __( 'Navigation footer primary', 'ground' ),
+		'footer-secondary' => __( 'Navigation footer secondary', 'ground' ),
+		'footer-tertiary'  => __( 'Navigation footer tertiary', 'ground' ),
+		'panel-primary'    => __( 'Navigation panel primary', 'ground' ),
 	);
 
 	register_nav_menus( $locations );
@@ -96,7 +96,6 @@ if ( ! isset( $content_width ) ) {
  * Load the theme’s translated strings
  */
 function ground_load_theme_textdomain() {
-	load_theme_textdomain( 'ground-admin', GROUND_TEMPLATE_PATH . '/languages' );
 	load_theme_textdomain( 'ground', GROUND_TEMPLATE_PATH . '/languages' );
 }
 
@@ -583,9 +582,13 @@ add_filter(
  */
 
 
-add_filter( 'lostpassword_url', function( $url, $redirect )
-{
-    remove_all_filters( 'lostpassword_url' );
+add_filter(
+	'lostpassword_url',
+	function( $url, $redirect ) {
+		remove_all_filters( 'lostpassword_url' );
 
-    return wp_lostpassword_url( $redirect );
-}, PHP_INT_MAX, 2 );
+		return wp_lostpassword_url( $redirect );
+	},
+	PHP_INT_MAX,
+	2
+);
