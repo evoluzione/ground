@@ -2,18 +2,6 @@ import { elementExist } from './utilities/selector';
 import isMobile from 'ismobilejs';
 import { trigger } from './utilities/trigger';
 
-function initAnimationScripts() {
-
-	// HandleAnimation
-	if (elementExist('[data-scroll]')) {
-		import(/* webpackChunkName: "ground-handleAnimation" */'./animations/handleAnimation')
-			.then((module) => {
-				const HandleAnimation = module.default;
-				new HandleAnimation();
-			})
-			.catch((error) => console.log(error));
-	}
-}
 
 function initAlwaysRunScripts() {
 
@@ -117,17 +105,6 @@ function initGenericScripts() {
 			.catch((error) => console.log(error));
 	}
 
-
-	// AnimationFlip
-	if (elementExist('[data-flip]')) {
-		import(/* webpackChunkName: "ground-animationFlip" */'./animations/animationFlip')
-			.then((module) => {
-				const AnimationFlip = module.default;
-				new AnimationFlip();
-			})
-			.catch((error) => console.log(error));
-	}
-
 	// Slider
 	if (elementExist('.js-slider')) {
 		import(/* webpackChunkName: "ground-slider" */'./components/slider')
@@ -182,7 +159,6 @@ function initGenericScripts() {
 }
 
 export {
-	initAnimationScripts,
 	initAlwaysRunScripts,
 	initCustomizerScripts,
 	initWoocommerceScripts,

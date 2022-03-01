@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { initAlwaysRunScripts, initAnimationScripts, initCustomizerScripts, initGenericScripts, initWoocommerceScripts } from './functions';
+import { initAlwaysRunScripts, initCustomizerScripts, initGenericScripts, initWoocommerceScripts } from './functions';
 
 (() => {
 	window.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +8,5 @@ import { initAlwaysRunScripts, initAnimationScripts, initCustomizerScripts, init
 		initCustomizerScripts();
 		initGenericScripts();
 		initWoocommerceScripts();
-		initAnimationScripts();
 	});
 })();
