@@ -14,7 +14,14 @@
 						<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
 			</figure>
 		<?php } ?>
-		<div class="prose">
+
+		<div class="
+		<?php
+		if ( class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart() ) :
+			echo 'prose';
+		endif;
+		?>
+		">
 			<?php the_content(); ?>
 		</div>
 	</div> <!-- End .page__body -->
