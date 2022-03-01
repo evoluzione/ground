@@ -1,16 +1,14 @@
 /* wp-block-quote */
 /* wp-block-pullquote */
-@layer components {
-	.wp-block-quote,
-	.wp-block-pullquote {
-		@apply border-0 border-l-4 border-tertiary rounded-none !important;
-		@apply my-12 lg:my-24;
+.wp-block-quote,
+.wp-block-pullquote {
+	@apply border-0 border-l-4 border-tertiary rounded-none !important;
+	@apply my-12 lg:my-24;
 
-		blockquote {
-			@apply border-0 !important;
-		}
-		cite {
-			@apply mt-4;
-		}
+	blockquote {
+		@apply border-0 !important;
+	}
+	cite {
+		@apply mt-4;
 	}
 }

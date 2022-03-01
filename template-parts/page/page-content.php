@@ -14,7 +14,7 @@
 						<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
 			</figure>
 		<?php } ?>
-		<div class="relative">
+		<div class="prose">
 			<?php the_content(); ?>
 		</div>
 	</div> <!-- End .page__body -->

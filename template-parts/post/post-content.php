@@ -47,7 +47,9 @@
 		</header>
 
 		<div class="page__body mt-12 mb-24 lg:mb-72">
-			<?php the_content(); ?>
+			<div class="prose">
+				<?php the_content(); ?>
+			</div>
 			<?php
 			if ( comments_open() || get_comments_number() ) {
 				comments_template( '/template-parts/comment/comments.php' );

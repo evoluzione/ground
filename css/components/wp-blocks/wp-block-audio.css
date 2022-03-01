@@ -1,6 +1,4 @@
 /* wp-block-audio */
-@layer components {
-	.wp-block-audio {
-		@apply my-12 lg:my-24;
-	}
+.wp-block-audio {
+	@apply my-12 lg:my-24;
 }

@@ -1,15 +1,13 @@
 /* wp-block-cover */
-@layer components {
-	.wp-block-cover {
-		@apply overflow-hidden rounded-theme my-12 lg:my-24;
-		&.fullscreen {
-			@apply px-6;
-			.wp-block-cover__image-background {
-				@apply rounded-none;
-			}
+.wp-block-cover {
+	@apply overflow-hidden rounded-theme my-12 lg:my-24;
+	&.fullscreen {
+		@apply px-6;
+		.wp-block-cover__image-background {
+			@apply rounded-none;
 		}
-		.wp-block-cover__inner-container {
-			@apply relative space-y-4 max-w-4xl px-6 lg:px-9;
-		}
+	}
+	.wp-block-cover__inner-container {
+		@apply relative space-y-4 max-w-4xl px-6 lg:px-9;
 	}
 }

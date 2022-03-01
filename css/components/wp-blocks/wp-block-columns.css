@@ -1,9 +1,7 @@
 /* wp-block-columns */
-@layer components {
-	.wp-block-columns {
-		@apply my-0;
-		.wp-block-column {
-			@apply mb-7 lg:mb-0 flex-grow !important;
-		}
+.wp-block-columns {
+	@apply my-0;
+	.wp-block-column {
+		@apply mb-7 lg:mb-0 flex-grow !important;
 	}
 }
