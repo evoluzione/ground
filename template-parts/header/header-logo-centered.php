@@ -39,7 +39,7 @@
 					</div>
 
 					<div class="block lg:hidden">
-						<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
+						<?php get_template_part( 'template-parts/shared/company-info-contacts' ); ?>
 					</div>
 				</div>
 

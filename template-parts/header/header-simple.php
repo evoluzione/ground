@@ -34,7 +34,7 @@
 				<?php endif; ?>
 				<div class="pl-6 lg:items-center lg:space-x-6 lg:pl-0 lg:flex lg:justify-end xl:justify-start">
 					<div class="hidden lg:inline-block ">
-						<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
+						<?php get_template_part( 'template-parts/shared/company-info-contacts' ); ?>
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
@@ -68,7 +68,7 @@
 						</div>
 
 						<div class="block lg:hidden">
-							<?php get_template_part( 'template-parts/footer/company-info-contacts' ); ?>
+							<?php get_template_part( 'template-parts/shared/company-info-contacts' ); ?>
 						</div>
 
 					</div>
