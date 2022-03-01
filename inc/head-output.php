@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Head output
  *
@@ -31,13 +30,12 @@ function ground_enqueue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
-
-// customizer-control.js
-// function tuts_customize_control_js()
-// {
-// wp_enqueue_script('tuts_customizer_control', get_template_directory_uri() . '/js/customizer-control.js', array('customize-controls', 'jquery'), null, true);
-// }
-// add_action('customize_controls_enqueue_scripts', 'tuts_customize_control_js');
+/*
+ customizer - control . js
+function tuts_customize_control_js() {
+	wp_enqueue_script( 'tuts_customizer_control', get_template_directory_uri() . '/js/customizer-control.js', array( 'customize-controls', 'jquery' ), null, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'tuts_customize_control_js' ); */
 
 /**
  * Add CSS Fonts Source
@@ -112,7 +110,6 @@ function ground_login_css() {     ?>
 }
 
 add_action( 'login_enqueue_scripts', 'ground_login_css' );
-
 
 /**
  * Theme color
