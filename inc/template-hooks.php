@@ -96,9 +96,7 @@ add_action( 'wp_body_open', 'ground_main_content_open', 50 );
  * Main close
  */
 function ground_main_content_close() {
-	?>
-	</main>
-	<?php
+	echo '</main>';
 }
 
 add_action( 'wp_footer', 'ground_main_content_close', 3 );
