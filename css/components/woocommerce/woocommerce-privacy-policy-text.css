@@ -1,8 +1,0 @@
-.woocommerce-privacy-policy-text {
-	* {
-		@apply text-sm text-quaternary;
-	}
-	.woocommerce-privacy-policy-link {
-		@apply text-primary;
-	}
-}

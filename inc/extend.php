@@ -287,11 +287,11 @@ function ground_icon( $name = '', $additional_class = '', $icon_set = 'css-gg', 
 
 	if ( $url ) {
 		$path = $child ? GROUND_CHILD_TEMPLATE_URL : GROUND_TEMPLATE_URL;
-		return $path . '/img/icons/' . $icon_set . '/' . $name . '.' . $extension;
+		return $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension;
 	} else {
 		$path    = $child ? GROUND_CHILD_TEMPLATE_PATH : GROUND_TEMPLATE_PATH;
 		$markup  = '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
-		$markup .= file_get_contents( $path . '/img/icons/' . $icon_set . '/' . $name . '.' . $extension );
+		$markup .= file_get_contents( $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension );
 		$markup .= '</' . $tag . '>';
 
 		if ( $return ) {

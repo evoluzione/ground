@@ -100,7 +100,7 @@
 																						<?php
 														} else {
 															?>
-																						 src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg" <?php } ?> alt="" loading="lazy">
+																						 src="<?php echo GROUND_TEMPLATE_URL; ?>/assets/img/no-image.svg" <?php } ?> alt="" loading="lazy">
 													</div>
 												</a>
 											</div>

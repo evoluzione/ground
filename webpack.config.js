@@ -4,7 +4,7 @@ const mode = process.env.WEBPACK_MODE;
 
 module.exports = {
 	// The point or points where to start the application bundling process.
-	entry: './js/app.js',
+	entry: './assets/js/app.js',
 
 	output: {
 		chunkFilename: '[name].bundle.js',
@@ -32,8 +32,8 @@ module.exports = {
 			//message: 'Hello, there!',
 			sound: false,
 			failureSound: 'Bottle',
-			logo: path.join(__dirname, 'img/icon.png'),
-			contentImage: path.join(__dirname, 'img/icon.png'),
+			logo: path.join(__dirname, 'assets/img/icon.png'),
+			contentImage: path.join(__dirname, 'assets/img/icon.png'),
 		}),
 	],
 

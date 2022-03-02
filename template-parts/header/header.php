@@ -5,8 +5,8 @@
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
-		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/img/favicon.png'; ?>">
-		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/img/icon.png'; ?>">
+		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/assets/img/favicon.png'; ?>">
+		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/assets/img/icon.png'; ?>">
 	<?php } ?>
 	<?php wp_head(); ?>
 </head>

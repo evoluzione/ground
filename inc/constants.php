@@ -198,7 +198,7 @@ function ground_theme_costants() {
 
 	// No image.
 	if ( ! defined( 'GROUND_NO_IMAGE_URL' ) ) {
-		define( 'GROUND_NO_IMAGE_URL', get_theme_mod( 'no_image_url' ) ? get_theme_mod( 'no_image_url' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
+		define( 'GROUND_NO_IMAGE_URL', get_theme_mod( 'no_image_url' ) ? get_theme_mod( 'no_image_url' ) : GROUND_TEMPLATE_URL . '/assets/img/no-image.svg' );
 	}
 
 	// Shop.
