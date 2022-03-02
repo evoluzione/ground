@@ -9,7 +9,7 @@ var config = {
 			filename: 'scripts.min.js',
 		},
 		gutenberg: {
-			import: './assets/js/gutenberg/app.js', 
+			import: './assets/js/gutenberg/gutenberg.js', 
 			filename: 'ground-gutenberg.min.js',
 		}
 	},
