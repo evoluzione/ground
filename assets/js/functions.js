@@ -34,67 +34,6 @@ function initAlwaysRunScripts() {
 			.catch((error) => console.log(error));
 	}
 
-}
-
-function initCustomizerScripts() {
-
-	// InfiniteScroll
-	if (elementExist('.js-pagination')) {
-		import(/* webpackChunkName: "ground-infiniteScroll" */'./components/infiniteScroll')
-			.then((module) => {
-				const InfiniteScroll = module.default;
-				new InfiniteScroll();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// Menu
-	if (elementExist('.navigation__item.has-children')) {
-		import(/* webpackChunkName: "ground-menu" */'./components/menu')
-			.then((module) => {
-				const Menu = module.default;
-				new Menu();
-			})
-			.catch((error) => console.log(error));
-	}
-}
-
-function initWoocommerceScripts() {
-
-	// Billing Invoices
-	if (elementExist('#billing_invoice')) {
-		import(/* webpackChunkName: "ground-billing" */'./components/billing')
-			.then((module) => {
-				const Billing = module.default;
-				new Billing();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// Cart
-	if (elementExist('.minicart')) {
-		import(/* webpackChunkName: "ground-cart" */'./components/cart')
-			.then((module) => {
-				const Cart = module.default;
-				new Cart();
-			})
-			.catch((error) => console.log(error));
-	}
-
-	// WidgetAccordion
-	if (elementExist('.woocommerce-widget-layered-nav')) {
-		import(/* webpackChunkName: "ground-widgetAccordion" */'./components/widgetAccordion')
-			.then((module) => {
-				const WidgetAccordion = module.default;
-				new WidgetAccordion();
-			})
-			.catch((error) => console.log(error));
-	}
-
-}
-
-function initGenericScripts() {
-
 	// Modal
 	if (elementExist('[data-modal]')) {
 		import(/* webpackChunkName: "ground-modal" */'./components/modal')
@@ -156,11 +95,68 @@ function initGenericScripts() {
 			})
 			.catch((error) => console.log(error));
 	}
+
+}
+
+function initCustomizerScripts() {
+
+	// InfiniteScroll
+	if (elementExist('.js-pagination')) {
+		import(/* webpackChunkName: "ground-infiniteScroll" */'./components/infiniteScroll')
+			.then((module) => {
+				const InfiniteScroll = module.default;
+				new InfiniteScroll();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// Menu
+	if (elementExist('.navigation__item.has-children')) {
+		import(/* webpackChunkName: "ground-menu" */'./components/menu')
+			.then((module) => {
+				const Menu = module.default;
+				new Menu();
+			})
+			.catch((error) => console.log(error));
+	}
+}
+
+function initWoocommerceScripts() {
+
+	// Billing Invoices
+	if (elementExist('#billing_invoice')) {
+		import(/* webpackChunkName: "ground-billing" */'./components/billing')
+			.then((module) => {
+				const Billing = module.default;
+				new Billing();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// Cart
+	if (elementExist('.minicart')) {
+		import(/* webpackChunkName: "ground-cart" */'./components/cart')
+			.then((module) => {
+				const Cart = module.default;
+				new Cart();
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// WidgetAccordion
+	if (elementExist('.woocommerce-widget-layered-nav')) {
+		import(/* webpackChunkName: "ground-widgetAccordion" */'./components/widgetAccordion')
+			.then((module) => {
+				const WidgetAccordion = module.default;
+				new WidgetAccordion();
+			})
+			.catch((error) => console.log(error));
+	}
+
 }
 
 export {
 	initAlwaysRunScripts,
 	initCustomizerScripts,
-	initWoocommerceScripts,
-	initGenericScripts
+	initWoocommerceScripts
 };

@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+/* eslint-disable react/react-in-jsx-scope */
 import classnames from 'classnames';
 
 /**
@@ -48,7 +50,7 @@ export default class BlocksRegisterBlockAttribute {
 									label={__('Full screen')}
 									checked={!!fullscreen}
 									onChange={() => setAttributes({ fullscreen: !fullscreen })}
-									help={!!fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
+									help={fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
 								/>
 							</InspectorAdvancedControls>
 						)}

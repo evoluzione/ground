@@ -3,13 +3,19 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 var config = {
 	// The point or points where to start the application bundling process.
-	entry: './assets/js/app.js',
+	entry: {
+		main: {
+			import: './assets/js/app.js', 
+			filename: 'scripts.min.js',
+		},
+		gutenberg: {
+			import: './assets/js/gutenberg/app.js', 
+			filename: 'ground-gutenberg.min.js',
+		}
+	},
 
 	output: {
 		chunkFilename: '[name].bundle.js',
-		// This option determines the name of each output bundle.
-		filename: 'scripts.min.js',
-		// The bundle is written to the directory specified by the output.path option.
 		path: path.resolve(__dirname, 'dist/js'),
 	},
 
