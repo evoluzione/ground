@@ -1,0 +1,169 @@
+@layer components {
+	.table,
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		@apply mb-6;
+		table-layout: auto;
+		max-width: 100%;
+		width: 100%;
+		@apply bg-transparent;
+	}
+
+	.table--striped {
+		tbody tr:nth-child(even) {
+			@apply bg-gray-500;
+		}
+	}
+
+	.table--hover {
+		tbody tr:hover {
+			@apply bg-gray-500;
+			@apply text-white;
+		}
+	}
+
+	.table--scroll {
+		display: block;
+		width: 100%;
+		min-height: 0.01%;
+		overflow-x: auto;
+	}
+
+	.table--responsive,
+	.shop_table_responsive {
+		display: block;
+
+		@screen md {
+			display: table;
+		}
+
+		thead,
+		tbody,
+		tfoot,
+		tr,
+		th,
+		td {
+			display: block;
+		}
+
+		thead {
+			@screen md {
+				display: table-header-group;
+			}
+
+			th {
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+
+				@screen md {
+					position: relative;
+					top: auto;
+					left: auto;
+				}
+			}
+		}
+
+		tbody {
+			@screen md {
+				display: table-row-group;
+			}
+		}
+
+		tfoot {
+			@screen md {
+				display: table-footer-group;
+			}
+		}
+
+		tr {
+			@apply mb-6;
+
+			@screen md {
+				display: table-row;
+			}
+		}
+
+		td,
+		th {
+			@screen md {
+				display: table-cell;
+			}
+		}
+
+		td {
+			vertical-align: top;
+			@media (max-width: theme("screens.sm")) {
+				border: 0;
+			}
+
+			@screen md {
+				background-color: transparent;
+				//width: 1px;
+				white-space: nowrap;
+			}
+
+			&:before {
+				@apply text-black;
+				content: attr(data-title);
+				font-variant: small-caps;
+				text-transform: uppercase;
+				display: block;
+				font-weight: bold;
+
+				@screen md {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.table--condensed {
+		td,
+		th {
+			border-width: 1px;
+			@apply px-3;
+			border-style: solid;
+		}
+	}
+
+	.table__caption,
+	caption {
+	}
+
+	.table__head,
+	thead {
+		@apply bg-primary;
+		@apply text-white;
+	}
+
+	.table__body,
+	tbody {
+	}
+
+	.table__foot,
+	tfoot {
+	}
+
+	.table__row,
+	tr {
+		vertical-align: middle;
+	}
+
+	.table__cell,
+	td {
+		@apply py-6 align-middle border-0 border-b border-septenary;
+	}
+
+	.shop_table td {
+		@apply align-middle;
+	}
+
+	.table__cell--head,
+	th {
+		@apply py-6;
+		text-align: left;
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,48 @@
+.cart_totals {
+	@apply relative bg-senary rounded-theme pt-3 pb-6 px-6 lg:py-12 lg:px-32;
+
+	> h2 {
+		@apply sr-only;
+	}
+
+	.shop_table {
+		@apply bg-transparent;
+
+		tr {
+			@apply border-b border-septenary;
+			&:last-child {
+				@apply border-0;
+
+				td {
+					@apply border-0;
+				}
+			}
+
+			&.order-total {
+				.amount {
+					@apply text-4xl;
+				}
+			}
+
+			th {
+				@apply pb-0 lg:pb-6;
+			}
+		}
+
+		td {
+			@apply border-0;
+
+			&:before {
+				@apply hidden;
+			}
+		}
+	}
+
+	.wc-proceed-to-checkout {
+		@apply flex justify-end w-full mt-0 lg:mt-6;
+
+		.checkout-button {
+			@apply w-full lg:w-auto;
+		}
+	}
+}

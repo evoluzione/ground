@@ -1,0 +1,49 @@
+@layer components {
+	.breadcrumb {
+		@apply relative overflow-y-hidden h-6 my-6 text-sm md:relative;
+
+		.container-full & {
+			@apply px-6;
+		}
+
+		@screen md {
+			&:after {
+				@apply hidden;
+			}
+		}
+	}
+
+	.breadcrumb__list {
+		@apply relative pb-6 pr-20 ml-0 mb-0 overflow-x-auto overflow-y-hidden whitespace-nowrap;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.breadcrumb__item {
+		@apply inline-block;
+
+		&:after {
+			content: "▸";
+			@apply text-quaternary px-3;
+		}
+
+		&:last-child {
+			@apply pointer-events-none cursor-default font-bold;
+
+			&:after {
+				content: none;
+			}
+		}
+
+		a {
+			@extend .breadcrumb__link;
+		}
+	}
+
+	.breadcrumb__link {
+		@apply text-quaternary no-underline;
+
+		&:hover {
+			@apply underline text-primary;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+form.cart:not(.variations_form),
+.woocommerce-variation-add-to-cart {
+	.summary & {
+		@apply flex items-center space-x-2 sm:space-x-4 mt-6;
+
+		.button {
+			@apply px-0 lg:px-3 flex-grow mb-0 !important;
+			.button__icon {
+				@apply hidden sm:inline-block;
+			}
+		}
+	}
+
+	&.grouped_form {
+		@apply block space-x-0;
+	}
+}

@@ -1,0 +1,5 @@
+/* wp-block-verse */
+.wp-block-verse {
+	@apply rounded-theme bg-senary text-tertiary p-6 !important;
+	@apply my-12 lg:my-24;
+}

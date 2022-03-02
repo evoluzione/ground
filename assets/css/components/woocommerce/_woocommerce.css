@@ -1,0 +1,49 @@
+/* Variables */
+@import "../../main.css";
+
+/* Import from all woocommerce directory */
+
+@import "added-to-cart.css";
+@import "cart.css";
+/* @import "cart-collaterals.css"; */
+@import "cart-totals.css";
+@import "cross-sells.css";
+@import "minicart.css";
+@import "price.css";
+@import "product-remove.css";
+@import "woocommerce-product-details.css";
+@import "variations.css";
+@import "quantity.css";
+@import "onsale.css";
+@import "widget-products.css";
+@import "widget-product-categories.css";
+@import "widgetpricefilter.css";
+@import "widgetlayerednav.css";
+@import "woocommerce-account.css";
+@import "woocommerce-cart-form.css";
+@import "woocommerce-form.css";
+@import "woocommerce-form-login.css";
+@import "woocommerce-form-validation.css";
+@import "woocommerce-order.css";
+@import "woocommerce-ordering.css";
+@import "woocommerce-checkout.css";
+@import "woocommerce-checkout-payment.css";
+@import "woocommerce-checkout-review-order-table.css";
+@import "woocommerce-message.css";
+@import "woocommerce-shipping-totals.css";
+@import "woocommerce-product-gallery.css";
+@import "woocommerce-tabs.css";
+@import "woocommerce-loop-category.css";
+@import "woocommerce-loop-product.css";
+@import "woocommerce-privacy-policy-text.css";
+@import "woocommerce-result-count.css";
+@import "woocommerce-store-notice.css";
+@import "woocommerce-terms-and-conditions.css";
+@import "not-purchasable.css";
+@import "product-columns.css";
+@import "related.css";
+@import "up-sells.css";
+@import "shopping-cart.css";
+@import "summary.css";
+@import "stock.css";
+@import "wc-blocks.css";

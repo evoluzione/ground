@@ -1,0 +1,45 @@
+.woocommerce-account {
+	.woocommerce {
+		> h2 {
+			@apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-senary rounded-theme;
+			@apply rounded-b-none !important;
+		}
+
+		form.woocommerce-form-login {
+			@apply relative pb-12 pt-1 px-9 w-full lg:w-1/2 rounded-theme bg-senary;
+			@apply rounded-t-none !important;
+
+			.woocommerce-form-login__submit {
+				@apply mt-4 w-full;
+			}
+		}
+
+		#customer_login {
+			@apply grid lg:grid-cols-2 gap-6;
+
+			.col-1,
+			.col-2 {
+				@apply p-9;
+				h2 {
+					@apply text-xl p-0 bg-transparent;
+				}
+			}
+
+			.col-1 {
+				@apply overflow-hidden rounded-theme bg-senary rounded-theme;
+				form.woocommerce-form-login {
+					@apply w-full p-0;
+				}
+			}
+
+			.col-2 {
+				@apply px-0 py-3 lg:py-9 lg:px-9;
+			}
+		}
+
+		.table__head,
+		thead {
+			@apply bg-transparent border-b border-septenary text-tertiary !important;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@layer components {
+	.icon {
+		@apply inline-block align-top;
+
+		svg {
+			@apply align-top h-full w-full;
+		}
+
+		path {
+			/* fill: currentColor; */
+			@apply fill-current;
+		}
+	}
+}

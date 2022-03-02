@@ -1,0 +1,8 @@
+.woocommerce-invalid {
+	input {
+		@apply border border-dashed border-red-500 !important;
+	}
+	label {
+		@apply text-red-500 !important;
+	}
+}

@@ -1,0 +1,9 @@
+@layer components {
+	.overlay-modal {
+		@apply opacity-0 invisible transform-none;
+
+		&.is-overlay-modal-open {
+			@apply opacity-100 visible transform-none;
+		}
+	}
+}

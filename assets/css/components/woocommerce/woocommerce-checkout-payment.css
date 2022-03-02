@@ -1,0 +1,78 @@
+.woocommerce-checkout-payment {
+	@apply relative;
+
+	.wc_payment_methods {
+		@apply relative mt-9 mb-6 space-y-1;
+
+		.wc_payment_method {
+			@apply flex flex-wrap items-center pl-0;
+
+			input {
+				@apply mt-0;
+			}
+
+			input:checked + label {
+				@apply text-primary underline !important;
+			}
+
+			label {
+				@apply ml-1;
+
+				img {
+					@apply inline-block my-0;
+				}
+			}
+
+			&:before {
+				@apply hidden;
+			}
+
+			.payment_box {
+				@apply w-full block my-2;
+				* {
+					@apply text-sm text-gray-500;
+				}
+			}
+		}
+
+		/* STRIPE */
+		.payment_method_stripe {
+			.payment_method_stripe {
+				@apply p-3 border border-septenary;
+			}
+
+			.wc-saved-payment-methods {
+				@apply mt-3;
+			}
+
+			.wc-credit-card-form {
+				@apply mt-3;
+				.form-row {
+					@apply my-1 p-0 w-full !important;
+				}
+			}
+
+			.woocommerce-SavedPaymentMethods-token,
+			.woocommerce-SavedPaymentMethods-new,
+			.woocommerce-SavedPaymentMethods-saveNew {
+				@apply flex items-center;
+				label {
+					@apply mb-0;
+				}
+			}
+
+			.wc-stripe-error {
+				* {
+					@apply text-white;
+				}
+			}
+		}
+	}
+
+	/* PLACE HOLDER */
+	.place-order {
+		button[type="submit"].button {
+			@apply mt-3 w-full;
+		}
+	}
+}

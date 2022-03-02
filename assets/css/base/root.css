@@ -1,0 +1,42 @@
+@layer base {
+	html {
+		&.has-scroll-dragging {
+			@apply select-none;
+		}
+
+		&.is-loader-complete {
+			&.is-navigation-hover {
+				@apply overflow-hidden;
+
+				@screen md {
+					@apply overflow-auto;
+				}
+			}
+
+			&.is-search-open {
+				@apply overflow-hidden;
+			}
+
+			&.is-overlay-panel-open {
+				@apply overflow-hidden;
+			}
+		}
+
+		&.is-navigation-open {
+			@apply overflow-hidden;
+		}
+
+		&.is-navigation-hover {
+			@apply overflow-hidden;
+			@screen md {
+				@apply overflow-auto;
+			}
+		}
+	}
+
+	body {
+		.is-search-open & {
+			@apply overflow-y-hidden;
+		}
+	}
+}

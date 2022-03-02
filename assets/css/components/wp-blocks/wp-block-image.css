@@ -1,0 +1,15 @@
+/* wp-block-image */
+.wp-block-image {
+	@apply my-12 lg:my-24 overflow-hidden;
+
+	.wp-block-gallery & {
+		@apply my-2 !important;
+		figure, img {
+			@apply my-0 !important;
+		}
+	}
+
+	img {
+		@apply w-full;
+	}
+}

@@ -1,0 +1,4 @@
+/* wp-block-code */
+.wp-block-code {
+	@apply bg-senary rounded-theme p-6 my-12 lg:my-24;
+}
