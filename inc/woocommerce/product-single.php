@@ -123,7 +123,11 @@ add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_belo
  * Include single product additional info
  */
 function ground_woocommerce_after_single_product_summary_info() {
-	the_content();
+	?>
+	<div class="prose">
+		<?php the_content(); ?>
+	</div>
+	<?php
 };
 
 add_action( 'woocommerce_after_single_product_summary', 'ground_woocommerce_after_single_product_summary_info', 10, 2 );
