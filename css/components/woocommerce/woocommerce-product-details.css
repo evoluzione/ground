@@ -16,4 +16,5 @@
 }
 
 .woocommerce-product-details__short-description {
+	@apply prose;
 }
