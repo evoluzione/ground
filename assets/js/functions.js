@@ -54,7 +54,7 @@ function initAlwaysRunScripts() {
 
 				if (elementExist('.js-slider-default')) {
 					new Slider;
-				} 
+				}
 
 				if (elementExist('.js-slider-primary')) {
 					new Slider('.js-slider-primary');
@@ -95,10 +95,6 @@ function initAlwaysRunScripts() {
 			})
 			.catch((error) => console.log(error));
 	}
-
-}
-
-function initCustomizerScripts() {
 
 	// InfiniteScroll
 	if (elementExist('.js-pagination')) {
@@ -157,6 +153,5 @@ function initWoocommerceScripts() {
 
 export {
 	initAlwaysRunScripts,
-	initCustomizerScripts,
 	initWoocommerceScripts
 };
