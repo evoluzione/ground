@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "npm run clean && npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
 		"build": "npm-run-all clean \"js -- --mode=production\" \"styles -- --env production\"",
-		"styles": "postcss assets/css/main-wc.css -o dist/css/styles.min.css --verbose --map",
-		"sync": "browser-sync start -p 'https://ground.develop' -f 'dist/css/styles.min.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
+		"styles": "postcss assets/css/main-wc.css -o dist/css/ground-styles.min.css --verbose --map",
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'dist/css/ground-styles.min.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
 		"js": "webpack",
 		"clean": "rm -rf ./dist/"
 	},
