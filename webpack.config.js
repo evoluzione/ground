@@ -6,7 +6,7 @@ var config = {
 	entry: {
 		main: {
 			import: './assets/js/app.js', 
-			filename: 'scripts.min.js',
+			filename: 'ground-scripts.min.js',
 		},
 		gutenberg: {
 			import: './assets/js/gutenberg/gutenberg.js', 
@@ -15,7 +15,7 @@ var config = {
 	},
 
 	output: {
-		chunkFilename: '[name].bundle.js',
+		chunkFilename: '[name].bundle.min.js',
 		path: path.resolve(__dirname, 'dist/js'),
 	},
 

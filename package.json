@@ -5,9 +5,9 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "npm run clean && npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
-		"build": "npm-run-all clean \"styles -- --env production\" \"js -- --mode=production\"",
+		"build": "npm-run-all clean \"js -- --mode=production\" \"styles -- --env production\"",
 		"styles": "postcss assets/css/main-wc.css -o dist/css/styles.min.css --verbose --map",
-		"sync": "browser-sync start -p 'https://ground.develop' -f 'dist/css/styles.min.css' '**/*.php' 'dist/js/scripts.min.js' -w",
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'dist/css/styles.min.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
 		"js": "webpack",
 		"clean": "rm -rf ./dist/"
 	},
@@ -24,7 +24,7 @@
 		"@babel/eslint-parser": "^7.17.0",
 		"@babel/preset-env": "^7.16.11",
 		"@babel/preset-react": "^7.16.7",
-		"@evoluzione/tailwind-config": "^1.0.11",
+		"@evoluzione/tailwind-config": "^1.0.12",
 		"autoprefixer": "^10.4.2",
 		"babel-loader": "^8.2.3",
 		"browser-sync": "^2.27.7",
