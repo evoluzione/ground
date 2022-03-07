@@ -9,9 +9,9 @@ function initAlwaysRunScripts() {
 	if (!isMobile().any) {
 		import(/* webpackChunkName: "ground-scrollDirection" */'./components/scrollDirection')
 			.then((module) => {
-				const ScrollDirection = module.default;
-				new ScrollDirection();
-			});
+				module.scrollDirection();
+			})
+			.catch((error) => console.log(error));;
 	}
 
 	// Search

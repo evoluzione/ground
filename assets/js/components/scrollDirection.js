@@ -1,42 +1,54 @@
-export default class ScrollDirection {
-	/**
-	 * @param {string} element - Selector
-	 * @param {Object} options - User options
-	 */
-	// eslint-disable-next-line no-unused-vars
-	constructor(element, options) {
-		this.initEvents();
-	}
 
-	/**
-	 * Initialize events
-	 * @param {string} triggers - Selectors
-	 */
-	initEvents() {
-		// Initial state
-		let scrollPos = document.body.getBoundingClientRect().top;
-		const offset = -100;
-		const htmlEl = document.documentElement.classList;
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event#Example
 
-		// adding scroll event
-		window.addEventListener('scroll', () => {
-			const currentPos = document.body.getBoundingClientRect().top;
-			if (scrollPos < offset) {
-				htmlEl.add('body-scrolled');
-				if (currentPos > scrollPos) {
-					// scrolling up
+let scrollPos = window.scrollY;
+let ticking = false;
+
+export function scrollDirection() {
+
+	// Initial state
+	const offset = 100;
+	const htmlEl = document.documentElement.classList;
+
+	function onScroll() {
+
+		const currentPos = window.scrollY;
+		const isScrollingUp = currentPos < scrollPos;
+
+		if (!ticking) {
+			window.requestAnimationFrame(function () {
+
+				// Body scrolled
+				if (scrollPos > offset) {
+					htmlEl.add('body-scrolled');
+				} else {
+					htmlEl.remove('body-scrolled');
+				}
+
+				// Scroll direction
+				if (isScrollingUp) {
 					htmlEl.remove('scroll-direction-down');
 					htmlEl.add('scroll-direction-up');
 				} else {
-					// Scrolling down
 					htmlEl.remove('scroll-direction-up');
 					htmlEl.add('scroll-direction-down');
 				}
-			} else {
-				htmlEl.remove('body-scrolled');
-			}
-			// saves the new position for iteration.
-			scrollPos = currentPos;
-		} );
+
+				ticking = false;
+
+			});
+
+			ticking = true;
+		}
+
+		// saves the new position for iteration.
+		scrollPos = currentPos;
+
 	}
+
+	// adding scroll event
+	window.addEventListener('scroll', onScroll, {
+		capture: true,
+		passive: true
+	});
 }
