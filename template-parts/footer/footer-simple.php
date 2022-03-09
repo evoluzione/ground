@@ -22,7 +22,7 @@
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-quaternary' ) ) : ?>
 				<div class="mb-12">
-					<?php get_template_part( 'template-parts/sidebar/sidebar-footer-quanternary' ); ?>
+					<?php get_template_part( 'template-parts/sidebar/sidebar-footer-quaternary' ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
