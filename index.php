@@ -126,9 +126,9 @@ do_action( 'ground_index_before' );
 				foreach ( $categories_ids as $row ) {
 					?>
 					<div class="page__body grid grid-cols-12 gap-6 mb-12 lg:mb-24">
-						<div class="col-span-full flex justify-between items-center lg:inline-block lg:col-span-4">
+						<div class="col-span-full flex justify-between items-center lg:inline-block lg:col-span-4 lg:pr-24">
 							<a class="no-underline" href="<?php echo get_category_link( $row ); ?>"> <h2 class="lg:mb-6"> <?php echo get_the_category_by_ID( $row ); ?> </h2> </a>
-							<div class="hidden lg:flex lg:mb-6"> <?php echo substr( strip_tags( category_description( $row ) ), 0, 120 ) . '...'; ?> </div>
+							<div class="hidden lg:flex lg:mb-6"> <?php echo substr( strip_tags( category_description( $row ) ), 0, 120 ); ?> </div>
 							<a class="underline" href="<?php echo get_category_link( $row ); ?>"> <?php _e( 'Discover', 'ground' ); ?> </a>
 						</div>
 
