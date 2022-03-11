@@ -51,7 +51,7 @@
 				<?php the_content(); ?>
 			</div>
 			<?php
-			if ( comments_open() || get_comments_number() ) {
+			if ( comments_open() && ! post_password_required() ) {
 				comments_template( '/template-parts/comment/comments.php' );
 			}
 			?>
