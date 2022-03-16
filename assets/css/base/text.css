@@ -57,14 +57,14 @@
 	}
 
 	blockquote {
-		@apply border-solid border border-gray-500 py-6 pl-6 mb-6 block italic;
+		@apply border-0 border-l-4 border-tertiary rounded-none py-3;
 
 		p {
 			@apply inline;
 		}
 
 		cite {
-			@apply block text-xs;
+			@apply mt-4 block text-xs;
 		}
 	}
 

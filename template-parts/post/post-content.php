@@ -51,7 +51,7 @@
 				<?php the_content(); ?>
 			</div>
 			<?php
-			if ( comments_open() || get_comments_number() ) {
+			if ( comments_open() && ! post_password_required() ) {
 				comments_template( '/template-parts/comment/comments.php' );
 			}
 			?>
@@ -60,8 +60,9 @@
 
 		<?php
 		$args   = array(
-			'posts_per_page' => 3,
-			'post__not_in'   => array( get_the_ID() ),
+			'posts_per_page'      => 3,
+			'post__not_in'        => array( get_the_ID() ),
+			'ignore_sticky_posts' => 1,
 		);
 		$parent = new WP_Query( $args );
 		?>
