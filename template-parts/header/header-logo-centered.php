@@ -3,7 +3,9 @@
 <header class="header header-logo-centered w-full z-30 bg-quinary">
 
 	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-tertiary' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer"> 
+			<span> <?php ground_icon( 'chevron-left', 'text-tertiary' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> 
+		</button>
 
 		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
@@ -13,7 +15,7 @@
 				<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-end items-center">
-				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open" aria-label="<?php esc_attr_e( 'Search', 'ground' ); ?>">
 					<?php ground_icon( 'search', 'icon--filled text-tertiary' ); ?>
 				</button>
 				<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">

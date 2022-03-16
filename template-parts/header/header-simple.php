@@ -3,7 +3,10 @@
 <header class="header header-simple w-full z-30 bg-white">
 
 	<div class="bg-white h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?> </a>
+		
+	<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer">
+		<span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?>
+	</button>
 
 		<div class="header__bar-mobile container py-2 bg-white grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
@@ -13,7 +16,7 @@
 				<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-end items-center">
-				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open" aria-label="<?php esc_attr_e( 'Search', 'ground' ); ?>">
 					<?php ground_icon( 'search', 'icon--filled text-black' ); ?>
 				</button>
 				<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">

@@ -3,7 +3,9 @@
 <header class="header header-mega-menu w-full z-30 bg-quinary">
 
 	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer"> 
+			<span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?>
+		</button>
 
 		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
