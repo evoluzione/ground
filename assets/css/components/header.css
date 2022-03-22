@@ -1,6 +1,6 @@
 @layer components {
 	.header {
-		@apply sticky top-0 border-b border-septenary z-40 duration-500;
+		@apply sticky lg:fixed top-0 border-b border-septenary z-40 duration-500;
 
 		@screen lg {
 			.scroll-direction-down & {
@@ -16,7 +16,7 @@
 		}
 
 		.is-search-open & {
-			@apply -z-1;
+			@apply z-1;
 		}
 	}
 
