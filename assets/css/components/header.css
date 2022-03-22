@@ -16,7 +16,7 @@
 		}
 
 		.is-search-open & {
-			@apply -z-1;
+			@apply z-1;
 		}
 	}
 
