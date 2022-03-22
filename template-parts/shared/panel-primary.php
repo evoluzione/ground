@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="overlay-panel__content">
-			<button type="button" class="js-back block ml-6 mb-6 header__back cursor-pointer"> 
+			<button type="button" class="js-back block mb-6 header__back cursor-pointer"> 
 				<span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?>
 			</button>
 			<?php get_template_part( 'template-parts/navigation/navigation-panel-primary' ); ?>
