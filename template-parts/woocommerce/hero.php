@@ -75,7 +75,7 @@ if ( $category_highlights ) {
 								<?php if ( $title ) : ?>
 									<div class="absolute bottom-0 left-0 right-0 p-6 z-2">
 										<div class="max-w-2xl md:max-w-lg">
-											<h2 class="text-lg md:text-3xl text-white lg:mb-6 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"> 1 card : <?php echo esc_attr( $title ); ?></h2>
+											<h2 class="text-lg md:text-3xl text-white lg:mb-6 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 										</div>
 									</div>
 
@@ -128,7 +128,7 @@ if ( $category_highlights ) {
 								<div class="absolute bottom-0 left-0 right-0 p-6 z-2">
 
 									<div class="max-w-2xl md:max-w-lg">
-										<h2 class="text-base md:text-xl text-white lg:mb-2">3 cards <?php echo esc_attr( $title ); ?></h2>
+										<h2 class="text-base md:text-xl text-white lg:mb-2"><?php echo esc_attr( $title ); ?></h2>
 									</div>
 								</div>
 
