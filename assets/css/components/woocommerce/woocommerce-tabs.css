@@ -80,7 +80,7 @@
 	}
 
 	td {
-		@apply border-0 text-quaternary text-lg lg:text-3xl;
+		@apply border-0 text-quaternary text-lg lg:text-3xl pl-6;
 		* {
 			@apply text-quaternary text-lg lg:text-3xl;
 		}

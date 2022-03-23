@@ -18,7 +18,7 @@ form.woocommerce-form-login {
 .woocommerce-form-login-toggle {
 	@apply mb-6;
 	.showlogin {
-		@apply text-primary underline;
+		@apply text-primary underline block md:inline-block;
 	}
 }
 
