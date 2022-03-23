@@ -19,7 +19,7 @@
 
 			.col-1,
 			.col-2 {
-				@apply p-9;
+				@apply pt-0 pb-6 lg:pt-3 lg:pb-6 px-9;
 				h2 {
 					@apply text-xl p-0 bg-transparent;
 				}
@@ -33,7 +33,7 @@
 			}
 
 			.col-2 {
-				@apply px-0 py-3 lg:py-9 lg:px-9;
+				@apply px-0 py-0 lg:py-3 lg:px-9;
 			}
 		}
 
