@@ -59,7 +59,7 @@
 }
 
 .woocommerce-cart-form__cart-item {
-	@apply relative border-b border-septenary;
+	@apply relative border-b border-septenary pb-3 md:pb-0 grid grid-cols-2 gap-6 md:table-row !important;
 	@apply mb-0 !important;
 
 	&:hover {
@@ -82,7 +82,7 @@
 
 	/* THUMBNAIL */
 	.product-thumbnail {
-		@apply w-44 pt-6 pb-0 md:py-6;
+		@apply w-full sm:w-44 pt-6 pb-0 md:py-6;
 
 		.attachment-woocommerce_thumbnail,
 		.woocommerce-placeholder {
@@ -112,7 +112,7 @@
 	}
 
 	.product-subtotal {
-		@apply lg:text-right text-2xl md:text-4xl font-bold border-0;
+		@apply md:text-right text-2xl md:text-4xl font-bold border-0 pt-3 md:pt-6;
 	}
 
 	td {
