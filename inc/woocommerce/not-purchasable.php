@@ -71,16 +71,16 @@ function ground_woocommerce_call_to_order_text() {
 	if ( 'yes' === $not_ready_to_sell ) { ?>
 
 		<div class="border-t border-septenary pt-5">
-			<p>
+			<h6 class="mb-2">
 				<strong class="text-primary">
 					<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON ); ?>
 				</strong>
-			</p>
+			</h6>
 			<p class="text-quaternary">
 				<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT ); ?>
 			</p>
 			<?php if ( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) : ?>
-				<div class="relative mt-4">
+				<div class="relative mt-6">
 					<a class="button button--secondary" href="<?php echo esc_html( get_permalink( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) ); ?>"><?php echo esc_html( get_the_title( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA ) ); ?></a>
 				</div>
 			<?php endif; ?>
