@@ -11,6 +11,7 @@
 		top: 50%;
 		width: 100%;
 		transform: translateX(-50%);
+		@apply text-xs md:text-sm;
 	}
 
 	.message-alert__content:nth-child(2) {
