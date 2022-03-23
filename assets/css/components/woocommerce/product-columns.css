@@ -3,7 +3,7 @@
 		@apply relative overflow-hidden w-full grid gap-x-6 gap-y-12;
 
 		&.columns-mobile-1 {
-			@apply grid-cols-1;
+			@apply grid-cols-1 gap-y-6 lg:gap-y-12;
 		}
 		&.columns-mobile-default {
 			@apply grid-cols-2;
