@@ -12,7 +12,7 @@ function ground_general_product_data_custom_fields() {
 			'id'            => '_not_purchasable',
 			'wrapper_class' => 'show_if_simple',
 			'label'         => __( 'Not Purchasable', 'woocommerce' ),
-			'description'   => __( 'This product is not purchasable <a target="_blank" href="' . esc_url( home_url( '/wp-admin/admin.php?page=acf-options-shop' ) ) . '">Set up global messages for Not Purchasable products</a>', 'ground' ),
+			'description'   => __( 'This product is not purchasable ( Compatible only with simple product ) <a target="_blank" href="' . esc_url( home_url( '/wp-admin/customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dproduct' ) ) . '">Set up global messages for Not Purchasable products</a>', 'ground' ),
 		)
 	);
 }
@@ -71,6 +71,11 @@ function ground_woocommerce_call_to_order_text() {
 	if ( 'yes' === $not_ready_to_sell ) { ?>
 
 		<div class="border-t border-septenary pt-5">
+			<p>
+				<strong class="text-primary">
+					<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON ); ?>
+				</strong>
+			</p>
 			<p class="text-quaternary">
 				<?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT ); ?>
 			</p>
@@ -90,13 +95,15 @@ add_action( 'woocommerce_single_product_summary', 'ground_woocommerce_call_to_or
 
 
 
-
+/**
+ * Add label for product-loop.
+ */
 function ground_show_not_purchasable_label() {
 	$not_ready_to_sell = get_post_meta( get_the_ID(), '_not_purchasable', true );
 
 	if ( 'yes' === $not_ready_to_sell ) {
 		?>
-		<div class="not-purchasable"><?php echo GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON; ?></div>
+		<div class="not-purchasable"><?php echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON ); ?></div>
 		<?php
 	}
 }
