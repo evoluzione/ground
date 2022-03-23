@@ -40,7 +40,14 @@
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 						<ul class="relative z-0 border-b border-septenary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-tertiary' ); ?></span></a></li>
+							<li class="text-lg lg:text-base">
+								<a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">
+									<span class="lg:ml-2 flex items-center">			
+										<?php ground_icon( 'user', 'icon--filled text-tertiary' ); ?>
+										<span class="ml-2 lg:hidden"><?php _e( 'My Account', 'ground' ); ?></span>
+									</span>
+								</a>
+							</li>
 							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?> </li>
 						</ul>
 					<?php endif; ?>

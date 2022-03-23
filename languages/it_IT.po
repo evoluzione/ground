@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2021-12-01 14:08+0000\n"
+"PO-Revision-Date: 2022-03-23 08:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.5; wp-5.8.2\n"
+"X-Loco-Version: 2.5.8; wp-5.9.2\n"
 "X-Domain: ground"
 
 #: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
@@ -22,7 +22,7 @@ msgstr ""
 #: ../ground/template-parts/header/header-mega-menu.php:54
 #: ../ground/template-parts/header/header-simple.php:42
 msgid "Account"
-msgstr ""
+msgstr "Il mio account"
 
 #: ../ground/inc/woocommerce/product-loop.php:151
 msgid "Advanced Filters"
@@ -265,7 +265,8 @@ msgstr ""
 msgid "Società"
 msgstr ""
 
-#: ../ground/search.php:42 ../ground/template-parts/search/search-ajax-preview.php:33
+#: ../ground/search.php:42
+#: ../ground/template-parts/search/search-ajax-preview.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
