@@ -1,6 +1,5 @@
-@layer components {
-	.woocommerce-ordering {
-		select {
-		}
+.woocommerce-ordering {
+	select {
 	}
 }
+

@@ -16,7 +16,7 @@
 			<?php endif; ?>
 		</div>
 
-		<div class="col-span-full lg:col-span-5 lg:col-start-7">
+		<div class="col-span-full lg:col-span-5 lg:col-start-7 mt-6 lg:mt-0">
 			<?php if ( GROUND_SHIPPING_TITLE ) : ?>
 				<?php ground_icon( 'faster', 'w-12 mb-3 text-tertiary', 'custom' ); ?>
 			<?php endif; ?>
