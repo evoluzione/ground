@@ -1,6 +1,6 @@
 <footer class="footer footer--simple relative pt-16 bg-senary">
 	<div class="container">
-		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 			<?php if ( is_active_sidebar( 'sidebar-footer-primary' ) ) : ?>
 				<div class="mb-12">
