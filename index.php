@@ -97,7 +97,7 @@ do_action( 'ground_index_before' );
 								$args = array(
 									'post_type'      => 'post',
 									'orderby'        => 'date',
-									'posts_per_page' => 4,
+									'posts_per_page' => 2,
 									'cat'            => $row,
 								);
 
