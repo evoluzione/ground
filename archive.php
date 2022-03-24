@@ -31,8 +31,8 @@ do_action( 'ground_archive_before' );
 									$image = get_field( 'image', $term );
 									?>
 									<?php if ( $image ) : ?>
-										<div class="overflow-hidden h-12 w-12 lg:h-24 lg:w-24 rounded-full">
-											<img class="object-cover" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
+										<div class="overflow-hidden rounded-full">
+											<img class="h-12 w-12 lg:h-24 lg:w-24 object-cover" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
 														<?php echo $image['sizes']['1-1-medium']; ?> 900w,
 														<?php echo $image['sizes']['1-1-large']; ?> 1200w" sizes="(min-width: 1200px) 1200px,
 														(min-width: 768px) 900px,
