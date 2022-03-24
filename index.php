@@ -70,68 +70,56 @@ do_action( 'ground_index_before' );
 			</div>
 
 		<div class="mt-12">
-			<?php if ( count( $categories_ids ) == 1 ) { ?>
-			<section class="page page--blog">
-				<?php
-				if ( have_posts() ) :
-					?>
-					<div class="page__body">
-						<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
-
-							<?php
-							while ( have_posts() ) :
-								the_post();
-
-								get_template_part( 'template-parts/post/post-preview' );
-							endwhile;
-							wp_reset_query();
-							?>
-						</div>
-					</div> <!-- End .page__body -->
-					<?php get_template_part( 'template-parts/shared/pagination' ); ?>
-					<?php
-				endif;
-				?>
-			</section> <!-- End .page -->
-			<?php } else { ?>
 
 			<section class="page page--blog">
 				<?php
 				foreach ( $categories_ids as $row ) {
 					?>
-					<div class="page__body grid grid-cols-12 gap-6 mb-12 lg:mb-24">
-						<div class="col-span-full flex justify-between items-center lg:inline-block lg:col-span-4 lg:pr-24">
-							<a class="no-underline" href="<?php echo get_category_link( $row ); ?>"> <h2 class="lg:mb-6"> <?php echo get_the_category_by_ID( $row ); ?> </h2> </a>
-							<div class="hidden lg:flex lg:mb-6"> <?php echo substr( strip_tags( category_description( $row ) ), 0, 120 ); ?> </div>
+					<div class="page__body lg:grid lg:grid-cols-12 gap-6 mb-24 lg:mb-28">
+
+						<div class="col-span-full flex justify-between items-end lg:inline-block lg:col-span-4 mb-6 lg:mb-0">
+							<div class="relative pr-16 lg:pr-28">
+								<a class="no-underline" href="<?php echo get_category_link( $row ); ?>">
+									<h2 class="lg:mb-6"><?php echo get_the_category_by_ID( $row ); ?></h2>
+								</a>
+								<div class="hidden lg:flex lg:mb-6">
+									<?php echo substr( strip_tags( category_description( $row ) ), 0, 120 ); ?>
+								</div>
+							</div>
 							<a class="underline" href="<?php echo get_category_link( $row ); ?>"> <?php _e( 'Discover', 'ground' ); ?> </a>
 						</div>
 
-							<?php
-							$args = array(
-								'post_type'      => 'post',
-								'orderby'        => 'date',
-								'posts_per_page' => 2,
-								'cat'            => $row,
-							);
+						<div class="col-span-full lg:col-span-8">
 
-							$recent = new WP_Query( $args );
-							if ( $recent->have_posts() ) {
-								while ( $recent->have_posts() ) {
+							<div class="carousel-css lg:grid lg:grid-cols-2 lg:gap-6">
+
+								<?php
+								$args = array(
+									'post_type'      => 'post',
+									'orderby'        => 'date',
+									'posts_per_page' => 4,
+									'cat'            => $row,
+								);
+
+								$recent = new WP_Query( $args );
+								if ( $recent->have_posts() ) {
+									while ( $recent->have_posts() ) {
 										$recent->the_post();
-									?>
-										<div class="col-span-full lg:col-span-4">
-											<?php get_template_part( 'template-parts/post/post-preview' ); ?>
-										</div>
-									<?php
+										get_template_part( 'template-parts/post/post-preview' );
+										?>
+ 
+										<?php
+									}
 								}
-							}
+								wp_reset_query();
+								?>
 
-							wp_reset_query();
-							?>
+							</div>
+						</div>
 					</div>
 				<?php } ?>
 			</section>
-			<?php } ?>
+
 		</div>
 
 	</div> <!-- End .container -->
