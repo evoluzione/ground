@@ -54,7 +54,7 @@
 	}
 
 	.navigation--blog {
-		@apply m-0 mt-12 px-6 text-tertiary space-x-3 block lg:px-0 lg:flex lg:items-center;
+		@apply m-0 mt-12 px-6 text-tertiary space-x-3 block lg:px-0 lg:flex lg:items-center lg:flex-wrap;
 		@apply snap-x snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
 		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
 		-ms-overflow-style: none; /* IE and Edge */

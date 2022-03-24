@@ -38,62 +38,36 @@ do_action( 'ground_index_before' );
 
 		<?php
 			$args         = array(
-				'posts_per_page' => 4,
-				'post__in'       => get_option( 'sticky_posts' ),
+				'posts_per_page'      => 4,
+				'post__in'            => get_option( 'sticky_posts' ),
+				'ignore_sticky_posts' => 1,
 			);
 			$sticky_posts = new WP_Query( $args );
 			?>
-		<?php
-		if ( count( $sticky_posts->posts ) >= 1 && count( $sticky_posts->posts ) < 4 ) {
-			?>
-			<div class="posts mb-12 lg:mb-24 items-count-<?php echo count( $sticky_posts->posts ) >= 3 ? 3 : count( $sticky_posts->posts ); ?>">
+		
+			<div class="transform -translate-x-2/4 w-screen ml-1/2 rounded-none bg-senary">
 
-			<?php
-			if ( $sticky_posts->have_posts() ) {
-					$i = 0;
-				while ( $sticky_posts->have_posts() ) {
-						$sticky_posts->the_post();
-						$i++;
+				<div class="container pt-9 pb-6 lg:py-16 mb-12 lg:mb-24">
 
-					if ( $i <= 3 ) {
-						?>
-							<div class="post">
-						<?php if ( count( $sticky_posts->posts ) == 1 ) { ?>
-									<article class="item js-infinite-post">
-										<a class="item__link margin-bottom-1" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-												<img class="item__media"
-													<?php if ( has_post_thumbnail() ) { ?>
-															srcset="<?php ground_image( '16-9-small' ); ?> 480w,
-														<?php ground_image( '16-9-medium' ); ?> 900w,
-														<?php ground_image( '16-9-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
-														(min-width: 768px) 900px,
-														100vh" src="<?php ground_image( '16-9-large' ); ?>"
-														<?php
-													} else {
-														?>
-													src="<?php echo GROUND_NO_IMAGE_URL; ?>" <?php } ?> alt="" loading="lazy">
-										</a>
-										<header class="item__header">
-											<a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h2 class="mt-6"><?php the_title(); ?></h2></a>
-											<time class="inline-block mt-3" datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
-										</header>
+					<h2 class="mb-6">In evidenza</h2>
 
-										<div class="item__body mt-3">
-											<p><?php ground_excerpt( 100 ); ?></p>
-										</div>
-									</article>
-								<?php } else { ?>
-										<?php get_template_part( 'template-parts/post/post-preview' ); ?>
-								<?php } ?>
-							</div>
+					<div class="items items-count-<?php echo count( $sticky_posts->posts ); ?>">
+
 						<?php
-					}
-				}
-			}
-				wp_reset_query();
-			?>
+						if ( $sticky_posts->have_posts() ) {
+								$i = 0;
+							while ( $sticky_posts->have_posts() ) {
+								$sticky_posts->the_post();
+								$i++;
+								get_template_part( 'template-parts/post/post-preview' );
+							}
+						}
+						wp_reset_query();
+						?>
+
+					</div>
+				</div>
 			</div>
-		<?php } ?>
 
 		<div class="mt-12">
 			<?php if ( count( $categories_ids ) == 1 ) { ?>

@@ -20,7 +20,7 @@
 	}
 
 	.card__image {
-		@apply relative w-full transition duration-500 transform-gpu hover:scale-105;
+		@apply relative w-full rounded-media transition duration-500 transform-gpu hover:scale-105;
 	}
 
 	.card__title {

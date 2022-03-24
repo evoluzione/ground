@@ -1,5 +1,6 @@
 @layer components {
 	.item {
+		@apply relative mb-12;
 	}
 
 	.item__link {
@@ -10,7 +11,11 @@
 	}
 
 	.item__media {
-		@apply card__image;
+		@apply relative overflow-hidden rounded-media;
+	}
+
+	.item__image {
+		@apply card__image h-full;
 	}
 
 	.item__title {
