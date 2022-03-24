@@ -44,4 +44,9 @@
 			<img class="object-contain w-12 h-5 rounded-none" src="<?php echo GROUND_TEMPLATE_URL . '/assets/icons/payments/visa.svg'; ?>" alt="<?php esc_attr_e( 'Icon payment visa', 'ground' ); ?>" />
 		</div>
 	<?php endif; ?>
+	<?php if ( GROUND_PAYMENT_SCALAPAY ) : ?>
+		<div class="p-2 flex justify-center border border-septenary bg-white rounded">
+			<img class="object-contain w-12 h-5 rounded-none" src="<?php echo GROUND_TEMPLATE_URL . '/assets/icons/payments/scalapay.svg'; ?>" alt="<?php esc_attr_e( 'Icon payment visa', 'ground' ); ?>" />
+		</div>
+	<?php endif; ?>
 </div>
