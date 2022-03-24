@@ -76,6 +76,6 @@
 	}
 
 	.hero__card-thumb {
-		@apply absolute inset-0 object-cover object-center opacity-60 h-full w-full transition-all ease-default duration-500;
+		@apply absolute inset-0 object-cover object-center h-full w-full transition-all ease-default duration-500;
 	}
 }

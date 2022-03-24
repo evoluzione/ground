@@ -58,34 +58,36 @@ if ( $category_highlights ) {
 						$image = $category_highlights[0]['category_highlight_image'];
 						?>
 
-						<?php if ( $url ) : ?>
+							<?php if ( $url ) : ?>
 							<a class="rounded-media overflow-hidden" href="<?php echo esc_attr( $url ); ?>">
 							<?php endif; ?>
-							<div class="rounded-media overflow-hidden group">
+
+							<div class="hero__card">
+
 								<?php if ( $image ) : ?>
 									<figure class="overflow-hidden aspect-w-16 aspect-h-9">
-										<img class="object-cover <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr( $image['sizes']['16-9-small'] ); ?> 480w,
+										<img class="hero__card-thumb <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr( $image['sizes']['16-9-small'] ); ?> 480w,
 												<?php echo esc_attr( $image['sizes']['16-9-medium'] ); ?> 900w,
 												<?php echo esc_attr( $image['sizes']['16-9-large'] ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 												(min-width: 768px) 900px,
 												100vh" src="<?php echo esc_attr( $image['sizes']['16-9-large'] ); ?>" alt="" loading="lazy">
 									</figure>
-
 								<?php endif; ?>
+
 								<?php if ( $title ) : ?>
 									<div class="absolute bottom-0 left-0 right-0 p-6 z-2">
 										<div class="max-w-2xl md:max-w-lg">
 											<h2 class="text-lg md:text-3xl text-white lg:mb-6 <?php echo $repeater_count > 1 ? 'text-xl md:text-2xl' : ''; ?>"><?php echo esc_attr( $title ); ?></h2>
 										</div>
 									</div>
-
 									<div class="absolute inset-0 bg-gradient-to-t from-black opacity-80 rounded-none lg:rounded-media z-1"> </div>
-
 								<?php endif; ?>
+
 							</div>
-						<?php endif; ?>
-						<?php if ( $url ) : ?>
-							</a>
+
+							<?php if ( $url ) : ?>
+								</a>
+							<?php endif; ?>
 					</div>
 				<?php endif; ?>
 
@@ -112,11 +114,11 @@ if ( $category_highlights ) {
 						<a class="rounded-media overflow-hidden" href=" <?php echo esc_attr( $url ); ?>">
 						<?php endif; ?>
 
-						<div class="rounded-media overflow-hidden group">
+						<div class="hero__card">
 
 							<?php if ( $image ) : ?>
 								<figure class="overflow-hidden aspect-w-16 aspect-h-9">
-									<img class="object-cover <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr( $image['sizes']['16-9-small'] ); ?> 480w,
+									<img class="hero__card-thumb <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr( $image['sizes']['16-9-small'] ); ?> 480w,
 												<?php echo esc_attr( $image['sizes']['16-9-medium'] ); ?> 900w,
 												<?php echo esc_attr( $image['sizes']['16-9-large'] ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 												(min-width: 768px) 900px,
