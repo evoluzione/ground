@@ -14,6 +14,7 @@
 @import "hero.css";
 @import "icons.css";
 @import "item.css";
+@import "items.css";
 @import "logo.css";
 @import "media.css";
 @import "message-alert.css";
@@ -25,7 +26,6 @@
 @import "overlay-panel.css";
 @import "page.css";
 @import "pagination.css";
-@import "posts.css";
 @import "search.css";
 @import "social.css";
 @import "sidebar.css";

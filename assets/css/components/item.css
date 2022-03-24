@@ -11,11 +11,11 @@
 	}
 
 	.item__media {
-		@apply relative overflow-hidden rounded-media;
+		@apply relative overflow-hidden rounded-media aspect-w-4 aspect-h-3;
 	}
 
 	.item__image {
-		@apply card__image h-full;
+		@apply card__image h-full object-cover;
 	}
 
 	.item__title {
