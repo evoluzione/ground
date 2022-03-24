@@ -261,6 +261,9 @@ function ground_theme_costants() {
 	if ( ! defined( 'GROUND_PAYMENT_VISA' ) ) {
 		define( 'GROUND_PAYMENT_VISA', get_theme_mod( 'payment_visa' ) ? get_theme_mod( 'payment_visa' ) : '' );
 	}
+	if ( ! defined( 'GROUND_PAYMENT_SCALAPAY' ) ) {
+		define( 'GROUND_PAYMENT_SCALAPAY', get_theme_mod( 'payment_scalapay' ) ? get_theme_mod( 'payment_scalapay' ) : '' );
+	}
 
 	// Newsletter
 	if ( ! defined( 'GROUND_NEWSLETTER_TITLE' ) ) {

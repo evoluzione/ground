@@ -27,6 +27,7 @@ function ground_customizer_payments( $wp_customize ) {
 	$wp_customize->add_setting( 'payment_satispay' );
 	$wp_customize->add_setting( 'payment_sepa' );
 	$wp_customize->add_setting( 'payment_visa' );
+	$wp_customize->add_setting( 'payment_scalapay' );
 
 	$wp_customize->add_control(
 		'payment_amex_control',
@@ -107,6 +108,15 @@ function ground_customizer_payments( $wp_customize ) {
 			'type'     => 'checkbox',
 			'section'  => 'ground_section_payments',
 			'settings' => 'payment_visa',
+		)
+	);
+	$wp_customize->add_control(
+		'payment_scalapay_control',
+		array(
+			'label'    => 'Scalapay',
+			'type'     => 'checkbox',
+			'section'  => 'ground_section_payments',
+			'settings' => 'payment_scalapay',
 		)
 	);
 }
