@@ -47,7 +47,7 @@ do_action( 'ground_index_before' );
 		
 			<div class="transform -translate-x-2/4 w-screen ml-1/2 rounded-none bg-senary">
 
-				<div class="container pt-9 pb-6 lg:py-16 mb-12 lg:mb-24">
+				<div class="container py-9 lg:py-16 mb-12 lg:mb-24">
 
 					<h2 class="mb-6">In evidenza</h2>
 

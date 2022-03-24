@@ -1,5 +1,26 @@
 @layer components {
 	.items {
+		@apply block snap-mandatory snap-x overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-hidden lg:whitespace-normal;
+		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-media lg:ml-auto lg:translate-x-0 lg:w-auto;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+
+		&::-webkit-scrollbar {
+			@apply hidden;
+		}
+
+		> * {
+			@apply relative snap-center inline-block align-top whitespace-normal mx-3 w-7/12 md:w-4/12 lg:block lg:w-auto lg:mx-0;
+			@apply mb-0;
+			&:first-child {
+				@apply ml-6 lg:ml-0;
+			}
+			&:last-child {
+				@apply mr-6 lg:mr-0;
+			}
+		}
+
+
 		/* COUNTS 1 */
 		&.items-count-1 {
 			@apply lg:grid lg:grid-cols-12 gap-12;
