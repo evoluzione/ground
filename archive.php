@@ -16,7 +16,7 @@ get_template_part( 'template-parts/header/header' );
 do_action( 'ground_archive_before' );
 ?>
 
-	<div class="container mb-12 lg:mb-32">
+	<div class="relative mb-12 lg:mb-32">
 
 		<section class="page page--archive">
 
@@ -77,7 +77,7 @@ do_action( 'ground_archive_before' );
 							</div>
 						<?php endif; ?>
 						<div class="<?php echo is_active_sidebar( 'sidebar-archive-post' ) ? 'col-span-9' : 'col-span-full'; ?>">
-							<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 js-infinite-container">
+							<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 lg:gap-y-12 js-infinite-container">
 								<?php
 								while ( have_posts() ) :
 									the_post();
