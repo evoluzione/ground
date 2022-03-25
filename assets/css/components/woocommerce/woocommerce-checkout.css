@@ -22,7 +22,7 @@
 	}
 
 	#order_review {
-		@apply relative mt-0 pt-0 pb-12 px-6 lg:px-12 lg:pt-9 bg-senary rounded-theme col-span-1 lg:mt-6;
+		@apply relative mt-0 pt-0 pb-12 px-6 bg-senary col-span-1 transform -translate-x-2/4 w-screen ml-1/2 rounded-none lg:px-12 lg:pt-9 lg:mt-6 lg:rounded-theme lg:ml-auto lg:w-auto lg:translate-x-0 lg:transform-none;
 	}
 
 	#ship-to-different-address {
