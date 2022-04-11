@@ -102,13 +102,13 @@
 						width: 24px;
 						border-radius: 50%;
 						right: 8px;
-						background: url("../../icons/css-gg/chevron-right.svg");
+						background: url("../../../ground/assets/icons/css-gg/chevron-right.svg");
 					}
 					@screen lg {
 						&:after {
 							margin-top: 4px;
 							right: 12px;
-							background: url("../../icons/css-gg/chevron-down.svg");
+							background: url("../../../ground/assets/icons/css-gg/chevron-down.svg");
 						}
 					}
 				}
