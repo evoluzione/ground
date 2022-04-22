@@ -17,7 +17,7 @@
 
 		<div class="
 		<?php
-		if ( class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart() ) :
+		if ( !class_exists( 'WooCommerce' ) || (class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart()) ) :
 			echo 'prose';
 		endif;
 		?>
