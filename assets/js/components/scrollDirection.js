@@ -7,7 +7,7 @@ let ticking = false;
 export function scrollDirection() {
 
 	// Initial state
-	const offset = 100;
+	const offset = 1;
 	const htmlEl = document.documentElement.classList;
 
 	function onScroll() {
