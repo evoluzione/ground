@@ -33,7 +33,8 @@ if ( is_admin() ) {
  */
 function ground_wp_blocks_handle_custom_class( string $block_content, array $block ) {
 
-	$has_class = strpos( $block_content, 'class="' );
+	$has_class     = strpos( $block_content, 'class="' );
+	$is_fullscreen = strpos( $block_content, 'fullscreen' );
 
 	/**
 	 * Paragraph
@@ -56,7 +57,8 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block-list' );
 	}
 
-	$block_content = '<div class="wp-block">' . $block_content . '</div>';
+	$additional_classes = $is_fullscreen ? ' is-fullscreen' : '';
+	$block_content      = '<div class="wp-block' . $additional_classes . '">' . $block_content . '</div>';
 
 	return $block_content;
 }

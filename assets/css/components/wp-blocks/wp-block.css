@@ -4,4 +4,8 @@
 	.is-container-boxed & {
 		@apply container;
 	}
+
+	&.is-fullscreen {
+		@apply mr-0 ml-0 pl-0 pr-0;
+	}
 }
