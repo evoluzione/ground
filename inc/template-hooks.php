@@ -77,16 +77,8 @@ function ground_modal() {
 /**
  * Main open
  */
-function ground_main_content_open() {
-
-	if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) {
-		$classes = 'container';
-	} else {
-		$classes = esc_attr( GROUND_CONTAINER );
-	}
-
-	?>
-	<main role="main" id="main" class="<?php echo $classes; ?>">
+function ground_main_content_open() { ?>
+	<main role="main" id="main">
 	<?php
 }
 

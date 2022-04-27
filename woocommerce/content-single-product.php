@@ -32,7 +32,7 @@ if ( post_password_required() ) {
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'woocommerce-product-details' ); ?>>
 
-	<div class="grid grid-cols-12 gap-6">
+	<div class="woocommerce-product-intro grid grid-cols-12 gap-6">
 
 		<div class="col-span-full lg:col-span-6">
 

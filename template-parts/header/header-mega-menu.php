@@ -3,7 +3,7 @@
 <header class="header header-mega-menu w-full z-30 bg-quinary">
 
 	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
-		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer"> 
+		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer">
 			<span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?>
 		</button>
 
@@ -23,7 +23,7 @@
 
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-quinary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 
-		<div class="js-menu-container header__container relative <?php echo esc_attr( GROUND_CONTAINER ); ?> <?php echo ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
+		<div class="js-menu-container header__container relative <?php echo ( GROUND_HEADER_ADVICE_PRIMARY || GROUND_COMPANY_PHONE || GROUND_COMPANY_WHATSAPP ) ? '' : 'lg:pt-4'; ?>">
 			<div class="flex flex-col-reverse lg:block">
 
 				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
@@ -42,7 +42,7 @@
 						<ul class="relative z-0 border-b border-septenary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
 							<li class="text-lg lg:text-base">
 								<a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">
-									<span class="lg:ml-2 flex items-center">			
+									<span class="lg:ml-2 flex items-center">
 										<?php ground_icon( 'user', 'icon--filled text-tertiary' ); ?>
 										<span class="ml-2 lg:hidden"><?php _e( 'My Account', 'ground' ); ?></span>
 									</span>

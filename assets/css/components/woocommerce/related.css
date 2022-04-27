@@ -1,13 +1,13 @@
 .related {
-	@apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
+	@apply ml-1/2 w-screen -translate-x-2/4 transform overflow-y-hidden py-12;
 
 	> h2 {
-		@apply text-left px-6 lg:text-center text-2xl mb-6 lg:mb-12 lg:px-0;
+		@apply mb-6 px-6 text-left text-2xl lg:mb-12 lg:px-0 lg:text-center;
 	}
 
 	.products {
-		@apply carousel-css container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
-		.container-full & {
+		@apply carousel-css container mx-auto grid grid-cols-1 gap-6 overflow-y-hidden px-0 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+		.is-container-full & {
 			@apply max-w-full;
 		}
 	}

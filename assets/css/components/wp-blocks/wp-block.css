@@ -1,0 +1,7 @@
+/* wp-block generic*/
+
+.wp-block {
+	.is-container-boxed & {
+		@apply container;
+	}
+}

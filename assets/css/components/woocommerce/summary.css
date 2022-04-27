@@ -1,5 +1,5 @@
 .summary {
-	@apply sticky top-36 lg:ease-in-out lg:duration-500;
+	@apply sticky top-36 lg:duration-500 lg:ease-in-out;
 
 	@screen lg {
 		.scroll-direction-up & {
@@ -8,7 +8,11 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply relative text-base text-quaternary my-3;
+		@apply relative my-3 text-base text-quaternary;
+
+		.wp-block {
+			@apply m-0 max-w-none p-0;
+		}
 	}
 
 	.product_meta {
@@ -20,7 +24,7 @@
 	}
 
 	.sku {
-		@apply text-tertiary font-bold;
+		@apply font-bold text-tertiary;
 	}
 
 	.price {

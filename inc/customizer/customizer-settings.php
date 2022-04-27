@@ -22,7 +22,7 @@ function ground_customizer_settings( $wp_customize ) {
 	$wp_customize->add_setting(
 		'container',
 		array(
-			'default' => 'container',
+			'default' => 'container-boxed',
 			'type'    => 'theme_mod',
 		)
 	);
@@ -57,8 +57,8 @@ function ground_customizer_settings( $wp_customize ) {
 				'section'     => 'ground_section_settings',
 				'type'        => 'select',
 				'choices'     => array(
-					'container'      => 'Container boxed',
-					'container-full' => 'Container full',
+					'container-boxed' => 'Container boxed',
+					'container-full'  => 'Container full',
 				),
 			)
 		)

@@ -36,7 +36,7 @@ function ground_product_attributes_after_summary() {
 	global $product;
 
 	if ( $product && ( $product->has_attributes() || apply_filters( 'wc_product_enable_dimensions_display', $product->has_weight() || $product->has_dimensions() ) ) ) { ?>
-		<div class="relative my-12 lg:my-24">
+		<div class="wp-block relative my-12 lg:my-24">
 			<div class="grid grid-cols-12 gap-6">
 				<div class="col-span-full">
 					<?php wc_display_product_attributes( $product ); ?>

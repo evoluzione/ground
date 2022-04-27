@@ -4,17 +4,27 @@
 
 	.page--woocommerce-archive,
 	.page--woocommerce-single {
-		.container-full & {
+		.is-container-full & {
 			@apply px-6;
+		}
+	}
+
+	.page--woocommerce-archive {
+		.is-container-boxed & {
+			@apply container;
 		}
 	}
 
 	.page__header {
 		@apply my-6;
+
+		.is-container-boxed & {
+			@apply container;
+		}
 	}
 
 	.page__title {
-		@apply text-4xl mb-0;
+		@apply mb-0 text-4xl;
 	}
 
 	.page__subtitle {
@@ -36,10 +46,10 @@
 	}
 
 	.page__data--tag {
-		@apply block mt-6;
+		@apply mt-6 block;
 
 		a {
-			@apply inline-block py-3 px-2 mr-3 text-5xl text-black font-bold uppercase border border-gray-500 rounded-md no-underline;
+			@apply mr-3 inline-block rounded-md border border-gray-500 py-3 px-2 text-5xl font-bold uppercase text-black no-underline;
 
 			&:hover {
 				@apply text-primary;
