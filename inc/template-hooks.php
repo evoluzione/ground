@@ -78,7 +78,7 @@ function ground_modal() {
  * Main open
  */
 function ground_main_content_open() { ?>
-	<main role="main" id="main">
+	<main role="main" id="main" class="<?php echo esc_attr( apply_filters( 'ground_main_class', 'main' ) ); ?>">
 	<?php
 }
 
