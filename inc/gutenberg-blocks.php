@@ -34,7 +34,7 @@ if ( is_admin() ) {
 function ground_wp_blocks_handle_custom_class( string $block_content, array $block ) {
 
 	$has_class     = strpos( $block_content, 'class="' );
-	$is_fullscreen = strpos( $block_content, 'fullscreen' );
+	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
 
 	/**
 	 * Paragraph

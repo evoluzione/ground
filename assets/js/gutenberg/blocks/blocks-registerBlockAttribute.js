@@ -18,7 +18,7 @@ export default class BlocksRegisterBlockAttribute {
 	 * Fullscreen
 	 */
 	registerFullscreen() {
-		const classToAdd = 'fullscreen';
+		const classToAdd = 'is-fullscreen';
 
 		function addAttributes(settings, name) {
 			// Check if object exists for old Gutenberg version compatibility
@@ -114,7 +114,7 @@ export default class BlocksRegisterBlockAttribute {
 				if (!ALLOWED_BLOCKS.includes(name)) {
 					return <BlockEdit {...props} />;
 				}
-				
+
 				const optionsSmall = [
 					{ label: 'Disattivato', value: '0' },
 					{ label: '3', value: '!h-3' },
@@ -193,7 +193,7 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
-			
+
 			if (!ALLOWED_BLOCKS.includes(blockType.name)) {
 				return extraProps;
 			}
