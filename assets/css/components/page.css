@@ -9,6 +9,7 @@
 		}
 	}
 
+	.page--search,
 	.page--woocommerce-archive {
 		.is-container-boxed & {
 			@apply container;

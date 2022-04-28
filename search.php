@@ -20,37 +20,55 @@ get_template_part( 'template-parts/header/header' ); ?>
 
 	<div class="page__body">
 
-	<?php
-	if ( have_posts() ) {
+		<div class="grid grid-cols-12 gap-6">
+			
+			<?php
+			if ( have_posts() ) {
 
-		while ( have_posts() ) :
+				while ( have_posts() ) :
 
-			the_post();
+					the_post();
 
-			/**
-			 * Hook: ground_search_post_before.
-			 *
-			 * @hooked ground_breadcrumbs - 20
-			 */
-			do_action( 'ground_search_post_before' );
+					/**
+					 * Hook: ground_search_post_before.
+					 *
+					 * @hooked ground_breadcrumbs - 20
+					 */
+					do_action( 'ground_search_post_before' );
+					?>
+
+					<?php get_template_part( 'template-parts/search/search-content' ); ?>
+
+					<?php
+					/**
+					 * Hook: ground_search_post_after.
+					 */
+					do_action( 'ground_search_post_after' );
+
+				endwhile;
+
+				?>
+				
+				<div class="col-span-12">
+
+					<?php get_template_part( 'template-parts/shared/pagination' ); ?>
+
+				</div>
+
+				<?php 
+			} else {
+				?>
+				<div class="col-span-12">
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+				</div>
+				<?php
+			}
+			
 			?>
 
-			<?php get_template_part( 'template-parts/search/search-content' ); ?>
+		</div>
 
-			<?php
-			/**
-			 * Hook: ground_search_post_after.
-			 */
-			do_action( 'ground_search_post_after' );
+	</div>
 
-		endwhile;
-
-		get_template_part( 'template-parts/shared/pagination' );
-
-	} else {
-		?>
-		<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
-		<?php
-	}
-
+	<?php
 	get_template_part( 'template-parts/footer/footer' );
