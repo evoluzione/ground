@@ -3,9 +3,17 @@
 		body.woocommerce-checkout & {
 			@apply hidden;
 		}
-
 		.widgettitle {
 			@apply mb-6 text-lg font-bold;
+		}
+	}
+
+	.footer__body {
+		.is-container-full & {
+			@apply px-6;
+		}
+		.is-container-boxed & {
+			@apply container;
 		}
 	}
 }
