@@ -5,7 +5,8 @@
 		@apply container;
 	}
 
+	.wp-block,
 	&.is-fullscreen {
-		@apply mr-0 ml-0 pl-0 pr-0;
+		@apply max-w-none px-0;
 	}
 }
