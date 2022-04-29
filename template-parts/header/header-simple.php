@@ -16,7 +16,7 @@
 				<?php get_template_part( 'template-parts/shared/logo-primary' ); ?>
 			</div>
 			<div class="col-span-4 flex justify-end items-center">
-				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open" aria-label="<?php esc_attr_e( 'Search', 'ground' ); ?>">
+				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search-form__wrapper html" data-toggle-class-name="is-search-open" aria-label="<?php esc_attr_e( 'Search', 'ground' ); ?>">
 					<?php ground_icon( 'search', 'icon--filled text-black' ); ?>
 				</button>
 				<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">
