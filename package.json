@@ -55,7 +55,7 @@
 	},
 	"dependencies": {
 		"deepmerge": "4.2.2",
-		"gsap": "npm:@gsap/shockingly@^3.9.1",
+		"gsap": "npm:@gsap/shockingly@^3.10.4",
 		"imagesloaded": "4.1.4",
 		"infinite-scroll": "4.0.1",
 		"ismobilejs": "1.1.1",
