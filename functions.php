@@ -22,7 +22,6 @@ require_once 'inc/shortcode.php';
 require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
-require_once 'inc/tgm-plugin-activation.php';
 require_once 'inc/template-hooks.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
