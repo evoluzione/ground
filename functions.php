@@ -23,6 +23,7 @@ require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
 require_once 'inc/template-hooks.php';
+require_once 'inc/translate.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/brand.php';

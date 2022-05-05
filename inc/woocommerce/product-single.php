@@ -88,15 +88,8 @@ add_action( 'woocommerce_before_quantity_input_field', 'ground_display_quantity_
  */
 function ground_add_page_relation_below_product_summary() {
 
-	function get_id_current_language($id){
-		$my_current_lang = apply_filters( 'wpml_current_language', NULL );
-		$element_type = 'post';
-		$return_original_if_missing = true;
-		return apply_filters( 'wpml_object_id', $id, $element_type, $return_original_if_missing, $my_current_lang );
-	}
-
-	if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) :
-		?>
+	if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) : 
+	?>
 
 		<div class="relative mt-9">
 
