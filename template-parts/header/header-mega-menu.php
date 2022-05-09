@@ -4,7 +4,7 @@
 
 	<div class="bg-quinary h-16 w-full z-30 lg:hidden">
 		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer">
-			<span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?>
+			<span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white h-6 w-6' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?>
 		</button>
 
 		<div class="header__bar-mobile container py-2 bg-quinary grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
@@ -40,15 +40,15 @@
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 						<ul class="relative z-0 border-b border-septenary lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:text-base">
+							<li class="text-lg lg:text-base basis-6">
 								<a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">
 									<span class="lg:ml-2 flex items-center">
-										<?php ground_icon( 'user', 'icon--filled text-tertiary' ); ?>
+										<?php ground_icon( 'user', 'icon--filled text-tertiary h-6 w-6' ); ?>
 										<span class="ml-2 lg:hidden"><?php _e( 'My Account', 'ground' ); ?></span>
 									</span>
 								</a>
 							</li>
-							<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?> </li>
+							<li class="hidden minicart-wrapper lg:inline-block basis-6"><?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?> </li>
 						</ul>
 					<?php endif; ?>
 
@@ -65,7 +65,7 @@
 					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
-								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-tertiary' ); ?></div>
+								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-tertiary h-6 w-6' ); ?></div>
 								<?php $locations = get_nav_menu_locations(); ?>
 								<?php $titlePanelPrimary = wp_get_nav_menu_object( $locations['panel-primary'] ); ?>
 								<div><?php echo $titlePanelPrimary->name; ?></div>

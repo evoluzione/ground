@@ -17,7 +17,7 @@
 			</div>
 			<div class="col-span-4 flex justify-end items-center">
 				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search-form__wrapper html" data-toggle-class-name="is-search-open" aria-label="<?php esc_attr_e( 'Search', 'ground' ); ?>">
-					<?php ground_icon( 'search', 'icon--filled text-black' ); ?>
+					<?php ground_icon( 'search', 'icon--filled text-black h-6 w-6' ); ?>
 				</button>
 				<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">
 					<?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?>
@@ -42,8 +42,12 @@
 
 					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 						<ul class=" relative z-0 lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-							<li class="text-lg lg:border-l lg:border-gray-200 lg:pl-6 lg:text-base"><a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black' ); ?></span></a></li>
-							<li class="hidden minicart-wrapper py-4 lg:inline-block"><?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?> </li>
+							<li class="text-lg lg:border-l lg:border-gray-200 lg:pl-6 lg:text-base">
+								<a class="inline-block lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">
+								<?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black h-6 w-6' ); ?></span>
+								</a>
+							</li>
+							<li class="hidden minicart-wrapper py-4 lg:inline-block basis-6"><?php get_template_part( 'template-parts/woocommerce/shopping-cart' ); ?> </li>
 						</ul>
 					<?php endif; ?>
 				</div>
@@ -63,7 +67,7 @@
 						<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
 
 						<button class="hidden js-toggle lg:block" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
-							<?php ground_icon( 'search', 'icon--filled text-black' ); ?>
+							<?php ground_icon( 'search', 'icon--filled text-black h-6 w-6' ); ?>
 						</button>
 
 						<div class="block lg:hidden">

@@ -15,7 +15,7 @@ if (class_exists('WooCommerce')) :
 	<a class="shopping-cart <?php echo $class; ?> text-tertiary hover:text-primary" data-toggle-target="#minicart html" data-toggle-class-name="is-overlay-panel-open" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php esc_attr_e('View your shopping cart', 'storefront'); ?>">
 
 		<div class="shopping-cart__link">
-			<?php ground_icon('shopping-cart', 'shopping-cart__icon'); ?>
+			<?php ground_icon('shopping-cart', 'shopping-cart__icon w-6 h-6'); ?>
 		</div>
 
 		<div class="shopping-cart__subtotal">
