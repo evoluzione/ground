@@ -42,10 +42,10 @@
 	.header__container {
 		/* il movimento laterale è in menu.js */
 		@apply transition-all ease-default;
-
+		/* 
 		.is-container-full & {
 			@apply px-6;
-		}
+		} */
 
 		&.is-active {
 			@apply lg:transform-none;

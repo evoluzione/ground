@@ -10,3 +10,20 @@
 		@apply max-w-none px-0;
 	}
 }
+
+/* Handle blocks if layout is fullscreen */
+
+.is-container-full {
+	/* All blocks that contain in class wp-block- except few exceptions */
+	[class*="wp-block-"]:not(.is-fullscreen, .wp-block-list, .wp-block-quote),
+	/* All blocks that contain in class ground-block- except few exceptions */
+	[class*="ground-block-"]:not(.is-fullscreen, .ground-block-banner, .ground-block-carousel, .ground-block-table) {
+		@apply px-6;
+	}
+
+	.ground-block-table,
+	.wp-block-list,
+	.wp-block-quote {
+		@apply mx-6;
+	}
+}
