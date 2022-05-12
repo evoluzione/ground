@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2022-03-23 08:47+0000\n"
+"PO-Revision-Date: 2022-05-12 15:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -12,281 +12,757 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.8; wp-5.9.2\n"
+"X-Loco-Version: 2.6.1; wp-5.9.3\n"
 "X-Domain: ground"
 
-#: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
+#: inc/woocommerce/not-purchasable.php:15
+msgid "\">Set up global messages for Not Purchasable products</a>"
+msgstr ""
+
+#: template-parts/sidebar/sidebar-archive-post.php:5
 msgid "<"
 msgstr ""
 
-#: ../ground/template-parts/header/header-mega-menu.php:54
-#: ../ground/template-parts/header/header-simple.php:42
+#. Description of the theme
+msgid ""
+"A flexible and powerful WordPress starter theme using a modern development "
+"workflow."
+msgstr ""
+"Un tema di base per WordPress flessibile e potente che utilizza un moderno "
+"flusso di lavoro di sviluppo."
+
+#: template-parts/header/header-simple.php:47
 msgid "Account"
 msgstr "Il mio account"
 
-#: ../ground/inc/woocommerce/product-loop.php:151
+#: inc/customizer/customizer-shop.php:170
+msgid "Add Order Comments Details"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:31
+msgid "Address"
+msgstr ""
+
+#: inc/woocommerce/product-loop.php:150
 msgid "Advanced Filters"
 msgstr "Filtri avanzati"
 
-#: ../ground/template-parts/footer/footer-simple.php:54
+#: template-parts/footer/footer-simple.php:38
 msgid "All rights reserved - © copyright"
+msgstr "Tutti i diritti riservati - © copyright"
+
+#. Author of the theme
+msgid "Anonimo"
 msgstr ""
 
-#. Name of the template
-msgid "Animation"
+#: template-parts/shared/panel-primary.php:16
+#: template-parts/header/header-simple.php:8
+msgid "Back"
 msgstr ""
 
-#: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
+#: template-parts/sidebar/sidebar-archive-post.php:5
 msgid "Back to "
 msgstr "Torna indietro"
 
-#: ../ground/inc/acf-constants.php:80 ../ground/inc/acf-constants.php:81
+#: inc/customizer/customizer-settings.php:91
+msgid "Border Radius Media"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:72
+msgid "Border Radius Theme"
+msgstr ""
+
+#: inc/woocommerce/brand.php:11
+msgid "Brand"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:51
+msgid "Button visible on the single product page"
+msgstr ""
+
+#: inc/constants.php:212 inc/constants.php:215
 msgid "Call to order"
 msgstr ""
 
-#: ../ground/template-parts/woocommerce/shopping-cart.php:18
-msgid "Cart"
-msgstr "Carrello"
-
-#: ../ground/inc/woocommerce/payments.php:18
+#: inc/woocommerce/payments.php:18
 msgid "Cash on delivery charges"
-msgstr ""
+msgstr "Spese di contrassegno"
 
-#. Name of the template
-msgid "Catalog"
-msgstr "Catalogo"
-
-#: ../ground/template-parts/content/content-single-post.php:120
-#: ../ground/template-parts/navigation/navigation-blog.php:34
+#: template-parts/post/post-content.php:133
+#: template-parts/navigation/navigation-blog.php:34
 msgid "Category"
 msgstr "Categoria"
 
-#: ../ground/inc/woocommerce/checkout.php:44
-#: ../ground/inc/woocommerce/checkout.php:154
+#: inc/woocommerce/checkout.php:45 inc/woocommerce/checkout.php:155
 msgid "Cliente privato"
 msgstr ""
 
-#: ../ground/template-parts/footer/footer-simple.php:40
-msgid "Closing Time"
+#: template-parts/search/search-form.php:8
+msgid "close"
 msgstr ""
 
-#: ../ground/inc/woocommerce/cart.php:101
+#: inc/woocommerce/cart.php:101
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
-#: ../ground/woocommerce/emails/email-addresses.php:58
-#: ../ground/inc/woocommerce/checkout.php:78
-#: ../ground/inc/woocommerce/checkout.php:169
-#: ../ground/inc/woocommerce/checkout.php:247
+#: woocommerce/emails/email-addresses.php:58 inc/woocommerce/checkout.php:79
+#: inc/woocommerce/checkout.php:170 inc/woocommerce/checkout.php:247
 msgid "Codice destinatario (SDI)"
 msgstr ""
 
-#: ../ground/woocommerce/emails/email-addresses.php:56
-#: ../ground/inc/woocommerce/checkout.php:60
-#: ../ground/inc/woocommerce/checkout.php:164
-#: ../ground/inc/woocommerce/checkout.php:241
+#: woocommerce/emails/email-addresses.php:56 inc/woocommerce/checkout.php:61
+#: inc/woocommerce/checkout.php:165 inc/woocommerce/checkout.php:241
 msgid "Codice fiscale"
 msgstr ""
 
-#: ../ground/template-parts/content/content-single-post.php:122
-#: ../ground/template-parts/comment/comments.php:68
-msgid "Comments"
+#: inc/customizer/customizer-colors.php:140
+#: inc/customizer/customizer-colors.php:170
+msgid "Color header"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:219
+#: inc/customizer/customizer-colors.php:108
+msgid "Color Octonary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:52
+msgid "Color Primary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:76
+msgid "Color Quaternary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:84
+msgid "Color Quinary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:60
+msgid "Color Secondary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:92
+msgid "Color Senary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:100
+msgid "Color Septenary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:68
+msgid "Color Tertiary"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:16
+msgid "Colors"
+msgstr ""
+
+#: template-parts/post/post-content.php:135
+#: template-parts/comment/comments.php:68
+msgid "Comments"
+msgstr "Commenti"
+
+#: inc/customizer/customizer-company.php:15
+msgid "Company"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:99
+msgid "Company Address"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:107
+msgid "Company City"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:131
+msgid "Company Country"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:89
+msgid "Company Fiscal Code"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:73
+msgid "Company Name"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:115
+msgid "Company Province"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:81
+msgid "Company VAT"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:123
+msgid "Company ZIP Code"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:60
+msgid "Custom"
+msgstr ""
+
+#: inc/woocommerce/rest-user.php:55
+msgid "Customer type"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:219
 msgid "Dati Fatturazione"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:284
+#: inc/woocommerce/checkout.php:284
 msgid "Dati personali"
 msgstr ""
 
-#: ../ground/template-parts/content/content-single-post.php:102
+#: inc/customizer/customizer-newsletter.php:59
+msgid "Description"
+msgstr ""
+
+#: index.php:89 template-parts/post/post-content.php:115
 msgid "Discover"
 msgstr "Approfondisci"
 
-#: ../ground/template-parts/content/content-single-post.php:66
+#: template-parts/post/post-content.php:75
 msgid "Discover all news"
 msgstr "Scopri di più"
 
-#: ../ground/inc/woocommerce/checkout.php:42
-#: ../ground/inc/woocommerce/checkout.php:152
+#: inc/woocommerce/checkout.php:43 inc/woocommerce/checkout.php:153
 msgid "Ditta individuale/Professionista"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:260
+#: inc/woocommerce/checkout.php:260
 msgid "Dove vuoi spedire l'acquisto?"
 msgstr ""
 
-#: ../ground/template-parts/comment/comments-form.php:9
+#: template-parts/comment/comments-form.php:9
 msgid "Email"
 msgstr ""
 
-#: ../ground/404.php:20
+#: 404.php:24
 msgid "Error code: 404"
+msgstr "Codice errore: 404"
+
+#: inc/customizer/customizer-fonts.php:73
+msgid "Example: Playfair Display"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:222
+#: inc/customizer/customizer-fonts.php:53
+msgid "Example: Roboto"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:80
+msgid "Facebook"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:222
 msgid "Fattura non richiesta"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:196
+#: inc/woocommerce/checkout.php:197
 msgid "Fattura richiesta?"
 msgstr ""
 
-#: ../ground/archive.php:81 ../ground/inc/woocommerce/product-loop.php:120
-msgid "Filters"
+#: inc/customizer/customizer-company.php:157
+msgid "Fax"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:287
+#: archive.php:73 inc/woocommerce/product-loop.php:120
+msgid "Filters"
+msgstr "Filtri"
+
+#: inc/woocommerce/rest-user.php:111
+msgid "Fiscal code"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:52
+msgid "Font Family Primary"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:72
+msgid "Font Family Secondary"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:42
+msgid "Font Source Primary"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:62
+msgid "Font Source Secondary"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:14
+msgid "Fonts"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:160
+#: inc/customizer/customizer-footer.php:14
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/customizer-company.php:23
+msgid "General Info"
+msgstr ""
+
+#. Name of the theme
+msgid "Ground"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:287
 msgid "Hai altro da comunicare?"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:29
+#: inc/woocommerce/checkout.php:30
 msgid "Hai bisogno della fattura?"
 msgstr ""
 
-#: ../ground/woocommerce/cart/cart.php:139
-#: ../ground/woocommerce/cart/cart-original.php:141
-msgid "Hai un codice promozionale?"
+#: inc/customizer/customizer-colors.php:130
+#: inc/customizer/customizer-header.php:11
+msgid "Header"
 msgstr ""
 
-#. Name of the template
-msgid "Home page"
+#: inc/customizer/customizer-header.php:78
+msgid "Header advice primary"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:201
+#: inc/customizer/customizer-header.php:94
+msgid "Header advice secondary"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:110
+msgid "Header advice tertiary"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:4
+msgid "Icon payment amex"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:9
+msgid "Icon payment apple pay"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:14
+msgid "Icon payment google pay"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:24
+msgid "Icon payment maestro"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:19
+msgid "Icon payment mastercard"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:29
+msgid "Icon payment paypal"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:34
+msgid "Icon payment satispay"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:39
+msgid "Icon payment sepa"
+msgstr ""
+
+#: template-parts/shared/payments-method.php:44
+#: template-parts/shared/payments-method.php:49
+msgid "Icon payment visa"
+msgstr ""
+
+#: template-parts/shared/socials.php:18
+msgid "Icon social facebook"
+msgstr ""
+
+#: template-parts/shared/socials.php:34
+msgid "Icon social instagram"
+msgstr ""
+
+#: template-parts/shared/socials.php:10
+msgid "Icon social linkedin"
+msgstr ""
+
+#: template-parts/shared/socials.php:26
+msgid "Icon social twitter"
+msgstr ""
+
+#: template-parts/shared/socials.php:42
+msgid "Icon social youtube"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:202
 msgid "Il cliente ha richiesto la fattura"
 msgstr ""
 
-#: ../ground/template-parts/shared/panel-primary.php:15
-#: ../ground/template-parts/header/header-mega-menu.php:8
-#: ../ground/template-parts/header/header-simple.php:6
-#: ../ground/template-parts/header/header-logo-centered.php:6
+#: template-parts/header/header-mega-menu.php:7
+#: template-parts/header/header-logo-centered.php:7
 msgid "Indietro"
 msgstr ""
 
-#: ../ground/template-parts/footer/company-info-contacts.php:4
-msgid "Language"
+#: inc/customizer/customizer-fonts.php:15
+msgid "Insert your Fonts here"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:269
+#: inc/customizer/customizer-socials.php:98
+msgid "Instagram"
+msgstr ""
+
+#: inc/woocommerce/rest-user.php:27
+msgid "Invoice"
+msgstr ""
+
+#: template-parts/shared/company-info-contacts.php:4
+msgid "Language"
+msgstr "Lingua"
+
+#: template-parts/header/header-custom.php:1
+msgid "Leave blank - Override with child theme"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:71
+msgid "Linkedin"
+msgstr ""
+
+#: inc/customizer/customizer-site.php:22
+msgid "Logo SVG"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:59
+msgid "Mega"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:269
 msgid "Metodo di pagamento"
 msgstr ""
 
-#: ../ground/template-parts/comment/comments-form.php:8
+#: template-parts/header/header-mega-menu.php:47
+msgid "My Account"
+msgstr ""
+
+#: template-parts/comment/comments-form.php:8
 msgid "Name"
 msgstr ""
 
-#: ../ground/template-parts/shared/pagination.php:42
-msgid "Next"
+#: inc/extend.php:54
+msgid "Navigation footer primary"
 msgstr ""
 
-#: ../ground/woocommerce/emails/email-addresses.php:54
-#: ../ground/inc/woocommerce/checkout.php:235
+#: inc/extend.php:55
+msgid "Navigation footer secondary"
+msgstr ""
+
+#: inc/extend.php:56
+msgid "Navigation footer tertiary"
+msgstr ""
+
+#: inc/extend.php:52
+msgid "Navigation header primary "
+msgstr ""
+
+#: inc/extend.php:53
+msgid "Navigation header secondary"
+msgstr ""
+
+#: inc/extend.php:57
+msgid "Navigation panel primary"
+msgstr ""
+
+#: inc/customizer/customizer-newsletter.php:14
+msgid "Newsletter"
+msgstr ""
+
+#: template-parts/shared/pagination.php:42
+msgid "Next"
+msgstr "Prossima"
+
+#: woocommerce/emails/email-addresses.php:54 inc/woocommerce/checkout.php:235
 msgid "Nome della società"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:199
+#: inc/woocommerce/checkout.php:200
 msgid "Non è richiesta fattura"
 msgstr ""
 
-#: ../ground/404.php:15
+#: 404.php:19
 msgid "Oops!"
+msgstr "Oops!"
+
+#: inc/customizer/customizer-shop.php:169
+msgid "Order Comments Details"
 msgstr ""
 
-#: ../ground/template-parts/footer/footer-simple.php:34
-msgid "Opening Hours"
-msgstr ""
-
-#: ../ground/template-parts/content/content-single-post.php:65
+#: template-parts/post/post-content.php:74
 msgid "Other news"
 msgstr "Altre news"
 
-#: ../ground/woocommerce/emails/email-addresses.php:55
-#: ../ground/inc/woocommerce/checkout.php:51
-#: ../ground/inc/woocommerce/checkout.php:159
-#: ../ground/inc/woocommerce/checkout.php:238
+#: woocommerce/emails/email-addresses.php:55 inc/woocommerce/checkout.php:52
+#: inc/woocommerce/checkout.php:160 inc/woocommerce/checkout.php:238
 msgid "P.IVA"
 msgstr ""
 
-#: ../ground/woocommerce/emails/email-addresses.php:57
-#: ../ground/inc/woocommerce/checkout.php:69
-#: ../ground/inc/woocommerce/checkout.php:174
-#: ../ground/inc/woocommerce/checkout.php:244
+#: inc/customizer/customizer-colors.php:42
+msgid "Palette"
+msgstr ""
+
+#: inc/customizer/customizer-site.php:23
+msgid "Paste the SVG code"
+msgstr ""
+
+#: inc/customizer/customizer-payments.php:14
+#: inc/customizer/customizer-footer.php:23
+msgid "Payments"
+msgstr ""
+
+#: inc/customizer/customizer-footer.php:59
+msgid "Payments Content"
+msgstr ""
+
+#: inc/customizer/customizer-footer.php:50
+msgid "Payments Title"
+msgstr ""
+
+#: woocommerce/emails/email-addresses.php:57 inc/woocommerce/rest-user.php:139
+#: inc/woocommerce/checkout.php:70 inc/woocommerce/checkout.php:175
+#: inc/woocommerce/checkout.php:244
 msgid "Pec"
 msgstr ""
 
-#: ../ground/template-parts/shared/pagination.php:41
+#: inc/customizer/customizer-company.php:39
+#: inc/customizer/customizer-company.php:141
+msgid "Phones"
+msgstr ""
+
+#: inc/customizer/customizer-site.php:32
+msgid "Placeholder image"
+msgstr ""
+
+#: inc/woocommerce/brand.php:9 inc/woocommerce/brand.php:10
+msgctxt "Post Type General Name"
+msgid "Brand"
+msgstr ""
+
+#: template-parts/shared/pagination.php:41
 msgid "Prev"
+msgstr "precedente"
+
+#: inc/customizer/customizer-shop.php:32
+msgid "Product Button & Label"
 msgstr ""
 
-#: ../ground/template-parts/woocommerce/content-single-product-meta-field.php:20
-msgid "Product specifications"
+#: inc/customizer/customizer-shop.php:73
+msgid "Product Single"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:43
-#: ../ground/inc/woocommerce/checkout.php:153
+#: inc/woocommerce/brand.php:15
+msgid "product-brand"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:14
+msgid "Products Not Purchasable"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:44 inc/woocommerce/checkout.php:154
 msgid "Pubblica amministrazione"
 msgstr ""
 
-#: ../ground/template-parts/search/search-form-input.php:3
+#: inc/woocommerce/rest-user.php:167
+msgid "Sdi"
+msgstr ""
+
+#: template-parts/header/header-simple.php:19
+#: template-parts/header/header-logo-centered.php:18
+msgid "Search"
+msgstr ""
+
+#: template-parts/search/search-form-input.php:3
 msgid "Search products"
 msgstr "Cerca prodotti"
 
 #. %s: search query.
-#: ../ground/search.php:21
+#: search.php:16
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Risultati della ricerca per: %s"
 
-#: ../ground/inc/woocommerce/checkout.php:350
+#: inc/woocommerce/checkout.php:349
 msgid "Secure order"
-msgstr ""
+msgstr "Ordine sicuro"
 
-#: ../ground/template-parts/socials.php:5
+#: template-parts/shared/socials.php:5
 msgid "Seguici sui social network"
 msgstr ""
 
-#: ../ground/inc/woocommerce/sidebar.php:27
+#: inc/customizer/customizer-settings.php:53
+msgid "Select Container Size"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:50
+msgid "Select Header Type"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:74
+msgid "Select the pages you want to show on the product page after the summary"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:92
+msgid "Set the border radius of media / images"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:162
+msgid "Set the footer site color"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:132
+msgid "Set the header site color"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:17
+msgid "Set the site color"
+msgstr ""
+
+#: inc/customizer/customizer-colors.php:44
+msgid "Set the site color palette"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:73
+msgid "Sets the border radius of the site elements ( Buttons, forms )"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:15
+msgid "Settings"
+msgstr ""
+
+#: inc/customizer/customizer-footer.php:31
+msgid "Shipping"
+msgstr ""
+
+#: inc/customizer/customizer-footer.php:79
+msgid "Shipping Content"
+msgstr ""
+
+#: inc/customizer/customizer-footer.php:70
+msgid "Shipping Title"
+msgstr ""
+
+#: inc/woocommerce/sidebar.php:27
 msgid "Shop Sidebar"
-msgstr ""
+msgstr "Sidebar negozio"
 
-#: ../ground/inc/woocommerce/sidebar.php:35
+#: inc/woocommerce/sidebar.php:35
 msgid "Shop Sidebar Advanced"
+msgstr "Sidebar avanzata negozio"
+
+#: inc/customizer/customizer-newsletter.php:68
+msgid "Shortcode/Form"
 msgstr ""
 
-#: ../ground/inc/extend.php:626
+#: inc/extend.php:550
 msgid "Sidebar archive post"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:41
-#: ../ground/inc/woocommerce/checkout.php:151
+#: inc/extend.php:551
+msgid "Sidebar footer primary"
+msgstr ""
+
+#: inc/extend.php:554
+msgid "Sidebar footer quaternary"
+msgstr ""
+
+#: inc/extend.php:552
+msgid "Sidebar footer secondary"
+msgstr ""
+
+#: inc/extend.php:553
+msgid "Sidebar footer tertiary"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:57
+msgid "Simple"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:58
+msgid "Simple with logo centered"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:42
+msgid "Single Product Message"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:14
+msgid "Socials"
+msgstr ""
+
+#: inc/woocommerce/checkout.php:42 inc/woocommerce/checkout.php:152
 msgid "Società"
 msgstr ""
 
-#: ../ground/search.php:42
-#: ../ground/template-parts/search/search-ajax-preview.php:33
+#: search.php:62 template-parts/search/search-ajax-preview.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Mi spiace ma la ricerca non ha dato risultati. Prova con una parola "
+"differente."
 
-#: ../ground/template-parts/woocommerce/content-single-product-meta-field.php:63
-msgid "Technical info"
+#: template-parts/shared/newsletter.php:17
+msgid "Subscribe"
 msgstr ""
 
-#: ../ground/404.php:19
+#: inc/customizer/customizer-shop.php:33
+msgid "Text visible on the archive page for each non-purchasable product"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:43
+msgid "Text visible on the single product page"
+msgstr ""
+
+#: 404.php:23
 msgid "The page you're looking for can't be found"
+msgstr "Non abbiamo trovato la pagina che stai cercando"
+
+#: inc/customizer/customizer-company.php:16
+#: inc/customizer/customizer-footer.php:15
+msgid ""
+"Theme Modifications like color scheme, theme texts and layout preferences "
+"can be done here"
 msgstr ""
 
-#: ../ground/woocommerce/emails/email-addresses.php:53
-#: ../ground/inc/woocommerce/checkout.php:38
-#: ../ground/inc/woocommerce/checkout.php:147
-#: ../ground/inc/woocommerce/checkout.php:232
+#: woocommerce/emails/email-addresses.php:53 inc/woocommerce/checkout.php:39
+#: inc/woocommerce/checkout.php:148 inc/woocommerce/checkout.php:232
 msgid "Tipologia cliente"
 msgstr ""
 
-#: ../ground/template-parts/comment/comments-form.php:10
+#: inc/customizer/customizer-newsletter.php:50
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/customizer-fonts.php:43
+#: inc/customizer/customizer-fonts.php:63
+msgid "To embed a font, copy the source code here"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:89
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:54
+msgid "Using this option you can change the container size"
+msgstr ""
+
+#: inc/customizer/customizer-header.php:51
+msgid "Using this option you can change the Header"
+msgstr ""
+
+#: inc/woocommerce/rest-user.php:83
+msgid "Vat"
+msgstr ""
+
+#: template-parts/comment/comments-form.php:10
 msgid "Website"
+msgstr "Sito web"
+
+#: inc/customizer/customizer-company.php:149
+msgid "Whatsapp"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:107
+msgid "Youtube"
 msgstr ""
