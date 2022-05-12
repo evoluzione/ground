@@ -698,6 +698,14 @@ msgstr ""
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
+msgstr "Siamo spiacenti, nessun risultato trovato."
+
+#: template-parts/shared/newsletter.php:17
+msgid "Subscribe"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:33
+msgid "Text visible on the archive page for each non-purchasable product"
 msgstr ""
 "Mi spiace ma la ricerca non ha dato risultati. Prova con una parola "
 "differente."
@@ -758,6 +766,14 @@ msgstr ""
 #: template-parts/comment/comments-form.php:10
 msgid "Website"
 msgstr "Sito web"
+
+#: inc/customizer/customizer-company.php:149
+msgid "Whatsapp"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:107
+msgid "Youtube"
+msgstr ""
 
 #: inc/customizer/customizer-company.php:149
 msgid "Whatsapp"
