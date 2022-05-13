@@ -34,8 +34,13 @@ if ( is_admin() ) {
 function ground_wp_blocks_handle_custom_class( string $block_content, array $block ) {
 
 	$block_name = $block['blockName'];
+
 	// Skip empty blocks
-	if( !$block_name ) return $block_content;
+	$is_empty = strlen(trim($block_content)) == 0;
+	if ( !$block_name && $is_empty ) return $block_content;
+
+	// Classic editor has no name but has content
+	$is_classic_editor = !$block_name && !$is_empty;
 
 	$has_class     = strpos( $block_content, 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
@@ -57,8 +62,9 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 			break;
 	}
 	
-	if ( is_block_to_wrap($block_name) ) {
+	if ( $is_classic_editor || is_block_to_wrap($block_name) ) {
 		$additional_classes = 'wp-block';
+		$additional_classes .= $is_classic_editor ? ' wp-block-classic-editor' : '';
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
 
 		$block_content      = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
@@ -102,4 +108,8 @@ function ground_wp_blocks_add_custom_class( $block_content, $has_class, $class_t
 	$pattern     = '/class="(.*)"/';
 	$replacement = 'class="' . $class_to_add . ( $has_class ? ' ' : '' ) . '$1"';
 	return preg_replace( $pattern, $replacement, $block_content );
+}
+
+function get_container_class(){
+	return GROUND_CONTAINER === 'container-boxed' ? 'container' : 'mx-6';
 }

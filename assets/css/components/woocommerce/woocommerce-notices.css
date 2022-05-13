@@ -1,0 +1,5 @@
+.woocommerce-notices-wrapper {
+	.is-container-boxed & {
+		@apply container;
+	}
+}

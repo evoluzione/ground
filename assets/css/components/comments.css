@@ -1,21 +1,28 @@
 @layer components {
 	.comments {
-		@apply relative mt-16 prose;
+		@apply prose relative mt-16;
+
+		.is-container-full & {
+			@apply mx-6;
+		}
+
+		.is-container-boxed & {
+			@apply container;
+		}
 	}
 
 	.comments__list {
-		/* @apply my-6; */
 	}
 
 	.comments__item {
-		@apply my-3 bg-senary p-6 lg:px-9 lg:py-6 rounded-theme;
+		@apply rounded-theme my-3 bg-senary p-6 lg:px-9 lg:py-6;
 	}
 
 	.comments__body {
 	}
 
 	.comments__img {
-		@apply h-16 w-16 mt-0 mb-3 object-cover border border-septenary;
+		@apply mt-0 mb-3 h-16 w-16 border border-septenary object-cover;
 	}
 
 	.comments__author {
@@ -63,7 +70,7 @@
 			@apply flex items-center;
 
 			label {
-				@apply text-quaternary text-xs !important;
+				@apply text-xs text-quaternary !important;
 			}
 		}
 	}

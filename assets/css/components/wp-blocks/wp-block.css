@@ -13,17 +13,15 @@
 
 /* Handle blocks if layout is fullscreen */
 
-.is-container-full {
+.is-container-full:not(.woocommerce-page) {
 	/* All blocks that contain in class wp-block- except few exceptions */
-	[class*="wp-block-"]:not(.is-fullscreen, .wp-block-list, .wp-block-quote),
+	[class*="wp-block-"]:not(.is-fullscreen),
 	/* All blocks that contain in class ground-block- except few exceptions */
-	[class*="ground-block-"]:not(.is-fullscreen, .ground-block-banner, .ground-block-carousel, .ground-block-table) {
-		@apply px-6;
+	[class*="ground-block-"]:not(.is-fullscreen, .ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background) {
+		@apply mx-6;
 	}
 
-	.ground-block-table,
-	.wp-block-list,
-	.wp-block-quote {
-		@apply mx-6;
+	.ground-block-products {
+		@apply px-6;
 	}
 }

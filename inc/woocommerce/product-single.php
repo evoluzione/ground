@@ -128,7 +128,7 @@ add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_belo
  */
 function ground_woocommerce_after_single_product_summary_info() {
 	?>
-	<div class="prose">
+	<div class="prose woocommerce-product-details__content">
 		<?php the_content(); ?>
 	</div>
 	<?php

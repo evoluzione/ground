@@ -75,7 +75,7 @@ do_action( 'ground_index_before' );
 				<?php
 				foreach ( $categories_ids as $row ) {
 					?>
-					<div class="page__body lg:grid lg:grid-cols-12 gap-6 mb-24 lg:mb-28">
+					<div class="page__body lg:grid lg:grid-cols-12 gap-6 mb-24 lg:mb-28 <?php echo get_container_class() ?>">
 
 						<div class="col-span-full flex justify-between items-end lg:inline-block lg:col-span-4 mb-6 lg:mb-0">
 							<div class="relative pr-16 lg:pr-28">

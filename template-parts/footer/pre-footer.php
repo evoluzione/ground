@@ -1,7 +1,7 @@
 <?php if ( GROUND_PAYMENTS_TITLE || GROUND_PAYMENTS_CONTENT || GROUND_SHIPPING_TITLE || GROUND_SHIPPING_CONTENT ) : ?>
 
-<div class="container my-12 lg:my-24">
-	<div class="text-center mb-24 grid grid-cols-12 gap-6 lg:text-left">
+<div class="my-12 lg:my-24">
+	<div class="text-center mb-24 grid grid-cols-12 gap-6 lg:text-left <?php echo get_container_class() ?>">
 		<div class="col-span-full lg:col-span-5">
 			<?php if ( GROUND_PAYMENTS_TITLE ) : ?>
 				<div class="text-xl mb-4">

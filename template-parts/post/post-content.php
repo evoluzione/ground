@@ -68,7 +68,7 @@
 		?>
 
 		<?php if ( count( $parent->posts ) > 0 ) { ?>
-			<div class="mt-24 mb-24">
+			<div class="mt-24 mb-24 <?php echo get_container_class() ?>">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 					<div class="relative">
 						<h3 class="text-4xl no-underline mb-4 relative"> <?php _e( 'Other news', 'ground' ); ?> </h3>

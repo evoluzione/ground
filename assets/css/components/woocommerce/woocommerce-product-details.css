@@ -18,3 +18,13 @@
 .woocommerce-product-details__short-description {
 	@apply prose;
 }
+
+.woocommerce-product-details__content {
+	.is-container-boxed & {
+		@apply container;
+	}
+
+	& > .wp-block {
+		@apply p-0;
+	}
+}

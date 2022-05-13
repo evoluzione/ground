@@ -1,5 +1,5 @@
 .onsale {
-	@apply card__label text-white bg-green-500;
+	@apply card__label bg-green-500 text-white;
 
 	.onsale__label {
 	}
@@ -11,4 +11,8 @@
 	.woocommerce-product-media & {
 		@apply absolute top-3 left-3;
 	}
+}
+
+.woocommerce-product-media {
+	@apply relative;
 }
