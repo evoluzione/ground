@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2022-05-12 15:59+0000\n"
+"PO-Revision-Date: 2022-05-13 09:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -215,7 +215,7 @@ msgstr ""
 
 #: inc/customizer/customizer-newsletter.php:59
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: index.php:89 template-parts/post/post-content.php:115
 msgid "Discover"
@@ -710,14 +710,6 @@ msgstr ""
 "Mi spiace ma la ricerca non ha dato risultati. Prova con una parola "
 "differente."
 
-#: template-parts/shared/newsletter.php:17
-msgid "Subscribe"
-msgstr ""
-
-#: inc/customizer/customizer-shop.php:33
-msgid "Text visible on the archive page for each non-purchasable product"
-msgstr ""
-
 #: inc/customizer/customizer-shop.php:43
 msgid "Text visible on the single product page"
 msgstr ""
@@ -766,14 +758,6 @@ msgstr ""
 #: template-parts/comment/comments-form.php:10
 msgid "Website"
 msgstr "Sito web"
-
-#: inc/customizer/customizer-company.php:149
-msgid "Whatsapp"
-msgstr ""
-
-#: inc/customizer/customizer-socials.php:107
-msgid "Youtube"
-msgstr ""
 
 #: inc/customizer/customizer-company.php:149
 msgid "Whatsapp"
