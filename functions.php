@@ -39,6 +39,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/not-purchasable.php';
 	require_once 'inc/woocommerce/product-loop.php';
 	require_once 'inc/woocommerce/product-single.php';
+	require_once 'inc/woocommerce/order.php';
+	require_once 'inc/woocommerce/order-email.php';
 	require_once 'inc/woocommerce/rest-order.php';
 	require_once 'inc/woocommerce/rest-user.php';
 	require_once 'inc/woocommerce/sidebar.php';
