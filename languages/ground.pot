@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 07:54+0000\n"
+"POT-Creation-Date: 2022-05-12 15:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -92,15 +92,11 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: template-parts/header/header.php:29
-msgid "ciccio"
-msgstr ""
-
 #: inc/woocommerce/checkout.php:45 inc/woocommerce/checkout.php:155
 msgid "Cliente privato"
 msgstr ""
 
-#: template-parts/search/search-form.php:8 template-parts/header/header.php:28
+#: template-parts/search/search-form.php:8
 msgid "close"
 msgstr ""
 
@@ -299,15 +295,6 @@ msgstr ""
 #: inc/customizer/customizer-colors.php:160
 #: inc/customizer/customizer-footer.php:14
 msgid "Footer"
-msgstr ""
-
-#: template-parts/header/header.php:33
-msgid "Frase in inglese"
-msgstr ""
-
-#: template-parts/header/header.php:35
-msgctxt "Frase in Italiano"
-msgid "Frase in inglese 2"
 msgstr ""
 
 #: inc/customizer/customizer-company.php:23
@@ -569,10 +556,6 @@ msgstr ""
 
 #: inc/customizer/customizer-shop.php:14
 msgid "Products Not Purchasable"
-msgstr ""
-
-#: template-parts/header/header.php:30
-msgid "prova"
 msgstr ""
 
 #: inc/woocommerce/checkout.php:44 inc/woocommerce/checkout.php:154

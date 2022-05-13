@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2022-05-12 07:50+0000\n"
+"PO-Revision-Date: 2022-05-12 15:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -28,6 +28,8 @@ msgid ""
 "A flexible and powerful WordPress starter theme using a modern development "
 "workflow."
 msgstr ""
+"Un tema di base per WordPress flessibile e potente che utilizza un moderno "
+"flusso di lavoro di sviluppo."
 
 #: template-parts/header/header-simple.php:47
 msgid "Account"
@@ -84,29 +86,24 @@ msgstr ""
 
 #: inc/woocommerce/payments.php:18
 msgid "Cash on delivery charges"
-msgstr ""
+msgstr "Spese di contrassegno"
 
 #: template-parts/post/post-content.php:133
 #: template-parts/navigation/navigation-blog.php:34
 msgid "Category"
 msgstr "Categoria"
 
-#: template-parts/search/search-form.php:8 template-parts/header/header.php:28
-msgctxt "chiudi"
-msgid "close"
-msgstr "chiudi"
-
-#: template-parts/header/header.php:29
-msgid "ciccio"
-msgstr "ciccio it"
-
 #: inc/woocommerce/checkout.php:45 inc/woocommerce/checkout.php:155
 msgid "Cliente privato"
 msgstr ""
 
+#: template-parts/search/search-form.php:8
+msgid "close"
+msgstr ""
+
 #: inc/woocommerce/cart.php:101
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #: woocommerce/emails/email-addresses.php:58 inc/woocommerce/checkout.php:79
 #: inc/woocommerce/checkout.php:170 inc/woocommerce/checkout.php:247
@@ -162,7 +159,7 @@ msgstr ""
 #: template-parts/post/post-content.php:135
 #: template-parts/comment/comments.php:68
 msgid "Comments"
-msgstr ""
+msgstr "Commenti"
 
 #: inc/customizer/customizer-company.php:15
 msgid "Company"
@@ -242,7 +239,7 @@ msgstr ""
 
 #: 404.php:24
 msgid "Error code: 404"
-msgstr ""
+msgstr "Codice errore: 404"
 
 #: inc/customizer/customizer-fonts.php:73
 msgid "Example: Playfair Display"
@@ -270,7 +267,7 @@ msgstr ""
 
 #: archive.php:73 inc/woocommerce/product-loop.php:120
 msgid "Filters"
-msgstr ""
+msgstr "Filtri"
 
 #: inc/woocommerce/rest-user.php:111
 msgid "Fiscal code"
@@ -414,7 +411,7 @@ msgstr ""
 
 #: template-parts/shared/company-info-contacts.php:4
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 #: template-parts/header/header-custom.php:1
 msgid "Leave blank - Override with child theme"
@@ -474,7 +471,7 @@ msgstr ""
 
 #: template-parts/shared/pagination.php:42
 msgid "Next"
-msgstr ""
+msgstr "Prossima"
 
 #: woocommerce/emails/email-addresses.php:54 inc/woocommerce/checkout.php:235
 msgid "Nome della società"
@@ -486,7 +483,7 @@ msgstr ""
 
 #: 404.php:19
 msgid "Oops!"
-msgstr ""
+msgstr "Oops!"
 
 #: inc/customizer/customizer-shop.php:169
 msgid "Order Comments Details"
@@ -544,7 +541,7 @@ msgstr ""
 
 #: template-parts/shared/pagination.php:41
 msgid "Prev"
-msgstr ""
+msgstr "precedente"
 
 #: inc/customizer/customizer-shop.php:32
 msgid "Product Button & Label"
@@ -560,10 +557,6 @@ msgstr ""
 
 #: inc/customizer/customizer-shop.php:14
 msgid "Products Not Purchasable"
-msgstr ""
-
-#: template-parts/header/header.php:30
-msgid "prova"
 msgstr ""
 
 #: inc/woocommerce/checkout.php:44 inc/woocommerce/checkout.php:154
@@ -587,11 +580,11 @@ msgstr "Cerca prodotti"
 #: search.php:16
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Risultati della ricerca per: %s"
 
 #: inc/woocommerce/checkout.php:349
 msgid "Secure order"
-msgstr ""
+msgstr "Ordine sicuro"
 
 #: template-parts/shared/socials.php:5
 msgid "Seguici sui social network"
@@ -651,11 +644,11 @@ msgstr ""
 
 #: inc/woocommerce/sidebar.php:27
 msgid "Shop Sidebar"
-msgstr ""
+msgstr "Sidebar negozio"
 
 #: inc/woocommerce/sidebar.php:35
 msgid "Shop Sidebar Advanced"
-msgstr ""
+msgstr "Sidebar avanzata negozio"
 
 #: inc/customizer/customizer-newsletter.php:68
 msgid "Shortcode/Form"
@@ -714,6 +707,16 @@ msgstr ""
 #: inc/customizer/customizer-shop.php:33
 msgid "Text visible on the archive page for each non-purchasable product"
 msgstr ""
+"Mi spiace ma la ricerca non ha dato risultati. Prova con una parola "
+"differente."
+
+#: template-parts/shared/newsletter.php:17
+msgid "Subscribe"
+msgstr ""
+
+#: inc/customizer/customizer-shop.php:33
+msgid "Text visible on the archive page for each non-purchasable product"
+msgstr ""
 
 #: inc/customizer/customizer-shop.php:43
 msgid "Text visible on the single product page"
@@ -721,7 +724,7 @@ msgstr ""
 
 #: 404.php:23
 msgid "The page you're looking for can't be found"
-msgstr ""
+msgstr "Non abbiamo trovato la pagina che stai cercando"
 
 #: inc/customizer/customizer-company.php:16
 #: inc/customizer/customizer-footer.php:15
@@ -762,6 +765,14 @@ msgstr ""
 
 #: template-parts/comment/comments-form.php:10
 msgid "Website"
+msgstr "Sito web"
+
+#: inc/customizer/customizer-company.php:149
+msgid "Whatsapp"
+msgstr ""
+
+#: inc/customizer/customizer-socials.php:107
+msgid "Youtube"
 msgstr ""
 
 #: inc/customizer/customizer-company.php:149
