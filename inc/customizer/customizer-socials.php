@@ -68,7 +68,7 @@ function ground_customizer_socials( $wp_customize ) {
 		array(
 			'type'        => 'url',
 			'section'     => 'ground_section_socials',
-			'label'       => __( 'Linkedin', 'ground' ),
+			'label'       => __( 'LinkedIn', 'ground' ),
 			'description' => '',
 		)
 	);

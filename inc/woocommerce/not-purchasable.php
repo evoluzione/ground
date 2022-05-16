@@ -12,7 +12,7 @@ function ground_general_product_data_custom_fields() {
 			'id'            => '_not_purchasable',
 			'wrapper_class' => 'show_if_simple',
 			'label'         => __( 'Not Purchasable', 'woocommerce' ),
-			'description'   => __( 'This product is not purchasable ( Compatible only with simple product ) <a target="_blank" href="' . esc_url( home_url( '/wp-admin/customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dproduct' ) ) . '">Set up global messages for Not Purchasable products</a>', 'ground' ),
+			'description'   => __( 'This product is not purchasable (compatible only with simple product)', 'ground' ) . '<br><a target="_blank" href="' . esc_url( home_url( '/wp-admin/customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dproduct' ) ) . '">' . __('Set up global messages for Not Purchasable products', 'ground') . '</a>',
 		)
 	);
 }

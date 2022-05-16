@@ -36,7 +36,7 @@ function ground_customizer_company( $wp_customize ) {
 	$wp_customize->add_section(
 		'ground_section_company_phones',
 		array(
-			'title' => __( 'Phones', 'ground' ),
+			'title' => __( 'Phone', 'ground' ),
 			'panel' => 'ground_section_company',
 		)
 	);
@@ -138,7 +138,7 @@ function ground_customizer_company( $wp_customize ) {
 		array(
 			'type'    => 'text',
 			'section' => 'ground_section_company_phones',
-			'label'   => __( 'Phones', 'ground' ),
+			'label'   => __( 'Phone', 'ground' ),
 		)
 	);
 	$wp_customize->add_control(

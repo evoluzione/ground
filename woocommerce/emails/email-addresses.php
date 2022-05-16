@@ -50,12 +50,12 @@ $shipping   = $order->get_formatted_shipping_address();
 	<address class="address">
 		<?php
 		echo '
-			<strong>' . __( 'Tipologia cliente', 'ground' ) . ':</strong> ' . $invoice_customer_type . ' <br>
-			<strong>' . __( 'Nome della società', 'ground' ) . ':</strong> ' . $invoice_company . ' <br>
-			<strong>' . __( 'P.IVA', 'ground' ) . ':</strong> ' . $invoice_vat . ' <br>
-			<strong>' . __( 'Codice fiscale', 'ground' ) . ':</strong> ' . $invoice_fiscal_code . ' <br>
-			<strong>' . __( 'Pec', 'ground' ) . ':</strong> ' . $invoice_pec . ' <br>
-			<strong>' . __( 'Codice destinatario (SDI)', 'ground' ) . ':</strong> ' . $invoice_sdi;
+			<strong>' . __( 'Client type', 'ground' ) . ':</strong> ' . $invoice_customer_type . ' <br>
+			<strong>' . __( 'Society name', 'ground' ) . ':</strong> ' . $invoice_company . ' <br>
+			<strong>' . __( 'VAT Number', 'ground' ) . ':</strong> ' . $invoice_vat . ' <br>
+			<strong>' . __( 'Fiscal code', 'ground' ) . ':</strong> ' . $invoice_fiscal_code . ' <br>
+			<strong>' . __( 'PEC', 'ground' ) . ':</strong> ' . $invoice_pec . ' <br>
+			<strong>' . __( 'Recipient Code (SDI)', 'ground' ) . ':</strong> ' . $invoice_sdi;
 		?>
 	</address>
 	<br><br>

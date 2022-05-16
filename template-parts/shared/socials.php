@@ -2,7 +2,7 @@
 
 	<div class="lg:flex items-center justify-center lg:space-x-6">
 
-		<p class="pr-3 text-center mb-2 text-sm lg:text-xs lg:pl-6 lg:text-left text-quaternary lg:mb-0"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
+		<p class="pr-3 text-center mb-2 text-sm lg:text-xs lg:pl-6 lg:text-left text-quaternary lg:mb-0"><?php _e( 'Follow us on social networks', 'ground' ); ?></p>
 
 		<div class="flex justify-center lg:justify-start space-x-3">
 			<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>

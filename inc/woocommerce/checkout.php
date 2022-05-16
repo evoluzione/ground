@@ -27,7 +27,7 @@ function ground_woocommerce_billing_fields( $fields ) {
 	// New fields.
 	$fields['billing_invoice'] = array(
 		'type'     => 'checkbox',
-		'label'    => __( 'Hai bisogno della fattura?', 'ground' ),
+		'label'    => __( 'Do you need an invoice?', 'ground' ), // Hai bisogno della fattura?
 		'required' => false,
 		'clear'    => true,
 	);
@@ -36,20 +36,20 @@ function ground_woocommerce_billing_fields( $fields ) {
 		'type'        => 'select',
 		'required'    => true,
 		'class'       => array( 'form__field--billing' ),
-		'label'       => __( 'Tipologia cliente', 'ground' ),
+		'label'       => __( 'Client type', 'ground' ),
 		'label_class' => 'form__checkout',
 		'options'     => array(
-			'azienda'     => __( 'Società', 'ground' ),
-			'individuale' => __( 'Ditta individuale/Professionista', 'ground' ),
-			'pubblico'    => __( 'Pubblica amministrazione', 'ground' ),
-			'privato'     => __( 'Cliente privato', 'ground' ),
+			'azienda'     => __( 'Company', 'ground' ), // Società
+			'individuale' => __( 'Professional', 'ground' ), // Ditta individuale/Professionista
+			'pubblico'    => __( 'Public administration', 'ground' ), // Pubblica amministrazione
+			'privato'     => __( 'Private client', 'ground' ), // Cliente privato
 		),
 	);
 
 	$fields['billing_vat'] = array(
 		'type'        => 'text',
 		'class'       => array( 'form__field form__field-vat form__field--billing' ),
-		'label'       => __( 'P.IVA', 'ground' ),
+		'label'       => __( 'VAT Number', 'ground' ), // Partita IVA
 		'placeholder' => '',
 		'required'    => false,
 		'clear'       => true,
@@ -58,7 +58,7 @@ function ground_woocommerce_billing_fields( $fields ) {
 	$fields['billing_fiscal_code'] = array(
 		'type'        => 'text',
 		'class'       => array( 'form__field form__field-vat form__field--billing' ),
-		'label'       => __( 'Codice fiscale', 'ground' ),
+		'label'       => __( 'Fiscal code', 'ground' ), // Codice fiscale
 		'placeholder' => '',
 		'required'    => false,
 		'clear'       => true,
@@ -67,7 +67,7 @@ function ground_woocommerce_billing_fields( $fields ) {
 	$fields['billing_pec'] = array(
 		'type'        => 'text',
 		'class'       => array( 'form__field form__field-pec form__field--billing' ),
-		'label'       => __( 'Pec', 'ground' ),
+		'label'       => __( 'PEC', 'ground' ),
 		'placeholder' => '',
 		'required'    => false,
 		'clear'       => true,
@@ -76,7 +76,7 @@ function ground_woocommerce_billing_fields( $fields ) {
 	$fields['billing_sdi'] = array(
 		'type'        => 'text',
 		'class'       => array( 'form__field form__field-receiver form__field--billing' ),
-		'label'       => __( 'Codice destinatario (SDI)', 'ground' ),
+		'label'       => __( 'Recipient Code (SDI)', 'ground' ), // Codice destinatario (SDI)
 		'placeholder' => '',
 		'required'    => false,
 		'clear'       => true,
@@ -145,34 +145,34 @@ function ground_woocommerce_admin_order_billing_fields( $fields ) {
 		unset( $fields['billing_state'] );
 
 		$fields['customer_type'] = array(
-			'label'   => __( 'Tipologia cliente', 'ground' ),
+			'label'   => __( 'Client type', 'ground' ),
 			'show'    => true,
 			'type'    => 'select',
 			'options' => array(
-				'azienda'     => __( 'Società', 'ground' ),
-				'individuale' => __( 'Ditta individuale/Professionista', 'ground' ),
-				'pubblico'    => __( 'Pubblica amministrazione', 'ground' ),
-				'privato'     => __( 'Cliente privato', 'ground' ),
+				'azienda'     => __( 'Company', 'ground' ), // Società
+				'individuale' => __( 'Professional', 'ground' ), // Ditta individuale/Professionista
+				'pubblico'    => __( 'Public administration', 'ground' ), // Pubblica amministrazione
+				'privato'     => __( 'Private client', 'ground' ), // Cliente privato
 			),
 		);
 
 		$fields['vat'] = array(
-			'label' => __( 'P.IVA', 'ground' ),
+			'label' => __( 'VAT Number', 'ground' ), // Partita IVA
 			'show'  => true,
 		);
 
 		$fields['fiscal_code'] = array(
-			'label' => __( 'Codice fiscale', 'ground' ),
+			'label' => __( 'Fiscal code', 'ground' ), // Codice fiscale
 			'show'  => true,
 		);
 
 		$fields['sdi'] = array(
-			'label' => __( 'Codice destinatario (SDI)', 'ground' ),
+			'label' => __( 'Recipient Code (SDI)', 'ground' ), // Codice destinatario (SDI)
 			'show'  => true,
 		);
 
 		$fields['pec'] = array(
-			'label' => __( 'Pec', 'ground' ),
+			'label' => __( 'PEC', 'ground' ),
 			'show'  => true,
 		);
 	} else {
@@ -194,12 +194,12 @@ function ground_woocommerce_admin_order_after_billing_fields( $order ) {
 
 	$invoice = get_post_meta( $order->get_id(), '_billing_invoice', true );
 
-	echo '<h3>' . __( 'Fattura richiesta?', 'ground' ) . '</h3>';
+	echo '<h3>' . __( 'Invoice requested?', 'ground' ) . '</h3>'; // Fattura richiesta?
 
 	if ( empty( $invoice ) ) {
-		echo '<p>' . __( 'Non è richiesta fattura', 'ground' ) . '</p>';
+		echo '<p>' . __( 'Invoice NOT requested', 'ground' ) . '</p>'; // Non è richiesta fattura
 	} else {
-		echo '<p>' . __( 'Il cliente ha richiesto la fattura', 'ground' ) . '</p>';
+		echo '<p>' . __( 'Invoice requested', 'ground' ) . '</p>'; // Il cliente ha richiesto la fattura
 	}
 }
 
@@ -216,10 +216,10 @@ function ground_woocommerce_custom_checkout_field_order_received_order_meta( $or
 	$is_invoice = get_post_meta( $order_obj->get_order_number(), '_billing_invoice', true );
 
 	echo '<div class="woocommerce-column woocommerce-column--2 woocommerce-column--billing col-2">
-		<h2 class="woocommerce-column__title" style="margin-top:18px;"> ' . __( 'Dati Fatturazione', 'ground' ) . '</h2>';
+		<h2 class="woocommerce-column__title" style="margin-top:18px;"> ' . __( 'Billing data', 'ground' ) . '</h2>'; // Dati Fatturazione 
 
 	if ( empty( $is_invoice ) ) {
-		echo '<p class="woocommerce-customer-details--no-invoice margin-bottom-0">' . __( 'Fattura non richiesta', 'ground' ) . '</p>';
+		echo '<p class="woocommerce-customer-details--no-invoice margin-bottom-0">' . __( 'Invoice NOT requested', 'ground' ) . '</p>'; // Fattura non richiesta
 	} else {
 		$invoice_customer_type = get_post_meta( $order_obj->get_order_number(), '_billing_customer_type', true );
 		$invoice_company       = get_post_meta( $order_obj->get_order_number(), '_billing_company', true );
@@ -229,22 +229,22 @@ function ground_woocommerce_custom_checkout_field_order_received_order_meta( $or
 		$invoice_sdi           = get_post_meta( $order_obj->get_order_number(), '_billing_sdi', true );
 
 		if ( $invoice_customer_type ) {
-			echo '<p class="woocommerce-customer-details--customer-type margin-bottom-0">' . __( 'Tipologia cliente', 'ground' ) . ': <strong>' . $invoice_customer_type . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--customer-type margin-bottom-0">' . __( 'Client type', 'ground' ) . ': <strong>' . $invoice_customer_type . '</strong></p>';
 		};
 		if ( $invoice_company ) {
-			echo '<p class="woocommerce-customer-details--company margin-bottom-0">' . __( 'Nome della società', 'ground' ) . ': <strong>' . $invoice_company . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--company margin-bottom-0">' . __( 'Name of the company', 'ground' ) . ': <strong>' . $invoice_company . '</strong></p>';
 		};
 		if ( $invoice_vat ) {
-			echo '<p class="woocommerce-customer-details--vat margin-bottom-0">' . __( 'P.IVA', 'ground' ) . ': <strong>' . $invoice_vat . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--vat margin-bottom-0">' . __( 'VAT Number', 'ground' ) . ': <strong>' . $invoice_vat . '</strong></p>';
 		};
 		if ( $invoice_fiscal_code ) {
-			echo '<p class="woocommerce-customer-details--fiscal-code margin-bottom-0">' . __( 'Codice fiscale', 'ground' ) . ': <strong>' . $invoice_fiscal_code . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--fiscal-code margin-bottom-0">' . __( 'Fiscal code', 'ground' ) . ': <strong>' . $invoice_fiscal_code . '</strong></p>';
 		};
 		if ( $invoice_pec ) {
-			echo '<p class="woocommerce-customer-details--pec margin-bottom-0">' . __( 'Pec', 'ground' ) . ': <strong>' . $invoice_pec . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--pec margin-bottom-0">' . __( 'PEC', 'ground' ) . ': <strong>' . $invoice_pec . '</strong></p>';
 		};
 		if ( $invoice_sdi ) {
-			echo '<p class="woocommerce-customer-details--sdi margin-bottom-0">' . __( 'Codice destinatario (SDI)', 'ground' ) . ': <strong>' . $invoice_sdi . '</strong></p>';
+			echo '<p class="woocommerce-customer-details--sdi margin-bottom-0">' . __( 'Recipient Code (SDI)', 'ground' ) . ': <strong>' . $invoice_sdi . '</strong></p>';
 		};
 	}
 	echo '</div>';
@@ -257,7 +257,7 @@ add_action( 'woocommerce_thankyou', 'ground_woocommerce_custom_checkout_field_or
  * Shipping title
  */
 function ground_woocommerce_checkout_shipping_title() {
-	 echo '<h3 class="pt-6 mb-5 border-t border-dashed border-septenary">' . __( "Dove vuoi spedire l'acquisto?", 'ground' ) . '</h3>';
+	 echo '<h3 class="pt-6 mb-5 border-t border-dashed border-septenary">' . __( "Where do you want to send the purchase?", 'ground' ) . '</h3>'; // Dove vuoi spedire l'acquisto?
 }
 
 add_action( 'woocommerce_before_checkout_shipping_form', 'ground_woocommerce_checkout_shipping_title' );
@@ -266,7 +266,7 @@ add_action( 'woocommerce_before_checkout_shipping_form', 'ground_woocommerce_che
  * Payments title
  */
 function ground_woocommerce_checkout_payments_title() {
-	 echo '<h3>' . __( 'Metodo di pagamento', 'ground' ) . '</h3>';
+	 echo '<h3>' . __( 'Payment method', 'ground' ) . '</h3>'; // Metodo di pagamento
 }
 
 // add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
@@ -281,10 +281,10 @@ function ground_woocommerce_checkout_payments_title() {
 function ground_woocommerce_billing_field_strings( $translation, $text, $domain ) {
 	switch ( $translation ) {
 		case 'Dettagli di fatturazione':
-			$translation = __( 'Dati personali', 'ground' );
+			$translation = __( 'Personal data', 'ground' ); // Dati personali
 			break;
 		case 'Informazioni aggiuntive':
-			$translation = __( 'Hai altro da comunicare?', 'ground' );
+			$translation = __( 'Do you have anything else to communicate?', 'ground' ); // Hai altro da comunicare?
 			break;
 	}
 	return $translation;

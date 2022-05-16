@@ -80,7 +80,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Vat', 'ground' ),
+					'description' => __( 'VAT Number', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -136,7 +136,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Pec', 'ground' ),
+					'description' => __( 'PEC', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -164,7 +164,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Sdi', 'ground' ),
+					'description' => __( 'SDI', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),

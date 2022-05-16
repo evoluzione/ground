@@ -120,28 +120,28 @@ function ground_section_colors_palette( $wp_customize, $panel_name ) {
  * @param [type] $panel_name
  * @return void
  */
-function ground_section_colors_header( $wp_customize, $panel_name ) {
+// function ground_section_colors_header( $wp_customize, $panel_name ) {
 
-	$section_name = 'ground_section_colors_header';
+// 	$section_name = 'ground_section_colors_header';
 
-	$wp_customize->add_section(
-		$section_name,
-		array(
-			'title'       => __( 'Header', 'ground' ),
-			'panel'       => $panel_name,
-			'description' => __( 'Set the header site color', 'ground' ),
-		)
-	);
+// 	$wp_customize->add_section(
+// 		$section_name,
+// 		array(
+// 			'title'       => __( 'Header', 'ground' ),
+// 			'panel'       => $panel_name,
+// 			'description' => __( 'Set the header site color', 'ground' ),
+// 		)
+// 	);
 
-	// color_header
-	$color_list[] = array(
-		'slug'    => 'color_header',
-		'default' => GROUND_COLOR_SEPTENARY,
-		'label'   => __( 'Color header', 'ground' ),
-	);
+// 	// color_header
+// 	$color_list[] = array(
+// 		'slug'    => 'color_header',
+// 		'default' => GROUND_COLOR_SEPTENARY,
+// 		'label'   => __( 'Color header', 'ground' ),
+// 	);
 
-	ground_declare_color_settings_controls( $wp_customize, $section_name, $color_list );
-}
+// 	ground_declare_color_settings_controls( $wp_customize, $section_name, $color_list );
+// }
 
 /**
  * Add section ground_section_colors_footer to ground_panel_colors
@@ -150,28 +150,28 @@ function ground_section_colors_header( $wp_customize, $panel_name ) {
  * @param [type] $panel_name
  * @return void
  */
-function ground_section_colors_footer( $wp_customize, $panel_name ) {
+// function ground_section_colors_footer( $wp_customize, $panel_name ) {
 
-	$section_name = 'ground_section_colors_footer';
+// 	$section_name = 'ground_section_colors_footer';
 
-	$wp_customize->add_section(
-		$section_name,
-		array(
-			'title'       => __( 'Footer', 'ground' ),
-			'panel'       => $panel_name,
-			'description' => __( 'Set the footer site color', 'ground' ),
-		)
-	);
+// 	$wp_customize->add_section(
+// 		$section_name,
+// 		array(
+// 			'title'       => __( 'Footer', 'ground' ),
+// 			'panel'       => $panel_name,
+// 			'description' => __( 'Set the footer site color', 'ground' ),
+// 		)
+// 	);
 
-	// color_header
-	$color_list[] = array(
-		'slug'    => 'color_footer',
-		'default' => GROUND_COLOR_SEPTENARY,
-		'label'   => __( 'Color header', 'ground' ),
-	);
+// 	// color_header
+// 	$color_list[] = array(
+// 		'slug'    => 'color_footer',
+// 		'default' => GROUND_COLOR_SEPTENARY,
+// 		'label'   => __( 'Color header', 'ground' ),
+// 	);
 
-	ground_declare_color_settings_controls( $wp_customize, $section_name, $color_list );
-}
+// 	ground_declare_color_settings_controls( $wp_customize, $section_name, $color_list );
+// }
 
 /**
  * Util function to dynamically add_settings and add_control
