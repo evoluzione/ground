@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2022-05-16 09:26+0000\n"
+"PO-Revision-Date: 2022-05-16 09:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -340,23 +340,23 @@ msgstr "Icona pagamento Visa"
 
 #: template-parts/shared/socials.php:18
 msgid "Icon social facebook"
-msgstr "Icona pagamento Facebook"
+msgstr "Icona social Facebook"
 
 #: template-parts/shared/socials.php:34
 msgid "Icon social instagram"
-msgstr "Icona pagamento Instagram"
+msgstr "Icona social Instagram"
 
 #: template-parts/shared/socials.php:10
 msgid "Icon social linkedin"
-msgstr "Icona pagamento LinkedIn"
+msgstr "Icona social LinkedIn"
 
 #: template-parts/shared/socials.php:26
 msgid "Icon social twitter"
-msgstr "Icona pagamento Twitter"
+msgstr "Icona social Twitter"
 
 #: template-parts/shared/socials.php:42
 msgid "Icon social youtube"
-msgstr "Icona pagamento Youtube"
+msgstr "Icona social Youtube"
 
 #: inc/customizer/customizer-fonts.php:15
 msgid "Insert your Fonts here"
