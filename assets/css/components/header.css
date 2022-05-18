@@ -40,6 +40,13 @@
 	}
 
 	.header__container {
+		.is-container-full & {
+			@apply mx-6;
+		}
+		.is-container-boxed & {
+			@apply container;
+		}
+
 		/* il movimento laterale è in menu.js */
 		@apply transition-all ease-default;
 		/* 

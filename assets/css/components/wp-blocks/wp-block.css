@@ -17,11 +17,18 @@
 	/* All blocks that contain in class wp-block- except few exceptions */
 	[class*="wp-block-"],
 	/* All blocks that contain in class ground-block- except few exceptions */
-	[class*="ground-block-"]:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image) {
+	[class*="ground-block-"]:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image, .ground-block-text-horizontal-scrolled ) {
 		@apply mx-6;
 	}
 
 	.ground-block-products {
 		@apply px-6;
+	}
+}
+
+/* Handle blocks if layout is boxed and has class is-fullscreen */
+.is-container-boxed {
+	[class*="ground-block-"].is-fullscreen:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image, .ground-block-text-horizontal-scrolled) {
+		@apply mx-6;
 	}
 }

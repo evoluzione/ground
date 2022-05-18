@@ -30,7 +30,7 @@
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-quinary overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
 
-			<div class="container lg:relative lg:grid lg:grid-cols-12 lg:items-center lg:h-32">
+			<div class="lg:relative lg:grid lg:grid-cols-12 lg:items-center lg:h-32">
 				<div class="relative lg:col-span-5 lg:flex lg:justify-start lg:items-center">
 					<?php if ( has_nav_menu( 'header-primary' ) ) : ?>
 						<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
