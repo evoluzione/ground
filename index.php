@@ -45,7 +45,7 @@ do_action( 'ground_index_before' );
 			$sticky_posts = new WP_Query( $args );
 			?>
 		
-			<div class="transform -translate-x-2/4 w-screen ml-1/2 rounded-none bg-senary">
+			<div class="rounded-none bg-senary">
 
 				<div class="container py-9 lg:py-16 mb-12 lg:mb-24">
 
@@ -75,7 +75,7 @@ do_action( 'ground_index_before' );
 				<?php
 				foreach ( $categories_ids as $row ) {
 					?>
-					<div class="page__body lg:grid lg:grid-cols-12 gap-6 mb-24 lg:mb-28 <?php echo get_container_class() ?>">
+					<div class="page__body lg:grid lg:grid-cols-12 gap-6 mb-24 lg:mb-28">
 
 						<div class="col-span-full flex justify-between items-end lg:inline-block lg:col-span-4 mb-6 lg:mb-0">
 							<div class="relative pr-16 lg:pr-28">

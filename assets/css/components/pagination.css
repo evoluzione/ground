@@ -1,14 +1,26 @@
 @layer components {
 	.pagination {
-		@apply relative flex justify-center my-16 space-x-2;
+		@apply relative my-16 flex justify-center space-x-2;
+	}
+
+	.pagination {
+		.is-container-full & {
+			@apply px-6;
+		}
+	}
+
+	.pagination {
+		.is-container-boxed & {
+			@apply container;
+		}
 	}
 
 	.pagination__item {
-		@apply hidden sm:flex h-12 w-12 border border-septenary rounded-full items-center justify-center text-quaternary;
+		@apply hidden h-12 w-12 items-center justify-center rounded-full border border-septenary text-quaternary sm:flex;
 
 		&.pagination__item--prev,
 		&.pagination__item--next {
-			@apply flex sm:flex w-auto transition-all duration-500 ease-default;
+			@apply flex w-auto transition-all duration-500 ease-default sm:flex;
 
 			.pagination__text {
 				@apply px-9;
@@ -17,7 +29,7 @@
 			&:hover {
 				@apply border-primary;
 				.pagination__text {
-					@apply bg-transparent border-primary text-primary;
+					@apply border-primary bg-transparent text-primary;
 				}
 			}
 		}
@@ -31,7 +43,7 @@
 		}
 
 		&.is-active {
-			@apply flex sm:flex bg-primary text-white border-primary;
+			@apply flex border-primary bg-primary text-white sm:flex;
 		}
 
 		.pagination__text {
@@ -40,7 +52,7 @@
 
 		&:hover {
 			.pagination__text {
-				@apply bg-primary border-primary text-white;
+				@apply border-primary bg-primary text-white;
 			}
 		}
 	}

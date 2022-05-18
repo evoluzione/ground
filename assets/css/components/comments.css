@@ -1,14 +1,6 @@
 @layer components {
 	.comments {
 		@apply prose relative mt-16;
-
-		.is-container-full & {
-			@apply mx-6;
-		}
-
-		.is-container-boxed & {
-			@apply container;
-		}
 	}
 
 	.comments__list {

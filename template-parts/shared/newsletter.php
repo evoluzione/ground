@@ -1,6 +1,6 @@
 <?php if (GROUND_NEWSLETTER_SHORTCODE) : ?>
 	
-	<div class="<?php echo get_container_class() ?>">
+	<div class="pre-footer__newsletter">
 		<div class="bg-tertiary border-b border-septenary py-12 my-12 rounded-theme lg:py-24 lg:my-24">
 			<div class="mx-auto max-w-5xl text-center px-6">
 				<?php if (GROUND_NEWSLETTER_TITLE) : ?>
@@ -50,4 +50,4 @@
 			</div>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif;

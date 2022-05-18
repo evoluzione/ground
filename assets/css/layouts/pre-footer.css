@@ -1,0 +1,12 @@
+.pre-footer {
+	&__payments,
+	&__newsletter {
+		.is-container-full & {
+			@apply px-6;
+		}
+
+		.is-container-boxed & {
+			@apply container;
+		}
+	}
+}

@@ -12,12 +12,12 @@
 }
 
 /* Handle blocks if layout is fullscreen */
-
-.is-container-full:not(.woocommerce-page) {
+/*.woocommerce-page*/
+.is-container-full {
 	/* All blocks that contain in class wp-block- except few exceptions */
-	[class*="wp-block-"]:not(.is-fullscreen),
+	[class*="wp-block-"],
 	/* All blocks that contain in class ground-block- except few exceptions */
-	[class*="ground-block-"]:not(.is-fullscreen, .ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background) {
+	[class*="ground-block-"]:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image) {
 		@apply mx-6;
 	}
 

@@ -23,7 +23,8 @@ do_action( 'ground_archive_before' );
 			<?php if ( have_posts() ) : ?>
 				<div class="hero overflow-hidden my-6 lg:my-24 lg:mt-12 relative rounded-theme">
 					<div class="relative text-tertiary py-16 lg:py-32">
-						<div class="grid grid-cols-12 gap-x-6 items-center <?php echo get_container_class() ?>">
+						
+						<div class="grid grid-cols-12 gap-x-6 items-center container">
 							<div class="col-span-full lg:col-span-4">
 								<div class="mb-6 flex items-center gap-6 lg:mb-0 lg:ml-6">
 									<?php
@@ -65,7 +66,7 @@ do_action( 'ground_archive_before' );
 					</div>
 				</div>
 
-				<div class="page__body relative <?php echo get_container_class() ?>">
+				<div class="page__body relative">
 					<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
 						<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
 							<div class="col-span-3">

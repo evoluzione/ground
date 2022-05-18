@@ -109,7 +109,3 @@ function ground_wp_blocks_add_custom_class( $block_content, $has_class, $class_t
 	$replacement = 'class="' . $class_to_add . ( $has_class ? ' ' : '' ) . '$1"';
 	return preg_replace( $pattern, $replacement, $block_content );
 }
-
-function get_container_class(){
-	return GROUND_CONTAINER === 'container-boxed' ? 'container' : 'mx-6';
-}

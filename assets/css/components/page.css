@@ -2,6 +2,9 @@
 	.page {
 	}
 
+	.page--post-single .page__body,
+	.page--blog,
+	.page--archive .page__body,
 	.page--woocommerce-archive,
 	.page--woocommerce-single {
 		.is-container-full & {
@@ -9,6 +12,9 @@
 		}
 	}
 
+	.page--post-single .page__body,
+	.page--blog,
+	.page--archive .page__body,
 	.page--search,
 	.page--woocommerce-archive {
 		.is-container-boxed & {
