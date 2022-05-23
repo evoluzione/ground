@@ -28,6 +28,9 @@
 		.is-container-boxed & {
 			@apply container;
 		}
+		.is-container-full & {
+			@apply mx-6;
+		}
 	}
 
 	.page__title {

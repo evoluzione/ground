@@ -58,6 +58,11 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block-list' );
 			break;
 		
+		case 'core/image':
+			// Add wp-block class to block and avoid to wrap it because of core/gallery
+			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block' );
+			break;
+		
 		default:
 			break;
 	}
@@ -69,6 +74,8 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 
 		$block_content      = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
+
+	// var_dump($block_name);
 
 	return $block_content;
 }
@@ -83,7 +90,7 @@ add_filter( 'render_block', 'ground_wp_blocks_handle_custom_class', 10, 2 );
  */
 function is_block_to_wrap( string $block_name ) {
 	// Avoid to wrap native blocks because of style e.g. columns
-	$blocks_black_list = array('core/column');
+	$blocks_black_list = array('core/column', 'core/image', 'core/cover', 'core/button');
 	return ! in_array( $block_name , $blocks_black_list );
 }
 

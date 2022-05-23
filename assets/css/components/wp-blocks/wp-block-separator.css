@@ -1,12 +1,12 @@
 /* wp-block-separator */
 .wp-block-separator {
-	@apply my-12 lg:my-24 border-septenary w-40 mx-auto border-t-0;
+	@apply my-12 mx-auto w-40 border-t-0 border-septenary lg:my-24;
 
 	&.is-style-wide {
-		@apply w-full;
+		@apply w-auto max-w-full;
 	}
 
 	&.is-style-dots {
-		@apply text-quaternary w-full;
+		@apply w-full text-quaternary;
 	}
 }
