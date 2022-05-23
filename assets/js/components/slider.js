@@ -4,10 +4,10 @@
  * @see http://idangero.us/swiper
  */
 //import Swiper from 'swiper/bundle';
-import { Swiper, Navigation, Pagination, Autoplay, Lazy, EffectFade } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller } from 'swiper';
 import deepmerge from 'deepmerge';
 
-Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade]);
+Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller ]);
 export default class Slider {
 	/**
 	 * @param {string} element - Selector
@@ -77,7 +77,7 @@ export default class Slider {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
 		// window.addEventListener('DOMContentLoaded', () => {
-			this.init();
+		this.init();
 		// });
 
 		window.addEventListener('NAVIGATE_END', () => {
@@ -167,5 +167,9 @@ export default class Slider {
 			return;
 		}
 		this.slider.slideTo(index, speed, runCallbacks);
+	}
+
+	addControl(slider){
+		this.slider.controller.control = slider.slider;
 	}
 }
