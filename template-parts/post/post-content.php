@@ -28,10 +28,12 @@
 
 	</div> <!-- End .hero hero--full-width -->
 
-	<header class="page__header hidden">
-		<h1 class="page__title"><?php the_title(); ?></h1>
-		<span class="page__data page__data--date"><time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
-	</header>
+	<div class="container">
+		<header class="page__header hidden">
+			<h1 class="page__title"><?php the_title(); ?></h1>
+			<span class="page__data page__data--date"><time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
+		</header>
+	</div>
 
 	<div class="page__body mt-12 mb-24 lg:mb-72">
 		<div class="prose">
@@ -54,7 +56,7 @@
 		?>
 
 		<?php if ( count( $parent->posts ) > 0 ) { ?>
-			<div class="mt-24 mb-24">
+			<div class="mt-24 mb-24 container">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 					<div class="relative">
 						<h3 class="text-4xl no-underline mb-4 relative"> <?php _e( 'Other news', 'ground' ); ?> </h3>

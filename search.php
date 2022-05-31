@@ -9,14 +9,16 @@ get_template_part( 'template-parts/header/header' ); ?>
 
 <section class="page page--search">
 
-	<header class="page__header">
-		<h1 class="page__title">
-			<?php
-			/* translators: %s: search query. */
-			printf( esc_html__( 'Search Results for: %s', 'ground' ), '<span>' . get_search_query() . '</span>' );
-			?>
-		</h1>
-	</header>
+	<div class="container">
+		<header class="page__header">
+			<h1 class="page__title">
+				<?php
+				/* translators: %s: search query. */
+				printf( esc_html__( 'Search Results for: %s', 'ground' ), '<span>' . get_search_query() . '</span>' );
+				?>
+			</h1>
+		</header>
+	</div>
 
 	<div class="page__body">
 
@@ -55,7 +57,7 @@ get_template_part( 'template-parts/header/header' ); ?>
 
 				</div>
 
-				<?php 
+				<?php
 			} else {
 				?>
 				<div class="col-span-12">
@@ -63,7 +65,7 @@ get_template_part( 'template-parts/header/header' ); ?>
 				</div>
 				<?php
 			}
-			
+
 			?>
 
 		</div>

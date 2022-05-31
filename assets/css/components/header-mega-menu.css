@@ -1,9 +1,7 @@
 @layer components {
 	.header-mega-menu {
 		.header__container {
-			.is-container-boxed & {
-				@apply container;
-			}
+			@apply container;
 		}
 
 		.header__panel {

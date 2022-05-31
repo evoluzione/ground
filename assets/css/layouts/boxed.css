@@ -1,0 +1,5 @@
+@layer utilities {
+    .boxed {
+        @apply max-w-[1440px] mx-auto;
+    }
+}

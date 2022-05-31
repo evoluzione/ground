@@ -1,14 +1,6 @@
 @layer components {
 	.breadcrumb {
-		@apply relative my-6 h-6 overflow-y-hidden text-sm md:relative;
-
-		.is-container-full & {
-			@apply px-6;
-		}
-
-		.is-container-boxed & {
-			@apply container;
-		}
+		@apply container relative my-6 h-6 overflow-y-hidden text-sm md:relative;
 
 		@screen md {
 			&:after {

@@ -32,7 +32,7 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 
-<section class="page page--woocommerce-archive">
+<section class="page page--woocommerce-archive container">
 
 <div class="grid grid-cols-12 gap-x-6 lg:mt-12">
 

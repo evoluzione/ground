@@ -22,18 +22,20 @@ do_action( 'ground_index_before' );
 
 	<div class="relative mb-12 lg:mb-24">
 		<?php if ( single_post_title( '', false ) ) : ?>
-			<header class="page__header">
-				<h1 class="page__title lg:mt-24"><?php single_post_title(); ?></h1>
-				<?php if ( count( $categories_ids ) > 1 ) { ?>
-					<?php get_template_part( 'template-parts/navigation/navigation-blog' ); ?>
-				<?php } ?>
+			<div class="container">
+				<header class="page__header">
+					<h1 class="page__title lg:mt-24"><?php single_post_title(); ?></h1>
+					<?php if ( count( $categories_ids ) > 1 ) { ?>
+						<?php get_template_part( 'template-parts/navigation/navigation-blog' ); ?>
+					<?php } ?>
 
-				<?php
-				$page_for_posts_id  = get_option( 'page_for_posts' );
-				$page_for_posts_obj = get_post( $page_for_posts_id );
-				echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
-				?>
-			</header>
+					<?php
+					$page_for_posts_id  = get_option( 'page_for_posts' );
+					$page_for_posts_obj = get_post( $page_for_posts_id );
+					echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
+					?>
+				</header>
+			</div>
 		<?php endif; ?>
 
 		<?php
@@ -69,7 +71,7 @@ do_action( 'ground_index_before' );
 				</div>
 			</div>
 
-		<div class="mt-12">
+		<div class="mt-12 container">
 
 			<section class="page page--blog">
 				<?php

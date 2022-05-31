@@ -346,11 +346,9 @@ function ground_body_class( $classes ) {
 		$classes[] = 'debug-screens';
 	}
 
-	if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) {
-		$classes[] = 'is-container-boxed';
+	if ( GROUND_CONTAINER ) {
+		$classes[] = 'is-container-full';
 	}
-
-	$classes[] = 'is-' . esc_attr( GROUND_CONTAINER );
 
 	return $classes;
 }

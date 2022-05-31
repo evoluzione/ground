@@ -66,7 +66,7 @@ do_action( 'ground_archive_before' );
 					</div>
 				</div>
 
-				<div class="page__body relative">
+				<div class="page__body relative container">
 					<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
 						<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
 							<div class="col-span-3">

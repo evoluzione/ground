@@ -36,16 +36,18 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 	$block_name = $block['blockName'];
 
 	// Skip empty blocks
-	$is_empty = strlen(trim($block_content)) == 0;
-	if ( !$block_name && $is_empty ) return $block_content;
+	$is_empty = strlen( trim( $block_content ) ) == 0;
+	if ( ! $block_name && $is_empty ) {
+		return $block_content;
+	}
 
 	// Classic editor has no name but has content
-	$is_classic_editor = !$block_name && !$is_empty;
+	$is_classic_editor = ! $block_name && ! $is_empty;
 
 	$has_class     = strpos( $block_content, 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
 
-	switch ($block_name) {
+	switch ( $block_name ) {
 		case 'core/paragraph':
 			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block-paragraph' );
 			break;
@@ -57,22 +59,22 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		case 'core/list':
 			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block-list' );
 			break;
-		
+
 		case 'core/image':
 			// Add wp-block class to block and avoid to wrap it because of core/gallery
 			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block' );
 			break;
-		
+
 		default:
 			break;
 	}
-	
-	if ( $is_classic_editor || is_block_to_wrap($block_name) ) {
-		$additional_classes = 'wp-block';
+
+	if ( $is_classic_editor || is_block_to_wrap( $block_name ) ) {
+		$additional_classes  = 'wp-block';
 		$additional_classes .= $is_classic_editor ? ' wp-block-classic-editor' : '';
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
 
-		$block_content      = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
+		$block_content = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
 
 	// var_dump($block_name);
@@ -90,8 +92,8 @@ add_filter( 'render_block', 'ground_wp_blocks_handle_custom_class', 10, 2 );
  */
 function is_block_to_wrap( string $block_name ) {
 	// Avoid to wrap native blocks because of style e.g. columns
-	$blocks_black_list = array('core/column', 'core/image', 'core/cover', 'core/button');
-	return ! in_array( $block_name , $blocks_black_list );
+	$blocks_black_list = array( 'core/column', 'core/image', 'core/button' );
+	return ! in_array( $block_name, $blocks_black_list );
 }
 
 /**

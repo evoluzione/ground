@@ -1,9 +1,11 @@
 <article class="page">
 
 	<?php if ( ! is_front_page() ) : ?>
-		<header class="page__header">
-			<h1 class="page__title"><?php the_title(); ?></h1>
-		</header>
+		<div class="container">			
+			<header class="page__header">
+				<h1 class="page__title"><?php the_title(); ?></h1>
+			</header>
+		</div>
 	<?php endif; ?>
 
 	<div class="page__body">
@@ -17,7 +19,7 @@
 
 		<div class="
 		<?php
-		if ( !class_exists( 'WooCommerce' ) || (class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart()) ) :
+		if ( ! class_exists( 'WooCommerce' ) || ( class_exists( 'WooCommerce' ) && ! is_checkout() && ! is_cart() ) ) :
 			echo 'prose';
 		endif;
 		?>

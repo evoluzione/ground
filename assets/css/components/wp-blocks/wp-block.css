@@ -1,39 +1,10 @@
 /* wp-block generic*/
 
 .wp-block {
-	.is-container-boxed & {
-		@apply container;
-	}
+	@apply container;
 
 	.wp-block,
 	&.is-fullscreen {
 		@apply max-w-none px-0;
-	}
-}
-
-/* Handle blocks if layout is fullscreen */
-/*.woocommerce-page*/
-.is-container-full {
-	/* All blocks that contain in class wp-block- except few exceptions */
-	[class*="wp-block-"]:not([class*="wp-block-cover"] ),
-	/* All blocks that contain in class ground-block- except few exceptions */
-	[class*="ground-block-"]:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image, .ground-block-text-horizontal-scrolled ) {
-		@apply mx-6;
-	}
-
-	.ground-block-products {
-		@apply px-6;
-	}
-}
-
-/* Handle blocks if layout is boxed and has class is-fullscreen */
-.is-container-boxed {
-	[class*="wp-block-"].is-fullscreen:not(.wp-block-cover, .wp-block-image),
-	[class*="ground-block-"].is-fullscreen:not(.ground-block-banner, .ground-block-carousel, .ground-block-products, .ground-block-image-background, .ground-block-topic-image, .ground-block-text-horizontal-scrolled) {
-		@apply mx-6;
-	}
-
-	.wp-block-image.is-fullscreen {
-		@apply px-6;
 	}
 }

@@ -76,7 +76,7 @@ function ground_theme_costants() {
 
 	// Settings.
 	if ( ! defined( 'GROUND_CONTAINER' ) ) {
-		define( 'GROUND_CONTAINER', get_theme_mod( 'container' ) ? get_theme_mod( 'container' ) : 'container-boxed' );
+		define( 'GROUND_CONTAINER', get_theme_mod( 'container' ) ? get_theme_mod( 'container' ) : '' );
 	}
 	if ( ! defined( 'GROUND_ROUNDED_THEME' ) ) {
 		define( 'GROUND_ROUNDED_THEME', get_theme_mod( 'rounded_theme' ) ? get_theme_mod( 'rounded_theme' ) : '0' );

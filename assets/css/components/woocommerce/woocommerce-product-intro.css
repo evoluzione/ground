@@ -1,5 +1,3 @@
 .woocommerce-product-intro {
-	.is-container-boxed & {
-		@apply container;
-	}
+	@apply container;
 }

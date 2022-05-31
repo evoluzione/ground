@@ -1,5 +1,6 @@
 @layer components {
 	.footer {
+		@apply container;
 		body.woocommerce-checkout & {
 			@apply hidden;
 		}
@@ -9,11 +10,5 @@
 	}
 
 	.footer__body {
-		.is-container-full & {
-			@apply px-6;
-		}
-		.is-container-boxed & {
-			@apply container;
-		}
 	}
 }

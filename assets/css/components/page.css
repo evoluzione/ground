@@ -2,35 +2,8 @@
 	.page {
 	}
 
-	.page--post-single .page__body,
-	.page--blog,
-	.page--archive .page__body,
-	.page--woocommerce-archive,
-	.page--woocommerce-single {
-		.is-container-full & {
-			@apply px-6;
-		}
-	}
-
-	.page--post-single .page__body,
-	.page--blog,
-	.page--archive .page__body,
-	.page--search,
-	.page--woocommerce-archive {
-		.is-container-boxed & {
-			@apply container;
-		}
-	}
-
 	.page__header {
 		@apply my-6;
-
-		.is-container-boxed & {
-			@apply container;
-		}
-		.is-container-full & {
-			@apply mx-6;
-		}
 	}
 
 	.page__title {

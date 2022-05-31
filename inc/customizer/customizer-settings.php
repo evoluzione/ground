@@ -22,8 +22,7 @@ function ground_customizer_settings( $wp_customize ) {
 	$wp_customize->add_setting(
 		'container',
 		array(
-			'default' => 'container-boxed',
-			'type'    => 'theme_mod',
+			'default' => '',
 		)
 	);
 
@@ -46,21 +45,12 @@ function ground_customizer_settings( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control(
-			$wp_customize,
-			'container_control',
-			array(
-				'label'       => __( 'Select Container Size', 'ground' ),
-				'description' => __( 'Using this option you can change the container size', 'ground' ),
-				'settings'    => 'container',
-				'priority'    => 10,
-				'section'     => 'ground_section_settings',
-				'type'        => 'select',
-				'choices'     => array(
-					'container-boxed' => 'Container boxed',
-					'container-full'  => 'Container full',
-				),
-			)
+		'container_control',
+		array(
+			'label'    => 'Using this check you can change the container size in Fullscreen',
+			'type'     => 'checkbox',
+			'section'  => 'ground_section_settings',
+			'settings' => 'container',
 		)
 	);
 

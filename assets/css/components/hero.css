@@ -1,6 +1,7 @@
 @layer components {
 	.hero {
 		@apply relative;
+		border: 4px solid blue;
 
 		&.hero--full-width {
 			@apply transform -translate-x-2/4 w-screen ml-1/2;
