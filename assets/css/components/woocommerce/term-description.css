@@ -1,0 +1,5 @@
+.term-description {
+    .wp-block {
+        @apply px-0;
+    }
+}

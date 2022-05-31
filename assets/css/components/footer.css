@@ -1,6 +1,5 @@
 @layer components {
 	.footer {
-		@apply container;
 		body.woocommerce-checkout & {
 			@apply hidden;
 		}
@@ -10,5 +9,6 @@
 	}
 
 	.footer__body {
+		@apply container;
 	}
 }
