@@ -1,10 +1,7 @@
-/* wp-block generic*/
-
 .wp-block {
 	@apply container;
 
-	.wp-block,
 	&.is-fullscreen {
-		@apply max-w-none px-0;
+		@apply max-w-none;
 	}
 }

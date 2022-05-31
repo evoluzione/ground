@@ -1,10 +1,8 @@
 <?php
 
 /**
- * Aggiungo i file js che servono a gestire i blocchi Gutenberg
+ * Add Gutenberg editor scripts
  */
-
-
 function ground_enqueue_gutenberg_script() {
 	global $pagenow;
 
@@ -20,12 +18,13 @@ function ground_enqueue_gutenberg_script() {
 
 	wp_enqueue_script( 'ground/gutenberg', $path, $deps, false, $in_footer );
 }
+
 if ( is_admin() ) {
 	add_action( 'enqueue_block_assets', 'ground_enqueue_gutenberg_script' );
 }
 
 /**
- * Function to handle custom class to core blocks
+ * Handle custom class to core blocks
  *
  * @param string $block_content The content of the block.
  * @param array  $block The object block.
@@ -33,16 +32,24 @@ if ( is_admin() ) {
  */
 function ground_wp_blocks_handle_custom_class( string $block_content, array $block ) {
 
+	if ( is_admin() && wp_is_json_request() ) {
+		return $block_content;
+	}
+
 	$block_name = $block['blockName'];
 
-	// Skip empty blocks
+	// Skip empty blocks.
 	$is_empty = strlen( trim( $block_content ) ) == 0;
 	if ( ! $block_name && $is_empty ) {
 		return $block_content;
 	}
 
-	// Classic editor has no name but has content
+	// Classic editor has no name but has content.
 	$is_classic_editor = ! $block_name && ! $is_empty;
+
+	if ( $is_classic_editor ) {
+		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
+	}
 
 	$has_class     = strpos( $block_content, 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
@@ -60,24 +67,15 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block-list' );
 			break;
 
-		case 'core/image':
-			// Add wp-block class to block and avoid to wrap it because of core/gallery
-			$block_content = ground_wp_blocks_add_custom_class( $block_content, $has_class, 'wp-block' );
-			break;
-
 		default:
 			break;
 	}
 
-	if ( $is_classic_editor || is_block_to_wrap( $block_name ) ) {
+	if ( isset( $block['attrs']['toWrap'] ) ) {
 		$additional_classes  = 'wp-block';
-		$additional_classes .= $is_classic_editor ? ' wp-block-classic-editor' : '';
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
-
-		$block_content = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
+		$block_content       = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
-
-	// var_dump($block_name);
 
 	return $block_content;
 }
@@ -85,19 +83,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 add_filter( 'render_block', 'ground_wp_blocks_handle_custom_class', 10, 2 );
 
 /**
- * Function to determine if wrap the block with custom div
- *
- * @param string $block_name
- * @return boolean
- */
-function is_block_to_wrap( string $block_name ) {
-	// Avoid to wrap native blocks because of style e.g. columns
-	$blocks_black_list = array( 'core/column', 'core/image', 'core/button' );
-	return ! in_array( $block_name, $blocks_black_list );
-}
-
-/**
- * Function to add a custom class to native wp blocks
+ * Add a custom class to native wp blocks
  *
  * @param string  $block_content The content block to handle.
  * @param boolean $has_class Detect if the block has already a class.
@@ -118,3 +104,22 @@ function ground_wp_blocks_add_custom_class( $block_content, $has_class, $class_t
 	$replacement = 'class="' . $class_to_add . ( $has_class ? ' ' : '' ) . '$1"';
 	return preg_replace( $pattern, $replacement, $block_content );
 }
+
+/**
+ * Detect if a block has a parent.
+ *
+ * @param array         $parsed_block The block being rendered.
+ * @param array         $source_block An un-modified copy of $parsed_block, as it appeared in the source content.
+ * @param WP_Block|null $parent_block If this is a nested block, a reference to the parent block.
+ * @return string
+ */
+function ground_block_data_pre_render( $parsed_block, $source_block, $parent_block ) {
+
+	if ( ! $parent_block && ! is_admin() && ! wp_is_json_request() ) {
+		$parsed_block['attrs']['toWrap'] = 1;
+	}
+
+	return $parsed_block;
+}
+
+add_filter( 'render_block_data', 'ground_block_data_pre_render', 12, 3 );
