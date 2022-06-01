@@ -78,6 +78,69 @@ export default class BlocksRegisterBlockAttribute {
 	}
 
 	/**
+	 * Remove Padding
+	 */
+	 registerFullBleed() {
+		const classToAdd = 'is-full-bleed';
+
+		function addAttributes(settings, name) {
+			// Check if object exists for old Gutenberg version compatibility
+			// Woocommerce blocks generate an error
+			if (typeof settings.attributes !== 'undefined' && !name.includes('woocommerce')) {
+				settings.attributes = Object.assign(settings.attributes, {
+					fullBleed: {
+						type: 'boolean',
+						default: false
+					}
+				});
+			}
+
+			return settings;
+		}
+
+		const withAdvancedControls = createHigherOrderComponent((BlockEdit) => {
+			return (props) => {
+				const { name, attributes, setAttributes, isSelected } = props;
+
+				const { fullBleed } = attributes;
+
+				return (
+					<Fragment>
+						<BlockEdit {...props} />
+						{isSelected && (
+							<InspectorAdvancedControls>
+								<ToggleControl
+									label={__('Full bleed')}
+									checked={!!fullBleed}
+									onChange={() => setAttributes({ fullBleed: !fullBleed })}
+									help={fullBleed ? __('The block has no margin.') : __('The block has margin.')}
+								/>
+							</InspectorAdvancedControls>
+						)}
+					</Fragment>
+				);
+			};
+		}, 'withAdvancedControls');
+
+		function applyExtraClass(extraProps, blockType, attributes) {
+			const { fullBleed } = attributes;
+
+			//check if attribute exists for old Gutenberg version compatibility
+			//add class only when fullscreen = true
+			if (typeof fullBleed !== 'undefined' && fullBleed) {
+				extraProps.className = classnames(extraProps.className, classToAdd);
+			}
+
+			return extraProps;
+		}
+
+		//add filters
+		wp.hooks.addFilter('blocks.registerBlockType', 'ground/custom-attributes', addAttributes);
+		addFilter('editor.BlockEdit', 'ground/custom-advanced-control', withAdvancedControls);
+		addFilter('blocks.getSaveContent.extraProps', 'ground/applyExtraClass', applyExtraClass);
+	}
+
+	/**
 	 * Spacer
 	 */
 	registerSpacerVariation() {

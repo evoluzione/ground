@@ -54,6 +54,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 
 	$has_class     = strpos( $block_content, 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
+	$is_full_bleed = strpos( $block_content, 'is-full-bleed' );
 
 	switch ( $block_name ) {
 		case 'core/paragraph':
@@ -78,6 +79,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 
 		$additional_classes  = 'ground-block-wrapper' . ' ground-block-wrapper--' . $block_name;
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
+		$additional_classes .= $is_full_bleed ? ' is-full-bleed' : '';
 		$block_content       = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
 

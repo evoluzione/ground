@@ -4,4 +4,8 @@
 	&.is-fullscreen {
 		@apply max-w-none;
 	}
+
+	&.is-full-bleed {
+		@apply p-0;
+	}
 }
