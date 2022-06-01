@@ -1,5 +1,3 @@
-import imagesLoaded from 'imagesloaded';
-
 export default class Billing {
 	constructor() {
 		this.DOM = {
@@ -8,9 +6,9 @@ export default class Billing {
 			element: document.querySelector('.woocommerce-cart'),
 			billingMethod: document.querySelector('#billing_customer_type')
 		};
-		imagesLoaded(this.DOM.body, { background: true }, () => {
-			this.init();
-		});
+
+		this.init();
+
 	}
 
 	init() {
