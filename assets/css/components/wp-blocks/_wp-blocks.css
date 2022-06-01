@@ -1,6 +1,5 @@
 /* Import from all wp-blocks directory */
 
-@import "wp-block.css";
 @import "wp-block-audio.css";
 @import "wp-block-code.css";
 @import "wp-block-columns.css";

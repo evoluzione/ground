@@ -1,4 +1,4 @@
-.wp-block {
+.ground-block-wrapper {
 	@apply container;
 
 	&.is-fullscreen {

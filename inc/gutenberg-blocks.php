@@ -72,7 +72,10 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 	}
 
 	if ( isset( $block['attrs']['toWrap'] ) ) {
-		$additional_classes  = 'wp-block';
+		$pattern    = '/(.*?)\//';
+		$block_name = preg_replace( $pattern, '', $block_name );
+
+		$additional_classes  = 'ground-block-wrapper' . ' ground-block-wrapper--' . $block_name;
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
 		$block_content       = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
@@ -123,3 +126,29 @@ function ground_block_data_pre_render( $parsed_block, $source_block, $parent_blo
 }
 
 add_filter( 'render_block_data', 'ground_block_data_pre_render', 12, 3 );
+
+
+/**
+ * Serve per inserire la classe specifica a ciascun blocco gutember.
+ *
+ * @param array         $parsed_block The block being rendered.
+ * @param array         $source_block An un-modified copy of $parsed_block, as it appeared in the source content.
+ * @param WP_Block|null $parent_block If this is a nested block, a reference to the parent block.
+ * @return string
+ */
+
+function ground_normalize_block_name( $block ) {
+
+	$block_name = $block['name'];
+
+	$pattern    = '/(.*?)\//';
+	$block_name = preg_replace( $pattern, '', $block_name );
+
+	$block_name = 'ground-block-' . $block_name;
+
+	if ( ! empty( $block['className'] ) ) {
+		$block_name .= ' ' . $block['className'];
+	}
+
+	return $block_name;
+}
