@@ -48,6 +48,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 	$is_classic_editor = ! $block_name && ! $is_empty;
 
 	if ( $is_classic_editor ) {
+		$block_name = 'core/classic-editor';
 		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
 	}
 

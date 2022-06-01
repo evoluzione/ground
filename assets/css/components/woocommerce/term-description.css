@@ -1,5 +1,5 @@
 .term-description {
-    .wp-block {
-        @apply px-0;
-    }
+	.ground-block-wrapper {
+		@apply px-0;
+	}
 }
