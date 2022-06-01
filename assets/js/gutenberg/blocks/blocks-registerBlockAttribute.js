@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/display-name */
 /* eslint-disable react/react-in-jsx-scope */
 import classnames from 'classnames';
@@ -17,8 +18,7 @@ export default class BlocksRegisterBlockAttribute {
 	/**
 	 * Fullscreen
 	 */
-	registerFullscreen() {
-		const classToAdd = 'is-fullscreen';
+	registerBlockAttribute() {
 
 		function addAttributes(settings, name) {
 			// Check if object exists for old Gutenberg version compatibility
@@ -28,67 +28,8 @@ export default class BlocksRegisterBlockAttribute {
 					fullscreen: {
 						type: 'boolean',
 						default: false
-					}
-				});
-			}
-
-			return settings;
-		}
-
-		const withAdvancedControls = createHigherOrderComponent((BlockEdit) => {
-			return (props) => {
-				const { name, attributes, setAttributes, isSelected } = props;
-
-				const { fullscreen } = attributes;
-
-				return (
-					<Fragment>
-						<BlockEdit {...props} />
-						{isSelected && (
-							<InspectorAdvancedControls>
-								<ToggleControl
-									label={__('Full screen')}
-									checked={!!fullscreen}
-									onChange={() => setAttributes({ fullscreen: !fullscreen })}
-									help={fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
-								/>
-							</InspectorAdvancedControls>
-						)}
-					</Fragment>
-				);
-			};
-		}, 'withAdvancedControls');
-
-		function applyExtraClass(extraProps, blockType, attributes) {
-			const { fullscreen } = attributes;
-
-			//check if attribute exists for old Gutenberg version compatibility
-			//add class only when fullscreen = true
-			if (typeof fullscreen !== 'undefined' && fullscreen) {
-				extraProps.className = classnames(extraProps.className, classToAdd);
-			}
-
-			return extraProps;
-		}
-
-		//add filters
-		wp.hooks.addFilter('blocks.registerBlockType', 'ground/custom-attributes', addAttributes);
-		addFilter('editor.BlockEdit', 'ground/custom-advanced-control', withAdvancedControls);
-		addFilter('blocks.getSaveContent.extraProps', 'ground/applyExtraClass', applyExtraClass);
-	}
-
-	/**
-	 * Remove Padding
-	 */
-	 registerFullBleed() {
-		const classToAdd = 'is-full-bleed';
-
-		function addAttributes(settings, name) {
-			// Check if object exists for old Gutenberg version compatibility
-			// Woocommerce blocks generate an error
-			if (typeof settings.attributes !== 'undefined' && !name.includes('woocommerce')) {
-				settings.attributes = Object.assign(settings.attributes, {
-					fullBleed: {
+					},
+					fullbleed: {
 						type: 'boolean',
 						default: false
 					}
@@ -100,21 +41,33 @@ export default class BlocksRegisterBlockAttribute {
 
 		const withAdvancedControls = createHigherOrderComponent((BlockEdit) => {
 			return (props) => {
+				// eslint-disable-next-line no-unused-vars
 				const { name, attributes, setAttributes, isSelected } = props;
 
-				const { fullBleed } = attributes;
+				const { fullscreen, fullbleed } = attributes;
 
 				return (
 					<Fragment>
-						<BlockEdit {...props} />
+						<BlockEdit key="ground_block_edit" {...props} />
 						{isSelected && (
 							<InspectorAdvancedControls>
+
 								<ToggleControl
-									label={__('Full bleed')}
-									checked={!!fullBleed}
-									onChange={() => setAttributes({ fullBleed: !fullBleed })}
-									help={fullBleed ? __('The block has no margin.') : __('The block has margin.')}
+									key="ground_block_edit_fullscreen"
+									label={__('Full screen')}
+									checked={!!fullscreen}
+									onChange={() => setAttributes({ fullscreen: !fullscreen })}
+									help={fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
 								/>
+
+								<ToggleControl
+									key="ground_block_edit_fullbleed"
+									label={__('Full bleed')}
+									checked={!!fullbleed}
+									onChange={() => setAttributes({ fullbleed: !fullbleed })}
+									help={fullbleed ? __('The block has no margin.') : __('The block has margin.')}
+								/>
+
 							</InspectorAdvancedControls>
 						)}
 					</Fragment>
@@ -123,19 +76,23 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
-			const { fullBleed } = attributes;
+			const { fullscreen, fullbleed } = attributes;
 
 			//check if attribute exists for old Gutenberg version compatibility
 			//add class only when fullscreen = true
-			if (typeof fullBleed !== 'undefined' && fullBleed) {
-				extraProps.className = classnames(extraProps.className, classToAdd);
+			if (typeof fullscreen !== 'undefined' && fullscreen) {
+				extraProps.className = classnames(extraProps.className, 'is-fullscreen');
+			}
+			
+			if (typeof fullbleed !== 'undefined' && fullbleed) {
+				extraProps.className = classnames(extraProps.className, 'is-full-bleed');
 			}
 
 			return extraProps;
 		}
 
 		//add filters
-		wp.hooks.addFilter('blocks.registerBlockType', 'ground/custom-attributes', addAttributes);
+		addFilter('blocks.registerBlockType', 'ground/custom-attributes', addAttributes);
 		addFilter('editor.BlockEdit', 'ground/custom-advanced-control', withAdvancedControls);
 		addFilter('blocks.getSaveContent.extraProps', 'ground/applyExtraClass', applyExtraClass);
 	}
