@@ -9,7 +9,7 @@ import classnames from 'classnames';
 
 const { __ } = wp.i18n;
 const { addFilter } = wp.hooks;
-const { Fragment } = wp.element;
+const { Fragment, useState } = wp.element;
 const { createHigherOrderComponent } = wp.compose;
 const { ToggleControl, SelectControl, PanelBody, PanelRow } = wp.components;
 const { InspectorAdvancedControls, InspectorControls } = wp.blockEditor;
@@ -32,6 +32,10 @@ export default class BlocksRegisterBlockAttribute {
 					fullbleed: {
 						type: 'boolean',
 						default: false
+					},
+					boxed: {
+						type: 'boolean',
+						default: false
 					}
 				});
 			}
@@ -41,10 +45,33 @@ export default class BlocksRegisterBlockAttribute {
 
 		const withAdvancedControls = createHigherOrderComponent((BlockEdit) => {
 			return (props) => {
+				
 				// eslint-disable-next-line no-unused-vars
 				const { name, attributes, setAttributes, isSelected } = props;
+				const { fullscreen, fullbleed, boxed } = attributes;
 
-				const { fullscreen, fullbleed } = attributes;
+				const [ blockContainer, setBlockContainer ] = useState(getBlockContainerAttribute(fullscreen, boxed));
+
+				function getBlockContainerAttribute(fullscreen, boxed) {
+					if(fullscreen) return 'fullscreen';
+					if(boxed) return 'boxed';
+					return '';
+				}
+
+				function setBlockContainerAttribute(value){
+
+					// reset all attributes
+					setAttributes({ boxed: false });
+					setAttributes({ fullscreen: false });
+
+					// Set the state to view in select the correct value
+					setBlockContainer(value);
+
+					// Set block attribute
+					if(value === 'boxed') setAttributes({ boxed: true });
+					if(value === 'fullscreen') setAttributes({ fullscreen: true });
+
+				}
 
 				return (
 					<Fragment>
@@ -52,13 +79,17 @@ export default class BlocksRegisterBlockAttribute {
 						{isSelected && (
 							<InspectorAdvancedControls>
 
-								<ToggleControl
-									key="ground_block_edit_fullscreen"
-									label={__('Full screen')}
-									checked={!!fullscreen}
-									onChange={() => setAttributes({ fullscreen: !fullscreen })}
-									help={fullscreen ? __('The block is fullscreen.') : __('The block is boxed.')}
-								/>
+								<SelectControl
+									key="ground_block_edit_select"
+									label={ __( 'Block container' ) }
+									value={ blockContainer }
+									onChange={ ( value ) => { setBlockContainerAttribute(value); } }
+									__nextHasNoMarginBottom
+								>
+									<option key="ground_block_edit_select_default" value="default">Default</option>
+									<option key="ground_block_edit_select_boxed" value="boxed">Boxed</option>
+									<option key="ground_block_edit_select_fullscreen" value="fullscreen">Fullscreen</option>
+								</SelectControl>
 
 								<ToggleControl
 									key="ground_block_edit_fullbleed"
@@ -76,7 +107,7 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
-			const { fullscreen, fullbleed } = attributes;
+			const { fullscreen, fullbleed, boxed } = attributes;
 
 			//check if attribute exists for old Gutenberg version compatibility
 			//add class only when fullscreen = true
@@ -86,6 +117,10 @@ export default class BlocksRegisterBlockAttribute {
 			
 			if (typeof fullbleed !== 'undefined' && fullbleed) {
 				extraProps.className = classnames(extraProps.className, 'is-full-bleed');
+			}
+
+			if (typeof boxed !== 'undefined' && boxed) {
+				extraProps.className = classnames(extraProps.className, 'is-boxed');
 			}
 
 			return extraProps;

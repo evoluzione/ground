@@ -8,4 +8,8 @@
 	&.is-full-bleed {
 		@apply p-0;
 	}
+
+	&.is-boxed {
+		@apply boxed;
+	}
 }
