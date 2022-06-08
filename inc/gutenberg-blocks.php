@@ -48,14 +48,14 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 	$is_classic_editor = ! $block_name && ! $is_empty;
 
 	if ( $is_classic_editor ) {
-		$block_name = 'core/classic-editor';
+		$block_name    = 'core/classic-editor';
 		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
 	}
 
 	$has_class     = strpos( $block_content, 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
 	$is_full_bleed = strpos( $block_content, 'is-full-bleed' );
-	$is_boxed = strpos( $block_content, 'is-boxed' );
+	$is_boxed      = strpos( $block_content, 'is-boxed' );
 
 	switch ( $block_name ) {
 		case 'core/paragraph':
@@ -132,28 +132,34 @@ function ground_block_data_pre_render( $parsed_block, $source_block, $parent_blo
 
 add_filter( 'render_block_data', 'ground_block_data_pre_render', 12, 3 );
 
-
 /**
- * Serve per inserire la classe specifica a ciascun blocco gutember.
+ * Add a custom class to native wp blocks
  *
- * @param array         $parsed_block The block being rendered.
- * @param array         $source_block An un-modified copy of $parsed_block, as it appeared in the source content.
- * @param WP_Block|null $parent_block If this is a nested block, a reference to the parent block.
- * @return string
+ * @param [type]  $block The block settings and attributes.
+ * @param string  $class Additional classes to add to the block.
+ * @param boolean $return Whether to return or echo the block.
+ * @return void
  */
-
-function ground_normalize_block_name( $block ) {
+function ground_block_class( $block, $class = '', $return = true ) {
 
 	$block_name = $block['name'];
 
 	$pattern    = '/(.*?)\//';
 	$block_name = preg_replace( $pattern, '', $block_name );
-
-	$block_name = 'ground-block-' . $block_name;
+	$class     .= ' ground-block-' . $block_name;
 
 	if ( ! empty( $block['className'] ) ) {
-		$block_name .= ' ' . $block['className'];
+		$class .= ' ' . $block['className'];
 	}
 
-	return $block_name;
+	if ( ! empty( $block['align'] ) ) {
+		$class .= ' align' . $block['align'];
+	}
+
+	if ( $return ) {
+		return $class;
+	}
+
+	echo 'class="' . esc_attr( $class ) . '"';
+
 }
