@@ -368,8 +368,6 @@ function ground_acf_json_save_point() {
 
 add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
 
-
-
 /**
  * Load ACF local JSON
  *
@@ -386,26 +384,6 @@ function ground_acf_json_load_point( $paths ) {
 }
 
 add_filter( 'acf/settings/load_json', 'ground_acf_json_load_point' );
-
-
-/**
- * Oembed responsive
- *
- * @param string|false $cache The cached HTML result, stored in post meta.
- * @param string       $url The attempted embed URL.
- * @param array        $attr An array of shortcode attributes.
- * @param int          $post_ID Post ID.
- * @return string
- */
-function ground_oembed_responsive( $cache, $url, $attr, $post_ID ) {
-
-	if ( strpos( $url, 'vimeo.com' ) !== false || strpos( $url, 'youtube.com' ) !== false || strpos( $url, 'youtu.be' ) !== false ) {
-		$class = 'aspect-w-16 aspect-h-9';
-		return '<div class="' . $class . '">' . $cache . '</div>';
-	}
-}
-
-add_filter( 'embed_oembed_html', 'ground_oembed_responsive', 99, 4 );
 
 /**
  * Rename attachment slug
@@ -596,3 +574,14 @@ add_filter(
 	PHP_INT_MAX,
 	2
 );
+
+
+
+/**
+ * Add Gutenberg block support
+ */
+function ground_add_gutenberg_block_support() {
+	add_theme_support( 'responsive-embeds' );
+}
+
+add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
