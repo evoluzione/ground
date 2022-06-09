@@ -62,15 +62,14 @@
 	}
 
 	.header__back {
-		transform: translateX(-200%);
+		transform: translateX(-300%);
 		@apply transition-all ease-default;
 
 		.is-sub-navigation-open & {
 			transform: translateX(0%);
 		}
 
-		/* transform: translateX(-200%); */
-		@apply lg:-translate-x-full lg:transform lg:duration-75 lg:ease-default;
+		@apply lg:-translate-x-[200%] lg:transform lg:duration-75 lg:ease-default;
 
 		.is-overlay-panel-open.is-sub-navigation-open & {
 			@apply lg:transform-none;

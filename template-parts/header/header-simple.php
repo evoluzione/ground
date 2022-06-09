@@ -4,9 +4,9 @@
 
 	<div class="bg-white h-16 w-full z-30 lg:hidden">
 		
-	<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer">
-		<span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Back', 'ground' ); ?>
-	</button>
+		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer ml-8">
+			<span> <?php ground_icon( 'chevron-left', 'text-tertiary h-6 w-6' ); ?> </span> <?php _e( 'Back', 'ground' ); ?>
+		</button>
 
 		<div class="header__bar-mobile container py-2 bg-white grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
 			<div class="col-span-4">
@@ -27,6 +27,7 @@
 
 	</div>
 
+	<!-- Menu mobile -->
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-white overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
 			<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16 xl:justify-end xl:space-x-6">
