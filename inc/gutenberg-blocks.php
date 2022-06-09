@@ -52,7 +52,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
 	}
 
-	$has_class     = strpos( $block_content, 'class="' );
+	$has_class     = strpos( get_opening_tag($block_content), 'class="' );
 	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
 	$is_full_bleed = strpos( $block_content, 'is-full-bleed' );
 	$is_boxed      = strpos( $block_content, 'is-boxed' );
@@ -162,4 +162,21 @@ function ground_block_class( $block, $class = '', $return = true ) {
 
 	echo 'class="' . esc_attr( $class ) . '"';
 
+}
+
+/**
+ * Retreive the first opening tag of block 
+ *
+ * @param string $block_content The content block to handle.
+ * @return string
+ */
+function get_opening_tag( $block_content )
+{
+	preg_match('/^(<.+?>)/', trim( $block_content ), $re);
+
+	if(count($re) > 0) {
+		return $re[1];
+	}
+
+	return '';
 }
