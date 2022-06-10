@@ -11,9 +11,6 @@ export default class Menu {
 			level: 0
 		};
 
-		this.breakpoint = '1024px';
-		this.breakpoint = '900px';
-
 		this.DOM = {
 			element: document.querySelectorAll(this.element),
 			html: document.querySelector('html'),
@@ -21,7 +18,7 @@ export default class Menu {
 			navicon: document.querySelector('.js-navicon'),
 			menuBody: document.querySelector('.js-menu-body'),
 			menuContainer: document.querySelector('.js-menu-container'),
-			closeOverviewPanel: document.querySelector('.js-close-overlay-panel'),
+			closeOverlayPanel: document.querySelector('.js-close-overlay-panel'),
 			closePanel: document.querySelector('.js-close-panel'),
 			menuPanel: document.querySelector('.js-navigation-panel')
 		};
@@ -31,49 +28,51 @@ export default class Menu {
 		// });
 
 		window.addEventListener('resize', () => {
-			if (!isMobile().any) return;
 
-			if (this.DOM.menuContainer) this.DOM.menuContainer.style.cssText += 'transform: none';
-			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+			if (isMobile().any) {
 
-			this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
+				this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
+				this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
+				this.removeAllClass();
+				this.init();
 
-			this.reset();
-			this.init();
+			}
 
 		});
 	}
 
-	reset() {
+	/**
+	 * 
+	 * @param {array} elementList 
+	 */
+	resetTransformStyle(elementList) {
+
+		elementList.forEach(element => {
+			if (element) {
+				element.style.cssText += 'transform: none';
+			}
+		});
+	}
+
+	/**
+	 * Remove all class to restore normal conditions 
+	 */
+	removeAllClass() {
+
 		for (let i = 0; i <= this.defaults.level - 1; i++) {
 			this.DOM.element.forEach((item) => {
 
-				if (!item.classList.contains('level' + i)) return;
-
-				item.classList.remove('level' + i);
-
-				item.childNodes.forEach((t) =>
-					t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
-				);
+				if (item.classList.contains('level' + i)) {
+					item.classList.remove('level' + i);
+					item.childNodes.forEach((t) =>
+						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+					);
+				}
 
 			});
 		}
 
 		this.defaults.level = 0;
-	}
-
-	init() {
-
-		if (this.DOM.element.length === 0) return;
-
-		this.handleLevelNavigation();
-
-		this.handleLevelBackNavigation();
-
-		this.activateHoverNavigation();
-
-		this.handleResetAll();
-
 	}
 
 	/**
@@ -84,8 +83,6 @@ export default class Menu {
 	 */
 	multiLevelMenu = (item, menu) => {
 
-		console.log('multiLevelMenu');
-
 		let subMenu = null;
 		let subMenuImage = null;
 
@@ -94,25 +91,26 @@ export default class Menu {
 			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 		});
 
-		if (!subMenu || !menu) return;
+		if (subMenu && menu) {
 
-		item.preventDefault();
+			item.preventDefault();
 
-		item.target.parentElement.classList.add('level' + this.defaults.level);
-		this.DOM.html.classList.add('is-sub-navigation-open');
+			item.target.parentElement.classList.add('level' + this.defaults.level);
+			this.DOM.html.classList.add('is-sub-navigation-open');
 
-		subMenu.classList.add('is-active');
-		subMenuImage && subMenuImage.classList.add('is-active');
+			subMenu.classList.add('is-active');
+			subMenuImage && subMenuImage.classList.add('is-active');
 
-		this.defaults.level++;
-		let translation = -100 * this.defaults.level;
-		menu.style.cssText += 'transform: translateX(' + translation + '%);';
+			this.defaults.level++;
+			let translation = -100 * this.defaults.level;
+			menu.style.cssText += 'transform: translateX(' + translation + '%);';
 
-		this.DOM.menuBody.scrollTo({
-			top: 0,
-			left: 0,
-			behavior: 'smooth'
-		});
+			this.DOM.menuBody.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		}
 
 	};
 
@@ -121,8 +119,6 @@ export default class Menu {
 	 * @param {*} menu il menu di riferimento
 	 */
 	multiLevelBack = (menu) => {
-
-		console.log('multiLevelBack');
 
 		if (this.defaults.level > 0) {
 
@@ -150,16 +146,16 @@ export default class Menu {
 	 * @param {*} e The event to stop
 	 */
 	resetAll(e) {
-		e.stopImmediatePropagation();
 
-		this.DOM.html.classList.remove('is-sub-navigation-open');
-		this.DOM.menuContainer.style.cssText += 'transform: none';
-		if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-		this.DOM.html.classList.remove('is-overlay-panel-open');
-		this.reset();
+		e.stopImmediatePropagation();
+		this.DOM.html.classList.remove('is-sub-navigation-open', 'is-overlay-panel-open');
+		this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
+		this.removeAllClass();
 	}
 
-	//Gestione livelli delle navigation
+	/**
+	 * Gestione livelli delle navigation
+	 */
 	handleLevelNavigation() {
 
 		this.DOM.element.forEach((item) => {
@@ -167,7 +163,7 @@ export default class Menu {
 			item.addEventListener('click', (t) => {
 				t.stopImmediatePropagation();
 
-				if (window.matchMedia('(max-width: ' + this.breakpoint + ')').matches) {
+				if (window.matchMedia('(max-width:1024px)').matches) {
 					//Attivo la transtion sul container dell'header per il mobile
 					this.multiLevelMenu(t, this.DOM.menuContainer);
 				} else {
@@ -181,14 +177,16 @@ export default class Menu {
 
 	}
 
-	//Gestione livelli del back per le navigation
+	/**
+	 * Gestione livelli del back per le navigation
+	 */
 	handleLevelBackNavigation() {
 
 		this.DOM.back.forEach((b) => {
 			b.addEventListener('click', (t) => {
 				t.stopImmediatePropagation();
 
-				if (window.matchMedia('(max-width: ' + this.breakpoint + ')').matches) {
+				if (window.matchMedia('(max-width:1024px)').matches) {
 					//Attivo il back transition sul container dell'header per il mobile
 					this.multiLevelBack(this.DOM.menuContainer);
 				} else {
@@ -200,15 +198,15 @@ export default class Menu {
 
 	}
 
-	//Attivo l'hover nella navigation header solo del desk
+	/**
+	 * Attiva l'hover nella navigation header del mega menu (solo desktop)
+	 */
 	activateHoverNavigation() {
 
-		if (window.matchMedia('(min-width: ' + this.breakpoint + ')').matches) {
+		if (window.matchMedia('(min-width:1024px)').matches) {
 
 			this.DOM.element.forEach((item) => {
 				let timerHandle = null;
-
-				console.log(item);
 
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
@@ -233,30 +231,44 @@ export default class Menu {
 
 	}
 
-	handleResetAll() {
+	/**
+	 * Se clicco la navicon resetto tutto
+	 */
+	handleNaviconClick() {
+		this.DOM.navicon.addEventListener('click', (e) => this.resetAll(e));
+	}
 
-		//Se clicco la navicon resetto tutto
-		this.DOM.navicon.addEventListener('click', (t) => this.resetAll(t));
+	//Se clicco il close di navigation panel resetto tutto
+	handleCloseNavigationPanel() {
 
-		//Se clicco il close di navigation panel resetto tutto
-		if (this.DOM.closePanel) this.DOM.closePanel.addEventListener('click', (t) => this.resetAll(t));
+		if (this.DOM.closePanel) {
+			this.DOM.closePanel.addEventListener('click', (e) => this.resetAll(e));
+		}
+	}
 
-		//Se clicco l'overlay-panel di navigation panel resetto tutto - da fare solo se non sono mobile
+	/**
+	 * Se clicco l'overlay-panel di navigation panel resetto tutto (solo NON mobile)
+	 */
+	handleCloseOverlayPanel() {
+
 		if (!isMobile().any) {
-			if (this.DOM.closeOverviewPanel) {
-				this.DOM.closeOverviewPanel.addEventListener('click', (t) => {
-					t.stopImmediatePropagation();
-
-					this.DOM.html.classList.remove('is-sub-navigation-open');
-
-					this.DOM.menuContainer.style.cssText += 'transform: none';
-					if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-					this.DOM.html.classList.remove('is-overlay-panel-open');
-
-					this.reset();
-				});
+			if (this.DOM.closeOverlayPanel) {
+				this.DOM.closeOverlayPanel.addEventListener('click', (e) => this.resetAll(e));
 			}
 		}
+
+	}
+
+	init() {
+
+		if (this.DOM.element.length === 0) return;
+
+		this.handleLevelNavigation();
+		this.handleLevelBackNavigation();
+		this.activateHoverNavigation();
+		this.handleNaviconClick();
+		this.handleCloseNavigationPanel();
+		this.handleCloseOverlayPanel();
 
 	}
 
