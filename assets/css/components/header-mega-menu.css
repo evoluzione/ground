@@ -168,7 +168,7 @@
 					@apply block h-auto lg:bg-transparent;
 					&:last-child {
 						.navigation__link {
-							@apply lg:border-0;
+							/* @apply lg:border-0; */
 						}
 					}
 					.navigation__link {

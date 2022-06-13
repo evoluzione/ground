@@ -41,8 +41,9 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu
 
 		$image  = class_exists('ACF') ? get_field('image', $item) : '';
 		$button  = class_exists('ACF') ? get_field('button', $item) : '';
+		
+		// Capture card content using ob_start 
 		$card = '';
-
 		ob_start();
 		?>
 
