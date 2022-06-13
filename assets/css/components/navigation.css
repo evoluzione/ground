@@ -7,7 +7,7 @@
 
 		&:hover,
 		&.is-active,
-		.is-parent & {
+		.is-parent > & {
 			@apply text-primary;
 		}
 	}
@@ -20,18 +20,18 @@
 			@apply text-quaternary;
 			&:hover,
 			&.is-active,
-			.is-parent & {
+			.is-parent > & {
 				@apply text-primary;
 			}
 		}
 	}
 
 	.navigation--account {
-		@apply block mb-12 lg:mt-6;
+		@apply mb-12 block lg:mt-6;
 
 		.navigation__list {
-			@apply px-6 space-x-1 snap-x snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:space-x-0;
-			@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto lg:px-0;
+			@apply snap-x snap-mandatory space-x-1 overflow-x-auto overflow-y-hidden whitespace-nowrap px-6 lg:space-x-0;
+			@apply ml-1/2 w-screen -translate-x-2/4 transform lg:ml-0 lg:w-auto lg:translate-x-0 lg:px-0;
 			-ms-overflow-style: none; /* IE and Edge */
 			scrollbar-width: none; /* Firefox */
 			&::-webkit-scrollbar {
@@ -40,12 +40,12 @@
 		}
 
 		.navigation__item {
-			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal snap-center lg:block;
+			@apply relative m-0 inline-block snap-center items-center overflow-hidden whitespace-normal lg:block;
 			&.is-active {
-				@apply bg-primary rounded-full text-quaternary lg:rounded-none lg:bg-transparent;
+				@apply rounded-full bg-primary text-quaternary lg:rounded-none lg:bg-transparent;
 			}
 			a {
-				@apply border border-septenary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center lg:p-0 lg:border-0 lg:mb-2;
+				@apply flex items-center rounded-full border border-septenary px-3 py-1 align-middle text-tertiary no-underline lg:mb-2 lg:border-0 lg:p-0;
 			}
 			&.is-active a {
 				@apply border-primary text-white lg:text-primary;
@@ -54,9 +54,9 @@
 	}
 
 	.navigation--blog {
-		@apply m-0 mt-12 px-6 text-tertiary space-x-3 block lg:px-0 lg:flex lg:items-center lg:flex-wrap;
-		@apply snap-x snap-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
-		@apply transform -translate-x-2/4 w-screen ml-1/2 lg:ml-0 lg:translate-x-0 lg:w-auto;
+		@apply m-0 mt-12 block space-x-3 px-6 text-tertiary lg:flex lg:flex-wrap lg:items-center lg:px-0;
+		@apply snap-x snap-mandatory overflow-x-auto overflow-y-hidden whitespace-nowrap;
+		@apply ml-1/2 w-screen -translate-x-2/4 transform lg:ml-0 lg:w-auto lg:translate-x-0;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 		&::-webkit-scrollbar {
@@ -64,16 +64,16 @@
 		}
 
 		li {
-			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal snap-center;
+			@apply relative m-0 inline-block snap-center items-center overflow-hidden whitespace-normal;
 			&.current-cat {
-				@apply bg-primary rounded-full text-white;
+				@apply rounded-full bg-primary text-white;
 
 				.blog & {
 					@apply bg-transparent;
 				}
 			}
 			a {
-				@apply border border-septenary text-tertiary no-underline px-3 py-1 rounded-full align-middle flex items-center;
+				@apply flex items-center rounded-full border border-septenary px-3 py-1 align-middle text-tertiary no-underline;
 			}
 			&.current-cat a {
 				@apply border-primary text-white;
