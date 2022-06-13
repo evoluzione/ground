@@ -4,7 +4,7 @@
 
 	<div class="bg-white h-16 w-full z-30 lg:hidden">
 		
-		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer ml-8">
+		<button type="button" class="js-back absolute mt-5 left-4 header__back cursor-pointer">
 			<span> <?php ground_icon( 'chevron-left', 'text-tertiary h-6 w-6' ); ?> </span> <?php _e( 'Back', 'ground' ); ?>
 		</button>
 
