@@ -12,4 +12,8 @@
 	&.is-boxed {
 		@apply boxed;
 	}
+
+	&.is-wide {
+		@apply max-w-screen-2xl;
+	}
 }

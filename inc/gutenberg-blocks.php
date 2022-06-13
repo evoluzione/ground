@@ -52,9 +52,10 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
 	}
 
-	$has_class     = strpos( get_opening_tag($block_content), 'class="' );
-	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
+	$has_class     = strpos( get_opening_tag( $block_content ), 'class="' );
+	$is_fullscreen = strpos( $block_content, 'is-fullscreen' ) || strpos( $block_content, 'alignfull' );
 	$is_full_bleed = strpos( $block_content, 'is-full-bleed' );
+	$is_wide       = strpos( $block_content, 'alignwide' );
 	$is_boxed      = strpos( $block_content, 'is-boxed' );
 
 	switch ( $block_name ) {
@@ -81,6 +82,7 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		$additional_classes  = 'ground-block-wrapper' . ' ground-block-wrapper--' . $block_name;
 		$additional_classes .= $is_fullscreen ? ' is-fullscreen' : '';
 		$additional_classes .= $is_full_bleed ? ' is-full-bleed' : '';
+		$additional_classes .= $is_wide ? ' is-wide' : '';
 		$additional_classes .= $is_boxed ? ' is-boxed' : '';
 		$block_content       = '<div class="' . $additional_classes . '">' . $block_content . '</div>';
 	}
@@ -165,16 +167,15 @@ function ground_block_class( $block, $class = '', $return = true ) {
 }
 
 /**
- * Retreive the first opening tag of block 
+ * Retreive the first opening tag of block
  *
  * @param string $block_content The content block to handle.
  * @return string
  */
-function get_opening_tag( $block_content )
-{
-	preg_match('/^(<.+?>)/', trim( $block_content ), $re);
+function get_opening_tag( $block_content ) {
+	preg_match( '/^(<.+?>)/', trim( $block_content ), $re );
 
-	if(count($re) > 0) {
+	if ( count( $re ) > 0 ) {
 		return $re[1];
 	}
 

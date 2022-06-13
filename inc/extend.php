@@ -537,7 +537,6 @@ add_action( 'widgets_init', 'ground_multiple_widget_init' );
  *
  * @return void
  */
-
 add_filter(
 	'get_the_archive_title',
 	function ( $title ) {
@@ -556,32 +555,13 @@ add_filter(
 	}
 );
 
-
-/**
- * Redirect lost password
- *
- * @return void
- */
-
-
-add_filter(
-	'lostpassword_url',
-	function( $url, $redirect ) {
-		remove_all_filters( 'lostpassword_url' );
-
-		return wp_lostpassword_url( $redirect );
-	},
-	PHP_INT_MAX,
-	2
-);
-
-
-
 /**
  * Add Gutenberg block support
  */
 function ground_add_gutenberg_block_support() {
 	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'align-wide' );
+	// add_theme_support( 'custom-spacing' );
 }
 
 add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
