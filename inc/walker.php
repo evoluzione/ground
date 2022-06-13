@@ -5,6 +5,15 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu
 {
 
 
+    /**
+     * Starts the element output.
+     *
+     * @param string   $output            Used to append additional content (passed by reference).
+     * @param WP_Post  $item              Menu item data object.
+     * @param int      $depth             Depth of menu item. Used for padding.
+     * @param stdClass $args              An object of wp_nav_menu() arguments.
+     * @param int      $id                Optional. ID of the current menu item. Default 0.
+     */
 	public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
 	{
 
@@ -17,49 +26,53 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu
 		}
 		$indent = ($depth) ? str_repeat($t, $depth) : '';
 
-		$custom_class = $item->classes[0];
+		// $custom_class = $item->classes[0];
 
 		$classes = empty($item->classes) ? array() : (array) $item->classes;
 
-		$classes[] = $custom_class;
+		// $classes[] = $custom_class;
 
 		$args = apply_filters('nav_menu_item_args', $args, $item, $depth);
 
-		$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
+		$class_names = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );        
 		$class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
 
-		$item_classes = $item->classes;
-		// var_dump($item);
+		// $item_classes = $item->classes;
 
 		$image  = class_exists('ACF') ? get_field('image', $item) : '';
 		$button  = class_exists('ACF') ? get_field('button', $item) : '';
-
 		$card = '';
-?>
 
-		<?php
 		ob_start();
 		?>
+
 		<li class="navigation__item--image">
+			
 			<?php if ($button) : ?>
 				<a class="no-underline" href="<?php echo $button['url']; ?>">
-				<?php endif; ?>
-				<figure class="media aspect-w-16 aspect-h-9">
-					<img class="object-cover w-full rounded-theme" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
-											<?php echo $image['sizes']['1-1-medium']; ?> 900w,
-											<?php echo $image['sizes']['16-9-large']; ?> 1200w" sizes="(min-width: 1200px) 1200px,
-											(min-width: 768px) 900px,
-											100vh" src="<?php echo $image['sizes']['16-9-large']; ?>" alt="" loading="lazy">
-				</figure>
-				<?php if ($button) : ?>
+			<?php endif; ?>
+
+					<figure class="media aspect-w-16 aspect-h-9">
+						<img 
+							class="object-cover w-full rounded-theme" 
+							srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
+									<?php echo $image['sizes']['1-1-medium']; ?> 900w,
+									<?php echo $image['sizes']['16-9-large']; ?> 1200w" 
+							sizes="(min-width: 1200px) 1200px,(min-width: 768px) 900px, 100vh" 
+							src="<?php echo $image['sizes']['16-9-large']; ?>" 
+							alt=""
+							loading="lazy"
+						>
+					</figure>
+
+			<?php if ($button) : ?>
 					<h2 class="text-lg lg:text-xl py-6"> <?php echo $button['title']; ?> </h2>
 				</a>
 			<?php endif; ?>
 		</li>
 
-		<?php $card = ob_get_clean(); ?>
-
-<?php
+		<?php
+		$card = ob_get_clean();
 
 		$output .= $indent . '<li' . $class_names . '>';
 
@@ -85,7 +98,7 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu
 		$title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
 
 		$item_output  = $args->before;
-		$item_output .= '<a class="navigation__link" ' . $attributes . '>';
+		$item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
