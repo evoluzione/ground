@@ -12,4 +12,19 @@
 	&.is-boxed {
 		@apply boxed;
 	}
+
+	& > .aligncenter {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	& > .alignright {
+		float: right;
+		margin-left: 2rem;
+	}
+
+	& > .alignleft {
+		float: left;
+		margin-right: 2rem;
+	}
 }
