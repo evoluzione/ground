@@ -52,10 +52,12 @@ function ground_wp_blocks_handle_custom_class( string $block_content, array $blo
 		$block_content = '<div class="wp-block-classic-editor">' . $block_content . '</div>';
 	}
 
-	$has_class     = strpos( get_opening_tag($block_content), 'class="' );
-	$is_fullscreen = strpos( $block_content, 'is-fullscreen' );
-	$is_full_bleed = strpos( $block_content, 'is-full-bleed' );
-	$is_boxed      = strpos( $block_content, 'is-boxed' );
+	$opening_tag =  get_opening_tag($block_content);
+
+	$has_class     = strpos( $opening_tag, 'class="' );
+	$is_fullscreen = strpos( $opening_tag, 'is-fullscreen' );
+	$is_full_bleed = strpos( $opening_tag, 'is-full-bleed' );
+	$is_boxed      = strpos( $opening_tag, 'is-boxed' );
 
 	switch ( $block_name ) {
 		case 'core/paragraph':
