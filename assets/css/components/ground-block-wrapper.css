@@ -16,4 +16,19 @@
 	&.is-wide {
 		@apply max-w-screen-2xl;
 	}
+
+	& > .aligncenter {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	& > .alignright {
+		float: right;
+		margin-left: 2rem;
+	}
+
+	& > .alignleft {
+		float: left;
+		margin-right: 2rem;
+	}
 }
