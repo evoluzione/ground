@@ -16,11 +16,12 @@
 		.navigation--primary,
 		.navigation--secondary {
 			.navigation__item {
-				@apply block lg:flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
+				@apply flex lg:justify-start lg:pr-4 xl:justify-start xl:pr-6;
+				@apply border-b border-septenary border-opacity-20 lg:border-0;
 			}
 
 			.navigation__link {
-				@apply block border-b border-septenary border-opacity-20 py-4 text-lg lg:block lg:border-0 lg:py-2 lg:text-base;
+				@apply block py-4 text-lg lg:block lg:py-2 lg:text-base;
 			}
 
 			.navigation__list {
@@ -43,11 +44,12 @@
 				}
 
 				.navigation__link {
-					@apply lg:animate-fade-in-staggered lg:relative lg:top-3 lg:border-b lg:border-septenary lg:border-opacity-20 lg:bg-senary lg:opacity-0 lg:transition-all lg:duration-300 lg:ease-in-out;
+					@apply lg:animate-fade-in-staggered lg:relative lg:top-3 lg:bg-senary lg:opacity-0 lg:transition-all lg:duration-300 lg:ease-in-out;
 				}
 
 				.navigation__item {
-					@apply block h-auto lg:bg-transparent;
+					@apply flex h-auto lg:block lg:bg-transparent;
+					@apply border-b border-septenary border-opacity-20 lg:border-0;
 					@apply lg:pr-0 !important;
 
 					&:last-child {
@@ -57,7 +59,7 @@
 					}
 
 					.navigation__link {
-						@apply block border-b border-septenary border-opacity-20 py-3 text-base;
+						@apply block py-3 text-base;
 						@apply lg:pr-0 !important;
 						&:after {
 							@apply lg:hidden lg:text-base;

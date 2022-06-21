@@ -3,11 +3,12 @@
 		/* Navigation Primary */
 		.navigation--primary {
 			.navigation__item {
-				@apply block lg:flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
+				@apply flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
+				@apply border-b border-septenary border-opacity-20 lg:border-0;
 			}
 
 			.navigation__link {
-				@apply block border-b border-septenary border-opacity-20 py-4 text-lg  lg:block lg:border-0 lg:py-3 lg:text-lg;
+				@apply block py-4 text-lg lg:block lg:border-0 lg:py-3 lg:text-lg;
 			}
 
 			.navigation__list {
@@ -34,7 +35,9 @@
 				}
 
 				.navigation__item {
-					@apply block h-auto lg:bg-transparent;
+					@apply flex h-auto lg:block lg:bg-transparent;
+					@apply border-b border-septenary border-opacity-20 lg:border-0;
+
 					&:last-child {
 						.navigation__link {
 							@apply lg:border-0;
@@ -42,7 +45,7 @@
 					}
 
 					.navigation__link {
-						@apply block border-b border-septenary border-opacity-20 py-3 text-base;
+						@apply block py-3 text-base;
 						@screen lg {
 							&:after {
 								@apply hidden;

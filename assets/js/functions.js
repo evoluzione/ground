@@ -111,7 +111,22 @@ function initAlwaysRunScripts() {
 		import(/* webpackChunkName: "ground-menu" */'./components/menu')
 			.then((module) => {
 				const Menu = module.default;
-				new Menu();
+				if(elementExist('.navigation__item--panel-primary')){
+					new Menu('.navigation__item--panel-primary.has-children');
+				} else {
+					document.body.classList.add('panel-not-active');
+					new Menu();
+				}
+			})
+			.catch((error) => console.log(error));
+	}
+
+	// Mega menu
+	if (elementExist('.navigation__item.has-children')) {
+		import(/* webpackChunkName: "ground-mega-menu" */'./components/mega-menu')
+			.then((module) => {
+				const MegaMenu = module.default;
+				new MegaMenu();
 			})
 			.catch((error) => console.log(error));
 	}

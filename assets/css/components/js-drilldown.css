@@ -1,0 +1,7 @@
+.js-drilldown {
+	@apply z-100 order-2 ml-auto flex w-[60px] bg-transparent;
+
+	.panel-not-active & {
+		@apply lg:hidden;
+	}
+}

@@ -160,22 +160,40 @@ export default class Menu {
 
 		this.DOM.element.forEach((item) => {
 
-			item.addEventListener('click', (t) => {
-				t.stopImmediatePropagation();
+			// const link = item.querySelector('.navigation__link');
 
-				if (window.matchMedia('(max-width:1024px)').matches) {
-					//Attivo la transtion sul container dell'header per il mobile
-					this.multiLevelMenu(t, this.DOM.menuContainer);
-				} else {
-					//Attivo la transtion sul panel-primary per il desk
-					if (t.target.parentNode.classList.contains('navigation__item--panel-primary')) {
-						this.multiLevelMenu(t, this.DOM.menuPanel);
+			const span = document.createElement('span');
+			span.classList = 'js-drilldown';
+			item.appendChild(span);
+
+			item.addEventListener('click', (t) => {
+
+				const classList = t.target.className;
+				const isDrilldown = classList && classList.includes('js-drilldown');
+
+				if(isDrilldown) {
+
+					t.stopImmediatePropagation();
+					t.preventDefault();
+
+					if (window.matchMedia('(max-width:1024px)').matches) {
+						//Attivo la transtion sul container dell'header per il mobile
+						this.multiLevelMenu(t, this.DOM.menuContainer);
+					} else {
+						//Attivo la transtion sul panel-primary per il desk
+						const isPanel = t.target.parentNode.classList.contains('navigation__item--panel-primary');
+						if (isPanel) {
+							this.multiLevelMenu(t, this.DOM.menuPanel);
+						}
 					}
+
 				}
+
 			});
 		});
 
 	}
+
 
 	/**
 	 * Gestione livelli del back per le navigation
@@ -195,39 +213,6 @@ export default class Menu {
 				}
 			});
 		});
-
-	}
-
-	/**
-	 * Attiva l'hover nella navigation header del mega menu (solo desktop)
-	 */
-	activateHoverNavigation() {
-
-		if (window.matchMedia('(min-width:1024px)').matches) {
-
-			this.DOM.element.forEach((item) => {
-				let timerHandle = null;
-
-				item.addEventListener('mouseenter', () => {
-					clearTimeout(timerHandle);
-					this.DOM.html.classList.add('is-navigation-hover');
-					timerHandle = setTimeout(() => {
-						item.classList.add('is-hover');
-					}, 200);
-				});
-
-				item.addEventListener('mouseleave', () => {
-					clearTimeout(timerHandle);
-					this.DOM.html.classList.remove('is-navigation-hover');
-					if (item.classList.contains('is-hover')) {
-						timerHandle = setTimeout(() => {
-							item.classList.remove('is-hover');
-						}, 200);
-					}
-				});
-
-			});
-		}
 
 	}
 
@@ -265,7 +250,6 @@ export default class Menu {
 
 		this.handleLevelNavigation();
 		this.handleLevelBackNavigation();
-		this.activateHoverNavigation();
 		this.handleNaviconClick();
 		this.handleCloseNavigationPanel();
 		this.handleCloseOverlayPanel();
