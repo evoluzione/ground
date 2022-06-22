@@ -1,7 +1,7 @@
 /**
  * Toggle module
  */
-import { initObserver } from '../utilities/observer';
+// import { initObserver } from '../utilities/observer';
 const Deepmerge = require('deepmerge');
 
 export default class Toggle {
@@ -10,7 +10,6 @@ export default class Toggle {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-
 		this.element = element || '.js-toggle';
 		this.defaults = {
 			triggers: this.element,
@@ -27,7 +26,7 @@ export default class Toggle {
 		// window.addEventListener('DOMContentLoaded', () => {
 		this.init();
 		this.initEvents(this.options.triggers);
-		initObserver(this.options.triggers, this.updateEvents);
+		// initObserver(this.options.triggers, this.updateEvents);
 		// });
 	}
 
@@ -66,21 +65,21 @@ export default class Toggle {
 			return;
 		}
 
-		const curent = event.currentTarget;
-		if (curent) {
+		const current = event.currentTarget;
+		if (current) {
 			// Add data-toggle-prevent-default="false" to restore default behaviour
-			if (!curent.hasAttribute('data-toggle-prevent-default')) {
+			if (!current.hasAttribute('data-toggle-prevent-default')) {
 				event.preventDefault();
 			}
 
 			// Add data-toggle-class-name="customclass" to change the default class name
-			if (curent.hasAttribute('data-toggle-class-name')) {
-				this.options.toggleClassName = curent.dataset.toggleClassName;
+			if (current.hasAttribute('data-toggle-class-name')) {
+				this.options.toggleClassName = current.dataset.toggleClassName;
 			}
 
 			// Add data-toggle-target=".selector1 #selector2" to toggle different target
-			if (curent.hasAttribute('data-toggle-target')) {
-				const targetList = curent.dataset.toggleTarget.split(' ');
+			if (current.hasAttribute('data-toggle-target')) {
+				const targetList = current.dataset.toggleTarget.split(' ');
 
 				for (let i = 0; i < targetList.length; i++) {
 					const target = document.querySelectorAll(targetList[i]);
@@ -90,7 +89,7 @@ export default class Toggle {
 					}
 				}
 			} else {
-				curent.classList.toggle(this.options.toggleClassName);
+				current.classList.toggle(this.options.toggleClassName);
 			}
 		}
 	}
