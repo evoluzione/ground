@@ -22,8 +22,10 @@ do_action( 'ground_404_before' );
 		</div>
 
 		<div class="page__body">
-			<h3><?php esc_html_e( "The page you're looking for can't be found", 'ground' ); ?></h3>
-			<p><em><?php esc_html_e( 'Error code: 404', 'ground' ); ?></em></p>
+			<div class="container">
+				<h3><?php esc_html_e( "The page you're looking for can't be found", 'ground' ); ?></h3>
+				<p><em><?php esc_html_e( 'Error code: 404', 'ground' ); ?></em></p>
+			</div>
 		</div> <!-- End .page__body -->
 
 	</article> <!-- End .page -->
