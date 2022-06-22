@@ -565,3 +565,26 @@ function ground_add_gutenberg_block_support() {
 }
 
 add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
+
+function ground_add_color_palette_support() {
+
+    add_theme_support( 'editor-color-palette', array(
+
+		// Primary
+        array(
+            'name'  => esc_attr__( 'Primary', 'ground' ),
+            'slug'  => 'primary',
+            'color' => get_theme_mod( 'color_primary' ) ?: '#6366F1',
+        ),
+
+		// Primary
+        array(
+            'name'  => esc_attr__( 'Secondary', 'ground' ),
+            'slug'  => 'secondary',
+            'color' => get_theme_mod( 'color_secondary' ) ?: '#14B8A6',
+        ),
+
+    ) );
+}
+ 
+// add_action( 'after_setup_theme', 'ground_add_color_palette_support' );
