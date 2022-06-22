@@ -2,7 +2,7 @@
 	<div class="flex items-center relative">
 		<input class="shrink" type="text" id="js-ajax-search-input" placeholder="<?php _e( 'Search products', 'ground' ); ?>" value="<?php the_search_query(); ?>" name="s" id="s" />
 		<input type="hidden" name="post_type" value="product" />
-		<button class="search-form__button" type="submit"><?php ground_icon( 'search', 'form__icon' ); ?></button>
-		<div class="js-ajax-search-spinner search-form__spinner"><?php ground_icon( 'spinner', 'animate-spin text-primary h-8 lg:h-12' ); ?></div>
+		<button class="search-form__button" type="submit"><?php ground_icon( 'search', 'form__icon h-6 w-6' ); ?></button>
+		<div class="js-ajax-search-spinner search-form__spinner"><?php ground_icon( 'spinner', 'animate-spin text-primary h-8 w-8 lg:h-12 lg:w-12' ); ?></div>
 	</div>
 </form>

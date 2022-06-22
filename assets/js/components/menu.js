@@ -96,7 +96,7 @@ export default class Menu {
 
 			this.defaults.level++;
 			let translation = -100 * this.defaults.level;
-			menu.style.cssText += 'transform: translateX(' + translation + '%);';
+			menu.style.cssText += `transform: translateX(${translation}vw);`;
 
 			this.DOM.menuBody.scrollTo({
 				top: 0,
@@ -123,7 +123,7 @@ export default class Menu {
 			});
 
 			let translation = -100 * this.defaults.level;
-			menu.style.cssText += 'transform: translateX(' + translation + '%);';
+			menu.style.cssText += `transform: translateX(${translation}vw);`;
 
 			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
 		}

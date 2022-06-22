@@ -47,7 +47,7 @@
 		@apply invisible absolute top-1 right-0 inline-block opacity-0 transition-all duration-500 lg:absolute lg:top-0;
 
 		.is-search-open & {
-			@apply -right-12;
+			@apply -right-12 lg:-right-16;
 		}
 
 		.is-search-loading & {
