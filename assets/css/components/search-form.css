@@ -40,14 +40,14 @@
 	}
 
 	.search-form__close {
-		@apply fixed top-5 right-6 cursor-pointer text-black lg:top-14 lg:right-8 lg:h-24 lg:w-24;
+		@apply fixed top-5 right-6 z-1 cursor-pointer text-black lg:top-14 lg:right-8 lg:h-24 lg:w-24;
 	}
 
 	.search-form__spinner {
 		@apply invisible absolute top-1 right-0 inline-block opacity-0 transition-all duration-500 lg:absolute lg:top-0;
 
 		.is-search-open & {
-			@apply -right-20 lg:right-auto lg:-left-16;
+			@apply -right-12;
 		}
 
 		.is-search-loading & {
@@ -56,11 +56,11 @@
 	}
 
 	.search-form__result {
-		@apply mt-12;
+		@apply z-1 mt-12;
 	}
 
 	.search-form__button {
-		@apply absolute right-10 h-8 w-8 rounded-full;
+		@apply absolute right-3 h-8 w-8 rounded-full;
 	}
 
 	.search-form__form {
@@ -75,7 +75,7 @@
 				@apply visible opacity-100;
 			}
 
-			@apply fixed top-3 lg:top-12;
+			@apply fixed top-3 z-1 lg:top-12;
 			width: 70vw;
 
 			@screen lg {
