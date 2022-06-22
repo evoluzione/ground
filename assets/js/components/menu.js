@@ -27,27 +27,25 @@ export default class Menu {
 		this.init();
 		// });
 
+		/**
+		 * Bind the resize of the window to restore normal conditions
+		 */
 		window.addEventListener('resize', () => {
-
-			if (isMobile().any) {
-
-				this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
-				this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
-				this.removeAllClass();
-				this.init();
-
-			}
-
+			// if (isMobile().any) {
+			this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
+			this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
+			this.removeAllClass();
+			// this.init();
+			// }
 		});
 	}
 
 	/**
-	 * 
-	 * @param {array} elementList 
+	 * Add css style transform:none for each element
+	 * @param {array} elementList
 	 */
 	resetTransformStyle(elementList) {
-
-		elementList.forEach(element => {
+		elementList.forEach((element) => {
 			if (element) {
 				element.style.cssText += 'transform: none';
 			}
@@ -55,20 +53,17 @@ export default class Menu {
 	}
 
 	/**
-	 * Remove all class to restore normal conditions 
+	 * Remove all class to restore normal conditions
 	 */
 	removeAllClass() {
-
 		for (let i = 0; i <= this.defaults.level - 1; i++) {
 			this.DOM.element.forEach((item) => {
-
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
 					item.childNodes.forEach((t) =>
 						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
 					);
 				}
-
 			});
 		}
 
@@ -77,12 +72,11 @@ export default class Menu {
 
 	/**
 	 * Gestione dei submenu delle navigation
-	 * @param {*} item l'elemento che ho cliccato 
+	 * @param {*} item l'elemento che ho cliccato
 	 * @param {*} menu il menu di riferimento
-	 * @returns 
+	 * @returns
 	 */
 	multiLevelMenu = (item, menu) => {
-
 		let subMenu = null;
 		let subMenuImage = null;
 
@@ -92,7 +86,6 @@ export default class Menu {
 		});
 
 		if (subMenu && menu) {
-
 			item.preventDefault();
 
 			item.target.parentElement.classList.add('level' + this.defaults.level);
@@ -111,7 +104,6 @@ export default class Menu {
 				behavior: 'smooth'
 			});
 		}
-
 	};
 
 	/**
@@ -119,9 +111,7 @@ export default class Menu {
 	 * @param {*} menu il menu di riferimento
 	 */
 	multiLevelBack = (menu) => {
-
 		if (this.defaults.level > 0) {
-
 			this.defaults.level--;
 			this.DOM.element.forEach((item) => {
 				if (item.classList.contains('level' + this.defaults.level)) {
@@ -136,9 +126,7 @@ export default class Menu {
 			menu.style.cssText += 'transform: translateX(' + translation + '%);';
 
 			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
-
 		}
-
 	};
 
 	/**
@@ -146,7 +134,6 @@ export default class Menu {
 	 * @param {*} e The event to stop
 	 */
 	resetAll(e) {
-
 		e.stopImmediatePropagation();
 		this.DOM.html.classList.remove('is-sub-navigation-open', 'is-overlay-panel-open');
 		this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
@@ -154,25 +141,22 @@ export default class Menu {
 	}
 
 	/**
-	 * Gestione livelli delle navigation
+	 * Gestione dei livelli del drilldown - navigation items
 	 */
 	handleLevelNavigation() {
-
 		this.DOM.element.forEach((item) => {
-
-			// const link = item.querySelector('.navigation__link');
-
+			/**
+			 * Create a span to handle drilldown and preserve link to navigate
+			 */
 			const span = document.createElement('span');
 			span.classList = 'js-drilldown';
 			item.appendChild(span);
 
 			item.addEventListener('click', (t) => {
-
 				const classList = t.target.className;
 				const isDrilldown = classList && classList.includes('js-drilldown');
 
-				if(isDrilldown) {
-
+				if (isDrilldown) {
 					t.stopImmediatePropagation();
 					t.preventDefault();
 
@@ -186,20 +170,15 @@ export default class Menu {
 							this.multiLevelMenu(t, this.DOM.menuPanel);
 						}
 					}
-
 				}
-
 			});
 		});
-
 	}
 
-
 	/**
-	 * Gestione livelli del back per le navigation
+	 * Gestione dei livelli del drilldown - Back btn
 	 */
 	handleLevelBackNavigation() {
-
 		this.DOM.back.forEach((b) => {
 			b.addEventListener('click', (t) => {
 				t.stopImmediatePropagation();
@@ -213,7 +192,6 @@ export default class Menu {
 				}
 			});
 		});
-
 	}
 
 	/**
@@ -225,7 +203,6 @@ export default class Menu {
 
 	//Se clicco il close di navigation panel resetto tutto
 	handleCloseNavigationPanel() {
-
 		if (this.DOM.closePanel) {
 			this.DOM.closePanel.addEventListener('click', (e) => this.resetAll(e));
 		}
@@ -235,25 +212,20 @@ export default class Menu {
 	 * Se clicco l'overlay-panel di navigation panel resetto tutto (solo NON mobile)
 	 */
 	handleCloseOverlayPanel() {
-
-		if (!isMobile().any) {
-			if (this.DOM.closeOverlayPanel) {
-				this.DOM.closeOverlayPanel.addEventListener('click', (e) => this.resetAll(e));
-			}
+		if (!isMobile().any && this.DOM.closeOverlayPanel) {
+			this.DOM.closeOverlayPanel.addEventListener('click', (e) => this.resetAll(e));
 		}
-
 	}
 
 	init() {
-
-		if (this.DOM.element.length === 0) return;
+		if (this.DOM.element.length === 0) {
+			return;
+		}
 
 		this.handleLevelNavigation();
 		this.handleLevelBackNavigation();
 		this.handleNaviconClick();
 		this.handleCloseNavigationPanel();
 		this.handleCloseOverlayPanel();
-
 	}
-
 }
