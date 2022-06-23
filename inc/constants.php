@@ -30,28 +30,28 @@ if ( ! defined( 'GROUND_CHARSET' ) ) {
 function ground_theme_costants() {
 	// Colors.
 	if ( ! defined( 'GROUND_COLOR_PRIMARY' ) ) {
-		define( 'GROUND_COLOR_PRIMARY', get_theme_mod( 'color_primary' ) );
+		define( 'GROUND_COLOR_PRIMARY', get_theme_mod( 'color_primary' ) ?: '#6366F1' );
 	}
 	if ( ! defined( 'GROUND_COLOR_SECONDARY' ) ) {
-		define( 'GROUND_COLOR_SECONDARY', get_theme_mod( 'color_secondary' ) );
+		define( 'GROUND_COLOR_SECONDARY', get_theme_mod( 'color_secondary' ) ?: '#14B8A6' );
 	}
 	if ( ! defined( 'GROUND_COLOR_TERTIARY' ) ) {
-		define( 'GROUND_COLOR_TERTIARY', get_theme_mod( 'color_tertiary' ) );
+		define( 'GROUND_COLOR_TERTIARY', get_theme_mod( 'color_tertiary' ) ?: '#000000' );
 	}
 	if ( ! defined( 'GROUND_COLOR_QUATERNARY' ) ) {
-		define( 'GROUND_COLOR_QUATERNARY', get_theme_mod( 'color_quaternary' ) );
+		define( 'GROUND_COLOR_QUATERNARY', get_theme_mod( 'color_quaternary' ) ?: '#71717A' );
 	}
 	if ( ! defined( 'GROUND_COLOR_QUINARY' ) ) {
-		define( 'GROUND_COLOR_QUINARY', get_theme_mod( 'color_quinary' ) );
+		define( 'GROUND_COLOR_QUINARY', get_theme_mod( 'color_quinary' ) ?: '#ffffff' );
 	}
 	if ( ! defined( 'GROUND_COLOR_SENARY' ) ) {
-		define( 'GROUND_COLOR_SENARY', get_theme_mod( 'color_senary' ) );
+		define( 'GROUND_COLOR_SENARY', get_theme_mod( 'color_senary' ) ?: '#F4F4F5' );
 	}
 	if ( ! defined( 'GROUND_COLOR_SEPTENARY' ) ) {
-		define( 'GROUND_COLOR_SEPTENARY', get_theme_mod( 'color_septenary' ) );
+		define( 'GROUND_COLOR_SEPTENARY', get_theme_mod( 'color_septenary' ) ?: '#D4D4D8' );
 	}
 	if ( ! defined( 'GROUND_COLOR_OCTONARY' ) ) {
-		define( 'GROUND_COLOR_OCTONARY', get_theme_mod( 'color_octonary' ) );
+		define( 'GROUND_COLOR_OCTONARY', get_theme_mod( 'color_octonary' ) ?: '#D4D4D8' );
 	}
 
 	// Abstract colors.

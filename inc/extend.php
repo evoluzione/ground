@@ -567,24 +567,51 @@ function ground_add_gutenberg_block_support() {
 add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
 
 function ground_add_color_palette_support() {
-
-    add_theme_support( 'editor-color-palette', array(
-
-		// Primary
-        array(
-            'name'  => esc_attr__( 'Primary', 'ground' ),
-            'slug'  => 'primary',
-            'color' => get_theme_mod( 'color_primary' ) ?: '#6366F1',
-        ),
-
-		// Primary
-        array(
-            'name'  => esc_attr__( 'Secondary', 'ground' ),
-            'slug'  => 'secondary',
-            'color' => get_theme_mod( 'color_secondary' ) ?: '#14B8A6',
-        ),
-
-    ) );
+    add_theme_support( 
+		'editor-color-palette', 
+		array(
+			array(
+				'name'  => esc_attr__( 'Primary', 'ground' ),
+				'slug'  => 'primary',
+				'color' => GROUND_COLOR_PRIMARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Secondary', 'ground' ),
+				'slug'  => 'secondary',
+				'color' => GROUND_COLOR_SECONDARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Tertiary', 'ground' ),
+				'slug'  => 'tertiary',
+				'color' => GROUND_COLOR_TERTIARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Quaternary', 'ground' ),
+				'slug'  => 'quaternary',
+				'color' => GROUND_COLOR_QUATERNARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Quinary', 'ground' ),
+				'slug'  => 'quinary',
+				'color' => GROUND_COLOR_QUINARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Senary', 'ground' ),
+				'slug'  => 'senary',
+				'color' => GROUND_COLOR_SENARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Septenary', 'ground' ),
+				'slug'  => 'septenary',
+				'color' => GROUND_COLOR_SEPTENARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Octonary', 'ground' ),
+				'slug'  => 'octonary',
+				'color' => GROUND_COLOR_OCTONARY,
+			)
+   		)
+	);
 }
  
-// add_action( 'after_setup_theme', 'ground_add_color_palette_support' );
+add_action( 'init', 'ground_add_color_palette_support' );
