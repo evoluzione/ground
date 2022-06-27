@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/assets/img/favicon.png'; ?>">
 		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/assets/img/icon.png'; ?>">
