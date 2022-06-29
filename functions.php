@@ -20,7 +20,6 @@ require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
 require_once 'inc/navigations-structure.php';
 require_once 'inc/shortcode.php';
-require_once 'inc/walker.php';
 require_once 'inc/gutenberg-blocks.php';
 require_once 'inc/updater.php';
 require_once 'inc/template-hooks.php';
