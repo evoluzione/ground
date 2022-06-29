@@ -1,4 +1,5 @@
 import isMobile from 'ismobilejs';
+import { throttle } from '../utilities/throttle';
 
 export default class Menu {
 	/**
@@ -23,6 +24,16 @@ export default class Menu {
 			menuPanel: document.querySelector('.js-navigation-panel')
 		};
 
+		/**
+		 * We need different unit measure
+		 * The panel isn't fullwidth so the % is correct
+		 * The menu on mobile instead needs vw because the % create an offset each level bigger
+		 */
+		this.unitMeasure = {
+			panel: '%',
+			default: 'vw'
+		};
+
 		// window.addEventListener('DOMContentLoaded', () => {
 		this.init();
 		// });
@@ -30,18 +41,20 @@ export default class Menu {
 		/**
 		 * Bind the resize of the window to restore normal conditions
 		 */
-		window.addEventListener('resize', () => {
-			// if (isMobile().any) {
-			this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
-			this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
-			this.removeAllClass();
-			// this.init();
-			// }
-		});
+		window.addEventListener('resize', this.handleOnResizeMenu);
 	}
 
 	/**
-	 * Add css style transform:none for each element
+	 * Use throttle to avoid high fire rate of the function
+	 */
+	handleOnResizeMenu = throttle(() => {
+		this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
+		this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
+		this.removeAllClass();
+	});
+
+	/**
+	 * Add inline style "transform: none" for each element
 	 * @param {array} elementList
 	 */
 	resetTransformStyle(elementList) {
@@ -71,12 +84,26 @@ export default class Menu {
 	}
 
 	/**
+	 * Getter function that return the unit measure to handle animation
+	 * @param {*} menu
+	 */
+	getUnitMeasure(menu) {
+		if (menu && menu.classList.contains('js-navigation-panel')) {
+			return this.unitMeasure.panel;
+		}
+
+		return this.unitMeasure.default;
+	}
+
+	/**
 	 * Gestione dei submenu delle navigation
 	 * @param {*} item l'elemento che ho cliccato
 	 * @param {*} menu il menu di riferimento
 	 * @returns
 	 */
 	multiLevelMenu = (item, menu) => {
+		const unitMeasure = this.getUnitMeasure(menu);
+
 		let subMenu = null;
 		let subMenuImage = null;
 
@@ -96,7 +123,7 @@ export default class Menu {
 
 			this.defaults.level++;
 			let translation = -100 * this.defaults.level;
-			menu.style.cssText += `transform: translateX(${translation}vw);`;
+			menu.style.cssText += `transform: translateX(${translation}${unitMeasure});`;
 
 			this.DOM.menuBody.scrollTo({
 				top: 0,
@@ -111,6 +138,8 @@ export default class Menu {
 	 * @param {*} menu il menu di riferimento
 	 */
 	multiLevelBack = (menu) => {
+		const unitMeasure = this.getUnitMeasure(menu);
+
 		if (this.defaults.level > 0) {
 			this.defaults.level--;
 			this.DOM.element.forEach((item) => {
@@ -123,7 +152,7 @@ export default class Menu {
 			});
 
 			let translation = -100 * this.defaults.level;
-			menu.style.cssText += `transform: translateX(${translation}vw);`;
+			menu.style.cssText += `transform: translateX(${translation}${unitMeasure});`;
 
 			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
 		}
@@ -198,10 +227,14 @@ export default class Menu {
 	 * Se clicco la navicon resetto tutto
 	 */
 	handleNaviconClick() {
-		this.DOM.navicon.addEventListener('click', (e) => this.resetAll(e));
+		if (this.DOM.navicon) {
+			this.DOM.navicon.addEventListener('click', (e) => this.resetAll(e));
+		}
 	}
 
-	//Se clicco il close di navigation panel resetto tutto
+	/**
+	 * Se clicco il close di navigation panel resetto tutto
+	 */
 	handleCloseNavigationPanel() {
 		if (this.DOM.closePanel) {
 			this.DOM.closePanel.addEventListener('click', (e) => this.resetAll(e));
@@ -212,13 +245,13 @@ export default class Menu {
 	 * Se clicco l'overlay-panel di navigation panel resetto tutto (solo NON mobile)
 	 */
 	handleCloseOverlayPanel() {
-		if (!isMobile().any && this.DOM.closeOverlayPanel) {
+		if (this.DOM.closeOverlayPanel && !isMobile().any) {
 			this.DOM.closeOverlayPanel.addEventListener('click', (e) => this.resetAll(e));
 		}
 	}
 
 	init() {
-		if (this.DOM.element.length === 0) {
+		if (!this.DOM.element.length) {
 			return;
 		}
 
