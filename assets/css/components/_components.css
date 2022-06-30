@@ -21,7 +21,7 @@
 @import "media.css";
 @import "message-alert.css";
 @import "message.css";
-/* @import "modal.css"; */
+@import "modal.css";
 @import "navicon.css";
 @import "navigation.css";
 @import "overlay-modal.css";

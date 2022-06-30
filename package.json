@@ -58,7 +58,7 @@
 		"gsap": "npm:@gsap/shockingly@^3.10.4",
 		"infinite-scroll": "4.0.1",
 		"ismobilejs": "1.1.1",
-		"photoswipe": "4.1.3",
+		"photoswipe": "5.2.8",
 		"swiper": "8.2.1"
 	}
 }
