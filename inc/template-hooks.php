@@ -66,15 +66,6 @@ function ground_search_form() {
 add_action( 'wp_footer', 'ground_search_form', 15 );
 
 /**
- * Modal
- */
-function ground_modal() {
-	get_template_part( 'template-parts/shared/modal' );
-}
-
-// add_action( 'wp_footer', 'ground_modal', 20 );
-
-/**
  * Main open
  */
 function ground_main_content_open() { ?>
