@@ -311,7 +311,7 @@ function ground_icon( $name = '', $additional_class = '', $icon_set = 'css-gg', 
  */
 function ground_gallery_modal( $link, $id ) {
 	$image_attributes = wp_get_attachment_image_src( $id, 'full' );
-	return str_replace( '<a href', '<a data-modal="gallery" data-modal-size="' . $image_attributes[1] . 'x' . $image_attributes[2] . '" data-router-disabled href', $link );
+	return str_replace( '<a href', '<a data-modal="gallery" data-pswp-width="' . $image_attributes[1] . '" data-pswp-height="' . $image_attributes[2] . '" data-router-disabled href', $link );
 }
 
 add_filter( 'wp_get_attachment_link', 'ground_gallery_modal', 10, 6 );
@@ -567,8 +567,8 @@ function ground_add_gutenberg_block_support() {
 add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
 
 function ground_add_color_palette_support() {
-    add_theme_support( 
-		'editor-color-palette', 
+	add_theme_support(
+		'editor-color-palette',
 		array(
 			array(
 				'name'  => esc_attr__( 'Primary', 'ground' ),
@@ -609,9 +609,9 @@ function ground_add_color_palette_support() {
 				'name'  => esc_attr__( 'Octonary', 'ground' ),
 				'slug'  => 'octonary',
 				'color' => GROUND_COLOR_OCTONARY,
-			)
-   		)
+			),
+		)
 	);
 }
- 
+
 add_action( 'init', 'ground_add_color_palette_support' );
