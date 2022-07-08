@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 13:26+0000\n"
-"PO-Revision-Date: 2022-05-16 10:07+0000\n"
+"PO-Revision-Date: 2022-07-08 08:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.1; wp-5.9.3\n"
+"X-Loco-Version: 2.6.2; wp-6.0\n"
 "X-Domain: ground"
 
 #. Description of the theme
@@ -680,7 +680,7 @@ msgstr "Siamo spiacenti, nessun risultato trovato."
 
 #: template-parts/shared/newsletter.php:18
 msgid "Subscribe"
-msgstr "Sottoscrivi"
+msgstr "Iscriviti"
 
 #: inc/customizer/customizer-shop.php:33
 msgid "Text visible on the archive page for each non-purchasable product"
