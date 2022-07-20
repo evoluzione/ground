@@ -1,18 +1,18 @@
 /* wp-block-cover */
 .wp-block-cover {
-	@apply overflow-hidden rounded-theme border border-quinary my-12 lg:my-24;
+	@apply rounded-theme my-12 overflow-hidden lg:my-24;
 	.wp-block-cover__gradient-background,
 	.wp-block-cover__image-background {
-		@apply block overflow-hidden rounded-theme;
+		@apply rounded-theme block overflow-hidden;
 	}
 	&.fullscreen {
-		@apply px-6 border-0;
+		@apply border-0 px-6;
 		.wp-block-cover__gradient-background,
 		.wp-block-cover__image-background {
 			@apply rounded-none;
 		}
 	}
 	.wp-block-cover__inner-container {
-		@apply relative space-y-9 max-w-4xl px-6 py-6 lg:px-9 lg:py-12;
+		@apply relative max-w-4xl space-y-9 px-6 py-6 lg:px-9 lg:py-12;
 	}
 }
