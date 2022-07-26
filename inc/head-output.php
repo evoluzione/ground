@@ -20,8 +20,6 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
  * Register and enqueue JS
  */
 function ground_enqueue_scripts() {
-	 // wp_deregister_script( 'jquery' );
-	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.6.0.min.js", array(), null, true );
 	wp_enqueue_script( 'ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/ground-scripts.min.js', array( 'jquery' ), GROUND_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -30,13 +28,6 @@ function ground_enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
-
-/*
- customizer - control . js
-function tuts_customize_control_js() {
-	wp_enqueue_script( 'tuts_customizer_control', get_template_directory_uri() . '/js/customizer-control.js', array( 'customize-controls', 'jquery' ), null, true );
-}
-add_action( 'customize_controls_enqueue_scripts', 'tuts_customize_control_js' ); */
 
 /**
  * Add CSS Fonts Source
@@ -53,7 +44,7 @@ add_action( 'wp_head', 'ground_add_fonts_source' );
  * Add CSS theme variables
  */
 function ground_add_css_theme_variables() {
-	 echo '<style type="text/css">
+	echo '<style type="text/css">
 		:root {
 			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
 			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
@@ -76,7 +67,7 @@ add_action( 'wp_head', 'ground_add_css_theme_variables' );
  * Clean up head output
  */
 function ground_head_output() {
-	 // Enables RSS posts and comments.
+	// Enables RSS posts and comments.
 	add_theme_support( 'automatic-feed-links' );
 	// Allows themes to add document title tag to HTML <head>.
 	add_theme_support( 'title-tag' );
@@ -116,7 +107,7 @@ add_action( 'login_enqueue_scripts', 'ground_login_css' );
  * Theme color
  */
 function ground_theme_color() {
-	 echo '<meta name="theme-color" content="' . GROUND_COLOR_PRIMARY . '" />';
+	echo '<meta name="theme-color" content="' . GROUND_COLOR_PRIMARY . '" />';
 }
 
 add_action( 'wp_head', 'ground_theme_color' );
