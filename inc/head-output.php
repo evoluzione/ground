@@ -11,7 +11,6 @@
  */
 function ground_enqueue_styles() {
 	wp_enqueue_style( 'ground-styles', GROUND_TEMPLATE_URL . '/dist/css/ground-styles.min.css', array(), GROUND_VERSION, 'all' );
-	wp_enqueue_style( 'swiper-style', 'https://unpkg.com/swiper@8.0.6/swiper-bundle.min.css', array(), null, 'all' );
 }
 
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
