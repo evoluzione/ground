@@ -33,6 +33,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/cart-item-quantity.php';
 	require_once 'inc/woocommerce/category.php';
 	require_once 'inc/woocommerce/checkout.php';
+	require_once 'inc/woocommerce/ean-gtin.php';
 	require_once 'inc/woocommerce/gutemberg.php';
 	require_once 'inc/woocommerce/pagination.php';
 	require_once 'inc/woocommerce/payments.php';
