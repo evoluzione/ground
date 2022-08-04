@@ -35,6 +35,7 @@ function ground_walker_nav_menu_start_el( $item_output, $item, $depth, $args )
             <a class="no-underline" href="<?php echo $button['url']; ?>">
         <?php endif; ?>
 
+                <?php if($image && $image['sizes'] && $image['sizes']['16-9-large']): ?> 
                 <figure class="media aspect-w-16 aspect-h-9">
                     <img 
                         class="object-cover w-full rounded-theme"
@@ -43,6 +44,7 @@ function ground_walker_nav_menu_start_el( $item_output, $item, $depth, $args )
                         loading="lazy"
                     >
                 </figure>
+                <?php endif; ?>
 
         <?php if ($button) : ?>
                 <h2 class="text-lg lg:text-xl py-6"> <?php echo $button['title']; ?> </h2>
