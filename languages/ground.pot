@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ground\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-16 09:55+0000\n"
+"POT-Creation-Date: 2022-08-29 09:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.2\n"
 "X-Domain: ground"
 
-#: ../ground/template-parts/header/header-simple.php:47
+#: ../ground/template-parts/header/header-simple.php:48
 msgid "Account"
 msgstr ""
 
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: ../ground/inc/woocommerce/product-loop.php:150
+#: ../ground/inc/woocommerce/product-loop.php:152
 msgid "Advanced Filters"
 msgstr ""
 
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Billing data"
 msgstr ""
 
-#: ../ground/inc/customizer/customizer-settings.php:91
+#: ../ground/inc/customizer/customizer-settings.php:81
 msgid "Border Radius Media"
 msgstr ""
 
-#: ../ground/inc/customizer/customizer-settings.php:72
+#: ../ground/inc/customizer/customizer-settings.php:62
 msgid "Border Radius Theme"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Cash on delivery charges"
 msgstr ""
 
-#: ../ground/template-parts/post/post-content.php:133
+#: ../ground/template-parts/post/post-content.php:124
 #: ../ground/template-parts/navigation/navigation-blog.php:34
 msgid "Category"
 msgstr ""
@@ -131,8 +131,8 @@ msgstr ""
 msgid "Colors"
 msgstr ""
 
-#: ../ground/template-parts/post/post-content.php:135
-#: ../ground/template-parts/comment/comments.php:68
+#: ../ground/template-parts/post/post-content.php:126
+#: ../ground/template-parts/comment/comments.php:69
 msgid "Comments"
 msgstr ""
 
@@ -190,11 +190,11 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ../ground/index.php:89 ../ground/template-parts/post/post-content.php:115
+#: ../ground/index.php:91 ../ground/template-parts/post/post-content.php:102
 msgid "Discover"
 msgstr ""
 
-#: ../ground/template-parts/post/post-content.php:75
+#: ../ground/template-parts/post/post-content.php:63
 msgid "Discover all news"
 msgstr ""
 
@@ -206,12 +206,16 @@ msgstr ""
 msgid "Do you need an invoice?"
 msgstr ""
 
+#: ../ground/inc/woocommerce/ean-gtin.php:18
+msgid "EAN/GTIN"
+msgstr ""
+
 #: ../ground/inc/woocommerce/order-email.php:20
 #: ../ground/template-parts/comment/comments-form.php:9
 msgid "Email"
 msgstr ""
 
-#: ../ground/404.php:24
+#: ../ground/404.php:27
 msgid "Error code: 404"
 msgstr ""
 
@@ -231,7 +235,7 @@ msgstr ""
 msgid "Fax"
 msgstr ""
 
-#: ../ground/archive.php:73 ../ground/inc/woocommerce/product-loop.php:120
+#: ../ground/archive.php:74 ../ground/inc/woocommerce/product-loop.php:121
 msgid "Filters"
 msgstr ""
 
@@ -393,7 +397,7 @@ msgstr ""
 msgid "Mega"
 msgstr ""
 
-#: ../ground/template-parts/header/header-mega-menu.php:47
+#: ../ground/template-parts/header/header-mega-menu.php:48
 msgid "My Account"
 msgstr ""
 
@@ -437,7 +441,11 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: ../ground/404.php:19
+#: ../ground/inc/extend.php:609
+msgid "Octonary"
+msgstr ""
+
+#: ../ground/404.php:20
 msgid "Oops!"
 msgstr ""
 
@@ -445,7 +453,7 @@ msgstr ""
 msgid "Order Comments Details"
 msgstr ""
 
-#: ../ground/template-parts/post/post-content.php:74
+#: ../ground/template-parts/post/post-content.php:62
 msgid "Other news"
 msgstr ""
 
@@ -496,6 +504,12 @@ msgstr ""
 msgid "Placeholder image"
 msgstr ""
 
+#: ../ground/inc/oembed.php:28 ../ground/template-parts/header/header.php:28
+msgid ""
+"Please <a href=\"javascript:Cookiebot.renew()\">accept marketing-cookies</a> "
+"to watch this video."
+msgstr ""
+
 #: ../ground/inc/woocommerce/brand.php:9 ../ground/inc/woocommerce/brand.php:10
 msgctxt "Post Type General Name"
 msgid "Brand"
@@ -503,6 +517,10 @@ msgstr ""
 
 #: ../ground/template-parts/shared/pagination.php:41
 msgid "Prev"
+msgstr ""
+
+#: ../ground/inc/extend.php:574
+msgid "Primary"
 msgstr ""
 
 #: ../ground/inc/woocommerce/checkout.php:45
@@ -536,6 +554,14 @@ msgstr ""
 msgid "Public administration"
 msgstr ""
 
+#: ../ground/inc/extend.php:589
+msgid "Quaternary"
+msgstr ""
+
+#: ../ground/inc/extend.php:594
+msgid "Quinary"
+msgstr ""
+
 #: ../ground/woocommerce/emails/email-addresses.php:58
 #: ../ground/inc/woocommerce/checkout.php:79
 #: ../ground/inc/woocommerce/checkout.php:170
@@ -557,17 +583,17 @@ msgid "Search products"
 msgstr ""
 
 #. %s: search query.
-#: ../ground/search.php:16
+#: ../ground/search.php:17
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: ../ground/inc/woocommerce/checkout.php:349
-msgid "Secure order"
+#: ../ground/inc/extend.php:579
+msgid "Secondary"
 msgstr ""
 
-#: ../ground/inc/customizer/customizer-settings.php:53
-msgid "Select Container Size"
+#: ../ground/inc/woocommerce/checkout.php:349
+msgid "Secure order"
 msgstr ""
 
 #: ../ground/inc/customizer/customizer-header.php:50
@@ -578,7 +604,15 @@ msgstr ""
 msgid "Select the pages you want to show on the product page after the summary"
 msgstr ""
 
-#: ../ground/inc/customizer/customizer-settings.php:92
+#: ../ground/inc/extend.php:599
+msgid "Senary"
+msgstr ""
+
+#: ../ground/inc/extend.php:604
+msgid "Septenary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:82
 msgid "Set the border radius of media / images"
 msgstr ""
 
@@ -594,7 +628,7 @@ msgstr ""
 msgid "Set up global messages for Not Purchasable products"
 msgstr ""
 
-#: ../ground/inc/customizer/customizer-settings.php:73
+#: ../ground/inc/customizer/customizer-settings.php:63
 msgid "Sets the border radius of the site elements ( Buttons, forms )"
 msgstr ""
 
@@ -626,23 +660,23 @@ msgstr ""
 msgid "Shortcode/Form"
 msgstr ""
 
-#: ../ground/inc/extend.php:550
+#: ../ground/inc/extend.php:526
 msgid "Sidebar archive post"
 msgstr ""
 
-#: ../ground/inc/extend.php:551
+#: ../ground/inc/extend.php:527
 msgid "Sidebar footer primary"
 msgstr ""
 
-#: ../ground/inc/extend.php:554
+#: ../ground/inc/extend.php:530
 msgid "Sidebar footer quaternary"
 msgstr ""
 
-#: ../ground/inc/extend.php:552
+#: ../ground/inc/extend.php:528
 msgid "Sidebar footer secondary"
 msgstr ""
 
-#: ../ground/inc/extend.php:553
+#: ../ground/inc/extend.php:529
 msgid "Sidebar footer tertiary"
 msgstr ""
 
@@ -666,7 +700,7 @@ msgstr ""
 msgid "Society name"
 msgstr ""
 
-#: ../ground/search.php:62
+#: ../ground/search.php:64
 #: ../ground/template-parts/search/search-ajax-preview.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
@@ -677,6 +711,10 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
+#: ../ground/inc/extend.php:584
+msgid "Tertiary"
+msgstr ""
+
 #: ../ground/inc/customizer/customizer-shop.php:33
 msgid "Text visible on the archive page for each non-purchasable product"
 msgstr ""
@@ -685,7 +723,7 @@ msgstr ""
 msgid "Text visible on the single product page"
 msgstr ""
 
-#: ../ground/404.php:23
+#: ../ground/404.php:26
 msgid "The page you're looking for can't be found"
 msgstr ""
 
@@ -711,10 +749,6 @@ msgstr ""
 
 #: ../ground/inc/customizer/customizer-socials.php:89
 msgid "Twitter"
-msgstr ""
-
-#: ../ground/inc/customizer/customizer-settings.php:54
-msgid "Using this option you can change the container size"
 msgstr ""
 
 #: ../ground/inc/customizer/customizer-header.php:51
