@@ -2,7 +2,7 @@
 	.widget {
 		.sidebar &,
 		.overlay-panel & {
-			@apply relative mb-9;
+			@apply relative mb-6;
 			.widgettitle {
 				@apply relative text-lg font-normal mb-3;
 			}

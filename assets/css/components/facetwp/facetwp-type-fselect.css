@@ -1,0 +1,79 @@
+/* facetwp-type-fselect */
+.facetwp-type-fselect {
+
+    .facetwp-dropdown {
+
+    }
+
+    .fs-wrap {
+        @apply w-full cursor-pointer;
+
+        .fs-label-wrap {
+            @apply py-0 rounded-none border-0;
+
+            .fs-label {
+                @apply px-0 py-0 text-xl cursor-pointer;
+			    @apply transition-all ease-default duration-300;
+            }
+
+            .fs-arrow {
+                @apply right-0;
+            }
+
+        }
+
+    }
+
+    .fs-dropdown {
+        @apply relative border-0;
+
+        .fs-search {
+            @apply mt-2 px-0 bg-transparent;
+            input {
+                @apply !border-septenary px-4 py-3 text-xs;
+                border: 1px solid;
+            }
+
+        }
+        .fs-options {
+            @apply pt-3;
+            max-height: auto;
+
+            .fs-option {
+                @apply flex items-center py-1 px-0;
+
+                .fs-checkbox {
+                    @apply relative h-6 w-6 border border-septenary rounded-full mr-3 left-auto right-auto top-auto bottom-auto !important;
+			        @apply transition-all ease-default duration-300;
+                    
+                    i {
+                        @apply absolute h-full w-full bg-primary rounded-full scale-0 opacity-0 !important;
+            			@apply transition-all ease-default duration-300;
+                    }
+                }
+
+                .fs-option-label {
+                    @apply text-sm;
+                }
+
+                &.selected, &:hover {
+
+                    .fs-checkbox {
+                        @apply border-primary !important;
+                        i {
+                            @apply scale-50 opacity-100 !important;
+                        }
+                    }
+                    .fs-option-label {
+                        @apply text-primary;
+                    }
+
+                }
+
+
+            }
+
+        }
+    }
+
+}

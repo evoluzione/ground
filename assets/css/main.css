@@ -12,6 +12,9 @@
 /* Layouts */
 @import "layouts/_layouts.css";
 
+/* FacetWP */
+@import "components/facetwp/_facetwp.css";
+
 /* Components */
 @import "components/_components.css";
 @import "components/wp-blocks/_wp-blocks.css";

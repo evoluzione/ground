@@ -31,4 +31,9 @@
 		float: left;
 		margin-right: 2rem;
 	}
+
+	.sidebar &,
+	.overlay-panel & {
+		@apply px-0;
+	}
 }
