@@ -33,6 +33,7 @@
 	}
 
 	.sidebar &,
+	.sidebar-woocommerce-horizontal &,
 	.overlay-panel & {
 		@apply px-0;
 	}

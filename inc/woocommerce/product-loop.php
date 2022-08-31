@@ -112,11 +112,11 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 function ground_archive_filters_buttons() {
 	?>
 
-	<div class="sticky top-16 bg-quinary border-b border-septenary z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
+	<div class="sticky top-16 bg-quinary border-b border-septenary z-10 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
 		<div class="container px-0 overflow-hidden">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 gap-6 lg:w-2/3 pb-3 lg:pb-0 pl-3 lg:pl-0">
-					<?php if ( is_active_sidebar( 'sidebar-woocommerce' ) ) : ?>
+					<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
 					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open">
 						<?php ground_icon( 'options', 'button__icon w-6 h-6' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 					</button>
@@ -144,6 +144,31 @@ function ground_archive_filters_buttons() {
 }
 
 add_action( 'woocommerce_before_shop_loop', 'ground_archive_filters_buttons', 10 );
+
+
+/**
+ * WooCommerce, Add Sidebar Woocommerce Horizontal
+ */
+function ground_add_sidebar_horizontal_woocommerce() {
+	if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
+		?>
+
+		<div class="hidden lg:block sticky top-16 bg-quinary border-b border-septenary z-20 sidebar-woocommerce-horizontal">
+			<div class="container py-2">
+				<div class="flex gap-x-3">
+					<?php dynamic_sidebar( 'sidebar-woocommerce-horizontal' ); ?>
+					<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
+					<div class="button button--bordered w-auto js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
+				<?php endif; ?>
+				</div>
+			</div>
+		</div>
+
+		<?php
+	endif;
+}
+
+add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_horizontal_woocommerce', 30 );
 
 
 /**
@@ -189,9 +214,16 @@ function ground_add_sidebar_woocommerce_advanced() {
 						echo do_shortcode( '[facetwp selections="true"] ' );
 					}
 					?>
+					<?php if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) : ?>
+					<div class="block lg:hidden">
+						<?php dynamic_sidebar( 'sidebar-woocommerce-horizontal' ); ?>
+					</div>
+					<?php endif; ?>
+					<?php if ( is_active_sidebar( 'sidebar-woocommerce' ) ) : ?>
 					<div class="block lg:hidden">
 						<?php dynamic_sidebar( 'sidebar-woocommerce' ); ?>
 					</div>
+					<?php endif; ?>
 					<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
 				</div>
 			</div>
@@ -202,7 +234,7 @@ function ground_add_sidebar_woocommerce_advanced() {
 	endif;
 }
 
-add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce_advanced', 10 );
+add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_woocommerce_advanced', 10 );
 
 
 

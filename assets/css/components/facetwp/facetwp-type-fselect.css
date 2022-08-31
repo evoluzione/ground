@@ -1,5 +1,17 @@
 /* facetwp-type-fselect */
 .facetwp-type-fselect {
+    @apply relative;
+
+    /* LOADING FILTER */
+    .sidebar-woocommerce-horizontal & {
+        &:not(.facetwp-ignore) {
+            &.is-loading {
+                &:before {
+                    @apply top-3 right-3;
+                }
+            }
+        }
+    }
 
     .facetwp-dropdown {
 
@@ -11,13 +23,23 @@
         .fs-label-wrap {
             @apply py-0 rounded-none border-0;
 
+            .sidebar-woocommerce-horizontal & {
+                @apply border border-septenary py-3 rounded-theme;
+            }
+
             .fs-label {
                 @apply px-0 py-0 text-xl cursor-pointer;
 			    @apply transition-all ease-default duration-300;
+                .sidebar-woocommerce-horizontal & {
+                    @apply pl-5 pr-16 text-base;
+                }
             }
 
             .fs-arrow {
                 @apply right-0;
+                .sidebar-woocommerce-horizontal & {
+                    @apply right-4;
+                }
             }
 
         }
@@ -27,10 +49,18 @@
     .fs-dropdown {
         @apply relative border-0;
 
+        .sidebar-woocommerce-horizontal & {
+            @apply absolute mt-1 px-5 py-4 w-80 bg-quinary shadow-xl border !border-septenary rounded-lg;
+            border-top: 1px solid;
+        }
+
         .fs-search {
             @apply mt-2 px-0 bg-transparent;
+            .sidebar-woocommerce-horizontal & {
+                @apply mt-0;
+            }
             input {
-                @apply !border-septenary px-4 py-3 text-xs;
+                @apply !border-septenary px-4 py-3 text-xs rounded-theme;
                 border: 1px solid;
             }
 
@@ -41,6 +71,10 @@
 
             .fs-option {
                 @apply flex items-center py-1 px-0;
+
+                &.fs-hidden {
+                    @apply hidden;
+                }
 
                 .fs-checkbox {
                     @apply relative h-6 w-6 border border-septenary rounded-full mr-3 left-auto right-auto top-auto bottom-auto !important;

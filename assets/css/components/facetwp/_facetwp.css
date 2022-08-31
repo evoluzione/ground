@@ -10,12 +10,18 @@
 .facetwp-facet {
     @apply border-b border-septenary !mb-0 pb-5;
 
+     .sidebar-woocommerce-horizontal & {
+        @apply border-0 !mb-0 pb-0;
+    }
+
     /* LOADING FILTER */
     &:not(.facetwp-ignore) {
         &.is-loading {
             &:before {
                 content: "";
-                @apply absolute top-0 right-0 h-6 w-6 rounded-full bg-transparent border-t border-primary z-10;
+                @apply absolute top-0 right-0 h-6 w-6 rounded-full bg-transparent z-10;
+                border: 1px solid rgba(0,0,0,0.2);
+                border-top: 1px solid red;
                 @apply animate-spin;
             }
             .fs-arrow {
