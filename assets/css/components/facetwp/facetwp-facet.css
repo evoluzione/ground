@@ -1,0 +1,27 @@
+/* Shared: facetwp-facet */
+.facetwp-facet {
+    @apply border-b border-septenary !mb-0 pb-5;
+
+     .sidebar-woocommerce-horizontal & {
+        @apply border-0 !mb-0 pb-0;
+    }
+
+    .disabled {
+        @apply !cursor-not-allowed;
+    }
+
+    /* LOADING FILTER */
+    &:not(.facetwp-ignore) {
+        &.is-loading {
+            &:before {
+                content: "";
+                @apply absolute top-0 right-0 h-6 w-6 rounded-full border border-septenary bg-transparent z-10;
+                border-top: 1px solid var(--ground-color-primary);
+                @apply animate-spin;
+            }
+            .fs-arrow {
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
-/* facetwp-type-checkboxes & facetwp-type-radio */
+/* .facetwp-type-checkboxes & .facetwp-type-radio */
 .facetwp-type-checkboxes, .facetwp-type-radio {
 
     .facetwp-checkbox, .facetwp-radio {
         background: none;
-        @apply flex flex-wrap relative items-center pl-0 mb-2;
+        @apply flex flex-wrap relative items-center pl-0 mb-2 bg-none text-sm;
 
         &:before {
             content: '';
@@ -19,6 +19,10 @@
         .facetwp-display-value, .facetwp-counter {
             @apply text-sm;
 			@apply transition-all ease-default duration-300;
+        }
+
+        .facetwp-expand {
+            @apply ml-1 text-tertiary font-bold hover:text-primary;
         }
 
         &.checked, &:hover {

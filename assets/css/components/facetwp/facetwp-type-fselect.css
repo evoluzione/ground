@@ -1,4 +1,4 @@
-/* facetwp-type-fselect */
+/* .facetwp-type-fselect */
 .facetwp-type-fselect {
     @apply relative;
 
@@ -37,6 +37,7 @@
 
             .fs-arrow {
                 @apply right-0;
+                border-top: 5px solid var(--ground-color-tertiary);
                 .sidebar-woocommerce-horizontal & {
                     @apply right-4;
                 }
