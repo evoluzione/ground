@@ -19,9 +19,8 @@
         &.is-loading {
             &:before {
                 content: "";
-                @apply absolute top-0 right-0 h-6 w-6 rounded-full bg-transparent z-10;
-                border: 1px solid rgba(0,0,0,0.2);
-                border-top: 1px solid red;
+                @apply absolute top-0 right-0 h-6 w-6 rounded-full border border-primary bg-transparent z-10 shadow-sm shadow-septenary;
+                border-top: 1px solid transparent;
                 @apply animate-spin;
             }
             .fs-arrow {
