@@ -8,8 +8,13 @@
 			@apply fixed top-0 right-0 h-full w-full bg-quinary z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
 
 			.overlay-panel--from-left & {
-				@apply left-0 -translate-x-full;
+				@apply left-0 -translate-x-full ;
 			}
+
+			.overlay-panel--from-bottom & {
+				@apply left-0 bottom-0 top-auto translate-x-0 translate-y-full h-[95%] rounded-t-xl;
+			}
+			
 		}
 
 		&__content {
