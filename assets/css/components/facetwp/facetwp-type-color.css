@@ -1,0 +1,22 @@
+/* .facetwp-type-color */
+.facetwp-type-color {
+
+    .facetwp-color {
+        @apply relative rounded-full shadow-none;
+		@apply transition-all ease-default duration-300;
+        box-shadow: 0 0 0 1px var(--ground-color-quinary), 0 0 0 2px var(--ground-color-septenary);
+
+        &:hover {
+            box-shadow: 0 0 0 2px var(--ground-color-quinary), 0 0 0 4px var(--ground-color-primary);
+        }
+
+        &.checked {
+            &:after {
+                margin-top: 10px;
+            }
+
+        }
+
+    }
+
+}
