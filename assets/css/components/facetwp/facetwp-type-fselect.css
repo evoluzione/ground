@@ -48,10 +48,10 @@
     }
 
     .fs-dropdown {
-        @apply relative border-0;
+        @apply relative border-0 z-0;
 
         .sidebar-woocommerce-horizontal & {
-            @apply absolute mt-1 px-5 py-4 w-80 bg-quinary shadow-xl border !border-septenary rounded-lg;
+            @apply absolute mt-1 px-5 py-4 w-80 bg-quinary shadow-xl border !border-septenary rounded-lg z-30;
             border-top: 1px solid;
         }
 
