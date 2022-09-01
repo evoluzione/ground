@@ -36,11 +36,9 @@ function ground_product_attributes_after_summary() {
 	global $product;
 
 	if ( $product && ( $product->has_attributes() || apply_filters( 'wc_product_enable_dimensions_display', $product->has_weight() || $product->has_dimensions() ) ) ) { ?>
-		<div class="wp-block relative my-12 lg:my-24">
-			<div class="grid grid-cols-12 gap-6">
-				<div class="col-span-full">
-					<?php wc_display_product_attributes( $product ); ?>
-				</div>
+		<div class="relative my-12 lg:my-24">
+			<div class="container">
+				<?php wc_display_product_attributes( $product ); ?>
 			</div>
 		</div>
 
@@ -88,27 +86,27 @@ add_action( 'woocommerce_before_quantity_input_field', 'ground_display_quantity_
  */
 function ground_add_page_relation_below_product_summary() {
 
-	if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) : 
-	?>
+	if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 || GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) :
+		?>
 
 		<div class="relative mt-9">
 
 			<?php if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 ) : ?>
-				<?php $id = get_id_current_language(GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1); ?>
+				<?php $id = get_id_current_language( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_1 ); ?>
 				<div>
 					<a class="text-sm text-quaternary underline" href="<?php echo esc_html( get_permalink( $id ) ); ?>"><?php echo esc_html( get_the_title( $id ) ); ?></a>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 ) : ?>
-				<?php $id = get_id_current_language(GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2); ?>
+				<?php $id = get_id_current_language( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_2 ); ?>
 				<div>
 					<a class="text-sm text-quaternary underline" href="<?php echo esc_html( get_permalink( $id ) ); ?>"><?php echo esc_html( get_the_title( $id ) ); ?></a>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ) : ?>
-				<?php $id = get_id_current_language(GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3); ?>
+				<?php $id = get_id_current_language( GROUND_SHOP_PRODUCT_SUMMARY_PAGE_3 ); ?>
 				<div>
 					<a class="text-sm text-quaternary underline" href="<?php echo esc_html( get_permalink( $id ) ); ?>"><?php echo esc_html( get_the_title( $id ) ); ?></a>
 				</div>
