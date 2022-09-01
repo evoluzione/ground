@@ -150,8 +150,9 @@ add_action( 'woocommerce_before_shop_loop', 'ground_archive_filters_buttons', 10
  * WooCommerce, Add Sidebar Woocommerce Horizontal
  */
 function ground_add_sidebar_horizontal_woocommerce() {
-	if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
-		?>
+	if ( is_shop() || is_product_category() || is_product_tag() || is_tax( 'product_brand' ) ) :
+		if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
+			?>
 
 		<div class="sticky top-16 bg-quinary border-b border-septenary z-20 sidebar-woocommerce-horizontal hidden lg:block">
 			<div class="container py-2">
@@ -164,11 +165,13 @@ function ground_add_sidebar_horizontal_woocommerce() {
 			</div>
 		</div>
 
-		<?php
+			<?php
 	endif;
+endif;
+
 }
 
-add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_horizontal_woocommerce', 30 );
+add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_horizontal_woocommerce', 50 );
 
 
 /**
@@ -199,8 +202,9 @@ add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce', 10 );
  * WooCommerce, Add Sidebar Woocommerce Advanced
  */
 function ground_add_sidebar_woocommerce_advanced() {
-	if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
-		?>
+	if ( is_shop() || is_product_category() || is_product_tag() || is_tax( 'product_brand' ) ) :
+		if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
+			?>
 
 		<div class="overlay-panel overlay-panel--from-left hidden lg:block" id="overlay-panel-filter-woocommerce-advanced">
 			<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"></div>
@@ -220,8 +224,10 @@ function ground_add_sidebar_woocommerce_advanced() {
 		</div>
 
 
-		<?php
+			<?php
 	endif;
+endif;
+
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_woocommerce_advanced', 10 );
@@ -233,8 +239,10 @@ add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_woocommerce_a
  * WooCommerce, Add Overlay panel woocommerce Mobile
  */
 function ground_add_overlay_panel_woocommerce_mobile() {
-	if ( is_active_sidebar( 'sidebar-woocommerce' ) || is_active_sidebar( 'sidebar-woocommerce-advanced' ) || is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
-		?>
+	if ( is_shop() || is_product_category() || is_product_tag() || is_tax( 'product_brand' ) ) :
+
+		if ( is_active_sidebar( 'sidebar-woocommerce' ) || is_active_sidebar( 'sidebar-woocommerce-advanced' ) || is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
+			?>
 
 		<div class="overlay-panel overlay-panel--from-bottom block lg:hidden" id="overlay-panel-filter-woocommerce-mobile">
 			<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open"></div>
@@ -246,16 +254,16 @@ function ground_add_overlay_panel_woocommerce_mobile() {
 					<?php
 					if ( is_plugin_active( 'facetwp/index.php' ) ) :
 						echo do_shortcode( '[facetwp selections="true"] ' );
-					endif;
+						endif;
 					if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
 						dynamic_sidebar( 'sidebar-woocommerce-horizontal' );
-					endif;
+						endif;
 					if ( is_active_sidebar( 'sidebar-woocommerce' ) ) :
 						dynamic_sidebar( 'sidebar-woocommerce' );
-					endif;
+						endif;
 					if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
 						dynamic_sidebar( 'sidebar-woocommerce-advanced' );
-					endif;
+						endif;
 					?>
 
 					<?php if ( is_plugin_active( 'facetwp/index.php' ) ) : ?>
@@ -278,9 +286,10 @@ function ground_add_overlay_panel_woocommerce_mobile() {
 			</div>
 		</div>
 
-
-		<?php
+			<?php
 	endif;
+endif;
+
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_overlay_panel_woocommerce_mobile', 10 );
