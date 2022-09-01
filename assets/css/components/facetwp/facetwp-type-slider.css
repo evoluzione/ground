@@ -1,5 +1,6 @@
 /* .facetwp-type-slider */
 .facetwp-type-slider {
+    @apply relative;
 
 
     &.is-loading {
