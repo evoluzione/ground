@@ -2,7 +2,7 @@
 .facetwp-facet {
     @apply border-b border-septenary !mb-0 pb-5;
 
-     .sidebar-woocommerce-horizontal & {
+    .sidebar-woocommerce-horizontal & {
         @apply border-0 !mb-0 pb-0;
     }
 
@@ -23,5 +23,13 @@
                 opacity: 0;
             }
         }
+    }
+}
+
+.facet-label {
+    @apply relative text-lg font-normal mb-3;
+
+    .sidebar-woocommerce-horizontal & {
+        @apply hidden;
     }
 }
