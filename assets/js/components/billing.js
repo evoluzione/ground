@@ -44,7 +44,7 @@ export default class Billing {
 			document.querySelector('#billing_fiscal_code_field').style.display = 'inherit';
 			document.querySelector('#billing_pec_field').style.display = 'inherit';
 			document.querySelector('#billing_sdi_field').style.display = 'inherit';
-			document.querySelector('#invoice_checkout_step').style.display = 'inherit';
+			document.querySelector('#invoice_checkout_step').style.display = 'flex';
 			jQuery('#invoice_checkout_step').insertAfter('#billing_invoice_field');
 
 			if (billingMethod === 'privato') {

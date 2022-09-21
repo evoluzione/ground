@@ -312,8 +312,6 @@ add_action( 'woocommerce_before_order_notes', 'ground_woocommerce_checkout_order
 
 
 
-
-
 /**
  * Replace checkout strings
  *

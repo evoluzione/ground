@@ -6588,6 +6588,11 @@ body.woocommerce-checkout .footer{
 .filter{
 	filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+.transition{
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
 .transition-opacity{
 	transition-property: opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -6595,11 +6600,6 @@ body.woocommerce-checkout .footer{
 }
 .transition-all{
 	transition-property: all;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-}
-.transition{
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
@@ -11962,7 +11962,6 @@ form.cart:not(.variations_form).grouped_form > :not([hidden]) ~ :not([hidden]), 
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 	width: 100%;
-	overflow: hidden;
 }
 @media (min-width: 1024px){
 	.woocommerce-checkout form.woocommerce-form-login{
@@ -11983,6 +11982,9 @@ form.cart:not(.variations_form).grouped_form > :not([hidden]) ~ :not([hidden]), 
 	padding-right: 0px !important;
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
+}
+.woocommerce-checkout form.woocommerce-form-login .form-row-last{
+	padding-top: 1.25rem !important;
 }
 .woocommerce-checkout form.woocommerce-form-login .woocommerce-form-login__submit{
 	margin-top: 0.75rem;
@@ -12130,11 +12132,6 @@ form.woocommerce-ResetPassword{
 }
 .woocommerce-checkout.checkout .woocommerce-NoticeGroup-checkout{
 	grid-column: 1 / -1;
-}
-@media (min-width: 1024px){
-	.woocommerce-checkout.checkout .woocommerce-NoticeGroup-checkout{
-		grid-column: span 2 / span 2;
-	}
 }
 .woocommerce-checkout.checkout .ground-checkout-step{
 	position: relative;
