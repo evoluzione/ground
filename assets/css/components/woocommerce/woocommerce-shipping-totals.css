@@ -2,7 +2,7 @@
 	@apply relative;
 
 	.woocommerce-shipping-methods {
-		@apply ml-0 mb-0;
+		@apply ml-0 mb-0 space-y-2;
 
 		body.woocommerce-checkout & {
 			@apply float-right;

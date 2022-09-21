@@ -5,6 +5,18 @@
  * @package Ground
  */
 
+
+/**
+ * Remove the payment options form from default location
+ */
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+
+/**
+ * Add the payment options form under the "order notes" section
+ */
+add_action( 'woocommerce_after_order_notes', 'woocommerce_checkout_payment', 20 );
+
+
 /**
  * Add a custom fee based on cash on delivery
  */

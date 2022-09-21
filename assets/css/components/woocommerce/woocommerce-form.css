@@ -7,9 +7,26 @@
 }
 
 .form-row {
-	@apply my-3;
+	@apply my-6;
+
+	&#billing_invoice_field {
+		@apply !mt-9;
+	}
+
+	&.create-account,
+	&#billing_invoice_field {
+		@apply my-3;
+	}
 
 	label {
 		@apply mb-1;
 	}
+}
+
+.form-row-first {
+	@apply w-1/2 inline-block pr-6 my-0 !important;
+}
+
+.form-row-last {
+	@apply w-1/2 inline-block pl-6 my-0 !important;
 }

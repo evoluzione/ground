@@ -6,7 +6,7 @@
 	input[type="number"],
 	textarea,
 	select {
-		@apply focus:ring-primary text-tertiary border-septenary rounded-theme w-full bg-transparent;
+		@apply focus:ring-primary text-tertiary border-septenary rounded-theme w-full py-3 bg-transparent;
 	}
 
 	input[type="number"] {
@@ -18,11 +18,11 @@
 	}
 
 	input[type="checkbox"] {
-		@apply focus:ring-primary h-4 w-4 text-primary border-septenary rounded-theme mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-5 w-5 text-primary border-septenary rounded-theme mr-1 cursor-pointer !important;
 	}
 
 	input[type="radio"] {
-		@apply focus:ring-primary h-4 w-4 text-primary border-septenary mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-5 w-5 text-primary border-septenary mr-1 cursor-pointer !important;
 	}
 
 	input[type="submit"] {
@@ -30,9 +30,11 @@
 	}
 
 	label {
-		@apply block text-base font-medium text-tertiary text-opacity-50 !important;
+		@apply block text-base font-medium text-tertiary leading-none !important;
 	}
 }
+
+
 
 form.wpcf7-form {
 	.wpcf7-not-valid {
@@ -68,7 +70,7 @@ form.wpcf7-form {
 	@apply h-0 -m-1 !important;
 }
 .select2-container {
-	@apply rounded-theme border border-septenary align-middle !important;
+	@apply rounded-theme border border-septenary !important;
 	.select2-dropdown.select2-dropdown--below {
 		@apply border border-septenary rounded-none !important;
 		.select2-search--dropdown {
@@ -76,12 +78,12 @@ form.wpcf7-form {
 		}
 	}
 	.select2-selection--single {
-		@apply rounded-theme m-0 h-10 border-0 border-septenary focus:ring-primary !important;
+		@apply flex items-center justify-between rounded-theme m-0 h-auto border-0 border-septenary focus:ring-primary !important;
 		.select2-selection__rendered {
-			@apply rounded-theme h-10 px-3 leading-10 text-gray-500 !important;
+			@apply rounded-theme h-auto px-3 py-3 text-gray-500 leading-normal !important;
 		}
 		.select2-selection__arrow {
-			@apply top-px h-9 leading-10 right-3 !important;
+			@apply relative h-6 right-3 !important;
 		}
 	}
 }

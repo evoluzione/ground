@@ -8,7 +8,6 @@ export default class Billing {
 		};
 
 		this.init();
-
 	}
 
 	init() {
@@ -45,6 +44,8 @@ export default class Billing {
 			document.querySelector('#billing_fiscal_code_field').style.display = 'inherit';
 			document.querySelector('#billing_pec_field').style.display = 'inherit';
 			document.querySelector('#billing_sdi_field').style.display = 'inherit';
+			document.querySelector('#invoice_checkout_step').style.display = 'inherit';
+			jQuery('#invoice_checkout_step').insertAfter('#billing_invoice_field');
 
 			if (billingMethod === 'privato') {
 				document.querySelector('#billing_company_field').style.display = 'none';
@@ -60,6 +61,7 @@ export default class Billing {
 			document.querySelector('#billing_fiscal_code_field').style.display = 'none';
 			document.querySelector('#billing_pec_field').style.display = 'none';
 			document.querySelector('#billing_sdi_field').style.display = 'none';
+			document.querySelector('#invoice_checkout_step').style.display = 'none';
 		}
 	}
 }

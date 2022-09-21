@@ -1,6 +1,9 @@
 .woocommerce-checkout-review-order-table {
-	@apply bg-transparent;
-
+	@apply sticky mt-12 top-9 bg-senary;
+	border: 20px solid var(--ground-color-senary);
+	@screen md {
+		border: 30px solid var(--ground-color-senary);
+	}
 	td {
 		@apply text-right;
 	}
@@ -9,10 +12,11 @@
 		@apply hidden;
 	}
 	tbody {
-		@apply relative;
+		@apply relative !p-12;
 
 		.cart_item {
-			@apply relative border-0 border-b border-septenary;
+			@apply relative border-0 border-b border-septenary !p-6;
+			padding-left: 40px !important;
 			.product-name {
 				@apply relative text-sm pr-3 lg:pl-20 lg:pr-0 text-left;
 				max-width: 120px;

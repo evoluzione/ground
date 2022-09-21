@@ -216,7 +216,7 @@ function ground_woocommerce_custom_checkout_field_order_received_order_meta( $or
 	$is_invoice = get_post_meta( $order_obj->get_order_number(), '_billing_invoice', true );
 
 	echo '<div class="woocommerce-column woocommerce-column--2 woocommerce-column--billing col-2">
-		<h2 class="woocommerce-column__title" style="margin-top:18px;"> ' . __( 'Billing data', 'ground' ) . '</h2>'; // Dati Fatturazione 
+		<h2 class="woocommerce-column__title" style="margin-top:18px;"> ' . __( 'Billing data', 'ground' ) . '</h2>'; // Dati Fatturazione
 
 	if ( empty( $is_invoice ) ) {
 		echo '<p class="woocommerce-customer-details--no-invoice margin-bottom-0">' . __( 'Invoice NOT requested', 'ground' ) . '</p>'; // Fattura non richiesta
@@ -253,11 +253,24 @@ function ground_woocommerce_custom_checkout_field_order_received_order_meta( $or
 add_action( 'woocommerce_thankyou', 'ground_woocommerce_custom_checkout_field_order_received_order_meta', 10, 2 );
 
 
+
+/**
+ * Billing title
+ */
+function ground_woocommerce_checkout_billing_title() { ?>
+	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'shopping-bag', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Billing details', 'ground' ); ?></span></div>
+	<?php
+}
+
+add_action( 'woocommerce_before_checkout_billing_form', 'ground_woocommerce_checkout_billing_title' );
+
 /**
  * Shipping title
  */
 function ground_woocommerce_checkout_shipping_title() {
-	 echo '<h3 class="pt-6 mb-5 border-t border-dashed border-septenary">' . __( "Where do you want to send the purchase?", 'ground' ) . '</h3>'; // Dove vuoi spedire l'acquisto?
+	?>
+	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'pin', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Where do you want to send the purchase?', 'ground' ); ?></span></div>
+	<?php
 }
 
 add_action( 'woocommerce_before_checkout_shipping_form', 'ground_woocommerce_checkout_shipping_title' );
@@ -266,10 +279,40 @@ add_action( 'woocommerce_before_checkout_shipping_form', 'ground_woocommerce_che
  * Payments title
  */
 function ground_woocommerce_checkout_payments_title() {
-	 echo '<h3>' . __( 'Payment method', 'ground' ) . '</h3>'; // Metodo di pagamento
+	?>
+	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'credit-card', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Payment method', 'ground' ); ?></span></div>
+	<?php
 }
 
-// add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
+add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
+
+
+/**
+ * Invoice title
+ */
+function ground_woocommerce_checkout_invoice_title() {
+	?>
+	<div class="ground-checkout-step" id="invoice_checkout_step"><span class="ground-checkout-step__icon"><?php ground_icon( 'copy', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Do you need an invoice?', 'ground' ); ?></span></div>
+	<?php
+}
+
+add_action( 'woocommerce_review_order_after_payment', 'ground_woocommerce_checkout_invoice_title' );
+
+
+/**
+ * Order notes
+ */
+function ground_woocommerce_checkout_order_notes_title() {
+	?>
+	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'pen', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Note', 'ground' ); ?></span></div>
+	<?php
+}
+
+add_action( 'woocommerce_before_order_notes', 'ground_woocommerce_checkout_order_notes_title' );
+
+
+
+
 
 /**
  * Replace checkout strings
@@ -337,7 +380,8 @@ add_filter( 'woocommerce_cart_item_name', 'ground_product_image_on_checkout', 10
  * Checkout, Add header checkout
  */
 function ground_header_checkout() {
-	if ( class_exists( 'WooCommerce' ) && is_checkout() ) { ?>
+	if ( class_exists( 'WooCommerce' ) && is_checkout() ) {
+		?>
 
 		<div class="container">
 			<div class="flex items-center justify-between py-6 border-b border-septenary">
