@@ -1,8 +1,9 @@
-.woocommerce-checkout-payment {
+.woocommerce-checkout-payment,
+#checkout_payments {
 	@apply relative;
 
 	.wc_payment_methods {
-		@apply relative mt-9 mb-6 space-y-2;
+		@apply relative mt-9 mb-6 space-y-3;
 
 		.wc_payment_method {
 			@apply flex flex-wrap items-center pl-0;
@@ -28,7 +29,7 @@
 			}
 
 			.payment_box {
-				@apply w-full block my-2;
+				@apply w-full block mt-2 mb-3 pl-7;
 				* {
 					@apply text-sm text-gray-500;
 				}
@@ -72,7 +73,7 @@
 	/* PLACE HOLDER */
 	.place-order {
 		button[type="submit"].button {
-			@apply mt-3 w-full;
+			@apply w-full;
 		}
 	}
 }

@@ -283,8 +283,8 @@ function ground_woocommerce_checkout_payments_title() {
 	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'credit-card', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Payment method', 'ground' ); ?></span></div>
 	<?php
 }
+add_action( 'woocommerce_checkout_shipping', 'ground_woocommerce_checkout_payments_title', 20 );
 
-add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
 
 
 /**
@@ -296,7 +296,7 @@ function ground_woocommerce_checkout_invoice_title() {
 	<?php
 }
 
-add_action( 'woocommerce_review_order_after_payment', 'ground_woocommerce_checkout_invoice_title' );
+add_action( 'woocommerce_after_checkout_shipping_form', 'ground_woocommerce_checkout_invoice_title' );
 
 
 /**

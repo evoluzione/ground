@@ -3,6 +3,7 @@
 }
 
 .woocommerce-terms-and-conditions-checkbox-text {
+	@apply text-sm;
 	.woocommerce-terms-and-conditions-link {
 		@apply text-primary;
 	}

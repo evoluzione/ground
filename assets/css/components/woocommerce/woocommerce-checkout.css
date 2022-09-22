@@ -1,13 +1,4 @@
 .woocommerce-checkout.checkout {
-	@apply lg:grid lg:grid-cols-12 gap-6 w-full;
-
-	#order_review_heading {
-		@apply hidden;
-	}
-
-	.woocommerce-NoticeGroup-checkout {
-		@apply col-span-full;
-	}
 
 	.ground-checkout-step {
 		@apply relative flex items-center text-2xl lg:text-3xl font-bold pt-9 mt-12 mb-8 border-t border-septenary;
@@ -25,34 +16,11 @@
 	}
 
 	#customer_details {
-		@apply col-span-8 lg:pr-12;
-
 		.woocommerce-billing-fields {
 			> h3 {
 				@apply hidden;
 			}
 		}
-
-
-		h3 {
-			@apply text-xl font-normal;
-		}
-
-		.woocommerce-shipping-fields {
-			/* @apply mt-9; */
-		}
-	}
-
-	#order_review {
-		@apply relative mt-0 pt-0 col-span-4 rounded-none;
-	}
-
-	.woocommerce-additional-fields__field-wrapper {
-
-	}
-
-	.woocommerce-terms-and-conditions-wrapper {
-		@apply mt-9 pt-6 border-t border-septenary;
 	}
 
 }
