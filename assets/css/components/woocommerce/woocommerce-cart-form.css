@@ -52,7 +52,7 @@
 			}
 
 			button.button {
-				@apply bg-transparent text-primary py-2 hover:bg-primary hover:text-white w-full mt-2 sm:w-auto sm:mt-0;
+				@apply bg-transparent text-primary hover:bg-primary hover:text-white w-full mt-2 sm:w-auto sm:mt-0;
 			}
 		}
 	}
