@@ -80,7 +80,7 @@ form.wpcf7-form {
 	.select2-selection--single {
 		@apply flex items-center justify-between rounded-theme m-0 h-auto border-0 border-septenary focus:ring-primary !important;
 		.select2-selection__rendered {
-			@apply rounded-theme h-auto px-3 py-3 text-gray-500 leading-normal !important;
+			@apply rounded-theme h-auto px-3 py-3 text-tertiary leading-normal !important;
 		}
 		.select2-selection__arrow {
 			@apply relative h-6 right-3 !important;

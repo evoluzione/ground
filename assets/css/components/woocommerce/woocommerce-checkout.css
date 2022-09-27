@@ -15,6 +15,27 @@
 		}
 	}
 
+	.woocommerce-input-wrapper {
+		@apply relative block;
+		&:not(.password-input) {
+			@apply flex items-center;
+		}
+		&.password-input {
+			&:after {
+				@apply top-[11px];
+			}
+		}
+		.woocommerce-password-strength {
+			@apply font-bold mt-3;
+			&.bad, &.short{
+				@apply text-red-500;
+			}
+			&.good, &.strong {
+				@apply text-green-500;
+			}
+		}
+	}
+
 	#customer_details {
 		.woocommerce-billing-fields {
 			> h3 {
