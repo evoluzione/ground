@@ -24,9 +24,9 @@
 }
 
 .form-row-first {
-	@apply w-1/2 inline-block pr-6 my-0 !important;
+	@apply w-1/2 inline-block pr-2 lg:pr-6 my-0 !important;
 }
 
 .form-row-last {
-	@apply w-1/2 inline-block pl-6 my-0 !important;
+	@apply w-1/2 inline-block pl-2 lg:pl-6 my-0 !important;
 }

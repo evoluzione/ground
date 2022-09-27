@@ -1,8 +1,31 @@
-.woocommerce-invalid {
-	input {
-		@apply border border-dashed border-red-500 !important;
-	}
+.validate-required.woocommerce-invalid {
+	@apply relative;
 	label {
-		@apply text-red-500 !important;
+		@apply !text-red-500;
+	}
+	.woocommerce-input-wrapper {
+		@apply relative flex items-center;
+
+		input {
+			@apply text-red-500 border border-red-500;
+		}
+
+		&:after {
+			content: '!';
+			@apply font-bold absolute right-3 bg-red-500 text-white rounded-full text-center text-xs h-7 w-7 border border-red-500 flex items-center justify-center;
+		}
+	}
+}
+
+
+.validate-required.woocommerce-validated {
+	@apply relative;
+	.woocommerce-input-wrapper {
+		@apply relative flex items-center;
+
+		&:after {
+			content: '✓';
+			@apply font-bold absolute right-3 bg-quinary text-green-500 rounded-full text-center text-xs h-7 w-7 border border-green-500 flex items-center justify-center;
+		}
 	}
 }
