@@ -24,7 +24,7 @@
             @apply py-0 rounded-none border-0;
 
             .sidebar-woocommerce-horizontal & {
-                @apply border border-septenary py-3 rounded-theme;
+                @apply border border-septenary py-3 rounded-theme hover:border-primary hover:text-primary;        
             }
 
             .fs-label {
@@ -43,6 +43,14 @@
                 }
             }
 
+        }
+
+        &.fs-open {
+            .fs-label-wrap {
+                .sidebar-woocommerce-horizontal & {
+                    @apply border-primary text-primary;        
+                }
+            }
         }
 
     }

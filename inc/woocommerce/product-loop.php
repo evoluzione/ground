@@ -112,12 +112,12 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 function ground_archive_filters_buttons() {
 	?>
 
-	<div class="sticky top-16 bg-quinary border-b border-septenary z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
+	<div class="sticky top-16 bg-quinary border-b border-septenary z-10 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
 		<div class="container px-0 overflow-hidden">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 gap-6 lg:w-2/3 pb-3 lg:pb-0 pl-3 lg:pl-0">
 					<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
-						<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
+						<button class="button button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
 							<?php ground_icon( 'options', 'button__icon w-6 h-6' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 						</button>
 					<?php endif; ?>
@@ -154,21 +154,20 @@ function ground_add_sidebar_horizontal_woocommerce() {
 		if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
 			?>
 
-		<div class="sticky top-16 bg-quinary border-b border-septenary z-20 sidebar-woocommerce-horizontal hidden lg:block">
-			<div class="container py-2">
-				<div class="flex gap-x-3">
-					<?php dynamic_sidebar( 'sidebar-woocommerce-horizontal' ); ?>
-					<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
-						<div class="button button--bordered w-auto js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
-					<?php endif; ?>
+			<div class="sticky top-16 bg-quinary border-b border-septenary z-20 sidebar-woocommerce-horizontal hidden lg:block">
+				<div class="container py-2">
+					<div class="flex gap-x-3">
+						<?php dynamic_sidebar( 'sidebar-woocommerce-horizontal' ); ?>
+						<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
+							<div class="button button--bordered w-auto js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
-		</div>
 
 			<?php
+		  endif;
 	endif;
-endif;
-
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_horizontal_woocommerce', 50 );
@@ -206,28 +205,45 @@ function ground_add_sidebar_woocommerce_advanced() {
 		if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
 			?>
 
-		<div class="overlay-panel overlay-panel--from-left hidden lg:block" id="overlay-panel-filter-woocommerce-advanced">
-			<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"></div>
-			<div class="overlay-panel__body">
-				<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open">
-					<?php ground_icon( 'close' ); ?>
-				</div>
-				<div class="overlay-panel__content p-6 lg:p-12">
-					<?php
-					if ( is_plugin_active( 'facetwp/index.php' ) ) {
-						echo do_shortcode( '[facetwp selections="true"] ' );
-					}
-					?>
-					<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
+			<div class="overlay-panel overlay-panel--from-left hidden lg:block" id="overlay-panel-filter-woocommerce-advanced">
+				<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"></div>
+				<div class="overlay-panel__body">
+					<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open">
+						<?php ground_icon( 'close' ); ?>
+					</div>
+					<div class="overlay-panel__content p-6 lg:p-12">
+						<?php
+						if ( is_plugin_active( 'facetwp/index.php' ) ) {
+							echo do_shortcode( '[facetwp selections="true"] ' );
+						}
+						?>
+
+						<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
+
+						<?php if ( is_plugin_active( 'facetwp/index.php' ) ) : ?>
+
+							<div class="fixed bottom-0 left-0 w-[650px] bg-quinary border-t border-septenary z-30">
+								<div class="relative p-4 flex flex-row justify-between space-x-3">
+									<button class="button button--tertiary grow" value="Reset" onclick="FWP.reset()" class="facet-reset"><?php _e( 'Clear filters', 'ground' ); ?></button>
+									<button class="button grow js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open">
+										<div class="flex items-center justify-center space-x-1">
+											<span><?php echo facetwp_display( 'counts' ); ?></span>
+											<span><?php _e( 'Results', 'ground' ); ?></span>
+										</div>
+									</button>
+								</div>
+							</div>
+
+						<?php endif; ?>
+
+					</div>
 				</div>
 			</div>
-		</div>
 
 
 			<?php
+		endif;
 	endif;
-endif;
-
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_sidebar_woocommerce_advanced', 10 );
@@ -244,52 +260,51 @@ function ground_add_overlay_panel_woocommerce_mobile() {
 		if ( is_active_sidebar( 'sidebar-woocommerce' ) || is_active_sidebar( 'sidebar-woocommerce-advanced' ) || is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
 			?>
 
-		<div class="overlay-panel overlay-panel--from-bottom block lg:hidden" id="overlay-panel-filter-woocommerce-mobile">
-			<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open"></div>
-			<div class="overlay-panel__body">
-				<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
-					<?php ground_icon( 'close' ); ?>
-				</div>
-				<div class="overlay-panel__content p-6 lg:p-12 pb-16">
-					<?php
-					if ( is_plugin_active( 'facetwp/index.php' ) ) :
-						echo do_shortcode( '[facetwp selections="true"] ' );
+			<div class="overlay-panel overlay-panel--from-bottom block lg:hidden" id="overlay-panel-filter-woocommerce-mobile">
+				<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open"></div>
+				<div class="overlay-panel__body">
+					<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
+						<?php ground_icon( 'close' ); ?>
+					</div>
+					<div class="overlay-panel__content p-6 lg:p-12 pb-16">
+						<?php
+						if ( is_plugin_active( 'facetwp/index.php' ) ) :
+							echo do_shortcode( '[facetwp selections="true"] ' );
 						endif;
-					if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
-						dynamic_sidebar( 'sidebar-woocommerce-horizontal' );
+						if ( is_active_sidebar( 'sidebar-woocommerce-horizontal' ) ) :
+							dynamic_sidebar( 'sidebar-woocommerce-horizontal' );
 						endif;
-					if ( is_active_sidebar( 'sidebar-woocommerce' ) ) :
-						dynamic_sidebar( 'sidebar-woocommerce' );
+						if ( is_active_sidebar( 'sidebar-woocommerce' ) ) :
+							dynamic_sidebar( 'sidebar-woocommerce' );
 						endif;
-					if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
-						dynamic_sidebar( 'sidebar-woocommerce-advanced' );
+						if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
+							dynamic_sidebar( 'sidebar-woocommerce-advanced' );
 						endif;
-					?>
+						?>
 
-					<?php if ( is_plugin_active( 'facetwp/index.php' ) ) : ?>
+						<?php if ( is_plugin_active( 'facetwp/index.php' ) ) : ?>
 
-						<div class="fixed bottom-0 left-0 w-full bg-quinary border-t border-septenary z-30">
-							<div class="relative p-4 flex flex-row justify-between space-x-3">
-							<button class="button button--tertiary grow" value="Reset" onclick="FWP.reset()" class="facet-reset"><?php _e( 'Clear filters', 'ground' ); ?></button>
-							<button class="button grow js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
-								<div class="flex items-center justify-center space-x-1">
-									<span><?php echo facetwp_display( 'counts' ); ?></span>
-									<span><?php _e( 'Results', 'ground' ); ?></span>
+							<div class="fixed bottom-0 left-0 w-full bg-quinary border-t border-septenary z-30">
+								<div class="relative p-4 flex flex-row justify-between space-x-3">
+									<button class="button button--tertiary grow" value="Reset" onclick="FWP.reset()" class="facet-reset"><?php _e( 'Clear filters', 'ground' ); ?></button>
+									<button class="button grow js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
+										<div class="flex items-center justify-center space-x-1">
+											<span><?php echo facetwp_display( 'counts' ); ?></span>
+											<span><?php _e( 'Results', 'ground' ); ?></span>
+										</div>
+									</button>
 								</div>
-							</button>
 							</div>
-						</div>
 
-					<?php endif; ?>
-					
+						<?php endif; ?>
+
+					</div>
 				</div>
 			</div>
-		</div>
 
 			<?php
+		endif;
 	endif;
-endif;
-
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_overlay_panel_woocommerce_mobile', 10 );
