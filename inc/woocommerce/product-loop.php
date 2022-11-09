@@ -391,7 +391,9 @@ function ground_show_sale_percentage() {
 	}
 	if ( $max_percentage > 0 ) {
 		?>
-		<div class='onsale'><span class="onsale__label"> <?php _e( 'Sale!', 'woocommerce' ); ?> </span> <span class="onsale__percentage">-<?php echo round( $max_percentage ); ?>%</span></div>
+		<div class='onsale'><span class="onsale__label"> <?php _e( 'Sale!', 'woocommerce' ); ?> </span>
+			<!-- <span class="onsale__percentage">-<?php echo round( $max_percentage ); ?>%</span> -->
+		</div>
 		<?php
 	}
 }
