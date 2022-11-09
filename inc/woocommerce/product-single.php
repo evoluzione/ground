@@ -55,12 +55,6 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 5 );
 
 /**
- * Reordering woocommerce_template_single_excerpt
- */
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 6 );
-
-/**
  * Plus Minus Quantity Buttons @ WooCommerce - 1 Add Plus
  */
 function ground_display_quantity_plus() {
@@ -165,19 +159,37 @@ add_action(
 );
 
 
+
+/**
+ * Remove default woocommerce_template_single_excerpt
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+
+
 /**
  * Add product short description read more
  */
-function ground_woocommecerce_short_description_readmore( $description ) {
-	$post_excerpt        = wp_strip_all_tags( get_the_excerpt() );
-	$post_excerpt_lenght = strlen( $post_excerpt );
-	if ( $post_excerpt_lenght >= 170 ) {
-		$description_readmore = '<div class="js-toggle mt-3 inline-block cursor-pointer underline text-primary hover:no-underline" data-toggle-target=".woocommerce-product-details__short-description" data-toggle-class-name="is-open">' . __( 'Read more', 'woocommerce' ) . '</div>';
-		return $description . $description_readmore;
-	} else {
-		return $description;
+function ground_woocommecerce_short_description_readmore() {
+
+	if ( has_excerpt() ) {
+
+		$post_excerpt        = wp_strip_all_tags( get_the_excerpt() );
+		$post_excerpt_lenght = strlen( $post_excerpt );
+		?>
+
+		<div class="woocommerce-product-details__short-description">
+			<?php echo esc_html( the_excerpt() ); ?>
+		</div>
+	
+		<?php if ( $post_excerpt_lenght >= 170 ) { ?>
+			<div class="block w-full">
+				<div class="js-toggle inline-block cursor-pointer underline text-primary hover:no-underline" data-toggle-target=".woocommerce-product-details__short-description" data-toggle-class-name="is-open">
+					<?php esc_html_e( 'Read more', 'woocommerce' ); ?>
+				</div>
+			</div>	
+			<?php
+		}
 	}
-
 }
+add_action( 'woocommerce_single_product_summary', 'ground_woocommecerce_short_description_readmore', 6 );
 
-add_filter( 'woocommerce_short_description', 'ground_woocommecerce_short_description_readmore' );

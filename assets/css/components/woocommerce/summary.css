@@ -8,16 +8,14 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply relative my-3 text-base text-quaternary;
+		@apply relative my-3 text-base text-quaternary line-clamp-3;
 
 		&.is-open {
-			.ground-block-wrapper {
-				@apply line-clamp-none;
-			}
+			@apply line-clamp-none;
 		}
 
 		.ground-block-wrapper {
-			@apply m-0 max-w-none p-0 line-clamp-3;
+			@apply m-0 max-w-none p-0;
 		}
 	}
 
