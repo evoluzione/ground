@@ -258,7 +258,7 @@ add_action( 'woocommerce_thankyou', 'ground_woocommerce_custom_checkout_field_or
  * Billing title
  */
 function ground_woocommerce_checkout_billing_title() { ?>
-	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'shopping-bag', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Billing details', 'ground' ); ?></span></div>
+	<div class="ground-checkout-step"><span class="ground-checkout-step__icon"><?php ground_icon( 'shopping-bag', '' ); ?></span><span class="ground-checkout-step__title"><?php _e( 'Personal data', 'ground' ); ?></span></div>
 	<?php
 }
 
