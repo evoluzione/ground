@@ -165,4 +165,19 @@ add_action(
 );
 
 
+/**
+ * Add product short description read more
+ */
+function ground_woocommecerce_short_description_readmore( $description ) {
+	$post_excerpt        = wp_strip_all_tags( get_the_excerpt() );
+	$post_excerpt_lenght = strlen( $post_excerpt );
+	if ( $post_excerpt_lenght >= 170 ) {
+		$description_readmore = '<div class="js-toggle mt-3 inline-block cursor-pointer underline text-primary hover:no-underline" data-toggle-target=".woocommerce-product-details__short-description" data-toggle-class-name="is-open">' . __( 'Read more', 'woocommerce' ) . '</div>';
+		return $description . $description_readmore;
+	} else {
+		return $description;
+	}
 
+}
+
+add_filter( 'woocommerce_short_description', 'ground_woocommecerce_short_description_readmore' );

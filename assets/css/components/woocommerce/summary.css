@@ -10,8 +10,14 @@
 	.woocommerce-product-details__short-description {
 		@apply relative my-3 text-base text-quaternary;
 
+		&.is-open {
+			.ground-block-wrapper {
+				@apply line-clamp-none;
+			}
+		}
+
 		.ground-block-wrapper {
-			@apply m-0 max-w-none p-0;
+			@apply m-0 max-w-none p-0 line-clamp-3;
 		}
 	}
 
