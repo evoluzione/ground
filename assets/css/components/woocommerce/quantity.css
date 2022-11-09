@@ -1,6 +1,9 @@
 .quantity {
+	&.hidden {
+		@apply !mr-0 !w-0;
+	}
 	.cart & {
-		@apply flex flex-none justify-center items-center relative bg-senary overflow-hidden w-24 sm:w-32 rounded-theme;
+		@apply rounded-theme relative mr-2 flex w-24 flex-none items-center justify-center overflow-hidden bg-senary sm:w-32 lg:mr-4;
 
 		.screen-reader-text {
 			@apply sr-only;
@@ -8,26 +11,26 @@
 
 		.plus,
 		.minus {
-			@apply flex items-center m-0 h-12 !important;
+			@apply m-0 flex h-12 items-center !important;
 			.icon {
-				@apply h-4 transform transition-all ease-default duration-500;
+				@apply h-4 transform transition-all duration-500 ease-default;
 			}
 			&:hover {
 				.icon {
-					@apply text-primary scale-150;
+					@apply scale-150 text-primary;
 				}
 			}
 		}
 
 		.plus {
-			@apply pr-3 lg:pr-4 pl-0;
+			@apply pr-3 pl-0 lg:pr-4;
 		}
 		.minus {
-			@apply pl-3 lg:pl-4 pr-0;
+			@apply pl-3 pr-0 lg:pl-4;
 		}
 
 		.qty {
-			@apply w-12 py-3 m-0 bg-transparent text-center focus:ring-transparent border-transparent !important;
+			@apply m-0 w-12 border-transparent bg-transparent py-3 text-center focus:ring-transparent !important;
 			-moz-appearance: textfield;
 
 			&::-webkit-outer-spin-button,
