@@ -8,15 +8,18 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply prose relative my-3 h-36 overflow-hidden text-base text-quaternary md:h-auto md:line-clamp-3;
+		@apply prose relative my-3 overflow-hidden text-base text-quaternary;
 
-		&:after {
-			content: "";
-			@apply absolute bottom-0 left-0 h-20 w-full bg-gradient-to-t from-quinary md:hidden;
+		&.has-readmore {
+			@apply h-36 lg:h-auto lg:line-clamp-3;
+			&:after {
+				content: "";
+				@apply absolute bottom-0 left-0 h-20 w-full bg-gradient-to-t from-quinary lg:hidden;
+			}
 		}
 
 		&.is-open {
-			@apply h-auto md:line-clamp-none;
+			@apply h-auto lg:line-clamp-none;
 			&:after {
 				@apply hidden;
 			}

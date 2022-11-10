@@ -175,9 +175,13 @@ function ground_woocommecerce_short_description_readmore() {
 
 		$post_excerpt        = wp_strip_all_tags( get_the_excerpt() );
 		$post_excerpt_lenght = strlen( $post_excerpt );
+		$has_readmore        = '';
+		if ( $post_excerpt_lenght >= 170 ) {
+			$has_readmore = 'has-readmore';
+		}
 		?>
 
-		<div class="woocommerce-product-details__short-description">
+		<div class="woocommerce-product-details__short-description <?php echo esc_html( $has_readmore ); ?>">
 			<?php echo esc_html( the_excerpt() ); ?>
 		</div>
 	
