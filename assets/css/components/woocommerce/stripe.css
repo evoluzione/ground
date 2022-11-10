@@ -1,0 +1,43 @@
+/* STRIPE */
+#wc-stripe-payment-request-button-separator,
+#wc-stripe-payment-request-wrapper {
+	.summary & {
+		@apply !hidden;
+	}
+
+	.wc-proceed-to-checkout & {
+		@apply !hidden;
+	}
+}
+
+.payment_method_stripe {
+	.payment_method_stripe {
+		@apply border border-septenary p-3;
+	}
+
+	.wc-saved-payment-methods {
+		@apply mt-3;
+	}
+
+	.wc-credit-card-form {
+		@apply mt-3;
+		.form-row {
+			@apply my-1 w-full p-0 !important;
+		}
+	}
+
+	.woocommerce-SavedPaymentMethods-token,
+	.woocommerce-SavedPaymentMethods-new,
+	.woocommerce-SavedPaymentMethods-saveNew {
+		@apply flex items-center;
+		label {
+			@apply mb-0;
+		}
+	}
+
+	.wc-stripe-error {
+		* {
+			@apply text-white;
+		}
+	}
+}
