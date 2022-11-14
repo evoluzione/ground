@@ -1,12 +1,10 @@
-(function( $ ) {
-
-	wp.customize.bind( 'ready', function() {
-
+(function ($) {
+	wp.customize.bind('ready', function () {
 		var customize = this;
 
-		this.control( 'color_primary_control', function( control ) {
+		this.control('color_primary_control', function (control) {
 			console.log(control);
-		} );
+		});
 
 		// wp.customize.control.each( function ( control ) {
 
@@ -29,9 +27,7 @@
 		//         console.log(to);
 		//     })
 		// })
-
-	} );
-
+	});
 
 	// wp.customize.bind( 'change', function( setting ) {
 	//     var customize = this;
@@ -55,5 +51,4 @@
 
 	//   } );
 	// });
-
-})( jQuery );
+})(jQuery);

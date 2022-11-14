@@ -46,6 +46,6 @@ export function scrollDirection() {
 	// adding scroll event
 	window.addEventListener('scroll', onScroll, {
 		capture: true,
-		passive: true
+		passive: true,
 	});
 }

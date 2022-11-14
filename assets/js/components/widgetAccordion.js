@@ -5,7 +5,7 @@ export default class WidgetAccordion {
 	 */
 	constructor(element, options) {
 		// window.addEventListener('DOMContentLoaded', () => {
-			this.initEvents();
+		this.initEvents();
 		// });
 	}
 
@@ -17,7 +17,7 @@ export default class WidgetAccordion {
 		const elName = '.woocommerce-widget-layered-nav';
 		const $el = jQuery(elName);
 
-		if ($el.length == 0) {
+		if ($el.length === 0) {
 			return;
 		}
 

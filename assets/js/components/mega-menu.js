@@ -9,7 +9,7 @@ export default class MegaMenu {
 
 		this.DOM = {
 			element: document.querySelectorAll(this.element),
-			html: document.querySelector('html')
+			html: document.querySelector('html'),
 		};
 
 		// window.addEventListener('DOMContentLoaded', () => {
@@ -19,11 +19,15 @@ export default class MegaMenu {
 		/**
 		 * isMobile detect the user agent and not the width
 		 */
-		if (!isMobile().any) this.init();
+		if (!isMobile().any) {
+			this.init();
+		}
 	}
 
 	init() {
-		if (this.DOM.element.length === 0) return;
+		if (this.DOM.element.length === 0) {
+			return;
+		}
 		this.activateHoverNavigation();
 	}
 
@@ -38,7 +42,9 @@ export default class MegaMenu {
 				clearTimeout(timerHandle);
 
 				const isDesktop = window.matchMedia('(min-width:1024px)').matches;
-				if (!isDesktop) return;
+				if (!isDesktop) {
+					return;
+				}
 
 				this.DOM.html.classList.add('is-navigation-hover');
 				timerHandle = setTimeout(() => {
@@ -50,7 +56,9 @@ export default class MegaMenu {
 				clearTimeout(timerHandle);
 
 				const isDesktop = window.matchMedia('(min-width:1024px)').matches;
-				if (!isDesktop) return;
+				if (!isDesktop) {
+					return;
+				}
 
 				this.DOM.html.classList.remove('is-navigation-hover');
 				if (item.classList.contains('is-hover')) {

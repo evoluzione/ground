@@ -1,12 +1,9 @@
 /* eslint-disable no-unused-vars */
 
-import {
-	initAlwaysRunScripts,
-	initWoocommerceScripts,
-} from './functions';
+import { initAlwaysRunScripts, initWoocommerceScripts } from './functions';
 
 (() => {
-	window.addEventListener( 'DOMContentLoaded', () => {
+	window.addEventListener('DOMContentLoaded', () => {
 		initAlwaysRunScripts();
 		initWoocommerceScripts();
 	});

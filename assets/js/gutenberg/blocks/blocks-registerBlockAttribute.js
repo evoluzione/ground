@@ -19,24 +19,26 @@ export default class BlocksRegisterBlockAttribute {
 	 * Fullscreen
 	 */
 	registerBlockAttribute() {
-
 		function addAttributes(settings, name) {
 			// Check if object exists for old Gutenberg version compatibility
 			// Woocommerce blocks generate an error
-			if (typeof settings.attributes !== 'undefined' && !name.includes('woocommerce')) {
+			if (
+				typeof settings.attributes !== 'undefined' &&
+				!name.includes('woocommerce')
+			) {
 				settings.attributes = Object.assign(settings.attributes, {
 					fullscreen: {
 						type: 'boolean',
-						default: false
+						default: false,
 					},
 					fullbleed: {
 						type: 'boolean',
-						default: false
+						default: false,
 					},
 					boxed: {
 						type: 'boolean',
-						default: false
-					}
+						default: false,
+					},
 				});
 			}
 
@@ -45,21 +47,25 @@ export default class BlocksRegisterBlockAttribute {
 
 		const withAdvancedControls = createHigherOrderComponent((BlockEdit) => {
 			return (props) => {
-				
 				// eslint-disable-next-line no-unused-vars
 				const { name, attributes, setAttributes, isSelected } = props;
 				const { fullscreen, fullbleed, boxed } = attributes;
 
-				const [ blockContainer, setBlockContainer ] = useState(getBlockContainerAttribute(fullscreen, boxed));
+				const [blockContainer, setBlockContainer] = useState(
+					getBlockContainerAttribute(fullscreen, boxed),
+				);
 
 				function getBlockContainerAttribute(fullscreen, boxed) {
-					if(fullscreen) return 'fullscreen';
-					if(boxed) return 'boxed';
+					if (fullscreen) {
+						return 'fullscreen';
+					}
+					if (boxed) {
+						return 'boxed';
+					}
 					return '';
 				}
 
-				function setBlockContainerAttribute(value){
-
+				function setBlockContainerAttribute(value) {
 					// reset all attributes
 					setAttributes({ boxed: false });
 					setAttributes({ fullscreen: false });
@@ -68,9 +74,12 @@ export default class BlocksRegisterBlockAttribute {
 					setBlockContainer(value);
 
 					// Set block attribute
-					if(value === 'boxed') setAttributes({ boxed: true });
-					if(value === 'fullscreen') setAttributes({ fullscreen: true });
-
+					if (value === 'boxed') {
+						setAttributes({ boxed: true });
+					}
+					if (value === 'fullscreen') {
+						setAttributes({ fullscreen: true });
+					}
 				}
 
 				return (
@@ -78,17 +87,30 @@ export default class BlocksRegisterBlockAttribute {
 						<BlockEdit key="ground_block_edit" {...props} />
 						{isSelected && (
 							<InspectorAdvancedControls>
-
 								<SelectControl
 									key="ground_block_edit_select"
-									label={ __( 'Block container' ) }
-									value={ blockContainer }
-									onChange={ ( value ) => { setBlockContainerAttribute(value); } }
-									__nextHasNoMarginBottom
+									label={__('Block container')}
+									value={blockContainer}
+									onChange={(value) => {
+										setBlockContainerAttribute(value);
+									}}
+									__nextHasNoMarginBottom={true}
 								>
-									<option key="ground_block_edit_select_default" value="default">Default</option>
-									<option key="ground_block_edit_select_boxed" value="boxed">Boxed</option>
-									<option key="ground_block_edit_select_fullscreen" value="fullscreen">Fullscreen</option>
+									<option
+										key="ground_block_edit_select_default"
+										value="default"
+									>
+										Default
+									</option>
+									<option key="ground_block_edit_select_boxed" value="boxed">
+										Boxed
+									</option>
+									<option
+										key="ground_block_edit_select_fullscreen"
+										value="fullscreen"
+									>
+										Fullscreen
+									</option>
 								</SelectControl>
 
 								<ToggleControl
@@ -96,9 +118,12 @@ export default class BlocksRegisterBlockAttribute {
 									label={__('Full bleed')}
 									checked={!!fullbleed}
 									onChange={() => setAttributes({ fullbleed: !fullbleed })}
-									help={fullbleed ? __('The block has no margin.') : __('The block has margin.')}
+									help={
+										fullbleed
+											? __('The block has no margin.')
+											: __('The block has margin.')
+									}
 								/>
-
 							</InspectorAdvancedControls>
 						)}
 					</Fragment>
@@ -112,11 +137,17 @@ export default class BlocksRegisterBlockAttribute {
 			//check if attribute exists for old Gutenberg version compatibility
 			//add class only when fullscreen = true
 			if (typeof fullscreen !== 'undefined' && fullscreen) {
-				extraProps.className = classnames(extraProps.className, 'is-fullscreen');
+				extraProps.className = classnames(
+					extraProps.className,
+					'is-fullscreen',
+				);
 			}
-			
+
 			if (typeof fullbleed !== 'undefined' && fullbleed) {
-				extraProps.className = classnames(extraProps.className, 'is-full-bleed');
+				extraProps.className = classnames(
+					extraProps.className,
+					'is-full-bleed',
+				);
 			}
 
 			if (typeof boxed !== 'undefined' && boxed) {
@@ -127,9 +158,21 @@ export default class BlocksRegisterBlockAttribute {
 		}
 
 		//add filters
-		addFilter('blocks.registerBlockType', 'ground/custom-attributes', addAttributes);
-		addFilter('editor.BlockEdit', 'ground/custom-advanced-control', withAdvancedControls);
-		addFilter('blocks.getSaveContent.extraProps', 'ground/applyExtraClass', applyExtraClass);
+		addFilter(
+			'blocks.registerBlockType',
+			'ground/custom-attributes',
+			addAttributes,
+		);
+		addFilter(
+			'editor.BlockEdit',
+			'ground/custom-advanced-control',
+			withAdvancedControls,
+		);
+		addFilter(
+			'blocks.getSaveContent.extraProps',
+			'ground/applyExtraClass',
+			applyExtraClass,
+		);
 	}
 
 	/**
@@ -143,17 +186,20 @@ export default class BlocksRegisterBlockAttribute {
 
 		function addAttributes(settings) {
 			//check if object exists for old Gutenberg version compatibility
-			if (typeof settings.attributes !== 'undefined' && ALLOWED_BLOCKS.includes(settings.name)) {
+			if (
+				typeof settings.attributes !== 'undefined' &&
+				ALLOWED_BLOCKS.includes(settings.name)
+			) {
 				settings.attributes = Object.assign(settings.attributes, {
 					sizeSmall: {
-						type: 'string'
+						type: 'string',
 					},
 					sizeMedium: {
-						type: 'string'
+						type: 'string',
 					},
 					sizeLarge: {
-						type: 'string'
-					}
+						type: 'string',
+					},
 				});
 			}
 
@@ -213,7 +259,9 @@ export default class BlocksRegisterBlockAttribute {
 												label="Small"
 												value={sizeSmall}
 												options={optionsSmall}
-												onChange={(newSize) => setAttributes({ sizeSmall: newSize })}
+												onChange={(newSize) =>
+													setAttributes({ sizeSmall: newSize })
+												}
 											/>
 										</fieldset>
 									</PanelRow>
@@ -224,7 +272,9 @@ export default class BlocksRegisterBlockAttribute {
 												label="Medium"
 												value={sizeMedium}
 												options={optionsMedium}
-												onChange={(newSize) => setAttributes({ sizeMedium: newSize })}
+												onChange={(newSize) =>
+													setAttributes({ sizeMedium: newSize })
+												}
 											/>
 										</fieldset>
 									</PanelRow>
@@ -235,7 +285,9 @@ export default class BlocksRegisterBlockAttribute {
 												label="Large"
 												value={sizeLarge}
 												options={optionsLarge}
-												onChange={(newSize) => setAttributes({ sizeLarge: newSize })}
+												onChange={(newSize) =>
+													setAttributes({ sizeLarge: newSize })
+												}
 											/>
 										</fieldset>
 									</PanelRow>
@@ -248,7 +300,6 @@ export default class BlocksRegisterBlockAttribute {
 		}, 'withAdvancedControls');
 
 		function applyExtraClass(extraProps, blockType, attributes) {
-
 			if (!ALLOWED_BLOCKS.includes(blockType.name)) {
 				return extraProps;
 			}
@@ -269,8 +320,20 @@ export default class BlocksRegisterBlockAttribute {
 		}
 
 		//add filters
-		wp.hooks.addFilter('blocks.registerBlockType', 'ground/spacer/custom-attributes', addAttributes);
-		addFilter('editor.BlockEdit', 'ground/spacer/custom-advanced-control', withAdvancedControls);
-		addFilter('blocks.getSaveContent.extraProps', 'ground/spacer/applyExtraClass', applyExtraClass);
+		wp.hooks.addFilter(
+			'blocks.registerBlockType',
+			'ground/spacer/custom-attributes',
+			addAttributes,
+		);
+		addFilter(
+			'editor.BlockEdit',
+			'ground/spacer/custom-advanced-control',
+			withAdvancedControls,
+		);
+		addFilter(
+			'blocks.getSaveContent.extraProps',
+			'ground/spacer/applyExtraClass',
+			applyExtraClass,
+		);
 	}
 }

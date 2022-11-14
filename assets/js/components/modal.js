@@ -15,11 +15,11 @@ export default class Modal {
 	constructor(element, options) {
 		this.element = element || '[data-modal]';
 		this.defaults = {
-			triggers: this.element
+			triggers: this.element,
 		};
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body
+			body: document.body,
 		};
 		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.init();
@@ -30,7 +30,7 @@ export default class Modal {
 			gallery: this.element, // Element, NodeList, or CSS selector (string)
 			children: 'a',
 			bgOpacity: 0.9,
-			pswpModule: () => import('photoswipe')
+			pswpModule: () => import('photoswipe'),
 		});
 
 		this.lightbox.on('contentLoad', (e) => {
@@ -47,7 +47,7 @@ export default class Modal {
 				iframe.setAttribute('frameborder', '0');
 				iframe.setAttribute(
 					'allow',
-					'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+					'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
 				);
 				iframe.src = content.data.src;
 				content.element.appendChild(iframe);

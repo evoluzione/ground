@@ -9,7 +9,7 @@ export default class Menu {
 		this.element = element || '.navigation__item.has-children';
 		this.defaults = {
 			triggers: this.element,
-			level: 0
+			level: 0,
 		};
 
 		this.DOM = {
@@ -21,7 +21,7 @@ export default class Menu {
 			menuContainer: document.querySelector('.js-menu-container'),
 			closeOverlayPanel: document.querySelector('.js-close-overlay-panel'),
 			closePanel: document.querySelector('.js-close-panel'),
-			menuPanel: document.querySelector('.js-navigation-panel')
+			menuPanel: document.querySelector('.js-navigation-panel'),
 		};
 
 		/**
@@ -31,7 +31,7 @@ export default class Menu {
 		 */
 		this.unitMeasure = {
 			panel: '%',
-			default: 'vw'
+			default: 'vw',
 		};
 
 		// window.addEventListener('DOMContentLoaded', () => {
@@ -49,7 +49,11 @@ export default class Menu {
 	 */
 	handleOnResizeMenu = throttle(() => {
 		this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
-		this.DOM.html.classList.remove('is-navigation-open', 'is-sub-navigation-open', 'is-overlay-panel-open');
+		this.DOM.html.classList.remove(
+			'is-navigation-open',
+			'is-sub-navigation-open',
+			'is-overlay-panel-open',
+		);
 		this.removeAllClass();
 	});
 
@@ -71,10 +75,12 @@ export default class Menu {
 	removeAllClass() {
 		for (let i = 0; i <= this.defaults.level - 1; i++) {
 			this.DOM.element.forEach((item) => {
-				if (item.classList.contains('level' + i)) {
-					item.classList.remove('level' + i);
+				if (item.classList.contains(`level${i}`)) {
+					item.classList.remove(`level${i}`);
 					item.childNodes.forEach((t) =>
-						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+						t.classList?.contains('is-active')
+							? t.classList.remove('is-active')
+							: null,
 					);
 				}
 			});
@@ -88,7 +94,7 @@ export default class Menu {
 	 * @param {*} menu
 	 */
 	getUnitMeasure(menu) {
-		if (menu && menu.classList.contains('js-navigation-panel')) {
+		if (menu?.classList.contains('js-navigation-panel')) {
 			return this.unitMeasure.panel;
 		}
 
@@ -108,18 +114,20 @@ export default class Menu {
 		let subMenuImage = null;
 
 		item.target.parentNode.childNodes.forEach((sub) => {
-			sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
-			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
+			sub.classList?.contains('navigation__sub-menu') ? (subMenu = sub) : null;
+			sub.classList?.contains('navigation__image')
+				? (subMenuImage = sub)
+				: null;
 		});
 
 		if (subMenu && menu) {
 			item.preventDefault();
 
-			item.target.parentElement.classList.add('level' + this.defaults.level);
+			item.target.parentElement.classList.add(`level${this.defaults.level}`);
 			this.DOM.html.classList.add('is-sub-navigation-open');
 
 			subMenu.classList.add('is-active');
-			subMenuImage && subMenuImage.classList.add('is-active');
+			subMenuImage?.classList.add('is-active');
 
 			this.defaults.level++;
 			let translation = -100 * this.defaults.level;
@@ -128,7 +136,7 @@ export default class Menu {
 			this.DOM.menuBody.scrollTo({
 				top: 0,
 				left: 0,
-				behavior: 'smooth'
+				behavior: 'smooth',
 			});
 		}
 	};
@@ -143,10 +151,12 @@ export default class Menu {
 		if (this.defaults.level > 0) {
 			this.defaults.level--;
 			this.DOM.element.forEach((item) => {
-				if (item.classList.contains('level' + this.defaults.level)) {
-					item.classList.remove('level' + this.defaults.level);
+				if (item.classList.contains(`level${this.defaults.level}`)) {
+					item.classList.remove(`level${this.defaults.level}`);
 					item.childNodes.forEach((t) =>
-						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+						t.classList?.contains('is-active')
+							? t.classList.remove('is-active')
+							: null,
 					);
 				}
 			});
@@ -154,7 +164,9 @@ export default class Menu {
 			let translation = -100 * this.defaults.level;
 			menu.style.cssText += `transform: translateX(${translation}${unitMeasure});`;
 
-			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
+			this.defaults.level === 0
+				? this.DOM.html.classList.remove('is-sub-navigation-open')
+				: null;
 		}
 	};
 
@@ -164,7 +176,10 @@ export default class Menu {
 	 */
 	resetAll(e) {
 		e.stopImmediatePropagation();
-		this.DOM.html.classList.remove('is-sub-navigation-open', 'is-overlay-panel-open');
+		this.DOM.html.classList.remove(
+			'is-sub-navigation-open',
+			'is-overlay-panel-open',
+		);
 		this.resetTransformStyle([this.DOM.menuContainer, this.DOM.menuPanel]);
 		this.removeAllClass();
 	}
@@ -183,7 +198,7 @@ export default class Menu {
 
 			item.addEventListener('click', (t) => {
 				const classList = t.target.className;
-				const isDrilldown = classList && classList.includes('js-drilldown');
+				const isDrilldown = classList?.includes('js-drilldown');
 
 				if (isDrilldown) {
 					t.stopImmediatePropagation();
@@ -194,7 +209,9 @@ export default class Menu {
 						this.multiLevelMenu(t, this.DOM.menuContainer);
 					} else {
 						//Attivo la transtion sul panel-primary per il desk
-						const isPanel = t.target.parentNode.classList.contains('navigation__item--panel-primary');
+						const isPanel = t.target.parentNode.classList.contains(
+							'navigation__item--panel-primary',
+						);
 						if (isPanel) {
 							this.multiLevelMenu(t, this.DOM.menuPanel);
 						}
@@ -246,7 +263,9 @@ export default class Menu {
 	 */
 	handleCloseOverlayPanel() {
 		if (this.DOM.closeOverlayPanel && !isMobile().any) {
-			this.DOM.closeOverlayPanel.addEventListener('click', (e) => this.resetAll(e));
+			this.DOM.closeOverlayPanel.addEventListener('click', (e) =>
+				this.resetAll(e),
+			);
 		}
 	}
 

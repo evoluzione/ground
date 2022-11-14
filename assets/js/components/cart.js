@@ -8,12 +8,12 @@ export default class Cart {
 	constructor(element, options) {
 		this.element = element || '.minicart';
 		this.defaults = {
-			triggers: this.element
+			triggers: this.element,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
 		// window.addEventListener('DOMContentLoaded', () => {
-			this.init();
+		this.init();
 		// });
 	}
 
@@ -22,11 +22,14 @@ export default class Cart {
 	 */
 	init() {
 		this.DOM = {
-			element: document.querySelectorAll(this.element)
+			element: document.querySelectorAll(this.element),
 		};
 
-		jQuery('body').on('added_to_cart', function (e, fragments, cart_hash, this_button) {
-			jQuery('#minicart, html').addClass('is-overlay-panel-open');
-		});
+		jQuery('body').on(
+			'added_to_cart',
+			function (e, fragments, cart_hash, this_button) {
+				jQuery('#minicart, html').addClass('is-overlay-panel-open');
+			},
+		);
 	}
 }

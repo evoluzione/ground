@@ -4,10 +4,17 @@
  * @see http://idangero.us/swiper
  */
 //import Swiper from 'swiper/bundle';
-import Swiper, { Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller } from 'swiper';
+import Swiper, {
+	Navigation,
+	Pagination,
+	Autoplay,
+	Lazy,
+	EffectFade,
+	Controller,
+} from 'swiper';
 import deepmerge from 'deepmerge';
 
-Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller ]);
+Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller]);
 export default class Slider {
 	/**
 	 * @param {string} element - Selector
@@ -30,23 +37,23 @@ export default class Slider {
 			lazy: {
 				loadPrevNext: true,
 				loadPrevNextAmount: 1,
-				loadOnTransitionStart: true
+				loadOnTransitionStart: true,
 			},
 			autoplay: {
-				delay: 5000
+				delay: 5000,
 			},
 			pagination: {
 				el: '.js-slider-primary-pagination',
 				clickable: true,
-				type: 'bullets'
+				type: 'bullets',
 			},
 			navigation: {
 				prevEl: '.js-slider-primary-navigation-prev',
-				nextEl: '.js-slider-primary-navigation-next'
+				nextEl: '.js-slider-primary-navigation-next',
 			},
 			slidesPerView: 1,
 			spaceBetween: 0,
-			breakpointsInverse: true
+			breakpointsInverse: true,
 			/* breakpoints: {
 				// when window width is >= xs
 				480: {
@@ -169,7 +176,7 @@ export default class Slider {
 		this.slider.slideTo(index, speed, runCallbacks);
 	}
 
-	addControl(slider){
+	addControl(slider) {
 		this.slider.controller.control = slider.slider;
 	}
 }

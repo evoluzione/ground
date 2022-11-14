@@ -1,3 +1,3 @@
-export function elementExist(el){
+export function elementExist(el) {
 	return !!document.querySelector(el);
 }

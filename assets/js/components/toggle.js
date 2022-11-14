@@ -13,11 +13,11 @@ export default class Toggle {
 		this.element = element || '.js-toggle';
 		this.defaults = {
 			triggers: this.element,
-			toggleClassName: 'is-active'
+			toggleClassName: 'is-active',
 		};
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body
+			body: document.body,
 		};
 		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);

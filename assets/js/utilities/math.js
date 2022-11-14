@@ -38,8 +38,17 @@ export function getRandomInt(min, max) {
  * @returns {number} The value inside the new range's values
  * @see https://github.com/yakudoo/TheAviator/blob/d19b8744e745f74fb70b4f255d700394aa6b3200/js/game.js#L965
  */
-export function normalize(value, actualMinRange, actualMaxRange, newMinRange, newMaxRange) {
-	const sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
+export function normalize(
+	value,
+	actualMinRange,
+	actualMaxRange,
+	newMinRange,
+	newMaxRange,
+) {
+	const sanitizedValue = Math.max(
+		Math.min(value, actualMaxRange),
+		actualMinRange,
+	);
 	const actualRangeDelta = actualMaxRange - actualMinRange;
 	const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
 	const newRangeDelta = newMaxRange - newMinRange;

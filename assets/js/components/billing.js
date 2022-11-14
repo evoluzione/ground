@@ -4,7 +4,7 @@ export default class Billing {
 			html: document.documentElement,
 			body: document.body,
 			element: document.querySelector('.woocommerce-cart'),
-			billingMethod: document.querySelector('#billing_customer_type')
+			billingMethod: document.querySelector('#billing_customer_type'),
 		};
 
 		this.init();
@@ -38,10 +38,13 @@ export default class Billing {
 
 	toggleBillingField(billingMethod, show) {
 		if (show) {
-			document.querySelector('#billing_customer_type_field').style.display = 'inherit';
-			document.querySelector('#billing_company_field').style.display = 'inherit';
+			document.querySelector('#billing_customer_type_field').style.display =
+				'inherit';
+			document.querySelector('#billing_company_field').style.display =
+				'inherit';
 			document.querySelector('#billing_vat_field').style.display = 'inherit';
-			document.querySelector('#billing_fiscal_code_field').style.display = 'inherit';
+			document.querySelector('#billing_fiscal_code_field').style.display =
+				'inherit';
 			document.querySelector('#billing_pec_field').style.display = 'inherit';
 			document.querySelector('#billing_sdi_field').style.display = 'inherit';
 			document.querySelector('#invoice_checkout_step').style.display = 'flex';
@@ -55,10 +58,12 @@ export default class Billing {
 				document.querySelector('#billing_sdi_field').style.display = 'none';
 			}
 		} else {
-			document.querySelector('#billing_customer_type_field').style.display = 'none';
+			document.querySelector('#billing_customer_type_field').style.display =
+				'none';
 			document.querySelector('#billing_company_field').style.display = 'none';
 			document.querySelector('#billing_vat_field').style.display = 'none';
-			document.querySelector('#billing_fiscal_code_field').style.display = 'none';
+			document.querySelector('#billing_fiscal_code_field').style.display =
+				'none';
 			document.querySelector('#billing_pec_field').style.display = 'none';
 			document.querySelector('#billing_sdi_field').style.display = 'none';
 			document.querySelector('#invoice_checkout_step').style.display = 'none';

@@ -52,7 +52,7 @@ export function initObserver(triggers, callback) {
 		childList: true,
 		attributes: false,
 		characterData: false,
-		subtree: true
+		subtree: true,
 	};
 	const observer = new MutationObserver(observerCallback);
 	observer.observe(document.documentElement, config);

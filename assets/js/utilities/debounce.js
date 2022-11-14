@@ -30,7 +30,9 @@ export function debounce(func, wait, immediate) {
 			timeout = null;
 
 			// Call function now if you did not on the leading end
-			if (!immediate) func.apply(context, args);
+			if (!immediate) {
+				func.apply(context, args);
+			}
 		};
 
 		// Determine if you should call the function
@@ -49,6 +51,8 @@ export function debounce(func, wait, immediate) {
 
 		// Call immediately if you're dong a leading
 		// end execution
-		if (callNow) func.apply(context, args);
+		if (callNow) {
+			func.apply(context, args);
+		}
 	};
 }

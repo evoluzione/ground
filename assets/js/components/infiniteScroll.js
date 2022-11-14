@@ -25,18 +25,18 @@ export default class InfiniteScroll {
 			scrollThreshold: 400,
 			hideNav: '.js-pagination',
 			status: '.js-infinite-status',
-			debug: !!DEBUG_MODE
+			debug: !!DEBUG_MODE,
 		};
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body
+			body: document.body,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
 		// window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			initObserver(this.element, this.updateEvents);
+		this.init();
+		initObserver(this.element, this.updateEvents);
 		// });
 
 		// TODO: Destroy with observer

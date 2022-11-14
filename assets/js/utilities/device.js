@@ -16,7 +16,7 @@ export function getViewportSize() {
 	}
 	return {
 		width: e[`${a}Width`],
-		height: e[`${a}Height`]
+		height: e[`${a}Height`],
 	};
 }
 
@@ -27,7 +27,10 @@ export function getViewportSize() {
  */
 export function isTouch() {
 	// eslint-disable-next-line no-undef
-	return ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch)) === true;
+	return (
+		('ontouchstart' in window ||
+			(window.DocumentTouch && document instanceof DocumentTouch)) === true
+	);
 }
 
 /**
@@ -49,16 +52,24 @@ export function getMousePosition(event) {
 	let posx = 0;
 	let posy = 0;
 	// eslint-disable-next-line no-param-reassign
-	if (!event) event = window.event;
+	if (!event) {
+		event = window.event;
+	}
 	if (event.pageX || event.pageY) {
 		posx = event.pageX;
 		posy = event.pageY;
 	} else if (event.clientX || event.clientY) {
-		posx = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-		posy = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+		posx =
+			event.clientX +
+			document.body.scrollLeft +
+			document.documentElement.scrollLeft;
+		posy =
+			event.clientY +
+			document.body.scrollTop +
+			document.documentElement.scrollTop;
 	}
 	return {
 		x: posx,
-		y: posy
+		y: posy,
 	};
 }
