@@ -1,0 +1,16 @@
+.woocommerce-product-details {
+	@apply relative;
+
+	.product_title {
+		@apply text-2xl lg:text-4xl;
+	}
+
+	.woocommerce-Price-amount {
+	}
+
+	.woocommerce-Price-currencySymbol {
+	}
+
+	.woocommerce-price-suffix {
+	}
+}

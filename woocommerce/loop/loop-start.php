@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product Loop Start
  *
@@ -10,9 +11,8 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
+ * @see         https://docs.woocommerce.com/document/template-structure/
+ * @package     WooCommerce\Templates
  * @version     3.3.0
  */
 
@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="products row row-align-top js-infinite-container">
+<div class="products product-columns columns-mobile-<?php echo esc_html( GROUND_SHOP_PRODUCTS_COLUMNS_MOBILE ); ?> columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> js-infinite-container">

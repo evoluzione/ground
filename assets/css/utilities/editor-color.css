@@ -1,0 +1,79 @@
+/* primary */
+
+.has-primary-background-color {
+	background-color: var(--ground-color-primary) !important;
+}
+
+.has-primary-color {
+	color: var(--ground-color-primary) !important;
+}
+
+/* secondary */
+
+.has-secondary-background-color {
+	background-color: var(--ground-color-secondary) !important;
+}
+
+.has-secondary-color {
+	color: var(--ground-color-secondary) !important;
+}
+
+/* tertiary */
+
+.has-tertiary-background-color {
+	background-color: var(--ground-color-tertiary) !important;
+}
+
+.has-tertiary-color {
+	color: var(--ground-color-tertiary) !important;
+}
+
+/* quaternary */
+
+.has-quaternary-background-color {
+	background-color: var(--ground-color-quaternary) !important;
+}
+
+.has-quaternary-color {
+	color: var(--ground-color-quaternary) !important;
+}
+
+/* quinary */
+
+.has-quinary-background-color {
+	background-color: var(--ground-color-quinary) !important;
+}
+
+.has-quinary-color {
+	color: var(--ground-color-quinary) !important;
+}
+
+/* senary */
+
+.has-senary-background-color {
+	background-color: var(--ground-color-senary) !important;
+}
+
+.has-senary-color {
+	color: var(--ground-color-senary) !important;
+}
+
+/* septenary */
+
+.has-septenary-background-color {
+	background-color: var(--ground-color-septenary) !important;
+}
+
+.has-septenary-color {
+	color: var(--ground-color-septenary) !important;
+}
+
+/* octonary */
+
+.has-octonary-background-color {
+	background-color: var(--ground-color-octonary) !important;
+}
+
+.has-octonary-color {
+	color: var(--ground-color-octonary) !important;
+}

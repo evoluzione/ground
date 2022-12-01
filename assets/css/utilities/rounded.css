@@ -1,0 +1,8 @@
+@layer utilities {
+	.rounded-theme {
+		border-radius: var(--ground-rounded-theme);
+	}
+	.rounded-media {
+		border-radius: var(--ground-rounded-media);
+	}
+}

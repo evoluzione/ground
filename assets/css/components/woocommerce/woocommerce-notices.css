@@ -1,0 +1,7 @@
+.woocommerce-notices-wrapper {
+	@apply container;
+
+	.ground-block-wrapper & {
+		@apply px-0;
+	}
+}

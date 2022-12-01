@@ -1,0 +1,3 @@
+/* Main styles */
+@import "./main.css";
+@import "./components/woocommerce/_woocommerce.css";

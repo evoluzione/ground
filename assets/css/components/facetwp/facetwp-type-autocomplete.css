@@ -1,0 +1,63 @@
+/* .facetwp-type-autocomplete */
+.facetwp-type-autocomplete {
+
+    /* LOADING FILTER */
+    &:not(.facetwp-ignore) {
+        &.is-loading {
+            &:before {
+                @apply hidden;
+            }
+        }
+    }
+
+    input.facetwp-autocomplete {
+        @apply text-sm py-3 px-5;
+    }
+
+    .fcomplete-wrap {
+        @apply relative bg-transparent text-sm border-0;
+        max-width: 100%;
+        min-width: 100%;
+
+        .fcomplete-status {
+            @apply text-quaternary;
+        }
+
+        .fcomplete-results {
+            @apply pt-2;
+            .fcomplete-result {
+                @apply relative flex items-center hover:bg-transparent hover:text-primary px-0 py-1;
+
+                &:before {
+                    content: '';
+                    @apply relative h-6 w-6 border border-septenary rounded-full mr-3;
+                    @apply transition-all ease-default duration-300;
+                }
+                &:after {
+                    content: '';
+                    @apply absolute h-6 w-6 bg-primary border border-septenary rounded-full mr-3 scale-0 opacity-0;
+                    @apply transition-all ease-default duration-300;
+                }
+
+                &:hover {
+                    background: none;
+
+                    &:before {
+                        @apply border-primary;
+                    }
+                    &:after {
+                        @apply scale-50 opacity-100;
+                    }
+                
+                }
+
+            }
+        }
+
+    }
+
+    .facetwp-autocomplete-update {
+        @apply hidden;
+    }
+
+}

@@ -1,0 +1,11 @@
+/* Import from all facetwp directory (no sub-directory) */
+
+@import "facetwp-facet.css";
+@import "facetwp-selections.css";
+@import "facetwp-type-checkboxes.css";
+@import "facetwp-type-fselect.css";
+@import "facetwp-type-slider.css";
+@import "facetwp-pager.css";
+@import "facetwp-type-autocomplete.css";
+@import "facetwp-type-hierarchy.css";
+@import "facetwp-type-color.css";

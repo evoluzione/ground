@@ -1,0 +1,5 @@
+.term-description {
+	.ground-block-wrapper {
+		@apply px-0;
+	}
+}

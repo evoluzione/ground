@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Global
  *
@@ -28,3 +29,23 @@ function ground_woocommerce_active_body_class( $classes ) {
 }
 
 add_filter( 'body_class', 'ground_woocommerce_active_body_class' );
+
+
+/**
+ * Unhook the WooCommerce wrappers
+ * Then hook in your own functions to display the wrappers your theme requires
+ */
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+// add_action( 'woocommerce_before_main_content', 'ground_wrapper_start', 10 );
+// add_action( 'woocommerce_after_main_content', 'ground_wrapper_end', 10 );
+
+// function ground_wrapper_start() {
+// echo '<div class="relative">';
+// }
+
+// function ground_wrapper_end() {
+// echo '</div>';
+// }

@@ -1,0 +1,780 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Ground\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-29 09:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.2\n"
+"X-Domain: ground"
+
+#: ../ground/template-parts/header/header-simple.php:48
+msgid "Account"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:170
+msgid "Add Order Comments Details"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:31
+msgid "Address"
+msgstr ""
+
+#: ../ground/inc/woocommerce/product-loop.php:152
+msgid "Advanced Filters"
+msgstr ""
+
+#: ../ground/template-parts/footer/footer-simple.php:38
+msgid "All rights reserved - © copyright"
+msgstr ""
+
+#: ../ground/template-parts/shared/panel-primary.php:16
+#: ../ground/template-parts/header/header-mega-menu.php:7
+#: ../ground/template-parts/header/header-simple.php:8
+#: ../ground/template-parts/header/header-logo-centered.php:7
+msgid "Back"
+msgstr ""
+
+#: ../ground/template-parts/sidebar/sidebar-archive-post.php:5
+msgid "Back to "
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:219
+msgid "Billing data"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:81
+msgid "Border Radius Media"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:62
+msgid "Border Radius Theme"
+msgstr ""
+
+#: ../ground/inc/woocommerce/brand.php:11
+msgid "Brand"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:51
+msgid "Button visible on the single product page"
+msgstr ""
+
+#: ../ground/inc/constants.php:212 ../ground/inc/constants.php:215
+msgid "Call to order"
+msgstr ""
+
+#: ../ground/inc/woocommerce/payments.php:18
+msgid "Cash on delivery charges"
+msgstr ""
+
+#: ../ground/template-parts/post/post-content.php:124
+#: ../ground/template-parts/navigation/navigation-blog.php:34
+msgid "Category"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:53
+#: ../ground/inc/woocommerce/checkout.php:39
+#: ../ground/inc/woocommerce/checkout.php:148
+#: ../ground/inc/woocommerce/checkout.php:232
+msgid "Client type"
+msgstr ""
+
+#: ../ground/template-parts/search/search-form.php:8
+msgid "close"
+msgstr ""
+
+#: ../ground/inc/woocommerce/cart.php:101
+msgid "Code"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:108
+msgid "Color Octonary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:52
+msgid "Color Primary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:76
+msgid "Color Quaternary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:84
+msgid "Color Quinary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:60
+msgid "Color Secondary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:92
+msgid "Color Senary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:100
+msgid "Color Septenary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:68
+msgid "Color Tertiary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:16
+msgid "Colors"
+msgstr ""
+
+#: ../ground/template-parts/post/post-content.php:126
+#: ../ground/template-parts/comment/comments.php:69
+msgid "Comments"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:42
+#: ../ground/inc/woocommerce/checkout.php:152
+#: ../ground/inc/customizer/customizer-company.php:15
+msgid "Company"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:99
+msgid "Company Address"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:107
+msgid "Company City"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:131
+msgid "Company Country"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:89
+msgid "Company Fiscal Code"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:73
+msgid "Company Name"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:115
+msgid "Company Province"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:81
+msgid "Company VAT"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:123
+msgid "Company ZIP Code"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:60
+msgid "Custom"
+msgstr ""
+
+#: ../ground/inc/woocommerce/order-email.php:17
+msgid "Customer details"
+msgstr ""
+
+#: ../ground/inc/woocommerce/rest-user.php:55
+msgid "Customer type"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-newsletter.php:59
+msgid "Description"
+msgstr ""
+
+#: ../ground/index.php:91 ../ground/template-parts/post/post-content.php:102
+msgid "Discover"
+msgstr ""
+
+#: ../ground/template-parts/post/post-content.php:63
+msgid "Discover all news"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:287
+msgid "Do you have anything else to communicate?"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:30
+msgid "Do you need an invoice?"
+msgstr ""
+
+#: ../ground/inc/woocommerce/ean-gtin.php:18
+msgid "EAN/GTIN"
+msgstr ""
+
+#: ../ground/inc/woocommerce/order-email.php:20
+#: ../ground/template-parts/comment/comments-form.php:9
+msgid "Email"
+msgstr ""
+
+#: ../ground/404.php:27
+msgid "Error code: 404"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:73
+msgid "Example: Playfair Display"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:53
+msgid "Example: Roboto"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:80
+msgid "Facebook"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:157
+msgid "Fax"
+msgstr ""
+
+#: ../ground/archive.php:74 ../ground/inc/woocommerce/product-loop.php:121
+msgid "Filters"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:56
+#: ../ground/inc/woocommerce/rest-user.php:111
+#: ../ground/inc/woocommerce/checkout.php:61
+#: ../ground/inc/woocommerce/checkout.php:165
+#: ../ground/inc/woocommerce/checkout.php:241
+msgid "Fiscal code"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:5
+msgid "Follow us on social networks"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:52
+msgid "Font Family Primary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:72
+msgid "Font Family Secondary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:42
+msgid "Font Source Primary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:62
+msgid "Font Source Secondary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:14
+msgid "Fonts"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:14
+msgid "Footer"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:23
+msgid "General Info"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:11
+msgid "Header"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:78
+msgid "Header advice primary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:94
+msgid "Header advice secondary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:110
+msgid "Header advice tertiary"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:4
+msgid "Icon payment amex"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:9
+msgid "Icon payment apple pay"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:14
+msgid "Icon payment google pay"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:24
+msgid "Icon payment maestro"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:19
+msgid "Icon payment mastercard"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:29
+msgid "Icon payment paypal"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:34
+msgid "Icon payment satispay"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:39
+msgid "Icon payment sepa"
+msgstr ""
+
+#: ../ground/template-parts/shared/payments-method.php:44
+#: ../ground/template-parts/shared/payments-method.php:49
+msgid "Icon payment visa"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:18
+msgid "Icon social facebook"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:34
+msgid "Icon social instagram"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:10
+msgid "Icon social linkedin"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:26
+msgid "Icon social twitter"
+msgstr ""
+
+#: ../ground/template-parts/shared/socials.php:42
+msgid "Icon social youtube"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:15
+msgid "Insert your Fonts here"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:98
+msgid "Instagram"
+msgstr ""
+
+#: ../ground/inc/woocommerce/rest-user.php:27
+msgid "Invoice"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:200
+#: ../ground/inc/woocommerce/checkout.php:222
+msgid "Invoice NOT requested"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:202
+msgid "Invoice requested"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:197
+msgid "Invoice requested?"
+msgstr ""
+
+#: ../ground/template-parts/shared/company-info-contacts.php:4
+msgid "Language"
+msgstr ""
+
+#: ../ground/template-parts/header/header-custom.php:1
+msgid "Leave blank - Override with child theme"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:71
+msgid "LinkedIn"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-site.php:22
+msgid "Logo SVG"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:59
+msgid "Mega"
+msgstr ""
+
+#: ../ground/template-parts/header/header-mega-menu.php:48
+msgid "My Account"
+msgstr ""
+
+#: ../ground/template-parts/comment/comments-form.php:8
+msgid "Name"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:235
+msgid "Name of the company"
+msgstr ""
+
+#: ../ground/inc/extend.php:54
+msgid "Navigation footer primary"
+msgstr ""
+
+#: ../ground/inc/extend.php:55
+msgid "Navigation footer secondary"
+msgstr ""
+
+#: ../ground/inc/extend.php:56
+msgid "Navigation footer tertiary"
+msgstr ""
+
+#: ../ground/inc/extend.php:52
+msgid "Navigation header primary "
+msgstr ""
+
+#: ../ground/inc/extend.php:53
+msgid "Navigation header secondary"
+msgstr ""
+
+#: ../ground/inc/extend.php:57
+msgid "Navigation panel primary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-newsletter.php:14
+msgid "Newsletter"
+msgstr ""
+
+#: ../ground/template-parts/shared/pagination.php:42
+msgid "Next"
+msgstr ""
+
+#: ../ground/inc/extend.php:609
+msgid "Octonary"
+msgstr ""
+
+#: ../ground/404.php:20
+msgid "Oops!"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:169
+msgid "Order Comments Details"
+msgstr ""
+
+#: ../ground/template-parts/post/post-content.php:62
+msgid "Other news"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:42
+msgid "Palette"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-site.php:23
+msgid "Paste the SVG code"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:269
+msgid "Payment method"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-payments.php:14
+#: ../ground/inc/customizer/customizer-footer.php:23
+msgid "Payments"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:59
+msgid "Payments Content"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:50
+msgid "Payments Title"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:57
+#: ../ground/inc/woocommerce/rest-user.php:139
+#: ../ground/inc/woocommerce/checkout.php:70
+#: ../ground/inc/woocommerce/checkout.php:175
+#: ../ground/inc/woocommerce/checkout.php:244
+msgid "PEC"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:284
+msgid "Personal data"
+msgstr ""
+
+#: ../ground/inc/woocommerce/order-email.php:23
+#: ../ground/inc/customizer/customizer-company.php:39
+#: ../ground/inc/customizer/customizer-company.php:141
+msgid "Phone"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-site.php:32
+msgid "Placeholder image"
+msgstr ""
+
+#: ../ground/inc/oembed.php:28 ../ground/template-parts/header/header.php:28
+msgid ""
+"Please <a href=\"javascript:Cookiebot.renew()\">accept marketing-cookies</a> "
+"to watch this video."
+msgstr ""
+
+#: ../ground/inc/woocommerce/brand.php:9 ../ground/inc/woocommerce/brand.php:10
+msgctxt "Post Type General Name"
+msgid "Brand"
+msgstr ""
+
+#: ../ground/template-parts/shared/pagination.php:41
+msgid "Prev"
+msgstr ""
+
+#: ../ground/inc/extend.php:574
+msgid "Primary"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:45
+#: ../ground/inc/woocommerce/checkout.php:155
+msgid "Private client"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:32
+msgid "Product Button & Label"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:73
+msgid "Product Single"
+msgstr ""
+
+#: ../ground/inc/woocommerce/brand.php:15
+msgid "product-brand"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:14
+msgid "Products Not Purchasable"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:43
+#: ../ground/inc/woocommerce/checkout.php:153
+msgid "Professional"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:44
+#: ../ground/inc/woocommerce/checkout.php:154
+msgid "Public administration"
+msgstr ""
+
+#: ../ground/inc/extend.php:589
+msgid "Quaternary"
+msgstr ""
+
+#: ../ground/inc/extend.php:594
+msgid "Quinary"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:58
+#: ../ground/inc/woocommerce/checkout.php:79
+#: ../ground/inc/woocommerce/checkout.php:170
+#: ../ground/inc/woocommerce/checkout.php:247
+msgid "Recipient Code (SDI)"
+msgstr ""
+
+#: ../ground/inc/woocommerce/rest-user.php:167
+msgid "SDI"
+msgstr ""
+
+#: ../ground/template-parts/header/header-simple.php:19
+#: ../ground/template-parts/header/header-logo-centered.php:18
+msgid "Search"
+msgstr ""
+
+#: ../ground/template-parts/search/search-form-input.php:3
+msgid "Search products"
+msgstr ""
+
+#. %s: search query.
+#: ../ground/search.php:17
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../ground/inc/extend.php:579
+msgid "Secondary"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:349
+msgid "Secure order"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:50
+msgid "Select Header Type"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:74
+msgid "Select the pages you want to show on the product page after the summary"
+msgstr ""
+
+#: ../ground/inc/extend.php:599
+msgid "Senary"
+msgstr ""
+
+#: ../ground/inc/extend.php:604
+msgid "Septenary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:82
+msgid "Set the border radius of media / images"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:17
+msgid "Set the site color"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-colors.php:44
+msgid "Set the site color palette"
+msgstr ""
+
+#: ../ground/inc/woocommerce/not-purchasable.php:15
+msgid "Set up global messages for Not Purchasable products"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:63
+msgid "Sets the border radius of the site elements ( Buttons, forms )"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-settings.php:15
+msgid "Settings"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:31
+msgid "Shipping"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:79
+msgid "Shipping Content"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-footer.php:70
+msgid "Shipping Title"
+msgstr ""
+
+#: ../ground/inc/woocommerce/sidebar.php:27
+msgid "Shop Sidebar"
+msgstr ""
+
+#: ../ground/inc/woocommerce/sidebar.php:35
+msgid "Shop Sidebar Advanced"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-newsletter.php:68
+msgid "Shortcode/Form"
+msgstr ""
+
+#: ../ground/inc/extend.php:526
+msgid "Sidebar archive post"
+msgstr ""
+
+#: ../ground/inc/extend.php:527
+msgid "Sidebar footer primary"
+msgstr ""
+
+#: ../ground/inc/extend.php:530
+msgid "Sidebar footer quaternary"
+msgstr ""
+
+#: ../ground/inc/extend.php:528
+msgid "Sidebar footer secondary"
+msgstr ""
+
+#: ../ground/inc/extend.php:529
+msgid "Sidebar footer tertiary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:57
+msgid "Simple"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:58
+msgid "Simple with logo centered"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:42
+msgid "Single Product Message"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:14
+msgid "Socials"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:54
+msgid "Society name"
+msgstr ""
+
+#: ../ground/search.php:64
+#: ../ground/template-parts/search/search-ajax-preview.php:33
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../ground/template-parts/shared/newsletter.php:18
+msgid "Subscribe"
+msgstr ""
+
+#: ../ground/inc/extend.php:584
+msgid "Tertiary"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:33
+msgid "Text visible on the archive page for each non-purchasable product"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-shop.php:43
+msgid "Text visible on the single product page"
+msgstr ""
+
+#: ../ground/404.php:26
+msgid "The page you're looking for can't be found"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:16
+#: ../ground/inc/customizer/customizer-footer.php:15
+msgid ""
+"Theme Modifications like color scheme, theme texts and layout preferences "
+"can be done here"
+msgstr ""
+
+#: ../ground/inc/woocommerce/not-purchasable.php:15
+msgid "This product is not purchasable (compatible only with simple product)"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-newsletter.php:50
+msgid "Title"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-fonts.php:43
+#: ../ground/inc/customizer/customizer-fonts.php:63
+msgid "To embed a font, copy the source code here"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:89
+msgid "Twitter"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-header.php:51
+msgid "Using this option you can change the Header"
+msgstr ""
+
+#: ../ground/woocommerce/emails/email-addresses.php:55
+#: ../ground/inc/woocommerce/rest-user.php:83
+#: ../ground/inc/woocommerce/checkout.php:52
+#: ../ground/inc/woocommerce/checkout.php:160
+#: ../ground/inc/woocommerce/checkout.php:238
+msgid "VAT Number"
+msgstr ""
+
+#: ../ground/template-parts/comment/comments-form.php:10
+msgid "Website"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-company.php:149
+msgid "Whatsapp"
+msgstr ""
+
+#: ../ground/inc/woocommerce/checkout.php:260
+msgid "Where do you want to send the purchase?"
+msgstr ""
+
+#: ../ground/inc/customizer/customizer-socials.php:107
+msgid "Youtube"
+msgstr ""

@@ -5,52 +5,72 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' );
-?>
+get_template_part( 'template-parts/header/header' ); ?>
+
+<section class="page page--search">
 
 	<div class="container">
-		<div class="row">
+		<header class="page__header">
+			<h1 class="page__title">
+				<?php
+				/* translators: %s: search query. */
+				printf( esc_html__( 'Search Results for: %s', 'ground' ), '<span>' . get_search_query() . '</span>' );
+				?>
+			</h1>
+		</header>
+	</div>
 
-			<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	<div class="page__body">
 
-			<div class="gr-12">
-				<section class="page page--search">
+		<div class="grid grid-cols-12 gap-6">
+			
+			<?php
+			if ( have_posts() ) {
 
-					<header class="page__header">
-						<h1 class="page__title">
-							<?php
-							/* translators: %s: search query. */
-							printf( esc_html__( 'Search Results for: %s', 'ground' ), '<span>' . get_search_query() . '</span>' );
-							?>
-						</h1>
-					</header>
+				while ( have_posts() ) :
 
-					<div class="page__body">
+					the_post();
 
-						<?php
-						if ( have_posts() ) :
-							while ( have_posts() ) :
-								the_post();
+					/**
+					 * Hook: ground_search_post_before.
+					 *
+					 * @hooked ground_breadcrumbs - 20
+					 */
+					do_action( 'ground_search_post_before' );
+					?>
 
-								get_template_part( 'partials/abstract', 'post' );
+					<?php get_template_part( 'template-parts/search/search-content' ); ?>
 
-						endwhile;
+					<?php
+					/**
+					 * Hook: ground_search_post_after.
+					 */
+					do_action( 'ground_search_post_after' );
 
-							get_template_part( 'partials/pagination' );
+				endwhile;
 
-						else :
-							?>
+				?>
+				
+				<div class="col-span-12">
 
-							<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+					<?php get_template_part( 'template-parts/shared/pagination' ); ?>
 
-						<?php endif; ?>
+				</div>
 
-					</div> <!-- End .page__body -->
+				<?php
+			} else {
+				?>
+				<div class="col-span-12">
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+				</div>
+				<?php
+			}
 
-				</section> <!-- End .page -->
-			</div>
-		</div> <!-- End .row -->
-	</div> <!-- End .container -->
+			?>
 
-<?php
-get_template_part( 'partials/footer' );
+		</div>
+
+	</div>
+
+	<?php
+	get_template_part( 'template-parts/footer/footer' );

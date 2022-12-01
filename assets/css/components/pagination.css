@@ -1,0 +1,47 @@
+@layer components {
+	.pagination {
+		@apply container relative my-16 flex justify-center space-x-2;
+	}
+
+	.pagination__item {
+		@apply hidden h-12 w-12 items-center justify-center rounded-full border border-septenary text-quaternary sm:flex;
+
+		&.pagination__item--prev,
+		&.pagination__item--next {
+			@apply flex w-auto transition-all duration-500 ease-default sm:flex;
+
+			.pagination__text {
+				@apply px-9;
+			}
+
+			&:hover {
+				@apply border-primary;
+				.pagination__text {
+					@apply border-primary bg-transparent text-primary;
+				}
+			}
+		}
+
+		&.pagination__item--dots {
+			&:hover {
+				.pagination__text {
+					@apply bg-transparent text-quaternary;
+				}
+			}
+		}
+
+		&.is-active {
+			@apply flex border-primary bg-primary text-white sm:flex;
+		}
+
+		.pagination__text {
+			@apply flex h-full w-full items-center justify-center rounded-full;
+		}
+
+		&:hover {
+			.pagination__text {
+				@apply border-primary bg-primary text-white;
+			}
+		}
+	}
+}

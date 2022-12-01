@@ -1,0 +1,43 @@
+/* .facetwp-type-checkboxes & .facetwp-type-radio */
+.facetwp-type-checkboxes, .facetwp-type-radio {
+
+    .facetwp-checkbox, .facetwp-radio {
+        background: none;
+        @apply flex flex-wrap relative items-center pl-0 mb-2 bg-none text-sm;
+
+        &:before {
+            content: '';
+            @apply relative h-6 w-6 border border-septenary rounded-full mr-3;
+			@apply transition-all ease-default duration-300;
+        }
+        &:after {
+            content: '';
+            @apply absolute h-6 w-6 top-0 bg-primary border border-septenary rounded-full mr-3 scale-0 opacity-0;
+			@apply transition-all ease-default duration-300;
+        }
+
+        .facetwp-display-value, .facetwp-counter {
+            @apply text-sm;
+			@apply transition-all ease-default duration-300;
+        }
+
+        .facetwp-expand {
+            @apply ml-1 text-tertiary font-bold hover:text-primary;
+        }
+
+        &.checked, &:hover {
+            background: none;
+
+            &:before {
+                @apply border-primary;
+            }
+            &:after {
+                @apply scale-50 opacity-100;
+            }
+            .facetwp-display-value, .facetwp-counter {
+                @apply text-primary;
+            }
+        }
+
+    }
+}

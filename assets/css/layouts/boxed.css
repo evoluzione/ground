@@ -1,0 +1,25 @@
+@layer utilities {
+	.boxed-sm {
+		@apply mx-auto max-w-screen-sm;
+	}
+
+	.boxed-md {
+		@apply mx-auto max-w-screen-md;
+	}
+
+	.boxed-lg {
+		@apply mx-auto max-w-screen-lg;
+	}
+
+	.boxed-xl {
+		@apply mx-auto max-w-screen-xl;
+	}
+
+	.boxed {
+		@apply mx-auto max-w-[1440px];
+	}
+
+	.boxed-2xl {
+		@apply mx-auto max-w-screen-2xl;
+	}
+}

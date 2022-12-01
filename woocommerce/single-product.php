@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Template for displaying all single products
  *
@@ -10,9 +11,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
+ * @see         https://docs.woocommerce.com/document/template-structure/
+ * @author      WooThemes
+ * @package     WooCommerce/Templates
  * @version     1.6.4
  */
 
@@ -20,54 +21,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_template_part( 'partials/header' ); ?>
+get_template_part( 'template-parts/header/header' ); ?>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+<?php
+/**
+ * woocommerce_before_main_content hook.
+ *
+ * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+ * @hooked woocommerce_breadcrumb - 20
+ */
+do_action( 'woocommerce_before_main_content' );
+?>
 
-	<div class="gr-12">
+<div class="relative">
 
-		<section class="page page--woocommerce-single">
+	<section class="page page--woocommerce-single">
 
-			<div class="page__body">
+		<div class="page__body">
 
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
-				<?php endwhile; // end of the loop. ?>
-
-				<?php
-					/**
-					 * woocommerce_after_main_content hook.
-					 *
-					 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-					 */
-					do_action( 'woocommerce_after_main_content' );
+			<?php
+			while ( have_posts() ) :
+				the_post();
 				?>
 
-			</div>
+				<?php wc_get_template_part( 'content-single-product' ); ?>
 
-		</section>
+				<?php
+			endwhile; // end of the loop.
+			?>
 
-		<?php
+			<?php
 			/**
-			 * woocommerce_sidebar hook.
+			 * woocommerce_after_main_content hook.
 			 *
-			 * @hooked woocommerce_get_sidebar - 10
+			 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 			 */
-			//do_action( 'woocommerce_sidebar' );
-		?>
+			do_action( 'woocommerce_after_main_content' );
+			?>
 
-	</div>
+		</div>
 
-<?php get_template_part( 'partials/footer' );
+	</section>
+
+	<?php
+	/**
+	 * woocommerce_sidebar hook.
+	 *
+	 * @hooked woocommerce_get_sidebar - 10
+	 */
+	// do_action( 'woocommerce_sidebar' );
+	?>
+
+</div>
+
+<?php
+get_template_part( 'template-parts/footer/footer' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

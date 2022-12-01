@@ -9,7 +9,11 @@
  * WooCommerce custom pagination
  */
 function ground_woocommerce_pagination() {
-	get_template_part( 'partials/pagination' );
+	if ( is_plugin_active( 'facetwp/index.php' ) ) {
+		echo facetwp_display( 'pager' );
+	} else {
+		get_template_part( 'template-parts/shared/pagination' );
+	}
 }
 
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
@@ -21,8 +25,8 @@ add_action( 'woocommerce_after_shop_loop', 'ground_woocommerce_pagination', 10 )
  * @param int $cols Contains the current number of products per page based on the value stored on Options -> Reading.
  */
 function ground_woocommerce_products_per_page( $cols ) {
-	$cols = 9;
+	$cols = 20;
 	return $cols;
 }
 
-// add_filter( 'loop_shop_per_page', 'ground_woocommerce_products_per_page', 20 );
+add_filter( 'loop_shop_per_page', 'ground_woocommerce_products_per_page', 20 );

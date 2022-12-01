@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Category
  *
@@ -20,4 +21,45 @@ function ground_woocommerce_category_image() {
 	}
 }
 
-add_action( 'woocommerce_archive_description', 'ground_woocommerce_category_image', 2 );
+// add_action('woocommerce_before_main_content', 'ground_woocommerce_category_image', 30);
+
+
+/**
+ * Display term hero on category archive
+ */
+function ground_add_term_hero() {
+	if ( is_tax( 'product_cat' ) || is_tax( 'product_tag' ) || is_tax( 'product_brand' ) ) {
+
+		$min_price = isset( $_GET['min_price'] ) ? esc_attr( $_GET['min_price'] ) : 0;
+		$max_price = isset( $_GET['max_price'] ) ? esc_attr( $_GET['max_price'] ) : 0;
+
+		if ( 0 < count( WC_Query::get_layered_nav_chosen_attributes() ) || 0 < $min_price || 0 < $max_price ) {
+			// Ci sono filtri attivi
+			// get_template_part( 'template-parts/woocommerce/hero' );
+		} else {
+			get_template_part( 'template-parts/woocommerce/hero' );
+		}
+	}
+}
+
+add_action( 'woocommerce_before_main_content', 'ground_add_term_hero', 40 );
+
+remove_action( 'ground_add_term_hero', 'woocommerce_before_main_content', 40 );
+
+
+/**
+ * Add Category Description
+ */
+function ground_add_category_description( $category ) {
+	$cat_id      = $category->term_id;
+	$prod_term   = get_term( $cat_id, 'product_cat' );
+	$description = $prod_term->description;
+	?>
+
+	<?php if ( $description ) : ?>
+		<p class="woocommerce-loop-category__description"><?php echo $description; ?></p>
+		<?php
+endif;
+}
+
+add_action( 'woocommerce_after_subcategory_title', 'ground_add_category_description', 12 );

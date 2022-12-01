@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product category thumbnails within loops
  *
@@ -13,14 +14,14 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.1
+ * @version 4.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<article <?php wc_product_cat_class( '', $category ); ?>>
+<article <?php wc_product_cat_class( 'woocommerce-loop-category', $category ); ?>>
 	<?php
 	/**
 	 * woocommerce_before_subcategory hook.
@@ -53,5 +54,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked woocommerce_template_loop_category_link_close - 10
 	 */
-	do_action( 'woocommerce_after_subcategory', $category ); ?>
+	do_action( 'woocommerce_after_subcategory', $category );
+	?>
 </article>

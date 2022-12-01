@@ -1,0 +1,5 @@
+.container {
+    .is-container-full & {
+        @apply max-w-none;
+    }
+}
