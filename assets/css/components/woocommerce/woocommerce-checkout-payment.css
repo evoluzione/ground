@@ -1,0 +1,46 @@
+.woocommerce-checkout-payment,
+#checkout_payments {
+	@apply relative;
+
+	.wc_payment_methods {
+		@apply relative mt-9 mb-6 space-y-3;
+
+		.wc_payment_method {
+			@apply flex flex-wrap items-center pl-0;
+
+			input {
+				@apply mt-0;
+			}
+
+			input:checked + label {
+				@apply text-primary underline !important;
+			}
+
+			label {
+				@apply ml-1;
+
+				img {
+					@apply my-0 inline-block;
+				}
+			}
+
+			&:before {
+				@apply hidden;
+			}
+
+			.payment_box {
+				@apply mt-2 mb-3 block w-full pl-7;
+				* {
+					@apply text-sm text-gray-500;
+				}
+			}
+		}
+	}
+
+	/* PLACE HOLDER */
+	.place-order {
+		button[type="submit"].button {
+			@apply w-full;
+		}
+	}
+}

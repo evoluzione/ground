@@ -1,0 +1,7 @@
+/* wp-block-columns */
+.wp-block-columns {
+	@apply my-0 px-0 !important;
+	.wp-block-column {
+		@apply mb-7 lg:mb-0 flex-grow !important;
+	}
+}

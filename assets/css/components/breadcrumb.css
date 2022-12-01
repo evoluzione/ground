@@ -1,0 +1,45 @@
+@layer components {
+	.breadcrumb {
+		@apply container relative my-6 h-6 overflow-y-hidden text-sm md:relative;
+
+		@screen md {
+			&:after {
+				@apply hidden;
+			}
+		}
+	}
+
+	.breadcrumb__list {
+		@apply relative ml-0 mb-0 overflow-x-auto overflow-y-hidden whitespace-nowrap pb-6 pr-20;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.breadcrumb__item {
+		@apply inline-block;
+
+		&:after {
+			content: "▸";
+			@apply px-3 text-quaternary;
+		}
+
+		&:last-child {
+			@apply pointer-events-none cursor-default font-bold;
+
+			&:after {
+				content: none;
+			}
+		}
+
+		a {
+			@extend .breadcrumb__link;
+		}
+	}
+
+	.breadcrumb__link {
+		@apply text-quaternary no-underline;
+
+		&:hover {
+			@apply text-primary underline;
+		}
+	}
+}

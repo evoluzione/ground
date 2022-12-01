@@ -1,0 +1,23 @@
+/* Tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Variables */
+@import "variables.css";
+
+/* Base */
+@import "base/_base.css";
+
+/* Layouts */
+@import "layouts/_layouts.css";
+
+/* FacetWP */
+@import "components/facetwp/_facetwp.css";
+
+/* Components */
+@import "components/_components.css";
+@import "components/wp-blocks/_wp-blocks.css";
+
+/* Utilities */
+@import "utilities/_utilities.css";

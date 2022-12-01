@@ -1,0 +1,10 @@
+/* wp-block-file */
+.wp-block-file {
+	@apply my-12 lg:my-24;
+	.wp-block-file__button {
+		@apply button;
+		&:hover {
+			@apply bg-transparent text-primary border-primary !important;
+		}
+	}
+}

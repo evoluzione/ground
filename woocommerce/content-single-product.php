@@ -30,25 +30,29 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('woocommerce-product-details'); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'woocommerce-product-details' ); ?>>
 
-	<div class="row">
+	<div class="woocommerce-product-intro grid grid-cols-12 gap-6">
 
-		<div class="gr-12 gr-6@md">
+		<div class="col-span-full lg:col-span-6">
 
-			<?php
-				/**
-				 * Hook: woocommerce_before_single_product_summary.
-				 *
-				 * @hooked woocommerce_show_product_sale_flash - 10
-				 * @hooked woocommerce_show_product_images - 20
-				 */
-				do_action( 'woocommerce_before_single_product_summary' );
-			?>
+			<div class="woocommerce-product-media">
+
+				<?php
+					/**
+					 * Hook: woocommerce_before_single_product_summary.
+					 *
+					 * @hooked woocommerce_show_product_sale_flash - 10
+					 * @hooked woocommerce_show_product_images - 20
+					 */
+					do_action( 'woocommerce_before_single_product_summary' );
+				?>
+
+			</div>
 
 		</div>
 
-		<div class="gr-12 gr-6@md">
+		<div class="col-span-full lg:col-span-6 xl:col-span-4 lg:col-start-7 xl:col-start-8">
 
 			<div class="summary entry-summary">
 				<?php
@@ -70,26 +74,18 @@ if ( post_password_required() ) {
 
 		</div>
 
-	</div> <!-- End .row -->
+	</div>
 
-	<div class="row">
-
-		<div class="gr-12">
-
-			<?php
-				/**
-				 * Hook: woocommerce_after_single_product_summary.
-				 *
-				 * @hooked woocommerce_output_product_data_tabs - 10
-				 * @hooked woocommerce_upsell_display - 15
-				 * @hooked woocommerce_output_related_products - 20
-				 */
-				do_action( 'woocommerce_after_single_product_summary' );
-			?>
-
-		</div>
-
-	</div> <!-- End .row -->
+	<?php
+		/**
+		 * Hook: woocommerce_after_single_product_summary.
+		 *
+		 * @hooked woocommerce_output_product_data_tabs - 10
+		 * @hooked woocommerce_upsell_display - 15
+		 * @hooked woocommerce_output_related_products - 20
+		 */
+		do_action( 'woocommerce_after_single_product_summary' );
+	?>
 
 </div> <!-- End .woocommerce-product-details -->
 

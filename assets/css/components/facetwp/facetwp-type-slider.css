@@ -1,0 +1,48 @@
+/* .facetwp-type-slider */
+.facetwp-type-slider {
+    @apply relative;
+
+
+    &.is-loading {
+        &:before {
+            @apply hidden;
+        }
+    }
+
+    .facetwp-slider-wrap {
+
+        .facetwp-slider {
+            @apply border-septenary bg-senary;
+
+            .noUi-base {
+
+                .noUi-connects {
+                    @apply bg-senary cursor-pointer;
+
+                    .noUi-connect {
+                        @apply bg-primary;
+                    }
+
+                }
+
+                .noUi-handle {
+                    @apply bg-quinary border-septenary cursor-grabbing;
+                }
+
+            }
+
+        }
+
+    }
+
+    .facetwp-slider-label {
+        @apply text-sm;
+
+    }
+
+    .facetwp-slider-reset {
+        @apply absolute top-8 right-0 p-0 border-0 shadow-none bg-transparent text-sm text-quaternary;
+
+    }
+
+}

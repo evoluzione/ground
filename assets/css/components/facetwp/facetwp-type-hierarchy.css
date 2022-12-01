@@ -1,0 +1,44 @@
+/* .facetwp-type-hierarchy */
+.facetwp-type-hierarchy {
+
+    .facetwp-link {
+        @apply relative flex items-center text-sm py-1 hover:text-primary mb-2;
+
+        &[data-value]:not([data-value=""]) {
+            @apply mb-0;
+
+            &:before {
+                content: '';
+                @apply relative h-6 w-6 border border-septenary rounded-full mr-3;
+                @apply transition-all ease-default duration-300;
+            }
+            &:after {
+                content: '';
+                @apply absolute h-6 w-6 bg-primary border border-septenary rounded-full mr-3 scale-0 opacity-0;
+                @apply transition-all ease-default duration-300;
+            }
+
+            &.checked, &:hover {
+                background: none;
+                 @apply text-primary font-normal !important;
+
+                &:before {
+                    @apply border-primary;
+                }
+                &:after {
+                    @apply scale-50 opacity-100;
+                }
+                .facetwp-display-value, .facetwp-counter {
+                    @apply text-primary;
+                }
+            }
+
+        }
+        
+    }
+    
+    > .facetwp-depth {
+        @apply ml-0;
+    }
+
+}

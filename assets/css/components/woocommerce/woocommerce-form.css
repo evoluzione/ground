@@ -1,0 +1,32 @@
+.woocommerce-form {
+	.lost_password {
+		a {
+			@apply text-primary underline;
+		}
+	}
+}
+
+.form-row {
+	@apply my-6;
+
+	&#billing_invoice_field {
+		@apply !mt-9;
+	}
+
+	&.create-account,
+	&#billing_invoice_field {
+		@apply my-3;
+	}
+
+	label {
+		@apply mb-1;
+	}
+}
+
+.form-row-first {
+	@apply w-1/2 inline-block pr-2 lg:pr-6 my-0 !important;
+}
+
+.form-row-last {
+	@apply w-1/2 inline-block pl-2 lg:pl-6 my-0 !important;
+}

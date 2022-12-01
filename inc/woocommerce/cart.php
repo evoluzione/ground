@@ -1,9 +1,20 @@
 <?php
+
 /**
  * Cart
  *
  * @package Ground
  */
+
+
+ /**
+  * Add minicart
+  */
+function ground_woocommerce_minicart() {
+	get_template_part( 'template-parts/woocommerce/minicart' );
+}
+
+add_action( 'wp_body_open', 'ground_woocommerce_minicart', 5 );
 
 
 /**
@@ -14,7 +25,7 @@
  */
 function ground_add_crosssells_minicart() {
 	wp_reset_query();
-	woocommerce_cross_sell_display( 4, 2 );
+	woocommerce_cross_sell_display( 3 );
 }
 
 add_action( 'woocommerce_mini_cart_contents', 'ground_add_crosssells_minicart' );
@@ -58,7 +69,7 @@ if ( ! function_exists( 'ground_woocommerce_cart_link_fragment' ) ) {
 
 		ob_start();
 		ground_woocommerce_cart_link();
-		$fragments['a.minicart__contents'] = ob_get_clean();
+		$fragments['a.shopping-cart'] = ob_get_clean();
 
 		return $fragments;
 	}
@@ -74,6 +85,33 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 	 * @since  1.0.0
 	 */
 	function ground_woocommerce_cart_link() {
-		get_template_part( 'partials/woocommerce/minicart','contents' );
+		get_template_part( 'template-parts/woocommerce/shopping-cart' );
 	}
 }
+
+/**
+ * Show SKU on cart pages
+ */
+function ground_sku_below_cart_item_name( $cart_item, $cart_item_key ) {
+	$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+	$sku      = $_product->get_sku();
+	if ( ! $sku ) {
+		return;
+	}
+	echo '<p class="mt-2"><small>' . __( 'Code', 'ground' ) . ': ' . $sku . '</small></p>';
+}
+
+add_action( 'woocommerce_after_cart_item_name', 'ground_sku_below_cart_item_name', 11, 2 );
+
+
+
+/**
+ * Add icon add to cart Button
+ *
+ * @param [type] $button
+ */
+function ground_add_icon_add_cart_button_single( $button ) {
+	$button_new = ground_icon( 'shopping-cart', 'button__icon' ) . $button;
+	return $button_new;
+}
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'ground_add_icon_add_cart_button_single' );

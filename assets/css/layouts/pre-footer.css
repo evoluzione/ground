@@ -1,0 +1,6 @@
+.pre-footer {
+	&__payments,
+	&__newsletter {
+		@apply container;
+	}
+}

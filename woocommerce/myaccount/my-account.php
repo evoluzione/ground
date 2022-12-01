@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Account page
  *
@@ -24,19 +25,21 @@ defined( 'ABSPATH' ) || exit;
  */
 do_action( 'woocommerce_account_navigation' ); ?>
 
-<?php // .row is opened in myaccount/navigation.php ?>
+<?php
+// .row is opened in myaccount/navigation.php
+?>
 
-	<div class="gr-12 gr-9@md">
-		<div class="woocommerce-MyAccount-content">
-			<?php
-				/**
-				 * My Account content.
-				 *
-				 * @since 2.6.0
-				 */
-				do_action( 'woocommerce_account_content' );
-			?>
-		</div>
+<div class="w-full lg:col-span-4 lg:col-start-4 lg:p-24 lg:rounded-theme lg:bg-senary">
+	<div class="woocommerce-MyAccount-content">
+		<?php
+		/**
+		 * My Account content.
+		 *
+		 * @since 2.6.0
+		 */
+		do_action( 'woocommerce_account_content' );
+		?>
 	</div>
+</div>
 
 </div> <!-- End .row -->

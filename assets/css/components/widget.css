@@ -1,0 +1,18 @@
+@layer components {
+	.widget {
+		.sidebar &,
+		.overlay-panel & {
+			@apply relative mb-6;
+			.widgettitle {
+				@apply relative text-lg font-normal mb-3;
+			}
+		}
+		.tagcloud {
+			@apply flex;
+
+			a {
+				@apply text-base items-center px-3 border border-septenary rounded-theme mr-2;
+			}
+		}
+	}
+}

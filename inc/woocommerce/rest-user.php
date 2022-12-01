@@ -24,7 +24,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Invoice', 'ground-admin' ),
+					'description' => __( 'Invoice', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -52,7 +52,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Customer type', 'ground-admin' ),
+					'description' => __( 'Customer type', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -80,7 +80,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Vat', 'ground-admin' ),
+					'description' => __( 'VAT Number', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -108,7 +108,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Fiscal code', 'ground-admin' ),
+					'description' => __( 'Fiscal code', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -136,7 +136,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Pec', 'ground-admin' ),
+					'description' => __( 'PEC', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -164,7 +164,7 @@ add_action(
 					}
 				},
 				'schema'          => array(
-					'description' => __( 'Sdi', 'ground-admin' ),
+					'description' => __( 'SDI', 'ground' ),
 					'type'        => 'string',
 					'context'     => array( 'view', 'edit' ),
 				),

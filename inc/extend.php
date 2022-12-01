@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Extend WordPress
  *
@@ -9,7 +10,6 @@
  * Register new image sizes
  */
 function ground_thumbnail_size() {
-
 	// Enables featured image.
 	add_theme_support( 'post-thumbnails' );
 
@@ -36,7 +36,6 @@ function ground_thumbnail_size() {
 	add_image_size( '16-9-small', 960, 540, array( 'center', 'center' ) );
 	add_image_size( '16-9-medium', 1280, 720, array( 'center', 'center' ) );
 	add_image_size( '16-9-large', 1920, 1080, array( 'center', 'center' ) );
-
 }
 
 add_action( 'after_setup_theme', 'ground_thumbnail_size' );
@@ -45,22 +44,42 @@ add_action( 'after_setup_theme', 'ground_thumbnail_size' );
  * Register menu
  */
 function ground_register_menu() {
-
 	// This feature enables menus support.
 	add_theme_support( 'menus' );
 
 	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'primary'   => __( 'Primary navigation', 'ground-admin' ),
-		'secondary' => __( 'Secondary navigation', 'ground-admin' ),
-		'tertiary'  => __( 'Tertiary navigation', 'ground-admin' ),
+		'header-primary'   => __( 'Navigation header primary ', 'ground' ),
+		'header-secondary' => __( 'Navigation header secondary', 'ground' ),
+		'footer-primary'   => __( 'Navigation footer primary', 'ground' ),
+		'footer-secondary' => __( 'Navigation footer secondary', 'ground' ),
+		'footer-tertiary'  => __( 'Navigation footer tertiary', 'ground' ),
+		'panel-primary'    => __( 'Navigation panel primary', 'ground' ),
 	);
 
 	register_nav_menus( $locations );
-
 }
 
 add_action( 'init', 'ground_register_menu' );
+
+
+/**
+ * Add support custom logo
+ */
+function ground_custom_logo_setup() {
+	$defaults = array(
+		'height'               => 100,
+		'width'                => 400,
+		'flex-height'          => true,
+		'flex-width'           => true,
+		'header-text'          => array( 'site-title', 'site-description' ),
+		'unlink-homepage-logo' => true,
+	);
+
+	add_theme_support( 'custom-logo', $defaults );
+}
+
+add_action( 'after_setup_theme', 'ground_custom_logo_setup' );
 
 /**
  * Content width
@@ -77,10 +96,7 @@ if ( ! isset( $content_width ) ) {
  * Load the theme’s translated strings
  */
 function ground_load_theme_textdomain() {
-
-	load_theme_textdomain( 'ground-admin', TEMPLATE_PATH . '/languages' );
-	load_theme_textdomain( 'ground', TEMPLATE_PATH . '/languages' );
-
+	load_theme_textdomain( 'ground', GROUND_TEMPLATE_PATH . '/languages' );
 }
 
 add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
@@ -113,10 +129,10 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
 			$post_content = $_post->post_content;
 		}
 		$content = wp_strip_all_tags( $post_content );
-		$excerpt = mb_substr( $content, 0, $length, CHARSET );
+		$excerpt = mb_substr( $content, 0, $length, GROUND_CHARSET );
 	} else {
 		$content = get_the_excerpt();
-		$excerpt = mb_substr( $content, 0, $length, CHARSET );
+		$excerpt = mb_substr( $content, 0, $length, GROUND_CHARSET );
 	}
 
 	if ( strlen( $content ) > $length ) {
@@ -124,7 +140,6 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
 	}
 
 	echo esc_html( $excerpt );
-
 }
 
 /**
@@ -141,12 +156,11 @@ function ground_trim_title( $length = 10, $after_text = '...', $post = 0 ) {
 	$title = get_the_title( $post );
 
 	if ( strlen( $title ) > $length ) {
-		$title = mb_substr( $title, 0, $length, CHARSET );
+		$title = mb_substr( $title, 0, $length, GROUND_CHARSET );
 		echo esc_html( $title . $after_text );
 	} else {
 		echo esc_html( $title );
 	}
-
 }
 
 /**
@@ -169,17 +183,17 @@ add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
  * This feature allows the use of HTML5 markup for the comment forms, search forms, comment lists and gallery.
  */
 function ground_markup() {
-
 	$markup = array(
 		'search-form',
 		'comment-form',
 		'comment-list',
 		'gallery',
 		'caption',
+		'script',
+		'style',
 	);
 
 	add_theme_support( 'html5', $markup );
-
 }
 
 add_action( 'after_setup_theme', 'ground_markup' );
@@ -188,7 +202,14 @@ add_action( 'after_setup_theme', 'ground_markup' );
  * Add WooCommerce support
  */
 function ground_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
+	add_theme_support(
+		'woocommerce',
+		// array(
+		// 'thumbnail_image_width'         => 200,
+		// 'gallery_thumbnail_image_width' => 200,
+		// 'single_image_width'            => 900,
+		// )
+	);
 }
 
 add_action( 'after_setup_theme', 'ground_add_woocommerce_support' );
@@ -256,17 +277,28 @@ function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = t
  * @param string  $additional_class Optional. Html class. Default is empty.
  * @param boolean $url Optional. Return url. Default is false.
  * @param string  $extension Optional. Default echo HTML.
+ * @param string  $tag Optional. HTML tag wrapper.
+ * @param boolean $return Optional. Return string instead echo.
  */
-function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg' ) {
+function ground_icon( $name = '', $additional_class = '', $icon_set = 'css-gg', $child = false, $url = false, $extension = 'svg', $tag = 'span', $return = false ) {
 	if ( '' === $name ) {
 		return;
 	}
+
 	if ( $url ) {
-		return TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
+		$path = $child ? GROUND_CHILD_TEMPLATE_URL : GROUND_TEMPLATE_URL;
+		return $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension;
 	} else {
-		echo '<span class="icon icon--' . $name . ' ' . $additional_class . '">';
-		echo file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
-		echo '</span>';
+		$path    = $child ? GROUND_CHILD_TEMPLATE_PATH : GROUND_TEMPLATE_PATH;
+		$markup  = '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
+		$markup .= file_get_contents( $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension );
+		$markup .= '</' . $tag . '>';
+
+		if ( $return ) {
+			return $markup;
+		} else {
+			echo $markup;
+		}
 	}
 }
 
@@ -274,12 +306,12 @@ function ground_icon( $name = '', $additional_class = '', $url = false, $extensi
  * Add attachment gallery attributes
  *
  * @param string $link Attachment page link.
- * @param int $id Post ID or post object.
+ * @param int    $id Post ID or post object.
  * @return string
  */
 function ground_gallery_modal( $link, $id ) {
 	$image_attributes = wp_get_attachment_image_src( $id, 'full' );
-	return str_replace( '<a href', '<a data-modal="gallery" data-modal-size="' . $image_attributes[1] . 'x' . $image_attributes[2] . '" data-router-disabled href', $link );
+	return str_replace( '<a href', '<a data-modal="gallery" data-pswp-width="' . $image_attributes[1] . '" data-pswp-height="' . $image_attributes[2] . '" data-router-disabled href', $link );
 }
 
 add_filter( 'wp_get_attachment_link', 'ground_gallery_modal', 10, 6 );
@@ -303,26 +335,25 @@ function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item 
 add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 2 );
 
 /**
- * BEM body classes
+ * Custom body class
  *
  * @param string|string[] $classes Space-separated string or array of class names to add to the class list.
  * @return string|string[]
  */
-function ground_body_class_bem( $classes ) {
+function ground_body_class( $classes ) {
 
-	foreach ( $classes as &$value ) {
-		if ( strpos( $value, 'is-' ) !== false || strpos( $value, 'woo' ) !== false ) {
-			$value = $value;
-		} else {
-			$value = 'body--' . $value;
-		}
+	if ( current_user_can( 'administrator' ) ) {
+		$classes[] = 'debug-screens';
 	}
-	array_unshift( $classes, 'body' );
-	return $classes;
 
+	if ( GROUND_CONTAINER ) {
+		$classes[] = 'is-container-full';
+	}
+
+	return $classes;
 }
 
-add_filter( 'body_class', 'ground_body_class_bem' );
+add_filter( 'body_class', 'ground_body_class' );
 
 /**
  * Save ACF local JSON
@@ -331,11 +362,8 @@ add_filter( 'body_class', 'ground_body_class_bem' );
  * @param string $path ACF JSON path.
  * @return string
  */
-function ground_acf_json_save_point( $path ) {
-
-	$path = TEMPLATE_PATH . '/data/acf';
-	return $path;
-
+function ground_acf_json_save_point() {
+	return get_stylesheet_directory() . '/data/acf';
 }
 
 add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
@@ -350,32 +378,12 @@ add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
 function ground_acf_json_load_point( $paths ) {
 
 	unset( $paths[0] );
-	$paths[] = TEMPLATE_PATH . '/data/acf';
+	$paths[] = get_stylesheet_directory() . '/data/acf';
 	return $paths;
 
 }
 
 add_filter( 'acf/settings/load_json', 'ground_acf_json_load_point' );
-
-/**
- * Oembed responsive
- *
- * @param string|false $cache The cached HTML result, stored in post meta.
- * @param string       $url The attempted embed URL.
- * @param array        $attr An array of shortcode attributes.
- * @param int          $post_ID Post ID.
- * @return string
- */
-function ground_oembed_responsive( $cache, $url, $attr, $post_ID ) {
-
-	if ( strpos( $url, 'vimeo.com' ) !== false || strpos( $url, 'youtube.com' ) !== false || strpos( $url, 'youtu.be' ) !== false ) {
-		$class = 'ratio-16-9';
-		return '<div class="' . $class . '">' . $cache . '</div>';
-	}
-
-}
-
-add_filter( 'embed_oembed_html', 'ground_oembed_responsive', 99, 4 );
 
 /**
  * Rename attachment slug
@@ -397,7 +405,6 @@ add_action( 'add_attachment', 'ground_rename_attachment_slug' );
  * Echoes the highway ajax navigation view name tag
  */
 function ground_view_name() {
-
 	global $wp_query;
 
 	if ( is_front_page() ) {
@@ -415,7 +422,6 @@ function ground_view_name() {
 	}
 
 	echo 'data-router-view="' . esc_html( $view_name ) . '"';
-
 }
 
 /**
@@ -477,7 +483,7 @@ function ground_yoast_breadcrumb() {
  */
 function ground_ajax_search_data_fetch() {
 	ob_start();
-	get_template_part( 'partials/abstract-ajax-search' );
+	get_template_part( 'template-parts/search/search-ajax-preview' );
 	return ob_get_clean();
 }
 
@@ -485,17 +491,127 @@ add_action( 'wp_ajax_data_fetch', 'ground_ajax_search_data_fetch' );
 add_action( 'wp_ajax_nopriv_data_fetch', 'ground_ajax_search_data_fetch' );
 
 /**
- * WMPL - Switch Language
+ * Write log in /wp-content/debug.log
+ * Enable WP_DEBUG and WP_DEBUG_LOG
+ *
+ * @param mixed $log Logging data.
  */
-function ground_language_switch() {
-	ob_start();
-	get_template_part( 'partials/switch-language' );
-	return ob_get_clean();
+function ground_log( $log ) {
+	if ( true === WP_DEBUG && true === WP_DEBUG_LOG ) {
+		if ( is_array( $log ) || is_object( $log ) ) {
+			error_log( print_r( $log, true ) );
+		} else {
+			error_log( $log );
+		}
+	}
 }
 
 /**
- * ACF Add Options Page
+ * Register custom Sidebar archive post
+ *
+ * @return void
  */
-if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page();
+function ground_widget_registration( $name, $id ) {
+	register_sidebar(
+		array(
+			'name'          => $name,
+			'id'            => $id,
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
 }
+
+function ground_multiple_widget_init() {
+	ground_widget_registration( __( 'Sidebar archive post', 'ground' ), 'sidebar-archive-post' );
+	ground_widget_registration( __( 'Sidebar footer primary', 'ground' ), 'sidebar-footer-primary' );
+	ground_widget_registration( __( 'Sidebar footer secondary', 'ground' ), 'sidebar-footer-secondary' );
+	ground_widget_registration( __( 'Sidebar footer tertiary', 'ground' ), 'sidebar-footer-tertiary' );
+	ground_widget_registration( __( 'Sidebar footer quaternary', 'ground' ), 'sidebar-footer-quaternary' );
+}
+
+add_action( 'widgets_init', 'ground_multiple_widget_init' );
+
+/**
+ * Remove "Category:", "Tag:", "Author:" from the_archive_title
+ *
+ * @return void
+ */
+add_filter(
+	'get_the_archive_title',
+	function ( $title ) {
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_tax() ) { // for custom post types
+			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		}
+		return $title;
+	}
+);
+
+/**
+ * Add Gutenberg block support
+ */
+function ground_add_gutenberg_block_support() {
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'align-wide' );
+	// add_theme_support( 'custom-spacing' );
+}
+
+add_action( 'after_setup_theme', 'ground_add_gutenberg_block_support' );
+
+function ground_add_color_palette_support() {
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name'  => esc_attr__( 'Primary', 'ground' ),
+				'slug'  => 'primary',
+				'color' => GROUND_COLOR_PRIMARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Secondary', 'ground' ),
+				'slug'  => 'secondary',
+				'color' => GROUND_COLOR_SECONDARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Tertiary', 'ground' ),
+				'slug'  => 'tertiary',
+				'color' => GROUND_COLOR_TERTIARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Quaternary', 'ground' ),
+				'slug'  => 'quaternary',
+				'color' => GROUND_COLOR_QUATERNARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Quinary', 'ground' ),
+				'slug'  => 'quinary',
+				'color' => GROUND_COLOR_QUINARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Senary', 'ground' ),
+				'slug'  => 'senary',
+				'color' => GROUND_COLOR_SENARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Septenary', 'ground' ),
+				'slug'  => 'septenary',
+				'color' => GROUND_COLOR_SEPTENARY,
+			),
+			array(
+				'name'  => esc_attr__( 'Octonary', 'ground' ),
+				'slug'  => 'octonary',
+				'color' => GROUND_COLOR_OCTONARY,
+			),
+		)
+	);
+}
+
+add_action( 'init', 'ground_add_color_palette_support' );

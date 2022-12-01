@@ -1,0 +1,87 @@
+@layer components {
+	.navigation {
+	}
+
+	.navigation__link {
+		text-decoration: none;
+
+		&:hover,
+		&.is-active,
+		.is-parent > & {
+			@apply text-primary;
+		}
+	}
+
+	.navigation--footer {
+		.navigation__list {
+			@apply ml-0;
+		}
+		.navigation__link {
+			@apply text-quaternary;
+			&:hover,
+			&.is-active,
+			.is-parent > & {
+				@apply text-primary;
+			}
+		}
+	}
+
+	.navigation--account {
+		@apply mb-12 block lg:mt-6;
+
+		.navigation__list {
+			@apply snap-x snap-mandatory space-x-1 overflow-x-auto overflow-y-hidden whitespace-nowrap px-6 lg:space-x-0;
+			@apply ml-1/2 w-screen -translate-x-2/4 transform lg:ml-0 lg:w-auto lg:translate-x-0 lg:px-0;
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+			&::-webkit-scrollbar {
+				@apply hidden;
+			}
+		}
+
+		.navigation__item {
+			@apply relative m-0 inline-block snap-center items-center overflow-hidden whitespace-normal lg:block;
+			&.is-active {
+				@apply rounded-full bg-primary text-quaternary lg:rounded-none lg:bg-transparent;
+			}
+			a {
+				@apply flex items-center rounded-full border border-septenary px-3 py-1 align-middle text-tertiary no-underline lg:mb-2 lg:border-0 lg:p-0;
+			}
+			&.is-active a {
+				@apply border-primary text-white lg:text-primary;
+			}
+		}
+	}
+
+	.navigation--blog {
+		@apply m-0 mt-12 block space-x-3 px-6 text-tertiary lg:flex lg:flex-wrap lg:items-center lg:px-0;
+		@apply snap-x snap-mandatory overflow-x-auto overflow-y-hidden whitespace-nowrap;
+		@apply ml-1/2 w-screen -translate-x-2/4 transform lg:ml-0 lg:w-auto lg:translate-x-0;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+		&::-webkit-scrollbar {
+			@apply hidden;
+		}
+
+		li {
+			@apply relative m-0 inline-block snap-center items-center overflow-hidden whitespace-normal;
+			&.current-cat {
+				@apply rounded-full bg-primary text-white;
+
+				.blog & {
+					@apply bg-transparent;
+				}
+			}
+			a {
+				@apply flex items-center rounded-full border border-septenary px-3 py-1 align-middle text-tertiary no-underline;
+			}
+			&.current-cat a {
+				@apply border-primary text-white;
+
+				.blog & {
+					@apply border-septenary text-tertiary;
+				}
+			}
+		}
+	}
+}

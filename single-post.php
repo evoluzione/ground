@@ -5,23 +5,26 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' );
+get_template_part( 'template-parts/header/header' );
 
 while ( have_posts() ) :
-	the_post(); ?>
 
-		<div class="container">
-			<div class="row">
+	the_post();
 
-				<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	/**
+	 * Hook: ground_single_post_before.
+	 *
+	 * @hooked ground_breadcrumbs - 20
+	 */
+	do_action( 'ground_single_post_before' );
 
-				<div class="gr-12">
-					<?php get_template_part( 'partials/content', 'single-post' ); ?>
-				</div>
-			</div> <!-- End .row -->
-		</div> <!-- End .container -->
+	get_template_part( 'template-parts/post/post-content' );
 
-	<?php
+	/**
+	 * Hook: ground_single_post_after.
+	 */
+	do_action( 'ground_single_post_after' );
+
 endwhile;
 
-get_template_part( 'partials/footer' );
+get_template_part( 'template-parts/footer/footer' );

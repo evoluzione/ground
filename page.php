@@ -5,43 +5,26 @@
  * @package Ground
  */
 
-get_template_part( 'partials/header' );
-?>
+get_template_part( 'template-parts/header/header' );
 
-	<div class="container
-	<?php
-	if ( is_cart() || is_account_page() ) {
-		echo 'container--medium';
-	} if ( is_checkout() ) {
-		echo 'container--small'; }
-	?>
-	">
-		<div class="row">
+while ( have_posts() ) :
 
+	the_post();
 
-			<?php if ( is_checkout() || is_cart() || is_account_page() ) { ?>
-				<div class="gr-12">
-			<?php } else { ?>
-				<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	/**
+	 * Hook: ground_page_before.
+	 *
+	 * @hooked ground_breadcrumbs - 20
+	 */
+	do_action( 'ground_page_before' );
 
-				<div class="gr-12 gr-3@md">
-					<?php get_template_part( 'partials/sidebar', 'primary' ); ?>
-				</div>
+	get_template_part( 'template-parts/page/page-content' );
 
-				<div class="gr-12 gr-9@md">
-			<?php } ?>
+	/**
+	 * Hook: ground_page_after.
+	 */
+	do_action( 'ground_page_after' );
 
-				<?php
-				while ( have_posts() ) :
-					the_post();
+endwhile;
 
-					get_template_part( 'partials/content', 'page' );
-
-				endwhile;
-				?>
-			</div>
-		</div> <!-- End .row -->
-	</div> <!-- End .container -->
-
-<?php
-get_template_part( 'partials/footer' );
+get_template_part( 'template-parts/footer/footer' );

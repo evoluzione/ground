@@ -1,0 +1,14 @@
+@layer components {
+	.footer {
+		body.woocommerce-checkout & {
+			@apply hidden;
+		}
+		.widgettitle {
+			@apply mb-6 text-lg font-bold;
+		}
+	}
+
+	.footer__body {
+		@apply container;
+	}
+}

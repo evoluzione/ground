@@ -1,0 +1,17 @@
+/* .facetwp-pager */
+.facetwp-pager {
+   @apply container relative px-0 flex justify-center space-x-2;
+    .facetwp-page {
+        @apply mt-12 m-0 h-12 w-12 items-center justify-center rounded-full border border-septenary text-quaternary flex font-normal;
+        &.prev {}
+        &.first {}
+        &.active, &:hover {
+            @apply border-primary bg-primary text-white;        
+        }
+        &.dots {
+            @apply hover:border-septenary hover:text-quaternary hover:bg-transparent cursor-not-allowed;
+        }
+        &.last {}
+        &.next {}
+    }
+}

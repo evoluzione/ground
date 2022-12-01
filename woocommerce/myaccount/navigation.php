@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Account navigation
  *
@@ -23,9 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_before_account_navigation' );
 ?>
 
-<div class="row">
+<div class="lg:flex">
 
-	<div class="gr-12 gr-3@md">
+	<div class="w-full lg:w-3/12">
 
 		<nav class="navigation navigation--account woocommerce-MyAccount-navigation">
 			<ul class="navigation__list">
@@ -39,6 +40,8 @@ do_action( 'woocommerce_before_account_navigation' );
 
 	</div>
 
-<?php // .row is closed in myaccount/my-account.php ?>
+	<?php
+	// .row is closed in myaccount/my-account.php
+	?>
 
-<?php do_action( 'woocommerce_after_account_navigation' ); ?>
+	<?php do_action( 'woocommerce_after_account_navigation' ); ?>

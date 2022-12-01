@@ -1,0 +1,18 @@
+.onsale {
+	@apply card__label bg-green-500 text-white;
+
+	.onsale__label {
+	}
+
+	.onsale__percentage {
+		@apply hidden sm:inline-block;
+	}
+
+	.woocommerce-product-media & {
+		@apply absolute top-3 left-3;
+	}
+}
+
+.woocommerce-product-media {
+	@apply relative;
+}

@@ -1,0 +1,89 @@
+@layer base {
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="number"],
+	textarea,
+	select {
+		@apply focus:ring-primary text-tertiary border-septenary rounded-theme w-full py-3 bg-transparent;
+	}
+
+	input[type="number"] {
+		@apply w-auto !important;
+	}
+
+	textarea {
+		min-height: 140px;
+	}
+
+	input[type="checkbox"] {
+		@apply focus:ring-primary h-5 w-5 text-primary border-septenary rounded-theme mr-1 cursor-pointer !important;
+	}
+
+	input[type="radio"] {
+		@apply focus:ring-primary h-5 w-5 text-primary border-septenary mr-1 cursor-pointer !important;
+	}
+
+	input[type="submit"] {
+		@apply text-base px-8 py-3 border border-primary rounded-theme font-bold text-white bg-primary cursor-pointer hover:bg-white hover:text-primary !important;
+	}
+
+	label {
+		@apply block text-base font-medium text-tertiary leading-none !important;
+	}
+}
+
+
+
+form.wpcf7-form {
+	.wpcf7-not-valid {
+		@apply border-dashed border-red-500;
+	}
+
+	label {
+		@apply mb-4;
+	}
+
+	.wpcf7-list-item {
+		@apply m-0;
+	}
+
+	.wpcf7-acceptance {
+		label {
+			@apply flex items-center mb-2 !important;
+		}
+	}
+
+	.wpcf7-submit {
+		@apply mt-4;
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: not-allowed !important;
+		}
+	}
+
+}
+
+.select2-hidden-accessible {
+	@apply h-0 -m-1 !important;
+}
+.select2-container {
+	@apply rounded-theme border border-septenary !important;
+	.select2-dropdown.select2-dropdown--below {
+		@apply border border-septenary rounded-none !important;
+		.select2-search--dropdown {
+			@apply border-t border-b border-septenary !important;
+		}
+	}
+	.select2-selection--single {
+		@apply flex items-center justify-between rounded-theme m-0 h-auto border-0 border-septenary focus:ring-primary !important;
+		.select2-selection__rendered {
+			@apply rounded-theme h-auto px-3 py-3 text-tertiary leading-normal !important;
+		}
+		.select2-selection__arrow {
+			@apply relative h-6 right-3 !important;
+		}
+	}
+}
