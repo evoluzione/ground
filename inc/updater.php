@@ -1,10 +1,17 @@
 <?php
-$ground_update_checker = Puc_v4_Factory::buildUpdateChecker(
+/**
+ * Updater
+ * https://github.com/YahnisElsts/plugin-update-checker
+ *
+ * @package Ground
+ */
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$ground_update_checker = PucFactory::buildUpdateChecker(
 	'https://github.com/evoluzione/ground/',
 	GROUND_TEMPLATE_PATH,
 	'ground'
 );
 
-// $ground_update_checker->getVcsApi()->enableReleaseAssets();
-$ground_update_checker->setBranch( 'feature/2.0' );
-// $ground_update_checker->setBranch( 'master' );
+$ground_update_checker->setBranch('master');
