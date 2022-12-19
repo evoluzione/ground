@@ -29,7 +29,7 @@ require_once 'inc/translate.php';
 require_once 'inc/oembed.php';
 // require_once 'inc/editor-scripts.php';
 
-if (class_exists('WooCommerce') ) {
+if ( class_exists('WooCommerce') ) {
     include_once 'inc/woocommerce/brand.php';
     include_once 'inc/woocommerce/breadcrumbs.php';
     include_once 'inc/woocommerce/cart.php';
