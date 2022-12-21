@@ -26,7 +26,7 @@ function ground_woocommerce_variation_price_format( $wc_format_price_range, $pro
 		if ( $min_var_sale_price < $min_var_reg_price ) {
 			$wc_format_price_range = sprintf( __( '<span class="price__label">' . __( 'Da', 'ground' ) . '</span><span class="price__range"><ins>%2$s</ins><del>%1$s</del></span>', 'woocommerce' ), wc_price( $min_var_reg_price ), wc_price( $min_var_sale_price ) );
 		} else {
-			$wc_format_price_range = sprintf( __( '<span class="price__label">' . __( 'Da', 'ground' ) . '</span>%1$s', 'woocommerce' ), wc_price( $min_var_reg_price ) );
+			$wc_format_price_range = sprintf( __( '<span class="price__label">' . __( 'Da', 'ground' ) . '</span><span class="price__range">%1$s</span>', 'woocommerce' ), wc_price( $min_var_reg_price ) );
 		}
 	}
 
