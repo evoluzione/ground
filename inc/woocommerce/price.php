@@ -15,20 +15,25 @@
  * @compatible    WooCommerce 6
  * @donate $9     https://businessbloomer.com/bloomer-armada/
  */
+function ground_woocommerce_variation_price_format( $wc_format_price_range, $product ) {
+	$min_var_reg_price  = $product->get_variation_regular_price( 'min', true );
+	$min_var_sale_price = $product->get_variation_sale_price( 'min', true );
+	$max_var_reg_price  = $product->get_variation_regular_price( 'max', true );
+	$max_var_sale_price = $product->get_variation_sale_price( 'max', true );
 
-function ground_woocommerce_variation_price_format( $price, $product ) {
-	$prices = $product->get_variation_prices( true );
-	$min_price = current( $prices['price'] );
-	$max_price = end( $prices['price'] );
-	$min_reg_price = current( $prices['regular_price'] );
-	$max_reg_price = end( $prices['regular_price'] );
-	if ( $min_price !== $max_price || ( $product->is_on_sale() && $min_reg_price === $max_reg_price ) ) {
-	   $price = '<span class="price__label">Da </span><span class="price__range">' .  wc_price( $min_price ) . $product->get_price_suffix() .'</span>';
+	// New $wc_format_price_range, unless all variations have exact same prices.
+	if ( ! ( $min_var_reg_price === $max_var_reg_price && $min_var_sale_price === $max_var_sale_price ) ) {
+		if ( $min_var_sale_price < $min_var_reg_price ) {
+			$wc_format_price_range = sprintf( __( '<span class="price__label">' . __( 'Da', 'ground' ) . '</span><span class="price__range"><ins>%2$s</ins><del>%1$s</del></span>', 'woocommerce' ), wc_price( $min_var_reg_price ), wc_price( $min_var_sale_price ) );
+		} else {
+			$wc_format_price_range = sprintf( __( '<span class="price__label">' . __( 'Da', 'ground' ) . '</span>%1$s', 'woocommerce' ), wc_price( $min_var_reg_price ) );
+		}
 	}
-	return $price;
-}
 
-add_filter( 'woocommerce_variable_price_html', 'ground_woocommerce_variation_price_format', 9999, 2 );
+	return $wc_format_price_range;
+	
+}
+add_filter( 'woocommerce_variable_price_html', 'ground_woocommerce_variation_price_format', 10, 2 );
 
 
 /**
