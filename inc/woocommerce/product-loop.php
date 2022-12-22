@@ -116,7 +116,7 @@ function ground_archive_filters_buttons() {
 		<div class="container px-0 overflow-hidden">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 gap-6 lg:w-2/3 pb-3 lg:pb-0 pl-3 lg:pl-0">
-					<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
+					<?php if ( is_active_sidebar( 'sidebar-woocommerce' ) || is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
 						<button class="button button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-mobile html" data-toggle-class-name="is-overlay-panel-open">
 							<?php ground_icon( 'options', 'button__icon w-6 h-6' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 						</button>
