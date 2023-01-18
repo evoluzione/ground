@@ -5,7 +5,7 @@
 
 @import "added-to-cart.css";
 @import "cart.css";
-/* @import "cart-collaterals.css"; */
+@import "cart-collaterals.css";
 @import "cart-totals.css";
 @import "cross-sells.css";
 @import "minicart.css";

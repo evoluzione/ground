@@ -1,0 +1,3 @@
+.cart-collaterals {
+	@apply col-span-full xl:sticky xl:top-24 xl:col-span-4;
+}

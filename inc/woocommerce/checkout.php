@@ -388,7 +388,7 @@ function ground_header_checkout() {
 				</div>
 				<div>
 					<div class="lg:text-right">
-						<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
+						<?php ground_icon( 'lock', 'h-6 w-6' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
 					</div>
 				</div>
 			</div>

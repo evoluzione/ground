@@ -45,6 +45,23 @@ add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
 
 
 /**
+ * Wrap Cart Template into custom div: Start
+ */
+function ground_woocommerce_cart_wrapper_start() { ?>
+	<div class="xl:grid xl:grid-cols-12 xl:gap-x-12">
+<?php }
+add_action( 'woocommerce_before_cart', 'ground_woocommerce_cart_wrapper_start' );
+
+/**
+ * Wrap Cart Template into custom div: End
+ */
+function ground_woocommerce_cart_wrapper_end() { ?>
+	</div>
+<?php }
+add_action( 'woocommerce_after_cart', 'ground_woocommerce_cart_wrapper_end' );
+
+
+/**
  * Cart fragment
  *
  * @see ground_woocommerce_cart_link_fragment()
