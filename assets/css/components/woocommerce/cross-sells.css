@@ -1,9 +1,10 @@
 .cross-sells {
-	@apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
+	@apply ml-1/2 w-screen -translate-x-2/4 transform overflow-hidden py-12 lg:ml-0 lg:w-auto lg:translate-x-0 xl:py-0;
+	@apply col-span-full lg:col-span-8;
 
 	body.woocommerce-cart & {
 		.product-columns {
-			@apply sm:grid-cols-2 lg:grid-cols-4;
+			@apply gap-y-12 sm:grid-cols-2 lg:grid-cols-3;
 		}
 	}
 
@@ -12,23 +13,23 @@
 	}
 
 	> h2 {
-		@apply text-center text-2xl mb-6 lg:mb-12;
+		@apply mb-6 text-center text-2xl lg:mb-12;
 		.minicart & {
 			@apply text-left text-xl lg:mb-6;
 		}
 	}
 
 	.products {
-		@apply container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+		@apply container mx-auto grid grid-cols-1 gap-6 overflow-y-hidden px-0 sm:grid-cols-2 lg:grid-cols-4;
 		.woocommerce-cart & {
 			@apply carousel-css;
 		}
 		.minicart & {
-			@apply px-0 grid-cols-2 md:grid-cols-3 !important;
+			@apply grid-cols-2 px-0 md:grid-cols-3 !important;
 		}
 	}
 
 	.minicart & {
-		@apply transform-none w-full ml-0 translate-x-0;
+		@apply ml-0 w-full translate-x-0 transform-none;
 	}
 }
