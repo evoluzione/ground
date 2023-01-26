@@ -19,5 +19,8 @@
 @import "components/_components.css";
 @import "components/wp-blocks/_wp-blocks.css";
 
+/* Premmerce */
+@import "components/premmerce/_premmerce.css";
+
 /* Utilities */
 @import "utilities/_utilities.css";
