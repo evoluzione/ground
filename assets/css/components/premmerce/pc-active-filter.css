@@ -1,0 +1,44 @@
+/* Active Filters */
+.pc-active-filter {
+	.pc-active-filter__list {
+		@apply flex flex-nowrap items-center overflow-x-auto pl-3 pr-1 pb-2 lg:flex-wrap lg:overflow-hidden lg:pl-0 lg:pb-0 lg:pr-0 !important;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+
+		&::-webkit-scrollbar {
+			@apply hidden;
+		}
+
+		.pc-active-filter__list-item {
+			@apply mr-2 block lg:my-1 !important;
+			.pc-active-filter__item-link {
+				@apply rounded-theme flex items-center space-x-2 whitespace-nowrap border border-primary py-1 px-4 pr-3 no-underline hover:no-underline !important;
+
+				&[aria-label="Reset filter"] {
+					@apply border-none px-2 !important;
+					&:hover {
+						.pc-active-filter__item-text-el {
+							@apply text-red-500 !important;
+						}
+					}
+					.pc-active-filter__item-delete {
+						@apply hidden !important;
+					}
+				}
+
+				.pc-active-filter__item-text-el {
+					@apply text-sm text-primary !important;
+				}
+				.pc-active-filter__item-delete {
+					@apply h-6 w-6 rounded-full border border-primary text-sm leading-5 text-primary !important;
+					@apply transition-all duration-300 ease-default;
+				}
+				&:hover {
+					.pc-active-filter__item-delete {
+						@apply border-red-500 bg-red-500 text-white !important;
+					}
+				}
+			}
+		}
+	}
+}
