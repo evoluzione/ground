@@ -1,6 +1,6 @@
 @layer components {
 	.card {
-		@apply relative overflow-hidden mb-6;
+		@apply relative mb-6 overflow-hidden;
 	}
 
 	.card--rounded {
@@ -20,30 +20,30 @@
 	}
 
 	.card__image {
-		@apply relative w-full rounded-media transition duration-500 transform-gpu hover:scale-105;
+		@apply rounded-media relative w-full transform-gpu transition duration-500 hover:scale-105;
 	}
 
 	.card__title {
-		@apply block text-lg font-normal mt-4 mb-3 line-clamp-3 lg:mt-5;
+		@apply mt-4 mb-3 block text-lg font-normal line-clamp-3 lg:mt-5;
 	}
 
 	.card__subtitle {
-		@apply block text-xs font-normal mb-3;
+		@apply mb-3 block text-xs font-normal;
 	}
 
 	.card__description {
-		@apply block text-quaternary text-sm md:text-base mb-3;
+		@apply mb-3 block text-sm text-quaternary md:text-base;
 	}
 
 	.card__label {
-		@apply relative block px-4 py-1 text-sm rounded-theme z-10;
+		@apply rounded-theme relative z-5 block px-4 py-1 text-sm;
 	}
 
 	.card__footer {
-		@apply p-3 border-t border-black;
+		@apply border-t border-black p-3;
 	}
 
 	.card__link {
-		@apply no-underline block;
+		@apply block no-underline;
 	}
 }
