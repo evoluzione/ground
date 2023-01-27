@@ -1,0 +1,12 @@
+/* Filter Loader */
+
+.premmerce-filter-loader-wrapper {
+	@apply bg-black bg-opacity-30 !important;
+}
+
+.premmerce-filter-loader-wrapper::after {
+	height: 60px !important;
+	width: 60px !important;
+	border: 4px solid var(--ground-color-senary) !important;
+	border-top: 4px solid var(--ground-color-primary) !important;
+}
