@@ -1,24 +1,23 @@
 @layer components {
 	.overlay-panel {
 		&__mask {
-			@apply fixed inset-0 h-full w-full bg-black bg-opacity-70 opacity-0 invisible cursor-pointer z-50 transition-all ease-default duration-500;
+			@apply invisible fixed inset-0 z-50 h-full w-full cursor-pointer bg-black bg-opacity-70 opacity-0 transition-all duration-500 ease-default;
 		}
 
 		&__body {
-			@apply fixed top-0 right-0 h-full w-full bg-quinary z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
+			@apply fixed top-0 right-0 z-50 h-full w-full translate-x-full transform bg-quinary transition-all duration-500 ease-default lg:w-sidebar;
 
 			.overlay-panel--from-left & {
-				@apply left-0 -translate-x-full ;
+				@apply left-0 -translate-x-full;
 			}
 
 			.overlay-panel--from-bottom & {
-				@apply left-0 bottom-0 top-auto translate-x-0 translate-y-full h-[95%] rounded-t-xl;
+				@apply left-0 bottom-0 top-auto h-[95%] translate-x-0 translate-y-full rounded-t-xl;
 			}
-			
 		}
 
 		&__content {
-			@apply relative overflow-x-hidden overflow-y-auto h-full;
+			@apply relative h-full overflow-y-auto overflow-x-hidden;
 			-ms-overflow-style: none; /* IE and Edge */
 			scrollbar-width: none; /* Firefox */
 			&::-webkit-scrollbar {
@@ -27,18 +26,18 @@
 		}
 
 		&__close {
-			@apply absolute top-8 right-9 z-40 text-center text-tertiary cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
+			@apply invisible absolute top-8 right-9 z-40 -translate-y-3 transform cursor-pointer text-center text-tertiary opacity-0 transition-all delay-500 duration-500 ease-default;
 		}
 
 		&.is-overlay-panel-open {
 			.overlay-panel__mask {
-				@apply opacity-100 visible;
+				@apply visible opacity-100;
 			}
 			.overlay-panel__body {
 				@apply transform-none;
 			}
 			.overlay-panel__close {
-				@apply opacity-100 visible transform-none;
+				@apply visible transform-none opacity-100;
 			}
 		}
 	}
