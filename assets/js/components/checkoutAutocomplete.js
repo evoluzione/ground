@@ -11,107 +11,165 @@ export default class CheckoutAutocomplete {
 			triggers: this.element,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.citiesJson;
-
 		this.init();
 	}
+
+	citiesJson = [];
+	selectOption = { placeholder: 'Seleziona un\'opzione...' };
+
+	// Country - e.g. Italy
+	// State - e.g. Brescia
+	// City - e.g. Flero
+	// Postcode - e.g. 25125
+	selectCountry = jQuery('#billing_country');
+	selectState = jQuery('#billing_state');
+	selectCity = jQuery('#billing_city');
+	selectPostcode = jQuery('#billing_postcode');
 
 	/**
 	 * Init
 	 */
-	init() {
-		const form = document.querySelector(this.element);
+	async init() {
+		this.getJson();
+	}
+
+	/**
+	 * Utility function to initialize an array of fields with Select2
+	 * @param {*} fields 
+	 */
+	initializeSelect2Fields(fields) {
+		fields.forEach(
+			field => field.select2({ ...this.selectOption, disabled: true })
+		);
+	}
+
+	/**
+	 * Retreive Json from local file
+	 * @returns 
+	 */
+	getJson() {
 
 		const path = document.body.dataset.templateUrl;
-		if(!path) return;
+		if (!path) return;
 
-		const billingStateInput = form.querySelector('#billing_state');
-		const billingStateWrapper = document.getElementById('select2-billing_state-container');
-
-		const billingCityInput = form.querySelector('#billing_city');
-		billingCityInput.setAttribute('list', 'billing_city_list');
-        
-		const billingPostcodeInput = form.querySelector('#billing_postcode');
-		billingPostcodeInput.setAttribute('list', 'billing_postcode_list');
-
-		// Retreive data from JSON
-		jQuery.getJSON(`${path}/data/db/Cities-it.json`, function(json) {
+		jQuery.getJSON(`${path}/data/db/Cities-it.json`, function (json) {
+			return json;
+		}).then((json) => {
 			this.citiesJson = json;
-			populateAutocomplete(this.citiesJson);
+			if (json.length > 0) this.initPopulateAutocomplete();
+		}).catch(err => {
+			console.error('[checkoutAutocomplete] getJson failed ', err);
 		});
 
-		function populateAutocomplete(citiesJson) {
+	}
 
-			/**
-             * City
-             */
-			populateAutocompleteCity(citiesJson, billingStateInput.value);
-			// Se cambio province popolo billing_city
-			new MutationObserver(() => {
-				populateAutocompleteCity(citiesJson, billingStateInput.value);
-			}).observe(billingStateWrapper, { attributes: true, childList: false, subtree: false });
+	initPopulateAutocomplete() {
 
-			/**
-             * Postcode
-             */
-			populateAutocompletePostcode(citiesJson, billingCityInput.value);
-			// Se cambio billing_city popolo billing_postcode
-			billingCityInput.addEventListener('change', function(e){ populateAutocompletePostcode(citiesJson, e.target.value); });
+		if (this.selectCountry.val() === 'IT') this.populateAutocompleteItaly();
 
-		}
+		// Callback if country is selected
+		const cbCountrySelected = (e) => {
+			const data = e.params.data;
 
-		function populateAutocompleteCity(citiesJson, value) {
-			if(!citiesJson) return;
+			// Svuoto i valori inseriti in precedenza
+			this.selectState.val(null);
+			this.selectCity.val(null);
+			this.selectPostcode.val(null);
 
-			const listId = 'billing_city_list';
+			if (data.id !== 'IT') {
 
-			// Remove old generated node
-			const oldNode = document.getElementById(listId); 
-			if(oldNode) oldNode.remove();
+				[this.selectCity, this.selectPostcode].forEach(field => {
+					// Se sono stati inizializzati con select2
+					if (field.hasClass('select2-hidden-accessible')) {
+						// li distruggo
+						field.select2('destroy');
+						// e li rendo non disabled
+						field.prop('disabled', false);
+					}
+				});
 
-			// Filtro solo le città necessarie
-			const cityList = citiesJson.filter(item => item.ProvinceCode === value);
-            
-			// Creo un datalist
-			const datalist = document.createElement('datalist');
-			datalist.id = listId;
+				return;
+			}
 
-			cityList.forEach(element => {
-				const option = document.createElement('option');
-				option.value = element.Title;
-				datalist.appendChild(option);
-			});
-			billingCityInput.after(datalist);
-		}
+			// Re-initialize field because on change state AJAX inject new items
+			this.selectCountry = jQuery('#billing_country');
+			this.selectState = jQuery('#billing_state');
+			this.selectCity = jQuery('#billing_city');
+			this.selectPostcode = jQuery('#billing_postcode');
 
-		function populateAutocompletePostcode(citiesJson, value) {
-			if(!citiesJson) return;
+			this.populateAutocompleteItaly();
+		};
+		this.selectCountry.on('select2:select', cbCountrySelected);
+	}
 
-			const listId = 'billing_postcode_list';
+	populateAutocompleteItaly() {
 
-			// Remove old generated node
-			const oldNode = document.getElementById(listId); 
-			if(oldNode) oldNode.remove();
+		// initialize select2 fields
+		this.initializeSelect2Fields([this.selectCity, this.selectPostcode]);
 
-			if(!value) return;
+		/**
+		 * City
+		 */
+		this.populateAutocompleteCity(this.selectState.val());
+		// Callback if state is selected
+		const cbStateSelected = (e) => {
+			const data = e.params.data;
+			// Svuoto city e postcode
+			this.initializeSelect2Fields([this.selectCity, this.selectPostcode]);
+			// Aggiorno i valori di city
+			if (data.id) this.populateAutocompleteCity(data.id);
 
-			// Filtro solo le città necessarie
-			const list = citiesJson.filter(item => item.Title === value);
-            
-			if(!list) return;
-            
-			// Creo un datalist
-			const datalist = document.createElement('datalist');
-			datalist.id = listId;
+		};
+		this.selectState.on('select2:select', cbStateSelected);
 
-			list.forEach(element => {
-				const option = document.createElement('option');
-				option.value = element.ZipCodes;
-				datalist.appendChild(option);
-			});
-			billingPostcodeInput.after(datalist);
-		}
-        
+		/**
+		 * Postcode
+		 */
+		this.populateAutocompletePostcode(this.selectCity.val());
+		// Callback if city is selected
+		const cbCitySelected = (e) => {
+			const data = e.params.data;
+			// Svuoto il postcode
+			this.initializeSelect2Fields([this.selectPostcode]);
+			// aggiorno i valori di postcode
+			if (data.id) this.populateAutocompletePostcode(data.id);
+		};
+		this.selectCity.on('select2:select', cbCitySelected);
+
+	}
+
+	populateAutocompleteCity(value) {
+
+		const filteredList = this.citiesJson
+			.filter(item => item.ProvinceCode === value)
+			.map(item => ({ id: item.Title, text: item.Title }));
+
+		if (!filteredList.length) return;
+
+		this.selectCity.select2({
+			...this.selectOption,
+			disabled: false,
+			data: filteredList
+		});
+	}
+
+	populateAutocompletePostcode(value) {
+
+		const filteredItem = this.citiesJson
+			.find(item => item.Title === value);
+
+		if (!filteredItem) return;
+
+		const filteredList = filteredItem.ZipCodes
+			.map(item => ({ id: item, text: item }));
+
+		if (!filteredList.length) return;
+
+		this.selectPostcode.select2({
+			...this.selectOption,
+			disabled: false,
+			data: filteredList
+		});
 	}
 
 }
