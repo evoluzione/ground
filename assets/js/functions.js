@@ -165,6 +165,19 @@ function initWoocommerceScripts() {
 			})
 			.catch((error) => console.log(error));
 	}
+
+	// woocommerce-checkout autocomplete
+	if (elementExist('form.woocommerce-checkout')) { 
+		import(
+			/* webpackChunkName: "ground-checkoutAutocomplete" */ './components/checkoutAutocomplete'
+		)
+			.then((module) => {
+				const CheckoutAutocomplete = module.default;
+				new CheckoutAutocomplete();
+			})
+			.catch((error) => console.log(error));
+
+	}
 }
 
 export { initAlwaysRunScripts, initWoocommerceScripts };

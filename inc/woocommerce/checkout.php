@@ -97,6 +97,24 @@ function ground_woocommerce_billing_fields( $fields ) {
 
 add_filter( 'woocommerce_billing_fields', 'ground_woocommerce_billing_fields' );
 
+/**
+ * Address fields (override the order in ground_woocommerce_billing_fields)
+ *
+ * @param $fields Shipping fields.
+ */
+function ground_default_address_fields( $fields ) {
+
+	$fields['country']['priority']       = 40; // old : 40
+	$fields['state']['priority']         = 50; // old : 80
+	$fields['city']['priority']          = 60; // old : 70
+	$fields['postcode']['priority']      = 65; // old : 65
+	$fields['address_1']['priority']      = 70; // old : 50
+	$fields['address_2']['priority']      = 80; // old : 60
+
+    return $fields;
+}
+
+add_filter( 'woocommerce_default_address_fields', 'ground_default_address_fields' );
 
 /**
  * Shipping fields
