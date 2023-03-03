@@ -11796,9 +11796,11 @@ body.woocommerce-cart .cross-sells .product-columns{
 }
 @media (min-width: 768px){
 	.woocommerce-cart-form__cart-item .product-name{
+		white-space: normal !important;
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
 		padding-left: 1.5rem;
+		padding-right: 5rem;
 	}
 }
 .woocommerce-cart-form__cart-item .product-name a{
@@ -11840,6 +11842,7 @@ body.woocommerce-cart .cross-sells .product-columns{
 @media (min-width: 768px){
 	.woocommerce-cart-form__cart-item .product-subtotal{
 		padding-top: 1.5rem;
+		padding-left: 2.25rem;
 		text-align: right;
 	}
 }
