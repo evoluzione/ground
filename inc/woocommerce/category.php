@@ -25,10 +25,10 @@ function ground_woocommerce_category_image() {
 
 
 /**
- * Display term hero on category archive
+ * Display term hero on category/attribute archive
  */
 function ground_add_term_hero() {
-	if ( is_tax( 'product_cat' ) || is_tax( 'product_tag' ) || is_tax( 'product_brand' ) ) {
+	if ( is_tax( 'product_cat' ) || is_tax( 'product_tag' ) || is_tax( 'product_brand' ) || is_product_taxonomy() ) {
 
 		$min_price = isset( $_GET['min_price'] ) ? esc_attr( $_GET['min_price'] ) : 0;
 		$max_price = isset( $_GET['max_price'] ) ? esc_attr( $_GET['max_price'] ) : 0;
