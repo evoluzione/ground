@@ -30,14 +30,14 @@ function ground_woocommerce_widgets_init() {
 			'after_widget'  => '</div>',
 		)
 	);
-	register_sidebar(
-		array(
-			'name'          => __( 'Shop Sidebar Horizontal', 'ground' ),
-			'id'            => 'sidebar-woocommerce-horizontal',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
+	// register_sidebar(
+	// 	array(
+	// 		'name'          => __( 'Shop Sidebar Horizontal', 'ground' ),
+	// 		'id'            => 'sidebar-woocommerce-horizontal',
+	// 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	// 		'after_widget'  => '</div>',
+	// 	)
+	// );
 	register_sidebar(
 		array(
 			'name'          => __( 'Shop Sidebar Advanced', 'ground' ),

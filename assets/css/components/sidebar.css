@@ -1,25 +1,35 @@
 @layer components {
 	.sidebar {
-		@apply fixed top-0 left-0 h-full bg-quinary z-50 w-full transform -translate-x-full transition-all ease-default duration-500 lg:relative lg:bg-transparent lg:translate-x-0 lg:transform-none lg:transition-none lg:w-auto lg:top-auto lg:left-auto lg:pr-9 lg:z-0;
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-		
-		&::-webkit-scrollbar {
-			@apply hidden;
+		&__body {
+			@apply fixed bottom-0 left-0 z-40 h-[95%] w-full translate-y-full transform rounded-t-xl bg-quinary transition-all duration-500 ease-default lg:relative lg:top-auto lg:left-auto lg:z-0 lg:w-auto lg:translate-x-0 lg:transform-none lg:bg-transparent lg:pr-9 lg:transition-none;
 		}
 
-		&__body {
-			@apply p-6 lg:p-0;
+		&__content {
+			@apply relative h-full overflow-y-auto overflow-x-hidden px-6 lg:px-0;
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+			&::-webkit-scrollbar {
+				@apply hidden;
+			}
 		}
 
 		&__close {
-			@apply fixed top-8 right-9 z-40 text-center text-tertiary cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500 lg:hidden;
+			@apply invisible absolute top-6 right-6 z-40 -translate-y-3 transform cursor-pointer text-center text-tertiary opacity-0 transition-all delay-500 duration-500 ease-default;
+		}
+
+		&__mask {
+			@apply invisible fixed inset-0 z-40 h-full w-full cursor-pointer bg-black bg-opacity-70 opacity-0 transition-all duration-500 ease-default;
 		}
 
 		&.is-sidebar-open {
-			@apply overflow-x-hidden overflow-y-auto transform-none;
+			.sidebar__body {
+				@apply transform-none overflow-y-auto overflow-x-hidden;
+			}
 			.sidebar__close {
-				@apply opacity-100 visible transform-none;
+				@apply visible transform-none opacity-100 lg:invisible lg:opacity-0;
+			}
+			.sidebar__mask {
+				@apply visible opacity-100 lg:invisible lg:opacity-0;
 			}
 		}
 	}

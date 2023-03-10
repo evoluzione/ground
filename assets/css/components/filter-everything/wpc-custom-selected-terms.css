@@ -1,0 +1,9 @@
+/* Active Filters */
+.wpc-custom-selected-terms {
+	@apply !flex;
+	border: 1px dashed red;
+
+	.wpc-filter-chips-list {
+		@apply flex;
+	}
+}

@@ -22,5 +22,8 @@
 /* Premmerce */
 @import "components/premmerce/_premmerce.css";
 
+/* Filter Everything */
+@import "components/filter-everything/_filter-everything.css";
+
 /* Utilities */
 @import "utilities/_utilities.css";
