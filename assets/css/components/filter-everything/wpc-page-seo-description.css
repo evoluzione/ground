@@ -1,0 +1,5 @@
+.wpc-page-seo-description {
+	.ground-block-wrapper {
+		@apply !px-0;
+	}
+}

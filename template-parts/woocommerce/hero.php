@@ -46,7 +46,17 @@
 					<div class="col-span-full lg:col-start-6 lg:col-span-7">
 					<?php endif; ?>
 					<div class="hero__excerpt mb-6">
-						<?php do_action('woocommerce_archive_description'); ?>
+						<?php
+						if (function_exists('flrt_get_seo_data')) {
+							$seoText = flrt_get_seo_data('text');
+							if ($seoText) {
+								$seoText = apply_filters('the_content', wp_kses_post($seoText));
+								echo sprintf('<div class="wpc-page-seo-description">%s</div>', $seoText) . "\r\n";
+							}
+						} else {
+							do_action('woocommerce_archive_description');
+						}
+						?>
 					</div>
 					</div>
 
