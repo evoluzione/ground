@@ -1,0 +1,6 @@
+.wpc-filters-section {
+	.wpc-see-more-control,
+	.wpc-see-less-control {
+		@apply border-solid text-sm text-quaternary hover:border-primary hover:text-primary !important;
+	}
+}
