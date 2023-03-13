@@ -1,9 +1,52 @@
 /* Active Filters */
 .wpc-custom-selected-terms {
 	@apply !flex;
-	border: 1px dashed red;
 
 	.wpc-filter-chips-list {
-		@apply flex;
+		@apply !flex flex-nowrap items-center overflow-x-auto pl-6 pr-4 pb-2 lg:flex-wrap lg:overflow-hidden lg:pl-0 lg:pb-0 lg:pr-0 !important;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+
+		&::-webkit-scrollbar {
+			@apply hidden;
+		}
+
+		.wpc-filter-chip {
+			&.wpc-chip-reset-all {
+				> a {
+					@apply bg-transparent;
+					&:hover {
+						@apply border-red-500 bg-transparent;
+						.wpc-filter-chip-name {
+							@apply text-red-500;
+						}
+					}
+				}
+				.wpc-chip-content {
+					.wpc-filter-chip-name {
+						@apply text-primary;
+					}
+				}
+			}
+
+			> a {
+				@apply flex items-center border !border-primary bg-primary py-1 px-4;
+
+				&:hover {
+					@apply !border-red-500 bg-red-500;
+					.wpc-chip-remove-icon {
+						@apply text-white;
+					}
+				}
+			}
+			.wpc-chip-content {
+				.wpc-filter-chip-name {
+					@apply text-white;
+				}
+				.wpc-chip-remove-icon {
+					@apply text-white;
+				}
+			}
+		}
 	}
 }
