@@ -9780,6 +9780,18 @@ th{
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
+.wpc-filters-section .wpc-see-more-control,
+	.wpc-filters-section .wpc-see-less-control{
+	border-style: solid !important;
+	font-size: 0.875rem !important;
+	line-height: 1.25rem !important;
+	color: var(--ground-color-quaternary) !important;
+}
+.wpc-filters-section .wpc-see-more-control:hover,
+	.wpc-filters-section .wpc-see-less-control:hover{
+	border-color: var(--ground-color-primary) !important;
+	color: var(--ground-color-primary) !important;
+}
 /* Utilities */
 /* Import from all utilities directory */
 /* primary */
