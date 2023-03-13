@@ -1,6 +1,50 @@
 .wpc-filters-section {
+	@apply relative mb-0 border-b border-septenary !important;
+	.wpc-filter-header {
+		.wpc-filter-title {
+			@apply mb-0 py-6;
+		}
+	}
+
+	.wpc-filter-content {
+		@apply !pb-6;
+		.wpc-filters-ul-list {
+			.wpc-label-item {
+			}
+		}
+	}
+
 	.wpc-see-more-control,
 	.wpc-see-less-control {
 		@apply border-solid text-sm text-quaternary hover:border-primary hover:text-primary !important;
+	}
+
+	&.wpc-filter-collapsible {
+		.wpc-filter-header {
+			.wpc-filter-title {
+				@apply py-0;
+				button {
+					@apply items-start py-6;
+				}
+
+				.wpc-wrap-icons {
+					.wpc-filter-selected-values {
+						@apply mt-3 hidden text-primary;
+					}
+				}
+				.wpc-open-icon {
+					@apply mr-1 h-3 w-3 border-t-2 border-l-2 border-primary !important;
+				}
+			}
+		}
+
+		&.wpc-opened {
+			.wpc-open-icon {
+				@apply top-1;
+			}
+			.wpc-filter-selected-values {
+				@apply visible opacity-50;
+			}
+		}
 	}
 }

@@ -1,0 +1,20 @@
+.wpc-filters-labels {
+	.wpc-label-item {
+		.wpc-term-item-content-wrapper {
+			label {
+				@apply !border-0;
+			}
+
+			.wpc-filter-label-wrapper {
+				@apply border border-primary bg-quinary py-2 text-primary !important;
+			}
+		}
+
+		&.wpc-term-selected,
+		&:hover {
+			.wpc-filter-label-wrapper {
+				@apply bg-primary text-quinary !important;
+			}
+		}
+	}
+}
