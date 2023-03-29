@@ -97,7 +97,7 @@ function ground_add_short_description_to_product_loop() {
 		<?php
 	endif;
 }
-add_action( 'woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2 );
+add_action( 'woocommerce_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 20 );
 
 
 /**
