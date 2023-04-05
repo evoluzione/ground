@@ -14,8 +14,8 @@ add_action(
 	function () {
 		woocommerce_wp_text_input(
 			array(
-				'id'    => '_ean_gtin',
-				'label' => __('EAN/GTIN', 'ground'),
+				'id'    => 'gtin',
+				'label' => __('GTIN', 'ground'),
 			)
 		);
 	}
@@ -25,8 +25,8 @@ add_action(
 	'woocommerce_process_product_meta',
 	function ($post_id) {
 		$product  = wc_get_product($post_id);
-		$ean_gtin = isset($_POST['_ean_gtin']) ? $_POST['_ean_gtin'] : '';
-		$product->update_meta_data('_ean_gtin', sanitize_text_field($ean_gtin));
+		$ean_gtin = isset($_POST['gtin']) ? $_POST['gtin'] : '';
+		$product->update_meta_data('gtin', sanitize_text_field($ean_gtin));
 		$product->save();
 	}
 );
@@ -47,10 +47,10 @@ add_action(
 function ground_woocommerce_add_custom_field_to_variations($loop, $variation_data, $variation)
 {
 	woocommerce_wp_text_input(array(
-		'id' => '_ean_gtin[' . $loop . ']',
-		'placeholder' => 'Insert variant EAN/GTIN',
-		'label' => __('EAN/GTIN', 'ground'),
-		'value' => get_post_meta($variation->ID, '_ean_gtin', true),
+		'id' => 'gtin[' . $loop . ']',
+		'placeholder' => 'Insert variant GTIN',
+		'label' => __('GTIN', 'ground'),
+		'value' => get_post_meta($variation->ID, 'gtin', true),
         'wrapper_class' => 'form-row',
 	));
 }
@@ -63,8 +63,8 @@ add_action('woocommerce_variation_options_pricing', 'ground_woocommerce_add_cust
 
 function ground_woocommerce_save_custom_field_variations($variation_id, $i)
 {
-	$custom_field = $_POST['_ean_gtin'][$i];
-	if (isset($custom_field)) update_post_meta($variation_id, '_ean_gtin', esc_attr($custom_field));
+	$custom_field = $_POST['gtin'][$i];
+	if (isset($custom_field)) update_post_meta($variation_id, 'gtin', esc_attr($custom_field));
 }
 
 add_action('woocommerce_save_product_variation', 'ground_woocommerce_save_custom_field_variations', 10, 2);
@@ -75,7 +75,7 @@ add_action('woocommerce_save_product_variation', 'ground_woocommerce_save_custom
 
 function ground_woocommerce_add_custom_field_variation_data($variations)
 {
-	$variations['_ean_gtin'] = '<div class="woocommerce_custom_field">EAN/GTIN: <span>' . get_post_meta($variations['variation_id'], '_ean_gtin', true) . '</span></div>';
+	$variations['gtin'] = '<div class="woocommerce_custom_field">GTIN: <span>' . get_post_meta($variations['variation_id'], 'gtin', true) . '</span></div>';
 	return $variations;
 }
 
