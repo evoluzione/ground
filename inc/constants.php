@@ -202,6 +202,9 @@ function ground_theme_costants() {
 	}
 
 	// Shop.
+	if ( ! defined( 'GROUND_SHOP_PRODUCTS_LAYOUT' ) ) {
+		define( 'GROUND_SHOP_PRODUCTS_LAYOUT', get_theme_mod( 'shop_products_layout' ) ? get_theme_mod( 'shop_products_layout' ) : 'grid' );
+	}
 	if ( ! defined( 'GROUND_SHOP_REMOVE_ADD_TO_CART' ) ) {
 		define( 'GROUND_SHOP_REMOVE_ADD_TO_CART', get_theme_mod( 'shop_remove_add_to_cart' ) ? get_theme_mod( 'shop_remove_add_to_cart' ) : '' );
 	}

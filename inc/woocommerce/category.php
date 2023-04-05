@@ -63,3 +63,34 @@ endif;
 }
 
 add_action( 'woocommerce_after_subcategory_title', 'ground_add_category_description', 12 );
+
+
+
+
+/**
+ * @snippet Add Body Class product-layout (grid/list)
+ */
+    
+function ground_woocommerce_products_layout( $classes ){
+
+    if (class_exists('ACF')) {
+	    
+        if ( is_tax( 'product_cat' ) || is_tax( 'product_tag' ) || is_tax( 'product_brand' ) || is_product_taxonomy() ) {
+            $page_id = get_queried_object();    
+            $products_layout = get_field('products_layout', $page_id);        
+            if ($products_layout != 'default' ) { 
+                $classes[] = 'product-layout-'.$products_layout;
+            } else {
+                $classes[] = 'product-layout-'.GROUND_SHOP_PRODUCTS_LAYOUT;
+            }        
+        } else if(is_shop()) {
+            $classes[] = 'product-layout-'.GROUND_SHOP_PRODUCTS_LAYOUT;
+        }
+        
+    }
+
+    return $classes;
+
+}
+
+add_filter( 'body_class', 'ground_woocommerce_products_layout' );

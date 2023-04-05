@@ -353,7 +353,7 @@ remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_prod
 function ground_product_loop_sale_flash() {
 	?>
 
-	<div class="woocommerce-loop-product__label">
+	<div class="woocommerce-loop-product__labels">
 		<?php
 		/**
 		 * Hook: ground_sale_flash.
@@ -369,7 +369,7 @@ function ground_product_loop_sale_flash() {
 
 }
 
-add_action( 'woocommerce_before_shop_loop_item_title', 'ground_product_loop_sale_flash' );
+add_action( 'woocommerce_after_shop_loop_item_title', 'ground_product_loop_sale_flash' );
 
 
 
@@ -401,7 +401,7 @@ function ground_show_sale_percentage() {
 	}
 	if ( $max_percentage > 0 ) {
 		?>
-		<div class='onsale'><span class="onsale__label"> <?php _e( 'Sale!', 'woocommerce' ); ?> </span>
+		<div class='product-label product-label--onsale'><div class="product-label__body"> <?php _e( 'Sale!', 'woocommerce' ); ?> </div>
 			<!-- <span class="onsale__percentage">-<?php echo round( $max_percentage ); ?>%</span> -->
 		</div>
 		<?php
