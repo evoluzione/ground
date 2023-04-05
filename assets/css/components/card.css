@@ -1,6 +1,6 @@
 @layer components {
 	.card {
-		@apply relative mb-6 overflow-hidden;
+		@apply rounded-media relative overflow-hidden border border-septenary;
 	}
 
 	.card--rounded {
@@ -12,11 +12,10 @@
 	}
 
 	.card__header {
-		@apply p-3;
 	}
 
 	.card__body {
-		@apply flow-root p-3;
+		@apply flow-root space-y-3 p-4;
 	}
 
 	.card__image {
@@ -24,23 +23,27 @@
 	}
 
 	.card__title {
-		@apply mt-4 mb-3 block text-lg font-normal line-clamp-3 lg:mt-5;
+		@apply block text-lg font-bold line-clamp-3;
 	}
 
 	.card__subtitle {
-		@apply mb-3 block text-xs font-normal;
+		@apply block text-xs font-normal;
 	}
 
 	.card__description {
-		@apply mb-3 block text-sm text-quaternary md:text-base;
+		@apply block text-sm text-quaternary md:text-base;
 	}
 
 	.card__label {
-		@apply rounded-theme relative z-5 block px-4 py-1 text-sm;
+		@apply relative z-5;
+	}
+
+	.card__label__body {
+		@apply inline-block px-3 py-2 text-sm font-bold;
 	}
 
 	.card__footer {
-		@apply border-t border-black p-3;
+		@apply px-4 pb-4;
 	}
 
 	.card__link {

@@ -1,8 +1,12 @@
 .woocommerce-loop-product {
-	@apply relative mb-9;
+	@apply card;
 
 	.added_to_cart {
-		@apply block mb-6;
+		@apply mb-6 block;
+	}
+
+	.woocommerce-loop-product__figure {
+		@apply relative m-0;
 	}
 
 	.woocommerce-placeholder,
@@ -15,7 +19,7 @@
 		transition: color 0.2s ease-out;
 
 		.minicart & {
-			@apply text-sm px-4 py-2;
+			@apply px-4 py-2 text-sm;
 		}
 	}
 
@@ -26,8 +30,40 @@
 	}
 }
 
-.woocommerce-loop-product__label {
-	@apply absolute top-3 left-3 flex flex-col space-y-2;
+.woocommerce-loop-product__header {
+	@apply card__header;
+}
+
+.woocommerce-loop-product__body {
+	@apply card__body;
+}
+
+.woocommerce-loop-product__footer {
+	@apply card__footer;
+}
+
+.woocommerce-loop-product__labels {
+	@apply absolute top-0 left-0 flex flex-col;
+
+	.product-label {
+		@apply card__label;
+
+		.product-label__body {
+			@apply card__label__body;
+		}
+
+		&.product-label--onsale {
+			.product-label__body {
+				@apply bg-green-500 text-white;
+			}
+		}
+
+		&.product-label--not-purchasable {
+			.product-label__body {
+				@apply bg-primary text-white;
+			}
+		}
+	}
 }
 
 .woocommerce-loop-product__title {
@@ -49,7 +85,7 @@
 }
 
 .woocommerce-loop-product__additional-image {
-	@apply absolute top-0 w-full h-auto opacity-0 transition-all duration-300 hidden lg:block overflow-hidden rounded-media;
+	@apply rounded-media absolute top-0 hidden h-auto w-full overflow-hidden opacity-0 transition-all duration-300 lg:block;
 	img {
 		@apply card__image;
 	}

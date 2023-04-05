@@ -1,0 +1,31 @@
+/* Product Layout */
+body.woocommerce.product-layout-list {
+	.page--woocommerce-archive {
+		.page__body {
+			.products {
+				@apply sm:grid-cols-2 lg:grid-cols-1 lg:gap-y-6;
+				.woocommerce-loop-product {
+					@apply lg:mb-0 lg:border-0 lg:border-b lg:pb-6;
+					.woocommerce-loop-product__link {
+						@apply lg:grid lg:grid-cols-9 lg:gap-x-6;
+					}
+
+					.woocommerce-loop-product__labels {
+						@apply lg:relative;
+					}
+
+					.woocommerce-loop-product__header {
+						@apply lg:relative lg:col-span-2 lg:p-0;
+					}
+
+					.woocommerce-loop-product__body {
+						@apply lg:col-span-4 lg:space-y-2 lg:p-0;
+					}
+					.woocommerce-loop-product__footer {
+						@apply lg:col-span-3 lg:space-y-3 lg:p-0;
+					}
+				}
+			}
+		}
+	}
+}

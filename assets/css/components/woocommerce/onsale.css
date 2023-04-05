@@ -1,5 +1,6 @@
 .onsale {
 	@apply card__label bg-green-500 text-white;
+	@apply inline-block px-3 py-2 text-sm font-bold text-white;
 
 	.onsale__label {
 	}

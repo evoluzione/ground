@@ -131,14 +131,17 @@ function ground_show_not_purchasable_label() {
 	if ( 'yes' === $not_ready_to_sell ) {
 		$ground_not_purchasable_custom_message = get_post_meta( get_the_ID(), 'not_purchasable_custom_message', true );
 		?>
-		<div class="not-purchasable">
-			<?php
-			if ( $ground_not_purchasable_custom_message ) {
-				echo esc_html( $ground_not_purchasable_custom_message );
-			} else {
-				echo esc_html( GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON );
-			}
-			?>
+		<div class="product-label product-label--not-purchasable">
+			<div class="product-label__body">
+				<?php
+				if ($ground_not_purchasable_custom_message) {
+					echo esc_html($ground_not_purchasable_custom_message);
+				} else {
+					echo esc_html(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_BUTTON);
+				}
+				?>
+			</div>
+
 		</div>
 		<?php
 	}

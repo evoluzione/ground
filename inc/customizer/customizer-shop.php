@@ -124,8 +124,14 @@ function ground_customizer_shop( $wp_customize ) {
 		'shop_products_columns_mobile',
 		array(
 			'default' => '',
-			// 'sanitize_callback'    => 'wc_bool_to_string',
-			// 'sanitize_js_callback' => 'wc_string_to_bool',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'shop_products_layout',
+		array(
+			'default' => 'grid',
+			'type'    => 'theme_mod',
 		)
 	);
 
@@ -136,6 +142,26 @@ function ground_customizer_shop( $wp_customize ) {
 		)
 	);
 
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'shop_products_layout_control',
+			array(
+				'label'       => __( 'Products Layout', 'ground' ),
+				'description' => __( 'Set the products layout for shop, category, tag and attribute pages.', 'ground' ),
+				'settings'    => 'shop_products_layout',
+				'section'     => 'woocommerce_product_catalog',
+				'type'        => 'select',
+				'priority'    => 10,
+				'choices'     => array(
+					'grid'         => __( 'Grid', 'ground' ),
+					'list' => __( 'List', 'ground' ),
+				),
+			)
+		)
+	);
+
 	$wp_customize->add_control(
 		'shop_remove_add_to_cart_control',
 		array(
@@ -143,6 +169,7 @@ function ground_customizer_shop( $wp_customize ) {
 			'type'     => 'checkbox',
 			'section'  => 'woocommerce_product_catalog',
 			'settings' => 'shop_remove_add_to_cart',
+
 		)
 	);
 
@@ -154,6 +181,7 @@ function ground_customizer_shop( $wp_customize ) {
 			'description' => 'Optionally switch to a 1-column catalog on mobile',
 			'section'     => 'woocommerce_product_catalog',
 			'settings'    => 'shop_products_columns_mobile',
+
 		)
 	);
 

@@ -34,7 +34,7 @@ if (empty($product) || !$product->is_visible()) {
 	 */
 	do_action('woocommerce_before_shop_loop_item'); ?>
 
-	<div class="woocommerce-loop-product__head">
+	<div class="woocommerce-loop-product__header">
 
 		<?php /**
 		 * Hook: woocommerce_before_shop_loop_item_title.
@@ -57,7 +57,7 @@ if (empty($product) || !$product->is_visible()) {
 
 	</div>
 
-	<div class="woocommerce-loop-product__foot">
+	<div class="woocommerce-loop-product__footer">
 
 		<?php /**
 		 * Hook: woocommerce_after_shop_loop_item_title.
