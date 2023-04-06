@@ -1,8 +1,8 @@
 .price {
-	@apply flex w-full items-baseline text-tertiary;
+	@apply flex w-full items-baseline text-primary;
 
 	.amount {
-		@apply text-lg font-normal;
+		@apply text-lg font-bold;
 		.summary & {
 			@apply text-3xl lg:text-4xl;
 		}
@@ -12,18 +12,18 @@
 	}
 
 	del {
-		@apply order-2 pl-1 text-xl text-red-500 lg:pl-2;
+		@apply order-2 pl-1 text-base text-quaternary lg:pl-2 lg:text-lg;
 		.amount {
-			@apply text-sm font-normal text-quaternary lg:text-xl;
+			@apply text-base font-bold text-quaternary lg:text-lg;
 
 			.summary & {
-				@apply text-lg lg:text-xl;
+				@apply text-base lg:text-lg;
 			}
 		}
 	}
 
 	ins {
-		@apply no-underline;
+		@apply text-primary no-underline;
 	}
 
 	.price__label {
@@ -45,7 +45,7 @@
 	del {
 		@apply text-sm text-red-500;
 		.amount {
-			@apply text-sm font-normal text-quaternary;
+			@apply text-sm font-bold text-quaternary;
 		}
 	}
 	ins {

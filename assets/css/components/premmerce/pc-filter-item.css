@@ -1,0 +1,84 @@
+.filter__item {
+	@apply relative !m-0 border-b border-septenary;
+
+	&.filter__item-dropdown {
+	}
+
+	.filter__header {
+		@apply flex items-center justify-between py-4;
+
+		&.filter__header-dropdown {
+			@apply cursor-pointer;
+		}
+
+		.filter__title {
+			@apply block font-bold text-primary;
+		}
+
+		.filter__handle {
+			@apply absolute right-0 h-9 w-auto items-center justify-center;
+
+			.filter__handle-ico {
+				@apply h-full w-auto;
+
+				> div {
+					@apply flex h-full w-auto items-start justify-center;
+
+					&:before {
+						@apply hidden !important;
+					}
+					&:after {
+						@apply right-1 left-auto bg-transparent !important;
+						@apply relative h-3 w-3 border-b-2 border-r-2 border-primary;
+					}
+				}
+
+				&.filter__handle-ico--plus {
+					.filter__icon-plus {
+						&:after {
+							content: "";
+							@apply top-2 rotate-45 !important;
+						}
+					}
+				}
+				&.filter__handle-ico--minus {
+					.filter__icon-minus {
+						&:after {
+							content: "";
+							@apply top-4 !important;
+							transform: rotate(-135deg) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.filter__inner {
+		@apply mt-0 pb-6;
+		.filter__properties-list {
+			@apply space-y-2;
+			.filter__properties-item {
+				.filter__checkgroup {
+					@apply flex justify-between;
+
+					.filter__checkgroup-body {
+						@apply !pr-3;
+						&:hover {
+							.filter__checkgroup-title {
+								@apply !text-primary;
+							}
+						}
+					}
+					.filter__checkgroup-aside {
+						@apply text-quaternary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.premmerce-filter-body {
+	@apply flex flex-col space-y-0 !important;
+}
