@@ -5,7 +5,8 @@
 		}
 
 		&__content {
-			@apply relative h-full overflow-y-auto overflow-x-hidden px-6 lg:px-0;
+			@apply relative h-full px-6 lg:px-0;
+			@apply overflow-y-auto lg:overflow-visible;
 			-ms-overflow-style: none; /* IE and Edge */
 			scrollbar-width: none; /* Firefox */
 			&::-webkit-scrollbar {

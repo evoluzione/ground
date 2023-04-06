@@ -66,8 +66,9 @@ do_action( 'woocommerce_before_main_content' );
 	?>
 	">
 
-
 			<div class="page__body">
+
+			<?php get_template_part( 'template-parts/woocommerce/buttons-filters' ); ?>
 
 				<?php
 				if ( woocommerce_product_loop() ) {
