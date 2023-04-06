@@ -1,7 +1,7 @@
 /* Filter Loader */
 
 .premmerce-filter-loader-wrapper {
-	@apply bg-black bg-opacity-30 !important;
+	@apply bg-black bg-opacity-50 !important;
 }
 
 .premmerce-filter-loader-wrapper::after {
