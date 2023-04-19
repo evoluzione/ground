@@ -70,7 +70,7 @@ do_action( 'ground_archive_before' );
 					<div class="lg:grid lg:grid-cols-12 lg:gap-6 mt-6">
 						<?php if ( is_active_sidebar( 'sidebar-archive-post' ) ) : ?>
 							<div class="col-span-3">
-								<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target=".sidebar--archive-post html" data-toggle-class-name="is-sidebar-open">
+								<button class="button button--small button--bordered button--full-width block js-toggle mb-6 lg:hidden" data-toggle-target="#sidebar-archive-post html" data-toggle-class-name="is-sidebar-open">
 									<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 								</button>
 								<?php get_template_part( 'template-parts/sidebar/sidebar-archive-post' ); ?>
