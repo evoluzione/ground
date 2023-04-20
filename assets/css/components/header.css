@@ -21,11 +21,10 @@
 	}
 
 	.header__body {
-		transform: translateX(100%);
-		@apply transition-all ease-default lg:transform-none;
+		@apply top-16 translate-x-full transition-transform ease-default lg:transform-none;
 
 		.is-navigation-open & {
-			@apply transform-none;
+			@apply translate-x-0;
 		}
 
 		.scroll-direction-down & {
@@ -44,6 +43,7 @@
 
 		/* il movimento laterale è in menu.js */
 		@apply transition-all ease-default;
+
 		/* 
 		.is-container-full & {
 			@apply px-6;
