@@ -1,6 +1,4 @@
 .woocommerce-cart-form {
-	@apply relative col-span-full xl:col-span-8;
-
 	&.processing {
 		.blockOverlay {
 			&:after {

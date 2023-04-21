@@ -40,25 +40,7 @@ add_filter( 'woocommerce_is_attribute_in_product_name', '__return_false' );
  * Move cross sells under cart table
  */
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
-add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
-
-
-
-/**
- * Wrap Cart Template into custom div: Start
- */
-function ground_woocommerce_cart_wrapper_start() { ?>
-	<div class="xl:grid xl:grid-cols-12 xl:gap-x-12">
-<?php }
-add_action( 'woocommerce_before_cart', 'ground_woocommerce_cart_wrapper_start' );
-
-/**
- * Wrap Cart Template into custom div: End
- */
-function ground_woocommerce_cart_wrapper_end() { ?>
-	</div>
-<?php }
-add_action( 'woocommerce_after_cart', 'ground_woocommerce_cart_wrapper_end' );
+add_action( 'ground_woocommerce_after_cart_form', 'woocommerce_cross_sell_display' );
 
 
 /**
