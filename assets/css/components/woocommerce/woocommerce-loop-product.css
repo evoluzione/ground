@@ -44,24 +44,24 @@
 
 .woocommerce-loop-product__labels {
 	@apply absolute top-0 left-0 flex flex-col;
+}
 
-	.product-label {
-		@apply card__label;
+.product-label {
+	@apply card__label;
 
+	.product-label__body {
+		@apply card__label__body;
+	}
+
+	&.product-label--onsale {
 		.product-label__body {
-			@apply card__label__body;
+			@apply bg-green-500 text-white;
 		}
+	}
 
-		&.product-label--onsale {
-			.product-label__body {
-				@apply bg-green-500 text-white;
-			}
-		}
-
-		&.product-label--not-purchasable {
-			.product-label__body {
-				@apply bg-primary text-white;
-			}
+	&.product-label--not-purchasable {
+		.product-label__body {
+			@apply bg-primary text-white;
 		}
 	}
 }
