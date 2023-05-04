@@ -8,13 +8,12 @@ import Swiper, {
 	Navigation,
 	Pagination,
 	Autoplay,
-	Lazy,
 	EffectFade,
 	Controller,
 } from 'swiper';
 import deepmerge from 'deepmerge';
 
-Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade, Controller]);
+Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Controller]);
 export default class Slider {
 	/**
 	 * @param {string} element - Selector
@@ -34,11 +33,6 @@ export default class Slider {
 			preloadImages: true,
 			observer: true,
 			observeParents: true,
-			lazy: {
-				loadPrevNext: true,
-				loadPrevNextAmount: 1,
-				loadOnTransitionStart: true,
-			},
 			autoplay: {
 				delay: 5000,
 			},
