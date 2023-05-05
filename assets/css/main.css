@@ -13,17 +13,17 @@
 @import "layouts/_layouts.css";
 
 /* FacetWP */
-/* @import "components/facetwp/_facetwp.css"; */
+@import "components/facetwp/_facetwp.css";
 
 /* Components */
 @import "components/_components.css";
-/* @import "components/wp-blocks/_wp-blocks.css"; */
+@import "components/wp-blocks/_wp-blocks.css";
 
 /* Premmerce */
-/* @import "components/premmerce/_premmerce.css"; */
+@import "components/premmerce/_premmerce.css";
 
 /* Filter Everything */
-/* @import "components/filter-everything/_filter-everything.css"; */
+@import "components/filter-everything/_filter-everything.css";
 
 /* Utilities */
 @import "utilities/_utilities.css";
