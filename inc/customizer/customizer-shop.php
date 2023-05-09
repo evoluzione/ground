@@ -3,7 +3,8 @@
 /**
  * Add New not_purchasable Section : ground_section_not_purchasable
  */
-function ground_customizer_shop_not_purchasable( $wp_customize ) {
+function ground_customizer_shop_not_purchasable($wp_customize)
+{
 
 	/**
 	 * Add New Section: ground_section_not_purchasable
@@ -11,7 +12,7 @@ function ground_customizer_shop_not_purchasable( $wp_customize ) {
 	$wp_customize->add_section(
 		'ground_section_not_purchasable',
 		array(
-			'title'       => __( 'Products Not Purchasable', 'ground' ),
+			'title'       => __('Products Not Purchasable', 'ground'),
 			'description' => 'Insert url of your social channels',
 			'priority'    => '15',
 			'capability'  => 'edit_theme_options',
@@ -20,17 +21,17 @@ function ground_customizer_shop_not_purchasable( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'shop_not_purchasable_product_button' );
-	$wp_customize->add_setting( 'shop_not_purchasable_product_text' );
-	$wp_customize->add_setting( 'shop_not_purchasable_product_cta' );
+	$wp_customize->add_setting('shop_not_purchasable_product_button');
+	$wp_customize->add_setting('shop_not_purchasable_product_text');
+	$wp_customize->add_setting('shop_not_purchasable_product_cta');
 
 	$wp_customize->add_control(
 		'shop_not_purchasable_product_button',
 		array(
 			'type'        => 'text',
 			'section'     => 'ground_section_not_purchasable',
-			'label'       => __( 'Product Button & Label', 'ground' ),
-			'description' => __( 'Text visible on the archive page for each non-purchasable product', 'ground' ),
+			'label'       => __('Product Button & Label', 'ground'),
+			'description' => __('Text visible on the archive page for each non-purchasable product', 'ground'),
 		)
 	);
 
@@ -39,8 +40,8 @@ function ground_customizer_shop_not_purchasable( $wp_customize ) {
 		array(
 			'type'        => 'textarea',
 			'section'     => 'ground_section_not_purchasable',
-			'label'       => __( 'Single Product Message', 'ground' ),
-			'description' => __( 'Text visible on the single product page', 'ground' ),
+			'label'       => __('Single Product Message', 'ground'),
+			'description' => __('Text visible on the single product page', 'ground'),
 		)
 	);
 
@@ -48,7 +49,7 @@ function ground_customizer_shop_not_purchasable( $wp_customize ) {
 		'shop_not_purchasable_product_cta_control',
 		array(
 			'label'       => 'Select Page',
-			'description' => __( 'Button visible on the single product page', 'ground' ),
+			'description' => __('Button visible on the single product page', 'ground'),
 			'type'        => 'dropdown-pages',
 			'section'     => 'ground_section_not_purchasable',
 			'settings'    => 'shop_not_purchasable_product_cta',
@@ -56,13 +57,14 @@ function ground_customizer_shop_not_purchasable( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'ground_customizer_shop_not_purchasable' );
+add_action('customize_register', 'ground_customizer_shop_not_purchasable');
 
 
 /**
  * Add New Shop single product Section : ground_section_product_single
  */
-function ground_customizer_shop_single_product( $wp_customize ) {
+function ground_customizer_shop_single_product($wp_customize)
+{
 
 	/**
 	 * Add New Section: ground_section_product_single
@@ -70,8 +72,8 @@ function ground_customizer_shop_single_product( $wp_customize ) {
 	$wp_customize->add_section(
 		'ground_section_product_single',
 		array(
-			'title'       => __( 'Product Single', 'ground' ),
-			'description' => __( 'Select the pages you want to show on the product page after the summary', 'ground' ),
+			'title'       => __('Product Single', 'ground'),
+			'description' => __('Select the pages you want to show on the product page after the summary', 'ground'),
 			'priority'    => '15',
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'woocommerce',
@@ -79,9 +81,9 @@ function ground_customizer_shop_single_product( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'shop_product_summary_page_1' );
-	$wp_customize->add_setting( 'shop_product_summary_page_2' );
-	$wp_customize->add_setting( 'shop_product_summary_page_3' );
+	$wp_customize->add_setting('shop_product_summary_page_1');
+	$wp_customize->add_setting('shop_product_summary_page_2');
+	$wp_customize->add_setting('shop_product_summary_page_3');
 
 	$wp_customize->add_control(
 		'shop_product_summary_page_1_control',
@@ -112,13 +114,14 @@ function ground_customizer_shop_single_product( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'ground_customizer_shop_single_product' );
+add_action('customize_register', 'ground_customizer_shop_single_product');
 
 
 /**
  * Add New Controls for Woocommerce Sections
  */
-function ground_customizer_shop( $wp_customize ) {
+function ground_customizer_shop($wp_customize)
+{
 
 	$wp_customize->add_setting(
 		'shop_products_columns_mobile',
@@ -142,21 +145,27 @@ function ground_customizer_shop( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'shop_enable_gutemberg_editor',
+		array(
+			'default' => '1',
+		)
+	);
 
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
 			'shop_products_layout_control',
 			array(
-				'label'       => __( 'Products Layout', 'ground' ),
-				'description' => __( 'Set the products layout for shop, category, tag and attribute pages.', 'ground' ),
+				'label'       => __('Products Layout', 'ground'),
+				'description' => __('Set the products layout for shop, category, tag and attribute pages.', 'ground'),
 				'settings'    => 'shop_products_layout',
 				'section'     => 'woocommerce_product_catalog',
 				'type'        => 'select',
 				'priority'    => 10,
 				'choices'     => array(
-					'grid'         => __( 'Grid', 'ground' ),
-					'list' => __( 'List', 'ground' ),
+					'grid'         => __('Grid', 'ground'),
+					'list' => __('List', 'ground'),
 				),
 			)
 		)
@@ -174,6 +183,17 @@ function ground_customizer_shop( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
+		'shop_enable_gutemberg_editor_control',
+		array(
+			'label'    => 'Enable Product Gutemberg editor',
+			'type'     => 'checkbox',
+			'section'  => 'woocommerce_product_catalog',
+			'settings' => 'shop_enable_gutemberg_editor',
+
+		)
+	);
+
+	$wp_customize->add_control(
 		'shop_products_columns_mobile_control',
 		array(
 			'label'       => 'Products per row (Mobile)',
@@ -185,7 +205,7 @@ function ground_customizer_shop( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'shop_order_comments_details' );
+	$wp_customize->add_setting('shop_order_comments_details');
 
 	$wp_customize->add_control(
 		'shop_order_comments_details_control',
@@ -194,10 +214,10 @@ function ground_customizer_shop( $wp_customize ) {
 			'section'     => 'woocommerce_checkout',
 			'settings'    => 'shop_order_comments_details',
 			'priority'    => 30,
-			'label'       => __( 'Order Comments Details', 'ground' ),
-			'description' => __( 'Add Order Comments Details', 'ground' ),
+			'label'       => __('Order Comments Details', 'ground'),
+			'description' => __('Add Order Comments Details', 'ground'),
 		)
 	);
 }
 
-add_action( 'customize_register', 'ground_customizer_shop' );
+add_action('customize_register', 'ground_customizer_shop');
