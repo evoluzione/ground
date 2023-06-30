@@ -41,7 +41,7 @@ function ground_save_general_proddata_custom_fields($post_id)
 	$woocommerce_not_purchasable = $_POST['not_purchasable'];
 	update_post_meta($post_id, 'not_purchasable', $woocommerce_not_purchasable);
 
-	$woocommerce_not_purchasable_custom_message = $_POST['_not_purchasable_custom_message'];
+	$woocommerce_not_purchasable_custom_message = $_POST['not_purchasable_custom_message'];
 	update_post_meta($post_id, 'not_purchasable_custom_message', esc_attr($woocommerce_not_purchasable_custom_message));
 }
 
