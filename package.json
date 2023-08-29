@@ -1,6 +1,6 @@
 {
 	"name": "ground",
-	"version": "2.0.41",
+	"version": "2.0.42",
 	"description": "WordPress starter theme for front-end developers",
 	"license": "MIT",
 	"scripts": {
@@ -56,7 +56,7 @@
 		"gsap": "npm:@gsap/shockingly@^3.11.5",
 		"infinite-scroll": "4.0.1",
 		"ismobilejs": "1.1.1",
-		"photoswipe": "5.3.7",
+		"photoswipe": "5.3.8",
 		"swiper": "9.2.4"
 	}
 }

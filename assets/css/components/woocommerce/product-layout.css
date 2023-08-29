@@ -5,7 +5,7 @@ body.woocommerce.product-layout-list {
 			.products {
 				@apply sm:grid-cols-2 lg:grid-cols-1 lg:gap-y-6;
 				.woocommerce-loop-product {
-					@apply lg:mb-0 lg:border-0 lg:border-b lg:pb-6;
+					@apply lg:mb-0 lg:rounded-none lg:border-0 lg:border-b lg:pb-6;
 					.woocommerce-loop-product__link {
 						@apply lg:grid lg:grid-cols-9 lg:gap-x-6;
 					}
@@ -23,6 +23,10 @@ body.woocommerce.product-layout-list {
 					}
 					.woocommerce-loop-product__footer {
 						@apply lg:col-span-3 lg:space-y-3 lg:p-0;
+					}
+
+					.add_to_cart_button {
+						@apply mx-4 mb-4 mt-0 lg:mx-0 lg:mb-0 lg:mt-4;
 					}
 				}
 			}
