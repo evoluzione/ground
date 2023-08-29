@@ -14,6 +14,10 @@
 		}
 	}
 
+	.hero__figure {
+		@apply aspect-h-9 aspect-w-16 overflow-hidden;
+	}
+
 	.hero__image {
 		@apply lg:rounded-media absolute inset-0 h-full w-full rounded-none object-cover opacity-30;
 		.hero--full-width & {
@@ -46,7 +50,7 @@
 	}
 
 	.hero__highlights {
-		@apply container relative mt-0 mb-6 lg:mt-0 lg:mb-0 lg:px-16;
+		@apply container relative mb-6 mt-0 lg:mb-0 lg:mt-0 lg:px-16;
 		/* margin-bottom: 100px; */
 
 		.hero--full-width & {
