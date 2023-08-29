@@ -15,7 +15,7 @@
 	}
 
 	.button {
-		@apply mt-5;
+		@apply mx-4 mb-4 mt-0;
 		transition: color 0.2s ease-out;
 
 		.minicart & {
@@ -43,7 +43,7 @@
 }
 
 .woocommerce-loop-product__labels {
-	@apply absolute top-0 left-0 flex flex-col;
+	@apply absolute left-0 top-0 flex flex-col;
 }
 
 .product-label {
