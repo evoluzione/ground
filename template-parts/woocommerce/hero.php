@@ -83,12 +83,12 @@
 							<div class="hero__card">
 
 								<?php if ($image) : ?>
-									<figure class="overflow-hidden aspect-w-16 aspect-h-9">
-										<img class="hero__card-thumb <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr($image['sizes']['16-9-small']); ?> 480w,
-												<?php echo esc_attr($image['sizes']['16-9-medium']); ?> 900w,
-												<?php echo esc_attr($image['sizes']['16-9-large']); ?> 1200w" sizes="(min-width: 1200px) 1200px,
+									<figure class="hero__figure">
+										<img class="hero__card-thumb <?php echo $url ? 'transition duration-500 transform-gpu group-hover:scale-105 cursor-pointer' : ''; ?>" srcset="<?php echo esc_attr($image['sizes']['medium']); ?> 480w,
+												<?php echo esc_attr($image['sizes']['medium_large']); ?> 900w,
+												<?php echo esc_attr($image['sizes']['large']); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 												(min-width: 768px) 900px,
-												100vh" src="<?php echo esc_attr($image['sizes']['16-9-large']); ?>" alt="" loading="lazy">
+												100vh" src="<?php echo esc_attr($image['sizes']['large']); ?>" alt="" loading="lazy">
 									</figure>
 								<?php endif; ?>
 
