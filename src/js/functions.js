@@ -167,7 +167,7 @@ function initWoocommerceScripts() {
 	}
 
 	// woocommerce-checkout autocomplete
-	if (elementExist('form.woocommerce-checkout')) { 
+	if (elementExist('form.woocommerce-checkout')) {
 		import(
 			/* webpackChunkName: "ground-checkoutAutocomplete" */ './components/checkoutAutocomplete'
 		)

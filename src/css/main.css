@@ -12,6 +12,9 @@
 /* Layouts */
 @import "layouts/_layouts.css";
 
+/* WooCommerce */
+@import "./components/woocommerce/_woocommerce.css";
+
 /* FacetWP */
 @import "components/facetwp/_facetwp.css";
 
@@ -27,3 +30,4 @@
 
 /* Utilities */
 @import "utilities/_utilities.css";
+

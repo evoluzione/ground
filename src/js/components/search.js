@@ -37,6 +37,8 @@ export default class Search {
 				this.DOM.html.classList.remove('is-search-open');
 				this.DOM.searchForm.classList.remove('is-search-open');
 				this.init();
+			} else {
+				alert("asda");
 			}
 		});
 	}

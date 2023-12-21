@@ -1,5 +1,5 @@
-module.exports = (ctx) => ({
-	map: ctx.options.map,
+export default {
+	map: { inline: false },
 	plugins: {
 		'postcss-import': {},
 		'tailwindcss/nesting': {},
@@ -7,7 +7,7 @@ module.exports = (ctx) => ({
 		'postcss-for': {},
 		'postcss-simple-vars': {},
 		'postcss-100vh-fix': true,
-		autoprefixer: ctx.env === 'production' ? {} : false,
-		cssnano: ctx.env === 'production' ? {} : false
+		autoprefixer: process.env.NODE_ENV === 'production' ? {} : false,
+		cssnano: process.env.NODE_ENV === 'production' ? {} : false
 	}
-});
+};

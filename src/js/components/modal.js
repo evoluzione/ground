@@ -5,7 +5,8 @@
 
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
-const Deepmerge = require('deepmerge');
+// const Deepmerge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 export default class Modal {
 	/**
@@ -21,7 +22,7 @@ export default class Modal {
 			html: document.documentElement,
 			body: document.body,
 		};
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.init();
 	}
 
