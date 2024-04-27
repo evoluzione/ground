@@ -1,0 +1,24 @@
+{
+	"menus": [
+	  {
+		"location": "navigation-header-primary",
+		"label": "Header primary "
+	  },
+	  {
+		"location": "navigation-header-secondary",
+		"label": "Header secondary"
+	  },
+	  {
+		"location": "navigation-footer-primary",
+		"label": "Footer primary"
+	  },
+	  {
+		"location": "navigation-footer-secondary",
+		"label": "Footer secondary"
+	  },
+	  {
+		"location": "navigation-footer-tertiary",
+		"label": "Footer tertiary"
+	  }
+	]
+  }

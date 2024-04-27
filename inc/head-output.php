@@ -1,16 +1,20 @@
 <?php
-
-/**
- * Head output
- *
- * @package Ground
- */
-
 /**
  * Register and enqueue CSS
  */
 function ground_enqueue_styles() {
-	wp_enqueue_style( 'ground-styles', GROUND_TEMPLATE_URL . '/dist/css/ground-styles.min.css', array(), GROUND_VERSION, 'all' );
+	$defaults = array(
+		'handle' => '',
+		'src' => '',
+		'deps' => [],
+		'ver' => GROUND_VERSION,
+		'media' => 'all',
+	);
+
+	foreach ( ground_config( 'assets.styles' ) as $sidebar ) {
+		$params = wp_parse_args( $sidebar, $defaults );
+		wp_enqueue_style( $params['handle'], $params['src'], $params['deps'], $params['ver'], $params['media'] );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
@@ -19,7 +23,21 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
  * Register and enqueue JS
  */
 function ground_enqueue_scripts() {
-	wp_enqueue_script( 'ground-scripts', GROUND_TEMPLATE_URL . '/dist/js/ground-scripts.min.js', array( 'jquery' ), GROUND_VERSION, true );
+	$defaults = array(
+		'handle' => '',
+		'src' => '',
+		'deps' => [],
+		'ver' => GROUND_VERSION,
+		'args' => [ 
+			'strategy' => '', // May be either 'defer' or 'async'.
+			'in_footer' => true,
+		],
+	);
+
+	foreach ( ground_config( 'assets.scripts' ) as $sidebar ) {
+		$params = wp_parse_args( $sidebar, $defaults );
+		wp_enqueue_script( $params['handle'], $params['src'], $params['deps'], $params['ver'], $params['args'] );
+	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -29,69 +47,22 @@ function ground_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
 /**
- * Add CSS Fonts Source
- */
-function ground_add_fonts_source() {
-	echo GROUND_FONT_SOURCE_PRIMARY;
-	echo GROUND_FONT_SOURCE_SECONDARY;
-}
-
-add_action( 'wp_head', 'ground_add_fonts_source' );
-
-
-/**
- * Add CSS theme variables
- */
-function ground_add_css_theme_variables() {
-	echo '<style type="text/css">
-		:root {
-			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
-			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
-			--ground-color-tertiary:' . GROUND_COLOR_TERTIARY . ';
-			--ground-color-quaternary:' . GROUND_COLOR_QUATERNARY . ';
-			--ground-color-quinary:' . GROUND_COLOR_QUINARY . ';
-			--ground-color-senary:' . GROUND_COLOR_SENARY . ';
-			--ground-color-septenary:' . GROUND_COLOR_SEPTENARY . ';
-			--ground-color-octonary:' . GROUND_COLOR_OCTONARY . ';
-			--ground-font-primary:' . GROUND_FONT_FAMILY_PRIMARY . ';
-			--ground-font-secondary:' . GROUND_FONT_FAMILY_SECONDARY . ';
-			--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;
-			--ground-rounded-media:' . GROUND_ROUNDED_MEDIA . 'px;
-	} </style>';
-}
-
-add_action( 'wp_head', 'ground_add_css_theme_variables' );
-
-/**
  * Clean up head output
  */
-function ground_head_output() {
-	// Enables RSS posts and comments.
-	add_theme_support( 'automatic-feed-links' );
-	// Allows themes to add document title tag to HTML <head>.
-	add_theme_support( 'title-tag' );
-	// Remove adjacent posts links to the current post.
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-	// Remove the Really Simple Discovery service endpoint, EditURI link.
-	remove_action( 'wp_head', 'rsd_link' );
-	// Remove the link to Windows Live Writer.
-	remove_action( 'wp_head', 'wlwmanifest_link' );
+function ground_clean_head_output() {
 	// Remove WordPress version.
 	remove_action( 'wp_head', 'wp_generator' );
+
 	// Remove post, page, attachment shortlink.
-	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-	// Remove recent comments inline styles.
-	add_filter( 'show_recent_comments_widget_style', '__return_false' );
-	// Remove rel canonical.
-	// remove_action( 'wp_head', 'rel_canonical' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 }
 
-add_action( 'init', 'ground_head_output' );
+add_action( 'init', 'ground_clean_head_output' );
 
 /**
  * Remove login logo
  */
-function ground_login_css() {      ?>
+function ground_login_css() { ?>
 	<style type="text/css">
 		#login h1 {
 			display: none;
@@ -101,12 +72,3 @@ function ground_login_css() {      ?>
 }
 
 add_action( 'login_enqueue_scripts', 'ground_login_css' );
-
-/**
- * Theme color
- */
-function ground_theme_color() {
-	echo '<meta name="theme-color" content="' . GROUND_COLOR_PRIMARY . '" />';
-}
-
-add_action( 'wp_head', 'ground_theme_color' );

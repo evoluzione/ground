@@ -1,50 +1,56 @@
 {
+	"$schema": "https://json.schemastore.org/package.json",
 	"name": "ground",
-	"version": "3.0.0",
 	"description": "WordPress starter theme for front-end developers",
-	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev": "npm run clean && npm-run-all -p \"styles -- --watch\" \"js -- --watch\" sync",
-		"build": "npm-run-all clean js \"styles -- --env production\"",
-		"styles": "postcss src/css/main.css -o dist/css/ground-styles.min.css --verbose",
-		"sync": "browser-sync start --no-open -p 'https://ground.develop:444' -f 'dist/css/ground-styles.min.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
+		"dev": "npm-run-all -p \"styles -- --watch\" \"js -- --watch\" sync",
+		"build": "npm-run-all js \"styles -- --env production\"",
+		"styles": "postcss assets/css/main.css -o dist/css/ground-styles.min.css --verbose",
+		"sync": "browser-sync start --no-open -p https://ground.develop -f 'dist/css/*.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
 		"js": "vite build",
-		"clean": "rm -rf ./dist/"
+		"pot": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,src",
+		"pot2": "wp i18n make-pot . resources/languages/wp-lemon.pot --slug=wp-lemon --domain=wp-lemon --exclude=node_modules,vendor"
 	},
-	"homepage": "https://github.com/fabioquarantini/ground",
+	"scripts2": {
+		"dev": "npm-run-all -p watch:styles watch:js sync",
+		"build": "npm-run-all build:js build:styles",
+		"watch:styles": "postcss assets/css/main.css -o dist/css/ground-styles.min.css --verbose --watch",
+		"build:styles": "postcss assets/css/main.css -o dist/css/ground-styles.min.css --verbose --env production",
+		"watch:js": "vite build --watch",
+		"sync": "browser-sync start --no-open -p https://ground.develop -f 'dist/css/*.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
+		"pot": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,src",
+		"pot2": "wp i18n make-pot . resources/languages/wp-lemon.pot --slug=wp-lemon --domain=wp-lemon --exclude=node_modules,vendor"
+	  },
 	"author": {
 		"name": "Fabio Quarantini",
-		"url": "http://www.fabioquarantini.com"
+		"url": "https://www.fabioquarantini.com"
 	},
 	"browserslist": [
 		"defaults"
 	],
 	"devDependencies": {
 		"@evoluzione/tailwind-config": "^1.1.0",
-		"autoprefixer": "^10.4.16",
-		"browser-sync": "^2.29.3",
-		"classnames": "2.3.2",
-		"cssnano": "^6.0.2",
-		"eslint": "^8.56.0",
+		"autoprefixer": "^10.4.19",
+		"browser-sync": "^3.0.2",
+		"classnames": "2.5.1",
+		"cssnano": "^6.1.2",
+		"eslint": "^9.1.1",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-import": "^2.29.1",
 		"npm-run-all": "^4.1.5",
-		"postcss": "8.4.32",
-		"postcss-100vh-fix": "^1.0.2",
+		"postcss": "8.4.38",
 		"postcss-cli": "^11.0.0",
 		"postcss-for": "^2.1.1",
-		"postcss-import": "^15.1.0",
+		"postcss-import": "^16.1.0",
 		"postcss-scss": "4.0.9",
-		"postcss-simple-vars": "^7.0.1",
-		"prettier": "3.1.1",
-		"prettier-plugin-tailwindcss": "0.5.9",
-		"vite": "5.0.10"
+		"prettier": "3.2.5",
+		"prettier-plugin-tailwindcss": "0.5.14",
+		"vite": "5.2.10"
 	},
 	"dependencies": {
 		"@fabioquarantini/js-utils": "^1.0.1",
 		"deepmerge": "4.3.1",
-		"gsap": "npm:@gsap/shockingly@^3.12.4",
+		"gsap": "npm:@gsap/shockingly@^3.12.5",
 		"infinite-scroll": "4.0.1",
 		"ismobilejs": "1.1.1",
 		"photoswipe": "5.4.3",

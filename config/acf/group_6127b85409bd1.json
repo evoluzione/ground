@@ -1,0 +1,77 @@
+{
+    "key": "group_6127b85409bd1",
+    "title": "Block: Table",
+    "fields": [
+        {
+            "key": "field_627bce1b5d1fd",
+            "label": "Table",
+            "name": "",
+            "type": "accordion",
+            "instructions": "Una tabella responsive (richiede il plugin 'Advanced Custom Fields: Table Field')",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_612904fe94e16",
+            "label": "Table",
+            "name": "table",
+            "type": "table",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "use_header": 0,
+            "use_caption": 2
+        },
+        {
+            "key": "field_619e7c9323f7a",
+            "label": "No margin",
+            "name": "no_margin",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Remove margin before and after the block",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/table"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1652282346
+}

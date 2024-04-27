@@ -1,0 +1,174 @@
+{
+	"blocks": [
+		{
+			"name": "text-image",
+			"title": "Text + image",
+			"description": "Insert text + image",
+			"keywords": [
+				"text-image"
+			],
+			"icon": "text"
+		},
+		{
+			"name": "carousel",
+			"title": "Carousel",
+			"description": "Display multiple images in a rich gallery.",
+			"keywords": [
+				"carousel"
+			],
+			"icon": "format-gallery"
+		},
+		{
+			"name": "products",
+			"title": "Products",
+			"description": "Display Woocommerce products",
+			"keywords": [
+				"products"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "image-background",
+			"title": "Image background",
+			"description": "Display image background",
+			"keywords": [
+				"image"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "banner",
+			"title": "Banner",
+			"description": "Insert banner",
+			"keywords": [
+				"text"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "text-horizontal-scrolled",
+			"title": "Text horizontal scrolled",
+			"description": "Insert text horizontal scrolled",
+			"keywords": [
+				"text",
+				"scroll"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "photo shooting",
+			"title": "Photo shooting",
+			"description": "Insert photo shooting",
+			"keywords": [
+				"gallery",
+				"photos",
+				"photo"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "pinned-photo",
+			"title": "Pinned photo",
+			"description": "Insert pinned photo 2 columns",
+			"keywords": [
+				"gallery",
+				"photos",
+				"photo"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "topic",
+			"title": "Topic",
+			"description": "Insert Topic",
+			"keywords": [
+				"topic"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "topic-image",
+			"title": "Topic + Image",
+			"description": "Insert Topic + Image",
+			"keywords": [
+				"topic-image"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "news",
+			"title": "News",
+			"description": "Insert news",
+			"keywords": [
+				"news"
+			],
+			"icon": "welcome-view-site"
+		},
+		{
+			"name": "products-category",
+			"title": "Products Category",
+			"description": "Display Woocommerce products category",
+			"keywords": [
+				"products",
+				"category"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "select-icons",
+			"title": "Icons select",
+			"description": "Display select icons",
+			"keywords": [
+				"select-icons"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "table",
+			"title": "Table responsive",
+			"description": "Display table responsive",
+			"keywords": [
+				"table"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "card",
+			"title": "Card",
+			"description": "Display card",
+			"keywords": [
+				"card"
+			],
+			"icon": "cart"
+		},
+		{
+			"name": "accordion",
+			"title": "Accordion",
+			"description": "Display Accordion",
+			"keywords": [
+				"card"
+			],
+			"icon": "editor-ul"
+		},
+		{
+			"name": "gallery-thumb",
+			"title": "Gallery with thumbnails",
+			"description": "Display gallery with thumbnails",
+			"keywords": [
+				"card"
+			],
+			"icon": "editor-ul"
+		},
+		{
+			"name": "video-modal",
+			"title": "Video modal",
+			"description": "Video with modal",
+			"keywords": [
+				"video",
+				"modal",
+				"popup"
+			],
+			"icon": "video-alt3"
+		}
+	]
+}

@@ -1,0 +1,88 @@
+{
+    "key": "group_61bb511fee34d",
+    "title": "Block: Pinned photo",
+    "fields": [
+        {
+            "key": "field_627bcb659e2bc",
+            "label": "Pinned photo",
+            "name": "",
+            "type": "accordion",
+            "instructions": "Una gallery di immagini (la prima si blocca, le altre scrollano)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61bb512001280",
+            "label": "Gallery",
+            "name": "repeater",
+            "type": "gallery",
+            "instructions": "Aggiunge una galleria immagini dove la prima è in evidenza e le altre scollano sulla destra",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_61bb5120012a1",
+            "label": "No margin",
+            "name": "no_margin",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Remove margin before and after the block",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pinned-photo"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Aggiunge la prima foto pinnata sulla sinistra e le altre immagini scorreranno a destra in formato 4:3 \/ 16:9 \/ 1:1 in base alle loro proporzioni",
+    "show_in_rest": 0,
+    "modified": 1652282518
+}

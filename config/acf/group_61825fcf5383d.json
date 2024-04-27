@@ -1,0 +1,182 @@
+{
+    "key": "group_61825fcf5383d",
+    "title": "Block: Products",
+    "fields": [
+        {
+            "key": "field_627bcd0d7485b",
+            "label": "Products",
+            "name": "",
+            "type": "accordion",
+            "instructions": "Una serie di scheda prodotto organizzate in colonne a numero variabile",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61826703e7a3e",
+            "label": "Product Handpicked",
+            "name": "relationship",
+            "type": "relationship",
+            "instructions": "Potrai selezionare tramite un check i prodotti che vuoi visualizzare. I prodotti saranno visibili in una grigli di 4 prodotti.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6182665ad0396",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "product"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "id"
+        },
+        {
+            "key": "field_6182665ad0396",
+            "label": "Product Category",
+            "name": "category",
+            "type": "taxonomy",
+            "instructions": "Shows the products of the selected category",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61826703e7a3e",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "product_cat",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_618263bac4ec4",
+            "label": "Product Columns",
+            "name": "columns",
+            "type": "select",
+            "instructions": "Set the number of columns",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6"
+            },
+            "default_value": 4,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_618264cfc9365",
+            "label": "Product Number",
+            "name": "number",
+            "type": "number",
+            "instructions": "Set the number of products to show",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61826703e7a3e",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 4,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_619e7ca8d735e",
+            "label": "No margin",
+            "name": "no_margin",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Remove margin before and after the block",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/products"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Potrai selezionare tramite un check i prodotti che vuoi visualizzare. I prodotti saranno visibili in una grigli di 4 prodotti.",
+    "show_in_rest": 0,
+    "modified": 1652282311
+}

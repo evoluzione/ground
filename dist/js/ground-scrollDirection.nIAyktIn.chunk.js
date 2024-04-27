@@ -1,2 +1,0 @@
-let e=window.scrollY,n=!1;function s(){const o=document.documentElement.classList;function c(){const l=window.scrollY,t=l<e,i=l>e;n||(window.requestAnimationFrame(function(){e>1?o.add("body-scrolled"):o.remove("body-scrolled"),t&&(o.remove("scroll-direction-down"),o.add("scroll-direction-up")),i&&(o.remove("scroll-direction-up"),o.add("scroll-direction-down")),n=!1}),n=!0),e=l}window.addEventListener("scroll",c,{capture:!0,passive:!0})}export{s as scrollDirection};
-//# sourceMappingURL=ground-scrollDirection.nIAyktIn.chunk.js.map
