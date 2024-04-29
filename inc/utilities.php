@@ -17,15 +17,12 @@ function ground_config( $configPath, $php = true ) {
 		return array_reduce( $pathParts, function ($data, $key) {
 			return $data[ $key ] ?? null;
 		}, $configs[ $fileName ] );
-
 	} else {
 
 		$jsonString = file_get_contents( GROUND_TEMPLATE_PATH . '/config/acf/group_5ddbd48c5a150.json' );
 		$data = json_decode( $jsonString, true ); // Impostando true, otteniamo un array associativo
 		return $data;
-
 	}
-
 }
 
 /**
@@ -132,10 +129,9 @@ function ground_log( $log ) {
 	}
 }
 
-
-
-
-
+/**
+ * Generate pagination.
+ */
 function ground_pagination( $args = array() ) {
 	global $wp_query;
 	$big = 999999999;
@@ -150,59 +146,65 @@ function ground_pagination( $args = array() ) {
 		'format' => '?paged=%#%',
 		'type' => 'array',
 		'only_numbers' => false,
-
-		'nav_class' => 'NAV_CLASS flex justify-center',
-		'list_class' => 'UL_CLASS flex',
-		'text_prev_class' => 'TEXT_PREV_CLASS bg-pink-500 px-3 py-1 m-1 text-white',
-		'text_next_class' => 'TEXT_NEXT_CLASS bg-pink-500 px-3 py-1 m-1 text-red-500',
-		'text_prev_link_class' => 'TEXT_PREV_LINK_CLASS bg-pink-500 text-black',
-		'text_next_link_class' => 'TEXT_NEXT_LINK_CLASS bg-pink-500 text-white',
-		'pagination_dots_class' => 'DOTS_CLASS border',
-		'pagination_dots_span_class' => 'DOTS_LINK_CLASS border-2 border-red-500',
-		'pagination_number_class' => 'NUMBER_CLASS px-3 py-1 m-1 bg-green-500',
-		'pagination_number_active_class' => 'NUMBER_ACTIVE_CLASS bg-red-500',
-		'pagination_number_link_class' => 'NUMBER_LINK_CLASS text-white',
-		'pagination_number_span_active_class' => 'NUMBER_LINK_ACTIVE_CLASS text-black',
+		'echo' => true,
+		'nav_class' => '',
+		'list_class' => '',
+		'prev_class' => '',
+		'prev_link_class' => '',
+		'next_class' => '',
+		'next_link_class' => '',
+		'dots_class' => '',
+		'dots_text_class' => '',
+		'page_class' => '',
+		'page_active_class' => '',
+		'page_link_class' => '',
+		'page_text_active_class' => '',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 	$paginate = paginate_links( $args );
 
 	if ( $paginate ) {
-		echo '<nav class="' . esc_attr( $args['nav_class'] ) . '" aria-label="pagination">';
-		echo '<ul class="' . esc_attr( $args['list_class'] ) . '">';
+		$output = '<nav class="' . esc_attr( $args['nav_class'] ) . '" aria-label="pagination">';
+		$output .= '<ul class="' . esc_attr( $args['list_class'] ) . '">';
 
 		foreach ( $paginate as $page ) {
 			if ( false !== strpos( $page, 'prev' ) ) {
-				// Link "Prev"
+				// Prev
 				if ( $args['only_numbers'] ) {
 					continue;
 				}
-				echo '<li class="' . esc_attr( $args['text_prev_class'] ) . '">' . str_replace( array( 'prev', 'page-numbers' ), array( esc_attr( $args['text_prev_link_class'] ) ), $page ) . '</li>';
+				$output .= '<li class="' . esc_attr( $args['prev_class'] ) . '">' . str_replace( array( 'prev', 'page-numbers' ), array( esc_attr( $args['prev_link_class'] ) ), $page ) . '</li>';
 			} elseif ( false !== strpos( $page, 'next' ) ) {
-				// Link "Next"
+				// Next
 				if ( $args['only_numbers'] ) {
 					continue;
 				}
-				echo '<li class="' . esc_attr( $args['text_next_class'] ) . '">' . str_replace( array( 'next', 'page-numbers' ), array( esc_attr( $args['text_next_link_class'] ) ), $page ) . '</li>';
+				$output .= '<li class="' . esc_attr( $args['next_class'] ) . '">' . str_replace( array( 'next', 'page-numbers' ), array( esc_attr( $args['next_link_class'] ) ), $page ) . '</li>';
 			} elseif ( false !== strpos( $page, 'dots' ) ) {
-				// Puntini di sospensione
-				echo '<li class="' . esc_attr( $args['pagination_dots_class'] ) . '">' . str_replace( array( 'dots', 'page-numbers' ), array( esc_attr( $args['pagination_dots_span_class'] ) ), $page ) . '</li>';
+				// Dots
+				$output .= '<li class="' . esc_attr( $args['dots_class'] ) . '">' . str_replace( array( 'dots', 'page-numbers' ), array( esc_attr( $args['dots_text_class'] ) ), $page ) . '</li>';
 			} else {
-				// Link numerici
+				// Pages
 				$active = false !== strpos( $page, 'current' );
 
 				if ( $active ) {
-					$number_class = ' ' . esc_attr( $args['pagination_number_active_class'] );
-					$number_link_class = ' ' . esc_attr( $args['pagination_number_span_active_class'] );
+					$page_class = ' ' . esc_attr( $args['page_active_class'] );
+					$page_link_class = ' ' . esc_attr( $args['page_text_active_class'] );
 				} else {
-					$number_class = ' ' . esc_attr( $args['pagination_number_class'] );
-					$number_link_class = ' ' . esc_attr( $args['pagination_number_link_class'] );
+					$page_class = ' ' . esc_attr( $args['page_class'] );
+					$page_link_class = ' ' . esc_attr( $args['page_link_class'] );
 				}
-				echo '<li class="' . $number_class . '">' . str_replace( 'page-numbers', $number_link_class, $page ) . '</li>';
+				$output .= '<li class="' . $page_class . '">' . str_replace( 'page-numbers', $page_link_class, $page ) . '</li>';
 			}
 		}
-		echo '</ul>';
-		echo '</nav>';
+		$output .= '</ul>';
+		$output .= '</nav>';
+
+		if ( $args['echo'] ) {
+			echo $output;
+		} else {
+			return $output;
+		}
 	}
 }
