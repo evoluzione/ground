@@ -26,9 +26,9 @@ function ground_config( $configPath, $php = true ) {
 }
 
 /**
- * Excerpt with custom lenght
+ * Excerpt with custom length
  *
- * Summary or description of a post with custom lenght
+ * Summary or description of a post with custom length
  *
  * @param integer          $length Optional. Excerpt length. Default is 100.
  * @param string           $after_text Optional. Characters to add at the end of the text. Default is "...".
