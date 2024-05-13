@@ -8,9 +8,11 @@
 		<?php //TODO: FIX ?>
 		<?php if ( has_post_thumbnail() ) { ?>
 			<figure class="media">
-				<img class="media__img full-width" srcset="<?php ground_image( 'large' ); ?> 1200w,
-					<?php ground_image( 'medium_large' ); ?> 768w,
-					<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
+				<?php ground_image( '1-1-large', [ 
+					'attr' => [ 
+						'class' => 'media__img full-width',
+					],
+				] ); ?>
 			</figure>
 		<?php } ?>
 

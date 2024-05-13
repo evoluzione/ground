@@ -4,12 +4,11 @@
 
 		<figure class="item__media">
 			<a class="no-underline" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-				<img class="item__image" <?php if ( has_post_thumbnail() ) { ?> srcset="<?php ground_image( '4-3-small' ); ?> 480w,
-									<?php ground_image( '4-3-medium' ); ?> 900w,
-									<?php ground_image( '4-3-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
-											(min-width: 768px) 900px,
-											100vh" src="<?php ground_image( '4-3-large' ); ?>" <?php } else { ?>
-						src="<?php //echo ground_config( 'media.no_image_url' ); ?>" <?php } ?> alt="" loading="lazy">
+				<?php ground_image( '4-3-large', [ 
+					'attr' => [ 
+						'class' => 'item__image',
+					],
+				] ); ?>
 			</a>
 		</figure>
 

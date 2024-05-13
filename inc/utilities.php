@@ -58,26 +58,79 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
 }
 
 /**
- * Gets the featured image of a specifific post
+ * Retrieves and processes an image (featured or attachment).
  *
- * @param string           $size Image size name.
- * @param int|WP_Post|null $post Optional. Post ID or post object. Default is global $post.
- * @param boolean          $url Optional. Return url or image array. Default return url.
- * @param boolean          $echo Optional. Echo returned url. Default echo the url.
- * @return array|string|null Returns URL if $echo is true, otherwise returns the URL or null if no image found.
+ * Retrieve an image using the WordPress attachment ID if provided. If no ID is provided,
+ * it will try to use the post's thumbnail URL. If neither are available, it falls back to a default image URL.
+ * Additionally, it allows control over the HTML output, such as removing responsive attributes and customizing HTML attributes.
+ *
+ * @param string $size The size of the image to retrieve. Default 'thumbnail'.
+ * @param array $params {
+ *     Optional. An array of parameters for retrieving the image.
+ *
+ *     @type array  $attr          HTML attributes to add to the image element. Default empty array.
+ *     @type mixed  $post          The post object or ID from which the image should be fetched. Default null.
+ *     @type string $default_image URL to a default fallback image if no image is found. Default is fetched via ground_config('media.no_image_url').
+ *     @type bool   $return_url    Whether to fetch the image URL instead of an HTML img tag. Default false.
+ *     @type string $attachment_id WordPress attachment ID for the image. Default empty.
+ *     @type bool   $responsive    Whether to include 'srcset' and 'sizes' attributes for responsive images. Default true.
+ *     @type bool   $echo          Whether to echo the output or return it. Default true.
+ * }
+ * @return string|null The image HTML or URL, or null if 'echo' is set to true.
  */
-function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = true ) {
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post ), $size );
-	if ( $image ) {
-		$image = ( $url ) ? $image[0] : $image;
+function ground_image( $size = 'thumbnail', $params = [] ) {
 
-		if ( $echo ) {
-			echo esc_html( $image );
-		} else {
-			return $image;
-		}
+	$defaults = [ 
+		'attr' => [ 
+			'loading' => 'lazy',
+		],
+		'post' => null,
+		'default_image' => ground_config( 'media.no_image_url' ),
+		'return_url' => false,
+		'attachment_id' => '',
+		'responsive' => true,
+		'echo' => true
+	];
+	$params = array_replace_recursive( $defaults, $params );
+
+	$attr = $params['attr'];
+	$post = $params['post'];
+	$default_image = $params['default_image'];
+	$return_url = $params['return_url'];
+	$attachment_id = $params['attachment_id'];
+	$responsive = $params['responsive'];
+	$echo = $params['echo'];
+
+	$output = '';
+
+	if ( ! empty( $attachment_id ) ) {
+		$output = wp_get_attachment_image( $attachment_id, $size, false, $attr );
+	} elseif ( $return_url ) {
+		$output = get_the_post_thumbnail_url( $post, $size );
 	} else {
-		return null; // Return null if no image found
+		$output = get_the_post_thumbnail( $post, $size, $attr );
+	}
+
+	// Remove 'srcset' and 'sizes' attributes if not responsive
+	if ( ! $responsive && ! empty( $output ) ) {
+		$output = preg_replace( '/\s+(srcset|sizes)=[\'"][^\'"]+[\'"]/i', '', $output );
+	}
+
+	// Handle default fallback image
+	if ( empty( $output ) && ! empty( $default_image ) ) {
+		$output = '<img src="' . esc_url( $default_image ) . '"';
+		foreach ( $attr as $key => $value ) {
+			if ( $value !== '' && $value !== null ) {
+				$output .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
+			}
+		}
+		$output .= ' />';
+	}
+
+	if ( $echo ) {
+		echo $output;
+	} else {
+		return $output;
 	}
 }
 
