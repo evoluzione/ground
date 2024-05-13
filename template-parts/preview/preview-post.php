@@ -10,7 +10,8 @@
 
 		<header>
 			<h2 class="text-2xl">
-				<a class="no-underline" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+				<a class="no-underline hover:text-primary" href="<?php the_permalink(); ?>"
+					title="<?php the_title_attribute(); ?>">
 					<?php the_title(); ?>
 				</a>
 			</h2>
