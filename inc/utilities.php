@@ -64,11 +64,11 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
  * it will try to use the post's thumbnail URL. If neither are available, it falls back to a default image URL.
  * Additionally, it allows control over the HTML output, such as removing responsive attributes and customizing HTML attributes.
  *
- * @param string $size The size of the image to retrieve. Default 'thumbnail'.
+ * @param string|int[] $size Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
  * @param array $params {
  *     Optional. An array of parameters for retrieving the image.
  *
- *     @type array  $attr          HTML attributes to add to the image element. Default empty array.
+ *     @type string|array  $attr          Query string or array of attributes. Default empty array. https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
  *     @type mixed  $post          The post object or ID from which the image should be fetched. Default null.
  *     @type string $default_image URL to a default fallback image if no image is found. Default is fetched via ground_config('media.no_image_url').
  *     @type bool   $return_url    Whether to fetch the image URL instead of an HTML img tag. Default false.
@@ -118,6 +118,16 @@ function ground_image( $size = 'thumbnail', $params = [] ) {
 
 	// Handle default fallback image
 	if ( empty( $output ) && ! empty( $default_image ) ) {
+
+		if ( is_array( $size ) ) {
+			$attr['width'] = $size[0];
+			$attr['height'] = $size[1];
+		} else {
+			global $_wp_additional_image_sizes;
+			$attr['width'] = $_wp_additional_image_sizes[ $size ]['width'];
+			$attr['height'] = $_wp_additional_image_sizes[ $size ]['height'];
+		}
+
 		$output = '<img src="' . esc_url( $default_image ) . '"';
 		foreach ( $attr as $key => $value ) {
 			if ( $value !== '' && $value !== null ) {
