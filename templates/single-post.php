@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	 */
 	do_action( 'ground_page_before' );
 
-	get_template_part( 'template-parts/content/content-page' );
+	get_template_part( 'template-parts/content/content-post' );
 
 	/**
 	 * Hook: ground_page_after.

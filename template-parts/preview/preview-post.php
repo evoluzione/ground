@@ -1,13 +1,12 @@
 <article class="border-b py-6 flex gap-4">
-
-	<?php ground_image( 'thumbnail', [ 
+	<?php ground_image( '1-1-large', [ 
 		'attr' => [ 
-			'class' => 'border rounded-full w-20 h-20',
-		],
+			'class' => 'aspect-[1/1] object-cover w-1/4',
+			'alt' => get_the_title(),
+		]
 	] ); ?>
 
 	<div>
-
 		<header>
 			<h2 class="text-2xl">
 				<a class="no-underline hover:text-primary" href="<?php the_permalink(); ?>"
@@ -21,7 +20,6 @@
 		</header>
 
 		<p><?php ground_excerpt( 100 ); ?></p>
-
 	</div>
 
 </article> <!-- End article -->

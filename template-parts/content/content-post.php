@@ -7,10 +7,9 @@
 
 		<?php ground_image( '1-1-large', [ 
 			'attr' => [ 
-				'class' => 'aspect-[3/2] object-cover w-full',
+				'class' => 'w-full',
 			],
 			'alt' => get_the_title(),
-			'default_image' => '',
 		] ); ?>
 
 		<div class="prose">
