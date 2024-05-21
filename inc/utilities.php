@@ -147,34 +147,76 @@ function ground_image( $args = [] ) {
 }
 
 /**
- * Get icons
+ * Retrieves an SVG icon with custom attributes and returns or echoes it.
  *
- * @param string  $name Name of the icon.
- * @param string  $additional_class Optional. Html class. Default is empty.
- * @param boolean $url Optional. Return url. Default is false.
- * @param string  $extension Optional. Default echo HTML.
- * @param string  $tag Optional. HTML tag wrapper.
- * @param boolean $return Optional. Return string instead echo.
+ * @param array $args {
+ *     Optional. An associative array of arguments.
+ *
+ *     @type string $name The name of the icon file.
+ *     @type array $attr An associative array of attributes to add to the SVG element.
+ *     @type string $icon_set The name of the icon set. Default is 'lucide'.
+ *     @type bool $return_url Whether to return the URL of the icon instead of the markup. Default is false.
+ *     @type string $file_extension The file extension of the icon. Default is 'svg'.
+ *     @type bool $return Whether to return the SVG markup instead of echoing it. Default is false.
+ * }
+ * @return string|void The SVG markup with custom attributes, or void if $return is false.
  */
-function ground_icon( $name = '', $additional_class = '', $icon_set = 'css-gg', $child = false, $url = false, $extension = 'svg', $tag = 'span', $return = false ) {
-	if ( '' === $name ) {
+function ground_icon( $args = [] ) {
+	$defaults = [ 
+		'name' => '',
+		'attr' => [ 
+			'class' => '',
+		],
+		'icon_set' => 'lucide',
+		'return_url' => false,
+		'file_extension' => 'svg',
+		'return' => false
+	];
+
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( empty( $args['name'] ) ) {
 		return;
 	}
 
-	if ( $url ) {
-		$path = $child ? GROUND_CHILD_TEMPLATE_URL : GROUND_TEMPLATE_URL;
-		return $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension;
-	} else {
-		$path = $child ? GROUND_CHILD_TEMPLATE_PATH : GROUND_TEMPLATE_PATH;
-		$markup = '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
-		$markup .= file_get_contents( $path . '/assets/icons/' . $icon_set . '/' . $name . '.' . $extension );
-		$markup .= '</' . $tag . '>';
+	$name = $args['name'];
+	$return_url = $args['return_url'];
+	$icon_set = $args['icon_set'];
+	$file_extension = $args['file_extension'];
+	$return = $args['return'];
+	$attr = $args['attr'];
 
-		if ( $return ) {
-			return $markup;
-		} else {
-			echo $markup;
-		}
+	if ( $return_url ) {
+		return GROUND_TEMPLATE_URL . "/assets/icons/$icon_set/$name.$file_extension";
+	}
+
+	$file_path = GROUND_TEMPLATE_PATH . "/assets/icons/$icon_set/$name.$file_extension";
+	if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
+		return;
+	}
+
+	$markup = file_get_contents( $file_path );
+
+	// Load the SVG content into a DOMDocument
+	$dom = new DOMDocument();
+	$dom->loadXML( $markup );
+
+	// Get the <svg> element
+	$svg = $dom->getElementsByTagName( 'svg' )->item( 0 );
+
+	// Add or update attributes
+	foreach ( $attr as $key => $value ) {
+		$svg->setAttribute( $key, $value );
+	}
+
+	// Save the updated SVG content without XML declaration
+	$updated_svg = $dom->saveXML( $svg );
+	$updated_svg = str_replace( '<?xml version="1.0"?>', '', $updated_svg );
+
+	if ( $return ) {
+		return $updated_svg;
+	} else {
+		echo $updated_svg;
 	}
 }
 

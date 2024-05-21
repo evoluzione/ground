@@ -1544,6 +1544,9 @@ select {
 .w-1\/4 {
   width: 25%;
 }
+.w-5 {
+  width: 1.25rem;
+}
 .min-w-\[240px\] {
   min-width: 240px;
 }
@@ -2032,6 +2035,9 @@ select {
   --tw-gradient-from: var(--ground-color-quinary) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.stroke-2 {
+  stroke-width: 2;
 }
 .object-contain {
   object-fit: contain;

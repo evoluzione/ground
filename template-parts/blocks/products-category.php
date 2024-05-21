@@ -9,13 +9,14 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-$category                 = get_field( 'category' );
-$checkbox                 = get_field( 'checkbox' );
+$category = get_field( 'category' );
+$checkbox = get_field( 'checkbox' );
 $custom_category_repeater = get_field( 'repeater' );
-$no_margin                = get_field( 'no_margin' );
+$no_margin = get_field( 'no_margin' );
 ?>
 
-<div class="relative ground-block <?php echo $no_margin ? '' : 'my-12 lg:my-24'; ?> bg-senary overflow-hidden rounded-theme not-prose <?php echo esc_attr( ground_block_class( $block ) ); ?>">
+<div
+	class="relative ground-block <?php echo $no_margin ? '' : 'my-12 lg:my-24'; ?> bg-senary overflow-hidden rounded-theme not-prose <?php echo esc_attr( ground_block_class( $block ) ); ?>">
 	<div class="flex flex-wrap -mx-3 overflow-hidden">
 		<?php if ( ! $checkbox && $category ) { ?>
 			<?php
@@ -40,23 +41,25 @@ $no_margin                = get_field( 'no_margin' );
 		<?php } else { ?>
 			<?php
 			foreach ( $custom_category_repeater as $row ) :
-				$image                       = $row['image'];
-				$title                       = $row['title'];
-				$url                         = $row['url'];
-				$checkbox                    = $row['checkbox'];
+				$image = $row['image'];
+				$title = $row['title'];
+				$url = $row['url'];
+				$checkbox = $row['checkbox'];
 				$custom_subcategory_repeater = $row['repeater'];
 				?>
 				<div class="group ground-block-products-category__item">
 					<div class="block w-full" href="<?php echo esc_attr( $url ); ?>">
 						<div class="flex items-center p-9">
-							<a class="flex-grow pr-7 <?php echo $custom_subcategory_repeater ? 'mt-3 mb-6' : ''; ?>" href="<?php echo esc_attr( $url ); ?>">
+							<a class="flex-grow pr-7 <?php echo $custom_subcategory_repeater ? 'mt-3 mb-6' : ''; ?>"
+								href="<?php echo esc_attr( $url ); ?>">
 								<p class="mb-3 text-sm"><?php esc_html_e( 'Discover', 'ground-child' ); ?></p>
 								<h4 class="text-lg lg:text-xl font-normal"><?php echo esc_attr( $title ); ?></h4>
 							</a>
 							<?php if ( $image ) { ?>
 								<a class="no-underline" href="<?php echo esc_attr( $url ); ?>">
 									<figure class="overflow-hidden h-24 w-24 lg:h-32 lg:w-32 rounded-full">
-										<img class="object-cover transition duration-500 transform-gpu group-hover:scale-105" srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
+										<img class="object-cover transition duration-500 transform-gpu group-hover:scale-105"
+											srcset="<?php echo $image['sizes']['1-1-small']; ?> 480w,
 												<?php echo $image['sizes']['1-1-medium']; ?> 900w,
 												<?php echo $image['sizes']['1-1-large']; ?> 1200w" sizes="(min-width: 1200px) 1200px,
 												(min-width: 768px) 900px,
@@ -71,9 +74,10 @@ $no_margin                = get_field( 'no_margin' );
 									<?php
 									foreach ( $custom_subcategory_repeater as $row ) :
 										$title = $row['title'];
-										$url   = $row['url'];
+										$url = $row['url'];
 										?>
-										<a class="border border-septenary rounded-theme py-2 px-3 mr-2 mb-2" href="<?php echo esc_attr( $url ); ?>"> <?php echo esc_attr( $title ); ?> </a>
+										<a class="border border-septenary rounded-theme py-2 px-3 mr-2 mb-2"
+											href="<?php echo esc_attr( $url ); ?>"> <?php echo esc_attr( $title ); ?> </a>
 									<?php endforeach ?>
 								</div>
 							</div>
@@ -91,10 +95,17 @@ $no_margin                = get_field( 'no_margin' );
 				<div class="flex items-center p-9">
 					<div class="flex-grow pr-7">
 						<p class="mb-3 text-sm"><?php esc_html_e( 'Discover', 'ground-child' ); ?></p>
-						<h4 class="text-lg lg:text-xl font-normal"><?php esc_html_e( 'All products', 'ground-child' ); ?></h4>
+						<h4 class="text-lg lg:text-xl font-normal">
+							<?php esc_html_e( 'All products', 'ground-child' ); ?>
+						</h4>
 					</div>
 					<div class="flex-none h-24 w-24 overflow-hidden rounded-full bg-quinary p-6">
-						<div class="transition duration-500 transform-gpu group-hover:scale-110 bg-primary h-full w-full rounded-full text-white flex items-center justify-center"><?php ground_icon( 'chevron-right', 'mr-1' ); ?></div>
+						<div
+							class="transition duration-500 transform-gpu group-hover:scale-110 bg-primary h-full w-full rounded-full text-white flex items-center justify-center">
+							<?php ground_icon( [ 
+								'name' => 'arrow-right',
+							] ); ?>
+						</div>
 					</div>
 				</div>
 			</a>
