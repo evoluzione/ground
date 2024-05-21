@@ -64,7 +64,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
  * it will try to use the post's thumbnail URL. If neither are available, it falls back to a default image URL.
  * Additionally, it allows control over the HTML output, such as removing responsive attributes and customizing HTML attributes.
  *
- * @param array $params {
+ * @param array $args {
  *     Optional. An array of parameters for retrieving the image.
  *
  *     @type string|int[] $size    Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
@@ -78,7 +78,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
  * }
  * @return string|null The image HTML or URL, or null if 'echo' is set to true.
  */
-function ground_image( $params = [] ) {
+function ground_image( $args = [] ) {
 
 	$defaults = [ 
 		'size' => 'thumbnail',
@@ -92,16 +92,16 @@ function ground_image( $params = [] ) {
 		'responsive' => true,
 		'echo' => true
 	];
-	$params = array_replace_recursive( $defaults, $params );
+	$args = array_replace_recursive( $defaults, $args );
 
-	$size = $params['size'];
-	$attr = $params['attr'];
-	$post = $params['post'];
-	$default_image = $params['default_image'];
-	$return_url = $params['return_url'];
-	$attachment_id = $params['attachment_id'];
-	$responsive = $params['responsive'];
-	$echo = $params['echo'];
+	$size = $args['size'];
+	$attr = $args['attr'];
+	$post = $args['post'];
+	$default_image = $args['default_image'];
+	$return_url = $args['return_url'];
+	$attachment_id = $args['attachment_id'];
+	$responsive = $args['responsive'];
+	$echo = $args['echo'];
 
 	$output = '';
 
