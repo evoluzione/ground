@@ -66,7 +66,8 @@ $no_margin = get_field( 'no_margin' );
 									<a class="no-underline w-full" href="<?php the_permalink(); ?>"
 										title="<?php the_title_attribute(); ?>">
 										<div class="overflow-hidden aspect-w-1 aspect-h-1 rounded-full">
-											<?php ground_image( '1-1-large', [ 
+											<?php ground_image( [ 
+												'size' => '1-1-large',
 												'attr' => [ 
 													'class' => 'object-cover transition duration-500 transform-gpu group-hover:scale-105',
 												],

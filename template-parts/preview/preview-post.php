@@ -1,5 +1,6 @@
 <article class="border-b py-6 flex gap-4">
-	<?php ground_image( '1-1-large', [ 
+	<?php ground_image( [ 
+		'size' => '1-1-large',
 		'attr' => [ 
 			'class' => 'aspect-[1/1] object-cover w-1/4',
 			'alt' => get_the_title(),

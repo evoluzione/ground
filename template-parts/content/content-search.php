@@ -4,7 +4,8 @@
 
 		<figure class="item__media">
 			<a class="no-underline" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-				<?php ground_image( '4-3-large', [ 
+				<?php ground_image( [ 
+					'size' => '4-3-large',
 					'attr' => [ 
 						'class' => 'item__image',
 					],
