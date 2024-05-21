@@ -157,7 +157,7 @@ function ground_image( $args = [] ) {
  *     @type string $icon_set The name of the icon set. Default is 'lucide'.
  *     @type bool $return_url Whether to return the URL of the icon instead of the markup. Default is false.
  *     @type string $file_extension The file extension of the icon. Default is 'svg'.
- *     @type bool $return Whether to return the SVG markup instead of echoing it. Default is false.
+ *     @type bool $echo Whether to return the SVG markup instead of echoing it. Default is false.
  * }
  * @return string|void The SVG markup with custom attributes, or void if $return is false.
  */
@@ -170,7 +170,7 @@ function ground_icon( $args = [] ) {
 		'icon_set' => 'lucide',
 		'return_url' => false,
 		'file_extension' => 'svg',
-		'return' => false
+		'echo' => false,
 	];
 
 	$args = wp_parse_args( $args, $defaults );
@@ -183,7 +183,7 @@ function ground_icon( $args = [] ) {
 	$return_url = $args['return_url'];
 	$icon_set = $args['icon_set'];
 	$file_extension = $args['file_extension'];
-	$return = $args['return'];
+	$echo = $args['echo'];
 	$attr = $args['attr'];
 
 	if ( $return_url ) {
@@ -210,13 +210,13 @@ function ground_icon( $args = [] ) {
 	}
 
 	// Save the updated SVG content without XML declaration
-	$updated_svg = $dom->saveXML( $svg );
-	$updated_svg = str_replace( '<?xml version="1.0"?>', '', $updated_svg );
+	$icon = $dom->saveXML( $svg );
+	$icon = str_replace( '<?xml version="1.0"?>', '', $icon );
 
-	if ( $return ) {
-		return $updated_svg;
+	if ( $echo ) {
+		return $icon;
 	} else {
-		echo $updated_svg;
+		echo $icon;
 	}
 }
 
