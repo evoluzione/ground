@@ -103,23 +103,23 @@ function ground_image( $args = [] ) {
 	$responsive = $args['responsive'];
 	$echo = $args['echo'];
 
-	$output = '';
+	$image = '';
 
 	if ( ! empty( $attachment_id ) ) {
-		$output = wp_get_attachment_image( $attachment_id, $size, false, $attr );
+		$image = wp_get_attachment_image( $attachment_id, $size, false, $attr );
 	} elseif ( $return_url ) {
-		$output = get_the_post_thumbnail_url( $post, $size );
+		$image = get_the_post_thumbnail_url( $post, $size );
 	} else {
-		$output = get_the_post_thumbnail( $post, $size, $attr );
+		$image = get_the_post_thumbnail( $post, $size, $attr );
 	}
 
 	// Remove 'srcset' and 'sizes' attributes if not responsive
-	if ( ! $responsive && ! empty( $output ) ) {
-		$output = preg_replace( '/\s+(srcset|sizes)=[\'"][^\'"]+[\'"]/i', '', $output );
+	if ( ! $responsive && ! empty( $image ) ) {
+		$image = preg_replace( '/\s+(srcset|sizes)=[\'"][^\'"]+[\'"]/i', '', $image );
 	}
 
 	// Handle default fallback image
-	if ( empty( $output ) && ! empty( $default_image ) ) {
+	if ( empty( $image ) && ! empty( $default_image ) ) {
 
 		if ( is_array( $size ) ) {
 			$attr['width'] = $size[0];
@@ -130,19 +130,19 @@ function ground_image( $args = [] ) {
 			$attr['height'] = $_wp_additional_image_sizes[ $size ]['height'];
 		}
 
-		$output = '<img src="' . esc_url( $default_image ) . '"';
+		$image = '<img src="' . esc_url( $default_image ) . '"';
 		foreach ( $attr as $key => $value ) {
 			if ( $value !== '' && $value !== null ) {
-				$output .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
+				$image .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
 			}
 		}
-		$output .= ' />';
+		$image .= ' />';
 	}
 
 	if ( $echo ) {
-		echo $output;
+		echo $image;
 	} else {
-		return $output;
+		return $image;
 	}
 }
 
