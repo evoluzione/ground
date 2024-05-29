@@ -67,14 +67,14 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
  * @param array $args {
  *     Optional. An array of parameters for retrieving the image.
  *
- *     @type string|int[] $size    Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
- *     @type string|array  $attr   Query string or array of attributes. Default empty array. https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
- *     @type mixed  $post          The post object or ID from which the image should be fetched. Default null.
- *     @type string $default_image URL to a default fallback image if no image is found. Default is fetched via ground_config('media.no_image_url').
- *     @type bool   $return_url    Whether to fetch the image URL instead of an HTML img tag. Default false.
- *     @type string $attachment_id WordPress attachment ID for the image. Default empty.
- *     @type bool   $responsive    Whether to include 'srcset' and 'sizes' attributes for responsive images. Default true.
- *     @type bool   $echo          Whether to echo the output or return it. Default true.
+ *     @type string|int[] $size           Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
+ *     @type string|array $attr           Query string or array of attributes. Default ['loading' => 'lazy']. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
+ *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default null.
+ *     @type string $default_image        URL to a default fallback image if no image is found. Default is fetched via ground_config('media.no_image_url').
+ *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default false.
+ *     @type int|string $attachment_id    WordPress attachment ID for the image. Default empty.
+ *     @type bool $responsive             Whether to include 'srcset' and 'sizes' attributes for responsive images. Default true.
+ *     @type bool $echo                   Whether to echo the output or return it. Default true.
  * }
  * @return string|null The image HTML or URL, or null if 'echo' is set to true.
  */
