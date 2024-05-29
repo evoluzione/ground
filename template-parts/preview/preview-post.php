@@ -1,4 +1,5 @@
 <article class="border-b py-6 flex gap-4">
+
 	<?php ground_image( [ 
 		'size' => '1-1-large',
 		'attr' => [ 

@@ -6,11 +6,11 @@
 		</header>
 
 		<?php ground_image( [ 
-			'size' => '1-1-large',
+			'size' => '16-9-large',
 			'attr' => [ 
-				'class' => 'w-full',
+				'class' => 'aspect-[16/9] object-cover w-full',
+				'alt' => get_the_title(),
 			],
-			'alt' => get_the_title(),
 		] ); ?>
 
 		<div class="prose">
