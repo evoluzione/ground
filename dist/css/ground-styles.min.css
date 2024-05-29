@@ -1481,6 +1481,9 @@ select {
 .h-screen {
   height: 100vh;
 }
+.h-auto {
+  height: auto;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1543,6 +1546,15 @@ select {
 }
 .w-screen {
   width: 100vw;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-36 {
+  width: 9rem;
 }
 .min-w-\[240px\] {
   min-width: 240px;
@@ -2516,6 +2528,9 @@ select {
     bottom: 0;
     left: 0;
   }
+}
+.hover\:fill-primary:hover {
+  fill: var(--ground-color-primary);
 }
 .hover\:text-primary:hover {
   color: var(--ground-color-primary);
