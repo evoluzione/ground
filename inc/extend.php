@@ -7,10 +7,18 @@ function ground_change_templates_location( $template ) {
 		case is_page(): // Single page.
 			$custom_template = locate_template( 'layouts/page.php' );
 			break;
-		case is_singular(): // single post of any post type TODO: Verificare con gli attachment e redirect.
+		case is_singular(): // Single post of any post type
+			// TODO: Gestire il default se non trova quello specifico.
+			// TODO: Verificare con gli attachment e redirect.
 			$custom_template = locate_template( 'layouts/single-' . get_post_type() . '.php' );
 			break;
-		case is_home(): // Blog homepage. TODO: Fare la condizione generica per gli archivi.
+		case is_home(): // Posts homepage.
+			// TODO: Verificare il nome
+			$custom_template = locate_template( 'layouts/posts.php' );
+			break;
+		case is_category():
+			// TODO: Gestire il default se non trova quello specifico.
+			// TODO: Fare la condizione generica per gli archivi.
 			$custom_template = locate_template( 'layouts/archive-' . get_post_type() . '.php' );
 			break;
 		case is_404(): // Error 404 page.

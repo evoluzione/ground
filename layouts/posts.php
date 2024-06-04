@@ -1,6 +1,6 @@
 <?php
 /**
- * Archive post
+ * Posts homepage
  *
  * @package Ground
  */
@@ -16,7 +16,7 @@ get_template_part( 'partials/header/header' ); ?>
 	<div class="col-span-10">
 
 		<header>
-			<h1 class="text-4xl"><?php single_cat_title(); ?></h1>
+			<h1 class="text-4xl"><?php single_post_title(); ?></h1>
 		</header>
 
 		<?php while ( have_posts() ) :
