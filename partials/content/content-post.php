@@ -17,5 +17,9 @@
 			<?php the_content(); ?>
 		</div>
 
+		<?php if ( has_tag() ) { ?>
+			<footer class="my-6"><?php _e( 'Tags' ) ?>: <?php ground_tags( 'hover:text-primary' ); ?></footer>
+		<?php } ?>
+
 	</article> <!-- End .container -->
 </main>

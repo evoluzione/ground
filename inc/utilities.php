@@ -406,3 +406,25 @@ function ground_subpages( $args = array() ) {
 
 	echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents ) . '</ul>';
 }
+
+
+function ground_tags( $class = '', $separator = ', ', $echo = true ) {
+
+	$output = '';
+	$post_tags = get_the_tags();
+
+	if ( ! empty( $post_tags ) ) {
+		foreach ( $post_tags as $tag ) {
+			$output .= '<a class="' . esc_attr( $class ) . '" href="' . esc_attr( get_tag_link( $tag->term_id ) ) . '">' . __( $tag->name ) . '</a>' . $separator;
+		}
+	}
+
+	$tags = trim( $output, $separator );
+
+	if ( $echo ) {
+		echo $tags;
+	} else {
+		return $tags;
+	}
+
+}
