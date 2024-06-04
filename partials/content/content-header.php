@@ -1,6 +1,6 @@
 <header class="lg:[.scroll-direction-down_&]:-top-16 sticky top-0 z-40 border-b duration-500 mb-6">
-	<div class="flex justify-between container ">
-		<a class="mt-4" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+	<div class="flex justify-between container py-4">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 			<?php ground_icon( [ 
 				'name' => 'logo',
 				'attr' => [ 

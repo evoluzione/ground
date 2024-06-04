@@ -31,7 +31,7 @@ if ( isset( $term_id ) ) {
 
 ?>
 <nav>
-	<ul class="list-disc">
+	<ul class="list-disc list-inside">
 		<?php wp_list_categories( $args ); ?>
 	</ul>
 </nav>
