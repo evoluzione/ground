@@ -7,28 +7,30 @@
 
 get_template_part( 'template-parts/header/header' ); ?>
 
-<main class="container">
-	<header class="">
-		<h1 class="text-4xl"><?php single_post_title(); ?></h1>
-	</header>
+<main class="container grid grid-cols-12 gap-6">
 
-	<?php while ( have_posts() ) :
+	<div class="col-span-2">
+		<?php get_template_part( 'template-parts/sidebar/sidebar-secondary' ); ?>
+	</div>
 
-		the_post(); ?>
+	<div class="col-span-10">
 
-		<?php get_template_part( 'template-parts/preview/preview-post' ); ?>
+		<header class="">
+			<h1 class="text-4xl"><?php single_post_title(); ?></h1>
+		</header>
 
-	<?php endwhile; ?>
+		<?php while ( have_posts() ) :
 
-	<?php ground_pagination( [ 
-		'nav_class' => 'flex justify-center',
-		'list_class' => 'flex',
-		'prev_class' => 'pl-3 py-1',
-		'next_class' => 'pr-3 py-1',
-		'dots_class' => 'px-3 py-1',
-		'page_class' => 'px-3 py-1',
-		'page_active_class' => 'px-3 py-1 font-bold text-primary',
-	] ); ?>
+			the_post(); ?>
+
+			<?php get_template_part( 'template-parts/preview/preview-post' ); ?>
+
+		<?php endwhile; ?>
+
+		<?php get_template_part( 'template-parts/pagination/pagination-primary' ); ?>
+
+	</div>
+
 </main>
 
 <?php get_template_part( 'template-parts/footer/footer' );
