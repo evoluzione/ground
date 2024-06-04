@@ -1,8 +1,6 @@
 <?php
 /**
  * Pages
- *
- * @package Ground
  */
 
 get_template_part( 'partials/header/header' ); ?>

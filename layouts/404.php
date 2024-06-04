@@ -1,8 +1,6 @@
 <?php
 /**
  * Error 404 Page (not found)
- *
- * @package Ground
  */
 
 get_template_part( 'partials/header/header' );
