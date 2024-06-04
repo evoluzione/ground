@@ -5,7 +5,7 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header/header' ); ?>
+get_template_part( 'partials/header/header' ); ?>
 
 <section class="page page--search">
 
@@ -39,7 +39,7 @@ get_template_part( 'template-parts/header/header' ); ?>
 					do_action( 'ground_search_post_before' );
 					?>
 
-					<?php get_template_part( 'template-parts/content/content-search' ); ?>
+					<?php get_template_part( 'partials/content/content-search' ); ?>
 
 					<?php
 					/**
@@ -53,7 +53,7 @@ get_template_part( 'template-parts/header/header' ); ?>
 
 				<div class="col-span-12">
 
-					<?php get_template_part( 'template-parts/shared/pagination' ); ?>
+					<?php get_template_part( 'partials/shared/pagination' ); ?>
 
 				</div>
 
@@ -75,4 +75,4 @@ get_template_part( 'template-parts/header/header' ); ?>
 	</div>
 
 	<?php
-	get_template_part( 'template-parts/footer/footer' );
+	get_template_part( 'partials/footer/footer' );

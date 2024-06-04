@@ -5,12 +5,12 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header/header' ); ?>
+get_template_part( 'partials/header/header' ); ?>
 
 <main class="container grid grid-cols-12 gap-6">
 
 	<div class="col-span-2">
-		<?php get_template_part( 'template-parts/sidebar/sidebar-secondary' ); ?>
+		<?php get_template_part( 'partials/sidebar/sidebar-secondary' ); ?>
 	</div>
 
 	<div class="col-span-10">
@@ -23,14 +23,14 @@ get_template_part( 'template-parts/header/header' ); ?>
 
 			the_post(); ?>
 
-			<?php get_template_part( 'template-parts/preview/preview-post' ); ?>
+			<?php get_template_part( 'partials/preview/preview-post' ); ?>
 
 		<?php endwhile; ?>
 
-		<?php get_template_part( 'template-parts/pagination/pagination-primary' ); ?>
+		<?php get_template_part( 'partials/pagination/pagination-primary' ); ?>
 
 	</div>
 
 </main>
 
-<?php get_template_part( 'template-parts/footer/footer' );
+<?php get_template_part( 'partials/footer/footer' );

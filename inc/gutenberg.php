@@ -12,7 +12,7 @@ function ground_register_blocks() {
 			continue;
 		}
 
-		$block['render_template'] = $block['render_template'] ?? '/template-parts/blocks/' . $block['name'] . '.php';
+		$block['render_template'] = $block['render_template'] ?? '/partials/blocks/' . $block['name'] . '.php';
 		$block['category'] = $block['category'] ?? 'ground';
 
 		// $classNameList = array_filter( [

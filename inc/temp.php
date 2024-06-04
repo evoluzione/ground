@@ -91,7 +91,7 @@ function ground_yoast_breadcrumb() {
  */
 function ground_ajax_search_data_fetch() {
 	ob_start();
-	get_template_part( 'template-parts/search/search-ajax-preview' );
+	get_template_part( 'partials/search/search-ajax-preview' );
 	return ob_get_clean();
 }
 

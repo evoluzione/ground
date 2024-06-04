@@ -5,14 +5,14 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header/header' );
+get_template_part( 'partials/header/header' );
 
 while ( have_posts() ) :
 
 	the_post();
 
-	get_template_part( 'template-parts/content/content-home' );
+	get_template_part( 'partials/content/content-home' );
 
 endwhile;
 
-get_template_part( 'template-parts/footer/footer' );
+get_template_part( 'partials/footer/footer' );

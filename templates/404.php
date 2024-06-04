@@ -5,7 +5,7 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header/header' );
+get_template_part( 'partials/header/header' );
 
 /**
  * Hook: ground_404_before.
@@ -42,4 +42,4 @@ do_action( 'ground_404_before' );
  */
 do_action( 'ground_404_after' );
 
-get_template_part( 'template-parts/footer/footer' );
+get_template_part( 'partials/footer/footer' );

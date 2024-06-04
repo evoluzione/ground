@@ -5,7 +5,7 @@
  * @package Ground
  */
 
-get_template_part( 'template-parts/header/header' );
+get_template_part( 'partials/header/header' );
 
 while ( have_posts() ) :
 
@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	 */
 	do_action( 'ground_page_before' );
 
-	get_template_part( 'template-parts/content/content-post' );
+	get_template_part( 'partials/content/content-post' );
 
 	/**
 	 * Hook: ground_page_after.
@@ -27,4 +27,4 @@ while ( have_posts() ) :
 
 endwhile;
 
-get_template_part( 'template-parts/footer/footer' );
+get_template_part( 'partials/footer/footer' );
