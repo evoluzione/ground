@@ -32,31 +32,6 @@ function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item 
 
 add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 2 );
 
-
-
-/**
- * Echoes the highway ajax navigation view name tag
- */
-function ground_view_name() {
-	global $wp_query;
-
-	if ( is_front_page() ) {
-		$view_name = 'home';
-	} elseif ( is_page_template( 'templates/template-ground_catalog.php' ) ) {
-		$view_name = 'catalog';
-	} elseif ( is_home() ) {
-		$view_name = 'blog';
-	} elseif ( is_search() ) {
-		$view_name = 'search';
-	} elseif ( is_archive() ) {
-		$view_name = 'archive';
-	} else {
-		$view_name = 'page';
-	}
-
-	echo 'data-router-view="' . esc_html( $view_name ) . '"';
-}
-
 /**
  * Custom Breadcrumb using Yoast SEO Plugin
  *
