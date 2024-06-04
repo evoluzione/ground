@@ -1775,11 +1775,11 @@ select {
 .list-inside {
   list-style-position: inside;
 }
-.list-none {
-  list-style-type: none;
-}
 .list-disc {
   list-style-type: disc;
+}
+.list-none {
+  list-style-type: none;
 }
 .columns-2 {
   columns: 2;
@@ -2968,10 +2968,6 @@ select {
   .lg\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
-  }
-  .lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
   .lg\:py-0 {
     padding-top: 0px;

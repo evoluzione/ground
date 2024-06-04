@@ -9,7 +9,6 @@ function ground_change_templates_location( $template ) {
 			break;
 		case is_singular(): // Single post of any post type
 			// TODO: Gestire il default se non trova quello specifico.
-			// TODO: Verificare con gli attachment e redirect.
 			$custom_template = locate_template( 'layouts/single-' . get_post_type() . '.php' );
 			break;
 		case is_home(): // Posts homepage.
