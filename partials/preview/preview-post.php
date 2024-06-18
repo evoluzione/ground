@@ -16,8 +16,8 @@
 					<?php the_title(); ?>
 				</a>
 			</h2>
-			<time class="italic" datetime="<?php echo get_the_date( 'c' ); ?>">
-				<?php echo get_the_date(); ?>
+			<time class="italic" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
+				<?php echo esc_html( get_the_date() ); ?>
 			</time>
 		</header>
 

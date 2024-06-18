@@ -3,6 +3,9 @@
 
 		<header class="mb-6">
 			<h1 class="text-4xl"><?php the_title(); ?></h1>
+			<time class="italic" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
+				<?php echo esc_html( get_the_date() ); ?>
+			</time>
 		</header>
 
 		<?php ground_image( [ 
