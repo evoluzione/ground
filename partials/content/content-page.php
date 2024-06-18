@@ -10,7 +10,7 @@
 			'class' => 'aspect-[16/9] object-cover w-full mb-6',
 			'alt' => get_the_title(),
 		],
-		'default_image' => '',
+		'placeholder' => '',
 	] ); ?>
 
 	<div class="prose">

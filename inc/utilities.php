@@ -70,7 +70,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
  *     @type string|int[] $size           Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
  *     @type string|array $attr           Query string or array of attributes. Default ['loading' => 'lazy']. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
  *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default null.
- *     @type string $default_image        URL to a default fallback image if no image is found. Default is fetched via ground_config('media.no_image_url').
+ *     @type string $placeholder          URL to a default fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
  *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default false.
  *     @type int|string $attachment_id    WordPress attachment ID for the image. Default empty.
  *     @type bool $responsive             Whether to include 'srcset' and 'sizes' attributes for responsive images. Default true.
@@ -86,7 +86,7 @@ function ground_image( $args = [] ) {
 			'loading' => 'lazy',
 		],
 		'post' => null,
-		'default_image' => ground_config( 'media.no_image_url' ),
+		'placeholder' => ground_config( 'media.placeholder_url' ),
 		'return_url' => false,
 		'attachment_id' => '',
 		'responsive' => true,
@@ -97,7 +97,7 @@ function ground_image( $args = [] ) {
 	$size = $args['size'];
 	$attr = $args['attr'];
 	$post = $args['post'];
-	$default_image = $args['default_image'];
+	$placeholder = $args['placeholder'];
 	$return_url = $args['return_url'];
 	$attachment_id = $args['attachment_id'];
 	$responsive = $args['responsive'];
@@ -119,7 +119,7 @@ function ground_image( $args = [] ) {
 	}
 
 	// Handle default fallback image
-	if ( empty( $image ) && ! empty( $default_image ) ) {
+	if ( empty( $image ) && ! empty( $placeholder ) ) {
 
 		if ( is_array( $size ) ) {
 			$attr['width'] = $size[0];
@@ -130,7 +130,7 @@ function ground_image( $args = [] ) {
 			$attr['height'] = $_wp_additional_image_sizes[ $size ]['height'];
 		}
 
-		$image = '<img src="' . esc_url( $default_image ) . '"';
+		$image = '<img src="' . esc_url( $placeholder ) . '"';
 		foreach ( $attr as $key => $value ) {
 			if ( $value !== '' && $value !== null ) {
 				$image .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';

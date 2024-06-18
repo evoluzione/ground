@@ -1,6 +1,6 @@
 <?php
 return [ 
-	'no_image_url' => GROUND_TEMPLATE_URL . '/assets/img/no-image.svg',
+	'placeholder_url' => GROUND_TEMPLATE_URL . '/assets/img/no-image.svg',
 	'quality' => 82,
 	'content_width' => 1920,
 	'sanitize_file_name' => true,

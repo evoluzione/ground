@@ -43,7 +43,7 @@ if ( $repeater ) : ?>
 													<?php echo $image['sizes']['1-1-large']; ?> 1200w" sizes="(min-width: 1200px) 1200px,
 													(min-width: 768px) 900px,
 													100vh" src="<?php echo $image['sizes']['1-1-large']; ?>" <?php } else { ?>
-									src="<?php echo ground_config( 'media.no_image_url' ); ?>" <?php } ?> alt="" loading="lazy">
+									src="<?php echo ground_config( 'media.placeholder_url' ); ?>" <?php } ?> alt="" loading="lazy">
 						</figure>
 					</div>
 				<?php } ?>

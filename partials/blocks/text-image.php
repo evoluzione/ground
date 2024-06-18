@@ -55,7 +55,7 @@ if ( $content || $image ) : ?>
 								src="<?php echo $image['sizes']['1-1-large']; ?>" <?php
 							} else {
 								?>
-								src="<?php echo ground_config( 'media.no_image_url' ); ?>" <?php } ?> alt="" loading="lazy">
+								src="<?php echo ground_config( 'media.placeholder_url' ); ?>" <?php } ?> alt="" loading="lazy">
 					</figure>
 				</div>
 			<?php } ?>

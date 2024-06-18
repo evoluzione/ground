@@ -69,7 +69,7 @@ if ( $repeater ) : ?>
 													100vh"
 											src="<?php echo $image['sizes']['1-1-large']; ?>"
 										<?php } else { ?>
-											src="<?php echo ground_config( 'media.no_image_url' ); ?>"
+											src="<?php echo ground_config( 'media.placeholder_url' ); ?>"
 										<?php } ?>
 									alt=""
 									loading="lazy">
