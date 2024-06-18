@@ -17,9 +17,11 @@
 			<?php the_content(); ?>
 		</div>
 
-		<?php if ( has_tag() ) { ?>
-			<footer class="my-6"><?php _e( 'Tags' ) ?>: <?php ground_tags( 'hover:text-primary' ); ?></footer>
-		<?php } ?>
-
-	</article> <!-- End .container -->
+		<footer class="my-6">
+			<div><?php _e( 'Categories' ); ?>: <?php ground_terms( 'category', 'hover:text-primary' ); ?></div>
+			<?php if ( has_tag() ) { ?>
+				<div><?php _e( 'Tags' ); ?>: <?php ground_terms( 'post_tag', 'hover:text-primary' ); ?></div>
+			<?php } ?>
+		</footer>
+	</article>
 </main>

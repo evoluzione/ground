@@ -315,7 +315,6 @@ function ground_pagination( $args = array() ) {
 	}
 }
 
-
 /**
  * Displays a hierarchical list of pages starting from the top parent of the current page.
  *
@@ -407,24 +406,33 @@ function ground_subpages( $args = array() ) {
 	echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents ) . '</ul>';
 }
 
+/**
+ * Displays or returns a list of terms for a post, with optional CSS class and separator.
+ *
+ * @param string $taxonomy  The taxonomy name. Default is 'category'.
+ * @param string $class     Optional. CSS class to apply to each term link. Default is an empty string.
+ * @param string $separator Optional. Separator between term links. Default is ', '.
+ * @param bool   $echo      Optional. Whether to echo or return the terms list. Default is true.
+ *
+ * @return string|null The list of term links if $echo is false, null otherwise.
+ */
+function ground_terms( $taxonomy = 'category', $class = '', $separator = ', ', $echo = true ) {
 
-function ground_tags( $class = '', $separator = ', ', $echo = true ) {
-
+	$post_id = get_the_ID();
+	$terms = get_the_terms( $post_id, $taxonomy );
 	$output = '';
-	$post_tags = get_the_tags();
 
-	if ( ! empty( $post_tags ) ) {
-		foreach ( $post_tags as $tag ) {
-			$output .= '<a class="' . esc_attr( $class ) . '" href="' . esc_attr( get_tag_link( $tag->term_id ) ) . '">' . __( $tag->name ) . '</a>' . $separator;
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $term ) {
+			$output .= '<a class="' . esc_attr( $class ) . '" href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a>' . $separator;
 		}
 	}
 
-	$tags = trim( $output, $separator );
+	$terms_list = trim( $output, $separator );
 
 	if ( $echo ) {
-		echo $tags;
+		echo $terms_list;
 	} else {
-		return $tags;
+		return $terms_list;
 	}
-
 }
