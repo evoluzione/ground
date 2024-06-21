@@ -14,8 +14,10 @@ get_template_part( 'partials/header/header' ); ?>
 	<div class="col-span-10">
 
 		<header>
-			<h1 class="text-4xl"><?php single_cat_title(); ?></h1>
+			<h1 class="text-4xl mb-4"><?php single_cat_title(); ?></h1>
 		</header>
+
+		<div class="prose"><?php echo category_description(); ?></div>
 
 		<?php while ( have_posts() ) :
 
