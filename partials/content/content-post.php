@@ -6,6 +6,7 @@
 			<time class="italic" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
 				<?php echo esc_html( get_the_date() ); ?>
 			</time>
+			<span class="block"><?php echo esc_html( get_the_author() ); ?></span>
 		</header>
 
 		<?php ground_image( [ 
