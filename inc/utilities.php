@@ -403,7 +403,10 @@ function ground_subpages( $args = array() ) {
 		return $output;
 	}
 
-	echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents ) . '</ul>';
+	$menu_output = display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents );
+	if ( ! empty( $menu_output ) ) {
+		echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . $menu_output . '</ul>';
+	}
 }
 
 /**
