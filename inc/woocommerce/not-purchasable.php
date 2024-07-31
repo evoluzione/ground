@@ -151,3 +151,22 @@ function ground_show_not_purchasable_label()
 	}
 }
 add_action('ground_sale_flash', 'ground_show_not_purchasable_label', 30);
+
+
+
+
+
+/**
+ * Add a custom class to "Not Purchasable" products.
+ */
+function ground_woocommerce_add_class_not_purchasable_product($classes, $class, $product_id)
+{
+	$not_ready_to_sell = get_post_meta($product_id, 'not_purchasable', true);
+
+	if ('yes' === $not_ready_to_sell) {
+		$classes[] = 'not-purchasable-product';
+	}
+
+	return $classes;
+}
+add_filter('post_class', 'ground_woocommerce_add_class_not_purchasable_product', 10, 3);
