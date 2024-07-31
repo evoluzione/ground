@@ -1,10 +1,10 @@
 .stock {
-	@apply relative text-xs pl-8 flex items-center;
+	@apply relative flex items-center pl-8 text-xs;
 
 	&:after,
 	&:before {
 		content: "";
-		@apply absolute left-0 w-5 h-5 rounded-full;
+		@apply absolute left-0 h-5 w-5 rounded-full;
 	}
 
 	&:after {
@@ -14,12 +14,13 @@
 		@apply animate-pulse;
 	}
 
-	&.in-stock {
+	&.in-stock,
+	&.available-on-backorder {
 		&:after {
 			@apply border border-green-500;
 		}
 		&:before {
-			@apply bg-green-500 border-4 border-quinary;
+			@apply border-4 border-quinary bg-green-500;
 		}
 	}
 	&.out-of-stock {
@@ -27,7 +28,7 @@
 			@apply border border-red-500;
 		}
 		&:before {
-			@apply bg-red-500 border-4 border-quinary;
+			@apply border-4 border-quinary bg-red-500;
 		}
 	}
 
