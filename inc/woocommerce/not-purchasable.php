@@ -92,6 +92,8 @@ function ground_woocommerce_call_to_order_text()
 
 	if ('yes' === $not_ready_to_sell) {
 		$ground_not_purchasable_custom_message = get_post_meta(get_the_ID(), 'not_purchasable_custom_message', true);
+		$product_id = get_the_ID();
+		$product_name = get_the_title();
 ?>
 
 		<div class="border-t border-septenary pt-5">
@@ -109,9 +111,11 @@ function ground_woocommerce_call_to_order_text()
 			<p class="text-quaternary">
 				<?php echo esc_html(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_TEXT); ?>
 			</p>
-			<?php if (GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA) : ?>
+			<?php if (GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA) :
+				$info_page_url = esc_url(get_permalink(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA) . '?product_id=' . $product_id . '&product_name=' . urlencode($product_name));
+			?>
 				<div class="relative mt-6">
-					<a class="button button--secondary" href="<?php echo esc_html(get_permalink(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA)); ?>"><?php echo esc_html(get_the_title(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA)); ?></a>
+					<a class="button button--secondary" target="_blank" href="<?php echo esc_html($info_page_url); ?>"><?php echo esc_html(get_the_title(GROUND_SHOP_NOT_PURCHASABLE_PRODUCT_CTA)); ?></a>
 				</div>
 			<?php endif; ?>
 		</div>
