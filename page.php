@@ -12,6 +12,9 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 	</div>
 
 	<div class="col-span-10">
+
+		<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
+
 		<?php while ( have_posts() ) :
 
 			the_post();

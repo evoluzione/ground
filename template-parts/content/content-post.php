@@ -1,5 +1,8 @@
 <main>
+
 	<article class="max-w-3xl mx-auto px-6">
+
+		<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
 
 		<header class="mb-6">
 			<h1 class="text-4xl mb-6"><?php the_title(); ?></h1>

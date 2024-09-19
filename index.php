@@ -7,6 +7,8 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 <main class="container">
 
+	<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
+
 	<header class="mb-6">
 		<h1 class="text-4xl"><?php single_post_title(); ?></h1>
 	</header>

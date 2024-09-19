@@ -1,5 +1,8 @@
 <main>
 	<article class="container">
+
+		<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
+
 		<div class="grid grid-cols-12 gap-6">
 			<div class="col-span-6">
 				<?php ground_image( [ 
