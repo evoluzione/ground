@@ -1,20 +1,18 @@
 <?php
 /**
- * Index
+ * Post category
  */
-
 get_template_part( 'template-parts/header/header-primary' ); ?>
 
 <main class="container">
 
 	<header class="mb-6">
-		<h1 class="text-4xl"><?php single_post_title(); ?></h1>
+		<h1 class="text-4xl"><?php single_cat_title(); ?></h1>
 	</header>
 
-	<?php if ( is_home() ) {
-		$page_for_posts_id = get_option( 'page_for_posts' );
-		echo '<div class="prose mb-6">' . apply_filters( 'the_content', get_post_field( 'post_content', $page_for_posts_id ) ) . '</div>';
-	} ?>
+	<?php if ( category_description() ) : ?>
+		<div class="prose mb-6"><?php echo category_description(); ?></div>
+	<?php endif; ?>
 
 	<div class="grid grid-cols-12 gap-6">
 
@@ -23,6 +21,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 			<?php while ( have_posts() ) :
 
 				the_post(); ?>
+
 				<?php get_template_part( 'template-parts/preview/preview-post' ); ?>
 
 			<?php endwhile; ?>

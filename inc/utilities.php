@@ -11,7 +11,7 @@ function ground_config( $configPath, $php = true ) {
 			if ( ! file_exists( $filePath ) ) {
 				return false;
 			}
-			$configs[ $fileName ] = include ( $filePath );
+			$configs[ $fileName ] = include( $filePath );
 		}
 
 		return array_reduce( $pathParts, function ($data, $key) {
@@ -419,7 +419,7 @@ function ground_subpages( $args = array() ) {
  *
  * @return string|null The list of term links if $echo is false, null otherwise.
  */
-function ground_terms( $taxonomy = 'category', $class = '', $separator = ', ', $echo = true ) {
+function ground_current_terms( $taxonomy = 'category', $class = '', $separator = ', ', $echo = true ) {
 
 	$post_id = get_the_ID();
 	$terms = get_the_terms( $post_id, $taxonomy );
@@ -437,5 +437,90 @@ function ground_terms( $taxonomy = 'category', $class = '', $separator = ', ', $
 		echo $terms_list;
 	} else {
 		return $terms_list;
+	}
+}
+
+
+
+/** */
+
+function ground_terms( $arg = [] ) {
+	$defaults = [ 
+		'taxonomy' => 'category',
+		'echo' => true,
+		'child_of' => 0,
+		'hide_empty' => true,
+		'merge_classes' => true,
+		'menu_class' => 'XXXX list-disc list-inside mb-24',
+		'submenu_class' => 'YYYY list-disc list-inside pl-6',
+		'submenu_class_2' => 'YYYY list-disc list-inside pl-6 border border-red-500',
+		'item_class' => 'ZZZZ',
+		'item_active_class' => 'ZZZZACTIVE',
+		'link_class' => 'WWWW',
+		'link_active_class' => 'WWWWACTIVE border border-green-500',
+	];
+	$args = wp_parse_args( $arg, $defaults );
+	$terms = get_terms( $args );
+
+	if ( empty( $terms ) || is_wp_error( $terms ) ) {
+		return;
+	}
+
+	$term_hierarchy = [];
+	foreach ( $terms as $term ) {
+		$term_hierarchy[ $term->parent ][] = $term;
+	}
+
+	if ( ! function_exists( 'display_term_hierarchy' ) ) {
+		function display_term_hierarchy( $term_hierarchy, $args, $parent_id = 0, $depth = 0, $current_term_id = 0 ) {
+			if ( ! isset( $term_hierarchy[ $parent_id ] ) ) {
+				return '';
+			}
+
+			$output = '';
+			foreach ( $term_hierarchy[ $parent_id ] as $term ) {
+				$is_active = $term->term_id == $current_term_id;
+				$depth_key = $depth + 1;
+
+				$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
+				$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
+				$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
+
+				if ( $is_active ) {
+					$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
+					$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
+				}
+
+				if ( $args['merge_classes'] ) {
+					$item_class = $is_active
+						? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
+						: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
+					$link_class = $is_active
+						? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
+						: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
+					$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
+				}
+
+				$output .= '<li class="' . esc_attr( $item_class ) . '">';
+				$output .= '<a href="' . get_term_link( $term ) . '" class="' . esc_attr( $link_class ) . '">' . $term->name . '</a>';
+
+				$child_output = display_term_hierarchy( $term_hierarchy, $args, $term->term_id, $depth + 1, $current_term_id );
+				if ( $child_output ) {
+					$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
+				}
+
+				$output .= '</li>';
+			}
+			return $output;
+		}
+	}
+
+	$output = '<ul class="' . esc_attr( $args['menu_class'] ) . '">';
+	$output .= display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, 0 );
+	$output .= '</ul>';
+	if ( $args['echo'] ) {
+		echo $output;
+	} else {
+		return $output;
 	}
 }

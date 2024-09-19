@@ -1,43 +1,4 @@
 <?php
-function ground_change_templates_location( $template ) {
-	switch ( true ) {
-		case is_front_page(): // Site front page.
-			$custom_template = locate_template( 'layouts/home.php' );
-			break;
-		case is_page(): // Single page.
-			$custom_template = locate_template( 'layouts/page.php' );
-			break;
-		case is_singular(): // Single post of any post type
-			// TODO: Gestire il default se non trova quello specifico.
-			$custom_template = locate_template( 'layouts/single-' . get_post_type() . '.php' );
-			break;
-		case is_home(): // Posts homepage.
-			// TODO: Verificare il nome
-			$custom_template = locate_template( 'layouts/posts.php' );
-			break;
-		case is_category():
-			// TODO: Gestire il default se non trova quello specifico.
-			// TODO: Fare la condizione generica per gli archivi.
-			$custom_template = locate_template( 'layouts/archive-' . get_post_type() . '.php' );
-			break;
-		case is_404(): // Error 404 page.
-			$custom_template = locate_template( 'layouts/404.php' );
-			break;
-		case is_search(): // Search result page.
-			$custom_template = locate_template( 'layouts/search.php' );
-			break;
-		case is_tax(): // Custom taxonomy archive page.
-			$custom_template = locate_template( 'layouts/taxonomy-' . get_post_type() . '.php' );
-			break;
-		default:
-			$custom_template = "";
-	}
-
-	return ( ! empty( $custom_template ) ) ? $custom_template : $template;
-}
-
-add_filter( 'template_include', 'ground_change_templates_location' );
-
 /**
  * Localization
  *

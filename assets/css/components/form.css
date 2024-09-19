@@ -6,7 +6,7 @@
 	input[type="number"],
 	textarea,
 	select {
-		@apply focus:ring-primary text-tertiary border-septenary rounded-theme w-full py-3 bg-transparent;
+		@apply focus:ring-primary text-tertiary border-septenary w-full py-3 bg-transparent rounded-md;
 	}
 
 	input[type="number"] {
@@ -18,7 +18,7 @@
 	}
 
 	input[type="checkbox"] {
-		@apply focus:ring-primary h-5 w-5 text-primary border-septenary rounded-theme mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-5 w-5 text-primary border-septenary mr-1 cursor-pointer !important;
 	}
 
 	input[type="radio"] {
@@ -26,11 +26,11 @@
 	}
 
 	input[type="submit"] {
-		@apply text-base px-8 py-3 border border-primary rounded-theme font-bold text-white bg-primary cursor-pointer hover:bg-white hover:text-primary !important;
+		@apply text-base px-8 py-3 border border-primary font-bold text-white bg-primary cursor-pointer hover:bg-white hover:text-primary !important;
 	}
 
 	label {
-		@apply block text-base font-medium text-tertiary leading-none !important;
+		@apply block text-base font-medium text-tertiary leading-none;
 	}
 }
 
@@ -70,7 +70,7 @@ form.wpcf7-form {
 	@apply h-0 -m-1 !important;
 }
 .select2-container {
-	@apply rounded-theme border border-septenary !important;
+	@apply border border-septenary rounded-md !important;
 	.select2-dropdown.select2-dropdown--below {
 		@apply border border-septenary rounded-none !important;
 		.select2-search--dropdown {
@@ -78,9 +78,9 @@ form.wpcf7-form {
 		}
 	}
 	.select2-selection--single {
-		@apply flex items-center justify-between rounded-theme m-0 h-auto border-0 border-septenary focus:ring-primary !important;
+		@apply flex items-center justify-between m-0 h-auto border-0 border-septenary focus:ring-primary !important;
 		.select2-selection__rendered {
-			@apply rounded-theme h-auto px-3 py-3 text-tertiary leading-normal !important;
+			@apply h-auto px-3 py-3 text-tertiary leading-normal !important;
 		}
 		.select2-selection__arrow {
 			@apply relative h-6 right-3 !important;

@@ -21,7 +21,7 @@ return [
 					'name' => _x( 'Products', 'Post Type General Name', 'ground-child' ),
 					'singular_name' => _x( 'Product', 'Post Type Singular Name', 'ground-child' ),
 				],
-				'has_archive' => false,
+				'has_archive' => true,
 				'public' => true,
 				'show_in_rest' => false,
 				'menu_position' => 5,
