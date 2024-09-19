@@ -164,7 +164,7 @@ function ground_icon( $args = [] ) {
 	$defaults = [ 
 		'name' => '',
 		'attr' => [ 
-			'class' => ''
+			'class' => 'inline'
 		],
 		'icon_set' => 'lucide',
 		'file_extension' => 'svg',
@@ -522,5 +522,72 @@ function ground_terms( $arg = [] ) {
 		echo $output;
 	} else {
 		return $output;
+	}
+}
+
+
+/**
+ * Renders the breadcrumb navigation using Yoast SEO breadcrumbs if enabled.
+ * TODO: Merge classes
+ *
+ * @param array $args {
+ *     Optional. An array of arguments to customize the breadcrumb output.
+ *
+ *     @type string $nav_class         CSS class for the `<nav>` element. Default empty.
+ *     @type string $list_class        CSS class for the `<ol>` wrapper element. Default empty.
+ *     @type string $item_class        CSS class for each breadcrumb `<li>` item. Default empty.
+ *     @type string $item_active_class CSS class for the active breadcrumb item. Default empty.
+ *     @type string $link_class        CSS class for the breadcrumb `<a>` links. Default empty.
+ *     @type string $separator         Separator between breadcrumb items. Default '»'.
+ *     @type string $separator_class   CSS class for the separator `<span>` element. Default empty.
+ * }
+ * @return void
+ */
+function ground_breadcrumbs( $args = [] ) {
+	if ( function_exists( 'yoast_breadcrumb' ) && WPSEO_Options::get( 'breadcrumbs-enable', false ) ) {
+
+		$defaults = [ 
+			'nav_class' => '',
+			'list_class' => '',
+			'item_class' => '',
+			'item_active_class' => '',
+			'link_class' => '',
+			'separator' => '>',
+			'separator_class' => '',
+		];
+
+		$args = wp_parse_args( $args, $defaults );
+
+		$breadcrumbs = new WPSEO_Breadcrumbs();
+		$breadcrumb_links = $breadcrumbs->get_links();
+
+		if ( ! empty( $breadcrumb_links ) ) {
+			echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="breadcrumb">';
+			echo '<ol class="' . esc_attr( $args['list_class'] ) . '">';
+
+			$total = count( $breadcrumb_links );
+			$current = 1;
+
+			foreach ( $breadcrumb_links as $link ) {
+				$url = isset( $link['url'] ) ? $link['url'] : '';
+				$text = isset( $link['text'] ) ? $link['text'] : '';
+
+				if ( $current == $total ) {
+					echo '<li class="' . esc_attr( $args['item_active_class'] ) . '" aria-current="page">';
+					echo esc_html( $text );
+					echo '</li>';
+				} else {
+					echo '<li class="' . esc_attr( $args['item_class'] ) . '">';
+					echo '<a href="' . esc_url( $url ) . '" class="' . esc_attr( $args['link_class'] ) . '">' . esc_html( $text ) . '</a>';
+					echo '<span class="' . esc_attr( $args['separator_class'] ) . '">' . $args['separator'] . '</span>';
+					echo '</li>';
+				}
+
+				$current++;
+			}
+
+			echo '</ol>';
+			echo '</nav>';
+		}
 	}
 }
