@@ -6,8 +6,9 @@ require_once 'inc/head-output.php';
 require_once 'inc/extend.php';
 require_once 'inc/gutenberg.php';
 
-require_once 'inc/woocommerce.php';
-
+if ( class_exists( 'WooCommerce' ) ) {
+	require_once 'inc/extend-woocommerce.php';
+}
 
 /*
 
