@@ -562,7 +562,7 @@ function ground_breadcrumbs( $args = [] ) {
 		$breadcrumb_links = $breadcrumbs->get_links();
 
 		if ( ! empty( $breadcrumb_links ) ) {
-			echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="breadcrumb">';
+			echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="Breadcrumb">';
 			echo '<ol class="' . esc_attr( $args['list_class'] ) . '">';
 
 			$total = count( $breadcrumb_links );
