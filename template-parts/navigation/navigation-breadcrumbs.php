@@ -7,7 +7,8 @@
 	'separator' => ground_icon( [ 
 		'name' => 'chevron-right',
 		'attr' => [ 
-			'class' => 'w-4 h-4 inline'
+			'class' => 'w-4 h-4 inline',
+			'aria-hidden' => 'true',
 		],
 		'echo' => false,
 	] ),
