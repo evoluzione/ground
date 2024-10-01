@@ -2328,6 +2328,9 @@ label {
 .pt-64 {
   padding-top: 16rem;
 }
+.ps-6 {
+  padding-inline-start: 1.5rem;
+}
 .text-left {
   text-align: left;
 }
