@@ -1,13 +1,21 @@
 <?php
 /**
- * Register blocks
+ * Register ACF Gutenberg Blocks.
+ *
+ * @return void
  */
-function ground_register_blocks() {
+function ground_register_acf_blocks() {
 	if ( ! function_exists( 'acf_register_block_type' ) ) {
 		return;
 	}
 
-	foreach ( ground_config( 'blocks.blocks' ) as $block ) {
+	$blocks = ground_config( 'blocks.blocks' );
+
+	if ( empty( $blocks ) || ! is_array( $blocks ) ) {
+		return;
+	}
+
+	foreach ( $blocks as $block ) {
 		if ( empty( $block['name'] ) ) {
 			continue;
 		}
@@ -15,76 +23,57 @@ function ground_register_blocks() {
 		$block['render_template'] = $block['render_template'] ?? '/partials/blocks/' . $block['name'] . '.php';
 		$block['category'] = $block['category'] ?? 'ground';
 
-		// $classNameList = array_filter( [
-		// 	$block['className'] ?? null,
-		// 	$block['fullscreen'] ? 'is-fullscreen' : null,
-		// 	$block['fullbleed'] ? 'is-full-bleed' : null,
-		// 	$block['boxed'] ? 'is-boxed' : null,
-		// ] );
-
-		// $block['className'] = implode( ' ', $classNameList );
-
 		acf_register_block_type( $block );
 	}
 }
 
-add_action( 'acf/init', 'ground_register_blocks' );
-
-
-
-
-
-
-
-
-
+add_action( 'acf/init', 'ground_register_acf_blocks' );
 
 
 /**
- * Register block categories
+ * Register custom block categories.
  *
- * @param array $default_categories Array of block categories.
- * @return array An associative array of registered block data.
+ * @param array                   $categories           Array of existing block categories.
+ * @param WP_Block_Editor_Context $block_editor_context Block editor context.
+ * @return array Modified array of block categories.
  */
-function ground_child_register_block_categories( $default_categories ) {
-
-	$category_slugs = wp_list_pluck( $default_categories, 'slug' );
-
-	return in_array( 'ground', $category_slugs, true ) ? $default_categories : array_merge(
-		$default_categories,
+function ground_register_block_categories( $categories, $block_editor_context ) {
+	$custom_category = array(
 		array(
-			array(
-				'slug' => 'ground',
-				'title' => __( 'Ground', 'ground' ),
-				'icon' => null,
-			),
-		)
+			'slug' => 'ground',
+			'title' => __( 'Ground', 'ground' ),
+			'icon' => null,
+		),
 	);
+
+	return array_merge( $categories, $custom_category );
 }
 
-add_filter( 'block_categories_all', 'ground_child_register_block_categories' );
+add_filter( 'block_categories_all', 'ground_register_block_categories', 10, 2 );
 
 
-function ground_block_class( $block, $class = '', $return = true ) {
 
-	$block_name = $block['name'];
 
-	$pattern = '/(.*?)\//';
-	$block_name = preg_replace( $pattern, '', $block_name );
-	$class .= ' ground-block-' . $block_name;
+// function ground_block_class( $block, $class = '', $return = true ) {
 
-	if ( ! empty( $block['className'] ) ) {
-		$class .= ' ' . $block['className'];
-	}
+// 	$block_name = $block['name'];
 
-	if ( ! empty( $block['align'] ) ) {
-		$class .= ' align' . $block['align'];
-	}
+// 	$pattern = '/(.*?)\//';
+// 	$block_name = preg_replace( $pattern, '', $block_name );
+// 	$class .= ' ground-block-' . $block_name;
 
-	if ( $return ) {
-		return $class;
-	}
+// 	if ( ! empty( $block['className'] ) ) {
+// 		$class .= ' ' . $block['className'];
+// 	}
 
-	echo 'class="' . esc_attr( $class ) . '"';
+// 	if ( ! empty( $block['align'] ) ) {
+// 		$class .= ' align' . $block['align'];
+// 	}
 
-}
+// 	if ( $return ) {
+// 		return $class;
+// 	}
+
+// 	echo 'class="' . esc_attr( $class ) . '"';
+
+// }
