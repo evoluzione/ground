@@ -9,10 +9,9 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-$example = get_field( 'example' );
-
+$example = get_field( 'title' );
 ?>
 
 <div <?php echo ground_block_attributes( $block, 'ground-block' ); ?>>
-	Starter
+	Starter: <?php echo $example; ?>
 </div>
