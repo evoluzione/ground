@@ -7,7 +7,7 @@ require_once 'inc/extend.php';
 require_once 'inc/gutenberg.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
-	require_once 'inc/extend-woocommerce.php';
+	// require_once 'inc/extend-woocommerce.php';
 }
 
 /*
