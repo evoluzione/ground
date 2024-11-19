@@ -20,7 +20,7 @@ function ground_register_acf_blocks() {
 			continue;
 		}
 
-		$block['render_template'] = $block['render_template'] ?? '/partials/blocks/' . $block['name'] . '.php';
+		$block['render_template'] = $block['render_template'] ?? '/template-parts/blocks/' . $block['name'] . '.php';
 		$block['category'] = $block['category'] ?? 'ground';
 
 		acf_register_block_type( $block );
@@ -52,28 +52,46 @@ function ground_register_block_categories( $categories, $block_editor_context ) 
 add_filter( 'block_categories_all', 'ground_register_block_categories', 10, 2 );
 
 
+/**
+ * Generates HTML attributes for a ACF Gutenberg block.
+ *
+ * @param array  $block      The block settings and attributes from Gutenberg.
+ * @param string $class_name Additional class names to add to the block (optional).
+ *
+ * @return string The HTML attributes for the block.
+ */
+function ground_block_attributes( $block, $class_name = '' ) {
+	$class_names = array();
 
+	if ( ! empty( $class_name ) ) {
+		$class_names[] = $class_name;
+	}
 
-// function ground_block_class( $block, $class = '', $return = true ) {
+	// Extract block name without namespace.
+	if ( ! empty( $block['name'] ) ) {
+		$block_name_parts = explode( '/', $block['name'] );
+		$block_name = end( $block_name_parts );
+		$class_names[] = 'ground-block-' . $block_name;
+	}
 
-// 	$block_name = $block['name'];
+	if ( ! empty( $block['className'] ) ) {
+		$class_names[] = $block['className'];
+	}
 
-// 	$pattern = '/(.*?)\//';
-// 	$block_name = preg_replace( $pattern, '', $block_name );
-// 	$class .= ' ground-block-' . $block_name;
+	if ( ! empty( $block['align'] ) ) {
+		$class_names[] = 'align' . $block['align'];
+	}
 
-// 	if ( ! empty( $block['className'] ) ) {
-// 		$class .= ' ' . $block['className'];
-// 	}
+	$attributes = array();
 
-// 	if ( ! empty( $block['align'] ) ) {
-// 		$class .= ' align' . $block['align'];
-// 	}
+	if ( ! empty( $block['anchor'] ) ) {
+		$attributes[] = 'id="' . esc_attr( $block['anchor'] ) . '"';
+	}
 
-// 	if ( $return ) {
-// 		return $class;
-// 	}
+	if ( ! empty( $class_names ) ) {
+		$attributes[] = 'class="' . esc_attr( implode( ' ', $class_names ) ) . '"';
+	}
 
-// 	echo 'class="' . esc_attr( $class ) . '"';
+	return implode( ' ', $attributes );
+}
 
-// }
