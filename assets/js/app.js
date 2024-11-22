@@ -44,43 +44,43 @@ import { dispatchCustomEvent, elementExist } from '@fabioquarantini/js-utils';
 	// }
 
 	// Slider
-	if (elementExist('.js-slider')) {
-		import( './components/slider')
-			.then((module) => {
-				dispatchCustomEvent('MODULE_SLIDER_LOADED', module);
-				const Slider = module.default;
+	// if (elementExist('.js-slider')) {
+	// 	import( './components/slider')
+	// 		.then((module) => {
+	// 			dispatchCustomEvent('MODULE_SLIDER_LOADED', module);
+	// 			const Slider = module.default;
 
-				if (elementExist('.js-slider-default')) {
-					new Slider();
-				}
+	// 			if (elementExist('.js-slider-default')) {
+	// 				new Slider();
+	// 			}
 
-				if (elementExist('.js-slider-primary')) {
-					new Slider('.js-slider-primary');
-				}
+	// 			if (elementExist('.js-slider-primary')) {
+	// 				new Slider('.js-slider-primary');
+	// 			}
 
-				if (elementExist('.js-slider-gallery')) {
-					new Slider('.js-slider-gallery', {
-						direction: 'horizontal',
-						loop: false,
-						effect: 'slide',
-						speed: 1000,
-						autoHeight: false,
-						parallax: true,
-						autoplay: false,
-						slidesPerView: 1,
-						spaceBetween: 40,
-						breakpoints: {
-							// when window width is >= xl
-							1440: {
-								speed: 1400,
-								spaceBetween: 80,
-							},
-						},
-					});
-				}
-			})
-			.catch((error) => console.log(error));
-	}
+	// 			if (elementExist('.js-slider-gallery')) {
+	// 				new Slider('.js-slider-gallery', {
+	// 					direction: 'horizontal',
+	// 					loop: false,
+	// 					effect: 'slide',
+	// 					speed: 1000,
+	// 					autoHeight: false,
+	// 					parallax: true,
+	// 					autoplay: false,
+	// 					slidesPerView: 1,
+	// 					spaceBetween: 40,
+	// 					breakpoints: {
+	// 						// when window width is >= xl
+	// 						1440: {
+	// 							speed: 1400,
+	// 							spaceBetween: 80,
+	// 						},
+	// 					},
+	// 				});
+	// 			}
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// }
 
 	// YoastFaqBlock
 	// if (elementExist('.schema-faq-question')) {
