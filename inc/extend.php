@@ -211,3 +211,17 @@ function ground_acf_json_load_point( $paths ) {
 }
 
 add_filter( 'acf/settings/load_json', 'ground_acf_json_load_point' );
+
+
+/**
+ * Removes the Site Icon from the WordPress Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize The Customizer manager instance.
+ * @return void
+ */
+function ground_remove_customizer_site_icon( $wp_customize ) {
+	$wp_customize->remove_control( 'site_icon' );
+	$wp_customize->remove_setting( 'site_icon' );
+}
+
+add_action( 'customize_register', 'ground_remove_customizer_site_icon', 20 );
