@@ -1,13 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {},
 	"styles": {
         "color": {
-            "background2": "asd"
+            "background": "#ddd"
         }
     },
-	"customTemplates": {},
-	"templateParts": {},
+	"customTemplates": [],
+	"templateParts": [],
 	"patterns": []
 }
