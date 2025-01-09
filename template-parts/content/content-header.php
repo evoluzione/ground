@@ -6,7 +6,7 @@
 				'attr' => [ 
 					'class' => 'w-36 hover:fill-primary',
 				],
-				'path' => GROUND_TEMPLATE_PATH . '/assets/img/'
+				'path' => GROUND_TEMPLATE_DIRECTORY . '/assets/img/'
 			] ); ?>
 		</a>
 		<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>

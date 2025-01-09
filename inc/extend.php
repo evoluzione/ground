@@ -5,7 +5,7 @@
  * Load the theme’s translated strings
  */
 function ground_load_theme_textdomain() {
-	load_theme_textdomain( 'ground', GROUND_TEMPLATE_PATH . '/languages' );
+	load_theme_textdomain( 'ground', GROUND_TEMPLATE_DIRECTORY . '/languages' );
 }
 
 add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
@@ -193,7 +193,7 @@ add_filter( 'nav_menu_link_attributes', 'ground_nav_menu_link_css_class', 10, 4 
  * @return string The custom path for saving ACF JSON files.
  */
 function ground_acf_json_save_point() {
-	return GROUND_TEMPLATE_PATH . '/config/acf';
+	return GROUND_TEMPLATE_DIRECTORY . '/config/acf';
 }
 
 add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
@@ -206,7 +206,7 @@ add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
  */
 function ground_acf_json_load_point( $paths ) {
 	unset( $paths[0] );
-	$paths[] = GROUND_TEMPLATE_PATH . '/config/acf';
+	$paths[] = GROUND_TEMPLATE_DIRECTORY . '/config/acf';
 	return $paths;
 }
 

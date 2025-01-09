@@ -1,7 +1,12 @@
 <?php
-//  TODO: Portarli nel config?
-define( 'GROUND_VERSION', wp_get_theme()->Version ); // Return the styles.css theme version.
-define( 'GROUND_SITE_URL', site_url() ); // Return http://www.site.com.
-// TODO: Rinominare template con theme?
-define( 'GROUND_TEMPLATE_URL', get_template_directory_uri() ); // Return http://www.site.com/wp-content/themes/themename.
-define( 'GROUND_TEMPLATE_PATH', get_template_directory() ); // Return /home/user/public_html/wp-content/themes/themename.
+// Define the theme version based on the version specified in the styles.css file.
+define( 'GROUND_VERSION', wp_get_theme()->Version );
+
+// Define the full URL of the site (e.g., https://www.example.com).
+define( 'GROUND_SITE_URL', site_url() );
+
+// Define the URL to the current theme's directory (e.g., https://www.example.com/wp-content/themes/themename).
+define( 'GROUND_TEMPLATE_DIRECTORY_URI', get_template_directory_uri() );
+
+// Define the absolute server path to the current theme's directory (e.g., /home/user/public_html/wp-content/themes/themename).
+define( 'GROUND_TEMPLATE_DIRECTORY', get_template_directory() );

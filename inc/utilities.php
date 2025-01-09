@@ -13,7 +13,7 @@ function ground_config( $configPath ) {
 
 	// Load and cache the file if not already cached
 	if ( ! isset( $configs[ $fileName ] ) ) {
-		$filePath = GROUND_TEMPLATE_PATH . '/config/' . $fileName . '.php';
+		$filePath = GROUND_TEMPLATE_DIRECTORY . '/config/' . $fileName . '.php';
 
 		if ( ! file_exists( $filePath ) ) {
 			return null;
@@ -200,7 +200,7 @@ function ground_icon( $args = [] ) {
 	$file_extension = $args['file_extension'];
 	$echo = $args['echo'];
 	$attr = $args['attr'];
-	$path = $args['path'] ? $args['path'] : GROUND_TEMPLATE_PATH . '/assets/icons/' . $icon_set . '/';
+	$path = $args['path'] ? $args['path'] : GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $icon_set . '/';
 	$file_path = $path . $name . '.' . $file_extension;
 
 	if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) || $file_extension !== 'svg' ) {

@@ -3,7 +3,7 @@ return [
 	'styles' => [ 
 		[ 
 			'handle' => 'ground-styles',
-			'src' => GROUND_TEMPLATE_URL . '/dist/css/ground-styles.min.css',
+			'src' => GROUND_TEMPLATE_DIRECTORY_URI . '/dist/css/ground-styles.min.css',
 			'deps' => [],
 			'ver' => GROUND_VERSION,
 			'media' => 'all',
@@ -12,7 +12,7 @@ return [
 	'scripts' => [ 
 		[ 
 			'handle' => 'ground-scripts',
-			'src' => GROUND_TEMPLATE_URL . '/dist/js/ground-scripts.min.js',
+			'src' => GROUND_TEMPLATE_DIRECTORY_URI . '/dist/js/ground-scripts.min.js',
 			'deps' => [ 'jquery' ],
 			'ver' => GROUND_VERSION,
 			'args' => [ 
