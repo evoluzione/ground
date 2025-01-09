@@ -1,51 +1,68 @@
-// https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event#Example
-
-let scrollPos = window.scrollY;
+let lastScrollPos = window.scrollY;
 let ticking = false;
 
+/**
+ * Monitors scroll events to determine scroll direction and apply relevant CSS classes.
+ */
 export function scrollDirection() {
-	// Initial state
-	const offset = 1;
-	const htmlEl = document.documentElement.classList;
+    const offset = 1; // Threshold to determine if the body has been scrolled
+    const htmlClassList = document.documentElement.classList;
 
-	function onScroll() {
-		const currentPos = window.scrollY;
-		const isScrollingUp = currentPos < scrollPos;
-		const isScrollingDown = currentPos > scrollPos;
+    // Current state of classes
+    let hasBodyScrolled = lastScrollPos > offset;
+    let scrollDir = null; // Possible values: 'up' or 'down'
 
-		if (!ticking) {
-			window.requestAnimationFrame(function () {
-				// Body scrolled
-				if (scrollPos > offset) {
-					htmlEl.add('body-scrolled');
-				} else {
-					htmlEl.remove('body-scrolled');
-				}
+    // Initialize the state based on the initial scroll position
+    if (hasBodyScrolled) {
+        htmlClassList.add('is-scrolled');
+    }
 
-				// Scroll direction
-				if (isScrollingUp) {
-					htmlEl.remove('scroll-direction-down');
-					htmlEl.add('scroll-direction-up');
-				}
+    function onScroll() {
+        // Get the current scroll position, ensuring it's not negative (handles iOS bouncing)
+        let currentPos = Math.max(window.scrollY, 0);
 
-				if (isScrollingDown) {
-					htmlEl.remove('scroll-direction-up');
-					htmlEl.add('scroll-direction-down');
-				}
+        // Determine the direction of scrolling
+        const direction = currentPos < lastScrollPos ? 'up' : (currentPos > lastScrollPos ? 'down' : null);
 
-				ticking = false;
-			});
+        // Check if there's any significant change to handle
+        if (direction === null && hasBodyScrolled === (currentPos > offset)) {
+            return;
+        }
 
-			ticking = true;
-		}
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
 
-		// saves the new position for iteration.
-		scrollPos = currentPos;
-	}
+				const shouldBeScrolled = currentPos > offset;
+                if (shouldBeScrolled !== hasBodyScrolled) {
+                    if (shouldBeScrolled) {
+                        htmlClassList.add('is-scrolled');
+                    } else {
+                        htmlClassList.remove('is-scrolled');
+                    }
+                    hasBodyScrolled = shouldBeScrolled;
+                }
 
-	// adding scroll event
-	window.addEventListener('scroll', onScroll, {
-		capture: true,
-		passive: true,
-	});
+                if (direction) {
+                    if (direction !== scrollDir) {
+                        if (direction === 'up') {
+                            htmlClassList.remove('is-scroll-down');
+                            htmlClassList.add('is-scroll-up');
+                        } else {
+                            htmlClassList.remove('is-scroll-up');
+                            htmlClassList.add('is-scroll-down');
+                        }
+                        scrollDir = direction;
+                    }
+                }
+
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+
+        lastScrollPos = currentPos;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 }

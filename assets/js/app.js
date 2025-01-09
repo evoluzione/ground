@@ -1,3 +1,5 @@
+import { scrollDirection } from './components/scrollDirection.js';
+
 (() => {
 
 	// Toggle
@@ -7,5 +9,8 @@
 		})
 		.catch((error) => console.log(error));
 	}
+
+	// Scroll direction
+	scrollDirection();
 
 })();
