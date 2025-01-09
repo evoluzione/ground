@@ -1,4 +1,21 @@
 <?php
+// Rapporti diversi per gli embed (ad esempio, 4:3 o 1:1) e gestisce il default con tailwind
+
+function custom_wp_embed_html( $html, $url, $attr, $post_ID ) {
+	if ( strpos( $url, 'instagram.com' ) !== false ) {
+		// Per Instagram: proporzione quadrata (1:1)
+		return '<div class="aspect-w-1 aspect-h-1">' . $html . '</div>';
+	} elseif ( strpos( $url, 'tiktok.com' ) !== false ) {
+		// Per TikTok: proporzione verticale (9:16)
+		return '<div class="aspect-w-9 aspect-h-16">' . $html . '</div>';
+	}
+
+	// Default: proporzione 16:9
+	return '<div class="aspect-w-16 aspect-h-9">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'custom_wp_embed_html', 10, 4 );
+
+
 
 /**
  * Add attachment gallery attributes
