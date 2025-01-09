@@ -1,10 +1,15 @@
 <?php
+/**
+ * Adds theme support features.
+ *
+ * @return void
+ */
 function ground_theme_support() {
 
-	// Enables featured image.
+	// Enables featured images.
 	add_theme_support( 'post-thumbnails' );
 
-	// Html5 markup. This feature allows the use of HTML5 markup for the comment forms, search forms, comment lists and gallery.
+	// Enables HTML5 markup support.
 	add_theme_support( 'html5', array(
 		'comment-list',
 		'comment-form',
@@ -15,10 +20,10 @@ function ground_theme_support() {
 		'script'
 	) );
 
-	// Allows plugins and themes to manage the document title tag
+	// Allows plugins and themes to manage the document title tag.
 	add_theme_support( 'title-tag' );
 
-	// Add excerpt support for pages
+	// Add excerpt support for pages.
 	add_post_type_support( 'page', 'excerpt' );
 
 	// Enables RSS posts and comments.
@@ -26,16 +31,10 @@ function ground_theme_support() {
 		add_theme_support( 'automatic-feed-links' );
 	}
 
-
-
-
-	// Add Gutenberg block support
-	// TODO: Verificare
-	//add_theme_support( 'responsive-embeds' );
+	// Gutenberg editor features.
+	// TODO: Verificare se utilizzarle e metterle anche nel config
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'custom-spacing' );
-
-
 
 	// Add WooCommerce support
 	// TODO: Verificare
@@ -63,7 +62,9 @@ function ground_theme_support() {
 add_action( 'after_setup_theme', 'ground_theme_support' );
 
 /**
- * Register menus
+ * Registers navigation menus.
+ *
+ * @return void
  */
 function ground_register_menus() {
 
@@ -79,21 +80,23 @@ function ground_register_menus() {
 add_action( 'init', 'ground_register_menus' );
 
 /**
- * Thumbnails setup
+ * Registers custom thumbnail sizes and sets media configurations.
+ *
+ * @return void
  */
 function ground_register_thumbnails() {
 
-	// Registers a new image size.
+	// Registers custom image sizes.
 	foreach ( ground_config( 'media.sizes' ) as $size ) {
-		if ( isset( $size['name'] ) && isset( $size['width'] ) && isset( $size['height'] ) ) {
-			$crop = isset( $size['crop'] ) ? $size['crop'] : false;
+		if ( isset( $size['name'], $size['width'], $size['height'] ) ) {
+			$crop = $size['crop'] ?? false;
 			add_image_size( $size['name'], $size['width'], $size['height'], $crop );
 		} else {
 			trigger_error( 'Error: Mandatory values (name, width, height) are missing in one of the image sizes.', E_USER_WARNING );
 		}
 	}
 
-	// Set the maximum allowed width for any content, like oEmbeds and images added to posts.
+	// Sets the maximum allowed content width.
 	if ( ! isset( $content_width ) ) {
 		$content_width = ground_config( 'media.content_width' );
 	}
@@ -133,20 +136,22 @@ function ground_register_sidebars() {
 add_action( 'widgets_init', 'ground_register_sidebars' );
 
 /**
- * Register post types
+ * Registers custom post types and taxonomies.
+ *
+ * @return void
  */
 function ground_register_post_types() {
 
-	// Register post types
+	// Registers custom post types.
 	foreach ( ground_config( 'post-types.post_types' ) as $post_type ) {
-		if ( $post_type['name'] && $post_type['args'] ) {
+		if ( isset( $post_type['name'], $post_type['args'] ) ) {
 			register_post_type( $post_type['name'], $post_type['args'] );
 		}
 	}
 
-	// Register taxonomies
+	// Registers custom taxonomies.
 	foreach ( ground_config( 'post-types.taxonomies' ) as $taxonomy ) {
-		if ( $taxonomy['name'] && $taxonomy['object_type'] && $taxonomy['args'] ) {
+		if ( isset( $taxonomy['name'], $taxonomy['object_type'], $taxonomy['args'] ) ) {
 			register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $taxonomy['args'] );
 		}
 	}
