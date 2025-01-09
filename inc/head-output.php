@@ -1,6 +1,8 @@
 <?php
 /**
  * Register and enqueue CSS
+ *
+ * @return void
  */
 function ground_enqueue_styles() {
 	$defaults = array(
@@ -21,6 +23,8 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 
 /**
  * Register and enqueue JS
+ *
+ * @return void
  */
 function ground_enqueue_scripts() {
 	$defaults = array(
@@ -47,7 +51,9 @@ function ground_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
 /**
- * Clean up head output
+ * Clean up the WordPress <head> section by removing unnecessary elements.
+ *
+ * @return void
  */
 function ground_clean_head_output() {
 	// Remove WordPress version.
@@ -60,7 +66,9 @@ function ground_clean_head_output() {
 add_action( 'init', 'ground_clean_head_output' );
 
 /**
- * Remove login logo
+ * Remove the WordPress login page logo.
+ *
+ * @return void
  */
 function ground_login_css() { ?>
 	<style type="text/css">
