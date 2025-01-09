@@ -1,61 +1,78 @@
 <?php
-function ground_config( $configPath, $php = true ) {
-	if ( $php ) {
-		static $configs = []; // Array per il caching delle configurazioni
+/**
+ * Retrieves a configuration value from a config file.
+ *
+ * @param string $configPath The dot notation for the config key (e.g., "app.debug").
+ * @return mixed The corresponding value, or null/false if the file does not exist.
+ */
+function ground_config( $configPath ) {
+	static $configs = [];
 
-		$pathParts = explode( '.', $configPath );
-		$fileName = array_shift( $pathParts );
+	$pathParts = explode( '.', $configPath );
+	$fileName = array_shift( $pathParts );
+
+	// Load and cache the file if not already cached
+	if ( ! isset( $configs[ $fileName ] ) ) {
 		$filePath = GROUND_TEMPLATE_PATH . '/config/' . $fileName . '.php';
 
-		if ( ! isset( $configs[ $fileName ] ) ) {
-			if ( ! file_exists( $filePath ) ) {
-				return false;
-			}
-			$configs[ $fileName ] = include( $filePath );
+		if ( ! file_exists( $filePath ) ) {
+			return null;
 		}
 
-		return array_reduce( $pathParts, function ($data, $key) {
-			return $data[ $key ] ?? null;
-		}, $configs[ $fileName ] );
-	} else {
-
-		$jsonString = file_get_contents( GROUND_TEMPLATE_PATH . '/config/acf/group_5ddbd48c5a150.json' );
-		$data = json_decode( $jsonString, true ); // Impostando true, otteniamo un array associativo
-		return $data;
+		$configs[ $fileName ] = include $filePath;
 	}
+
+	$data = $configs[ $fileName ];
+	foreach ( $pathParts as $key ) {
+		if ( ! isset( $data[ $key ] ) ) {
+			return null;
+		}
+		$data = $data[ $key ];
+	}
+
+	return $data;
 }
 
 /**
  * Excerpt with custom length
  *
- * Summary or description of a post with custom length
+ * Summary or description of a post with custom length.
  *
- * @param integer          $length Optional. Excerpt length. Default is 100.
- * @param string           $after_text Optional. Characters to add at the end of the text. Default is "...".
- * @param int|WP_Post|null $post Optional. Post ID or post object. Default is global $post.
+ * @param int             $length     Optional. Excerpt length in characters. Default is 100.
+ * @param string          $after_text Optional. Characters to add at the end of the text. Default is "...".
+ * @param int|WP_Post     $post       Optional. Post ID or post object. Default is global $post.
+ * @param bool            $echo       Optional. If true, echoes the excerpt, otherwise returns it. Default true.
+ *
+ * @return string|void    The excerpt if $echo is false, otherwise echoes it.
  */
-function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
+function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo = true ) {
 
-	if ( null !== $post ) {
-		$_post = get_post( $post );
-		if ( '' !== $_post->post_excerpt ) {
-			$post_content = $_post->post_excerpt;
-		} else {
-			$post_content = $_post->post_content;
+	$post = get_post( $post );
+	if ( ! $post ) {
+		if ( ! $echo ) {
+			return '';
 		}
-		$content = wp_strip_all_tags( $post_content );
-		$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
-	} else {
-		$content = get_the_excerpt();
-		$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
+		echo '';
+		return;
 	}
 
-	if ( strlen( $content ) > $length ) {
-		$excerpt = $excerpt . $after_text;
+	$post_content = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
+	$content = wp_strip_all_tags( do_shortcode( $post_content ) );
+	$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
+
+	if ( mb_strlen( $content, get_bloginfo( 'charset' ) ) > $length ) {
+		$excerpt .= $after_text;
+	}
+
+	$excerpt = apply_filters( 'ground_excerpt', $excerpt, $length, $after_text, $post );
+
+	if ( ! $echo ) {
+		return esc_html( $excerpt );
 	}
 
 	echo esc_html( $excerpt );
 }
+
 
 /**
  * Retrieves and processes an image (featured or attachment).
@@ -240,7 +257,7 @@ function ground_log( $log ) {
  */
 function ground_pagination( $args = array() ) {
 	global $wp_query;
-	$big = 999999999;
+	$pagination_placeholder = 999999999;
 
 	$defaults = array(
 		'prev_text' => __( '&laquo; Previous' ),
@@ -248,7 +265,7 @@ function ground_pagination( $args = array() ) {
 		'mid_size' => 2,
 		'total' => $wp_query->max_num_pages,
 		'current' => max( 1, get_query_var( 'paged' ) ),
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'base' => str_replace( $pagination_placeholder, '%#%', esc_url( get_pagenum_link( $pagination_placeholder ) ) ),
 		'format' => '?paged=%#%',
 		'type' => 'array',
 		'only_numbers' => false,
@@ -440,10 +457,28 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
 	}
 }
 
-
-
-/** */
-
+/**
+ * Generates and displays a hierarchical list of terms from a specified taxonomy.
+ *
+ * @param array $arg {
+ *     Optional. Array of arguments to control the display and behavior of the terms list.
+ *
+ *     @type string  $taxonomy            The taxonomy to retrieve terms from. Default 'category'.
+ *     @type bool    $echo                Whether to echo or return the output. Default true.
+ *     @type int     $child_of            The term ID to start the hierarchy from. Default 0 (root).
+ *     @type bool    $hide_empty          Whether to hide terms with no posts. Default true.
+ *     @type bool    $merge_classes       Whether to merge item/link/submenu classes for hierarchy levels. Default true.
+ *     @type string  $menu_class          Classes for the root `<ul>` element. Default 'list-disc ps-6 mb-24'.
+ *     @type string  $submenu_class       Classes for the first-level submenu `<ul>` elements. Default 'list-disc ps-6 pl-6'.
+ *     @type string  $submenu_class_2     Classes for the second-level submenu `<ul>` elements. Default 'list-disc ps-6 pl-6'.
+ *     @type string  $item_class          Classes for `<li>` elements. Default ''.
+ *     @type string  $item_active_class   Classes for active `<li>` elements. Default ''.
+ *     @type string  $link_class          Classes for term links. Default ''.
+ *     @type string  $link_active_class   Classes for active term links. Default 'text-primary'.
+ * }
+ *
+ * @return string|void The HTML output of the terms list if `$arg['echo']` is false. Otherwise, the function echoes the output.
+ */
 function ground_terms( $arg = [] ) {
 	$defaults = [ 
 		'taxonomy' => 'category',
@@ -525,9 +560,8 @@ function ground_terms( $arg = [] ) {
 	}
 }
 
-
 /**
- * Renders the breadcrumb navigation using Yoast SEO breadcrumbs if enabled.
+ * Renders the breadcrumb navigation.
  * TODO: Merge classes
  *
  * @param array $args {
