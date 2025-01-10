@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "npm-run-all -p \"styles -- --watch\" \"js -- --watch\" sync",
 		"build": "npm-run-all js \"styles -- --env production\"",
-		"styles": "postcss assets/css/main.css -o dist/css/ground-styles.min.css --verbose",
+		"styles": "npx @tailwindcss/cli -i assets/css/app.css -o dist/css/ground-styles.min.css --verbose",
 		"sync": "browser-sync start --no-open -p https://ground.develop -f 'dist/css/*.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
 		"js": "vite build",
 		"pot": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,src",
@@ -21,7 +21,7 @@
 		"sync": "browser-sync start --no-open -p https://ground.develop -f 'dist/css/*.css' '**/*.php' 'dist/js/ground-scripts.min.js' -w",
 		"pot": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,src",
 		"pot2": "wp i18n make-pot . resources/languages/wp-lemon.pot --slug=wp-lemon --domain=wp-lemon --exclude=node_modules,vendor"
-	  },
+	},
 	"author": {
 		"name": "Fabio Quarantini",
 		"url": "https://www.fabioquarantini.com"
@@ -30,30 +30,24 @@
 		"defaults"
 	],
 	"devDependencies": {
-		"@evoluzione/tailwind-config": "^1.1.0",
-		"autoprefixer": "^10.4.20",
+		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/cli": "^4.0.0-beta.9",
 		"browser-sync": "^3.0.3",
-		"classnames": "2.5.1",
-		"cssnano": "^7.0.6",
 		"eslint": "^9.17.0",
 		"eslint-config-prettier": "^9.1.0",
 		"npm-run-all": "^4.1.5",
-		"postcss": "8.4.49",
-		"postcss-cli": "^11.0.0",
-		"postcss-for": "^2.1.1",
-		"postcss-import": "^16.1.0",
-		"postcss-scss": "4.0.9",
 		"prettier": "3.4.2",
-		"prettier-plugin-tailwindcss": "0.6.9",
+		"prettier-plugin-tailwindcss": "^0.6.9",
 		"vite": "6.0.7"
 	},
 	"dependencies": {
 		"@fabioquarantini/js-utils": "^1.0.1",
 		"deepmerge": "4.3.1",
 		"gsap": "npm:@gsap/shockingly@^3.12.5",
-		"infinite-scroll": "4.0.1",
-		"ismobilejs": "1.1.1",
 		"photoswipe": "5.4.4",
-		"swiper": "11.2.0"
+		"swiper": "11.2.0",
+		"tailwindcss": "^4.0.0-beta.8"
 	}
 }

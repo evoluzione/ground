@@ -8,7 +8,7 @@
 				<?php ground_image( [ 
 					'size' => '4-3-large',
 					'attr' => [ 
-						'class' => 'aspect-[4/3] object-cover w-full mb-6',
+						'class' => 'aspect-4/3 object-cover w-full mb-6',
 						'alt' => get_the_title(),
 					],
 				] ); ?>

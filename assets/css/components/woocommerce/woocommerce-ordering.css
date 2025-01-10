@@ -1,5 +1,0 @@
-.woocommerce-ordering {
-	select {
-		@apply text-ellipsis overflow-hidden;
-	}
-}

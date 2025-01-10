@@ -1,9 +1,0 @@
-@layer utilities {
-	.fullscreen {
-		@apply transform -translate-x-2/4 w-screen ml-1/2 rounded-none !important;
-
-		img {
-			@apply w-full;
-		}
-	}
-}

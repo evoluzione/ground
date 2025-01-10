@@ -26,7 +26,7 @@
 		<?php ground_image( [ 
 			'size' => '16-9-large',
 			'attr' => [ 
-				'class' => 'aspect-[16/9] object-cover w-full mb-6',
+				'class' => 'aspect-16/9 object-cover w-full mb-6',
 				'alt' => get_the_title(),
 			],
 		] ); ?>

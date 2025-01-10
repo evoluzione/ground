@@ -8,7 +8,7 @@
 				ground_image( [ 
 					'size' => '1-1-large',
 					'attr' => [ 
-						'class' => 'aspect-[1/1] object-cover w-full mb-6',
+						'class' => 'aspect-1/1 object-cover w-full mb-6',
 						'alt' => esc_attr( $args['taxonomy']->name ?? '' ),
 					]
 				] );
