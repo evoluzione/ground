@@ -23,7 +23,7 @@ return [
 				],
 				'has_archive' => false,
 				'public' => true,
-				'show_in_rest' => false,
+				'show_in_rest' => true,
 				'menu_position' => 5,
 				'menu_icon' => 'dashicons-welcome-widgets-menus',
 				'exclude_from_search' => false,
