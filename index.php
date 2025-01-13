@@ -15,7 +15,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 	<?php if ( is_home() ) {
 		$page_for_posts_id = get_option( 'page_for_posts' );
-		echo '<div class="prose mb-6">' . apply_filters( 'the_content', get_post_field( 'post_content', $page_for_posts_id ) ) . '</div>';
+		echo '<div class="prose max-w-none mb-6">' . apply_filters( 'the_content', get_post_field( 'post_content', $page_for_posts_id ) ) . '</div>';
 	} ?>
 
 	<div class="grid grid-cols-12 gap-6">

@@ -31,7 +31,7 @@
 			],
 		] ); ?>
 
-		<div class="prose">
+		<div class="prose max-w-none">
 			<?php the_content(); ?>
 		</div>
 

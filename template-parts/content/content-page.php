@@ -13,7 +13,7 @@
 		'placeholder' => '',
 	] ); ?>
 
-	<div class="prose mb-6">
+	<div class="prose max-w-none mb-6">
 		<?php the_content(); ?>
 	</div>
 

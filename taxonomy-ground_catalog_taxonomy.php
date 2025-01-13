@@ -25,7 +25,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 				<h1 class="text-4xl"><?php single_cat_title(); ?></h1>
 			</header>
 			<?php if ( get_the_archive_description() ) : ?>
-				<div class="prose mb-6"><?php the_archive_description(); ?></div>
+				<div class="prose max-w-none mb-6"><?php the_archive_description(); ?></div>
 			<?php endif; ?>
 
 			<?php

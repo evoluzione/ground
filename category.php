@@ -14,7 +14,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 	</header>
 
 	<?php if ( category_description() ) : ?>
-		<div class="prose mb-6"><?php echo category_description(); ?></div>
+		<div class="prose max-w-none mb-6"><?php echo category_description(); ?></div>
 	<?php endif; ?>
 
 	<div class="grid grid-cols-12 gap-6">
