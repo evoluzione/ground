@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="has-no-js is-loading">
+<html <?php language_attributes(); ?> class="is-loading">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
