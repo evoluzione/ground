@@ -4,9 +4,9 @@ export default defineConfig({
 	build: {
 		sourcemap: true,
 		rollupOptions: {
-			input: ['assets/js/app.js'],
+			input: ['src/js/app.js'],
 			output: {
-				dir: 'dist/js',
+				dir: 'assets/js',
 				entryFileNames: 'ground-scripts.min.js',
 				chunkFileNames: 'ground-[name].[hash].chunk.js',
 				assetFileNames: '[name].min.[ext]'
