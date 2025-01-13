@@ -178,6 +178,8 @@ function ground_image( $args = [] ) {
  * @return string|void The SVG markup with custom attributes, the URL if $return_url is true, or void if $echo is true.
  */
 function ground_icon( $args = [] ) {
+	static $cache = []; // Cache per evitare riletture dei file
+
 	$defaults = [ 
 		'name' => '',
 		'attr' => [ 
@@ -198,36 +200,45 @@ function ground_icon( $args = [] ) {
 	$name = $args['name'];
 	$icon_set = $args['icon_set'];
 	$file_extension = $args['file_extension'];
-	$echo = $args['echo'];
 	$attr = $args['attr'];
-	$path = $args['path'] ? $args['path'] : GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $icon_set . '/';
+	$echo = $args['echo'];
+	$path = $args['path'] ?: GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $icon_set . '/';
 	$file_path = $path . $name . '.' . $file_extension;
 
-	if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) || $file_extension !== 'svg' ) {
+	// Verifica file
+	if ( $file_extension !== 'svg' || ! is_readable( $file_path ) ) {
 		return;
 	}
 
-	$markup = file_get_contents( $file_path );
-	if ( $markup === false ) {
-		return;
+	// Controlla la cache
+	$cache_key = md5( $file_path . json_encode( $attr ) );
+	if ( isset( $cache[ $cache_key ] ) ) {
+		$icon = $cache[ $cache_key ];
+	} else {
+		// Leggi e manipola l'SVG
+		$markup = file_get_contents( $file_path );
+		if ( $markup === false ) {
+			return;
+		}
+
+		$dom = new DOMDocument();
+		@$dom->loadXML( $markup, LIBXML_NOENT | LIBXML_DTDLOAD );
+
+		$svg = $dom->getElementsByTagName( 'svg' )->item( 0 );
+		if ( ! $svg ) {
+			return;
+		}
+
+		foreach ( $attr as $key => $value ) {
+			$svg->setAttribute( $key, $value );
+		}
+
+		$icon = $dom->saveXML( $svg );
+		$icon = str_replace( '<?xml version="1.0"?>', '', $icon );
+
+		// Salva nella cache
+		$cache[ $cache_key ] = $icon;
 	}
-
-	$dom = new DOMDocument();
-	libxml_use_internal_errors( true );
-	$dom->loadXML( $markup, LIBXML_NOENT | LIBXML_DTDLOAD );
-	libxml_clear_errors();
-
-	$svg = $dom->getElementsByTagName( 'svg' )->item( 0 );
-	if ( ! $svg ) {
-		return;
-	}
-
-	foreach ( $attr as $key => $value ) {
-		$svg->setAttribute( $key, $value );
-	}
-
-	$icon = $dom->saveXML( $svg );
-	$icon = str_replace( '<?xml version="1.0"?>', '', $icon );
 
 	if ( $echo ) {
 		echo $icon;
@@ -235,6 +246,7 @@ function ground_icon( $args = [] ) {
 		return $icon;
 	}
 }
+
 
 /**
  * Write log in /wp-content/debug.log
