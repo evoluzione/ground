@@ -382,7 +382,7 @@ function ground_subpages( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 	$pages = get_pages( $args );
 
-	function display_page_hierarchy( $pages, $args, $parent_id = 0, $depth = 0, $current_id = 0, $parents = array() ) {
+	function ground_display_page_hierarchy( $pages, $args, $parent_id = 0, $depth = 0, $current_id = 0, $parents = array() ) {
 		$output = '';
 		foreach ( $pages as $page ) {
 			if ( $page->post_parent == $parent_id ) {
@@ -410,7 +410,7 @@ function ground_subpages( $args = array() ) {
 
 				$output .= '<li class="' . esc_attr( $item_class ) . '">';
 				$output .= '<a href="' . get_permalink( $page->ID ) . '" class="' . esc_attr( $link_class ) . '">' . $page->post_title . '</a>';
-				$child_output = display_page_hierarchy( $pages, $args, $page->ID, $depth + 1, $current_id, $parents );
+				$child_output = ground_display_page_hierarchy( $pages, $args, $page->ID, $depth + 1, $current_id, $parents );
 				if ( $child_output ) {
 					$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
 				}
@@ -420,7 +420,7 @@ function ground_subpages( $args = array() ) {
 		return $output;
 	}
 
-	$menu_output = display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents );
+	$menu_output = ground_display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents );
 	if ( ! empty( $menu_output ) ) {
 		echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . $menu_output . '</ul>';
 	}
@@ -506,8 +506,8 @@ function ground_terms( $arg = [] ) {
 		$term_hierarchy[ $term->parent ][] = $term;
 	}
 
-	if ( ! function_exists( 'display_term_hierarchy' ) ) {
-		function display_term_hierarchy( $term_hierarchy, $args, $parent_id = 0, $depth = 0, $current_term_id = 0 ) {
+	if ( ! function_exists( 'ground_display_term_hierarchy' ) ) {
+		function ground_display_term_hierarchy( $term_hierarchy, $args, $parent_id = 0, $depth = 0, $current_term_id = 0 ) {
 			if ( ! isset( $term_hierarchy[ $parent_id ] ) ) {
 				return '';
 			}
@@ -539,7 +539,7 @@ function ground_terms( $arg = [] ) {
 				$output .= '<li class="' . esc_attr( $item_class ) . '">';
 				$output .= '<a href="' . get_term_link( $term ) . '" class="' . esc_attr( $link_class ) . '">' . $term->name . '</a>';
 
-				$child_output = display_term_hierarchy( $term_hierarchy, $args, $term->term_id, $depth + 1, $current_term_id );
+				$child_output = ground_display_term_hierarchy( $term_hierarchy, $args, $term->term_id, $depth + 1, $current_term_id );
 				if ( $child_output ) {
 					$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
 				}
@@ -551,7 +551,7 @@ function ground_terms( $arg = [] ) {
 	}
 
 	$output = '<ul class="' . esc_attr( $args['menu_class'] ) . '">';
-	$output .= display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, 0 );
+	$output .= ground_display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, 0 );
 	$output .= '</ul>';
 	if ( $args['echo'] ) {
 		echo $output;
