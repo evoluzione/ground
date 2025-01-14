@@ -185,7 +185,7 @@ function ground_icon( $args = [] ) {
 		'attr' => [ 
 			'class' => 'inline'
 		],
-		'icon_set' => 'lucide',
+		'icon_set' => ground_config( 'media.icon_set' ),
 		'file_extension' => 'svg',
 		'echo' => true,
 		'path' => '',

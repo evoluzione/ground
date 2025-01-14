@@ -4,6 +4,7 @@ return [
 	'quality' => 82,
 	'content_width' => 1920,
 	'sanitize_file_name' => true,
+	'icon_set' => 'lucide',
 	'sizes' => [ 
 		[ 
 			'name' => "thumbnail",
