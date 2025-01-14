@@ -178,7 +178,7 @@ function ground_image( $args = [] ) {
  * @return string|void The SVG markup with custom attributes, the URL if $return_url is true, or void if $echo is true.
  */
 function ground_icon( $args = [] ) {
-	static $cache = []; // Cache per evitare riletture dei file
+	static $cache = [];
 
 	$defaults = [ 
 		'name' => '',
@@ -205,17 +205,17 @@ function ground_icon( $args = [] ) {
 	$path = $args['path'] ?: GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $icon_set . '/';
 	$file_path = $path . $name . '.' . $file_extension;
 
-	// Verifica file
+	// File check
 	if ( $file_extension !== 'svg' || ! is_readable( $file_path ) ) {
 		return;
 	}
 
-	// Controlla la cache
+	// Check the cache
 	$cache_key = md5( $file_path . json_encode( $attr ) );
 	if ( isset( $cache[ $cache_key ] ) ) {
 		$icon = $cache[ $cache_key ];
 	} else {
-		// Leggi e manipola l'SVG
+		// Read and manipulate the SVG
 		$markup = file_get_contents( $file_path );
 		if ( $markup === false ) {
 			return;
@@ -236,7 +236,7 @@ function ground_icon( $args = [] ) {
 		$icon = $dom->saveXML( $svg );
 		$icon = str_replace( '<?xml version="1.0"?>', '', $icon );
 
-		// Salva nella cache
+		// Save in the cache
 		$cache[ $cache_key ] = $icon;
 	}
 
