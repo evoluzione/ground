@@ -4,8 +4,11 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_DIRECTORY_URI . '/assets/img/favicon.png'; ?>">
+
+	<link rel="icon" href="<?php echo GROUND_TEMPLATE_DIRECTORY_URI . '/assets/img/favicon.ico'; ?>" sizes="any">
+	<link rel="icon" href="<?php echo GROUND_TEMPLATE_DIRECTORY_URI . '/assets/img/icon.svg'; ?>" type="image/svg+xml">
 	<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_DIRECTORY_URI . '/assets/img/icon.png'; ?>">
+
 	<meta name="theme-color" content="<?php ground_config( 'theme.theme-color' ) ?>">
 	<meta name="theme-url" content="<?php echo GROUND_TEMPLATE_DIRECTORY_URI; ?>">
 	<?php wp_head(); ?>
