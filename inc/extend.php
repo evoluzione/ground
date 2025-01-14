@@ -146,6 +146,16 @@ add_filter( 'nav_menu_submenu_css_class', 'ground_nav_menu_submenu_css_class', 1
  * @return array   Modified array of HTML attributes.
  */
 function ground_nav_menu_link_css_class( $atts, $item, $args, $depth ) {
+	if ( ! is_array( $atts ) ) {
+		$atts = [];
+	}
+
+	if ( ! is_object( $args ) || ! is_object( $item ) ) {
+		return $atts;
+	}
+
+	$depth = intval( $depth );
+
 	$remove_default_class = $args->remove_default_class ?? false;
 	$link_class = $args->link_class ?? '';
 	$link_class_depth = $args->{'link_class_' . $depth} ?? '';
@@ -153,9 +163,11 @@ function ground_nav_menu_link_css_class( $atts, $item, $args, $depth ) {
 	$link_parent_class = $args->link_parent_class ?? '';
 	$link_ancestor_class = $args->link_ancestor_class ?? '';
 
+	$atts['class'] = $atts['class'] ?? '';
+
 	if ( $remove_default_class === true ) {
 		$atts['class'] = '';
-	} elseif ( is_array( $remove_default_class ) ) {
+	} elseif ( is_array( $remove_default_class ) && ! empty( $atts['class'] ) ) {
 		$existing_classes = explode( ' ', $atts['class'] );
 		$atts['class'] = implode( ' ', array_diff( $existing_classes, $remove_default_class ) );
 	}
@@ -180,7 +192,8 @@ function ground_nav_menu_link_css_class( $atts, $item, $args, $depth ) {
 		$atts['class'] .= ' ' . $link_ancestor_class;
 	}
 
-	$atts['class'] = trim( $atts['class'] );
+	$atts['class'] = implode( ' ', array_unique( explode( ' ', trim( $atts['class'] ) ) ) );
+	$atts['class'] = esc_attr( $atts['class'] );
 
 	return $atts;
 }
