@@ -21,5 +21,5 @@
 	<?php if ( class_exists( 'WooCommerce' ) && is_checkout() ) {
 		get_template_part( 'template-parts/content/content-header-secondary' );
 	} else {
-		get_template_part( 'template-parts/content/content-header' );
+		get_template_part( 'template-parts/content/content-header-primary' );
 	} ?>
