@@ -6,7 +6,7 @@
 <nav class="flex justify-center">
 	<?php wp_nav_menu( [ 
 		'theme_location' => 'navigation-header-primary',
-		'menu_class' => 'flex flex-wrap gap-6 items-start font-medium text-sm list-none',
+		'menu_class' => 'flex flex-wrap gap-6 items-start list-none',
 		'depth' => 0,
 		'container' => '',
 
