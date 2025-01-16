@@ -10,5 +10,6 @@
 			] ); ?>
 		</a>
 		<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
+		<?php get_template_part( 'template-parts/navigation/navigation-languages' ); ?>
 	</div>
 </header>
