@@ -282,57 +282,153 @@ function ground_pagination( $args = array() ) {
 		'type' => 'array',
 		'only_numbers' => false,
 		'echo' => true,
-		'nav_class' => '',
+		'merge_classes' => false,
+
+		'container_class' => '',
 		'list_class' => '',
-		'prev_class' => '',
-		'prev_link_class' => '',
-		'next_class' => '',
-		'next_link_class' => '',
-		'dots_class' => '',
-		'dots_text_class' => '',
-		'page_class' => '',
-		'page_active_class' => '',
-		'page_link_class' => '',
-		'page_text_active_class' => '',
+
+		'item_class' => '', //
+		'item_active_class' => '', //
+
+		'item_prev_class' => '', //
+		'item_next_class' => '', //
+		'item_dots_class' => '', //
+		'item_page_class' => '', //
+
+		'item_page_active_class' => '', //
+
+		'link_class' => '',//
+		// 'link_active_class' => '', // In teoria non esiste perchè solo testo
+
+		'link_prev_class' => '', //
+		'link_next_class' => '', //
+		'link_page_class' => '', //
+
+		'text_class' => '',
+		'text_page_class' => '',
+		'text_dots_class' => '', //
+
+		'text_active_class' => '',
+
+		// ??
+		'item_link_active_class' => '',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 	$paginate = paginate_links( $args );
 
 	if ( $paginate ) {
-		$output = '<nav class="' . esc_attr( $args['nav_class'] ) . '" aria-label="pagination">';
+		$output = '<nav class="' . esc_attr( $args['container_class'] ) . '" aria-label="pagination">';
 		$output .= '<ul class="' . esc_attr( $args['list_class'] ) . '">';
 
 		foreach ( $paginate as $page ) {
-			if ( false !== strpos( $page, 'prev' ) ) {
-				// Prev
-				if ( $args['only_numbers'] ) {
-					continue;
-				}
-				$output .= '<li class="' . esc_attr( $args['prev_class'] ) . '">' . str_replace( array( 'prev', 'page-numbers' ), array( esc_attr( $args['prev_link_class'] ) ), $page ) . '</li>';
-			} elseif ( false !== strpos( $page, 'next' ) ) {
-				// Next
-				if ( $args['only_numbers'] ) {
-					continue;
-				}
-				$output .= '<li class="' . esc_attr( $args['next_class'] ) . '">' . str_replace( array( 'next', 'page-numbers' ), array( esc_attr( $args['next_link_class'] ) ), $page ) . '</li>';
-			} elseif ( false !== strpos( $page, 'dots' ) ) {
-				// Dots
-				$output .= '<li class="' . esc_attr( $args['dots_class'] ) . '">' . str_replace( array( 'dots', 'page-numbers' ), array( esc_attr( $args['dots_text_class'] ) ), $page ) . '</li>';
-			} else {
-				// Pages
-				$active = false !== strpos( $page, 'current' );
+			$active = false !== strpos( $page, 'current' );
+			$is_link = strpos( $page, '<a ' ) !== false;
 
-				if ( $active ) {
-					$page_class = ' ' . esc_attr( $args['page_active_class'] );
-					$page_link_class = ' ' . esc_attr( $args['page_text_active_class'] );
-				} else {
-					$page_class = ' ' . esc_attr( $args['page_class'] );
-					$page_link_class = ' ' . esc_attr( $args['page_link_class'] );
-				}
-				$output .= '<li class="' . $page_class . '">' . str_replace( 'page-numbers', $page_link_class, $page ) . '</li>';
+			// Determina il tipo: prev, next, dots o page (numerica)
+			$type = 'page';
+			if ( strpos( $page, 'prev' ) !== false ) {
+				$type = 'prev';
+			} elseif ( strpos( $page, 'next' ) !== false ) {
+				$type = 'next';
+			} elseif ( strpos( $page, 'dots' ) !== false ) {
+				$type = 'dots';
 			}
+
+			// Imposta le classi per l'elemento <li>
+			if ( $args['merge_classes'] ) {
+				switch ( $type ) {
+					case 'prev':
+						$item_class = $args['item_prev_class'];
+						break;
+					case 'next':
+						$item_class = $args['item_next_class'];
+						break;
+					case 'dots':
+						$item_class = $args['item_dots_class'];
+						break;
+					case 'page':
+					default:
+						$item_class = $active ? $args['item_page_active_class'] : $args['item_page_class'];
+						break;
+				}
+			} else {
+				$item_class = $args['item_class'];
+				if ( 'prev' === $type ) {
+					$item_class .= ' ' . $args['item_prev_class'];
+				} elseif ( 'next' === $type ) {
+					$item_class .= ' ' . $args['item_next_class'];
+				} elseif ( 'dots' === $type ) {
+					$item_class .= ' ' . $args['item_dots_class'];
+				} elseif ( 'page' === $type ) {
+					$item_class .= ' ' . $args['item_page_class'];
+					if ( $active ) {
+						$item_class .= ' ' . $args['item_page_active_class'];
+					}
+				}
+			}
+
+			// Imposta le classi per l'elemento interno (<a> o <span>)
+			if ( $args['merge_classes'] ) {
+				// Se merge true si usano solo le classi specifiche
+				switch ( $type ) {
+					case 'prev':
+						$text_class = $args['link_prev_class'];
+						break;
+					case 'next':
+						$text_class = $args['link_next_class'];
+						break;
+					case 'dots':
+						$text_class = $args['text_dots_class'];
+						break;
+					case 'page':
+					default:
+						$text_class = $active ? $args['text_active_class'] : $args['link_page_class'];
+						break;
+				}
+			} else {
+				// Merge false: per i link e per gli span si aggiunge la classe base
+				if ( $is_link ) {
+					$text_class_array = array();
+					$text_class_array[] = $args['link_class'];
+					if ( 'prev' === $type ) {
+						$text_class_array[] = $args['link_prev_class'];
+					} elseif ( 'next' === $type ) {
+						$text_class_array[] = $args['link_next_class'];
+					} elseif ( 'page' === $type ) {
+						$text_class_array[] = $args['link_page_class'];
+					}
+					$text_class = implode( ' ', array_unique( $text_class_array ) );
+				} else {
+					// Per gli span, aggiungiamo la classe base per il testo
+					$text_class_array = array();
+					$text_class_array[] = $args['text_class'];
+					if ( 'dots' === $type ) {
+						$text_class_array[] = $args['text_dots_class'];
+					} elseif ( 'page' === $type ) {
+						// Se la pagina è attiva, aggiungiamo la classe specifica per active
+						if ( $active ) {
+							$text_class_array[] = $args['text_active_class'];
+						} else {
+							$text_class_array[] = $args['text_page_class'];
+						}
+					}
+					$text_class = implode( ' ', array_unique( $text_class_array ) );
+				}
+			}
+
+			// Sostituisce l'attributo class degli elementi interni con la stringa definita
+			$item_content = preg_replace_callback(
+				'/class="[^"]*"/',
+				function ($matches) use ($text_class) {
+					return 'class="' . trim( $text_class ) . '"';
+				},
+				$page
+			);
+
+			$output .= '<li class="' . esc_attr( trim( $item_class ) ) . '">' . $item_content . '</li>';
 		}
+
 		$output .= '</ul>';
 		$output .= '</nav>';
 
