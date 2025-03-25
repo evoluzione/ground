@@ -485,42 +485,44 @@ function ground_subpages( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 	$pages = get_pages( $args );
 
-	function ground_display_page_hierarchy( $pages, $args, $parent_id = 0, $depth = 0, $current_id = 0, $parents = array() ) {
-		$output = '';
-		foreach ( $pages as $page ) {
-			if ( $page->post_parent == $parent_id ) {
-				$is_active = ( $page->ID == $current_id );
-				$depth_key = $depth + 1;
+	if ( ! function_exists( 'ground_display_page_hierarchy' ) ) {
+		function ground_display_page_hierarchy( $pages, $args, $parent_id = 0, $depth = 0, $current_id = 0, $parents = array() ) {
+			$output = '';
+			foreach ( $pages as $page ) {
+				if ( $page->post_parent == $parent_id ) {
+					$is_active = ( $page->ID == $current_id );
+					$depth_key = $depth + 1;
 
-				$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
-				$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
-				$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
+					$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
+					$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
+					$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
 
-				if ( $is_active ) {
-					$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
-					$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
+					if ( $is_active ) {
+						$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
+						$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
+					}
+
+					if ( $args['merge_classes'] ) {
+						$item_class = $is_active
+							? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
+							: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
+						$link_class = $is_active
+							? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
+							: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
+						$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
+					}
+
+					$output .= '<li class="' . esc_attr( $item_class ) . '">';
+					$output .= '<a href="' . get_permalink( $page->ID ) . '" class="' . esc_attr( $link_class ) . '">' . $page->post_title . '</a>';
+					$child_output = ground_display_page_hierarchy( $pages, $args, $page->ID, $depth + 1, $current_id, $parents );
+					if ( $child_output ) {
+						$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
+					}
+					$output .= '</li>';
 				}
-
-				if ( $args['merge_classes'] ) {
-					$item_class = $is_active
-						? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
-						: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
-					$link_class = $is_active
-						? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
-						: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
-					$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
-				}
-
-				$output .= '<li class="' . esc_attr( $item_class ) . '">';
-				$output .= '<a href="' . get_permalink( $page->ID ) . '" class="' . esc_attr( $link_class ) . '">' . $page->post_title . '</a>';
-				$child_output = ground_display_page_hierarchy( $pages, $args, $page->ID, $depth + 1, $current_id, $parents );
-				if ( $child_output ) {
-					$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
-				}
-				$output .= '</li>';
 			}
+			return $output;
 		}
-		return $output;
 	}
 
 	$menu_output = ground_display_page_hierarchy( $pages, $args, $top_parent_id, 0, $current_id, $parents );
