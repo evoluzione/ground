@@ -11,23 +11,35 @@ function ground_config( $configPath ) {
 	$pathParts = explode( '.', $configPath );
 	$fileName = array_shift( $pathParts );
 
-	// Load and cache the file if not already cached
-	if ( ! isset( $configs[ $fileName ] ) ) {
+	if ( ! array_key_exists( $fileName, $configs ) ) {
 		$filePath = GROUND_TEMPLATE_DIRECTORY . '/config/' . $fileName . '.php';
 
-		if ( ! file_exists( $filePath ) ) {
+		if ( ! is_file( $filePath ) ) {
+			$configs[ $fileName ] = null;
 			return null;
 		}
 
-		$configs[ $fileName ] = include $filePath;
+		$config = include $filePath;
+
+		if ( ! is_array( $config ) ) {
+			$configs[ $fileName ] = null;
+			return null;
+		}
+
+		$configs[ $fileName ] = $config;
 	}
 
-	$data = $configs[ $fileName ];
+	if ( $configs[ $fileName ] === null ) {
+		return null;
+	}
+
+	$data = &$configs[ $fileName ];
+
 	foreach ( $pathParts as $key ) {
-		if ( ! isset( $data[ $key ] ) ) {
+		if ( ! is_array( $data ) || ! array_key_exists( $key, $data ) ) {
 			return null;
 		}
-		$data = $data[ $key ];
+		$data = &$data[ $key ];
 	}
 
 	return $data;
