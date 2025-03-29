@@ -3,7 +3,8 @@
  * Retrieves a configuration value from a config file.
  *
  * @param string $configPath The dot notation for the config key (e.g., "app.debug").
- * @return mixed The corresponding value, or null/false if the file does not exist.
+ *
+ * @return mixed The corresponding value, or null if the file does not exist or the config is invalid.
  */
 function ground_config( $configPath ) {
 	static $configs = [];
@@ -46,14 +47,12 @@ function ground_config( $configPath ) {
 }
 
 /**
- * Excerpt with custom length
+ * Excerpt with custom length.
  *
- * Summary or description of a post with custom length.
- *
- * @param int             $length     Optional. Excerpt length in characters. Default is 100.
- * @param string          $after_text Optional. Characters to add at the end of the text. Default is "...".
+ * @param int             $length     Optional. The excerpt length in characters. Default is 100.
+ * @param string          $after_text Optional. Characters to add at the end of the excerpt. Default is '...'.
  * @param int|WP_Post     $post       Optional. Post ID or post object. Default is global $post.
- * @param bool            $echo       Optional. If true, echoes the excerpt, otherwise returns it. Default true.
+ * @param bool            $echo       Optional. If true, echoes the excerpt; otherwise, returns it. Default is true.
  *
  * @return string|void    The excerpt if $echo is false, otherwise echoes it.
  */
@@ -88,23 +87,20 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
 /**
  * Retrieves and processes an image (featured or attachment).
  *
- * Retrieve an image using the WordPress attachment ID if provided. If no ID is provided,
- * it will try to use the post's thumbnail URL. If neither are available, it falls back to a default image URL.
- * Additionally, it allows control over the HTML output, such as removing responsive attributes and customizing HTML attributes.
- *
  * @param array $args {
  *     Optional. An array of parameters for retrieving the image.
  *
- *     @type string|int[] $size           Image size. Accepts any registered image size name, or an array of width and height values in pixels (in that order). Default 'thumbnail'.
- *     @type string|array $attr           Query string or array of attributes. Default ['loading' => 'lazy']. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
- *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default null.
- *     @type string $placeholder          URL to a default fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
- *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default false.
- *     @type int|string $attachment_id    WordPress attachment ID for the image. Default empty.
- *     @type bool $responsive             Whether to include 'srcset' and 'sizes' attributes for responsive images. Default true.
- *     @type bool $echo                   Whether to echo the output or return it. Default true.
+ *     @type string|int[] $size           Image size. Accepts any registered image size name or an array of width and height values. Default is 'thumbnail'.
+ *     @type string|array $attr           Query string or array of attributes. Default is ['loading' => 'lazy']. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
+ *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default is null.
+ *     @type string $placeholder          URL to a fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
+ *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default is false.
+ *     @type int|string $attachment_id    WordPress attachment ID for the image. Default is empty.
+ *     @type bool $responsive             Whether to include 'srcset' and 'sizes' attributes for responsive images. Default is true.
+ *     @type bool $echo                   Whether to echo the output or return it. Default is true.
  * }
- * @return string|null The image HTML or URL, or null if 'echo' is set to true.
+ *
+ * @return string|null The image HTML or URL, or null if 'echo' is true.
  */
 function ground_image( $args = [] ) {
 
@@ -178,10 +174,10 @@ function ground_image( $args = [] ) {
  * Retrieves an SVG icon with custom attributes and returns or echoes it.
  *
  * @param array $args {
- *     Optional. An associative array of arguments.
+ *     Optional. An array of arguments.
  *
  *     @type string $name The name of the icon file. Required.
- *     @type array  $attr An associative array of attributes to add to the SVG element. Default is ['class' => ''].
+ *     @type array  $attr An array of attributes to add to the SVG element. Default is ['class' => ''].
  *     @type string $icon_set The name of the icon set. Default is 'lucide'.
  *     @type string $file_extension The file extension of the icon. Default is 'svg'.
  *     @type bool   $echo Whether to echo the SVG markup instead of returning it. Default is true.
@@ -259,10 +255,12 @@ function ground_icon( $args = [] ) {
 }
 
 /**
- * Write log in /wp-content/debug.log
- * Enable WP_DEBUG and WP_DEBUG_LOG
+ * Write log to /wp-content/debug.log.
+ * Requires WP_DEBUG and WP_DEBUG_LOG to be enabled.
  *
  * @param mixed $log Logging data.
+ *
+ * @return void
  */
 function ground_log( $log ) {
 	if ( true === WP_DEBUG && true === WP_DEBUG_LOG ) {
@@ -278,23 +276,23 @@ function ground_log( $log ) {
  * Renders a fully customizable pagination for WordPress.
  *
  * @param array $args {
- *     Optional arguments to customize pagination output.
+ *     Optional. Array of arguments to customize pagination output.
  *
  *     @type string  $prev_text              Text for the "Previous" link.
  *     @type string  $next_text              Text for the "Next" link.
- *     @type int     $mid_size               How many numbers to either side of current page.
- *     @type int     $total                  The total number of pages.
- *     @type int     $current                The current page number.
- *     @type string  $base                   The base URL to use in pagination.
- *     @type string  $format                 The format for pagination links.
- *     @type string  $type                   The return type from paginate_links().
+ *     @type int     $mid_size               How many numbers to either side of the current page.
+ *     @type int     $total                  Total number of pages.
+ *     @type int     $current                Current page number.
+ *     @type string  $base                   Base URL to use in pagination.
+ *     @type string  $format                 Format for pagination links.
+ *     @type string  $type                   Return type from paginate_links().
  *     @type bool    $echo                   Whether to echo or return the result.
  *     @type bool    $merge_classes          Whether to merge or separate the custom classes.
  *     @type bool    $only_numbers           Whether to display only numeric pages (hide prev and next).
  *     @type string  $container_class        Class for the <nav> container.
  *     @type string  $list_class             Class for the <ul> element.
  *     @type string  $item_class             Generic class for all <li> elements.
- *     @type string  $item_active_class      Class used when a pagination item is active.
+ *     @type string  $item_active_class      Class used for active pagination items.
  *     @type string  $item_prev_class        Class used for the "Previous" item.
  *     @type string  $item_next_class        Class used for the "Next" item.
  *     @type string  $item_dots_class        Class used for the dots item.
@@ -453,21 +451,21 @@ function ground_pagination( $args = [] ) {
  * @param array $args {
  *     Optional. Array of arguments.
  *
- *     @type array  $get_pages_args          Additional arguments for get_pages(). Default [].
- *     @type bool   $merge_classes           Whether to merge generic and depth-specific classes. Default true.
- *     @type string $menu_class              Class for main menu <ul>. Default ''.
- *     @type string $submenu_class           Generic submenu class <ul>. Default ''.
- *     @type string $submenu_class_{n}       Depth-specific submenu class for level {n}. Default not set.
- *     @type string $item_class              Generic item class <li>. Default ''.
- *     @type string $item_class_{n}          Depth-specific item class for level {n}. Default not set.
- *     @type string $item_active_class       Generic active item class <li>. Default ''.
- *     @type string $item_active_class_{n}   Depth-specific active item class for level {n}. Default not set.
- *     @type string $link_class              Generic link class <a>. Default ''.
- *     @type string $link_class_{n}          Depth-specific link class for level {n}. Default not set.
- *     @type string $link_active_class       Generic active link class <a>. Default ''.
- *     @type string $link_active_class_{n}   Depth-specific active link class for level {n}. Default not set.
- *     @type bool   $use_cache               Cache generated output. Default true.
- *     @type int    $cache_expiration        Cache expiration time in seconds. Default DAY_IN_SECONDS.
+ *     @type array  $get_pages_args          Additional arguments for get_pages(). Default is [].
+ *     @type bool   $merge_classes           Whether to merge generic and depth-specific classes. Default is true.
+ *     @type string $menu_class              Class for main menu <ul>. Default is ''.
+ *     @type string $submenu_class           Generic submenu class <ul>. Default is ''.
+ *     @type string $submenu_class_{n}       Depth-specific submenu class for level {n}. Default is not set.
+ *     @type string $item_class              Generic item class <li>. Default is ''.
+ *     @type string $item_class_{n}          Depth-specific item class for level {n}. Default is not set.
+ *     @type string $item_active_class       Generic active item class <li>. Default is ''.
+ *     @type string $item_active_class_{n}   Depth-specific active item class for level {n}. Default is not set.
+ *     @type string $link_class              Generic link class <a>. Default is ''.
+ *     @type string $link_class_{n}          Depth-specific link class for level {n}. Default is not set.
+ *     @type string $link_active_class       Generic active link class <a>. Default is ''.
+ *     @type string $link_active_class_{n}   Depth-specific active link class for level {n}. Default is not set.
+ *     @type bool   $use_cache               Cache generated output. Default is false.
+ *     @type int    $cache_expiration        Cache expiration time in seconds. Default is DAY_IN_SECONDS.
  * }
  *
  * @return void Outputs the generated HTML markup directly.
@@ -612,25 +610,25 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
 /**
  * Generates and displays a hierarchical list of terms from a specified taxonomy.
  *
- * @param array $arg {
+ * @param array $args {
  *     Optional. Array of arguments to control the display and behavior of the terms list.
  *
- *     @type string  $taxonomy            The taxonomy to retrieve terms from. Default 'category'.
- *     @type bool    $echo                Whether to echo or return the output. Default true.
- *     @type int     $child_of            The term ID to start the hierarchy from. Default 0 (root).
- *     @type bool    $hide_empty          Whether to hide terms with no posts. Default true.
- *     @type bool    $merge_classes       Whether to merge generic and depth-specific classes. Default true.
- *     @type string  $menu_class          Classes for the root `<ul>` element.  Default not set.
- *     @type string  $submenu_class       Generic submenu class for `<ul>` elements. Default not set.
- *     @type string  $submenu_class_{n}   Depth-specific submenu class for level {n}. Default not set.
- *     @type string  $item_class          Generic item class for `<li>` elements. Default not set.
- *     @type string  $item_class_{n}      Depth-specific item class for level {n}. Default not set.
- *     @type string  $item_active_class   Generic active item class for `<li>` elements. Default not set.
- *     @type string  $item_active_class_{n} Depth-specific active item class for level {n}. Default not set.
- *     @type string  $link_class          Generic link class for term links. Default not set.
- *     @type string  $link_class_{n}      Depth-specific link class for level {n}. Default not set.
- *     @type string  $link_active_class   Generic active link class for term links. Default not set.
- *     @type string  $link_active_class_{n} Depth-specific active link class for level {n}. Default not set.
+ *     @type string  $taxonomy            The taxonomy to retrieve terms from. Default is 'category'.
+ *     @type bool    $echo                Whether to echo or return the output. Default is true.
+ *     @type int     $child_of            The term ID to start the hierarchy from. Default is 0 (root).
+ *     @type bool    $hide_empty          Whether to hide terms with no posts. Default is true.
+ *     @type bool    $merge_classes       Whether to merge generic and depth-specific classes. Default is true.
+ *     @type string  $menu_class          Classes for the root `<ul>` element. Default is an empty string.
+ *     @type string  $submenu_class       Generic submenu class for `<ul>` elements. Default is an empty string.
+ *     @type string  $submenu_class_{n}   Depth-specific submenu class for level {n}. Default is not set.
+ *     @type string  $item_class          Generic item class for `<li>` elements. Default is an empty string.
+ *     @type string  $item_class_{n}      Depth-specific item class for level {n}. Default is not set.
+ *     @type string  $item_active_class   Generic active item class for `<li>` elements. Default is an empty string.
+ *     @type string  $item_active_class_{n} Depth-specific active item class for level {n}. Default is not set.
+ *     @type string  $link_class          Generic link class for term links. Default is an empty string.
+ *     @type string  $link_class_{n}      Depth-specific link class for level {n}. Default is not set.
+ *     @type string  $link_active_class   Generic active link class for term links. Default is an empty string.
+ *     @type string  $link_active_class_{n} Depth-specific active link class for level {n}. Default is not set.
  * }
  *
  * @return string|void The HTML output of the terms list if `$arg['echo']` is false. Otherwise, the function echoes the output.
@@ -728,19 +726,19 @@ function ground_terms( $arg = [] ) {
 
 /**
  * Renders the breadcrumb navigation.
- * TODO: Merge classes
  *
  * @param array $args {
  *     Optional. An array of arguments to customize the breadcrumb output.
  *
- *     @type string $nav_class         CSS class for the `<nav>` element. Default empty.
- *     @type string $list_class        CSS class for the `<ol>` wrapper element. Default empty.
- *     @type string $item_class        CSS class for each breadcrumb `<li>` item. Default empty.
- *     @type string $item_active_class CSS class for the active breadcrumb item. Default empty.
- *     @type string $link_class        CSS class for the breadcrumb `<a>` links. Default empty.
- *     @type string $separator         Separator between breadcrumb items. Default '»'.
- *     @type string $separator_class   CSS class for the separator `<span>` element. Default empty.
+ *     @type string $nav_class         CSS class for the `<nav>` element. Default is an empty string.
+ *     @type string $list_class        CSS class for the `<ol>` wrapper element. Default is an empty string.
+ *     @type string $item_class        CSS class for each breadcrumb `<li>` item. Default is an empty string.
+ *     @type string $item_active_class CSS class for the active breadcrumb item. Default is an empty string.
+ *     @type string $link_class        CSS class for the breadcrumb `<a>` links. Default is an empty string.
+ *     @type string $separator         Separator between breadcrumb items. Default is '»'.
+ *     @type string $separator_class   CSS class for the separator `<span>` element. Default is an empty string.
  * }
+ *
  * @return void
  */
 function ground_breadcrumbs( $args = [] ) {
