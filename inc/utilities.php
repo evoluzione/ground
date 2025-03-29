@@ -730,62 +730,65 @@ function ground_terms( $arg = [] ) {
  * @param array $args {
  *     Optional. An array of arguments to customize the breadcrumb output.
  *
- *     @type string $nav_class         CSS class for the `<nav>` element. Default is an empty string.
- *     @type string $list_class        CSS class for the `<ol>` wrapper element. Default is an empty string.
- *     @type string $item_class        CSS class for each breadcrumb `<li>` item. Default is an empty string.
+ *     @type bool   $merge_classes      Whether to merge item and active item classes for the last breadcrumb item. Default is false.
+ *     @type string $nav_class          CSS class for the `<nav>` element. Default is an empty string.
+ *     @type string $list_class         CSS class for the `<ol>` wrapper element. Default is an empty string.
+ *     @type string $item_class         CSS class for each breadcrumb `<li>` item. Default is an empty string.
  *     @type string $item_active_class CSS class for the active breadcrumb item. Default is an empty string.
- *     @type string $link_class        CSS class for the breadcrumb `<a>` links. Default is an empty string.
- *     @type string $separator         Separator between breadcrumb items. Default is '»'.
- *     @type string $separator_class   CSS class for the separator `<span>` element. Default is an empty string.
+ *     @type string $link_class         CSS class for the breadcrumb `<a>` links. Default is an empty string.
+ *     @type string $separator          Separator between breadcrumb items. Default is '>'.
+ *     @type string $separator_class    CSS class for the separator `<span>` element. Default is an empty string.
  * }
  *
  * @return void
  */
 function ground_breadcrumbs( $args = [] ) {
-	if ( function_exists( 'yoast_breadcrumb' ) && WPSEO_Options::get( 'breadcrumbs-enable', false ) ) {
-
-		$defaults = [ 
-			'nav_class' => '',
-			'list_class' => '',
-			'item_class' => '',
-			'item_active_class' => '',
-			'link_class' => '',
-			'separator' => '>',
-			'separator_class' => '',
-		];
-
-		$args = wp_parse_args( $args, $defaults );
-
-		$breadcrumbs = new WPSEO_Breadcrumbs();
-		$breadcrumb_links = $breadcrumbs->get_links();
-
-		if ( ! empty( $breadcrumb_links ) ) {
-			echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="Breadcrumb">';
-			echo '<ol class="' . esc_attr( $args['list_class'] ) . '">';
-
-			$total = count( $breadcrumb_links );
-			$current = 1;
-
-			foreach ( $breadcrumb_links as $link ) {
-				$url = isset( $link['url'] ) ? $link['url'] : '';
-				$text = isset( $link['text'] ) ? $link['text'] : '';
-
-				if ( $current == $total ) {
-					echo '<li class="' . esc_attr( $args['item_active_class'] ) . '" aria-current="page">';
-					echo esc_html( $text );
-					echo '</li>';
-				} else {
-					echo '<li class="' . esc_attr( $args['item_class'] ) . '">';
-					echo '<a href="' . esc_url( $url ) . '" class="' . esc_attr( $args['link_class'] ) . '">' . esc_html( $text ) . '</a>';
-					echo '<span class="' . esc_attr( $args['separator_class'] ) . '">' . $args['separator'] . '</span>';
-					echo '</li>';
-				}
-
-				$current++;
-			}
-
-			echo '</ol>';
-			echo '</nav>';
-		}
+	if ( ! function_exists( 'yoast_breadcrumb' ) || ! WPSEO_Options::get( 'breadcrumbs-enable', false ) ) {
+		return;
 	}
+
+	$defaults = [ 
+		'merge_classes' => false,
+		'nav_class' => '',
+		'list_class' => '',
+		'item_class' => '',
+		'item_active_class' => '',
+		'link_class' => '',
+		'separator' => '>',
+		'separator_class' => '',
+	];
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$breadcrumbs = new WPSEO_Breadcrumbs();
+	$breadcrumb_links = $breadcrumbs->get_links();
+
+	if ( empty( $breadcrumb_links ) ) {
+		return;
+	}
+
+	$output = [];
+	$total = count( $breadcrumb_links );
+	$current = 1;
+
+	foreach ( $breadcrumb_links as $link ) {
+		$url = isset( $link['url'] ) ? esc_url( $link['url'] ) : '';
+		$text = isset( $link['text'] ) ? esc_html( $link['text'] ) : '';
+
+		if ( $current === $total ) {
+			$classes = $args['merge_classes'] ? $args['item_active_class'] : ( $args['item_class'] . ' ' . $args['item_active_class'] );
+			$output[] = '<li class="' . esc_attr( $classes ) . '" aria-current="page">' . $text . '</li>';
+		} else {
+			$output[] = '<li class="' . esc_attr( $args['item_class'] ) . '">'
+				. '<a href="' . $url . '" class="' . esc_attr( $args['link_class'] ) . '">' . $text . '</a>'
+				. '<span class="' . esc_attr( $args['separator_class'] ) . '">' . $args['separator'] . '</span>'
+				. '</li>';
+		}
+
+		$current++;
+	}
+
+	echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="Breadcrumb">';
+	echo '<ol class="' . esc_attr( $args['list_class'] ) . '">' . implode( '', $output ) . '</ol>';
+	echo '</nav>';
 }
