@@ -619,14 +619,18 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
  *     @type bool    $echo                Whether to echo or return the output. Default true.
  *     @type int     $child_of            The term ID to start the hierarchy from. Default 0 (root).
  *     @type bool    $hide_empty          Whether to hide terms with no posts. Default true.
- *     @type bool    $merge_classes       Whether to merge item/link/submenu classes for hierarchy levels. Default true.
- *     @type string  $menu_class          Classes for the root `<ul>` element. Default 'list-disc ps-6 mb-24'.
- *     @type string  $submenu_class       Classes for the first-level submenu `<ul>` elements. Default 'list-disc ps-6 pl-6'.
- *     @type string  $submenu_class_2     Classes for the second-level submenu `<ul>` elements. Default 'list-disc ps-6 pl-6'.
- *     @type string  $item_class          Classes for `<li>` elements. Default ''.
- *     @type string  $item_active_class   Classes for active `<li>` elements. Default ''.
- *     @type string  $link_class          Classes for term links. Default ''.
- *     @type string  $link_active_class   Classes for active term links. Default 'text-primary'.
+ *     @type bool    $merge_classes       Whether to merge generic and depth-specific classes. Default true.
+ *     @type string  $menu_class          Classes for the root `<ul>` element.  Default not set.
+ *     @type string  $submenu_class       Generic submenu class for `<ul>` elements. Default not set.
+ *     @type string  $submenu_class_{n}   Depth-specific submenu class for level {n}. Default not set.
+ *     @type string  $item_class          Generic item class for `<li>` elements. Default not set.
+ *     @type string  $item_class_{n}      Depth-specific item class for level {n}. Default not set.
+ *     @type string  $item_active_class   Generic active item class for `<li>` elements. Default not set.
+ *     @type string  $item_active_class_{n} Depth-specific active item class for level {n}. Default not set.
+ *     @type string  $link_class          Generic link class for term links. Default not set.
+ *     @type string  $link_class_{n}      Depth-specific link class for level {n}. Default not set.
+ *     @type string  $link_active_class   Generic active link class for term links. Default not set.
+ *     @type string  $link_active_class_{n} Depth-specific active link class for level {n}. Default not set.
  * }
  *
  * @return string|void The HTML output of the terms list if `$arg['echo']` is false. Otherwise, the function echoes the output.
@@ -640,7 +644,6 @@ function ground_terms( $arg = [] ) {
 		'merge_classes' => true,
 		'menu_class' => '',
 		'submenu_class' => '',
-		'submenu_class_2' => '',
 		'item_class' => '',
 		'item_active_class' => '',
 		'link_class' => '',
