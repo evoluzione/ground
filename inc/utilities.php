@@ -575,7 +575,6 @@ function ground_subpages( $args = array() ) {
 	}
 }
 
-
 /**
  * Displays or returns a list of terms for a post, with optional CSS class and separator.
  *
@@ -584,27 +583,30 @@ function ground_subpages( $args = array() ) {
  * @param string $separator Optional. Separator between term links. Default is ', '.
  * @param bool   $echo      Optional. Whether to echo or return the terms list. Default is true.
  *
- * @return string|null The list of term links if $echo is false, null otherwise.
+ * @return string|null If $echo is false, the list of term links is returned. Otherwise, nothing is returned.
  */
 function ground_current_terms( $taxonomy = 'category', $class = '', $separator = ', ', $echo = true ) {
-
 	$post_id = get_the_ID();
+
 	$terms = get_the_terms( $post_id, $taxonomy );
-	$output = '';
 
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$terms_links = array();
+
 		foreach ( $terms as $term ) {
-			$output .= '<a class="' . esc_attr( $class ) . '" href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a>' . $separator;
+			$terms_links[] = '<a class="' . esc_attr( $class ) . '" href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a>';
+		}
+
+		$terms_list = implode( $separator, $terms_links );
+
+		if ( $echo ) {
+			echo $terms_list;
+		} else {
+			return $terms_list;
 		}
 	}
 
-	$terms_list = trim( $output, $separator );
-
-	if ( $echo ) {
-		echo $terms_list;
-	} else {
-		return $terms_list;
-	}
+	return null;
 }
 
 /**
