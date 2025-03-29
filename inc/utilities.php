@@ -638,13 +638,13 @@ function ground_terms( $arg = [] ) {
 		'child_of' => 0,
 		'hide_empty' => true,
 		'merge_classes' => true,
-		'menu_class' => 'list-disc ps-6 mb-24',
-		'submenu_class' => 'list-disc ps-6 pl-6',
-		'submenu_class_2' => 'list-disc ps-6 pl-6',
+		'menu_class' => '',
+		'submenu_class' => '',
+		'submenu_class_2' => '',
 		'item_class' => '',
 		'item_active_class' => '',
 		'link_class' => '',
-		'link_active_class' => 'text-primary',
+		'link_active_class' => '',
 	];
 	$args = wp_parse_args( $arg, $defaults );
 	$terms = get_terms( $args );
@@ -665,9 +665,10 @@ function ground_terms( $arg = [] ) {
 			}
 
 			$output = '';
+			$depth_key = $depth + 1;
+
 			foreach ( $term_hierarchy[ $parent_id ] as $term ) {
 				$is_active = $term->term_id == $current_term_id;
-				$depth_key = $depth + 1;
 
 				$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
 				$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
@@ -698,13 +699,23 @@ function ground_terms( $arg = [] ) {
 
 				$output .= '</li>';
 			}
+
 			return $output;
 		}
 	}
 
+	$current_term_id = 0;
+	if ( is_tax() || is_category() ) {
+		$current_term = get_queried_object();
+		if ( isset( $current_term->term_id ) ) {
+			$current_term_id = $current_term->term_id;
+		}
+	}
+
 	$output = '<ul class="' . esc_attr( $args['menu_class'] ) . '">';
-	$output .= ground_display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, 0 );
+	$output .= ground_display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, $current_term_id );
 	$output .= '</ul>';
+
 	if ( $args['echo'] ) {
 		echo $output;
 	} else {
