@@ -62,20 +62,29 @@ add_filter( 'get_the_archive_title', 'ground_remove_archive_title_prefixes', 10,
 /**
  * Filters the CSS classes applied to a menu item.
  *
- * @param array   $classes    An array of the CSS classes that are applied to the menu item's <li> element.
- * @param WP_Post $menu_item  The current menu item.
- * @param stdClass $args      An object of wp_nav_menu() arguments.
- * @param int     $depth      Depth of menu item. Used for padding.
- * @return array  Modified array of CSS classes.
+ * @param array    $classes    An array of the CSS classes that are applied to the menu item's <li> element.
+ * @param WP_Post  $menu_item  The current menu item.
+ * @param stdClass $args       An object of wp_nav_menu() arguments.
+ * @param int      $depth      Depth of menu item. Used for padding.
+ * @return array   Modified array of CSS classes.
  */
 function ground_nav_menu_css_class( $classes, $menu_item, $args, $depth ) {
 
+	$depth_key = $depth + 1; // Standardizzare l'accesso agli argomenti per profondità.
+
 	$remove_default_class = $args->remove_default_class ?? false;
+
 	$item_class = $args->item_class ?? '';
-	$item_class_depth = $args->{'item_class_' . $depth} ?? '';
+	$item_class_depth = $args->{'item_class_' . $depth_key} ?? '';
+
 	$item_active_class = $args->item_active_class ?? '';
+	$item_active_class_depth = $args->{'item_active_class_' . $depth_key} ?? '';
+
 	$item_parent_class = $args->item_parent_class ?? '';
+	$item_parent_class_depth = $args->{'item_parent_class_' . $depth_key} ?? '';
+
 	$item_ancestor_class = $args->item_ancestor_class ?? '';
+	$item_ancestor_class_depth = $args->{'item_ancestor_class_' . $depth_key} ?? '';
 
 	if ( $remove_default_class === true ) {
 		$classes = array();
@@ -91,16 +100,31 @@ function ground_nav_menu_css_class( $classes, $menu_item, $args, $depth ) {
 		$classes[] = $item_class_depth;
 	}
 
-	if ( $menu_item->current && $item_active_class ) {
-		$classes[] = $item_active_class;
+	if ( $menu_item->current ) {
+		if ( $item_active_class ) {
+			$classes[] = $item_active_class;
+		}
+		if ( $item_active_class_depth ) {
+			$classes[] = $item_active_class_depth;
+		}
 	}
 
-	if ( $menu_item->current_item_parent && $item_parent_class ) {
-		$classes[] = $item_parent_class;
+	if ( $menu_item->current_item_parent ) {
+		if ( $item_parent_class ) {
+			$classes[] = $item_parent_class;
+		}
+		if ( $item_parent_class_depth ) {
+			$classes[] = $item_parent_class_depth;
+		}
 	}
 
-	if ( $menu_item->current_item_ancestor && $item_ancestor_class ) {
-		$classes[] = $item_ancestor_class;
+	if ( $menu_item->current_item_ancestor ) {
+		if ( $item_ancestor_class ) {
+			$classes[] = $item_ancestor_class;
+		}
+		if ( $item_ancestor_class_depth ) {
+			$classes[] = $item_ancestor_class_depth;
+		}
 	}
 
 	return $classes;
@@ -120,7 +144,7 @@ function ground_nav_menu_submenu_css_class( $classes, $args, $depth ) {
 
 	$remove_default_class = $args->remove_default_class ?? false;
 	$submenu_class = $args->submenu_class ?? '';
-	$submenu_class_depth = $args->{'submenu_class_' . $depth} ?? '';
+	$submenu_class_depth = $args->{'submenu_class_' . $depth + 1} ?? '';
 
 	if ( $remove_default_class === true ) {
 		$classes = array();
@@ -159,46 +183,66 @@ function ground_nav_menu_link_css_class( $atts, $item, $args, $depth ) {
 		return $atts;
 	}
 
-	$depth = intval( $depth );
+	$depth_key = $depth + 1;
 
 	$remove_default_class = $args->remove_default_class ?? false;
-	$link_class = $args->link_class ?? '';
-	$link_class_depth = $args->{'link_class_' . $depth} ?? '';
-	$link_active_class = $args->link_active_class ?? '';
-	$link_parent_class = $args->link_parent_class ?? '';
-	$link_ancestor_class = $args->link_ancestor_class ?? '';
 
-	$atts['class'] = $atts['class'] ?? '';
+	$link_class = $args->link_class ?? '';
+	$link_class_depth = $args->{'link_class_' . $depth_key} ?? '';
+
+	$link_active_class = $args->link_active_class ?? '';
+	$link_active_class_depth = $args->{'link_active_class_' . $depth_key} ?? '';
+
+	$link_parent_class = $args->link_parent_class ?? '';
+	$link_parent_class_depth = $args->{'link_parent_class_' . $depth_key} ?? '';
+
+	$link_ancestor_class = $args->link_ancestor_class ?? '';
+	$link_ancestor_class_depth = $args->{'link_ancestor_class_' . $depth_key} ?? '';
+
+	$current_classes = ! empty( $atts['class'] ) ? explode( ' ', $atts['class'] ) : [];
 
 	if ( $remove_default_class === true ) {
-		$atts['class'] = '';
-	} elseif ( is_array( $remove_default_class ) && ! empty( $atts['class'] ) ) {
-		$existing_classes = explode( ' ', $atts['class'] );
-		$atts['class'] = implode( ' ', array_diff( $existing_classes, $remove_default_class ) );
+		$current_classes = [];
+	} elseif ( is_array( $remove_default_class ) ) {
+		$current_classes = array_diff( $current_classes, $remove_default_class );
 	}
 
 	if ( $link_class ) {
-		$atts['class'] .= ' ' . $link_class;
+		$current_classes[] = $link_class;
 	}
 
 	if ( $link_class_depth ) {
-		$atts['class'] .= ' ' . $link_class_depth;
+		$current_classes[] = $link_class_depth;
 	}
 
-	if ( $item->current && $link_active_class ) {
-		$atts['class'] .= ' ' . $link_active_class;
+	if ( $item->current ) {
+		if ( $link_active_class ) {
+			$current_classes[] = $link_active_class;
+		}
+		if ( $link_active_class_depth ) {
+			$current_classes[] = $link_active_class_depth;
+		}
 	}
 
-	if ( $item->current_item_parent && $link_parent_class ) {
-		$atts['class'] .= ' ' . $link_parent_class;
+	if ( $item->current_item_parent ) {
+		if ( $link_parent_class ) {
+			$current_classes[] = $link_parent_class;
+		}
+		if ( $link_parent_class_depth ) {
+			$current_classes[] = $link_parent_class_depth;
+		}
 	}
 
-	if ( $item->current_item_ancestor && $link_ancestor_class ) {
-		$atts['class'] .= ' ' . $link_ancestor_class;
+	if ( $item->current_item_ancestor ) {
+		if ( $link_ancestor_class ) {
+			$current_classes[] = $link_ancestor_class;
+		}
+		if ( $link_ancestor_class_depth ) {
+			$current_classes[] = $link_ancestor_class_depth;
+		}
 	}
 
-	$atts['class'] = implode( ' ', array_unique( explode( ' ', trim( $atts['class'] ) ) ) );
-	$atts['class'] = esc_attr( $atts['class'] );
+	$atts['class'] = esc_attr( implode( ' ', array_unique( array_filter( $current_classes ) ) ) );
 
 	return $atts;
 }
