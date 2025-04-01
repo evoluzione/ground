@@ -47,7 +47,11 @@ function ground_body_class( $classes ) {
 add_filter( 'body_class', 'ground_body_class' );
 
 /**
- * Archive title without prefix ("Category:", "Tag:", "Author:")
+ * Removes the default prefix from archive titles (e.g., "Category:", "Tag:", "Author:").
+ *
+ * @param string $title          The archive title with the default prefix.
+ * @param string $original_title The raw archive title without any prefix.
+ * @return string                The cleaned archive title.
  */
 function ground_remove_archive_title_prefixes( $title, $original_title ) {
 	return $original_title;
