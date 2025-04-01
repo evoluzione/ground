@@ -37,7 +37,7 @@ add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
  */
 function ground_body_class( $classes ) {
 
-	if ( ground_config( 'theme.debug' ) ) {
+	if ( ground_config( 'theme.debug_breakpoints' ) ) {
 		$classes[] = 'debug-screens';
 	}
 
