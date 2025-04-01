@@ -3,7 +3,7 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/aspect-ratio";
-/* @plugin "tailwindcss-debug-screens"; */
+@plugin "tailwindcss-debug-screens";
 
 @theme {
   --font-primary: var(--font-sans);
