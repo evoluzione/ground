@@ -13,21 +13,18 @@ add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
 /**
  * Sanitize uploaded filenames by removing special characters and accents.
  *
- * Converts all accent characters to their ASCII equivalents if the configuration
- * flag is enabled.
- *
  * @param string $filename The original filename.
  * @return string The sanitized filename.
  */
-function ground_sanitize_uploads( $filename ) {
-	if ( ground_config( 'media.sanitize_file_name' ) ) {
-		return sanitize_file_name( remove_accents( $filename ) );
-	}
+function ground_sanitize_uploaded_filename( $filename ) {
+    if ( ! ground_config( 'media.sanitize_file_name' ) ) {
+        return $filename;
+    }
 
-	return $filename;
+    return remove_accents( $filename );
 }
 
-add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
+add_filter( 'sanitize_file_name', 'ground_sanitize_uploaded_filename', 9 );
 
 /**
  * Custom body class
