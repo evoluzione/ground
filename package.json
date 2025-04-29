@@ -4,12 +4,14 @@
 	"description": "WordPress starter theme for front-end developers",
 	"type": "module",
 	"scripts": {
-		"dev": "npm-run-all -p \"styles -- --watch\" \"js -- --watch\" sync",
-		"build": "npm-run-all js \"styles -- --minify\"",
-		"styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --verbose",
-		"sync": "browser-sync start --no-open -p https://ground.develop -f 'assets/css/*.css' '**/*.php' 'assets/js/ground-scripts.min.js' -w",
-		"js": "vite build",
-		"pot": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,assets"
+		"dev": "npm-run-all -p dev:styles dev:js dev:sync",
+		"build": "npm-run-all build:js build:styles",
+		"dev:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --watch --verbose",
+		"build:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --minify --verbose",
+		"dev:js": "vite build --watch",
+		"build:js": "vite build",
+		"dev:sync": "browser-sync start --proxy https://ground.develop --files 'assets/css/*.css' '**/*.php' 'assets/js/*.min.js' --no-open --watch",
+		"pot:generate": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,assets"
 	},
 	"author": {
 		"name": "Fabio Quarantini",
