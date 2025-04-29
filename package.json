@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "npm-run-all -p dev:styles dev:js dev:sync",
-		"build": "npm-run-all build:js build:styles",
+		"build": "npm-run-all build:js build:styles pot:generate",
 		"dev:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --watch --verbose",
 		"build:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --minify --verbose",
 		"dev:js": "vite build --watch",
