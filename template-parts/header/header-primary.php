@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="is-loading">
+<html <?php language_attributes(); ?> class="is-loading scroll-smooth">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
