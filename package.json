@@ -38,7 +38,7 @@
 	"dependencies": {
 		"@fabioquarantini/js-utils": "^1.0.1",
 		"deepmerge": "4.3.1",
-		"gsap": "npm:@gsap/shockingly@^3.12.7",
+		"gsap": "3.13.0",
 		"photoswipe": "5.4.4",
 		"swiper": "11.2.6"
 	}
