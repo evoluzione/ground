@@ -68,7 +68,7 @@ add_filter( 'get_the_archive_title', 'ground_remove_archive_title_prefixes', 10,
 function ground_nav_menu_css_class( $classes, $menu_item, $args, $depth ) {
 	$depth_key = $depth + 1;
 	$remove_default_class = $args->remove_default_class ?? false;
-	$merge_classes = $args->merge_classes ?? false;
+	$merge_classes = $args->merge_classes ?? true;
 
 	$item_class = $args->item_class ?? '';
 	$item_class_depth = $args->{'item_class_' . $depth_key} ?? '';

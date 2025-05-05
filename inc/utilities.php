@@ -324,7 +324,7 @@ function ground_pagination( $args = [] ) {
 		'format' => '?paged=%#%',
 		'type' => 'array',
 		'echo' => true,
-		'merge_classes' => false,
+		'merge_classes' => true,
 		'only_numbers' => false,
 		'container_class' => '',
 		'list_class' => '',

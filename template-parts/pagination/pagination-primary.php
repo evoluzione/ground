@@ -4,7 +4,7 @@ $query = isset( $args['query'] ) ? $args['query'] : $wp_query;
 
 ground_pagination( [ 
 	'mid_size' => 1,
-	'merge_classes' => false,
+	'merge_classes' => true,
 
 	'container_class' => 'flex justify-center',
 	'list_class' => 'flex gap-4',

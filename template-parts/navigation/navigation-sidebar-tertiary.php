@@ -2,7 +2,7 @@
 	<?php
 	ground_terms( [ 
 		'taxonomy' => 'ground_catalog_taxonomy',
-		'merge_classes' => false,
+		'merge_classes' => true,
 		// 'child_of' => get_queried_object_id(),
 		'menu_class' => 'list-disc ps-6 mb-24',
 		'submenu_class' => 'list-disc ps-6 pl-6',
