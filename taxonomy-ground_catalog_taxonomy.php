@@ -17,7 +17,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 			<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
 
 			<header class="mb-6">
-				<h1 class="text-4xl"><?php single_cat_title(); ?></h1>
+				<h1 class="text-4xl"><?php single_term_title(); ?></h1>
 			</header>
 			<?php if ( get_the_archive_description() ) : ?>
 				<div class="prose max-w-none mb-6"><?php the_archive_description(); ?></div>
