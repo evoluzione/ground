@@ -9,12 +9,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 	<div class="grid grid-cols-12 gap-6">
 
 		<div class="col-span-2">
-			<?php
-			ground_terms( [ 
-				'taxonomy' => 'ground_catalog_taxonomy',
-				//'child_of' => get_queried_object_id(),
-			] );
-			?>
+			<?php get_template_part( 'template-parts/navigation/navigation-sidebar-tertiary' ); ?>
 		</div>
 
 		<div class="col-span-10">
