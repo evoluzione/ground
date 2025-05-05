@@ -1,34 +1,38 @@
-<?php
-// TODO: Come mettere override le classi normali con quelle degli stati.
-// TODO: Verificare le classi active dei parent (blog e custom post type)
-?>
-
 <nav class="flex justify-center">
 	<?php wp_nav_menu( [ 
 		'theme_location' => 'navigation-header-primary',
-		'menu_class' => 'flex flex-wrap gap-6 items-start list-none',
 		'depth' => 0,
-		'container' => '',
+		'remove_default_class' => true, // Accepts an array to remove only the specified ones
+		'merge_classes' => true,
+		'container' => '', // Leave blank
+		
+		'menu_class' => 'flex flex-wrap gap-6 items-start list-none',
 
-		'remove_default_class' => true, // Accetta una array per rimuovere solo quelle specificate
-	
 		'item_class' => 'relative group',
-
-		'item_class_0' => '',
 		'item_class_1' => '',
-
+		
 		'item_active_class' => 'text-primary',
+		'item_active_class_1' => '',
+		
 		'item_parent_class' => '',
+		'item_parent_class_1' => '',
+
 		'item_ancestor_class' => '',
+		'item_ancestor_class_1' => '',
 
 		'submenu_class' => 'list-none',
-		'submenu_class_0' => 'hidden group-hover:block origin-top-right absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-white border border-slate-200 p-2 rounded-lg shadow-xl',
+		'submenu_class_1' => 'hidden group-hover:block origin-top-right absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-white border border-slate-200 p-2 rounded-lg shadow-xl',
 
 		'link_class' => 'hover:text-primary',
-		'link_class_0' => '',
+		'link_class_1' => '',
 
 		'link_active_class' => 'text-secondary',
+		'link_active_class_1' => '',
+
 		'link_parent_class' => '',
+		'link_parent_class_1' => '',
+
 		'link_ancestor_class' => '',
+		'link_ancestor_class_1' => '',
 	] ); ?>
-</nav> <!-- End .navigation -->
+</nav>
