@@ -2,7 +2,7 @@
 
 $query = isset( $args['query'] ) ? $args['query'] : $wp_query;
 
-ground_pagination( [ 
+ground_pagination( [
 	'mid_size' => 1,
 	'merge_classes' => true,
 
