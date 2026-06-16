@@ -1,0 +1,7 @@
+.git
+node_modules
+.env
+.docker/plugins/*.zip
+.docker/db-init/*.sql
+*.log
+.DS_Store

@@ -5,6 +5,16 @@
 # Write here
 
 #########################################
+# Docker (dev locale)
+#########################################
+
+.env
+/.docker/plugins/*
+!/.docker/plugins/.gitkeep
+/.docker/db-init/*
+!/.docker/db-init/.gitkeep
+
+#########################################
 # Database
 #########################################
 

@@ -1,0 +1,3 @@
+# Drop a COMPLETE .sql dump here to import it on the first `npm run docker:up`
+# (empty DB volume). To re-import later: `npm run docker:reset` then `docker:up`,
+# or `npm run docker:db-import < path/to/dump.sql`.

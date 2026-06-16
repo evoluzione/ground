@@ -10,8 +10,18 @@
 		"build:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --minify --verbose",
 		"dev:js": "vite build --watch",
 		"build:js": "vite build",
-		"dev:sync": "browser-sync start --proxy https://ground.develop --files 'assets/css/*.css' '**/*.php' 'assets/js/*.min.js' --no-open --watch",
-		"pot:generate": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,assets"
+		"dev:sync": "browser-sync start --proxy http://localhost:8080 --files 'assets/css/*.css' '**/*.php' 'assets/js/*.min.js' --no-open --watch",
+		"pot:generate": "wp i18n make-pot . languages/ground.pot --slug=ground --domain=ground --exclude=node_modules,assets",
+		"docker:up": "test -f .env || cp .env.example .env; docker compose up -d --build && npm run docker:provision",
+		"docker:provision": "docker compose run --rm wpcli sh /docker-scripts/provision.sh",
+		"docker:down": "docker compose down",
+		"docker:restart": "docker compose restart",
+		"docker:reset": "docker compose down -v",
+		"docker:shell": "docker compose exec wordpress bash",
+		"docker:logs": "docker compose logs -f wordpress",
+		"docker:ps": "docker compose ps",
+		"docker:wp": "docker compose run --rm wpcli wp",
+		"docker:db-import": "docker compose exec -T db sh -c 'exec mariadb -uroot -p\"$MARIADB_ROOT_PASSWORD\" \"$MARIADB_DATABASE\"'"
 	},
 	"author": {
 		"name": "Fabio Quarantini",
