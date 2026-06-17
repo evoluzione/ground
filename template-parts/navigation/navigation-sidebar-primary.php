@@ -1,5 +1,5 @@
 <nav>
-	<?php ground_subpages( [ 
+	<?php ground_subpages( [
 		'merge_classes' => true,
 		'menu_class' => '',
 		'submenu_class' => 'pl-6',

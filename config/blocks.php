@@ -1,7 +1,7 @@
 <?php
-return [ 
-	'blocks' => [ 
-		[ 
+return [
+	'blocks' => [
+		[
 			'name' => 'starter',
 			'title' => __( 'Starter', 'ground' ),
 			'description' => __( 'Starting block', 'ground' ),

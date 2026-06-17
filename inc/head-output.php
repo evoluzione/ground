@@ -32,7 +32,7 @@ function ground_enqueue_scripts() {
 		'src' => '',
 		'deps' => [],
 		'ver' => GROUND_VERSION,
-		'args' => [ 
+		'args' => [
 			'strategy' => '', // May be either 'defer' or 'async'.
 			'in_footer' => true,
 		],

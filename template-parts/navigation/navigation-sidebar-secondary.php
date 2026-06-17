@@ -1,6 +1,6 @@
 <nav>
 	<?php
-	ground_terms( [ 
+	ground_terms( [
 		// 'taxonomy' => 'ground_catalog_taxonomy',
 		'merge_classes' => true,
 		// 'child_of' => get_queried_object_id(),

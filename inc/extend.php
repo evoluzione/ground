@@ -17,11 +17,11 @@ add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
  * @return string The sanitized filename.
  */
 function ground_sanitize_uploaded_filename( $filename ) {
-    if ( ! ground_config( 'media.sanitize_file_name' ) ) {
-        return $filename;
-    }
+	if ( ! ground_config( 'media.sanitize_file_name' ) ) {
+		return $filename;
+	}
 
-    return remove_accents( $filename );
+	return remove_accents( $filename );
 }
 
 add_filter( 'sanitize_file_name', 'ground_sanitize_uploaded_filename', 9 );
@@ -198,7 +198,7 @@ function ground_nav_menu_link_css_class( $atts, $item, $args, $depth ) {
 	$link_ancestor_class = $args->link_ancestor_class ?? '';
 	$link_ancestor_class_depth = $args->{'link_ancestor_class_' . $depth_key} ?? '';
 	$current_classes = ! empty( $atts['class'] ) ? explode( ' ', $atts['class'] ) : [];
-	
+
 	if ( $remove_default_class === true ) {
 		$current_classes = [];
 	} elseif ( is_array( $remove_default_class ) ) {

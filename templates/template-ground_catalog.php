@@ -23,7 +23,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 				<?php get_template_part( 'template-parts/content/content-page' ); ?>
 
 				<?php // Taxonomies first.
-					$taxonomies = get_terms( [ 
+					$taxonomies = get_terms( [
 						'taxonomy' => 'ground_catalog_taxonomy',
 						'parent' => 0,
 					] );
@@ -36,9 +36,9 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 						} ?>
 					</div>
 
-				<?php else : // Show Products.
+				<?php else :  // Show Products.
 				
-						$query = new WP_Query( [ 
+						$query = new WP_Query( [
 							'post_type' => 'ground_catalog',
 							'orderby' => 'menu_order',
 							'posts_per_page' => 12,

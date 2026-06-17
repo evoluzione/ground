@@ -102,7 +102,7 @@ function ground_register_thumbnails() {
 	}
 
 	// Set JPEG compression quality.
-	add_filter( 'jpeg_quality', function ($arg) {
+	add_filter( 'jpeg_quality', function ( $arg ) {
 		return ground_config( 'media.quality' );
 	} );
 

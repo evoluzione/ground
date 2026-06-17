@@ -1,7 +1,7 @@
 <footer class="footer border-y text-center mt-6 p-6">
-	<?php ground_icon( [ 
+	<?php ground_icon( [
 		'name' => 'copyright',
-		'attr' => [ 
+		'attr' => [
 			'class' => 'w-6 h-6 inline'
 		]
 	] ); ?>

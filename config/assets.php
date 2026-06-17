@@ -1,7 +1,7 @@
 <?php
-return [ 
-	'styles' => [ 
-		[ 
+return [
+	'styles' => [
+		[
 			'handle' => 'ground-styles',
 			'src' => GROUND_TEMPLATE_DIRECTORY_URI . '/assets/css/ground-styles.min.css',
 			'deps' => [],
@@ -9,13 +9,13 @@ return [
 			'media' => 'all',
 		],
 	],
-	'scripts' => [ 
-		[ 
+	'scripts' => [
+		[
 			'handle' => 'ground-scripts',
 			'src' => GROUND_TEMPLATE_DIRECTORY_URI . '/assets/js/ground-scripts.min.js',
 			'deps' => [ 'jquery' ],
 			'ver' => GROUND_VERSION,
-			'args' => [ 
+			'args' => [
 				'strategy' => '', // May be either 'defer' or 'async'.
 				'in_footer' => true,
 			],

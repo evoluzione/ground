@@ -1,6 +1,6 @@
 <?php
 
-ground_terms( [ 
+ground_terms( [
 	'taxonomy' => 'ground_catalog_taxonomy',
 ] );
 

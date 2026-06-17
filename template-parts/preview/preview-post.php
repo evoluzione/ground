@@ -1,9 +1,9 @@
 <article class="mb-6">
 	<a class="group grid grid-cols-12 gap-4 no-underline" href="<?php the_permalink(); ?>">
 		<div class="col-span-2">
-			<?php ground_image( [ 
+			<?php ground_image( [
 				'size' => '1-1-large',
-				'attr' => [ 
+				'attr' => [
 					'class' => 'aspect-1/1 object-cover w-full',
 					'alt' => get_the_title(),
 				]

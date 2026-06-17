@@ -104,9 +104,9 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
  */
 function ground_image( $args = [] ) {
 
-	$defaults = [ 
+	$defaults = [
 		'size' => 'thumbnail',
-		'attr' => [ 
+		'attr' => [
 			'loading' => 'lazy',
 		],
 		'post' => null,
@@ -187,9 +187,9 @@ function ground_image( $args = [] ) {
 function ground_icon( $args = [] ) {
 	static $cache = [];
 
-	$defaults = [ 
+	$defaults = [
 		'name' => '',
-		'attr' => [ 
+		'attr' => [
 			'class' => 'inline'
 		],
 		'icon_set' => ground_config( 'media.icon_set' ),
@@ -314,7 +314,7 @@ function ground_pagination( $args = [] ) {
 	global $wp_query;
 
 	$pagination_placeholder = 999999999;
-	$defaults = [ 
+	$defaults = [
 		'prev_text' => __( '&laquo; Previous' ),
 		'next_text' => __( 'Next &raquo;' ),
 		'mid_size' => 2,
@@ -516,7 +516,7 @@ function ground_subpages( $args = array() ) {
 		$pages_by_parent[ $page->post_parent ][] = $page;
 	}
 
-	$display_hierarchy = function ($parent_id = 0, $depth = 0) use (&$display_hierarchy, $pages_by_parent, $args, $current_id) {
+	$display_hierarchy = function ( $parent_id = 0, $depth = 0 ) use ( &$display_hierarchy, $pages_by_parent, $args, $current_id ) {
 		if ( ! isset( $pages_by_parent[ $parent_id ] ) ) {
 			return '';
 		}
@@ -634,7 +634,7 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
  * @return string|void The HTML output of the terms list if `$arg['echo']` is false. Otherwise, the function echoes the output.
  */
 function ground_terms( $arg = [] ) {
-	$defaults = [ 
+	$defaults = [
 		'taxonomy' => 'category',
 		'echo' => true,
 		'child_of' => 0,
@@ -747,7 +747,7 @@ function ground_breadcrumbs( $args = [] ) {
 		return;
 	}
 
-	$defaults = [ 
+	$defaults = [
 		'merge_classes' => false,
 		'nav_class' => '',
 		'list_class' => '',

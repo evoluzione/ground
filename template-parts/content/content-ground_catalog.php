@@ -5,9 +5,9 @@
 
 		<div class="grid grid-cols-12 gap-6">
 			<div class="col-span-6">
-				<?php ground_image( [ 
+				<?php ground_image( [
 					'size' => '4-3-large',
-					'attr' => [ 
+					'attr' => [
 						'class' => 'aspect-4/3 object-cover w-full mb-6',
 						'alt' => get_the_title(),
 					],

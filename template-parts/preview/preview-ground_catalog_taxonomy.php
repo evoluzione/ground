@@ -5,9 +5,9 @@
 				href="<?php echo esc_url( get_term_link( $args['taxonomy']->slug, $args['taxonomy']->taxonomy ) ); ?>">
 				<?php
 				// TODO: Aggiungere immagine come custom fields
-				ground_image( [ 
+				ground_image( [
 					'size' => '1-1-large',
-					'attr' => [ 
+					'attr' => [
 						'class' => 'aspect-1/1 object-cover w-full mb-6',
 						'alt' => esc_attr( $args['taxonomy']->name ?? '' ),
 					]

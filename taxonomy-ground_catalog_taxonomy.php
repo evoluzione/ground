@@ -25,7 +25,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 			<?php
 			$term_id = get_queried_object_id();
-			$taxonomies = get_terms( [ 
+			$taxonomies = get_terms( [
 				'taxonomy' => 'ground_catalog_taxonomy',
 				// 'child_of' => $term_id,
 				'parent' => $term_id,
@@ -40,7 +40,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 					} ?>
 				</div>
 
-			<?php else : // Show Products.
+			<?php else :  // Show Products.
 			
 				if ( have_posts() ) : ?>
 					<div class="grid grid-cols-4 gap-6">
