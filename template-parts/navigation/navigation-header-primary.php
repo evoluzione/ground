@@ -1,6 +1,7 @@
 <nav class="flex justify-center">
-	<?php wp_nav_menu( [ 
+	<?php wp_nav_menu( [
 		'theme_location' => 'navigation-header-primary',
+		'fallback_cb' => false, // No menu assigned -> render nothing instead of the page list
 		'depth' => 0,
 		'remove_default_class' => true, // Accepts an array to remove only the specified ones
 		'merge_classes' => true,
