@@ -1,0 +1,8 @@
+# Generated output (Vite bundles + Tailwind CSS, source maps)
+assets/
+
+# Dependency lockfile
+package-lock.json
+
+# ACF Local JSON — generated and re-synced by Advanced Custom Fields
+config/acf/
