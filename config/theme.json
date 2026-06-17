@@ -3,10 +3,10 @@
 	"version": 3,
 	"settings": {},
 	"styles": {
-        "color": {
-            "background": "#ddd"
-        }
-    },
+		"color": {
+			"background": "#ddd"
+		}
+	},
 	"customTemplates": [],
 	"templateParts": [],
 	"patterns": []
