@@ -464,8 +464,6 @@ function ground_pagination( $args = [] ) {
  *     @type string $link_class_{n}          Depth-specific link class for level {n}. Default is not set.
  *     @type string $link_active_class       Generic active link class <a>. Default is ''.
  *     @type string $link_active_class_{n}   Depth-specific active link class for level {n}. Default is not set.
- *     @type bool   $use_cache               Cache generated output. Default is false.
- *     @type int    $cache_expiration        Cache expiration time in seconds. Default is DAY_IN_SECONDS.
  * }
  *
  * @return void Outputs the generated HTML markup directly.
@@ -486,21 +484,9 @@ function ground_subpages( $args = array() ) {
 		'item_active_class' => '',
 		'link_class' => '',
 		'link_active_class' => '',
-		'use_cache' => false,
-		'cache_expiration' => DAY_IN_SECONDS,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
-
-	$cache_key = 'ground_subpages_' . $top_parent_id . '_' . $current_id . '_' . md5( wp_json_encode( $args ) );
-
-	if ( $args['use_cache'] ) {
-		$cached_menu = get_transient( $cache_key );
-		if ( $cached_menu !== false ) {
-			echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . $cached_menu . '</ul>';
-			return;
-		}
-	}
 
 	$get_pages_defaults = array(
 		'child_of' => $top_parent_id,
@@ -566,10 +552,6 @@ function ground_subpages( $args = array() ) {
 
 	if ( ! empty( $menu_output ) ) {
 		echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . $menu_output . '</ul>';
-
-		if ( $args['use_cache'] ) {
-			set_transient( $cache_key, $menu_output, $args['cache_expiration'] );
-		}
 	}
 }
 
