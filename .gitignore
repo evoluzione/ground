@@ -102,7 +102,6 @@ sftp-config-alt.json
 .remote-sync.json
 .ftpignore
 *.code-workspace
-.vscode
 
 
 #########################################

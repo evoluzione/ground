@@ -1,0 +1,14 @@
+{
+    "php.stubs": [
+        "wordpress",
+        "*"
+    ],
+    "php.format.codeStyle": "WordPress",
+    "[php]": {
+        "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+    },
+    "php.version": "8.3"
+}
