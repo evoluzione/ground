@@ -1,5 +1,0 @@
-# Bulk reformat — ignore in git blame (git config blame.ignoreRevsFile .git-blame-ignore-revs)
-# style: format PHP with WordPress coding style
-549f48d6e63f1c2b0dcde03526f57a8cbe493ad6
-# style: format JS/CSS/config with Prettier
-926be1e2926688a61483c15fb384ee50f1459cab

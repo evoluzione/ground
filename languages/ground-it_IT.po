@@ -1,16 +1,16 @@
-# Copyright (C) 2026 
-# This file is distributed under the same license as the Ground theme.
 msgid ""
 msgstr ""
 "Project-Id-Version: Ground 3.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/ground\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Fabio Quarantini <devs@evoluzione.agency>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-18T09:22:34+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2026-06-18T09:13:00+00:00\n"
+"PO-Revision-Date: 2026-06-18 11:13+0000\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ground\n"
 
@@ -18,56 +18,56 @@ msgstr ""
 #: style.css
 #: inc/gutenberg.php:44
 msgid "Ground"
-msgstr ""
+msgstr "Ground"
 
 #. Description of the theme
 #: style.css
 msgid "A flexible and powerful WordPress starter theme using a modern development workflow."
-msgstr ""
+msgstr "Un tema starter per WordPress flessibile e potente, basato su un moderno flusso di sviluppo."
 
 #: config/blocks.php:6
 msgid "Starter"
-msgstr ""
+msgstr "Starter"
 
 #: config/blocks.php:7
 msgid "Starting block"
-msgstr ""
+msgstr "Blocco iniziale"
 
 #: config/menus.php:6
 msgid "Header primary "
-msgstr ""
+msgstr "Header primario "
 
 #: config/menus.php:10
 msgid "Header secondary"
-msgstr ""
+msgstr "Header secondario"
 
 #: config/menus.php:14
 #: config/sidebars.php:9
 msgid "Footer primary"
-msgstr ""
+msgstr "Footer primario"
 
 #: config/menus.php:18
 #: config/sidebars.php:13
 msgid "Footer secondary"
-msgstr ""
+msgstr "Footer secondario"
 
 #: config/menus.php:22
 #: config/sidebars.php:17
 msgid "Footer tertiary"
-msgstr ""
+msgstr "Footer terziario"
 
 #: config/sidebars.php:5
 msgid "Archive post"
-msgstr ""
+msgstr "Archivio articoli"
 
 #: config/sidebars.php:21
 msgid "Footer quaternary"
-msgstr ""
+msgstr "Footer quaternario"
 
 #: template-parts/navigation/navigation-languages.php:9
 msgid "Language selector"
-msgstr ""
+msgstr "Selettore lingua"
 
 #. Template Name of the theme
 msgid "Catalog"
-msgstr ""
+msgstr "Catalogo"
