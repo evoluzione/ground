@@ -68,28 +68,27 @@ else
   echo "   • ACF_PRO_KEY not set: ACF Pro expected from .docker/plugins/"
 fi
 
-# WPML + add-ons. Needs WPML_USER_ID and WPML_SUBSCRIPTION_KEY in .env, plus each
-# component's "download ID" (from the WPML dashboard → Downloads: the download link
-# URL contains download=<ID>). Complete the map below.
-# Order matters: WPML core (sitepress) first, then the add-ons that depend on it.
-WPML_COMPONENTS="sitepress-multilingual-cms:6088 wpml-string-translation:6092"
-# Add more components with their download ID (download=<ID> param in the panel link):
-#   acfml:<ID> wpml-seo:<ID>
-# Dependency: woocommerce-multilingual makes sense only when BOTH WooCommerce and
-# WPML are on. Fill its download ID here to enable it (empty → skipped gracefully).
-WCML_DOWNLOAD_ID="637370"
+# WPML stack. Needs WPML_USER_ID + WPML_SUBSCRIPTION_KEY in .env, plus a "download
+# ID" per component (the download=<ID> param in the WPML dashboard → Downloads link).
+# NB: the add-on IDs are VERSION-PINNED — refresh them from the panel after a WPML
+# update, or the download fails ("! <slug>: download failed").
+WPML_ID_SITEPRESS=6088    # WPML Multilingual CMS (core)
+WPML_ID_STRING=6092       # String Translation
+WPML_ID_WCML=637370       # WooCommerce Multilingual & Multicurrency
+WPML_ID_CF7=3156699       # Contact Form 7 Multilingual
+WPML_ID_ACFML=1097589     # Advanced Custom Fields Multilingual
+
+# Build the install list. Order matters: core first, then add-ons, each gated by its
+# dependency — WCML: WooCommerce+WPML · CF7ML: WPML · ACFML: WPML+ACF key.
+WPML_COMPONENTS="sitepress-multilingual-cms:${WPML_ID_SITEPRESS} wpml-string-translation:${WPML_ID_STRING}"
 if is_on "$ENABLE_WOOCOMMERCE" && is_on "$ENABLE_WPML"; then
-  WPML_COMPONENTS="$WPML_COMPONENTS woocommerce-multilingual:${WCML_DOWNLOAD_ID}"
+  WPML_COMPONENTS="$WPML_COMPONENTS woocommerce-multilingual:${WPML_ID_WCML}"
 fi
-# Contact Form 7 Multilingual: CF7 is always in BASE_PLUGINS, so it depends on WPML only.
-CF7ML_DOWNLOAD_ID="3156699"
 if is_on "$ENABLE_WPML"; then
-  WPML_COMPONENTS="$WPML_COMPONENTS contact-form-7-multilingual:${CF7ML_DOWNLOAD_ID}"
+  WPML_COMPONENTS="$WPML_COMPONENTS contact-form-7-multilingual:${WPML_ID_CF7}"
 fi
-# ACFML: ACF is implicit on ACF_PRO_KEY, so it depends on WPML on AND the ACF key set.
-ACFML_DOWNLOAD_ID="1097589"
 if is_on "$ENABLE_WPML" && [ -n "${ACF_PRO_KEY:-}" ]; then
-  WPML_COMPONENTS="$WPML_COMPONENTS acfml:${ACFML_DOWNLOAD_ID}"
+  WPML_COMPONENTS="$WPML_COMPONENTS acfml:${WPML_ID_ACFML}"
 fi
 if is_on "$ENABLE_WPML" && [ -n "${WPML_USER_ID:-}" ] && [ -n "${WPML_SUBSCRIPTION_KEY:-}" ]; then
   echo "→ Downloading the WPML stack..."
