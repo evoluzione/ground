@@ -7,8 +7,16 @@
 # ---------------------------------------------------------------------------
 set -e
 
-# Boilerplate base plugins (free, on every site), WooCommerce included.
-BASE_PLUGINS="query-monitor wordpress-seo contact-form-7 woocommerce"
+# Truthy check for the ENABLE_* feature toggles (true/1/yes/on, case-insensitive).
+is_on() { case "$(echo "${1:-}" | tr 'A-Z' 'a-z')" in 1|true|yes|on) return 0 ;; *) return 1 ;; esac; }
+
+# Boilerplate base plugins (free, on every site).
+BASE_PLUGINS="query-monitor wordpress-seo contact-form-7"
+
+# WooCommerce is free but opt-in per project, via ENABLE_WOOCOMMERCE.
+if is_on "$ENABLE_WOOCOMMERCE"; then
+  BASE_PLUGINS="$BASE_PLUGINS woocommerce"
+fi
 
 # PREMIUM plugins (ACF Pro + WPML stack) are downloaded with the license keys
 # from .env — see below (.zip files in .docker/plugins/ remain as a fallback).
@@ -66,8 +74,24 @@ fi
 # Order matters: WPML core (sitepress) first, then the add-ons that depend on it.
 WPML_COMPONENTS="sitepress-multilingual-cms:6088 wpml-string-translation:6092"
 # Add more components with their download ID (download=<ID> param in the panel link):
-#   acfml:<ID> wpml-seo:<ID> woocommerce-multilingual:<ID>
-if [ -n "${WPML_USER_ID:-}" ] && [ -n "${WPML_SUBSCRIPTION_KEY:-}" ]; then
+#   acfml:<ID> wpml-seo:<ID>
+# Dependency: woocommerce-multilingual makes sense only when BOTH WooCommerce and
+# WPML are on. Fill its download ID here to enable it (empty → skipped gracefully).
+WCML_DOWNLOAD_ID="637370"
+if is_on "$ENABLE_WOOCOMMERCE" && is_on "$ENABLE_WPML"; then
+  WPML_COMPONENTS="$WPML_COMPONENTS woocommerce-multilingual:${WCML_DOWNLOAD_ID}"
+fi
+# Contact Form 7 Multilingual: CF7 is always in BASE_PLUGINS, so it depends on WPML only.
+CF7ML_DOWNLOAD_ID="3156699"
+if is_on "$ENABLE_WPML"; then
+  WPML_COMPONENTS="$WPML_COMPONENTS contact-form-7-multilingual:${CF7ML_DOWNLOAD_ID}"
+fi
+# ACFML: ACF is implicit on ACF_PRO_KEY, so it depends on WPML on AND the ACF key set.
+ACFML_DOWNLOAD_ID="1097589"
+if is_on "$ENABLE_WPML" && [ -n "${ACF_PRO_KEY:-}" ]; then
+  WPML_COMPONENTS="$WPML_COMPONENTS acfml:${ACFML_DOWNLOAD_ID}"
+fi
+if is_on "$ENABLE_WPML" && [ -n "${WPML_USER_ID:-}" ] && [ -n "${WPML_SUBSCRIPTION_KEY:-}" ]; then
   echo "→ Downloading the WPML stack..."
   for c in $WPML_COMPONENTS; do
     slug="${c%%:*}"; id="${c##*:}"
@@ -76,7 +100,7 @@ if [ -n "${WPML_USER_ID:-}" ] && [ -n "${WPML_SUBSCRIPTION_KEY:-}" ]; then
       || echo "   ! $slug: download failed"
   done
 else
-  echo "   • WPML keys not set: skipping WPML"
+  echo "   • WPML off (ENABLE_WPML) or keys not set: skipping WPML"
 fi
 
 # Optional fallback: any .zip manually placed in .docker/plugins/.
