@@ -27,7 +27,9 @@
 		"docker:logs": "docker compose logs -f wordpress",
 		"docker:ps": "docker compose ps",
 		"docker:wp": "docker compose run --rm wpcli wp",
-		"docker:db-import": "docker compose exec -T db sh -c 'exec mariadb -uroot -p\"$MARIADB_ROOT_PASSWORD\" \"$MARIADB_DATABASE\"'"
+		"docker:db-import": "docker compose exec -T db sh -c 'exec mariadb -uroot -p\"$MARIADB_ROOT_PASSWORD\" \"$MARIADB_DATABASE\"'",
+		"docker:seed": "docker compose run --rm -e ENABLE_SEED=true wpcli sh /docker-scripts/provision.sh",
+		"docker:seed-reset": "docker compose run --rm wpcli wp eval-file /docker-scripts/seed-reset.php"
 	},
 	"author": {
 		"name": "Fabio Quarantini",

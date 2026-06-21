@@ -90,6 +90,8 @@ services:
       # Feature toggles (in .env): which optional plugins provision.sh installs.
       ENABLE_WOOCOMMERCE: ${ENABLE_WOOCOMMERCE:-true}
       ENABLE_WPML: ${ENABLE_WPML:-false}
+      # Seed demo content (in .env): provision.sh imports fixtures + WP test data.
+      ENABLE_SEED: ${ENABLE_SEED:-false}
       # Premium plugin licenses (in .env). NB: values containing "$" (WPML
       # subscription key) must be wrapped in SINGLE QUOTES in .env so Compose
       # does not interpolate them.

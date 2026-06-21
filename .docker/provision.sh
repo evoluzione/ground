@@ -117,6 +117,56 @@ wp theme activate ground || echo "   ! theme not activated (assets build done?)"
 echo "→ Setting permalinks (/%postname%/)..."
 wp rewrite structure '/%postname%/' --hard >/dev/null 2>&1 || echo "   ! permalinks not set"
 
+# --- ACF: sync local JSON field groups into the database ---
+# The theme registers the load point (inc/extend.php), so the groups already work
+# at runtime; this also materializes them in the DB (editable in admin, no "sync"
+# notice). Needs the theme active (load point) AND ACF Pro >= 6.8 (json sync cmd).
+if wp acf json sync --dry-run >/dev/null 2>&1; then
+  echo "→ Syncing ACF local JSON to the database..."
+  wp acf json sync >/dev/null 2>&1 && echo "   • ACF field groups synced" || echo "   ! ACF sync failed"
+else
+  echo "   • ACF JSON sync unavailable (ACF Pro <6.8 or inactive): groups still load via load_json"
+fi
+
+# --- Seed demo content (opt-in via ENABLE_SEED, runs once) ---
+if is_on "$ENABLE_SEED"; then
+  if [ "$(wp option get ground_seed_done 2>/dev/null)" = "1" ]; then
+    echo "   • demo content already seeded: skipping (delete option 'ground_seed_done' to re-run)"
+  else
+    echo "→ Seeding demo content..."
+
+    # 1) Official test data via the WordPress importer, imported FIRST so seed.php
+    #    can reference it (reuse "Front Page"/"a Blog page", build the "Esempi"
+    #    submenu). Sources:
+    #      - vendored XML in .docker/seed/ (Gutenberg blocks + classic edge cases)
+    #      - WooCommerce's own sample_products.xml (fills the Shop) when Woo is on
+    #    The importer is only needed here: install, use, then deactivate.
+    WC_SAMPLE="/var/www/html/wp-content/plugins/woocommerce/sample-data/sample_products.xml"
+    if ls /docker-scripts/seed/*.xml >/dev/null 2>&1 || { is_on "$ENABLE_WOOCOMMERCE" && [ -f "$WC_SAMPLE" ]; }; then
+      wp plugin install wordpress-importer --activate >/dev/null 2>&1 || echo "   ! wordpress-importer install failed"
+      for xml in /docker-scripts/seed/*.xml; do
+        [ -f "$xml" ] || continue
+        echo "   • importing $(basename "$xml")..."
+        wp import "$xml" --authors=create >/dev/null 2>&1 || echo "   ! import of $(basename "$xml") failed"
+      done
+      if is_on "$ENABLE_WOOCOMMERCE" && [ -f "$WC_SAMPLE" ]; then
+        echo "   • importing sample_products.xml (WooCommerce)..."
+        wp import "$WC_SAMPLE" --authors=create >/dev/null 2>&1 || echo "   ! import of sample_products.xml failed"
+      fi
+      wp plugin deactivate wordpress-importer >/dev/null 2>&1 || true
+    fi
+
+    # 2) Theme-specific fixtures: catalog CPT, taxonomy + ACF image, scaffold pages,
+    #    nav menus, ACF block demo. All tagged with meta _ground_seed.
+    wp eval-file /docker-scripts/seed.php || echo "   ! seed.php failed"
+
+    wp option update ground_seed_done 1 >/dev/null 2>&1
+    echo "   • seeding complete"
+  fi
+else
+  echo "   • ENABLE_SEED off: skipping demo content"
+fi
+
 echo ""
 echo "✓ Provisioning complete → $WP_URL"
 echo "  Admin: $WP_URL/wp-admin  ($WP_ADMIN_USER / $WP_ADMIN_PASSWORD)"
