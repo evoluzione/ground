@@ -11,7 +11,7 @@ set -e
 is_on() { case "$(echo "${1:-}" | tr 'A-Z' 'a-z')" in 1|true|yes|on) return 0 ;; *) return 1 ;; esac; }
 
 # Boilerplate base plugins (free, on every site).
-BASE_PLUGINS="query-monitor wordpress-seo contact-form-7"
+BASE_PLUGINS="query-monitor wordpress-seo contact-form-7 webp-uploads"
 
 # WooCommerce is free but opt-in per project, via ENABLE_WOOCOMMERCE.
 if is_on "$ENABLE_WOOCOMMERCE"; then
