@@ -13,7 +13,7 @@ function ground_enqueue_styles() {
 		'media' => 'all',
 	);
 
-	foreach ( ground_config( 'assets.styles' ) as $sidebar ) {
+	foreach ( (array) ground_config( 'assets.styles' ) as $sidebar ) {
 		$params = wp_parse_args( $sidebar, $defaults );
 		wp_enqueue_style( $params['handle'], $params['src'], $params['deps'], $params['ver'], $params['media'] );
 	}
@@ -38,7 +38,7 @@ function ground_enqueue_scripts() {
 		],
 	);
 
-	foreach ( ground_config( 'assets.scripts' ) as $sidebar ) {
+	foreach ( (array) ground_config( 'assets.scripts' ) as $sidebar ) {
 		$params = wp_parse_args( $sidebar, $defaults );
 		wp_enqueue_script( $params['handle'], $params['src'], $params['deps'], $params['ver'], $params['args'] );
 	}

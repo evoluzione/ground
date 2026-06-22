@@ -229,7 +229,7 @@ function ground_icon( $args = [] ) {
 		}
 
 		$dom = new DOMDocument();
-		@$dom->loadXML( $markup, LIBXML_NOENT | LIBXML_DTDLOAD );
+		@$dom->loadXML( $markup );
 
 		$svg = $dom->getElementsByTagName( 'svg' )->item( 0 );
 		if ( ! $svg ) {
@@ -535,7 +535,7 @@ function ground_subpages( $args = array() ) {
 			}
 
 			$output .= '<li class="' . esc_attr( trim( $item_class ) ) . '">';
-			$output .= '<a href="' . get_permalink( $page->ID ) . '" class="' . esc_attr( trim( $link_class ) ) . '">' . esc_html( $page->post_title ) . '</a>';
+			$output .= '<a href="' . esc_url( get_permalink( $page->ID ) ) . '" class="' . esc_attr( trim( $link_class ) ) . '">' . esc_html( $page->post_title ) . '</a>';
 
 			$child_output = $display_hierarchy( $page->ID, $depth + 1 );
 			if ( $child_output ) {
@@ -641,52 +641,6 @@ function ground_terms( $arg = [] ) {
 		$term_hierarchy[ $term->parent ][] = $term;
 	}
 
-	if ( ! function_exists( 'ground_display_term_hierarchy' ) ) {
-		function ground_display_term_hierarchy( $term_hierarchy, $args, $parent_id = 0, $depth = 0, $current_term_id = 0 ) {
-			if ( ! isset( $term_hierarchy[ $parent_id ] ) ) {
-				return '';
-			}
-
-			$output = '';
-			$depth_key = $depth + 1;
-
-			foreach ( $term_hierarchy[ $parent_id ] as $term ) {
-				$is_active = $term->term_id == $current_term_id;
-
-				$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
-				$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
-				$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
-
-				if ( $is_active ) {
-					$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
-					$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
-				}
-
-				if ( $args['merge_classes'] ) {
-					$item_class = $is_active
-						? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
-						: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
-					$link_class = $is_active
-						? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
-						: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
-					$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
-				}
-
-				$output .= '<li class="' . esc_attr( $item_class ) . '">';
-				$output .= '<a href="' . get_term_link( $term ) . '" class="' . esc_attr( $link_class ) . '">' . $term->name . '</a>';
-
-				$child_output = ground_display_term_hierarchy( $term_hierarchy, $args, $term->term_id, $depth + 1, $current_term_id );
-				if ( $child_output ) {
-					$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
-				}
-
-				$output .= '</li>';
-			}
-
-			return $output;
-		}
-	}
-
 	$current_term_id = 0;
 	if ( is_tax() || is_category() ) {
 		$current_term = get_queried_object();
@@ -695,8 +649,52 @@ function ground_terms( $arg = [] ) {
 		}
 	}
 
+	$display_hierarchy = function ( $parent_id = 0, $depth = 0 ) use ( &$display_hierarchy, $term_hierarchy, $args, $current_term_id ) {
+		if ( ! isset( $term_hierarchy[ $parent_id ] ) ) {
+			return '';
+		}
+
+		$output = '';
+		$depth_key = $depth + 1;
+
+		foreach ( $term_hierarchy[ $parent_id ] as $term ) {
+			$is_active = $term->term_id == $current_term_id;
+
+			$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
+			$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
+			$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
+
+			if ( $is_active ) {
+				$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
+				$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
+			}
+
+			if ( $args['merge_classes'] ) {
+				$item_class = $is_active
+					? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
+					: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
+				$link_class = $is_active
+					? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
+					: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
+				$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
+			}
+
+			$output .= '<li class="' . esc_attr( $item_class ) . '">';
+			$output .= '<a href="' . esc_url( get_term_link( $term ) ) . '" class="' . esc_attr( $link_class ) . '">' . esc_html( $term->name ) . '</a>';
+
+			$child_output = $display_hierarchy( $term->term_id, $depth + 1 );
+			if ( $child_output ) {
+				$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
+			}
+
+			$output .= '</li>';
+		}
+
+		return $output;
+	};
+
 	$output = '<ul class="' . esc_attr( $args['menu_class'] ) . '">';
-	$output .= ground_display_term_hierarchy( $term_hierarchy, $args, $args['child_of'], 0, $current_term_id );
+	$output .= $display_hierarchy( $args['child_of'], 0 );
 	$output .= '</ul>';
 
 	if ( $args['echo'] ) {
