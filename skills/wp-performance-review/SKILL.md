@@ -12,6 +12,7 @@ Systematic performance code review for WordPress themes, plugins, and custom cod
 ## When to Use
 
 **Use when:**
+
 - Reviewing PR/code for WordPress theme or plugin
 - User reports slow page loads, timeouts, or 500 errors
 - Auditing before high-traffic event (launch, sale, viral moment)
@@ -19,6 +20,7 @@ Systematic performance code review for WordPress themes, plugins, and custom cod
 - Investigating memory exhaustion or DB locks
 
 **Don't use for:**
+
 - Security-only audits (use wp-security-review when available)
 - Gutenberg block development patterns (use wp-gutenberg-blocks when available)
 - General PHP code review not specific to WordPress
@@ -34,7 +36,9 @@ Systematic performance code review for WordPress themes, plugins, and custom cod
 ## File-Type Specific Checks
 
 ### Plugin/Theme PHP Files (`functions.php`, `plugin.php`, `*.php`)
+
 Scan for:
+
 - `query_posts()` → CRITICAL: Never use - breaks main query
 - `posts_per_page.*-1` or `numberposts.*-1` → CRITICAL: Unbounded query
 - `session_start()` → CRITICAL: Bypasses page cache
@@ -43,7 +47,9 @@ Scan for:
 - `wp_remote_get` or `wp_remote_post` without caching → WARNING: Blocking HTTP
 
 ### WP_Query / Database Code
+
 Scan for:
+
 - Missing `posts_per_page` argument → WARNING: Defaults to blog setting
 - `'meta_query'` with `'value'` comparisons → WARNING: Unindexed column scan
 - `post__not_in` with large arrays → WARNING: Slow exclusion
@@ -51,45 +57,59 @@ Scan for:
 - Missing `no_found_rows => true` when not paginating → INFO: Unnecessary count
 
 ### AJAX Handlers (`wp_ajax_*`, REST endpoints)
+
 Scan for:
+
 - `admin-ajax.php` usage → INFO: Consider REST API instead
 - POST method for read operations → WARNING: Bypasses cache
 - `setInterval` or polling patterns → CRITICAL: Self-DDoS risk
 - Missing nonce verification → Security issue (not performance, but flag it)
 
 ### Template Files (`*.php` in theme)
+
 Scan for:
+
 - Database queries inside loops (N+1) → CRITICAL: Query multiplication
 - `wp_remote_get` in templates → WARNING: Blocks rendering
 
 ### JavaScript Files
+
 Scan for:
+
 - `$.post(` for read operations → WARNING: Use GET for cacheability
 - `setInterval.*fetch\|ajax` → CRITICAL: Polling pattern
 - `import _ from 'lodash'` → WARNING: Full library import bloats bundle
 - Inline `<script>` making AJAX calls on load → Check necessity
 
 ### Block Editor / Gutenberg Files (`block.json`, `*.js` in blocks/)
+
 Scan for:
+
 - Many `registerBlockStyle()` calls → WARNING: Each creates preview iframe
 - `wp_kses_post($content)` in render callbacks → WARNING: Breaks InnerBlocks
 - Static blocks without `render_callback` → INFO: Consider dynamic for maintainability
 
 ### Asset Registration (`functions.php`, `*.php`)
+
 Scan for:
+
 - `wp_enqueue_script` without version → INFO: Cache busting issues
 - `wp_enqueue_script` without `defer`/`async` strategy → INFO: Blocks rendering
 - Missing `THEME_VERSION` constant → INFO: Version management
 - Page-specific assets enqueued globally (not the theme's core bundle) → INFO: Load them conditionally on the pages that need them
 
 ### Transients & Options
+
 Scan for:
+
 - `set_transient` with dynamic keys (e.g., `user_{$id}`) → WARNING: Table bloat without object cache
 - `set_transient` for frequently-changing data → WARNING: Defeats caching purpose
 - Large data in transients on shared hosting → WARNING: DB bloat without object cache
 
 ### WP-Cron
+
 Scan for:
+
 - Missing `DISABLE_WP_CRON` constant → INFO: Cron runs on page requests
 - Long-running cron callbacks (loops over all users/posts) → CRITICAL: Blocks cron queue
 - `wp_schedule_event` without checking if already scheduled → WARNING: Duplicate schedules
@@ -132,16 +152,19 @@ grep -rn "wp_schedule_event" . | grep -v "wp_next_scheduled"  # Missing schedule
 Different hosting environments require different approaches:
 
 **Managed WordPress Hosts** (WP Engine, Pantheon, Pressable, WordPress VIP, etc.):
+
 - Often provide object caching out of the box
 - May have platform-specific helper functions (e.g., `wpcom_vip_*` on VIP)
 - Check host documentation for recommended patterns
 
 **Self-Hosted / Standard Hosting**:
+
 - Implement object caching wrappers manually for expensive functions
 - Consider Redis or Memcached plugins for persistent object cache
 - More responsibility for caching layer configuration
 
 **Shared Hosting**:
+
 - Be extra cautious about unbounded queries and external HTTP
 - Limited resources mean performance issues surface faster
 - May lack persistent object cache entirely
@@ -149,6 +172,7 @@ Different hosting environments require different approaches:
 ## Quick Reference: Critical Anti-Patterns
 
 ### Database Queries
+
 ```php
 // ❌ CRITICAL: Unbounded query.
 'posts_per_page' => -1
@@ -196,6 +220,7 @@ $wpdb->get_results( $wpdb->prepare(
 ```
 
 ### Hooks & Actions
+
 ```php
 // ❌ WARNING: Code runs on every request via init.
 add_action( 'init', 'expensive_function' );
@@ -224,6 +249,7 @@ add_action( 'shutdown', function() {
 ```
 
 ### Caching Issues
+
 ```php
 // ❌ WARNING: Uncached expensive function calls.
 url_to_postid( $url );
@@ -257,12 +283,13 @@ foreach ( $ids as $id ) {
 ```
 
 ### AJAX & External Requests
+
 ```javascript
 // ❌ WARNING: AJAX POST request (bypasses cache).
-$.post( ajaxurl, data ); // Prefer: $.get() for read operations.
+$.post(ajaxurl, data); // Prefer: $.get() for read operations.
 
 // ❌ CRITICAL: Polling pattern (self-DDoS).
-setInterval( () => fetch( '/wp-json/...' ), 5000 );
+setInterval(() => fetch("/wp-json/..."), 5000);
 ```
 
 ```php
@@ -277,6 +304,7 @@ if ( is_wp_error( $response ) ) {
 ```
 
 ### WP Cron
+
 ```php
 // ❌ WARNING: WP Cron runs on page requests.
 // Add to wp-config.php:
@@ -318,6 +346,7 @@ if ( ! wp_next_scheduled( 'my_task' ) ) {
 ```
 
 ### Cache Bypass Issues
+
 ```php
 // ❌ CRITICAL: Plugin starts PHP session on frontend (bypasses ALL page cache).
 session_start(); // Check plugins for this - entire site becomes uncacheable!
@@ -332,6 +361,7 @@ setcookie( 'visitor_id', $id ); // Prevents caching for that user.
 ```
 
 ### Transients Misuse
+
 ```php
 // ❌ WARNING: Dynamic transient keys create table bloat (without object cache).
 set_transient( "user_{$user_id}_cart", $data, HOUR_IN_SECONDS );
@@ -359,6 +389,7 @@ if ( wp_using_ext_object_cache() ) {
 ```
 
 ### Asset Loading
+
 ```php
 // ❌ WARNING: Assets load globally when only needed on specific pages.
 add_action( 'wp_enqueue_scripts', function() {
@@ -384,6 +415,7 @@ add_action( 'wp_enqueue_scripts', function() {
 ```
 
 ### External API Requests
+
 ```php
 // ❌ WARNING: No timeout set (default is 5 seconds).
 wp_remote_get( $url ); // Set timeout: array( 'timeout' => 2 ).
@@ -394,6 +426,7 @@ echo $response['body']; // Check is_wp_error() first!
 ```
 
 ### Post Meta Queries
+
 ```php
 // ❌ WARNING: Searching meta_value without index.
 'meta_query' => array(
@@ -412,11 +445,11 @@ echo $response['body']; // Check is_wp_error() first!
 
 ## Severity Definitions
 
-| Severity | Description |
-|----------|-------------|
+| Severity     | Description                                              |
+| ------------ | -------------------------------------------------------- |
 | **Critical** | Will cause failures at scale (OOM, 500 errors, DB locks) |
-| **Warning** | Degrades performance under load |
-| **Info** | Optimization opportunity |
+| **Warning**  | Degrades performance under load                          |
+| **Info**     | Optimization opportunity                                 |
 
 ## Output Format
 
@@ -426,15 +459,19 @@ Structure findings as:
 ## Performance Review: [filename/component]
 
 ### Critical Issues
+
 - **Line X**: [Issue] - [Explanation] - [Fix]
 
-### Warnings  
+### Warnings
+
 - **Line X**: [Issue] - [Explanation] - [Fix]
 
 ### Recommendations
+
 - [Optimization opportunities]
 
 ### Summary
+
 - Total issues: X Critical, Y Warnings, Z Info
 - Estimated impact: [High/Medium/Low]
 ```
@@ -443,10 +480,10 @@ Structure findings as:
 
 When performing performance reviews, avoid these errors:
 
-| Mistake | Why It's Wrong | Fix |
-|---------|----------------|-----|
-| Flagging `posts_per_page => -1` in admin-only code | Admin queries don't face public scale | Check context - admin, CLI, cron are lower risk |
-| Missing the `session_start()` buried in a plugin | Cache bypass affects entire site | Always grep for `session_start` across all code |
-| Ignoring `no_found_rows` for non-paginated queries | Small optimization but adds up | Flag as INFO, not WARNING |
-| Recommending object cache on shared hosting | Many shared hosts lack persistent cache | Check hosting environment first |
-| Only reviewing PHP, missing JS polling | JS `setInterval` + fetch = self-DDoS | Review `.js` files for polling patterns |
+| Mistake                                            | Why It's Wrong                          | Fix                                             |
+| -------------------------------------------------- | --------------------------------------- | ----------------------------------------------- |
+| Flagging `posts_per_page => -1` in admin-only code | Admin queries don't face public scale   | Check context - admin, CLI, cron are lower risk |
+| Missing the `session_start()` buried in a plugin   | Cache bypass affects entire site        | Always grep for `session_start` across all code |
+| Ignoring `no_found_rows` for non-paginated queries | Small optimization but adds up          | Flag as INFO, not WARNING                       |
+| Recommending object cache on shared hosting        | Many shared hosts lack persistent cache | Check hosting environment first                 |
+| Only reviewing PHP, missing JS polling             | JS `setInterval` + fetch = self-DDoS    | Review `.js` files for polling patterns         |
