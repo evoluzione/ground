@@ -5,7 +5,7 @@ return [
 			'name' => 'ground_catalog',
 			'args' => [
 				'rewrite' => [
-					'slug' => __( 'catalog', 'ground-child' ),
+					'slug' => __( 'catalog', 'ground' ),
 					'with_front' => true,
 				],
 				'supports' => [
@@ -18,8 +18,8 @@ return [
 					'page-attributes',
 				],
 				'labels' => [
-					'name' => _x( 'Products', 'Post Type General Name', 'ground-child' ),
-					'singular_name' => _x( 'Product', 'Post Type Singular Name', 'ground-child' ),
+					'name' => _x( 'Products', 'Post Type General Name', 'ground' ),
+					'singular_name' => _x( 'Product', 'Post Type Singular Name', 'ground' ),
 				],
 				'has_archive' => false,
 				'public' => true,
@@ -39,7 +39,7 @@ return [
 				'public' => true,
 				'show_admin_column' => true,
 				'rewrite' => [
-					'slug' => __( 'catalog-category', 'ground-child' ),
+					'slug' => __( 'catalog-category', 'ground' ),
 					'hierarchical' => true,
 					'with_front' => true,
 				],
