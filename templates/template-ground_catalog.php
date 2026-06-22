@@ -9,7 +9,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 	<div class="grid grid-cols-12 gap-6">
 		<div class="col-span-2">
-			<?php get_template_part( 'template-parts/navigation/navigation-sidebar-tertiary' ); ?>
+			<?php get_template_part( 'template-parts/sidebar/sidebar-tertiary' ); ?>
 		</div>
 
 		<div class="col-span-10">
