@@ -149,9 +149,13 @@ function ground_image( $args = [] ) {
 			$attr['width'] = $size[0];
 			$attr['height'] = $size[1];
 		} else {
-			global $_wp_additional_image_sizes;
-			$attr['width'] = $_wp_additional_image_sizes[ $size ]['width'];
-			$attr['height'] = $_wp_additional_image_sizes[ $size ]['height'];
+			// Includes both core sizes (thumbnail/medium/large) and those
+			// registered via add_image_size(); $_wp_additional_image_sizes omits the core ones.
+			$sizes = wp_get_registered_image_subsizes();
+			if ( isset( $sizes[ $size ] ) ) {
+				$attr['width'] = $sizes[ $size ]['width'];
+				$attr['height'] = $sizes[ $size ]['height'];
+			}
 		}
 
 		$image = '<img src="' . esc_url( $placeholder ) . '"';
