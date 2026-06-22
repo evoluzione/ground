@@ -1,4 +1,4 @@
-<?php get_template_part( 'template-parts/content/content-footer' ); ?>
+<?php get_template_part( 'template-parts/content/content-footer-primary' ); ?>
 
 <?php wp_footer(); ?>
 
