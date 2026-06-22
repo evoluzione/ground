@@ -22,46 +22,14 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 				<?php get_template_part( 'template-parts/content/content-page' ); ?>
 
-				<?php // Taxonomies first.
-					$taxonomies = get_terms( [
-						'taxonomy' => 'ground_catalog_taxonomy',
-						'parent' => 0,
-					] );
+				<?php get_template_part( 'template-parts/catalog/catalog-browser', null, [
+						'mode'     => ground_config( 'catalog.mode' ),
+						'parent'   => 0,
+						'per_page' => ground_config( 'catalog.per_page' ),
+					] ); ?>
 
-					if ( ! empty( $taxonomies ) && ! is_wp_error( $taxonomies ) ) : ?>
-
-					<div class="grid grid-cols-4 gap-6">
-						<?php foreach ( $taxonomies as $taxonomy ) {
-							get_template_part( 'template-parts/preview/preview-ground_catalog_taxonomy', null, [ 'taxonomy' => $taxonomy ] );
-						} ?>
-					</div>
-
-				<?php else :  // Show Products.
-				
-						$query = new WP_Query( [
-							'post_type' => 'ground_catalog',
-							'orderby' => 'menu_order',
-							'posts_per_page' => 12,
-							'paged' => get_query_var( 'paged' ) ?: 1,
-						] );
-
-						if ( $query->have_posts() ) : ?>
-						<div class="grid grid-cols-4 gap-6">
-							<?php
-							while ( $query->have_posts() ) :
-								$query->the_post();
-								get_template_part( 'template-parts/preview/preview-ground_catalog' );
-							endwhile; ?>
-						</div>
-						<?php
-						get_template_part( 'template-parts/pagination/pagination-primary', null, [ 'query' => $query ] );
-						wp_reset_postdata();
-						endif;
-
-					endif; ?>
+			<?php endwhile; ?>
 			</div>
-
-		<?php endwhile; ?>
 
 	</div>
 </div>

@@ -24,35 +24,12 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 			<?php endif; ?>
 
 			<?php
-			$term_id = get_queried_object_id();
-			$taxonomies = get_terms( [
-				'taxonomy' => 'ground_catalog_taxonomy',
-				// 'child_of' => $term_id,
-				'parent' => $term_id,
-			] );
-
-			// Taxonomies first.
-			if ( ! empty( $taxonomies ) && ! is_wp_error( $taxonomies ) ) : ?>
-
-				<div class="grid grid-cols-4 gap-6">
-					<?php foreach ( $taxonomies as $taxonomy ) {
-						get_template_part( 'template-parts/preview/preview-ground_catalog_taxonomy', null, [ 'taxonomy' => $taxonomy ] );
-					} ?>
-				</div>
-
-			<?php else :  // Show Products.
-			
-				if ( have_posts() ) : ?>
-					<div class="grid grid-cols-4 gap-6">
-						<?php while ( have_posts() ) :
-							the_post();
-							get_template_part( 'template-parts/preview/preview-ground_catalog' );
-						endwhile; ?>
-					</div>
-					<?php get_template_part( 'template-parts/pagination/pagination-primary' );
-				endif;
-
-			endif; ?>
+			$term = get_queried_object();
+			get_template_part( 'template-parts/catalog/catalog-browser', null, [
+				'mode'     => ground_config( 'catalog.mode' ),
+				'parent'   => $term->term_id,
+				'per_page' => ground_config( 'catalog.per_page' ),
+			] ); ?>
 
 		</div>
 
