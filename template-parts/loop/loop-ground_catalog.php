@@ -1,6 +1,6 @@
 <?php
 /**
- * Catalog browser — renders catalog categories or products for one level.
+ * Catalog loop — renders catalog categories or products for one level.
  *
  * Args:
  *   - mode     (string) 'auto' | 'products'. Default 'auto'.

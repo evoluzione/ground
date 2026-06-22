@@ -25,7 +25,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 			<?php
 			$term = get_queried_object();
-			get_template_part( 'template-parts/catalog/catalog-browser', null, [
+			get_template_part( 'template-parts/loop/loop-ground_catalog', null, [
 				'mode'     => ground_config( 'catalog.mode' ),
 				'parent'   => $term->term_id,
 				'per_page' => ground_config( 'catalog.per_page' ),

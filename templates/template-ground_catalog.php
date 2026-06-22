@@ -22,7 +22,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 				<?php get_template_part( 'template-parts/content/content-page' ); ?>
 
-				<?php get_template_part( 'template-parts/catalog/catalog-browser', null, [
+				<?php get_template_part( 'template-parts/loop/loop-ground_catalog', null, [
 						'mode'     => ground_config( 'catalog.mode' ),
 						'parent'   => 0,
 						'per_page' => ground_config( 'catalog.per_page' ),
