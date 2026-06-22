@@ -71,3 +71,21 @@ msgstr "Selettore lingua"
 #. Template Name of the theme
 msgid "Catalog"
 msgstr "Catalogo"
+
+#: config/post-types.php:8
+msgid "catalog"
+msgstr "catalogo"
+
+#: config/post-types.php:21
+msgctxt "Post Type General Name"
+msgid "Products"
+msgstr "Prodotti"
+
+#: config/post-types.php:22
+msgctxt "Post Type Singular Name"
+msgid "Product"
+msgstr "Prodotto"
+
+#: config/post-types.php:42
+msgid "catalog-category"
+msgstr "categoria-catalogo"
