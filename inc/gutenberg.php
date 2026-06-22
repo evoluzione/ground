@@ -94,4 +94,3 @@ function ground_block_attributes( $block, $class_name = '' ) {
 
 	return implode( ' ', $attributes );
 }
-
