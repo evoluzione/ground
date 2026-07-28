@@ -57,7 +57,7 @@ ground_config( 'post-types.post_types' )   // 'post-types' → config/post-types
 
 ### Template routing
 
-Standard WP template hierarchy at the theme root (`index.php`, `page.php`, `front-page.php`, `single-post.php`, `single-ground_catalog.php`, `category.php`, `taxonomy-ground_catalog_taxonomy.php`) delegates immediately to `template-parts/` via `get_template_part()`. Naming convention: `template-parts/{header,footer,content,preview,navigation,pagination,sidebar,loop,blocks}/{type}-{name}.php`. Full-page layouts (e.g. `templates/template-ground_catalog.php`, selected as a WP page template) compose these parts directly rather than duplicating markup.
+Standard WP template hierarchy at the theme root (`index.php`, `page.php`, `front-page.php`, `single-post.php`, `single-ground_catalog.php`, `category.php`, `taxonomy-ground_catalog_taxonomy.php`, `woocommerce.php`) delegates immediately to `template-parts/` via `get_template_part()`. Naming convention: `template-parts/{header,footer,content,preview,navigation,pagination,sidebar,loop,blocks}/{type}-{name}.php`. Full-page layouts (e.g. `templates/template-ground_catalog.php`, selected as a WP page template) compose these parts directly rather than duplicating markup.
 
 ### The catalog CPT (`ground_catalog`)
 
@@ -67,10 +67,12 @@ A generic products/listing custom post type + hierarchical taxonomy (`ground_cat
 
 Opt-in via `ENABLE_WOOCOMMERCE`. Key points if touching commerce code:
 
+- [woocommerce.php](woocommerce.php) at the theme root is WooCommerce's own main-template override — it assembles the shop/product page (header → `woocommerce_content()` → footer) and conditionally renders the filters sidebar (`is_shop() || is_product_taxonomy()`), same pattern as the other root templates in Template routing above.
+- The **"Shop filters"** sidebar (`sidebar-shop`, registered in `config/sidebars.php` like any other sidebar) is rendered via `template-parts/sidebar/sidebar-shop.php` and populated with WooCommerce's own widgets (layered nav, price filter, categories) during provisioning when seeding is on.
 - WooCommerce's own frontend stylesheets are dequeued (`woocommerce_enqueue_styles` → `__return_empty_array`) because they're unlayered CSS that would beat Tailwind's `@layer utilities` output regardless of specificity — the theme owns all WooCommerce markup styling in `src/css/app.css` instead.
 - Product image sizes are centralized in `config/media.php` (`media.woocommerce`) and enforced via `woocommerce_get_image_size_{name}` filters, not left store-owner-editable.
 - Mini-cart / header cart badge are AJAX fragments (`woocommerce_add_to_cart_fragments`) keyed to selectors in `content-header-primary.php` — keep `ground_cart_link()` self-contained since it's re-rendered standalone on every cart update.
-- `woocommerce/` at the theme root holds WooCommerce template overrides (WC's own override mechanism, separate from `template-parts/`).
+- `woocommerce/` at the theme root holds WooCommerce template part overrides (WC's own override mechanism for parts like the product loop, separate from `template-parts/`).
 
 ### Assets pipeline
 
