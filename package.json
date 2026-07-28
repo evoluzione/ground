@@ -13,7 +13,7 @@
 		"build:styles": "npx @tailwindcss/cli -i src/css/app.css -o assets/css/ground-styles.min.css --minify --verbose",
 		"dev:js": "vite build --watch",
 		"build:js": "vite build",
-		"dev:sync": "browser-sync start --proxy http://localhost:8080 --files 'assets/css/*.css' '**/*.php' 'assets/js/*.min.js' --no-open --watch",
+		"dev:sync": "HTTP_PORT=$(grep -m1 '^HTTP_PORT=' .env 2>/dev/null | cut -d '=' -f2); browser-sync start --proxy \"http://localhost:${HTTP_PORT:-8080}\" --files 'assets/css/*.css' '**/*.php' 'assets/js/*.min.js' --no-open --watch",
 		"i18n:pot": "docker compose run --rm -w /var/www/html/wp-content/themes/ground wpcli wp i18n make-pot . languages/ground.pot --exclude=node_modules,assets,src",
 		"i18n:update": "docker compose run --rm -w /var/www/html/wp-content/themes/ground wpcli wp i18n update-po languages/ground.pot languages/",
 		"i18n:compile": "docker compose run --rm -w /var/www/html/wp-content/themes/ground wpcli sh -c 'for f in languages/*.po; do wp i18n make-mo \"$f\" languages/; done'",

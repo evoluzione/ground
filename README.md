@@ -9,13 +9,16 @@ Requires Docker Desktop running.
 1. `cp .env.example .env`
 2. In `.env` set the feature toggles and license keys (see [Plugins](#plugins)).
 3. Update the Compose project name in `docker-compose.yml` (`name: ground`).
-4. `npm run docker:up` — builds images, starts containers, and provisions WordPress/plugins.
-5. `npm install && npm run dev` — front-end on host (Node 24): Vite + Tailwind + browser-sync.
+4. If other Ground-based projects already run on this machine, avoid port clashes: in `.env` change `HTTP_PORT` and `MAILPIT_PORT` to ports not already taken (check `docker compose ls` / `docker ps`), and update `WP_URL` to match the new `HTTP_PORT`.
+5. `npm run docker:up` — builds images, starts containers, and provisions WordPress/plugins.
+6. `npm install && npm run dev` — front-end on host (Node 24): Vite + Tailwind + browser-sync.
 
-- Site: <http://localhost:8080> · Admin `/wp-admin` (`admin` / `admin`)
-- Test mail (Mailpit): <http://localhost:8025>
+- Site: <http://localhost:8080> (or your `HTTP_PORT`) · Admin `/wp-admin` (`admin` / `admin`)
+- Test mail (Mailpit): <http://localhost:8025> (or your `MAILPIT_PORT`)
 
 > `docker:up` creates `.env` from the example if missing, but edit it **before** the first run so the right plugins get installed.
+
+> `dev:sync` (browser-sync) reads `HTTP_PORT` from `.env` to proxy the right site, but its own ports (3000 proxy UI, 3001 control panel) aren't configurable per project — only one `npm run dev` can run at a time across all Ground-based projects on this host.
 
 Commands: `npm run docker:wp -- plugin list`, `npm run docker:shell`, `npm run docker:logs`, `npm run docker:down`, `npm run docker:reset` (wipes DB and WP). Full list: `npm run`.
 
