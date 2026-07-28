@@ -10,6 +10,10 @@ set -e
 # Truthy check for the ENABLE_* feature toggles (true/1/yes/on, case-insensitive).
 is_on() { case "$(echo "${1:-}" | tr 'A-Z' 'a-z')" in 1|true|yes|on) return 0 ;; *) return 1 ;; esac; }
 
+# Site locale (same value as WPLANG in docker-compose.yml). Drives the language
+# packs installed below; en_US means "no packs needed".
+WP_LOCALE="${WP_LOCALE:-it_IT}"
+
 # Boilerplate base plugins (free, on every site).
 BASE_PLUGINS="query-monitor wordpress-seo contact-form-7 webp-uploads"
 
@@ -38,7 +42,6 @@ else
     --admin_password="$WP_ADMIN_PASSWORD" \
     --admin_email="$WP_ADMIN_EMAIL" \
     --skip-email
-  wp language core install it_IT --activate || true
   wp option update timezone_string 'Europe/Rome' || true
   wp option update blogdescription 'Ground starter' || true
 fi
@@ -127,6 +130,30 @@ fi
 
 echo "→ Activating the 'ground' theme..."
 wp theme activate ground || echo "   ! theme not activated (assets build done?)"
+
+# --- Translations: language packs for core + installed plugins/themes ---
+# Runs AFTER every plugin is installed, so `--all` sees the full list. Install
+# fetches missing packs, update refreshes the ones already there (packs are
+# published after the plugin release, so a re-run picks up the new strings).
+# Only translate.wordpress.org-hosted packs: premium plugins (ACF Pro, the WPML
+# stack) ship their own .mo files and are simply skipped here. `|| true` because
+# install/update exit non-zero when *any* plugin has no pack for this locale.
+if [ "$WP_LOCALE" = "en_US" ]; then
+  echo "   • WP_LOCALE=en_US: no language packs needed"
+else
+  echo "→ Installing/updating $WP_LOCALE language packs..."
+  wp language core install "$WP_LOCALE" --activate >/dev/null 2>&1 || echo "   ! core language pack failed"
+  wp language plugin install --all "$WP_LOCALE" >/dev/null 2>&1 || true
+  wp language theme install --all "$WP_LOCALE" >/dev/null 2>&1 || true
+  wp language core update >/dev/null 2>&1 || true
+  wp language plugin update --all >/dev/null 2>&1 || true
+  wp language theme update --all >/dev/null 2>&1 || true
+  # Report how many plugins ended up with a pack. `list` only returns the plugins
+  # that have one for this locale ("active" when it's the site locale), so plugins
+  # with no pack on w.org — the premium ones — are simply absent from the count.
+  packs=$(wp language plugin list --all --language="$WP_LOCALE" --field=status 2>/dev/null | grep -cE '^(active|installed)$' || true)
+  echo "   • core + $packs plugin language packs up to date ($WP_LOCALE)"
+fi
 
 # Pretty permalinks (--hard rewrites .htaccess); flush after theme+plugins are active.
 echo "→ Setting permalinks (/%postname%/)..."

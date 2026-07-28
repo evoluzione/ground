@@ -16,7 +16,7 @@ x-wp-config-extra: &wp_config_extra |
   define( 'WP_MEMORY_LIMIT', '256M' );
   define( 'WP_MAX_MEMORY_LIMIT', '256M' );
   define( 'WP_ENVIRONMENT_TYPE', 'local' );
-  define( 'WPLANG', 'it_IT' );
+  define( 'WPLANG', '${WP_LOCALE:-it_IT}' );
   define( 'DISALLOW_FILE_EDIT', true );
   define( 'SAVEQUERIES', true );
   define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true );
@@ -87,6 +87,9 @@ services:
       WP_ADMIN_USER: ${WP_ADMIN_USER}
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+      # Site locale: same value as WPLANG above; provision.sh installs and keeps
+      # updated the language packs for core, plugins and themes.
+      WP_LOCALE: ${WP_LOCALE:-it_IT}
       # Feature toggles (in .env): which optional plugins provision.sh installs.
       ENABLE_WOOCOMMERCE: ${ENABLE_WOOCOMMERCE:-true}
       ENABLE_WPML: ${ENABLE_WPML:-false}
