@@ -6,6 +6,10 @@ return [
 			'id' => 'sidebar-archive-post',
 		],
 		[
+			'name' => __( 'Shop filters', 'ground' ),
+			'id' => 'sidebar-shop',
+		],
+		[
 			'name' => __( 'Footer primary', 'ground' ),
 			'id' => 'sidebar-footer-primary',
 		],

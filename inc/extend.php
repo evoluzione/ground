@@ -2,10 +2,19 @@
 /**
  * Localization
  *
- * Load the theme's translated strings
+ * Load the theme's translated strings.
+ *
+ * Deliberately calls load_textdomain() with the exact file path instead of
+ * load_theme_textdomain(): since WP 6.5 the latter only registers the path
+ * and defers the actual file load to _load_textdomain_just_in_time(), which
+ * — for a language directory that lives *inside* the theme (as ours does) —
+ * looks for an unprefixed "{$locale}.mo" instead of our "{$domain}-{$locale}.mo"
+ * naming (produced by `wp i18n make-mo`), so it silently never finds the file.
+ *
+ * @return void
  */
 function ground_load_theme_textdomain() {
-	load_theme_textdomain( 'ground', GROUND_TEMPLATE_DIRECTORY . '/languages' );
+	load_textdomain( 'ground', GROUND_TEMPLATE_DIRECTORY . '/languages/ground-' . determine_locale() . '.mo' );
 }
 
 add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );

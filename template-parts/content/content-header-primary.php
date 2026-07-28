@@ -11,5 +11,15 @@
 		</a>
 		<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
 		<?php get_template_part( 'template-parts/navigation/navigation-languages' ); ?>
+		<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+			<div class="relative">
+				<?php ground_cart_link(); ?>
+				<div class="mini-cart-panel">
+					<div class="mini-cart-panel-content">
+						<?php woocommerce_mini_cart(); ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
 	</div>
 </header>

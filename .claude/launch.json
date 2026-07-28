@@ -1,0 +1,23 @@
+{
+	"version": "0.0.1",
+	"configurations": [
+		{
+			"name": "WordPress (Docker)",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "docker:up"],
+			"port": 8080
+		},
+		{
+			"name": "Mailpit (Docker)",
+			"runtimeExecutable": "docker",
+			"runtimeArgs": ["compose", "up", "-d", "mailpit"],
+			"port": 8025
+		},
+		{
+			"name": "Assets (Vite + Tailwind + BrowserSync)",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "dev"],
+			"port": 3000
+		}
+	]
+}

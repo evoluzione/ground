@@ -56,6 +56,21 @@ for p in $BASE_PLUGINS; do
   wp plugin activate "$p" >/dev/null 2>&1 && echo "   • $p active" || echo "   ! $p not activated"
 done
 
+# WooCommerce ships with US defaults (USD, lbs, in, "$1,234.56"). Always re-align
+# to Italian locale, even on an existing install (e.g. after importing sample
+# data or a dump that carries its own store settings).
+if is_on "$ENABLE_WOOCOMMERCE"; then
+  echo "→ Setting WooCommerce store locale (EUR / IT / kg / cm)..."
+  wp option update woocommerce_currency EUR >/dev/null 2>&1
+  wp option update woocommerce_currency_pos right_space >/dev/null 2>&1
+  wp option update woocommerce_price_thousand_sep '.' >/dev/null 2>&1
+  wp option update woocommerce_price_decimal_sep ',' >/dev/null 2>&1
+  wp option update woocommerce_price_num_decimals 2 >/dev/null 2>&1
+  wp option update woocommerce_weight_unit kg >/dev/null 2>&1
+  wp option update woocommerce_dimension_unit cm >/dev/null 2>&1
+  wp option update woocommerce_default_country IT >/dev/null 2>&1
+fi
+
 # --- PREMIUM plugins via license keys (authenticated download) ---
 # Keys live in .env (gitignored). If missing, the block is skipped.
 
@@ -160,12 +175,38 @@ if is_on "$ENABLE_SEED"; then
     #    nav menus, ACF block demo. All tagged with meta _ground_seed.
     wp eval-file /docker-scripts/seed.php || echo "   ! seed.php failed"
 
+    # 3) Shop filter widgets → the theme's "Shop filters" sidebar (sidebar-shop),
+    #    rendered by woocommerce.php on shop/product pages. WooCommerce only.
+    if is_on "$ENABLE_WOOCOMMERCE"; then
+      # The WXR importer doesn't populate WooCommerce's product lookup table, so the
+      # price filter (and other lookup-based features) see no price range. Rebuild it.
+      echo "   • regenerating WooCommerce product lookup tables..."
+      wp wc tool run regenerate_product_lookup_tables --user=admin >/dev/null 2>&1 || echo "   ! lookup regen failed"
+
+      echo "   • populating Shop filters sidebar..."
+      wp widget add woocommerce_layered_nav_filters sidebar-shop --title="Filtri attivi" >/dev/null 2>&1
+      wp widget add woocommerce_product_categories  sidebar-shop --title="Categorie" --count=1 --hierarchical=1 >/dev/null 2>&1
+      wp widget add woocommerce_price_filter        sidebar-shop --title="Prezzo" >/dev/null 2>&1
+      # query_type=or → match ANY selected term (expected behaviour for single-value
+      # attributes like colour/size); "and" would require a product to have them all.
+      wp widget add woocommerce_layered_nav         sidebar-shop --title="Colore" --attribute=color --query_type=or --display_type=list >/dev/null 2>&1
+      wp widget add woocommerce_layered_nav         sidebar-shop --title="Taglia" --attribute=size --query_type=or --display_type=list >/dev/null 2>&1
+    fi
+
     wp option update ground_seed_done 1 >/dev/null 2>&1
     echo "   • seeding complete"
   fi
 else
   echo "   • ENABLE_SEED off: skipping demo content"
 fi
+
+# Flush rewrite rules last. WooCommerce serves the product archive at the Shop
+# page slug (/shop/); that rewrite must be regenerated after the Shop page and
+# all seeded content exist, otherwise /shop/ resolves to the page (not the
+# product archive) and renders an empty grid. The earlier --hard flush runs too
+# soon for this.
+echo "→ Flushing rewrite rules..."
+wp rewrite flush --hard >/dev/null 2>&1 || echo "   ! rewrite flush failed"
 
 echo ""
 echo "✓ Provisioning complete → $WP_URL"

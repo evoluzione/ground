@@ -14,3 +14,183 @@
 @utility container {
 	@apply mx-auto px-8;
 }
+
+/* -------------------------------------------------------------------------
+   Shop filters — WooCommerce layered-nav / price / category widgets.
+   WooCommerce generates the markup; it is styled here through the
+   .shop-filters wrapper (template-parts/sidebar/sidebar-shop.php). The
+   checkboxes on attribute filters are *simulated* in CSS: the real control
+   stays the native filter link, toggled via the `…--chosen` state class.
+   ------------------------------------------------------------------------- */
+.shop-filters .widget {
+	@apply text-sm;
+}
+.shop-filters .widget__title {
+	@apply mb-3 text-lg font-semibold;
+}
+
+/* Attribute + category lists */
+.shop-filters ul.woocommerce-widget-layered-nav-list,
+.shop-filters ul.product-categories {
+	@apply m-0 list-none space-y-1.5 p-0;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item,
+.shop-filters ul.product-categories li {
+	@apply flex items-center justify-between gap-2;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item a,
+.shop-filters ul.product-categories a {
+	@apply text-gray-700 no-underline transition-colors hover:text-primary;
+}
+
+/* Simulated checkbox on attribute filters (colour / size) */
+.shop-filters .woocommerce-widget-layered-nav-list__item a {
+	@apply relative inline-flex items-center gap-2 pl-6;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item a::before {
+	content: "";
+	@apply absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 rounded border border-gray-300 bg-white transition-colors;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item--chosen a {
+	@apply font-medium text-primary;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item--chosen a::before {
+	@apply border-primary bg-primary;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 4 6 12 3 9'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 0.7rem;
+}
+.shop-filters .count {
+	@apply shrink-0 text-xs text-gray-400;
+}
+
+/* Active category (navigation list) */
+.shop-filters ul.product-categories li.current-cat > a {
+	@apply font-medium text-primary;
+}
+
+/* Active filters — removable pills */
+.shop-filters .woocommerce-widget-layered-nav-filters ul {
+	@apply m-0 flex list-none flex-wrap gap-2 p-0;
+}
+.shop-filters .woocommerce-widget-layered-nav-filters a {
+	@apply inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600 no-underline transition-colors hover:bg-gray-200 hover:text-primary;
+}
+
+/* Price range slider */
+.shop-filters .price_slider_wrapper {
+	@apply space-y-3;
+}
+.shop-filters .price_slider {
+	@apply relative my-4 h-1 rounded bg-gray-200;
+}
+.shop-filters .price_slider .ui-slider-range {
+	@apply absolute h-1 rounded bg-primary;
+}
+.shop-filters .price_slider .ui-slider-handle {
+	@apply absolute -top-1.5 -ml-2 h-4 w-4 cursor-pointer rounded-full border-2 border-primary bg-white;
+}
+.shop-filters .price_slider_amount {
+	@apply flex flex-wrap items-center justify-between gap-2;
+}
+.shop-filters .price_slider_amount .price_label {
+	@apply text-xs text-gray-500;
+}
+.shop-filters .price_slider_amount .button {
+	@apply rounded bg-primary px-3 py-1 text-xs font-medium text-white no-underline transition-opacity hover:opacity-90;
+}
+
+/* -------------------------------------------------------------------------
+   Shop archive — WooCommerce product grid (woocommerce/loop/loop-start.php,
+   content-product.php default markup). WooCommerce's own layout CSS is
+   disabled (see inc/woocommerce.php); the theme styles the grid and card
+   here instead. Single product, cart, checkout and account pages still use
+   WooCommerce's unstyled default markup — not yet covered.
+   ------------------------------------------------------------------------- */
+.products {
+	@apply list-none p-0;
+}
+.products .onsale {
+	@apply absolute top-2 left-2 z-10 rounded-full bg-primary px-2 py-1 text-xs text-white;
+}
+.products img {
+	@apply aspect-square w-full object-cover;
+}
+.woocommerce-loop-product__link {
+	@apply relative block no-underline;
+}
+.woocommerce-loop-product__title {
+	@apply mt-2 text-lg text-gray-900;
+}
+.products .price {
+	@apply block font-medium text-primary;
+}
+.products .price del {
+	@apply mr-2 font-normal text-gray-400;
+}
+.products .price ins {
+	@apply no-underline;
+}
+.products .add_to_cart_button {
+	@apply mt-3 inline-block rounded bg-primary px-3 py-1.5 text-sm text-white no-underline transition-opacity hover:opacity-90;
+}
+
+/* -------------------------------------------------------------------------
+   Header mini-cart — trigger badge (inc/woocommerce.php: ground_cart_link())
+   and dropdown panel wrapping WooCommerce's default mini-cart widget markup
+   (woocommerce_mini_cart(), unstyled by default — see inc/woocommerce.php).
+   Both are refreshed via AJAX fragments after add-to-cart, so their classes
+   are the fragment selectors and must not be renamed without updating
+   ground_woocommerce_cart_fragments().
+   ------------------------------------------------------------------------- */
+.cart-contents .cart-count {
+	@apply absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-white;
+}
+
+.mini-cart-panel {
+	@apply absolute right-0 top-full z-50 hidden w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl;
+}
+.mini-cart-panel.is-active {
+	@apply block;
+}
+
+.mini-cart-panel .woocommerce-mini-cart {
+	@apply m-0 max-h-80 list-none space-y-4 overflow-y-auto p-0;
+}
+.mini-cart-panel .mini_cart_item {
+	@apply relative grid grid-cols-[3rem_1fr] gap-3 pr-5;
+}
+.mini-cart-panel .mini_cart_item img {
+	@apply aspect-square w-12 rounded object-cover;
+}
+.mini-cart-panel .mini_cart_item a:not(.remove) {
+	@apply text-sm text-gray-900 no-underline hover:text-primary;
+}
+.mini-cart-panel .mini_cart_item .quantity {
+	@apply block text-xs text-gray-500;
+}
+.mini-cart-panel .remove {
+	@apply absolute top-0 right-0 text-gray-400 no-underline hover:text-secondary;
+}
+
+.mini-cart-panel .woocommerce-mini-cart__empty-message {
+	@apply m-0 text-sm text-gray-500;
+}
+
+.mini-cart-panel .woocommerce-mini-cart__total {
+	@apply mt-4 mb-0 flex justify-between border-t border-gray-200 pt-4 font-medium text-gray-900;
+}
+
+.mini-cart-panel .woocommerce-mini-cart__buttons {
+	@apply mt-4 mb-0 flex gap-2;
+}
+.mini-cart-panel .woocommerce-mini-cart__buttons .button {
+	@apply flex-1 rounded px-3 py-2 text-center text-sm no-underline transition-opacity hover:opacity-90;
+}
+.mini-cart-panel .woocommerce-mini-cart__buttons .button:not(.checkout) {
+	@apply bg-gray-100 text-gray-900;
+}
+.mini-cart-panel .woocommerce-mini-cart__buttons .button.checkout {
+	@apply bg-primary text-white;
+}

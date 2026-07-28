@@ -42,17 +42,17 @@ msgid "Header secondary"
 msgstr "Header secondario"
 
 #: config/menus.php:14
-#: config/sidebars.php:9
+#: config/sidebars.php:13
 msgid "Footer primary"
 msgstr "Footer primario"
 
 #: config/menus.php:18
-#: config/sidebars.php:13
+#: config/sidebars.php:17
 msgid "Footer secondary"
 msgstr "Footer secondario"
 
 #: config/menus.php:22
-#: config/sidebars.php:17
+#: config/sidebars.php:21
 msgid "Footer tertiary"
 msgstr "Footer terziario"
 
@@ -60,7 +60,7 @@ msgstr "Footer terziario"
 msgid "Archive post"
 msgstr "Archivio articoli"
 
-#: config/sidebars.php:21
+#: config/sidebars.php:25
 msgid "Footer quaternary"
 msgstr "Footer quaternario"
 
@@ -89,3 +89,11 @@ msgstr "Prodotto"
 #: config/post-types.php:42
 msgid "catalog-category"
 msgstr "categoria-catalogo"
+
+#: config/sidebars.php:9
+msgid "Shop filters"
+msgstr "Filtri negozio"
+
+#: inc/woocommerce.php:83
+msgid "Cart"
+msgstr "Carrello"

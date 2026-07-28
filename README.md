@@ -8,8 +8,9 @@ Requires Docker Desktop running.
 
 1. `cp .env.example .env`
 2. In `.env` set the feature toggles and license keys (see [Plugins](#plugins)).
-3. `npm run docker:up` — builds, starts and provisions everything.
-4. `npm install && npm run dev` — front-end on host (Node 24): Vite + Tailwind + browser-sync.
+3. Update the Compose project name in `docker-compose.yml` (`name: ground`).
+4. `npm run docker:up` — builds images, starts containers, and provisions WordPress/plugins.
+5. `npm install && npm run dev` — front-end on host (Node 24): Vite + Tailwind + browser-sync.
 
 - Site: <http://localhost:8080> · Admin `/wp-admin` (`admin` / `admin`)
 - Test mail (Mailpit): <http://localhost:8025>
