@@ -5,7 +5,7 @@ return [
 			'name' => 'ground_catalog',
 			'args' => [
 				'rewrite' => [
-					'slug' => __( 'catalog', 'ground' ),
+					'slug' => sanitize_title( __( 'catalog', 'ground' ) ),
 					'with_front' => true,
 				],
 				'supports' => [
@@ -38,8 +38,12 @@ return [
 				'hierarchical' => true,
 				'public' => true,
 				'show_admin_column' => true,
+				'labels' => [
+					'name' => _x( 'Product Categories', 'Taxonomy General Name', 'ground' ),
+					'singular_name' => _x( 'Product Category', 'Taxonomy Singular Name', 'ground' ),
+				],
 				'rewrite' => [
-					'slug' => __( 'catalog-category', 'ground' ),
+					'slug' => sanitize_title( __( 'catalog-category', 'ground' ) ),
 					'hierarchical' => true,
 					'with_front' => true,
 				],
