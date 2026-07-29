@@ -47,6 +47,22 @@ function ground_config( $configPath ) {
 }
 
 /**
+ * Checks whether debug mode is active.
+ *
+ * Always active on local/development environments. On staging/production,
+ * only active for admins that explicitly opt in via ?debug=true.
+ *
+ * @return bool
+ */
+function ground_is_debug() {
+	if ( in_array( wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
+		return true;
+	}
+
+	return current_user_can( 'manage_options' ) && isset( $_GET['debug'] ) && $_GET['debug'] === 'true';
+}
+
+/**
  * Excerpt with custom length.
  *
  * @param int             $length     Optional. The excerpt length in characters. Default is 100.

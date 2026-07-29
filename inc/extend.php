@@ -43,7 +43,7 @@ add_filter( 'sanitize_file_name', 'ground_sanitize_uploaded_filename', 9 );
  */
 function ground_body_class( $classes ) {
 
-	if ( ground_config( 'theme.debug_breakpoints' ) ) {
+	if ( ground_is_debug() ) {
 		$classes[] = 'debug-screens';
 	}
 
