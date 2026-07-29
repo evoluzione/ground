@@ -76,17 +76,7 @@ msgstr "Catalogo"
 msgid "catalog"
 msgstr "catalogo"
 
-#: config/post-types.php:21
-msgctxt "Post Type General Name"
-msgid "Products"
-msgstr "Prodotti"
-
-#: config/post-types.php:22
-msgctxt "Post Type Singular Name"
-msgid "Product"
-msgstr "Prodotto"
-
-#: config/post-types.php:42
+#: config/post-types.php:88
 msgid "catalog-category"
 msgstr "categoria-catalogo"
 
@@ -97,3 +87,182 @@ msgstr "Filtri negozio"
 #: inc/woocommerce.php:83
 msgid "Cart"
 msgstr "Carrello"
+
+#: config/post-types.php:21
+#: config/post-types.php:23
+msgctxt "Post Type General Name"
+msgid "Catalog"
+msgstr "Catalogo"
+
+#: config/post-types.php:22
+#: config/post-types.php:24
+msgctxt "Post Type Singular Name"
+msgid "Item"
+msgstr "Elemento"
+
+#: config/post-types.php:68
+#: config/post-types.php:70
+msgctxt "Taxonomy General Name"
+msgid "Categories"
+msgstr "Categorie"
+
+#: config/post-types.php:69
+msgctxt "Taxonomy Singular Name"
+msgid "Category"
+msgstr "Categoria"
+
+#: config/post-types.php:25
+msgid "Add New Item"
+msgstr "Aggiungi nuovo elemento"
+
+#: config/post-types.php:26
+msgid "Edit Item"
+msgstr "Modifica elemento"
+
+#: config/post-types.php:27
+msgid "New Item"
+msgstr "Nuovo elemento"
+
+#: config/post-types.php:28
+msgid "View Item"
+msgstr "Visualizza elemento"
+
+#: config/post-types.php:29
+msgid "View Items"
+msgstr "Visualizza elementi"
+
+#: config/post-types.php:30
+msgid "Search Items"
+msgstr "Cerca elementi"
+
+#: config/post-types.php:31
+msgid "No items found."
+msgstr "Nessun elemento trovato."
+
+#: config/post-types.php:32
+msgid "No items found in Trash."
+msgstr "Nessun elemento trovato nel cestino."
+
+#: config/post-types.php:33
+msgid "All Items"
+msgstr "Tutti gli elementi"
+
+#: config/post-types.php:34
+msgid "Item Archives"
+msgstr "Archivi elemento"
+
+#: config/post-types.php:35
+msgid "Item Attributes"
+msgstr "Attributi elemento"
+
+#: config/post-types.php:36
+msgid "Insert into item"
+msgstr "Inserisci nell'elemento"
+
+#: config/post-types.php:37
+msgid "Uploaded to this item"
+msgstr "Caricato su questo elemento"
+
+#: config/post-types.php:38
+msgid "Featured Image"
+msgstr "Immagine in evidenza"
+
+#: config/post-types.php:39
+msgid "Set featured image"
+msgstr "Imposta immagine in evidenza"
+
+#: config/post-types.php:40
+msgid "Remove featured image"
+msgstr "Rimuovi immagine in evidenza"
+
+#: config/post-types.php:41
+msgid "Use as featured image"
+msgstr "Usa come immagine in evidenza"
+
+#: config/post-types.php:42
+msgid "Filter items list"
+msgstr "Filtra elenco elementi"
+
+#: config/post-types.php:43
+msgid "Items list navigation"
+msgstr "Navigazione elenco elementi"
+
+#: config/post-types.php:44
+msgid "Items list"
+msgstr "Elenco elementi"
+
+#: config/post-types.php:45
+msgid "Item published."
+msgstr "Elemento pubblicato."
+
+#: config/post-types.php:46
+msgid "Item updated."
+msgstr "Elemento aggiornato."
+
+#: config/post-types.php:47
+msgid "Item Link"
+msgstr "Link elemento"
+
+#: config/post-types.php:48
+msgid "A link to an item."
+msgstr "Un link a un elemento."
+
+#: config/post-types.php:71
+msgid "All Categories"
+msgstr "Tutte le categorie"
+
+#: config/post-types.php:72
+msgid "Parent Category"
+msgstr "Categoria madre"
+
+#: config/post-types.php:73
+msgid "Parent Category:"
+msgstr "Categoria madre:"
+
+#: config/post-types.php:74
+msgid "New Category Name"
+msgstr "Nome nuova categoria"
+
+#: config/post-types.php:75
+msgid "Add New Category"
+msgstr "Aggiungi nuova categoria"
+
+#: config/post-types.php:76
+msgid "Edit Category"
+msgstr "Modifica categoria"
+
+#: config/post-types.php:77
+msgid "Update Category"
+msgstr "Aggiorna categoria"
+
+#: config/post-types.php:78
+msgid "View Category"
+msgstr "Visualizza categoria"
+
+#: config/post-types.php:79
+msgid "Search Categories"
+msgstr "Cerca categorie"
+
+#: config/post-types.php:80
+msgid "Not Found"
+msgstr "Non trovato"
+
+#: config/post-types.php:81
+msgid "No categories"
+msgstr "Nessuna categoria"
+
+#: config/post-types.php:82
+msgid "Filter by category"
+msgstr "Filtra per categoria"
+
+#: config/post-types.php:83
+msgid "Categories list navigation"
+msgstr "Navigazione elenco categorie"
+
+#: config/post-types.php:84
+msgid "Categories list"
+msgstr "Elenco categorie"
+
+#: config/post-types.php:85
+msgid "← Back to Categories"
+msgstr "← Torna alle categorie"
