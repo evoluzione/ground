@@ -32,6 +32,10 @@ Provisioning is driven by `.env` — installed once on first `docker:up`.
 
 A plugin installs only if it's free or its key is set. WPML add-ons activate by dependency: **WooCommerce Multilingual** (WPML + WooCommerce), **ACF Multilingual** (WPML + ACF key), **CF7 Multilingual** (WPML). To change plugins or add-on versions, edit `.docker/provision.sh`.
 
+## wp-config
+
+There's no `wp-config.php` in the repo. Extra constants (`WP_DEBUG_LOG`, `WP_ENVIRONMENT_TYPE`, etc.) live in the `x-wp-config-extra` anchor in `docker-compose.yml`. To change one, edit that anchor and run `npm run docker:down && npm run docker:up` (data is preserved — only `docker:reset` wipes volumes).
+
 ## Credits
 
 [Fabio Quarantini](http://www.fabioquarantini.com) · [MIT License](https://opensource.org/licenses/MIT)
