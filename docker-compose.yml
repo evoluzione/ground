@@ -64,6 +64,11 @@ services:
       - ./:/var/www/html/wp-content/themes/ground
       # Route all outgoing mail to Mailpit (dev only):
       - ./.docker/mu-plugins/mailpit-dev.php:/var/www/html/wp-content/mu-plugins/mailpit-dev.php
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost/"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   # WP-CLI: used by the npm scripts (docker:provision, docker:wp).
   wpcli:
@@ -71,7 +76,8 @@ services:
     profiles: ["tools"]
     user: "33:33"
     depends_on:
-      - wordpress
+      wordpress:
+        condition: service_healthy
     environment:
       # Writable HOME for the WP-CLI cache (the container runs as uid 33).
       HOME: /tmp
