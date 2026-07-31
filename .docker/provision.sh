@@ -59,19 +59,15 @@ for p in $BASE_PLUGINS; do
   wp plugin activate "$p" >/dev/null 2>&1 && echo "   • $p active" || echo "   ! $p not activated"
 done
 
-# WooCommerce ships with US defaults (USD, lbs, in, "$1,234.56"). Always re-align
-# to Italian locale, even on an existing install (e.g. after importing sample
-# data or a dump that carries its own store settings).
+# WooCommerce ships with US defaults (USD, lbs, in, "$1,234.56"), no tax/shipping/
+# payment configured, and — since the "Launch your store" feature (8.6+) — a
+# "Coming soon" mode that hides the shop behind a placeholder. Always re-align to
+# a usable Italian store, even on an existing install (e.g. after importing
+# sample data or a dump that carries its own store settings). Full list of what
+# this touches: .docker/woocommerce-defaults.php.
 if is_on "$ENABLE_WOOCOMMERCE"; then
-  echo "→ Setting WooCommerce store locale (EUR / IT / kg / cm)..."
-  wp option update woocommerce_currency EUR >/dev/null 2>&1
-  wp option update woocommerce_currency_pos right_space >/dev/null 2>&1
-  wp option update woocommerce_price_thousand_sep '.' >/dev/null 2>&1
-  wp option update woocommerce_price_decimal_sep ',' >/dev/null 2>&1
-  wp option update woocommerce_price_num_decimals 2 >/dev/null 2>&1
-  wp option update woocommerce_weight_unit kg >/dev/null 2>&1
-  wp option update woocommerce_dimension_unit cm >/dev/null 2>&1
-  wp option update woocommerce_default_country IT >/dev/null 2>&1
+  echo "→ Configuring WooCommerce store defaults (locale, taxes, shipping, payments)..."
+  wp eval-file /docker-scripts/woocommerce-defaults.php || echo "   ! woocommerce-defaults.php failed"
 fi
 
 # --- PREMIUM plugins via license keys (authenticated download) ---
