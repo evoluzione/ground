@@ -36,7 +36,7 @@ There are no automated PHP/JS tests in this repo; validate changes by loading th
 
 Idempotent: installs WordPress fresh only if the DB is empty, otherwise just realigns URLs/plugins. Driven entirely by `.env`:
 
-- **Base plugins** (always, free): Query Monitor, Yoast SEO, Contact Form 7, WebP Uploads.
+- **Base plugins** (always, free): Query Monitor, Yoast SEO, Contact Form 7, WebP Uploads, FluentSMTP.
 - **Toggles**: `ENABLE_WOOCOMMERCE`, `ENABLE_WPML` (a plugin installs only if its toggle is on AND it's free or its license key is set). WPML add-ons (WooCommerce Multilingual, ACF Multilingual, CF7 Multilingual) activate automatically by dependency.
 - **`ENABLE_SEED`**: imports the theme's own demo fixtures (`.docker/seed.php` — catalog products/taxonomy/menus/front page) plus official WP core/theme test data (`.docker/seed/*.xml`), guarded by a one-time `ground_seed_done` option. `.docker/seed-reset.php` reverses it.
 - To change which plugins/versions get installed, edit `.docker/provision.sh` directly.
