@@ -73,6 +73,14 @@ foreach ( array( 'bacs', 'cod' ) as $gateway_id ) {
 update_option( 'woocommerce_calc_taxes', 'yes' );
 update_option( 'woocommerce_prices_include_tax', 'no' );
 
+echo "  woo: enabling variation gallery feature (10.9+)\n";
+
+// Per-variation image galleries, merged into core in WC 10.9, ship disabled for
+// everyone during its phased rollout. Turn it on so variable products (incl. the
+// sample data below) can show it off out of the box. No-op on older WooCommerce
+// versions that don't read this option yet.
+update_option( 'wc_feature_woocommerce_additional_variation_images_enabled', 'yes' );
+
 // --- Structural creation below: tax class/rates + shipping zone. Runs once,
 // tracked via 'ground_woo_defaults_seeded' — see the file docblock. ---
 if ( 'yes' === get_option( 'ground_woo_defaults_seeded' ) ) {
