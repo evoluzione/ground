@@ -1,8 +1,8 @@
 <?php if ( isset( $args['taxonomy'] ) ) : ?>
 	<article class="mb-6">
-		<?php if ( isset( $args['taxonomy']->slug, $args['taxonomy']->taxonomy ) ) : ?>
+		<?php if ( $args['taxonomy'] instanceof WP_Term ) : ?>
 			<a class="group no-underline"
-				href="<?php echo esc_url( get_term_link( $args['taxonomy']->slug, $args['taxonomy']->taxonomy ) ); ?>">
+				href="<?php echo esc_url( get_term_link( $args['taxonomy'] ) ); ?>">
 				<?php
 				// TODO: Aggiungere immagine come custom fields
 				ground_image( [
