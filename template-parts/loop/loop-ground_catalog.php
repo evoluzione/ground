@@ -19,9 +19,8 @@ $parent   = (int) ( $args['parent'] ?? 0 );
 $per_page = (int) ( $args['per_page'] ?? 12 );
 
 $terms = ( 'products' === $mode ) ? [] : get_terms( [
-	'taxonomy'   => 'ground_catalog_taxonomy',
-	'parent'     => $parent,
-	'pad_counts' => true, // conta anche i prodotti delle sotto-categorie
+	'taxonomy' => 'ground_catalog_taxonomy',
+	'parent'   => $parent,
 ] );
 
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
