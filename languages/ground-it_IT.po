@@ -84,7 +84,7 @@ msgstr "categoria-catalogo"
 msgid "Shop filters"
 msgstr "Filtri negozio"
 
-#: inc/woocommerce.php:83
+#: inc/woocommerce.php:84
 msgid "Cart"
 msgstr "Carrello"
 
@@ -266,3 +266,7 @@ msgstr "Elenco categorie"
 #: config/post-types.php:85
 msgid "← Back to Categories"
 msgstr "← Torna alle categorie"
+
+#: woocommerce.php:20
+msgid "Filters"
+msgstr "Filtri"

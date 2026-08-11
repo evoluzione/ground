@@ -22,6 +22,19 @@
    checkboxes on attribute filters are *simulated* in CSS: the real control
    stays the native filter link, toggled via the `…--chosen` state class.
    ------------------------------------------------------------------------- */
+
+/* Collapsed behind a toggle below lg: on a phone the widget stack is ~3.700 px
+   tall and would bury the products. Button in woocommerce.php, via js-toggle. */
+.shop-filters-toggle {
+	@apply mb-4 w-full rounded border border-gray-200 px-4 py-2 text-sm;
+}
+.shop-filters {
+	@apply hidden lg:block;
+}
+.shop-filters.is-active {
+	@apply block;
+}
+
 .shop-filters .widget {
 	@apply text-sm;
 }
