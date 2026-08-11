@@ -13,10 +13,10 @@ return [
 		[
 			'handle' => 'ground-scripts',
 			'src' => GROUND_TEMPLATE_DIRECTORY_URI . '/assets/js/ground-scripts.min.js',
-			'deps' => [ 'jquery' ],
+			'deps' => [],
 			'ver' => GROUND_VERSION,
 			'args' => [
-				'strategy' => '', // May be either 'defer' or 'async'.
+				'strategy' => 'defer', // May be either 'defer' or 'async'.
 				'in_footer' => true,
 			],
 		],
