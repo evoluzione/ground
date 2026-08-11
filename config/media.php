@@ -6,14 +6,11 @@ return [
 	'sanitize_file_name' => true,
 	'icon_set' => 'lucide',
 
-	// Keyed by the registered size name, so this file mirrors what the media
-	// library actually holds. 'height' => 0 caps the width only, 'crop'
-	// defaults to false. Editing anything here needs a `wp media regenerate`.
+	// Keyed by registered size name. 'height' => 0 caps the width only, 'crop'
+	// defaults to false. Changes here need a `wp media regenerate`.
 	'sizes' => [
 
-		// WordPress core slots. Their dimensions also live in wp_options, which
-		// is where WordPress reads them when it writes width/height into markup
-		// — theme-support.php mirrors these values there so the two can't drift.
+		// Core slots — theme-support.php mirrors these into wp_options too.
 		'thumbnail' => [ 'width' => 200, 'height' => 200 ],
 		'medium' => [ 'width' => 768, 'height' => 768 ],
 		'medium_large' => [ 'width' => 1280, 'height' => 720 ],
@@ -31,9 +28,7 @@ return [
 		'16-9-medium' => [ 'width' => 1280, 'height' => 720 ],
 		'16-9-large' => [ 'width' => 1920, 'height' => 1080 ],
 
-		// WooCommerce registers these itself; declaring them here hands their
-		// dimensions to this file and removes WooCommerce's own controls for
-		// them (see inc/woocommerce.php).
+		// Registered by WooCommerce — see inc/woocommerce.php.
 		'woocommerce_thumbnail' => [ 'width' => 300, 'height' => 300, 'crop' => true ],  // Shop/loop, categories, cart, checkout, emails, widgets
 		'woocommerce_single' => [ 'width' => 600, 'height' => 0 ], // Single product main image
 		'woocommerce_gallery_thumbnail' => [ 'width' => 100, 'height' => 100, 'crop' => true ],  // Single product gallery thumbnails

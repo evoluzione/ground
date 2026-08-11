@@ -1,7 +1,6 @@
 <?php
 /**
- * Returns the 'woocommerce_'-prefixed entries of config/media.php, keyed by the
- * name WooCommerce uses internally (i.e. without the prefix).
+ * Returns the 'woocommerce_' entries of config/media.php, keyed without the prefix.
  *
  * @return array
  */
@@ -21,9 +20,8 @@ function ground_woocommerce_config_sizes() {
 /**
  * WooCommerce integration.
  *
- * Declares theme support, including the product image widths. Declaring them
- * is what makes WooCommerce drop its own Customizer controls for those widths
- * (see WC_Shop_Customizer), handing the dimensions to config/media.php.
+ * Declaring the product image widths as theme support is what makes WooCommerce
+ * drop its own Customizer controls for them.
  *
  * @return void
  */
@@ -52,10 +50,9 @@ add_action( 'after_setup_theme', 'ground_woocommerce_support' );
 /**
  * Enforces WooCommerce image dimensions from config/media.php.
  *
- * Theme support above only carries the widths; height and crop are derived by
- * wc_get_image_size(), which applies these filters last — so they govern both
- * the generated files and the displayed images. A `height` of 0 means the width
- * alone constrains the size.
+ * Theme support carries only the widths; wc_get_image_size() applies these
+ * filters last, so they govern height and crop for the generated files as well
+ * as the displayed ones. A `height` of 0 means width-only.
  *
  * @return void
  */
@@ -77,9 +74,8 @@ add_action( 'after_setup_theme', 'ground_woocommerce_image_sizes' );
 /**
  * Removes WooCommerce's "Product Images" Customizer section.
  *
- * Declaring the widths as theme support already drops the two width controls,
- * leaving only the thumbnail cropping ones — and those the filters above
- * override, so they would change nothing whatever the store owner picks.
+ * Theme support already drops the width controls; what is left is thumbnail
+ * cropping, which the filters above override anyway.
  *
  * @param WP_Customize_Manager $wp_customize The Customizer manager instance.
  * @return void

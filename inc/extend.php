@@ -305,21 +305,37 @@ function ground_remove_customizer_site_icon( $wp_customize ) {
 add_action( 'customize_register', 'ground_remove_customizer_site_icon', 20 );
 
 /**
- * Hides the image size fields in Settings → Media.
+ * Stops Settings → Media from saving the image size options.
  *
- * The sizes come from config/media.php, so these fields would store values the
- * theme overrides on read. options-media.php prints them as raw markup with no
- * settings API to unregister them, so CSS is the only lever — targeted at the
- * three core rows, since plugins add their own fields to the same table.
+ * The sizes come from config/media.php, so WordPress refuses the writes.
+ *
+ * @param array $allowed Options each settings page is allowed to save.
+ * @return array
+ */
+function ground_lock_media_size_options( $allowed ) {
+	$allowed['media'] = array_values( array_diff(
+		$allowed['media'] ?? array(),
+		array( 'thumbnail_size_w', 'thumbnail_size_h', 'thumbnail_crop', 'medium_size_w', 'medium_size_h', 'large_size_w', 'large_size_h' )
+	) );
+
+	return $allowed;
+}
+
+add_filter( 'allowed_options', 'ground_lock_media_size_options' );
+
+/**
+ * Hides the fields the filter above has already disabled.
+ *
+ * options-media.php prints them as raw markup, so there is no API to remove
+ * them and this stays cosmetic: if the selectors ever miss, the fields come
+ * back visible but still unsaveable.
  *
  * @return void
  */
 function ground_hide_media_size_settings() {
 	?>
 	<style>
-		.form-table tr:has(#thumbnail_size_w),
-		.form-table tr:has(#medium_size_w),
-		.form-table tr:has(#large_size_w),
+		.form-table tr:has(:is(#thumbnail_size_w, #medium_size_w, #large_size_w)),
 		h2.title:has(+ p + .form-table #thumbnail_size_w),
 		h2.title:has(+ p + .form-table #thumbnail_size_w) + p {
 			display: none;

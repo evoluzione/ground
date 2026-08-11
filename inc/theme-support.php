@@ -61,16 +61,13 @@ add_action( 'init', 'ground_register_menus' );
 /**
  * Registers custom thumbnail sizes and sets media configurations.
  *
- * Reads config/media.php ('media.sizes'), keyed by registered size name.
- * Entries prefixed 'woocommerce_' belong to WooCommerce and are handled in
- * inc/woocommerce.php instead.
+ * Reads config/media.php ('media.sizes'). Entries prefixed 'woocommerce_' are
+ * handled in inc/woocommerce.php instead.
  *
  * @return void
  */
 function ground_register_thumbnails() {
 
-	// Slots WordPress always registers, whose dimensions it also keeps in
-	// wp_options.
 	$core_slots = array( 'thumbnail', 'medium', 'medium_large', 'large' );
 
 	// Registers custom image sizes.
@@ -90,10 +87,9 @@ function ground_register_thumbnails() {
 
 		add_image_size( $name, $width, $height, $crop );
 
-		// For the core slots add_image_size() decides which file is generated,
-		// but the dimensions reported in markup come from the options instead
-		// (image_constrain_size_for_editor). Mirror them, or the markup
-		// advertises one size while serving another.
+		// add_image_size() decides which file is generated, but for these four
+		// the dimensions reported in markup come from the options — mirror them
+		// or the markup advertises one size while serving another.
 		if ( in_array( $name, $core_slots, true ) ) {
 			add_filter( "pre_option_{$name}_size_w", static fn() => $width );
 			add_filter( "pre_option_{$name}_size_h", static fn() => $height );
