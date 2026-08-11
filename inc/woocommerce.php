@@ -99,13 +99,11 @@ function ground_cart_link() {
 /**
  * Renders the mini-cart panel contents.
  *
- * While the cart is empty — the common case across most pageviews — this skips
- * WooCommerce's mini-cart template and the hook chain around it, and prints the
- * empty message directly instead. WooCommerce's own translated string and markup
- * class are reused, so the panel keeps looking the same (see app.css).
+ * While the cart is empty this skips WooCommerce's mini-cart template and the
+ * hook chain around it, printing the empty message directly — reusing WC's own
+ * translated string and markup class so the panel looks the same (see app.css).
  *
- * Shared by the header markup (content-header-primary.php) and the AJAX
- * fragment below, so the two can't drift apart.
+ * Shared by the header markup and the AJAX fragment, so the two can't drift.
  *
  * @return void
  */

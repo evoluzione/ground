@@ -83,9 +83,8 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
 		return;
 	}
 
-	// Shortcodes are stripped, not executed: expanding them (which can trigger
-	// queries or HTTP calls) only to discard everything past $length is wasted
-	// work in listing loops. Same trade-off core makes in wp_trim_excerpt().
+	// Shortcodes are stripped rather than executed, as core does in
+	// wp_trim_excerpt(): expanding them only to truncate is wasted work.
 	$post_content = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : strip_shortcodes( $post->post_content );
 	$content = wp_strip_all_tags( $post_content );
 	$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
@@ -288,10 +287,8 @@ function ground_icon( $args = [] ) {
  * @return void
  */
 function ground_log( $log ) {
-	// WP_DEBUG_LOG is either true or a path, and WordPress points error_log()
-	// at the right destination in both cases. A strict comparison against true
-	// therefore disabled this helper outright whenever a path was configured —
-	// as docker-compose.yml does.
+	// WP_DEBUG_LOG is either true or a path; WordPress routes error_log() to the
+	// right destination in both cases.
 	if ( ! WP_DEBUG || ! WP_DEBUG_LOG ) {
 		return;
 	}
@@ -479,12 +476,11 @@ function ground_pagination( $args = [] ) {
 /**
  * Displays a hierarchical list of pages starting from the top parent of the current page.
  *
- * 'get_pages_args' is merged into the get_pages() call, so its query vars can
- * scope the tree: here 'number' maps to posts_per_page and is a real SQL
- * LIMIT, unlike its counterpart in ground_terms(). Nothing is capped by
- * default all the same — a slice taken before the hierarchy is built loses the
- * children of whatever it cut. Past theme.nav_tree_warn_at items the helper
- * logs a warning in debug instead.
+ * 'get_pages_args' is merged into the get_pages() call; there 'number' maps to
+ * posts_per_page and is a real LIMIT, unlike in ground_terms(). Never capped by
+ * default all the same, since a slice taken before the hierarchy is built loses
+ * the children of whatever it cut; past theme.nav_tree_warn_at items it warns
+ * in debug.
  *
  * @param array $args {
  *     Optional. Array of arguments.
@@ -641,16 +637,12 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
 /**
  * Generates and displays a hierarchical list of terms from a specified taxonomy.
  *
- * The argument array is forwarded to get_terms(), so its query vars can scope
- * the list — but they don't all bound the same thing. Only 'parent' reaches
- * SQL (as a tt.parent clause); 'child_of' and 'number' are applied by
- * WP_Term_Query in PHP once the full set has been fetched, so they bound the
- * rendered output rather than the query. Pair 'number' with
- * 'hierarchical' => false for an actual LIMIT.
- *
- * Nothing is capped by default: a slice taken before this function builds the
- * hierarchy silently drops children whose parent fell outside it. Past
- * theme.nav_tree_warn_at items the helper logs a warning in debug instead.
+ * Arguments are forwarded to get_terms(), but they don't all bound the same
+ * thing: only 'parent' reaches SQL, while 'number' and 'child_of' are applied
+ * in PHP after the full fetch. Pair 'number' with 'hierarchical' => false for
+ * a real LIMIT. Never capped by default, since a slice taken before the
+ * hierarchy is built loses the children of whatever it cut; past
+ * theme.nav_tree_warn_at items it warns in debug.
  *
  * @param array $args {
  *     Optional. Array of arguments to control the display and behavior of the terms list.
