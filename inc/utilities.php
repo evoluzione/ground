@@ -278,20 +278,28 @@ function ground_icon( $args = [] ) {
 }
 
 /**
- * Write log to /wp-content/debug.log.
- * Requires WP_DEBUG and WP_DEBUG_LOG to be enabled.
+ * Writes to the debug log.
+ *
+ * Requires WP_DEBUG, plus WP_DEBUG_LOG set either to true (logging to
+ * wp-content/debug.log) or to an explicit file path.
  *
  * @param mixed $log Logging data.
  *
  * @return void
  */
 function ground_log( $log ) {
-	if ( true === WP_DEBUG && true === WP_DEBUG_LOG ) {
-		if ( is_array( $log ) || is_object( $log ) ) {
-			error_log( print_r( $log, true ) );
-		} else {
-			error_log( $log );
-		}
+	// WP_DEBUG_LOG is either true or a path, and WordPress points error_log()
+	// at the right destination in both cases. A strict comparison against true
+	// therefore disabled this helper outright whenever a path was configured —
+	// as docker-compose.yml does.
+	if ( ! WP_DEBUG || ! WP_DEBUG_LOG ) {
+		return;
+	}
+
+	if ( is_array( $log ) || is_object( $log ) ) {
+		error_log( print_r( $log, true ) );
+	} else {
+		error_log( $log );
 	}
 }
 
