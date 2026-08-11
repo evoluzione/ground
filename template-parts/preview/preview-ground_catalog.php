@@ -1,7 +1,7 @@
 <article class="mb-6">
 	<a class="group no-underline" href="<?php the_permalink(); ?>">
 		<?php ground_image( [
-			'size' => '1-1-large',
+			'size' => '1-1-medium',
 			'attr' => [
 				'class' => 'aspect-1/1 object-cover w-full',
 				'alt' => get_the_title(),
