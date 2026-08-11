@@ -109,7 +109,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
  *     Optional. An array of parameters for retrieving the image.
  *
  *     @type string|int[] $size           Image size. Accepts any registered image size name or an array of width and height values. Default is 'thumbnail'.
- *     @type string|array $attr           Query string or array of attributes. Default is ['loading' => 'lazy']. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
+ *     @type string|array $attr           Query string or array of attributes. Empty by default, so WordPress decides 'loading' and 'fetchpriority' itself; pass them only to override that. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
  *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default is null.
  *     @type string $placeholder          URL to a fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
  *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default is false.
@@ -124,9 +124,11 @@ function ground_image( $args = [] ) {
 
 	$defaults = [
 		'size' => 'thumbnail',
-		'attr' => [
-			'loading' => 'lazy',
-		],
+		// No 'loading' by default: declaring it hands WordPress a claim about the
+		// viewport, and 'lazy' told it every image was below the fold — which
+		// switched off its own optimisation. Left alone, core makes the first
+		// images eager, gives the first fetchpriority="high", and lazies the rest.
+		'attr' => [],
 		'post' => null,
 		'placeholder' => ground_config( 'media.placeholder_url' ),
 		'return_url' => false,
