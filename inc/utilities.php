@@ -83,8 +83,11 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
 		return;
 	}
 
-	$post_content = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
-	$content = wp_strip_all_tags( do_shortcode( $post_content ) );
+	// Shortcodes are stripped, not executed: expanding them (which can trigger
+	// queries or HTTP calls) only to discard everything past $length is wasted
+	// work in listing loops. Same trade-off core makes in wp_trim_excerpt().
+	$post_content = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : strip_shortcodes( $post->post_content );
+	$content = wp_strip_all_tags( $post_content );
 	$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
 
 	if ( mb_strlen( $content, get_bloginfo( 'charset' ) ) > $length ) {
