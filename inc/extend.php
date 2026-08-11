@@ -303,3 +303,29 @@ function ground_remove_customizer_site_icon( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'ground_remove_customizer_site_icon', 20 );
+
+/**
+ * Hides the image size fields in Settings → Media.
+ *
+ * The sizes come from config/media.php, so these fields would store values the
+ * theme overrides on read. options-media.php prints them as raw markup with no
+ * settings API to unregister them, so CSS is the only lever — targeted at the
+ * three core rows, since plugins add their own fields to the same table.
+ *
+ * @return void
+ */
+function ground_hide_media_size_settings() {
+	?>
+	<style>
+		.form-table tr:has(#thumbnail_size_w),
+		.form-table tr:has(#medium_size_w),
+		.form-table tr:has(#large_size_w),
+		h2.title:has(+ p + .form-table #thumbnail_size_w),
+		h2.title:has(+ p + .form-table #thumbnail_size_w) + p {
+			display: none;
+		}
+	</style>
+	<?php
+}
+
+add_action( 'admin_head-options-media.php', 'ground_hide_media_size_settings' );

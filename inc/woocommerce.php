@@ -1,18 +1,45 @@
 <?php
 /**
+ * Returns the 'woocommerce_'-prefixed entries of config/media.php, keyed by the
+ * name WooCommerce uses internally (i.e. without the prefix).
+ *
+ * @return array
+ */
+function ground_woocommerce_config_sizes() {
+
+	$sizes = array();
+
+	foreach ( (array) ground_config( 'media.sizes' ) as $name => $size ) {
+		if ( str_starts_with( $name, 'woocommerce_' ) ) {
+			$sizes[ substr( $name, strlen( 'woocommerce_' ) ) ] = $size;
+		}
+	}
+
+	return $sizes;
+}
+
+/**
  * WooCommerce integration.
  *
- * Declares theme support and owns the product image sizes. Image dimensions
- * (width/height/crop) live in a single place — config/media.php
- * (`media.woocommerce`) — and are enforced via the woocommerce_get_image_size_*
- * filters, so they stay coherent with the theme and are not store-owner editable.
+ * Declares theme support, including the product image widths. Declaring them
+ * is what makes WooCommerce drop its own Customizer controls for those widths
+ * (see WC_Shop_Customizer), handing the dimensions to config/media.php.
  *
  * @return void
  */
 function ground_woocommerce_support() {
 
+	$sizes = ground_woocommerce_config_sizes();
+	$width = static function ( $name ) use ( $sizes ) {
+		return isset( $sizes[ $name ]['width'] ) ? (int) $sizes[ $name ]['width'] : null;
+	};
+
 	// Declare WooCommerce support (enables template overrides).
-	add_theme_support( 'woocommerce' );
+	add_theme_support( 'woocommerce', array_filter( array(
+		'thumbnail_image_width' => $width( 'thumbnail' ),
+		'single_image_width' => $width( 'single' ),
+		'gallery_thumbnail_image_width' => $width( 'gallery_thumbnail' ),
+	) ) );
 
 	// Single-product gallery features (zoom / lightbox / slider).
 	add_theme_support( 'wc-product-gallery-zoom' );
@@ -23,25 +50,18 @@ function ground_woocommerce_support() {
 add_action( 'after_setup_theme', 'ground_woocommerce_support' );
 
 /**
- * Enforces WooCommerce image dimensions (width/height/crop) from config
- * (`media.woocommerce`) via the woocommerce_get_image_size_{size} filters.
+ * Enforces WooCommerce image dimensions from config/media.php.
  *
- * WooCommerce registers its sizes on `init` (via wc_get_image_size()), which
- * runs after `after_setup_theme`, so these filters govern both the generated
- * files and the displayed images. A `height` of 0 means uncropped (constrained
- * by width only).
+ * Theme support above only carries the widths; height and crop are derived by
+ * wc_get_image_size(), which applies these filters last — so they govern both
+ * the generated files and the displayed images. A `height` of 0 means the width
+ * alone constrains the size.
  *
  * @return void
  */
 function ground_woocommerce_image_sizes() {
 
-	$sizes = ground_config( 'media.woocommerce' );
-
-	if ( ! is_array( $sizes ) ) {
-		return;
-	}
-
-	foreach ( $sizes as $name => $size ) {
+	foreach ( ground_woocommerce_config_sizes() as $name => $size ) {
 		add_filter( "woocommerce_get_image_size_{$name}", function () use ($size) {
 			return array(
 				'width' => (int) ( $size['width'] ?? 0 ),
@@ -53,6 +73,22 @@ function ground_woocommerce_image_sizes() {
 }
 
 add_action( 'after_setup_theme', 'ground_woocommerce_image_sizes' );
+
+/**
+ * Removes WooCommerce's "Product Images" Customizer section.
+ *
+ * Declaring the widths as theme support already drops the two width controls,
+ * leaving only the thumbnail cropping ones — and those the filters above
+ * override, so they would change nothing whatever the store owner picks.
+ *
+ * @param WP_Customize_Manager $wp_customize The Customizer manager instance.
+ * @return void
+ */
+function ground_woocommerce_remove_image_customizer( $wp_customize ) {
+	$wp_customize->remove_section( 'woocommerce_product_images' );
+}
+
+add_action( 'customize_register', 'ground_woocommerce_remove_image_customizer', 20 );
 
 // Disables WooCommerce's bundled frontend stylesheets (woocommerce.css,
 // woocommerce-layout.css, woocommerce-smallscreen.css). They ship as plain,

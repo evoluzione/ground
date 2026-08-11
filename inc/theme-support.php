@@ -61,17 +61,46 @@ add_action( 'init', 'ground_register_menus' );
 /**
  * Registers custom thumbnail sizes and sets media configurations.
  *
+ * Reads config/media.php ('media.sizes'), keyed by registered size name.
+ * Entries prefixed 'woocommerce_' belong to WooCommerce and are handled in
+ * inc/woocommerce.php instead.
+ *
  * @return void
  */
 function ground_register_thumbnails() {
 
+	// Slots WordPress always registers, whose dimensions it also keeps in
+	// wp_options.
+	$core_slots = array( 'thumbnail', 'medium', 'medium_large', 'large' );
+
 	// Registers custom image sizes.
-	foreach ( ground_config( 'media.sizes' ) as $size ) {
-		if ( isset( $size['name'], $size['width'], $size['height'] ) ) {
-			$crop = $size['crop'] ?? false;
-			add_image_size( $size['name'], $size['width'], $size['height'], $crop );
-		} else {
-			trigger_error( 'Error: Mandatory values (name, width, height) are missing in one of the image sizes.', E_USER_WARNING );
+	foreach ( (array) ground_config( 'media.sizes' ) as $name => $size ) {
+		if ( str_starts_with( $name, 'woocommerce_' ) ) {
+			continue;
+		}
+
+		if ( ! isset( $size['width'], $size['height'] ) ) {
+			trigger_error( sprintf( 'Error: image size "%s" is missing width or height.', $name ), E_USER_WARNING );
+			continue;
+		}
+
+		$width = (int) $size['width'];
+		$height = ( (int) $size['height'] ) ?: 9999; // 0 means width-only; 9999 is WordPress's idiom for it.
+		$crop = ! empty( $size['crop'] );
+
+		add_image_size( $name, $width, $height, $crop );
+
+		// For the core slots add_image_size() decides which file is generated,
+		// but the dimensions reported in markup come from the options instead
+		// (image_constrain_size_for_editor). Mirror them, or the markup
+		// advertises one size while serving another.
+		if ( in_array( $name, $core_slots, true ) ) {
+			add_filter( "pre_option_{$name}_size_w", static fn() => $width );
+			add_filter( "pre_option_{$name}_size_h", static fn() => $height );
+
+			if ( 'thumbnail' === $name ) {
+				add_filter( 'pre_option_thumbnail_crop', static fn() => $crop ? 1 : 0 );
+			}
 		}
 	}
 
