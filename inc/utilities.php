@@ -479,6 +479,13 @@ function ground_pagination( $args = [] ) {
 /**
  * Displays a hierarchical list of pages starting from the top parent of the current page.
  *
+ * 'get_pages_args' is merged into the get_pages() call, so its query vars can
+ * scope the tree: here 'number' maps to posts_per_page and is a real SQL
+ * LIMIT, unlike its counterpart in ground_terms(). Nothing is capped by
+ * default all the same — a slice taken before the hierarchy is built loses the
+ * children of whatever it cut. Past theme.nav_tree_warn_at items the helper
+ * logs a warning in debug instead.
+ *
  * @param array $args {
  *     Optional. Array of arguments.
  *
@@ -527,6 +534,17 @@ function ground_subpages( $args = array() ) {
 	);
 
 	$pages = get_pages( wp_parse_args( $args['get_pages_args'], $get_pages_defaults ) );
+
+	$warn_at = (int) ground_config( 'theme.nav_tree_warn_at' );
+
+	if ( $warn_at && is_array( $pages ) && count( $pages ) > $warn_at && ground_is_debug() ) {
+		ground_log( sprintf(
+			'ground_subpages(): rendering %d pages under #%d, past the %d set in theme.nav_tree_warn_at. Scope the query through "get_pages_args" (e.g. "number").',
+			count( $pages ),
+			$top_parent_id,
+			$warn_at
+		) );
+	}
 
 	$pages_by_parent = array();
 	foreach ( $pages as $page ) {
@@ -623,6 +641,17 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
 /**
  * Generates and displays a hierarchical list of terms from a specified taxonomy.
  *
+ * The argument array is forwarded to get_terms(), so its query vars can scope
+ * the list — but they don't all bound the same thing. Only 'parent' reaches
+ * SQL (as a tt.parent clause); 'child_of' and 'number' are applied by
+ * WP_Term_Query in PHP once the full set has been fetched, so they bound the
+ * rendered output rather than the query. Pair 'number' with
+ * 'hierarchical' => false for an actual LIMIT.
+ *
+ * Nothing is capped by default: a slice taken before this function builds the
+ * hierarchy silently drops children whose parent fell outside it. Past
+ * theme.nav_tree_warn_at items the helper logs a warning in debug instead.
+ *
  * @param array $args {
  *     Optional. Array of arguments to control the display and behavior of the terms list.
  *
@@ -665,6 +694,17 @@ function ground_terms( $arg = [] ) {
 
 	if ( empty( $terms ) || is_wp_error( $terms ) ) {
 		return;
+	}
+
+	$warn_at = (int) ground_config( 'theme.nav_tree_warn_at' );
+
+	if ( $warn_at && count( $terms ) > $warn_at && ground_is_debug() ) {
+		ground_log( sprintf(
+			'ground_terms(): rendering %d terms from the "%s" taxonomy, past the %d set in theme.nav_tree_warn_at. Scope the query with "number" or "child_of" — both are forwarded to get_terms().',
+			count( $terms ),
+			$args['taxonomy'],
+			$warn_at
+		) );
 	}
 
 	$term_hierarchy = [];
