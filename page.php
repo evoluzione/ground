@@ -5,13 +5,13 @@
 
 get_template_part( 'template-parts/header/header-primary' ); ?>
 
-<main class="container grid grid-cols-12 gap-6">
+<main class="container grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-	<div class="col-span-2">
+	<div class="order-last lg:order-none lg:col-span-2">
 		<?php get_template_part( 'template-parts/sidebar/sidebar-primary' ); ?>
 	</div>
 
-	<div class="col-span-10">
+	<div class="lg:col-span-10">
 
 		<?php get_template_part( 'template-parts/navigation/navigation-breadcrumbs' ); ?>
 

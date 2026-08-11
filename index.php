@@ -18,9 +18,9 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 		echo '<div class="prose max-w-none mb-6">' . apply_filters( 'the_content', get_post_field( 'post_content', $page_for_posts_id ) ) . '</div>';
 	} ?>
 
-	<div class="grid grid-cols-12 gap-6">
+	<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-		<div class="col-span-10">
+		<div class="lg:col-span-10">
 
 			<?php while ( have_posts() ) :
 
@@ -33,7 +33,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 
 		</div>
 
-		<div class="col-span-2">
+		<div class="lg:col-span-2">
 			<?php get_template_part( 'template-parts/sidebar/sidebar-secondary' ); ?>
 		</div>
 
