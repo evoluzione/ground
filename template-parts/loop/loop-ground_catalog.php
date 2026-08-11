@@ -25,7 +25,7 @@ $terms = ( 'products' === $mode ) ? [] : get_terms( [
 
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
 
-	<div class="grid grid-cols-4 gap-6">
+	<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 		<?php foreach ( $terms as $term ) {
 			get_template_part( 'template-parts/preview/preview-ground_catalog_taxonomy', null, [ 'taxonomy' => $term ] );
 		} ?>
@@ -46,7 +46,7 @@ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
 	] );
 
 	if ( $query->have_posts() ) : ?>
-		<div class="grid grid-cols-4 gap-6">
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 			<?php while ( $query->have_posts() ) :
 				$query->the_post();
 				get_template_part( 'template-parts/preview/preview-ground_catalog' );

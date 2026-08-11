@@ -8,6 +8,7 @@
 				ground_image( [
 					'size' => '1-1-medium',
 					'attr' => [
+						'sizes' => '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw',
 						'class' => 'aspect-1/1 object-cover w-full mb-6',
 						'alt' => esc_attr( $args['taxonomy']->name ?? '' ),
 					]

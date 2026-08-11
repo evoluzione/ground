@@ -6,4 +6,4 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<ul class="products grid grid-cols-4 gap-6">
+<ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
