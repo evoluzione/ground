@@ -23,7 +23,7 @@
 				<?php ground_cart_link(); ?>
 				<div class="mini-cart-panel">
 					<div class="mini-cart-panel-content">
-						<?php woocommerce_mini_cart(); ?>
+						<?php ground_mini_cart_content(); ?>
 					</div>
 				</div>
 			</div>

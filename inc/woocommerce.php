@@ -74,7 +74,8 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
  */
 function ground_cart_link() {
 
-	$count = WC()->cart->get_cart_contents_count();
+	$cart = WC()->cart;
+	$count = $cart ? $cart->get_cart_contents_count() : 0;
 	?>
 	<a
 		href="<?php echo esc_url( wc_get_cart_url() ); ?>"
@@ -96,6 +97,32 @@ function ground_cart_link() {
 }
 
 /**
+ * Renders the mini-cart panel contents.
+ *
+ * While the cart is empty — the common case across most pageviews — this skips
+ * WooCommerce's mini-cart template and the hook chain around it, and prints the
+ * empty message directly instead. WooCommerce's own translated string and markup
+ * class are reused, so the panel keeps looking the same (see app.css).
+ *
+ * Shared by the header markup (content-header-primary.php) and the AJAX
+ * fragment below, so the two can't drift apart.
+ *
+ * @return void
+ */
+function ground_mini_cart_content() {
+
+	$cart = WC()->cart;
+
+	if ( $cart && ! $cart->is_empty() ) {
+		woocommerce_mini_cart();
+		return;
+	}
+	?>
+	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
+	<?php
+}
+
+/**
  * Registers the AJAX fragments refreshed by WooCommerce's wc-cart-fragments.js
  * after every add-to-cart: the header trigger (count badge) and the mini-cart
  * panel content, keyed by the selectors already present in the header markup.
@@ -112,7 +139,7 @@ function ground_woocommerce_cart_fragments( $fragments ) {
 	ob_start();
 	?>
 	<div class="mini-cart-panel-content">
-		<?php woocommerce_mini_cart(); ?>
+		<?php ground_mini_cart_content(); ?>
 	</div>
 	<?php
 	$fragments['div.mini-cart-panel-content'] = ob_get_clean();
