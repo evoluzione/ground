@@ -22,6 +22,8 @@ function ground_register_acf_blocks() {
 
 		$block['render_template'] = $block['render_template'] ?? '/template-parts/blocks/' . $block['name'] . '.php';
 		$block['category'] = $block['category'] ?? 'ground';
+		$block['api_version'] = $block['api_version'] ?? 3;
+		$block['acf_block_version'] = $block['acf_block_version'] ?? 3;
 
 		acf_register_block_type( $block );
 	}
