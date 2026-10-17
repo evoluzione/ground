@@ -36,6 +36,10 @@ function ground_theme_support() {
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'custom-spacing' );
 
+	// oEmbeds (YouTube, Vimeo…) scale to the column they sit in instead of keeping
+	// the fixed width wp_embed_defaults() asks the provider for ($content_width).
+	add_theme_support( 'responsive-embeds' );
+
 }
 
 add_action( 'after_setup_theme', 'ground_theme_support' );
@@ -67,6 +71,8 @@ add_action( 'init', 'ground_register_menus' );
  * @return void
  */
 function ground_register_thumbnails() {
+
+	global $content_width;
 
 	$core_slots = array( 'thumbnail', 'medium', 'medium_large', 'large' );
 

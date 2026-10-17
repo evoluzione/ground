@@ -1,8 +1,10 @@
 <?php
 return [
 	'placeholder_url' => GROUND_TEMPLATE_DIRECTORY_URI . '/assets/img/placeholder.svg',
-	'quality' => 82,
-	'content_width' => 1920,
+	'quality' => 78, // Every generated size, WebP included: keeps a 1024px hero under Lighthouse's 1/6 byte-per-pixel rule.
+	// Widest a piece of content can be: the Tailwind container at 2xl, 1536px minus
+	// twice its px-8. Sizes oEmbeds and caps the width 'large' reports in markup.
+	'content_width' => 1472,
 	'sanitize_file_name' => true,
 	'icon_set' => 'lucide',
 
