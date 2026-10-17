@@ -44,6 +44,7 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
+      target: wordpress
     restart: "no"
     depends_on:
       db:
@@ -71,8 +72,13 @@ services:
       retries: 20
 
   # WP-CLI: used by the npm scripts (docker:provision, docker:wp).
+  # Built from the same Dockerfile as wordpress (target "wpcli"): identical PHP
+  # and Imagick, so image subsizes regenerated here match real uploads.
   wpcli:
-    image: wordpress:cli-php8.3
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: wpcli
     profiles: ["tools"]
     user: "33:33"
     depends_on:

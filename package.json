@@ -18,7 +18,7 @@
 		"i18n:update": "docker compose run --rm -w /var/www/html/wp-content/themes/ground wpcli wp i18n update-po languages/ground.pot languages/",
 		"i18n:compile": "docker compose run --rm -w /var/www/html/wp-content/themes/ground wpcli sh -c 'for f in languages/*.po; do wp i18n make-mo \"$f\" languages/; done'",
 		"i18n:extract": "npm run i18n:pot && npm run i18n:update",
-		"docker:up": "test -f .env || cp .env.example .env; docker compose up -d --build && npm run docker:provision",
+		"docker:up": "test -f .env || cp .env.example .env; docker compose --profile tools build && docker compose up -d && npm run docker:provision",
 		"docker:provision": "docker compose run --rm wpcli sh /docker-scripts/provision.sh",
 		"docker:down": "docker compose down",
 		"docker:restart": "docker compose restart",

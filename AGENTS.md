@@ -83,6 +83,10 @@ Two independent build tools, both outputting into `assets/` (git-ignored build o
 - `browser-sync` proxies `localhost:8080` and reloads on CSS/PHP/JS changes — this is what `npm run dev` drives alongside the two watchers.
 - Both are registered/enqueued through `config/assets.php`, not `wp_enqueue_*` calls in template code.
 
+### Images
+
+- Regenerate with `npm run docker:wp -- media regenerate --yes`. The `wpcli` image is built from the same `.docker/Dockerfile` as `wordpress` (target `wpcli`), so CLI and uploads share PHP and Imagick: the stock Alpine `wordpress:cli` image has no JPEG/WebP delegates, falls back to GD and writes heavier WebP files. After editing the Dockerfile, rebuild both with `docker compose --profile tools build`.
+
 ### ACF
 
 Field groups are local JSON, saved/loaded from `config/acf/` (redirected via the `acf/settings/save_json` / `acf/settings/load_json` filters in [inc/extend.php](inc/extend.php)) instead of the default `acf-json` folder — keep field group edits inside `config/acf/`.
