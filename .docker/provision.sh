@@ -59,6 +59,14 @@ for p in $BASE_PLUGINS; do
   wp plugin activate "$p" >/dev/null 2>&1 && echo "   • $p active" || echo "   ! $p not activated"
 done
 
+# Modern Image Formats (webp-uploads) defaults to AVIF. It compresses better than
+# WebP but decodes slower, and decode time lands inside LCP on low-end devices —
+# so the boilerplate pins WebP. The JPEG fallback is pinned off too: its default
+# follows html5 'picture' theme support, so it would silently start doubling
+# every upload the day the theme opts into that.
+wp option update perflab_modern_image_format webp >/dev/null && echo "   • image output format: webp"
+wp option update perflab_generate_webp_and_jpeg 0 >/dev/null
+
 # WooCommerce ships with US defaults (USD, lbs, in, "$1,234.56"), no tax/shipping/
 # payment configured, and — since the "Launch your store" feature (8.6+) — a
 # "Coming soon" mode that hides the shop behind a placeholder. Always re-align to

@@ -105,10 +105,11 @@ function ground_register_thumbnails() {
 		$content_width = ground_config( 'media.content_width' );
 	}
 
-	// Set JPEG compression quality.
-	add_filter( 'jpeg_quality', function ( $arg ) {
+	// Sets compression quality for every output format, WebP included — after
+	// Modern Image Formats, which pins WebP to its own value at priority 10.
+	add_filter( 'wp_editor_set_quality', function ( $arg ) {
 		return ground_config( 'media.quality' );
-	} );
+	}, 20 );
 
 }
 
