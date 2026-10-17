@@ -10,23 +10,23 @@ return [
 	// defaults to false. Changes here need a `wp media regenerate`.
 	'sizes' => [
 
-		// Core slots — theme-support.php mirrors these into wp_options too.
-		'thumbnail' => [ 'width' => 200, 'height' => 200 ],
-		'medium' => [ 'width' => 768, 'height' => 768 ],
-		'medium_large' => [ 'width' => 1280, 'height' => 720 ],
-		'large' => [ 'width' => 1920, 'height' => 1080 ],
+		// Core slots — theme-support.php mirrors these into wp_options too. 1536x1536 and 2048x2048 are core's own.
+		'thumbnail' => [ 'width' => 150, 'height' => 150, 'crop' => true ],
+		'medium' => [ 'width' => 300, 'height' => 300 ],
+		'medium_large' => [ 'width' => 768, 'height' => 0 ],
+		'large' => [ 'width' => 1024, 'height' => 1024 ],
 
-		// Theme sizes.
-		'small' => [ 'width' => 480, 'height' => 480 ],
-		'1-1-small' => [ 'width' => 480, 'height' => 480 ],
-		'1-1-medium' => [ 'width' => 900, 'height' => 900 ],
-		'1-1-large' => [ 'width' => 1200, 'height' => 1200 ],
-		'4-3-small' => [ 'width' => 640, 'height' => 480 ],
-		'4-3-medium' => [ 'width' => 960, 'height' => 720 ],
-		'4-3-large' => [ 'width' => 1600, 'height' => 1200 ],
-		'16-9-small' => [ 'width' => 960, 'height' => 540 ],
-		'16-9-medium' => [ 'width' => 1280, 'height' => 720 ],
-		'16-9-large' => [ 'width' => 1920, 'height' => 1080 ],
+		// Cropped families, one per ratio in use
+		'1-1-small' => [ 'width' => 320, 'height' => 320, 'crop' => true ],
+		'1-1-medium' => [ 'width' => 640, 'height' => 640, 'crop' => true ],
+		'1-1-large' => [ 'width' => 1200, 'height' => 1200, 'crop' => true ],
+		'4-3-small' => [ 'width' => 320, 'height' => 240, 'crop' => true ],
+		'4-3-medium' => [ 'width' => 640, 'height' => 480, 'crop' => true ],
+		'4-3-large' => [ 'width' => 1440, 'height' => 1080, 'crop' => true ],
+		'16-9-small' => [ 'width' => 640, 'height' => 360, 'crop' => true ],
+		'16-9-medium' => [ 'width' => 768, 'height' => 432, 'crop' => true ],
+		'16-9-large' => [ 'width' => 1024, 'height' => 576, 'crop' => true ],
+		'16-9-xlarge' => [ 'width' => 1920, 'height' => 1080, 'crop' => true ],
 
 		// Registered by WooCommerce — see inc/woocommerce.php.
 		'woocommerce_thumbnail' => [ 'width' => 300, 'height' => 300, 'crop' => true ],  // Shop/loop, categories, cart, checkout, emails, widgets

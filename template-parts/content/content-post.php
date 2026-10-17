@@ -24,8 +24,10 @@
 		</header>
 
 		<?php ground_image( [
-			'size' => '16-9-large',
+			'size' => '16-9-medium',
 			'attr' => [
+				// The max-w-3xl article with px-6: 720px, full width minus the padding below.
+				'sizes' => '(min-width: 768px) 720px, calc(100vw - 48px)',
 				'class' => 'aspect-16/9 object-cover w-full mb-6',
 				'alt' => get_the_title(),
 			],

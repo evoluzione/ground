@@ -6,9 +6,10 @@
 				<?php
 				// TODO: Aggiungere immagine come custom fields
 				ground_image( [
-					'size' => '1-1-medium',
+					'size' => '1-1-small',
 					'attr' => [
-						'sizes' => '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw',
+						// Same grid as preview-ground_catalog.php.
+						'sizes' => '(min-width: 1536px) 288px, (min-width: 1280px) 234px, (min-width: 1024px) 181px, (min-width: 768px) 219px, (min-width: 640px) 276px, calc(50vw - 44px)',
 						'class' => 'aspect-1/1 object-cover w-full mb-6',
 						'alt' => esc_attr( $args['taxonomy']->name ?? '' ),
 					]

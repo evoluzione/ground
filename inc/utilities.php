@@ -108,7 +108,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
  * @param array $args {
  *     Optional. An array of parameters for retrieving the image.
  *
- *     @type string|int[] $size           Image size. Accepts any registered image size name or an array of width and height values. Default is 'thumbnail'.
+ *     @type string|int[] $size           Image size. Accepts any registered image size name or an array of width and height values. Default is 'large'.
  *     @type string|array $attr           Query string or array of attributes. Empty by default, so WordPress decides 'loading' and 'fetchpriority' itself; pass them only to override that. See https://developer.wordpress.org/reference/functions/wp_get_attachment_image/#parameters
  *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default is null.
  *     @type string $placeholder          URL to a fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
@@ -123,7 +123,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
 function ground_image( $args = [] ) {
 
 	$defaults = [
-		'size' => 'thumbnail',
+		'size' => 'large',
 		// No 'loading' by default: declaring it hands WordPress a claim about the
 		// viewport, and 'lazy' told it every image was below the fold — which
 		// switched off its own optimisation. Left alone, core makes the first

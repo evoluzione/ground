@@ -70,7 +70,7 @@ Opt-in via `ENABLE_WOOCOMMERCE`. Key points if touching commerce code:
 - [woocommerce.php](woocommerce.php) at the theme root is WooCommerce's own main-template override — it assembles the shop/product page (header → `woocommerce_content()` → footer) and conditionally renders the filters sidebar (`is_shop() || is_product_taxonomy()`), same pattern as the other root templates in Template routing above.
 - The **"Shop filters"** sidebar (`sidebar-shop`, registered in `config/sidebars.php` like any other sidebar) is rendered via `template-parts/sidebar/sidebar-shop.php` and populated with WooCommerce's own widgets (layered nav, price filter, categories) during provisioning when seeding is on.
 - WooCommerce's own frontend stylesheets are dequeued (`woocommerce_enqueue_styles` → `__return_empty_array`) because they're unlayered CSS that would beat Tailwind's `@layer utilities` output regardless of specificity — the theme owns all WooCommerce markup styling in `src/css/app.css` instead.
-- Product image sizes are centralized in `config/media.php` (`media.woocommerce`) and enforced via `woocommerce_get_image_size_{name}` filters, not left store-owner-editable.
+- Product image sizes are centralized in `config/media.php` (the `woocommerce_*` keys of `media.sizes`) and enforced via `woocommerce_get_image_size_{name}` filters, not left store-owner-editable.
 - Mini-cart / header cart badge are AJAX fragments (`woocommerce_add_to_cart_fragments`) keyed to selectors in `content-header-primary.php` — keep `ground_cart_link()` self-contained since it's re-rendered standalone on every cart update.
 - `woocommerce/` at the theme root holds WooCommerce template part overrides (WC's own override mechanism for parts like the product loop, separate from `template-parts/`).
 
@@ -85,6 +85,10 @@ Two independent build tools, both outputting into `assets/` (git-ignored build o
 
 ### Images
 
+- `config/media.php` (`media.sizes`) holds the four core slots at WordPress defaults plus **cropped families named by ratio and step** (`1-1-small`, `16-9-large`…): one family per ratio the design uses, one step per real box at the Lighthouse presets (412×1.75, 1350×1) plus the 2x. Core registers `1536x1536`/`2048x2048` itself.
+- Cropping happens on the server. A template requests the step closest to its box (`size`) and **always passes `attr['sizes']`** with the real box width per breakpoint: WordPress builds the srcset from the whole family (every subsize with the same ratio), and its default `sizes` would pick a file far too large. `aspect-* object-cover` classes stay as a visual safety net for uploads too small to be cropped.
+- A ratio that changes per breakpoint is a hand-written `<picture>`: a `<source>` with `wp_get_attachment_image_srcset( $id, '16-9-large' )` and its own `sizes`, then `ground_image()` with the mobile family as the `<img>`.
+- `ground_image()` is a thin wrapper over `wp_get_attachment_image()` / `get_the_post_thumbnail()`: it never computes ratios, rewrites `sizes` or forces `loading` (core decides eager/lazy and `fetchpriority`).
 - Regenerate with `npm run docker:wp -- media regenerate --yes`. The `wpcli` image is built from the same `.docker/Dockerfile` as `wordpress` (target `wpcli`), so CLI and uploads share PHP and Imagick: the stock Alpine `wordpress:cli` image has no JPEG/WebP delegates, falls back to GD and writes heavier WebP files. After editing the Dockerfile, rebuild both with `docker compose --profile tools build`.
 
 ### ACF
