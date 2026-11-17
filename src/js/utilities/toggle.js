@@ -18,24 +18,17 @@ export default class Toggle {
 		this.options = { ...this.defaults, ...options };
 
 		this.selector = selector;
-		this.DOM = {
-			html: document.documentElement,
-			body: document.body,
-			elements: [],
-		};
 
 		this.init();
 	}
 
 	/**
-	 * Initialize toggle elements and attach click events
+	 * Listen once on the document (event delegation) rather than on each
+	 * trigger: a trigger rendered later (e.g. by an AJAX response) works
+	 * without being re-bound.
 	 */
 	init = () => {
-		this.DOM.elements = document.querySelectorAll(this.options.triggers);
-
-		this.DOM.elements.forEach((el) => {
-			el.addEventListener("click", this.toggleHandler);
-		});
+		document.addEventListener("click", this.toggleHandler);
 	};
 
 	/**
@@ -43,7 +36,7 @@ export default class Toggle {
 	 * @param {MouseEvent} event
 	 */
 	toggleHandler = (event) => {
-		const current = event.currentTarget;
+		const current = event.target.closest?.(this.options.triggers);
 		if (!current) return;
 
 		// Override: data-toggle-prevent-default="false" - Restore default click behavior if set to "false"
@@ -68,14 +61,5 @@ export default class Toggle {
 		targets.forEach((target) => {
 			target.classList.toggle(toggleClass);
 		});
-	};
-
-	/**
-	 * Add click events to new elements dynamically
-	 * @param {Element} newTarget - A new element that should trigger toggling
-	 */
-	updateEvents = (newTarget) => {
-		if (!newTarget) return;
-		newTarget.addEventListener("click", this.toggleHandler);
 	};
 }
