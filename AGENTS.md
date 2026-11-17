@@ -57,7 +57,9 @@ ground_config( 'post-types.post_types' )   // 'post-types' → config/post-types
 
 ### Template routing
 
-Standard WP template hierarchy at the theme root (`index.php`, `page.php`, `front-page.php`, `single-post.php`, `single-ground_catalog.php`, `category.php`, `taxonomy-ground_catalog_taxonomy.php`, `woocommerce.php`) delegates immediately to `template-parts/` via `get_template_part()`. Naming convention: `template-parts/{header,footer,content,preview,navigation,pagination,sidebar,loop,blocks}/{type}-{name}.php`. Full-page layouts (e.g. `templates/template-ground_catalog.php`, selected as a WP page template) compose these parts directly rather than duplicating markup.
+Standard WP template hierarchy at the theme root (`index.php`, `page.php`, `front-page.php`, `single-post.php`, `single-ground_catalog.php`, `category.php`, `taxonomy-ground_catalog_taxonomy.php`, `woocommerce.php`) delegates immediately to `template-parts/` via `get_template_part()`. Naming convention: `template-parts/{header,footer,content,preview,navigation,pagination,sidebar,loop,blocks,cart}/{type}-{name}.php`. Full-page layouts (e.g. `templates/template-ground_catalog.php`, selected as a WP page template) compose these parts directly rather than duplicating markup.
+
+**Markup lives in template parts, not next to the functions in `inc/`.** `inc/` holds logic (hooks, filters, registration loops); when it has to render something — e.g. the WooCommerce AJAX fragments — it calls `get_template_part()` on the same part the page uses, so markup and its Tailwind classes have one home. The generic helpers in `inc/utilities.php` (`ground_image()`, `ground_icon()`, `ground_breadcrumbs()`, `ground_pagination()`…) output markup but take their classes from the caller's args.
 
 ### The catalog CPT (`ground_catalog`)
 
@@ -69,16 +71,16 @@ Opt-in via `ENABLE_WOOCOMMERCE`. Key points if touching commerce code:
 
 - [woocommerce.php](woocommerce.php) at the theme root is WooCommerce's own main-template override — it assembles the shop/product page (header → `woocommerce_content()` → footer) and conditionally renders the filters sidebar (`is_shop() || is_product_taxonomy()`), same pattern as the other root templates in Template routing above.
 - The **"Shop filters"** sidebar (`sidebar-shop`, registered in `config/sidebars.php` like any other sidebar) is rendered via `template-parts/sidebar/sidebar-shop.php` and populated with WooCommerce's own widgets (layered nav, price filter, categories) during provisioning when seeding is on.
-- WooCommerce's own frontend stylesheets are dequeued (`woocommerce_enqueue_styles` → `__return_empty_array`) because they're unlayered CSS that would beat Tailwind's `@layer utilities` output regardless of specificity — the theme owns all WooCommerce markup styling in `src/css/app.css` instead.
+- WooCommerce's own frontend stylesheets are dequeued (`woocommerce_enqueue_styles` → `__return_empty_array`) because they're unlayered CSS that would beat Tailwind's `@layer utilities` output regardless of specificity — the theme owns all WooCommerce markup styling in `src/css/woocommerce/` instead.
 - Product image sizes are centralized in `config/media.php` (the `woocommerce_*` keys of `media.sizes`) and enforced via `woocommerce_get_image_size_{name}` filters, not left store-owner-editable.
-- Mini-cart / header cart badge are AJAX fragments (`woocommerce_add_to_cart_fragments`) keyed to selectors in `content-header-primary.php` — keep `ground_cart_link()` self-contained since it's re-rendered standalone on every cart update.
+- Header cart markup lives in `template-parts/cart/`: `cart-link.php` (trigger + badge), `cart-drawer.php` (the `<dialog>` drawer, opened by `src/js/components/miniCart.js`) and `cart-drawer-content.php` (what's inside it). The trigger and the drawer contents are also AJAX fragments (`woocommerce_add_to_cart_fragments`), re-rendered standalone on every cart update from the same parts — keep them self-contained. WooCommerce's own mini-cart markup inside is styled in `src/css/woocommerce/minicart.css`.
 - `woocommerce/` at the theme root holds WooCommerce template part overrides (WC's own override mechanism for parts like the product loop, separate from `template-parts/`).
 
 ### Assets pipeline
 
 Two independent build tools, both outputting into `assets/` (git-ignored build output, not source):
 
-- **CSS**: Tailwind v4 CLI compiles `src/css/app.css` → `assets/css/ground-styles.min.css`.
+- **CSS**: Tailwind v4 CLI compiles `src/css/app.css` → `assets/css/ground-styles.min.css`. Markup the theme renders carries Tailwind utilities in place; only markup it doesn't own (WooCommerce's) is styled by selector with `@apply`, one file per component in `src/css/woocommerce/`, imported by `app.css`.
 - **JS**: Vite (`vite.config.js`, using `rolldownOptions`) bundles `src/js/app.js` → `assets/js/ground-scripts.min.js`, with dynamic-imported chunks (e.g. `utilities/toggle.js` is only loaded when `.js-toggle` exists in the DOM — follow this lazy-import pattern for optional JS behaviors).
 - `browser-sync` proxies `localhost:8080` and reloads on CSS/PHP/JS changes — this is what `npm run dev` drives alongside the two watchers.
 - Both are registered/enqueued through `config/assets.php`, not `wp_enqueue_*` calls in template code.
