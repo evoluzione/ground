@@ -1,0 +1,85 @@
+/* -------------------------------------------------------------------------
+   Shop filters — WooCommerce layered-nav / price / category widgets.
+   WooCommerce generates the markup; it is styled here through the
+   .shop-filters wrapper (template-parts/sidebar/sidebar-shop.php). The
+   checkboxes on attribute filters are *simulated* in CSS: the real control
+   stays the native filter link, toggled via the `…--chosen` state class.
+   ------------------------------------------------------------------------- */
+.shop-filters .widget {
+	@apply text-sm;
+}
+.shop-filters .widget__title {
+	@apply mb-3 text-lg font-semibold;
+}
+
+/* Attribute + category lists */
+.shop-filters ul.woocommerce-widget-layered-nav-list,
+.shop-filters ul.product-categories {
+	@apply m-0 list-none space-y-1.5 p-0;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item,
+.shop-filters ul.product-categories li {
+	@apply flex items-center justify-between gap-2;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item a,
+.shop-filters ul.product-categories a {
+	@apply text-gray-700 no-underline transition-colors hover:text-primary;
+}
+
+/* Simulated checkbox on attribute filters (colour / size) */
+.shop-filters .woocommerce-widget-layered-nav-list__item a {
+	@apply relative inline-flex items-center gap-2 pl-6;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item a::before {
+	content: "";
+	@apply absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 rounded border border-gray-300 bg-white transition-colors;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item--chosen a {
+	@apply font-medium text-primary;
+}
+.shop-filters .woocommerce-widget-layered-nav-list__item--chosen a::before {
+	@apply border-primary bg-primary;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 4 6 12 3 9'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 0.7rem;
+}
+.shop-filters .count {
+	@apply shrink-0 text-xs text-gray-400;
+}
+
+/* Active category (navigation list) */
+.shop-filters ul.product-categories li.current-cat > a {
+	@apply font-medium text-primary;
+}
+
+/* Active filters — removable pills */
+.shop-filters .woocommerce-widget-layered-nav-filters ul {
+	@apply m-0 flex list-none flex-wrap gap-2 p-0;
+}
+.shop-filters .woocommerce-widget-layered-nav-filters a {
+	@apply inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600 no-underline transition-colors hover:bg-gray-200 hover:text-primary;
+}
+
+/* Price range slider */
+.shop-filters .price_slider_wrapper {
+	@apply space-y-3;
+}
+.shop-filters .price_slider {
+	@apply relative my-4 h-1 rounded bg-gray-200;
+}
+.shop-filters .price_slider .ui-slider-range {
+	@apply absolute h-1 rounded bg-primary;
+}
+.shop-filters .price_slider .ui-slider-handle {
+	@apply absolute -top-1.5 -ml-2 h-4 w-4 cursor-pointer rounded-full border-2 border-primary bg-white;
+}
+.shop-filters .price_slider_amount {
+	@apply flex flex-wrap items-center justify-between gap-2;
+}
+.shop-filters .price_slider_amount .price_label {
+	@apply text-xs text-gray-500;
+}
+.shop-filters .price_slider_amount .button {
+	@apply rounded bg-primary px-3 py-1 text-xs font-medium text-white no-underline transition-opacity hover:opacity-90;
+}

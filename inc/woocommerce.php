@@ -92,70 +92,15 @@ add_action( 'customize_register', 'ground_woocommerce_remove_image_customizer', 
 // per the CSS cascade-layers spec, un-layered rules always win over layered
 // ones regardless of specificity or load order, so WooCommerce's defaults
 // would otherwise silently override theme utilities on shared selectors.
-// The theme owns WooCommerce markup styling instead (see app.css).
+// The theme owns WooCommerce markup styling instead (see src/css/woocommerce/).
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 /**
- * Renders the header cart trigger: icon + item count badge, and the link
- * that opens the mini-cart panel (see content-header-primary.php).
- *
- * Re-rendered on every add-to-cart refresh by ground_woocommerce_cart_fragments(),
- * so it must stay self-contained (no surrounding markup relies on it).
- *
- * @return void
- */
-function ground_cart_link() {
-
-	$cart = WC()->cart;
-	$count = $cart ? $cart->get_cart_contents_count() : 0;
-	?>
-	<a
-		href="<?php echo esc_url( wc_get_cart_url() ); ?>"
-		class="cart-contents js-toggle relative inline-flex items-center"
-		data-toggle-target=".mini-cart-panel"
-		aria-label="<?php esc_attr_e( 'Cart', 'ground' ); ?>"
-	>
-		<?php ground_icon( [
-			'name' => 'shopping-cart',
-			'attr' => [
-				'class' => 'w-5 h-5',
-			],
-		] ); ?>
-		<?php if ( $count > 0 ) : ?>
-			<span class="cart-count"><?php echo esc_html( $count ); ?></span>
-		<?php endif; ?>
-	</a>
-	<?php
-}
-
-/**
- * Renders the mini-cart panel contents.
- *
- * While the cart is empty this skips WooCommerce's mini-cart template and the
- * hook chain around it, printing the empty message directly — reusing WC's own
- * translated string and markup class so the panel looks the same (see app.css).
- *
- * Shared by the header markup and the AJAX fragment, so the two can't drift.
- *
- * @return void
- */
-function ground_mini_cart_content() {
-
-	$cart = WC()->cart;
-
-	if ( $cart && ! $cart->is_empty() ) {
-		woocommerce_mini_cart();
-		return;
-	}
-	?>
-	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
-	<?php
-}
-
-/**
- * Registers the AJAX fragments refreshed by WooCommerce's wc-cart-fragments.js
- * after every add-to-cart: the header trigger (count badge) and the mini-cart
- * panel content, keyed by the selectors already present in the header markup.
+ * Registers the AJAX fragments WooCommerce's add-to-cart.js swaps in after an
+ * AJAX add-to-cart or a mini-cart removal: the header trigger (count badge) and
+ * the mini-cart drawer contents, rendered from the same template parts as the
+ * header (template-parts/cart/) and keyed by their root selectors.
+ * wc-cart-fragments.js is not loaded, so a page load does not refresh them.
  *
  * @param array $fragments Fragments keyed by selector.
  * @return array
@@ -163,15 +108,11 @@ function ground_mini_cart_content() {
 function ground_woocommerce_cart_fragments( $fragments ) {
 
 	ob_start();
-	ground_cart_link();
+	get_template_part( 'template-parts/cart/cart-link' );
 	$fragments['a.cart-contents'] = ob_get_clean();
 
 	ob_start();
-	?>
-	<div class="mini-cart-panel-content">
-		<?php ground_mini_cart_content(); ?>
-	</div>
-	<?php
+	get_template_part( 'template-parts/cart/cart-drawer-content' );
 	$fragments['div.mini-cart-panel-content'] = ob_get_clean();
 
 	return $fragments;

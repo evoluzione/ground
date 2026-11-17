@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="is-loading scroll-smooth">
+<html <?php language_attributes(); ?> class="is-loading scroll-smooth has-[dialog:modal]:overflow-hidden">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">

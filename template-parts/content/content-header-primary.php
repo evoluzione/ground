@@ -19,13 +19,9 @@
 		<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
 		<?php get_template_part( 'template-parts/navigation/navigation-languages' ); ?>
 		<?php if ( class_exists( 'WooCommerce' ) ) : ?>
-			<div class="relative">
-				<?php ground_cart_link(); ?>
-				<div class="mini-cart-panel">
-					<div class="mini-cart-panel-content">
-						<?php ground_mini_cart_content(); ?>
-					</div>
-				</div>
+			<div>
+				<?php get_template_part( 'template-parts/cart/cart-link' ); ?>
+				<?php get_template_part( 'template-parts/cart/cart-drawer' ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

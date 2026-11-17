@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-#: inc/gutenberg.php:44
+#: inc/gutenberg.php:46
 msgid "Ground"
 msgstr "Ground"
 
@@ -84,7 +84,7 @@ msgstr "categoria-catalogo"
 msgid "Shop filters"
 msgstr "Filtri negozio"
 
-#: inc/woocommerce.php:84
+#: template-parts/cart/cart-drawer.php:16
 msgid "Cart"
 msgstr "Carrello"
 
@@ -267,6 +267,18 @@ msgstr "Elenco categorie"
 msgid "← Back to Categories"
 msgstr "← Torna alle categorie"
 
-#: woocommerce.php:20
+#: woocommerce.php:16
 msgid "Filters"
 msgstr "Filtri"
+
+#: template-parts/cart/cart-drawer.php:19
+msgid "Close"
+msgstr "Chiudi"
+
+#. translators: %d: number of items in the cart.
+#: template-parts/cart/cart-link.php:14
+#, php-format
+msgid "Cart, %d item"
+msgid_plural "Cart, %d items"
+msgstr[0] "Carrello, %d articolo"
+msgstr[1] "Carrello, %d articoli"

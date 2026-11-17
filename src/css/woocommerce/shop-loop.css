@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------------
+   Shop archive — WooCommerce product cards (content-product.php default
+   markup). The grid itself is utilities on woocommerce/loop/loop-start.php.
+   WooCommerce's own layout CSS is disabled (see inc/woocommerce.php); the
+   theme styles the cards here instead. Single product, cart, checkout and
+   account pages still use WooCommerce's unstyled default markup — not yet
+   covered.
+   ------------------------------------------------------------------------- */
+.products .onsale {
+	@apply absolute top-2 left-2 z-10 rounded-full bg-primary px-2 py-1 text-xs text-white;
+}
+.products img {
+	@apply aspect-square w-full object-cover;
+}
+.woocommerce-loop-product__link {
+	@apply relative block no-underline;
+}
+.woocommerce-loop-product__title {
+	@apply mt-2 text-lg text-gray-900;
+}
+.products .price {
+	@apply block font-medium text-primary;
+}
+.products .price del {
+	@apply mr-2 font-normal text-gray-400;
+}
+.products .price ins {
+	@apply no-underline;
+}
+.products .add_to_cart_button {
+	@apply mt-3 inline-block rounded bg-primary px-3 py-1.5 text-sm text-white no-underline transition-opacity hover:opacity-90;
+}

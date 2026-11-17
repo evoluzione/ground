@@ -11,12 +11,8 @@ $with_sidebar = is_shop() || is_product_taxonomy(); ?>
 
 	<?php if ( $with_sidebar ) : ?>
 		<div class="lg:col-span-2">
-			<button
-				type="button"
-				class="js-toggle shop-filters-toggle lg:hidden"
-				data-toggle-target=".shop-filters"
-				aria-controls="shop-filters"
-			>
+			<button type="button" class="js-toggle mb-4 w-full rounded border border-gray-200 px-4 py-2 text-sm lg:hidden"
+				data-toggle-target=".shop-filters" data-toggle-class-name="hidden" aria-controls="shop-filters">
 				<?php esc_html_e( 'Filters', 'ground' ); ?>
 			</button>
 			<?php get_template_part( 'template-parts/sidebar/sidebar-shop' ); ?>
