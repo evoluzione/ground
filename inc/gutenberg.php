@@ -55,14 +55,22 @@ add_filter( 'block_categories_all', 'ground_register_block_categories', 10, 2 );
 
 
 /**
- * Generates HTML attributes for a ACF Gutenberg block.
+ * Generates the wrapper HTML attributes for an ACF Gutenberg block.
+ *
+ * On the frontend the attributes come from get_block_wrapper_attributes(), so
+ * every block support declared in config/blocks.php (className, align, anchor,
+ * color, spacing…) lands on the wrapper as core outputs it. In the editor
+ * preview the block editor already puts those on its own wrapper around the
+ * ACF block, and get_block_wrapper_attributes() has no block to read: only the
+ * theme's own classes are printed, so alignment and anchor are not doubled.
  *
  * @param array  $block      The block settings and attributes from Gutenberg.
  * @param string $class_name Additional class names to add to the block (optional).
+ * @param bool   $is_preview True when rendered in the block editor.
  *
  * @return string The HTML attributes for the block.
  */
-function ground_block_attributes( $block, $class_name = '' ) {
+function ground_block_attributes( $block, $class_name = '', $is_preview = false ) {
 	$class_names = array();
 
 	if ( ! empty( $class_name ) ) {
@@ -76,23 +84,15 @@ function ground_block_attributes( $block, $class_name = '' ) {
 		$class_names[] = 'ground-block-' . $block_name;
 	}
 
-	if ( ! empty( $block['className'] ) ) {
-		$class_names[] = $block['className'];
+	$classes = implode( ' ', $class_names );
+
+	if ( ! $is_preview && ! empty( WP_Block_Supports::$block_to_render ) ) {
+		$attributes = get_block_wrapper_attributes( array( 'class' => $classes ) );
+
+		// ACF registers `align` with an empty-string default and core's align
+		// support only checks isset(): unaligned blocks would get a bare "align" class.
+		return preg_replace( '/ align(?=[ "])|(?<=")align /', '', $attributes );
 	}
 
-	if ( ! empty( $block['align'] ) ) {
-		$class_names[] = 'align' . $block['align'];
-	}
-
-	$attributes = array();
-
-	if ( ! empty( $block['anchor'] ) ) {
-		$attributes[] = 'id="' . esc_attr( $block['anchor'] ) . '"';
-	}
-
-	if ( ! empty( $class_names ) ) {
-		$attributes[] = 'class="' . esc_attr( implode( ' ', $class_names ) ) . '"';
-	}
-
-	return implode( ' ', $attributes );
+	return $classes ? 'class="' . esc_attr( $classes ) . '"' : '';
 }

@@ -146,7 +146,7 @@ echo "  seed: ACF block demo page\n";
 
 // Inline ACF block markup. The `_title` => field key pair is how ACF binds the
 // value to the field defined in config/acf/group_5ddd341334ac3.json.
-$acf_block = '<!-- wp:acf/starter {"name":"acf/starter","data":{"title":"Titolo demo dello Starter block","_title":"field_618cd45b00009"},"mode":"preview"} /-->';
+$acf_block = '<!-- wp:acf/starter {"name":"acf/starter","data":{"title":"Titolo demo dello Starter block","_title":"field_618cd45b00009"}} /-->';
 
 $acf_page_id = wp_insert_post( array(
 	'post_type'    => 'page',

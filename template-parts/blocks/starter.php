@@ -12,6 +12,6 @@
 $example = get_field( 'title' );
 ?>
 
-<div <?php echo ground_block_attributes( $block, 'ground-block' ); ?>>
-	Starter: <?php echo $example; ?>
+<div <?php echo ground_block_attributes( $block, 'ground-block', $is_preview ); ?>>
+	Starter: <?php echo esc_html( $example ); ?>
 </div>

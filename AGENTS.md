@@ -98,6 +98,8 @@ Two independent build tools, both outputting into `assets/` (git-ignored build o
 
 Field groups are local JSON, saved/loaded from `config/acf/` (redirected via the `acf/settings/save_json` / `acf/settings/load_json` filters in [inc/extend.php](inc/extend.php)) instead of the default `acf-json` folder — keep field group edits inside `config/acf/`.
 
+ACF blocks are registered from `config/blocks.php` through `acf_register_block_type()` (not `block.json`: every `block.json` `acf` key has a snake_case PHP equivalent, e.g. `auto_inline_editing`, `hide_fields_in_sidebar`, `render_preview`). The loop in [inc/gutenberg.php](inc/gutenberg.php) defaults each block to **ACF Blocks v3 + Block API 3** (always a live preview, no edit/preview modes, iframe-ready) and to the template `template-parts/blocks/{name}.php`. Templates open their wrapper with `ground_block_attributes( $block, $class, $is_preview )`: on the frontend it delegates to `get_block_wrapper_attributes()` (block supports, anchor, align), in the editor it prints only the theme's classes because the editor's own wrapper already carries the supports.
+
 ## Code style
 
 - PHP: WordPress coding style (tabs, existing file conventions); `.vscode/settings.json` sets `php.format.codeStyle: WordPress` and format-on-save.
