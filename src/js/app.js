@@ -16,6 +16,15 @@ import { scrollDirection } from "./components/scrollDirection.js";
 			.catch((error) => console.log(error));
 	}
 
+	// Main menu submenus, opened from the keyboard
+	if (document.querySelector(".js-submenu-toggle")) {
+		import("./components/submenu.js")
+			.then(({ default: Submenu }) => {
+				new Submenu();
+			})
+			.catch((error) => console.log(error));
+	}
+
 	// Header mini-cart drawer. Without <dialog> support the trigger stays a
 	// plain link to the cart page.
 	const miniCart = document.querySelector(".mini-cart-panel");
