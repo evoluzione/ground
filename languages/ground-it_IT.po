@@ -282,3 +282,58 @@ msgid "Cart, %d item"
 msgid_plural "Cart, %d items"
 msgstr[0] "Carrello, %d articolo"
 msgstr[1] "Carrello, %d articoli"
+
+#: template-parts/pagination/pagination-primary.php:16
+msgid "Pagination"
+msgstr "Paginazione"
+
+#: template-parts/navigation/navigation-breadcrumbs.php:13
+msgid "Breadcrumb"
+msgstr "Percorso di navigazione"
+
+#: template-parts/content/content-footer-primary.php:26
+msgid "Copyright"
+msgstr "Copyright"
+
+#: template-parts/navigation/navigation-footer-primary.php:11
+msgid "Footer menu"
+msgstr "Menu del footer"
+
+#: template-parts/navigation/navigation-footer-secondary.php:11
+msgid "Footer secondary menu"
+msgstr "Menu secondario del footer"
+
+#: template-parts/navigation/navigation-footer-tertiary.php:11
+msgid "Footer tertiary menu"
+msgstr "Menu terziario del footer"
+
+#: template-parts/navigation/navigation-header-primary.php:13
+msgid "Main menu"
+msgstr "Menu principale"
+
+#: template-parts/navigation/navigation-header-secondary.php:11
+msgid "Secondary menu"
+msgstr "Menu secondario"
+
+#: template-parts/navigation/navigation-sidebar-primary.php:13
+msgid "In this section"
+msgstr "In questa sezione"
+
+#: template-parts/pagination/pagination-primary.php:28
+#: template-parts/pagination/pagination-primary.php:30
+msgid "Page"
+msgstr "Pagina"
+
+#: template-parts/pagination/pagination-primary.php:21
+msgid "Previous"
+msgstr "Precedente"
+
+#: template-parts/pagination/pagination-primary.php:23
+msgid "Next"
+msgstr "Successivo"
+
+#. translators: %s: label of the parent menu item.
+#: template-parts/navigation/navigation-header-primary.php:25
+#, php-format
+msgid "%s submenu"
+msgstr "Sottomenu di %s"

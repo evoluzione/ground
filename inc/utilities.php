@@ -303,303 +303,334 @@ function ground_log( $log ) {
 }
 
 /**
- * Renders a fully customizable pagination for WordPress.
+ * Returns the pagination links of a query.
  *
- * @param array $args {
- *     Optional. Array of arguments to customize pagination output.
+ * Data only: the markup lives in template-parts/pagination/pagination-primary.php.
+ * The links come from paginate_links(), so its arguments (mid_size, end_size,
+ * prev_next, base, format, add_args…) and filters still apply; its text and
+ * markup arguments (prev_text, next_text, before_page_number…) don't, since the
+ * template part writes those.
  *
- *     @type string  $prev_text              Text for the "Previous" link.
- *     @type string  $next_text              Text for the "Next" link.
- *     @type int     $mid_size               How many numbers to either side of the current page.
- *     @type int     $total                  Total number of pages.
- *     @type int     $current                Current page number.
- *     @type string  $base                   Base URL to use in pagination.
- *     @type string  $format                 Format for pagination links.
- *     @type string  $type                   Return type from paginate_links().
- *     @type bool    $echo                   Whether to echo or return the result.
- *     @type bool    $merge_classes          Whether to merge or separate the custom classes.
- *     @type bool    $only_numbers           Whether to display only numeric pages (hide prev and next).
- *     @type string  $container_class        Class for the <nav> container.
- *     @type string  $list_class             Class for the <ul> element.
- *     @type string  $item_class             Generic class for all <li> elements.
- *     @type string  $item_active_class      Class used for active pagination items.
- *     @type string  $item_prev_class        Class used for the "Previous" item.
- *     @type string  $item_next_class        Class used for the "Next" item.
- *     @type string  $item_dots_class        Class used for the dots item.
- *     @type string  $item_page_class        Class used for numeric pagination items.
- *     @type string  $item_page_active_class Class used for active numeric pagination items.
- *     @type string  $link_class             Generic class for pagination links.
- *     @type string  $link_prev_class        Class for the "Previous" link element.
- *     @type string  $link_next_class        Class for the "Next" link element.
- *     @type string  $link_page_class        Class for numeric page link elements.
- *     @type string  $text_class             Generic class for text items (non-link).
- *     @type string  $text_page_class        Class for numeric page text (when no link).
- *     @type string  $text_dots_class        Class for dots text.
- *     @type string  $text_active_class      Class for active text items.
- * }
+ * @param array $args Optional. Arguments for paginate_links(). 'total' defaults
+ *                    to the main query's page count, 'current' to 'paged', or
+ *                    'page' on a static front page.
  *
- * @return string|void The generated pagination markup or void if 'echo' is true.
+ * @return array[] Links in order, each with 'type' ('prev', 'next', 'dots' or
+ *                 'page'), 'url' (empty for the dots and the current page),
+ *                 'number' (the page number as text, empty unless 'page') and
+ *                 'current'. Empty when there is a single page.
  */
 function ground_pagination( $args = [] ) {
 	global $wp_query;
 
-	$pagination_placeholder = 999999999;
 	$defaults = [
-		'prev_text' => __( '&laquo; Previous' ),
-		'next_text' => __( 'Next &raquo;' ),
-		'mid_size' => 2,
 		'total' => $wp_query->max_num_pages,
-		'current' => max( 1, get_query_var( 'paged' ) ),
-		'base' => str_replace( $pagination_placeholder, '%#%', esc_url( get_pagenum_link( $pagination_placeholder ) ) ),
-		'format' => '?paged=%#%',
-		'type' => 'array',
-		'echo' => true,
-		'merge_classes' => true,
-		'only_numbers' => false,
-		'container_class' => '',
-		'list_class' => '',
-		'item_class' => '',
-		'item_active_class' => '',
-		'item_prev_class' => '',
-		'item_next_class' => '',
-		'item_dots_class' => '',
-		'item_page_class' => '',
-		'item_page_active_class' => '',
-		'link_class' => '',
-		'link_prev_class' => '',
-		'link_next_class' => '',
-		'link_page_class' => '',
-		'text_class' => '',
-		'text_page_class' => '',
-		'text_dots_class' => '',
-		'text_active_class' => '',
+		// paginate_links() reads only 'paged', but on a static front page
+		// WP_Query moves the number to 'page' (/page/2/ → page=2), so page 2
+		// would show as 1. Same reading as loop-ground_catalog.php.
+		'current' => max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) ),
 	];
 
-	$args = wp_parse_args( $args, $defaults );
+	$links = paginate_links(
+		[
+			'type' => 'array',
+			'before_page_number' => '',
+			'after_page_number' => '',
+		] + wp_parse_args( $args, $defaults )
+	);
 
-	// If there's only one page, do nothing.
-	if ( $args['total'] <= 1 ) {
-		return;
+	// A single page: paginate_links() returns nothing.
+	if ( ! $links ) {
+		return [];
 	}
 
-	$paginate = paginate_links( $args );
+	return array_map(
+		function ( $link ) {
+			// Read from the element itself, not from the whole fragment: the URL
+			// can contain "prev", "next" or "current" as well
+			// (e.g. /category/previews/page/2/).
+			$tag = new WP_HTML_Tag_Processor( $link );
+			$tag->next_tag();
 
-	// If no pagination links are generated, do nothing.
-	if ( ! $paginate ) {
-		return;
-	}
-
-	$output = '<nav class="' . esc_attr( $args['container_class'] ) . '" aria-label="pagination">';
-	$output .= '<ul class="' . esc_attr( $args['list_class'] ) . '">';
-
-	foreach ( $paginate as $page ) {
-		$active = ( strpos( $page, 'current' ) !== false );
-		$is_link = ( strpos( $page, '<a ' ) !== false );
-
-		if ( strpos( $page, 'prev' ) !== false ) {
-			$type = 'prev';
-		} elseif ( strpos( $page, 'next' ) !== false ) {
-			$type = 'next';
-		} elseif ( strpos( $page, 'dots' ) !== false ) {
-			$type = 'dots';
-		} else {
-			$type = 'page';
-		}
-
-		// Skip prev/next if only_numbers is true
-		if ( $args['only_numbers'] && in_array( $type, [ 'prev', 'next' ], true ) ) {
-			continue;
-		}
-
-		// Determine <li> class
-		if ( $args['merge_classes'] ) {
-			$item_class = match ( $type ) {
-				'prev' => $args['item_prev_class'],
-				'next' => $args['item_next_class'],
-				'dots' => $args['item_dots_class'],
-				default => $active ? $args['item_page_active_class'] : $args['item_page_class'],
+			$type = match ( true ) {
+				$tag->has_class( 'prev' ) => 'prev',
+				$tag->has_class( 'next' ) => 'next',
+				$tag->has_class( 'dots' ) => 'dots',
+				default => 'page',
 			};
-		} else {
-			$item_class = trim(
-				$args['item_class'] . ' ' . match ( $type ) {
-					'prev' => $args['item_prev_class'],
-					'next' => $args['item_next_class'],
-					'dots' => $args['item_dots_class'],
-					default => $active ? $args['item_page_active_class'] : $args['item_page_class'],
-				}
-			);
-		}
 
-		// Determine link/text class
-		if ( $args['merge_classes'] ) {
-			$text_class = match ( $type ) {
-				'prev' => $args['link_prev_class'],
-				'next' => $args['link_next_class'],
-				'dots' => $args['text_dots_class'],
-				default => $active ? $args['text_active_class'] : $args['link_page_class'],
-			};
-		} else {
-			if ( $is_link ) {
-				$text_class = trim(
-					$args['link_class'] . ' ' . match ( $type ) {
-						'prev' => $args['link_prev_class'],
-						'next' => $args['link_next_class'],
-						default => $args['link_page_class'],
-					}
-				);
-			} else {
-				$text_class = trim(
-					$args['text_class'] . ' ' . match ( $type ) {
-						'dots' => $args['text_dots_class'],
-						default => $active ? $args['text_active_class'] : $args['text_page_class'],
-					}
-				);
-			}
-		}
-
-		$item_content = preg_replace(
-			'/class="[^"]*"/',
-			'class="' . esc_attr( $text_class ) . '"',
-			$page
-		);
-
-		$output .= '<li class="' . esc_attr( $item_class ) . '">' . $item_content . '</li>';
-	}
-
-	$output .= '</ul></nav>';
-
-	if ( $args['echo'] ) {
-		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	} else {
-		return $output;
-	}
+			return [
+				'type' => $type,
+				'url' => (string) $tag->get_attribute( 'href' ),
+				'number' => 'page' === $type ? wp_strip_all_tags( $link ) : '',
+				'current' => (bool) $tag->has_class( 'current' ),
+			];
+		},
+		$links
+	);
 }
 
 /**
- * Displays a hierarchical list of pages starting from the top parent of the current page.
+ * Nests a flat list of navigation items under their parents.
  *
- * 'get_pages_args' is merged into the get_pages() call; there 'number' maps to
- * posts_per_page and is a real LIMIT, unlike in ground_terms(). Never capped by
- * default all the same, since a slice taken before the hierarchy is built loses
- * the children of whatever it cut; past theme.nav_tree_warn_at items it warns
- * in debug.
+ * @param array[] $items Items in display order, each with 'id' and 'parent'.
+ * @param int     $root  ID the first level hangs from.
  *
- * @param array $args {
- *     Optional. Array of arguments.
- *
- *     @type array  $get_pages_args          Additional arguments for get_pages(). Default is [].
- *     @type bool   $merge_classes           Whether to merge generic and depth-specific classes. Default is true.
- *     @type string $menu_class              Class for main menu <ul>. Default is ''.
- *     @type string $submenu_class           Generic submenu class <ul>. Default is ''.
- *     @type string $submenu_class_{n}       Depth-specific submenu class for level {n}. Default is not set.
- *     @type string $item_class              Generic item class <li>. Default is ''.
- *     @type string $item_class_{n}          Depth-specific item class for level {n}. Default is not set.
- *     @type string $item_active_class       Generic active item class <li>. Default is ''.
- *     @type string $item_active_class_{n}   Depth-specific active item class for level {n}. Default is not set.
- *     @type string $link_class              Generic link class <a>. Default is ''.
- *     @type string $link_class_{n}          Depth-specific link class for level {n}. Default is not set.
- *     @type string $link_active_class       Generic active link class <a>. Default is ''.
- *     @type string $link_active_class_{n}   Depth-specific active link class for level {n}. Default is not set.
- * }
- *
- * @return void Outputs the generated HTML markup directly.
+ * @return array[] The first level, every item with its 'children' (same shape).
  */
-function ground_subpages( $args = array() ) {
-	global $post;
+function ground_nest_items( $items, $root = 0 ) {
+	$by_parent = [];
 
-	$current_id = get_the_ID();
-	$parents = get_post_ancestors( $current_id );
-	$top_parent_id = $parents ? end( $parents ) : $current_id;
+	foreach ( $items as $item ) {
+		$by_parent[ $item['parent'] ][] = $item;
+	}
 
-	$defaults = array(
-		'get_pages_args' => array(),
-		'merge_classes' => true,
-		'menu_class' => '',
-		'submenu_class' => '',
-		'item_class' => '',
-		'item_active_class' => '',
-		'link_class' => '',
-		'link_active_class' => '',
+	$nest = function ( $parent ) use ( &$nest, $by_parent ) {
+		return array_map(
+			fn( $item ) => $item + [ 'children' => $nest( $item['id'] ) ],
+			$by_parent[ $parent ] ?? []
+		);
+	};
+
+	return $nest( $root );
+}
+
+/**
+ * Returns the attributes of a navigation link, ready to print inside <a>.
+ *
+ * Only what the data decides (href, aria-current and, for menu items, what the
+ * editor set in Appearance → Menus: target, rel, title): the classes stay in
+ * the template part.
+ *
+ * @param array $item An item from ground_menu(), ground_subpages() or ground_terms().
+ *
+ * @return string Escaped attributes, e.g. 'href="…" aria-current="page"'.
+ */
+function ground_link_attributes( $item ) {
+	$attributes = [
+		'href' => esc_url( $item['url'] ),
+		'aria-current' => $item['current'] ? 'page' : '',
+		'target' => esc_attr( $item['target'] ?? '' ),
+		'rel' => esc_attr( $item['rel'] ?? '' ),
+		'title' => esc_attr( $item['attr_title'] ?? '' ),
+	];
+
+	$output = [];
+
+	foreach ( $attributes as $name => $value ) {
+		if ( '' !== $value ) {
+			$output[] = $name . '="' . $value . '"';
+		}
+	}
+
+	return implode( ' ', $output );
+}
+
+/**
+ * Returns the URL of the page that lists the kind of content being viewed.
+ *
+ * The posts page on a post or one of its archives, the shop on a product or a
+ * product category, a post type's archive on one of its posts or terms. A post
+ * type without an archive is listed by the page that uses the template named
+ * after it, templates/template-{post_type}.php (the catalog's).
+ *
+ * @return string The URL, or '' on a page, a search, a 404, or when nothing
+ *                lists that kind of content.
+ */
+function ground_listing_url() {
+	$object = get_queried_object();
+
+	$post_type = match ( true ) {
+		is_singular() => get_post_type( $object ),
+		is_post_type_archive() => $object->name ?? '',
+		// A term archive stands for the post type its taxonomy belongs to.
+		$object instanceof WP_Term => get_taxonomy( $object->taxonomy )->object_type[0] ?? '',
+		is_date(), is_author() => 'post',
+		default => '',
+	};
+
+	if ( ! $post_type || 'page' === $post_type ) {
+		return '';
+	}
+
+	// Posts are listed by the posts page; without one they are on the home
+	// page, and "Home" isn't a section.
+	if ( 'post' === $post_type ) {
+		$posts_page = (int) get_option( 'page_for_posts' );
+
+		return $posts_page ? get_permalink( $posts_page ) : '';
+	}
+
+	$url = get_post_type_archive_link( $post_type );
+
+	if ( $url ) {
+		return $url;
+	}
+
+	$pages = get_pages( [
+		'meta_key' => '_wp_page_template',
+		'meta_value' => "templates/template-{$post_type}.php",
+		'number' => 1,
+	] );
+
+	return $pages ? get_permalink( $pages[0] ) : '';
+}
+
+/**
+ * Returns the items of the menu assigned to a location as a tree.
+ *
+ * Data only: the markup lives in the template part, one foreach per level it
+ * shows (see template-parts/navigation/navigation-header-primary.php).
+ *
+ * Runs the same steps as wp_nav_menu() up to the walker: the items, core's
+ * current/ancestor detection and the 'wp_nav_menu_objects' filter (WooCommerce
+ * marks the shop page there). What acts on the walker or on its HTML doesn't
+ * apply, since that markup is never rendered: 'nav_menu_css_class',
+ * 'nav_menu_link_attributes', 'wp_nav_menu_items'…
+ *
+ * @param string $location A menu location registered in config/menus.php.
+ *
+ * @return array[] First-level items, each with 'id', 'parent', 'title' (already
+ *                 filtered: print it with wp_kses_post()), 'url', 'target',
+ *                 'rel', 'attr_title', 'classes', 'current', 'ancestor' and
+ *                 'children' (same shape). Empty when the location has no menu
+ *                 or the menu has no items.
+ *
+ *                 'ancestor' marks the section the visitor is in. An item is
+ *                 one when, without being the current one, it is: a parent of
+ *                 the current item in the menu; a page or term the content
+ *                 being viewed descends from, even when that content isn't in
+ *                 the menu; or the page listing that kind of content (see
+ *                 ground_listing_url()).
+ */
+function ground_menu( $location ) {
+	$locations = get_nav_menu_locations();
+	$menu = isset( $locations[ $location ] ) ? wp_get_nav_menu_object( $locations[ $location ] ) : false;
+	$items = $menu ? wp_get_nav_menu_items( $menu->term_id, [ 'update_post_term_cache' => false ] ) : false;
+
+	if ( ! $items ) {
+		return [];
+	}
+
+	_wp_menu_item_classes_by_context( $items );
+
+	$items = apply_filters( 'wp_nav_menu_objects', $items, (object) [
+		'menu' => $menu,
+		'theme_location' => $location,
+	] );
+
+	$privacy_policy_url = get_privacy_policy_url();
+	$listing_url = untrailingslashit( ground_listing_url() );
+
+	$items = array_map(
+		function ( $item ) use ( $privacy_policy_url, $listing_url ) {
+			// Same rel as core's walker.
+			$rel = '_blank' === $item->target && ! $item->xfn ? 'noopener' : (string) $item->xfn;
+
+			if ( $item->url && $privacy_policy_url === $item->url ) {
+				$rel = trim( $rel . ' privacy-policy' );
+			}
+
+			return [
+				// Left as they come: plugins add items whose ID isn't a number.
+				'id' => $item->ID,
+				'parent' => $item->menu_item_parent,
+				'title' => apply_filters( 'the_title', $item->title, $item->ID ),
+				'url' => $item->url,
+				'target' => $item->target,
+				'rel' => $rel,
+				'attr_title' => $item->attr_title,
+				// Everything core and plugins computed, plus what the editor typed
+				// in Appearance → Menus.
+				'classes' => array_values( array_filter( (array) $item->classes ) ),
+				'current' => (bool) $item->current,
+				'ancestor' => ! $item->current && (
+					// A parent of the current item in the menu.
+					$item->current_item_ancestor
+					|| $item->current_item_parent
+					// A real hierarchy: a parent page, a parent term, a term of
+					// the post. The hyphenated classes only, never the
+					// 'current_page_parent' of wp_page_menu(): core adds that
+					// one to the posts page on every request that isn't a page
+					// (a catalog archive, a search, a 404).
+					|| (bool) preg_grep( '/^current-.+-(ancestor|parent)$/', (array) $item->classes )
+					|| ( $listing_url && untrailingslashit( $item->url ) === $listing_url )
+				),
+			];
+		},
+		$items
 	);
 
-	$args = wp_parse_args( $args, $defaults );
+	return ground_nest_items( $items );
+}
 
-	$get_pages_defaults = array(
-		'child_of' => $top_parent_id,
+/**
+ * Returns the pages of the current section as a tree: the descendants of the
+ * current page's top-level ancestor.
+ *
+ * Data only: the markup lives in the template part, one foreach per level it
+ * shows (see template-parts/navigation/navigation-sidebar-primary.php).
+ *
+ * Arguments go to get_pages(); there 'number' maps to posts_per_page and is a
+ * real LIMIT, unlike in ground_terms(). Never capped by default all the same,
+ * since a slice taken before the hierarchy is built loses the children of
+ * whatever it cut; past theme.nav_tree_warn_at items it warns in debug.
+ *
+ * @param array $args Optional. Arguments for get_pages(). 'child_of' defaults to
+ *                    the top-level ancestor and is the page the first level hangs from.
+ *
+ * @return array[] First-level pages, each with 'id', 'parent', 'title' (already
+ *                 filtered: print it with wp_kses_post()), 'url', 'current',
+ *                 'ancestor' (of the current page) and 'children' (same shape).
+ *                 Empty outside a single post or when the section has no pages.
+ */
+function ground_subpages( $args = [] ) {
+	$current_id = get_queried_object_id();
+
+	// Outside a single post there's no tree to anchor to: child_of would fall
+	// back to 0 and list every page on the site.
+	if ( ! is_singular() || ! $current_id ) {
+		return [];
+	}
+
+	$ancestors = get_post_ancestors( $current_id );
+
+	$args = wp_parse_args( $args, [
+		'child_of' => $ancestors ? end( $ancestors ) : $current_id,
 		'sort_column' => 'menu_order, post_title',
 		'hierarchical' => true,
-		'post_status' => 'publish',
-	);
+	] );
 
-	$pages = get_pages( wp_parse_args( $args['get_pages_args'], $get_pages_defaults ) );
+	$pages = get_pages( $args );
+
+	if ( ! $pages ) {
+		return [];
+	}
 
 	$warn_at = (int) ground_config( 'theme.nav_tree_warn_at' );
 
-	if ( $warn_at && is_array( $pages ) && count( $pages ) > $warn_at && ground_is_debug() ) {
+	if ( $warn_at && count( $pages ) > $warn_at && ground_is_debug() ) {
 		ground_log( sprintf(
-			'ground_subpages(): rendering %d pages under #%d, past the %d set in theme.nav_tree_warn_at. Scope the query through "get_pages_args" (e.g. "number").',
+			'ground_subpages(): returning %d pages under #%d, past the %d set in theme.nav_tree_warn_at. Scope the query with its arguments (e.g. "number"): they are forwarded to get_pages().',
 			count( $pages ),
-			$top_parent_id,
+			$args['child_of'],
 			$warn_at
 		) );
 	}
 
-	$pages_by_parent = array();
-	foreach ( $pages as $page ) {
-		$pages_by_parent[ $page->post_parent ][] = $page;
-	}
+	$items = array_map(
+		fn( $page ) => [
+			'id' => (int) $page->ID,
+			'parent' => (int) $page->post_parent,
+			'title' => get_the_title( $page ),
+			'url' => get_permalink( $page ),
+			'current' => (int) $page->ID === $current_id,
+			'ancestor' => in_array( (int) $page->ID, $ancestors, true ),
+		],
+		$pages
+	);
 
-	$display_hierarchy = function ( $parent_id = 0, $depth = 0 ) use ( &$display_hierarchy, $pages_by_parent, $args, $current_id ) {
-		if ( ! isset( $pages_by_parent[ $parent_id ] ) ) {
-			return '';
-		}
-
-		$output = '';
-		$depth_key = $depth + 1;
-
-		foreach ( $pages_by_parent[ $parent_id ] as $page ) {
-			$is_active = ( $page->ID == $current_id );
-
-			if ( $args['merge_classes'] ) {
-				$item_class = $is_active
-					? ( $args[ "item_active_class_$depth_key" ] ?? $args['item_active_class'] )
-					: ( $args[ "item_class_$depth_key" ] ?? $args['item_class'] );
-
-				$link_class = $is_active
-					? ( $args[ "link_active_class_$depth_key" ] ?? $args['link_active_class'] )
-					: ( $args[ "link_class_$depth_key" ] ?? $args['link_class'] );
-
-				$submenu_class = $args[ "submenu_class_$depth_key" ] ?? $args['submenu_class'];
-			} else {
-				$item_class = trim( ( $args['item_class'] ?? '' ) . ' ' . ( $args[ "item_class_$depth_key" ] ?? '' ) );
-				$link_class = trim( ( $args['link_class'] ?? '' ) . ' ' . ( $args[ "link_class_$depth_key" ] ?? '' ) );
-				$submenu_class = trim( ( $args['submenu_class'] ?? '' ) . ' ' . ( $args[ "submenu_class_$depth_key" ] ?? '' ) );
-
-				if ( $is_active ) {
-					$item_class .= ' ' . ( $args['item_active_class'] ?? '' ) . ' ' . ( $args[ "item_active_class_$depth_key" ] ?? '' );
-					$link_class .= ' ' . ( $args['link_active_class'] ?? '' ) . ' ' . ( $args[ "link_active_class_$depth_key" ] ?? '' );
-				}
-			}
-
-			$output .= '<li class="' . esc_attr( trim( $item_class ) ) . '">';
-			$output .= '<a href="' . esc_url( get_permalink( $page->ID ) ) . '" class="' . esc_attr( trim( $link_class ) ) . '">' . esc_html( $page->post_title ) . '</a>';
-
-			$child_output = $display_hierarchy( $page->ID, $depth + 1 );
-			if ( $child_output ) {
-				$output .= '<ul class="' . esc_attr( trim( $submenu_class ) ) . '">' . $child_output . '</ul>';
-			}
-
-			$output .= '</li>';
-		}
-
-		return $output;
-	};
-
-	$menu_output = $display_hierarchy( $top_parent_id, 0 );
-
-	if ( ! empty( $menu_output ) ) {
-		echo '<ul class="' . esc_attr( $args['menu_class'] ) . '">' . $menu_output . '</ul>';
-	}
+	return ground_nest_items( $items, (int) $args['child_of'] );
 }
 
 /**
@@ -637,203 +668,104 @@ function ground_current_terms( $taxonomy = 'category', $class = '', $separator =
 }
 
 /**
- * Generates and displays a hierarchical list of terms from a specified taxonomy.
+ * Returns the terms of a taxonomy as a tree.
  *
- * Arguments are forwarded to get_terms(), but they don't all bound the same
- * thing: only 'parent' reaches SQL, while 'number' and 'child_of' are applied
- * in PHP after the full fetch. Pair 'number' with 'hierarchical' => false for
- * a real LIMIT. Never capped by default, since a slice taken before the
- * hierarchy is built loses the children of whatever it cut; past
- * theme.nav_tree_warn_at items it warns in debug.
+ * Data only: the markup lives in the template part, one foreach per level it
+ * shows (see template-parts/navigation/navigation-sidebar-secondary.php).
  *
- * @param array $args {
- *     Optional. Array of arguments to control the display and behavior of the terms list.
+ * Arguments go to get_terms(), but they don't all bound the same thing: only
+ * 'parent' reaches SQL, while 'number' and 'child_of' are applied in PHP after
+ * the full fetch. Pair 'number' with 'hierarchical' => false for a real LIMIT.
+ * Never capped by default, since a slice taken before the hierarchy is built
+ * loses the children of whatever it cut; past theme.nav_tree_warn_at items it
+ * warns in debug.
  *
- *     @type string  $taxonomy            The taxonomy to retrieve terms from. Default is 'category'.
- *     @type bool    $echo                Whether to echo or return the output. Default is true.
- *     @type int     $child_of            The term ID to start the hierarchy from. Default is 0 (root).
- *     @type bool    $hide_empty          Whether to hide terms with no posts. Default is true.
- *     @type bool    $merge_classes       Whether to merge generic and depth-specific classes. Default is true.
- *     @type string  $menu_class          Classes for the root `<ul>` element. Default is an empty string.
- *     @type string  $submenu_class       Generic submenu class for `<ul>` elements. Default is an empty string.
- *     @type string  $submenu_class_{n}   Depth-specific submenu class for level {n}. Default is not set.
- *     @type string  $item_class          Generic item class for `<li>` elements. Default is an empty string.
- *     @type string  $item_class_{n}      Depth-specific item class for level {n}. Default is not set.
- *     @type string  $item_active_class   Generic active item class for `<li>` elements. Default is an empty string.
- *     @type string  $item_active_class_{n} Depth-specific active item class for level {n}. Default is not set.
- *     @type string  $link_class          Generic link class for term links. Default is an empty string.
- *     @type string  $link_class_{n}      Depth-specific link class for level {n}. Default is not set.
- *     @type string  $link_active_class   Generic active link class for term links. Default is an empty string.
- *     @type string  $link_active_class_{n} Depth-specific active link class for level {n}. Default is not set.
- * }
+ * @param array $args Optional. Arguments for get_terms(). 'taxonomy' defaults to
+ *                    'category', 'hide_empty' to true. The first level hangs from
+ *                    'child_of' (default 0, the root: every descendant) or, when
+ *                    passed, from 'parent' (its direct children only).
  *
- * @return string|void The HTML output of the terms list if `$arg['echo']` is false. Otherwise, the function echoes the output.
+ * @return array[] First-level terms, each with 'id', 'parent', 'title' (print it
+ *                 with wp_kses_post()), 'url', 'current', 'ancestor' (of the
+ *                 current term) and 'children' (same shape). Empty when the
+ *                 taxonomy has no terms to show.
  */
-function ground_terms( $arg = [] ) {
-	$defaults = [
+function ground_terms( $args = [] ) {
+	$args = wp_parse_args( $args, [
 		'taxonomy' => 'category',
-		'echo' => true,
 		'child_of' => 0,
 		'hide_empty' => true,
-		'merge_classes' => true,
-		'menu_class' => '',
-		'submenu_class' => '',
-		'item_class' => '',
-		'item_active_class' => '',
-		'link_class' => '',
-		'link_active_class' => '',
-	];
-	$args = wp_parse_args( $arg, $defaults );
+	] );
+
 	$terms = get_terms( $args );
 
 	if ( empty( $terms ) || is_wp_error( $terms ) ) {
-		return;
+		return [];
 	}
 
 	$warn_at = (int) ground_config( 'theme.nav_tree_warn_at' );
 
 	if ( $warn_at && count( $terms ) > $warn_at && ground_is_debug() ) {
 		ground_log( sprintf(
-			'ground_terms(): rendering %d terms from the "%s" taxonomy, past the %d set in theme.nav_tree_warn_at. Scope the query with "number" or "child_of" — both are forwarded to get_terms().',
+			'ground_terms(): returning %d terms from the "%s" taxonomy, past the %d set in theme.nav_tree_warn_at. Scope the query with "number" or "child_of" — both are forwarded to get_terms().',
 			count( $terms ),
 			$args['taxonomy'],
 			$warn_at
 		) );
 	}
 
-	$term_hierarchy = [];
-	foreach ( $terms as $term ) {
-		$term_hierarchy[ $term->parent ][] = $term;
-	}
+	// Any term archive: category, tag or custom taxonomy.
+	$queried = get_queried_object();
+	$current_id = $queried instanceof WP_Term ? (int) $queried->term_id : 0;
+	$ancestors = $current_id ? get_ancestors( $current_id, $queried->taxonomy, 'taxonomy' ) : [];
 
-	$current_term_id = 0;
-	if ( is_tax() || is_category() ) {
-		$current_term = get_queried_object();
-		if ( isset( $current_term->term_id ) ) {
-			$current_term_id = $current_term->term_id;
-		}
-	}
+	$items = array_map(
+		fn( $term ) => [
+			'id' => (int) $term->term_id,
+			'parent' => (int) $term->parent,
+			'title' => $term->name,
+			'url' => get_term_link( $term ),
+			'current' => (int) $term->term_id === $current_id,
+			'ancestor' => in_array( (int) $term->term_id, $ancestors, true ),
+		],
+		$terms
+	);
 
-	$display_hierarchy = function ( $parent_id = 0, $depth = 0 ) use ( &$display_hierarchy, $term_hierarchy, $args, $current_term_id ) {
-		if ( ! isset( $term_hierarchy[ $parent_id ] ) ) {
-			return '';
-		}
+	// 'parent' returns one level only: it hangs from that term, not from 'child_of'.
+	$root = is_numeric( $args['parent'] ?? '' ) ? $args['parent'] : $args['child_of'];
 
-		$output = '';
-		$depth_key = $depth + 1;
-
-		foreach ( $term_hierarchy[ $parent_id ] as $term ) {
-			$is_active = $term->term_id == $current_term_id;
-
-			$item_class = trim( $args['item_class'] . ' ' . ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : '' ) );
-			$link_class = trim( $args['link_class'] . ' ' . ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : '' ) );
-			$submenu_class = trim( $args['submenu_class'] . ' ' . ( isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : '' ) );
-
-			if ( $is_active ) {
-				$item_class .= ' ' . $args['item_active_class'] . ' ' . ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : '' );
-				$link_class .= ' ' . $args['link_active_class'] . ' ' . ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : '' );
-			}
-
-			if ( $args['merge_classes'] ) {
-				$item_class = $is_active
-					? ( isset( $args[ "item_active_class_$depth_key" ] ) ? $args[ "item_active_class_$depth_key" ] : $args['item_active_class'] )
-					: ( isset( $args[ "item_class_$depth_key" ] ) ? $args[ "item_class_$depth_key" ] : $args['item_class'] );
-				$link_class = $is_active
-					? ( isset( $args[ "link_active_class_$depth_key" ] ) ? $args[ "link_active_class_$depth_key" ] : $args['link_active_class'] )
-					: ( isset( $args[ "link_class_$depth_key" ] ) ? $args[ "link_class_$depth_key" ] : $args['link_class'] );
-				$submenu_class = isset( $args[ "submenu_class_$depth_key" ] ) ? $args[ "submenu_class_$depth_key" ] : $args['submenu_class'];
-			}
-
-			$output .= '<li class="' . esc_attr( $item_class ) . '">';
-			$output .= '<a href="' . esc_url( get_term_link( $term ) ) . '" class="' . esc_attr( $link_class ) . '">' . esc_html( $term->name ) . '</a>';
-
-			$child_output = $display_hierarchy( $term->term_id, $depth + 1 );
-			if ( $child_output ) {
-				$output .= '<ul class="' . esc_attr( $submenu_class ) . '">' . $child_output . '</ul>';
-			}
-
-			$output .= '</li>';
-		}
-
-		return $output;
-	};
-
-	$output = '<ul class="' . esc_attr( $args['menu_class'] ) . '">';
-	$output .= $display_hierarchy( $args['child_of'], 0 );
-	$output .= '</ul>';
-
-	if ( $args['echo'] ) {
-		echo $output;
-	} else {
-		return $output;
-	}
+	return ground_nest_items( $items, (int) $root );
 }
 
 /**
- * Renders the breadcrumb navigation.
+ * Returns the Yoast SEO breadcrumb trail for the current page.
  *
- * @param array $args {
- *     Optional. An array of arguments to customize the breadcrumb output.
+ * Data only: the markup lives in template-parts/navigation/navigation-breadcrumbs.php,
+ * because Yoast's own (spans with the separator as text between them) can't be
+ * turned into an <ol> through its filters. Yoast's texts and data filters still
+ * apply (home, search/archive/404 texts, wpseo_breadcrumb_links,
+ * wpseo_breadcrumb_single_link_info); its markup settings and filters (separator,
+ * bold last crumb, prefix, wpseo_breadcrumb_output…) don't, since that markup is
+ * never rendered.
  *
- *     @type bool   $merge_classes      Whether to merge item and active item classes for the last breadcrumb item. Default is false.
- *     @type string $nav_class          CSS class for the `<nav>` element. Default is an empty string.
- *     @type string $list_class         CSS class for the `<ol>` wrapper element. Default is an empty string.
- *     @type string $item_class         CSS class for each breadcrumb `<li>` item. Default is an empty string.
- *     @type string $item_active_class CSS class for the active breadcrumb item. Default is an empty string.
- *     @type string $link_class         CSS class for the breadcrumb `<a>` links. Default is an empty string.
- *     @type string $separator          Separator between breadcrumb items. Default is '>'.
- *     @type string $separator_class    CSS class for the separator `<span>` element. Default is an empty string.
- * }
- *
- * @return void
+ * @return array[] Crumbs, each with 'text' and, except usually the last, 'url'.
+ *                 Empty when Yoast is missing or its breadcrumbs are off.
  */
-function ground_breadcrumbs( $args = [] ) {
-	if ( ! function_exists( 'yoast_breadcrumb' ) || ! WPSEO_Options::get( 'breadcrumbs-enable', false ) ) {
-		return;
+function ground_breadcrumbs() {
+	if ( ! function_exists( 'YoastSEO' ) ) {
+		return [];
 	}
 
-	$defaults = [
-		'merge_classes' => false,
-		'nav_class' => '',
-		'list_class' => '',
-		'item_class' => '',
-		'item_active_class' => '',
-		'link_class' => '',
-		'separator' => '>',
-		'separator_class' => '',
-	];
-
-	$args = wp_parse_args( $args, $defaults );
-
-	$breadcrumbs = new WPSEO_Breadcrumbs();
-	$breadcrumb_links = $breadcrumbs->get_links();
-
-	if ( empty( $breadcrumb_links ) ) {
-		return;
+	// Same switch as yoast_breadcrumb(): the theme support forces them on,
+	// otherwise the "Enable breadcrumbs" setting decides.
+	if ( ! current_theme_supports( 'yoast-seo-breadcrumbs' ) && ! YoastSEO()->helpers->options->get( 'breadcrumbs-enable', false ) ) {
+		return [];
 	}
 
-	$output = [];
-	$total = count( $breadcrumb_links );
-	$current = 1;
+	// Yoast's public surface; WPSEO_Breadcrumbs is only a back-compat class.
+	$meta = YoastSEO()->meta->for_current_page();
+	$crumbs = $meta ? (array) $meta->breadcrumbs : [];
 
-	foreach ( $breadcrumb_links as $link ) {
-		$url = isset( $link['url'] ) ? esc_url( $link['url'] ) : '';
-		$text = isset( $link['text'] ) ? esc_html( $link['text'] ) : '';
-
-		if ( $current === $total ) {
-			$classes = $args['merge_classes'] ? $args['item_active_class'] : ( $args['item_class'] . ' ' . $args['item_active_class'] );
-			$output[] = '<li class="' . esc_attr( $classes ) . '" aria-current="page">' . $text . '</li>';
-		} else {
-			$output[] = '<li class="' . esc_attr( $args['item_class'] ) . '">'
-				. '<a href="' . $url . '" class="' . esc_attr( $args['link_class'] ) . '">' . $text . '</a>'
-				. '<span class="' . esc_attr( $args['separator_class'] ) . '">' . $args['separator'] . '</span>'
-				. '</li>';
-		}
-
-		$current++;
-	}
-
-	echo '<nav id="breadcrumb" class="' . esc_attr( $args['nav_class'] ) . '" aria-label="Breadcrumb">';
-	echo '<ol class="' . esc_attr( $args['list_class'] ) . '">' . implode( '', $output ) . '</ol>';
-	echo '</nav>';
+	// Like Yoast's presenter, crumbs without text are dropped.
+	return array_values( array_filter( $crumbs, fn( $crumb ) => ! empty( $crumb['text'] ) ) );
 }

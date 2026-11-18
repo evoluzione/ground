@@ -17,6 +17,9 @@
 	--color-secondary: #e2001a;
 }
 
+/* The current page in a navigation: current:text-primary on the element that carries aria-current. */
+@custom-variant current (&[aria-current="page"]);
+
 @utility container {
 	@apply mx-auto px-8;
 }

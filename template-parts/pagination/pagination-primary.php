@@ -1,33 +1,35 @@
 <?php
+/**
+ * Pagination of the main query, or of the query passed as 'query'.
+ */
+$query = $args['query'] ?? $wp_query;
 
-$query = isset( $args['query'] ) ? $args['query'] : $wp_query;
-
-ground_pagination( [
+$links = ground_pagination( [
+	'total' => $query->max_num_pages,
 	'mid_size' => 1,
-	'merge_classes' => true,
-
-	'container_class' => 'flex justify-center',
-	'list_class' => 'flex gap-4',
-
-	'item_class' => '',
-	'item_active_class' => '',
-
-	'item_prev_class' => '',
-	'item_next_class' => '',
-	'item_dots_class' => '',
-	'item_page_class' => '',
-
-	'link_class' => '',
-	'link_prev_class' => '',
-	'link_next_class' => '',
-	'link_page_class' => '',
-
-	'text_class' => '',
-	'text_page_class' => '',
-	'text_dots_class' => '',
-
-	'text_active_class' => '',
-
-	'item_page_active_class' => 'font-bold text-primary',
-	'total' => $query->max_num_pages
 ] );
+
+if ( ! $links ) {
+	return;
+}
+?>
+<nav class="flex justify-center" aria-label="<?php esc_attr_e( 'Pagination', 'ground' ); ?>">
+	<ul class="flex gap-4">
+		<?php foreach ( $links as $link ) : ?>
+			<li>
+				<?php if ( 'prev' === $link['type'] ) : ?>
+					<a href="<?php echo esc_url( $link['url'] ); ?>">&laquo; <?php esc_html_e( 'Previous', 'ground' ); ?></a>
+				<?php elseif ( 'next' === $link['type'] ) : ?>
+					<a href="<?php echo esc_url( $link['url'] ); ?>"><?php esc_html_e( 'Next', 'ground' ); ?> &raquo;</a>
+				<?php elseif ( 'dots' === $link['type'] ) : ?>
+					<span>&hellip;</span>
+				<?php elseif ( $link['current'] ) : ?>
+					<?php // A bare "3" says nothing out of context: screen readers hear "Page 3". ?>
+					<span class="font-bold text-primary" aria-current="page"><span class="sr-only"><?php esc_html_e( 'Page', 'ground' ); ?> </span><?php echo esc_html( $link['number'] ); ?></span>
+				<?php else : ?>
+					<a href="<?php echo esc_url( $link['url'] ); ?>"><span class="sr-only"><?php esc_html_e( 'Page', 'ground' ); ?> </span><?php echo esc_html( $link['number'] ); ?></a>
+				<?php endif; ?>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</nav>
