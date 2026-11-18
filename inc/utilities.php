@@ -14,33 +14,20 @@ function ground_config( $configPath ) {
 
 	if ( ! array_key_exists( $fileName, $configs ) ) {
 		$filePath = GROUND_TEMPLATE_DIRECTORY . '/config/' . $fileName . '.php';
+		$config = is_file( $filePath ) ? include $filePath : null;
 
-		if ( ! is_file( $filePath ) ) {
-			$configs[ $fileName ] = null;
-			return null;
-		}
-
-		$config = include $filePath;
-
-		if ( ! is_array( $config ) ) {
-			$configs[ $fileName ] = null;
-			return null;
-		}
-
-		$configs[ $fileName ] = $config;
+		// A missing or invalid file is memoized as null too.
+		$configs[ $fileName ] = is_array( $config ) ? $config : null;
 	}
 
-	if ( $configs[ $fileName ] === null ) {
-		return null;
-	}
-
-	$data = &$configs[ $fileName ];
+	// Plain assignments: arrays are copy-on-write, so nothing is copied here.
+	$data = $configs[ $fileName ];
 
 	foreach ( $pathParts as $key ) {
 		if ( ! is_array( $data ) || ! array_key_exists( $key, $data ) ) {
 			return null;
 		}
-		$data = &$data[ $key ];
+		$data = $data[ $key ];
 	}
 
 	return $data;
@@ -65,7 +52,10 @@ function ground_is_debug() {
 /**
  * Excerpt with custom length.
  *
- * @param int             $length     Optional. The excerpt length in characters. Default is 100.
+ * Plain text: tags and shortcodes are stripped, whitespace collapsed. A text
+ * longer than $length is cut back to the last whole word before $after_text.
+ *
+ * @param int             $length     Optional. The maximum excerpt length in characters. Default is 100.
  * @param string          $after_text Optional. Characters to add at the end of the excerpt. Default is '...'.
  * @param int|WP_Post     $post       Optional. Post ID or post object. Default is global $post.
  * @param bool            $echo       Optional. If true, echoes the excerpt; otherwise, returns it. Default is true.
@@ -75,25 +65,35 @@ function ground_is_debug() {
 function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo = true ) {
 
 	$post = get_post( $post );
-	if ( ! $post ) {
-		if ( ! $echo ) {
-			return '';
+	$excerpt = '';
+
+	if ( $post ) {
+		$charset = get_bloginfo( 'charset' );
+
+		// Shortcodes are stripped rather than executed, as core does in
+		// wp_trim_excerpt(): expanding them only to truncate is wasted work.
+		$source = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : strip_shortcodes( $post->post_content );
+
+		// Entities are decoded before cutting, so each counts as one character
+		// and none is cut in half (&am…); esc_html() re-encodes them on output.
+		$excerpt = html_entity_decode( wp_strip_all_tags( $source, true ), ENT_QUOTES | ENT_HTML5, $charset );
+
+		if ( mb_strlen( $excerpt, $charset ) > $length ) {
+			$word_ends_at_cut = mb_substr( $excerpt, $length, 1, $charset ) === ' ';
+			$excerpt = mb_substr( $excerpt, 0, $length, $charset );
+
+			// Back up to the last whole word, unless the cut already falls between
+			// two words or the first word alone is too long.
+			$last_space = $word_ends_at_cut ? false : mb_strrpos( $excerpt, ' ', 0, $charset );
+			if ( $last_space ) {
+				$excerpt = mb_substr( $excerpt, 0, $last_space, $charset );
+			}
+
+			$excerpt = rtrim( $excerpt, ' ,.;:-' ) . $after_text;
 		}
-		echo '';
-		return;
+
+		$excerpt = apply_filters( 'ground_excerpt', $excerpt, $length, $after_text, $post );
 	}
-
-	// Shortcodes are stripped rather than executed, as core does in
-	// wp_trim_excerpt(): expanding them only to truncate is wasted work.
-	$post_content = ( '' !== $post->post_excerpt ) ? $post->post_excerpt : strip_shortcodes( $post->post_content );
-	$content = wp_strip_all_tags( $post_content );
-	$excerpt = mb_substr( $content, 0, $length, get_bloginfo( 'charset' ) );
-
-	if ( mb_strlen( $content, get_bloginfo( 'charset' ) ) > $length ) {
-		$excerpt .= $after_text;
-	}
-
-	$excerpt = apply_filters( 'ground_excerpt', $excerpt, $length, $after_text, $post );
 
 	if ( ! $echo ) {
 		return esc_html( $excerpt );
