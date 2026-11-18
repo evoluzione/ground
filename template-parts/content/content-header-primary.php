@@ -7,11 +7,13 @@
 		</div>
 	<?php endif; ?>
 	<div class="flex justify-between container py-6">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 			<?php ground_icon( [
 				'name' => 'logo',
 				'attr' => [
 					'class' => 'w-36 hover:fill-primary',
+					// The link's only content: the logo gives it its name.
+					'aria-label' => get_bloginfo( 'name' ),
 				],
 				'path' => GROUND_TEMPLATE_DIRECTORY . '/assets/img/'
 			] ); ?>

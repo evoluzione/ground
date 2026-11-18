@@ -22,7 +22,8 @@ $active_footer_sidebars = array_filter( $footer_sidebars, 'is_active_sidebar' );
 				<?php ground_icon( [
 					'name' => 'copyright',
 					'attr' => [
-						'class' => 'w-4 h-4 inline'
+						'class' => 'w-4 h-4 inline',
+						'aria-label' => __( 'Copyright', 'ground' ),
 					]
 				] ); ?>
 				<?php echo esc_html( get_bloginfo( 'name' ) ); ?>

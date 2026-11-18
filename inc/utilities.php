@@ -139,7 +139,9 @@ function ground_image( $args = [] ) {
 	$args = array_replace_recursive( $defaults, $args );
 
 	$size = $args['size'];
-	$attr = $args['attr'];
+	// Accepts a query string too, as wp_get_attachment_image() does; the
+	// placeholder below writes into it as an array.
+	$attr = wp_parse_args( $args['attr'] );
 	$post = $args['post'];
 	$placeholder = $args['placeholder'];
 	$return_url = $args['return_url'];
@@ -147,15 +149,18 @@ function ground_image( $args = [] ) {
 	$responsive = $args['responsive'];
 	$echo = $args['echo'];
 
-	$image = '';
-
-	if ( ! empty( $attachment_id ) ) {
+	if ( $return_url ) {
+		$image = ! empty( $attachment_id )
+			? wp_get_attachment_image_url( $attachment_id, $size )
+			: get_the_post_thumbnail_url( $post, $size );
+	} elseif ( ! empty( $attachment_id ) ) {
 		$image = wp_get_attachment_image( $attachment_id, $size, false, $attr );
-	} elseif ( $return_url ) {
-		$image = get_the_post_thumbnail_url( $post, $size );
 	} else {
 		$image = get_the_post_thumbnail( $post, $size, $attr );
 	}
+
+	// The *_url() functions return false when there's nothing to return.
+	$image = $image ?: '';
 
 	// Remove 'srcset' and 'sizes' attributes if not responsive
 	if ( ! $responsive && ! empty( $image ) ) {
@@ -163,7 +168,9 @@ function ground_image( $args = [] ) {
 	}
 
 	// Handle default fallback image
-	if ( empty( $image ) && ! empty( $placeholder ) ) {
+	if ( empty( $image ) && ! empty( $placeholder ) && $return_url ) {
+		$image = $placeholder;
+	} elseif ( empty( $image ) && ! empty( $placeholder ) ) {
 
 		if ( is_array( $size ) ) {
 			$attr['width'] = $size[0];
@@ -178,20 +185,27 @@ function ground_image( $args = [] ) {
 			}
 		}
 
+		// The placeholder stands in for an image that isn't there: without an
+		// alt the reader would announce its file name. Empty marks it decorative;
+		// the caller's alt, when given, wins.
+		$attr += [ 'alt' => '' ];
+
 		$image = '<img src="' . esc_url( $placeholder ) . '"';
 		foreach ( $attr as $key => $value ) {
-			if ( $value !== '' && $value !== null ) {
-				$image .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
+			if ( $value === null || ( $value === '' && $key !== 'alt' ) ) {
+				continue;
 			}
+			$image .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
 		}
 		$image .= ' />';
 	}
 
-	if ( $echo ) {
-		echo $image;
-	} else {
+	if ( ! $echo ) {
 		return $image;
 	}
+
+	// A URL is raw until escaped; the <img> markup is already escaped.
+	echo $return_url ? esc_url( $image ) : $image;
 }
 
 /**
@@ -200,13 +214,15 @@ function ground_image( $args = [] ) {
  * @param array $args {
  *     Optional. An array of arguments.
  *
- *     @type string $name The name of the icon file. Required.
- *     @type array  $attr An array of attributes to add to the SVG element. Default is ['class' => ''].
- *     @type string $icon_set The name of the icon set. Default is 'lucide'.
- *     @type string $file_extension The file extension of the icon. Default is 'svg'.
- *     @type bool   $echo Whether to echo the SVG markup instead of returning it. Default is true.
+ *     @type string $name     The name of the SVG file, without extension. Required.
+ *     @type array  $attr     Attributes to set on the <svg> element; null removes one the file has. Default is
+ *                            ['class' => 'inline']. Icons are decorative by default (aria-hidden="true"): pass
+ *                            'aria-label' for one that carries meaning on its own, and it gets role="img" instead.
+ *     @type string $icon_set The folder under assets/icons/. Default is ground_config('media.icon_set').
+ *     @type string $path     A folder to read the file from instead of the icon set (trailing slash included). Default is ''.
+ *     @type bool   $echo     Whether to echo the SVG markup instead of returning it. Default is true.
  * }
- * @return string|void The SVG markup with custom attributes, the URL if $return_url is true, or void if $echo is true.
+ * @return string|void The SVG markup if $echo is false; void otherwise or when the file can't be read.
  */
 function ground_icon( $args = [] ) {
 	static $cache = [];
@@ -217,7 +233,6 @@ function ground_icon( $args = [] ) {
 			'class' => 'inline'
 		],
 		'icon_set' => ground_config( 'media.icon_set' ),
-		'file_extension' => 'svg',
 		'echo' => true,
 		'path' => '',
 	];
@@ -228,16 +243,19 @@ function ground_icon( $args = [] ) {
 		return;
 	}
 
-	$name = $args['name'];
-	$icon_set = $args['icon_set'];
-	$file_extension = $args['file_extension'];
 	$attr = $args['attr'];
-	$echo = $args['echo'];
-	$path = $args['path'] ?: GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $icon_set . '/';
-	$file_path = $path . $name . '.' . $file_extension;
 
-	// File check
-	if ( $file_extension !== 'svg' || ! is_readable( $file_path ) ) {
+	// Decorative unless labelled: next to text or inside a labelled control the
+	// icon would only add noise to what a screen reader announces.
+	$attr += isset( $attr['aria-label'] )
+		? [ 'role' => 'img' ]
+		: [ 'aria-hidden' => 'true' ];
+
+	$echo = $args['echo'];
+	$path = $args['path'] ?: GROUND_TEMPLATE_DIRECTORY . '/assets/icons/' . $args['icon_set'] . '/';
+	$file_path = $path . $args['name'] . '.svg';
+
+	if ( ! is_readable( $file_path ) ) {
 		return;
 	}
 
@@ -261,11 +279,15 @@ function ground_icon( $args = [] ) {
 		}
 
 		foreach ( $attr as $key => $value ) {
-			$svg->setAttribute( $key, $value );
+			if ( $value === null ) {
+				$svg->removeAttribute( $key );
+			} else {
+				$svg->setAttribute( $key, $value );
+			}
 		}
 
+		// Saving a node, not the document, emits no XML declaration.
 		$icon = $dom->saveXML( $svg );
-		$icon = str_replace( '<?xml version="1.0"?>', '', $icon );
 
 		// Save in the cache
 		$cache[ $cache_key ] = $icon;
