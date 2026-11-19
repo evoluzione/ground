@@ -145,3 +145,53 @@ function ground_hide_media_size_settings() {
 }
 
 add_action( 'admin_head-options-media.php', 'ground_hide_media_size_settings' );
+
+/**
+ * Pages and orders a post type's archives as its 'listing' says.
+ *
+ * 'listing' is an optional key of a post type in config/post-types.php, with
+ * 'per_page' and 'orderby'. It applies to the post type's archive and to the
+ * archives of its taxonomies; a taxonomy shared by two post types follows the
+ * first one in the config.
+ *
+ * This has to happen here: the main query runs before the template is chosen,
+ * and WordPress sends a 404 when a paginated main query finds nothing. With
+ * its own posts per page (Settings → Reading) a term archive would end on a
+ * different page than the page listing the post type, which reads the same
+ * 'listing'.
+ *
+ * @param WP_Query $query The query being set up.
+ * @return void
+ */
+function ground_listing_main_query( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	foreach ( ground_config( 'post-types.post_types' ) as $name => $post_type ) {
+		$listing = $post_type['listing'] ?? [];
+
+		if ( ! $listing ) {
+			continue;
+		}
+
+		// Asked about no taxonomy, is_tax() answers for any of them.
+		$taxonomies = get_object_taxonomies( $name );
+
+		if ( ! $query->is_post_type_archive( $name ) && ! ( $taxonomies && $query->is_tax( $taxonomies ) ) ) {
+			continue;
+		}
+
+		if ( isset( $listing['per_page'] ) ) {
+			$query->set( 'posts_per_page', $listing['per_page'] );
+		}
+
+		if ( isset( $listing['orderby'] ) ) {
+			$query->set( 'orderby', $listing['orderby'] );
+		}
+
+		return;
+	}
+}
+
+add_action( 'pre_get_posts', 'ground_listing_main_query' );

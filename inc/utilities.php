@@ -349,7 +349,7 @@ function ground_pagination( $args = [] ) {
 		'total' => $wp_query->max_num_pages,
 		// paginate_links() reads only 'paged', but on a static front page
 		// WP_Query moves the number to 'page' (/page/2/ → page=2), so page 2
-		// would show as 1. Same reading as loop-ground_catalog.php.
+		// would show as 1. Same reading as templates/template-ground_catalog.php.
 		'current' => max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) ),
 	];
 
@@ -790,4 +790,34 @@ function ground_breadcrumbs() {
 
 	// Like Yoast's presenter, crumbs without text are dropped.
 	return array_values( array_filter( $crumbs, fn( $crumb ) => ! empty( $crumb['text'] ) ) );
+}
+
+/**
+ * Answers the request with a 404 and loads its template.
+ *
+ * For a listing WordPress can't check by itself: it sends a 404 when a
+ * paginated main query finds nothing, but a listing built inside a page (the
+ * catalog's) isn't the main query. Call it before any output, then return.
+ *
+ * @return void
+ */
+function ground_not_found() {
+	global $wp_query;
+
+	// What WP::handle_404() does.
+	$wp_query->set_404();
+	status_header( 404 );
+	nocache_headers();
+
+	// WordPress's own 404 holds no posts and no pages; this one still holds what
+	// the main query found (the page, the term's items), which the template
+	// would loop and paginate.
+	$wp_query->posts = [];
+	$wp_query->post_count = 0;
+	$wp_query->post = null;
+	$wp_query->found_posts = 0;
+	$wp_query->max_num_pages = 0;
+
+	// The template hierarchy of a 404.
+	locate_template( [ '404.php', 'index.php' ], true );
 }

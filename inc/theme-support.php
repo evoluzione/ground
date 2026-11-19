@@ -152,18 +152,37 @@ add_action( 'widgets_init', 'ground_register_sidebars' );
  * @return void
  */
 function ground_register_post_types() {
+	global $wp_rewrite;
 
 	// Registers custom post types.
-	foreach ( ground_config( 'post-types.post_types' ) as $post_type ) {
-		if ( isset( $post_type['name'], $post_type['args'] ) ) {
-			register_post_type( $post_type['name'], $post_type['args'] );
+	foreach ( ground_config( 'post-types.post_types' ) as $name => $post_type ) {
+		if ( ! isset( $post_type['args'] ) ) {
+			continue;
+		}
+
+		register_post_type( $name, $post_type['args'] );
+
+		$object = get_post_type_object( $name );
+		$slug = $object->rewrite['slug'] ?? '';
+
+		// Without an archive the listing is a page (templates/template-{post_type}.php).
+		// When it shares the post type's slug, its /page/N/ would be read as a
+		// single named "page": this rule, ahead of the post type's, sends it to
+		// the page. The page is the slug found in the URL, not a fixed one, so the
+		// rule holds when WPML translates the post type's slug.
+		if ( $slug && $object->public && ! $object->has_archive ) {
+			add_rewrite_rule(
+				"({$slug})/{$wp_rewrite->pagination_base}/?([0-9]{1,})/?$",
+				'index.php?pagename=$matches[1]&paged=$matches[2]',
+				'top'
+			);
 		}
 	}
 
 	// Registers custom taxonomies.
-	foreach ( ground_config( 'post-types.taxonomies' ) as $taxonomy ) {
-		if ( isset( $taxonomy['name'], $taxonomy['object_type'], $taxonomy['args'] ) ) {
-			register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $taxonomy['args'] );
+	foreach ( ground_config( 'post-types.taxonomies' ) as $name => $taxonomy ) {
+		if ( isset( $taxonomy['object_type'], $taxonomy['args'] ) ) {
+			register_taxonomy( $name, $taxonomy['object_type'], $taxonomy['args'] );
 		}
 	}
 

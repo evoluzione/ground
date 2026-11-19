@@ -2,6 +2,23 @@
 /**
  * Taxonomy: ground_catalog_taxonomy
  */
+
+// A category lists its child categories, and its items where there are none.
+// To always list the items, replace the call with: $categories = [];
+$categories = get_terms( [
+	'taxonomy' => 'ground_catalog_taxonomy',
+	'parent' => get_queried_object_id(),
+] );
+
+// The items are the main query's (paged and ordered like the catalog page by
+// ground_listing_main_query()), so WordPress sends the 404 when they run out.
+// This covers a level that lists categories, which has a single page.
+if ( $categories && is_paged() ) {
+	ground_not_found();
+
+	return;
+}
+
 get_template_part( 'template-parts/header/header-primary' ); ?>
 
 <main class="container">
@@ -23,13 +40,7 @@ get_template_part( 'template-parts/header/header-primary' ); ?>
 				<div class="prose max-w-none mb-6"><?php the_archive_description(); ?></div>
 			<?php endif; ?>
 
-			<?php
-			$term = get_queried_object();
-			get_template_part( 'template-parts/loop/loop-ground_catalog', null, [
-				'mode'     => ground_config( 'catalog.mode' ),
-				'parent'   => $term->term_id,
-				'per_page' => ground_config( 'catalog.per_page' ),
-			] ); ?>
+			<?php get_template_part( 'template-parts/loop/loop-ground_catalog', null, [ 'categories' => $categories ] ); ?>
 
 		</div>
 

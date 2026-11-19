@@ -1,8 +1,17 @@
 <?php
 return [
+	// Each post type and taxonomy is keyed by its name.
 	'post_types' => [
-		[
-			'name' => 'ground_catalog',
+		'ground_catalog' => [
+			// Optional. How its listings are paged and ordered (templates/template-ground_catalog.php)
+			'listing' => [
+				'per_page' => 12,
+				'orderby' => [
+					'menu_order' => 'ASC',
+					'title' => 'ASC',
+					'ID' => 'ASC',
+				],
+			],
 			'args' => [
 				'rewrite' => [
 					'slug' => sanitize_title( __( 'catalog', 'ground' ) ),
@@ -57,8 +66,7 @@ return [
 		],
 	],
 	'taxonomies' => [
-		[
-			'name' => 'ground_catalog_taxonomy',
+		'ground_catalog_taxonomy' => [
 			'object_type' => 'ground_catalog',
 			'args' => [
 				'hierarchical' => true,
