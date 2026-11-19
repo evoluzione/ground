@@ -113,7 +113,7 @@ function ground_excerpt( $length = 100, $after_text = '...', $post = null, $echo
  *     @type WP_Post|int|null $post       The post object or ID from which the image should be fetched. Default is null.
  *     @type string $placeholder          URL to a fallback image if no image is found. Default is fetched via ground_config('media.placeholder_url').
  *     @type bool $return_url             Whether to fetch the image URL instead of an HTML img tag. Default is false.
- *     @type int|string $attachment_id    WordPress attachment ID for the image. Default is empty.
+ *     @type int|string $attachment_id    WordPress attachment ID for the image. When passed, even empty (a field with no image), the image is that attachment or the placeholder; when left out, the post's featured image. Default is empty.
  *     @type bool $responsive             Whether to include 'srcset' and 'sizes' attributes for responsive images. Default is true.
  *     @type bool $echo                   Whether to echo the output or return it. Default is true.
  * }
@@ -136,6 +136,11 @@ function ground_image( $args = [] ) {
 		'responsive' => true,
 		'echo' => true
 	];
+	// An attachment asked for by ID is that image or the placeholder, even when
+	// the ID is empty (a field with no image): the current post's featured
+	// image must not stand in for it.
+	$by_attachment = array_key_exists( 'attachment_id', $args );
+
 	$args = array_replace_recursive( $defaults, $args );
 
 	$size = $args['size'];
@@ -149,12 +154,14 @@ function ground_image( $args = [] ) {
 	$responsive = $args['responsive'];
 	$echo = $args['echo'];
 
-	if ( $return_url ) {
-		$image = ! empty( $attachment_id )
-			? wp_get_attachment_image_url( $attachment_id, $size )
-			: get_the_post_thumbnail_url( $post, $size );
-	} elseif ( ! empty( $attachment_id ) ) {
-		$image = wp_get_attachment_image( $attachment_id, $size, false, $attr );
+	if ( $by_attachment ) {
+		$image = match ( true ) {
+			empty( $attachment_id ) => '',
+			$return_url => wp_get_attachment_image_url( $attachment_id, $size ),
+			default => wp_get_attachment_image( $attachment_id, $size, false, $attr ),
+		};
+	} elseif ( $return_url ) {
+		$image = get_the_post_thumbnail_url( $post, $size );
 	} else {
 		$image = get_the_post_thumbnail( $post, $size, $attr );
 	}
