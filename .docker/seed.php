@@ -86,37 +86,66 @@ function ground_adopt_page( $slug, $new_title ) {
 
 echo "  seed: catalog taxonomy terms\n";
 
-$term_names = array( 'Outdoor', 'Indoor', 'Accessori' );
-$term_ids   = array();
-
-foreach ( $term_names as $i => $name ) {
-	$existing = term_exists( $name, 'ground_catalog_taxonomy' );
+/**
+ * Find or create a catalog category under a parent (0: top level); 0 on failure.
+ */
+function ground_seed_catalog_term( $name, $parent, $image_seed ) {
+	$existing = term_exists( $name, 'ground_catalog_taxonomy', $parent );
 	if ( $existing ) {
-		$term_ids[] = (int) $existing['term_id'];
-		continue;
+		return (int) $existing['term_id'];
 	}
 
-	$term = wp_insert_term( $name, 'ground_catalog_taxonomy' );
+	$term = wp_insert_term( $name, 'ground_catalog_taxonomy', array( 'parent' => $parent ) );
 	if ( is_wp_error( $term ) ) {
-		continue;
+		return 0;
 	}
 
-	$term_id    = (int) $term['term_id'];
-	$term_ids[] = $term_id;
+	$term_id = (int) $term['term_id'];
 	update_term_meta( $term_id, '_ground_seed', 1 );
 
 	// The ACF "Taxonomies" group attaches an image field to this taxonomy.
-	$image_id = ground_seed_image( 0, 'term-' . $i );
+	$image_id = ground_seed_image( 0, $image_seed );
 	if ( $image_id && function_exists( 'update_field' ) ) {
 		update_field( 'taxonomy_image', $image_id, 'ground_catalog_taxonomy_' . $term_id );
 	}
+
+	return $term_id;
+}
+
+// Outdoor has subcategories, so the catalog shows both kinds of level: one
+// that lists categories (Outdoor) and one that lists items (the others).
+$term_tree = array(
+	'Outdoor'   => array( 'Giardino', 'Terrazzo' ),
+	'Indoor'    => array(),
+	'Accessori' => array(),
+);
+
+// Per top-level category, the categories that hold its items: its
+// subcategories, or itself when it has none. A level that lists categories
+// doesn't list items, so none is assigned to Outdoor itself.
+$term_ids = array();
+
+foreach ( array_keys( $term_tree ) as $i => $name ) {
+	$term_id = ground_seed_catalog_term( $name, 0, 'term-' . $i );
+	if ( ! $term_id ) {
+		continue;
+	}
+
+	$child_ids = array();
+	foreach ( $term_tree[ $name ] as $j => $child_name ) {
+		$child_ids[] = ground_seed_catalog_term( $child_name, $term_id, 'term-' . $i . '-' . $j );
+	}
+	$child_ids = array_filter( $child_ids );
+
+	$term_ids[] = $child_ids ? array_values( $child_ids ) : array( $term_id );
 }
 
 echo "  seed: catalog products (CPT ground_catalog)\n";
 
 $product_ids = array();
 
-for ( $i = 1; $i <= 12; $i++ ) {
+// More than one page of the catalog's per_page (12, config/post-types.php), so the catalog paginates.
+for ( $i = 1; $i <= 30; $i++ ) {
 	$product_id = wp_insert_post( array(
 		'post_type'    => 'ground_catalog',
 		'post_status'  => 'publish',
@@ -138,7 +167,11 @@ for ( $i = 1; $i <= 12; $i++ ) {
 	}
 
 	if ( $term_ids ) {
-		wp_set_object_terms( $product_id, array( $term_ids[ $i % count( $term_ids ) ] ), 'ground_catalog_taxonomy' );
+		// Top-level categories in turn, then that category's subcategories in turn.
+		$group = $term_ids[ $i % count( $term_ids ) ];
+		$term_id = $group[ intdiv( $i, count( $term_ids ) ) % count( $group ) ];
+
+		wp_set_object_terms( $product_id, array( $term_id ), 'ground_catalog_taxonomy' );
 	}
 }
 
