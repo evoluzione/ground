@@ -393,14 +393,6 @@ if ( $footer_secondary ) {
 	$assignments['navigation-footer-secondary'] = $footer_secondary;
 }
 
-// Footer tertiary — misc links.
-$footer_tertiary = $ensure_menu( 'Footer tertiary (demo)' );
-if ( $footer_tertiary ) {
-	$add_object_item( $footer_tertiary, $front_id, 'page' );
-	$add_object_item( $footer_tertiary, $blog_id, 'page' );
-	$assignments['navigation-footer-tertiary'] = $footer_tertiary;
-}
-
 set_theme_mod( 'nav_menu_locations', $assignments );
 
 echo "  seed: done\n";

@@ -51,7 +51,6 @@ msgstr "Footer primario"
 msgid "Footer secondary"
 msgstr "Footer secondario"
 
-#: config/menus.php:22
 #: config/sidebars.php:21
 msgid "Footer tertiary"
 msgstr "Footer terziario"
@@ -299,10 +298,6 @@ msgstr "Menu del footer"
 msgid "Footer secondary menu"
 msgstr "Menu secondario del footer"
 
-#: template-parts/navigation/navigation-footer-tertiary.php:11
-msgid "Footer tertiary menu"
-msgstr "Menu terziario del footer"
-
 #: template-parts/navigation/navigation-header-primary.php:13
 msgid "Main menu"
 msgstr "Menu principale"
@@ -335,11 +330,11 @@ msgid "%s submenu"
 msgstr "Sottomenu di %s"
 
 #. translators: %s: name of the current language, in that language.
-#: template-parts/navigation/navigation-languages.php:18
+#: template-parts/navigation/navigation-languages.php:15
 #, php-format
 msgid "Language: %s"
 msgstr "Lingua: %s"
 
-#: template-parts/navigation/navigation-languages.php:20
+#: template-parts/navigation/navigation-languages.php:17
 msgid "Languages"
 msgstr "Lingue"

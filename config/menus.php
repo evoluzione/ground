@@ -17,9 +17,5 @@ return [
 			'location' => 'navigation-footer-secondary',
 			'label' => __( 'Footer secondary', 'ground' ),
 		],
-		[
-			'location' => 'navigation-footer-tertiary',
-			'label' => __( 'Footer tertiary', 'ground' ),
-		],
 	]
 ];

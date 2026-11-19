@@ -32,7 +32,6 @@ $active_footer_sidebars = array_filter( $footer_sidebars, 'is_active_sidebar' );
 			<div class="flex flex-col md:flex-row gap-4">
 				<?php get_template_part( 'template-parts/navigation/navigation-footer-primary' ); ?>
 				<?php get_template_part( 'template-parts/navigation/navigation-footer-secondary' ); ?>
-				<?php get_template_part( 'template-parts/navigation/navigation-footer-tertiary' ); ?>
 			</div>
 
 		</div>
