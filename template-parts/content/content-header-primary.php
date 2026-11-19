@@ -19,12 +19,13 @@
 			] ); ?>
 		</a>
 		<?php get_template_part( 'template-parts/navigation/navigation-header-primary' ); ?>
-		<?php get_template_part( 'template-parts/navigation/navigation-languages' ); ?>
-		<?php if ( class_exists( 'WooCommerce' ) ) : ?>
-			<div>
+		<div class="flex items-center gap-6">
+			<?php get_template_part( 'template-parts/navigation/navigation-languages' ); ?>
+			<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+				<?php get_template_part( 'template-parts/navigation/navigation-account' ); ?>
 				<?php get_template_part( 'template-parts/cart/cart-link' ); ?>
 				<?php get_template_part( 'template-parts/cart/cart-drawer' ); ?>
-			</div>
-		<?php endif; ?>
+			<?php endif; ?>
+		</div>
 	</div>
 </header>

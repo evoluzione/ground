@@ -330,11 +330,47 @@ msgid "%s submenu"
 msgstr "Sottomenu di %s"
 
 #. translators: %s: name of the current language, in that language.
-#: template-parts/navigation/navigation-languages.php:15
+#: template-parts/navigation/navigation-languages.php:16
 #, php-format
 msgid "Language: %s"
 msgstr "Lingua: %s"
 
-#: template-parts/navigation/navigation-languages.php:17
+#: template-parts/navigation/navigation-languages.php:18
 msgid "Languages"
 msgstr "Lingue"
+
+#: inc/woocommerce.php:163
+msgid "Log in"
+msgstr "Accedi"
+
+#: template-parts/navigation/navigation-account.php:22
+msgid "Account"
+msgstr "Account"
+
+#: template-parts/navigation/navigation-account.php:36
+msgid "Account menu"
+msgstr "Menu account"
+
+#. translators: %s: the customer's first name, or display name without one.
+#: inc/woocommerce.php:168
+#, php-format
+msgid "Hi, %s"
+msgstr "Ciao, %s"
+
+#. translators: %s: site title.
+#: template-parts/checkout/checkout-create-account.php:26
+#, php-format
+msgid "Create an account with %s"
+msgstr "Crea un account su %s"
+
+#: template-parts/checkout/checkout-create-account.php:31
+msgid "Faster future purchases"
+msgstr "Acquisti più veloci la prossima volta"
+
+#: template-parts/checkout/checkout-create-account.php:32
+msgid "Track your orders and see your order history"
+msgstr "Segui i tuoi ordini e consulta lo storico"
+
+#: template-parts/checkout/checkout-create-account.php:33
+msgid "Your addresses saved for next time"
+msgstr "I tuoi indirizzi salvati per il prossimo ordine"

@@ -1,14 +1,17 @@
 /**
- * Submenus of the main menu, opened from the keyboard.
+ * Dropdowns opened from the keyboard: the main menu's submenus, the language
+ * switcher and the account menu.
  *
  * The mouse opens them on hover, in CSS. This only drives the button next to
- * each parent link: its aria-expanded is what CSS reads to show the submenu
- * (peer-aria-expanded) and what screen readers announce.
+ * each parent link (or alone, in the language switcher): its aria-expanded is
+ * what CSS reads to show the dropdown (peer-aria-expanded) and what screen
+ * readers announce.
  */
 export default class Submenu {
 	/**
-	 * @param {string} selector - Selector for the buttons; each sits in the
-	 * same <li> as its submenu.
+	 * @param {string} selector - Selector for the buttons; each button's
+	 * parent element (an <li> in the main menu, the <nav> elsewhere) also
+	 * contains its dropdown.
 	 */
 	constructor(selector = ".js-submenu-toggle") {
 		this.selector = selector;
@@ -20,7 +23,8 @@ export default class Submenu {
 	}
 
 	/**
-	 * Buttons whose submenu is open, except those whose <li> contains `target`.
+	 * Buttons whose dropdown is open, except those whose parent element
+	 * contains `target`.
 	 * @param {Node|null} target
 	 * @returns {Element[]}
 	 */
@@ -65,7 +69,7 @@ export default class Submenu {
 	};
 
 	/**
-	 * Tabbing out of an item closes its submenu.
+	 * Tabbing out of a dropdown's parent element closes it.
 	 * @param {FocusEvent} event
 	 */
 	onFocusin = (event) => {

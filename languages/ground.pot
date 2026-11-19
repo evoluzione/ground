@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-19T17:22:05+00:00\n"
+"POT-Creation-Date: 2026-11-19T21:41:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ground\n"
@@ -254,6 +254,16 @@ msgstr ""
 msgid "Footer quaternary"
 msgstr ""
 
+#: inc/woocommerce.php:163
+msgid "Log in"
+msgstr ""
+
+#. translators: %s: the customer's first name, or display name without one.
+#: inc/woocommerce.php:168
+#, php-format
+msgid "Hi, %s"
+msgstr ""
+
 #: template-parts/cart/cart-drawer.php:16
 msgid "Cart"
 msgstr ""
@@ -270,8 +280,34 @@ msgid_plural "Cart, %d items"
 msgstr[0] ""
 msgstr[1] ""
 
+#. translators: %s: site title.
+#: template-parts/checkout/checkout-create-account.php:26
+#, php-format
+msgid "Create an account with %s"
+msgstr ""
+
+#: template-parts/checkout/checkout-create-account.php:31
+msgid "Faster future purchases"
+msgstr ""
+
+#: template-parts/checkout/checkout-create-account.php:32
+msgid "Track your orders and see your order history"
+msgstr ""
+
+#: template-parts/checkout/checkout-create-account.php:33
+msgid "Your addresses saved for next time"
+msgstr ""
+
 #: template-parts/content/content-footer-primary.php:26
 msgid "Copyright"
+msgstr ""
+
+#: template-parts/navigation/navigation-account.php:22
+msgid "Account"
+msgstr ""
+
+#: template-parts/navigation/navigation-account.php:36
+msgid "Account menu"
 msgstr ""
 
 #: template-parts/navigation/navigation-breadcrumbs.php:13
@@ -301,12 +337,12 @@ msgid "Secondary menu"
 msgstr ""
 
 #. translators: %s: name of the current language, in that language.
-#: template-parts/navigation/navigation-languages.php:15
+#: template-parts/navigation/navigation-languages.php:16
 #, php-format
 msgid "Language: %s"
 msgstr ""
 
-#: template-parts/navigation/navigation-languages.php:17
+#: template-parts/navigation/navigation-languages.php:18
 msgid "Languages"
 msgstr ""
 

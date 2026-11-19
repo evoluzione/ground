@@ -53,11 +53,18 @@ update_option( 'woocommerce_coming_soon', 'no' );
 // Don't send dev-environment usage data to Automattic.
 update_option( 'woocommerce_allow_tracking', 'no' );
 
-echo "  woo: guest checkout enabled, account creation optional\n";
+echo "  woo: guest checkout first, account offered after the order, registration on My account\n";
 
+// Guest checkout is the main path and the checkout form asks for no account:
+// one is offered to guests on the order confirmation page (delayed account
+// creation, WooCommerce's block rendered in the classic confirmation by
+// ground_woocommerce_create_account()). Returning customers get a
+// "log in" reminder in checkout.
 update_option( 'woocommerce_enable_guest_checkout', 'yes' );
-update_option( 'woocommerce_enable_signup_and_login_from_checkout', 'yes' );
-update_option( 'woocommerce_enable_myaccount_registration', 'no' );
+update_option( 'woocommerce_enable_checkout_login_reminder', 'yes' );
+update_option( 'woocommerce_enable_signup_and_login_from_checkout', 'no' );
+update_option( 'woocommerce_enable_delayed_account_creation', 'yes' );
+update_option( 'woocommerce_enable_myaccount_registration', 'yes' );
 
 echo "  woo: enabling BACS + COD payment gateways\n";
 

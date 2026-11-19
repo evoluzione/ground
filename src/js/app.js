@@ -16,7 +16,7 @@ import { scrollDirection } from "./components/scrollDirection.js";
 			.catch((error) => console.log(error));
 	}
 
-	// Main menu submenus, opened from the keyboard
+	// Dropdowns (main menu, languages, account), opened from the keyboard
 	if (document.querySelector(".js-submenu-toggle")) {
 		import("./components/submenu.js")
 			.then(({ default: Submenu }) => {
