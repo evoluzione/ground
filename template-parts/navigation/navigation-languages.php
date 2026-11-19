@@ -1,8 +1,9 @@
 <?php
 /**
  * Language switcher (WPML), shown when there is another language to switch to.
+ * A language without a translation of this page links to its home page.
  */
-$languages = apply_filters( 'wpml_active_languages', null ) ?: [];
+$languages = apply_filters( 'wpml_active_languages', null, [ 'skip_missing' => 0 ] ) ?: [];
 $current = current( wp_list_filter( $languages, [ 'active' => 1 ] ) );
 $others = wp_list_filter( $languages, [ 'active' => 0 ] );
 
