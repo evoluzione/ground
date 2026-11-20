@@ -1,0 +1,218 @@
+{
+    "key": "group_55206d02d9d99",
+    "title": "Barra annunci",
+    "fields": [
+        {
+            "key": "field_d33568e7d4093",
+            "label": "Mostra la barra",
+            "name": "announcement_bar_active",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Se spenta, la barra non compare ma i messaggi restano salvati.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_5cf7a967bbe6c",
+            "label": "Secondi per messaggio",
+            "name": "announcement_bar_interval",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Quanto resta visibile ogni messaggio, quando sono più di uno.",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "5",
+            "wpml_cf_preferences": 1,
+            "choices": {
+                "3": "3 secondi",
+                "4": "4 secondi",
+                "5": "5 secondi",
+                "6": "6 secondi",
+                "7": "7 secondi",
+                "8": "8 secondi",
+                "9": "9 secondi",
+                "10": "10 secondi"
+            },
+            "return_format": "value",
+            "ui": 0,
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_e25fc9797d3df",
+            "label": "Messaggi",
+            "name": "announcement_bar_messages",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Mostrati uno alla volta, in quest'ordine: trascina il numero della riga per riordinarli. Dal e Al sono facoltativi: senza date un messaggio compare subito e resta finché non lo togli.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 5,
+            "button_label": "Aggiungi messaggio",
+            "collapsed": "field_8ecc76283e037",
+            "rows_per_page": 20,
+            "wpml_cf_preferences": 1,
+            "sub_fields": [
+                {
+                    "key": "field_8ecc76283e037",
+                    "label": "Testo",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Massimo 90 caratteri, per stare su una riga anche da telefono.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "maxlength": 90,
+                    "default_value": "",
+                    "placeholder": "Es. Spedizione gratuita sopra i 50 €",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_e25fc9797d3df",
+                    "wpml_cf_preferences": 2
+                },
+                {
+                    "key": "field_94f5375dd9faa",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Facoltativo. Compare dopo il testo.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "22",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_e25fc9797d3df",
+                    "wpml_cf_preferences": 2
+                },
+                {
+                    "key": "field_ded61d1fac60c",
+                    "label": "Stile",
+                    "name": "style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Lo sfondo della barra mentre è visibile.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "12",
+                        "class": "",
+                        "id": ""
+                    },
+                    "parent_repeater": "field_e25fc9797d3df",
+                    "choices": {
+                        "dark": "Scuro",
+                        "primary": "Primario",
+                        "light": "Chiaro"
+                    },
+                    "default_value": "dark",
+                    "return_format": "value",
+                    "ui": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wpml_cf_preferences": 1
+                },
+                {
+                    "key": "field_64e425549464b",
+                    "label": "Dal",
+                    "name": "start",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "13",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y H:i",
+                    "return_format": "Y-m-d H:i:s",
+                    "first_day": 1,
+                    "default_to_current_date": 0,
+                    "parent_repeater": "field_e25fc9797d3df",
+                    "wpml_cf_preferences": 1
+                },
+                {
+                    "key": "field_f99dd7430cf05",
+                    "label": "Al",
+                    "name": "end",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "13",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y H:i",
+                    "return_format": "Y-m-d H:i:s",
+                    "first_day": 1,
+                    "default_to_current_date": 0,
+                    "parent_repeater": "field_e25fc9797d3df",
+                    "wpml_cf_preferences": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "La barra sopra l'header: brevi messaggi che si alternano.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "translation",
+    "modified": 1795180916
+}

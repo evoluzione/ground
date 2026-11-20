@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-19T21:41:53+00:00\n"
+"POT-Creation-Date: 2026-11-20T13:42:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ground\n"
@@ -254,14 +254,31 @@ msgstr ""
 msgid "Footer quaternary"
 msgstr ""
 
-#: inc/woocommerce.php:163
+#: inc/woocommerce.php:173
 msgid "Log in"
 msgstr ""
 
 #. translators: %s: the customer's first name, or display name without one.
-#: inc/woocommerce.php:168
+#: inc/woocommerce.php:178
 #, php-format
 msgid "Hi, %s"
+msgstr ""
+
+#: template-parts/announcement/announcement-bar.php:58
+msgid "Announcements"
+msgstr ""
+
+#: template-parts/announcement/announcement-bar.php:78
+#: template-parts/announcement/announcement-bar.php:79
+msgid "Pause the announcements"
+msgstr ""
+
+#: template-parts/announcement/announcement-bar.php:80
+msgid "Play the announcements"
+msgstr ""
+
+#: template-parts/announcement/announcement-bar.php:96
+msgid "Close the announcements"
 msgstr ""
 
 #: template-parts/cart/cart-drawer.php:16

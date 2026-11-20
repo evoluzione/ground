@@ -72,19 +72,28 @@ function ground_woocommerce_image_sizes() {
 add_action( 'after_setup_theme', 'ground_woocommerce_image_sizes' );
 
 /**
- * Removes WooCommerce's "Product Images" Customizer section.
+ * Removes WooCommerce's Customizer sections the theme overrides.
  *
- * Theme support already drops the width controls; what is left is thumbnail
- * cropping, which the filters above override anyway.
+ * "Product Images": theme support already drops the width controls; what is
+ * left is thumbnail cropping, which the filters above override anyway.
+ * "Store notice": never shown (see below), so its switch would do nothing.
  *
  * @param WP_Customize_Manager $wp_customize The Customizer manager instance.
  * @return void
  */
-function ground_woocommerce_remove_image_customizer( $wp_customize ) {
+function ground_woocommerce_remove_customizer_sections( $wp_customize ) {
 	$wp_customize->remove_section( 'woocommerce_product_images' );
+	$wp_customize->remove_section( 'woocommerce_store_notice' );
 }
 
-add_action( 'customize_register', 'ground_woocommerce_remove_image_customizer', 20 );
+add_action( 'customize_register', 'ground_woocommerce_remove_customizer_sections', 20 );
+
+// Never prints WooCommerce's store notice: the announcement bar
+// (template-parts/announcement/announcement-bar.php) does the same job, and the
+// notice would sit above it unstyled (its CSS is dequeued below), shown by JS
+// after load. Filtering its markup covers both the wp_body_open hook and the
+// wp_footer fallback.
+add_filter( 'woocommerce_demo_store', '__return_empty_string' );
 
 // Disables WooCommerce's bundled frontend stylesheets (woocommerce.css,
 // woocommerce-layout.css, woocommerce-smallscreen.css). They ship as plain,

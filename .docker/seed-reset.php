@@ -3,7 +3,8 @@
  * Remove everything created by seed.php, so ENABLE_SEED can run again cleanly.
  *
  * Run via `wp eval-file /docker-scripts/seed-reset.php` (npm: docker:seed-reset).
- * Deletes posts/attachments, taxonomy terms and nav menus tagged `_ground_seed`,
+ * Deletes posts/attachments, taxonomy terms and nav menus tagged `_ground_seed`
+ * and the announcement bar options,
  * restores the front-page options and drops the `ground_seed_done` guard.
  *
  * NOTE: this does NOT remove content imported from the WordPress test-data XML
@@ -58,6 +59,16 @@ if ( ! is_wp_error( $terms ) ) {
 }
 
 echo 'reset: deleted ' . $term_count . " terms/menus\n";
+
+// Announcement bar options (every language's: WPML suffixes them, options_en_…),
+// with ACF's field-key references (_options_…).
+global $wpdb;
+$bar_options = $wpdb->get_col( "SELECT option_name FROM {$wpdb->options} WHERE option_name REGEXP '^_?options(_[a-z-]+)?_announcement_bar_'" );
+foreach ( $bar_options as $name ) {
+	delete_option( $name );
+}
+
+echo 'reset: deleted ' . count( $bar_options ) . " announcement bar options\n";
 
 // Restore front-page settings and drop the run-once guard.
 update_option( 'show_on_front', 'posts' );

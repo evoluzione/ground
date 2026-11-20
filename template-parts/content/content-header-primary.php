@@ -1,3 +1,4 @@
+<?php get_template_part( 'template-parts/announcement/announcement-bar' ); ?>
 <header class="lg:in-[.is-scroll-down]:-top-16 sticky top-0 z-40 bg-white duration-500 mb-6">
 	<?php if ( has_nav_menu( 'navigation-header-secondary' ) ) : ?>
 		<div class="flex justify-end container py-2">

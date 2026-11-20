@@ -339,7 +339,7 @@ msgstr "Lingua: %s"
 msgid "Languages"
 msgstr "Lingue"
 
-#: inc/woocommerce.php:163
+#: inc/woocommerce.php:173
 msgid "Log in"
 msgstr "Accedi"
 
@@ -352,7 +352,7 @@ msgid "Account menu"
 msgstr "Menu account"
 
 #. translators: %s: the customer's first name, or display name without one.
-#: inc/woocommerce.php:168
+#: inc/woocommerce.php:178
 #, php-format
 msgid "Hi, %s"
 msgstr "Ciao, %s"
@@ -374,3 +374,20 @@ msgstr "Segui i tuoi ordini e consulta lo storico"
 #: template-parts/checkout/checkout-create-account.php:33
 msgid "Your addresses saved for next time"
 msgstr "I tuoi indirizzi salvati per il prossimo ordine"
+
+#: template-parts/announcement/announcement-bar.php:58
+msgid "Announcements"
+msgstr "Annunci"
+
+#: template-parts/announcement/announcement-bar.php:78
+#: template-parts/announcement/announcement-bar.php:79
+msgid "Pause the announcements"
+msgstr "Metti in pausa gli annunci"
+
+#: template-parts/announcement/announcement-bar.php:80
+msgid "Play the announcements"
+msgstr "Riprendi gli annunci"
+
+#: template-parts/announcement/announcement-bar.php:96
+msgid "Close the announcements"
+msgstr "Chiudi gli annunci"

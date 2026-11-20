@@ -38,7 +38,7 @@ Idempotent: installs WordPress fresh only if the DB is empty, otherwise just rea
 
 - **Base plugins** (always, free): Query Monitor, Yoast SEO, Contact Form 7, WebP Uploads, FluentSMTP.
 - **Toggles**: `ENABLE_WOOCOMMERCE`, `ENABLE_WPML` (a plugin installs only if its toggle is on AND it's free or its license key is set). WPML add-ons (WooCommerce Multilingual, ACF Multilingual, CF7 Multilingual) activate automatically by dependency.
-- **`ENABLE_SEED`**: imports the theme's own demo fixtures (`.docker/seed.php` — catalog products/taxonomy/menus/front page) plus official WP core/theme test data (`.docker/seed/*.xml`), guarded by a one-time `ground_seed_done` option. `.docker/seed-reset.php` reverses it.
+- **`ENABLE_SEED`**: imports the theme's own demo fixtures (`.docker/seed.php` — catalog products/taxonomy/menus/front page/announcement bar messages) plus official WP core/theme test data (`.docker/seed/*.xml`), guarded by a one-time `ground_seed_done` option. `.docker/seed-reset.php` reverses it.
 - To change which plugins/versions get installed, edit `.docker/provision.sh` directly.
 
 ## Architecture
@@ -78,6 +78,7 @@ Opt-in via `ENABLE_WOOCOMMERCE`. Key points if touching commerce code:
 - [woocommerce.php](woocommerce.php) at the theme root is WooCommerce's own main-template override — it assembles the shop/product page (header → `woocommerce_content()` → footer) and conditionally renders the filters sidebar (`is_shop() || is_product_taxonomy()`), same pattern as the other root templates in Template routing above.
 - The **"Shop filters"** sidebar (`sidebar-shop`, registered in `config/sidebars.php` like any other sidebar) is rendered via `template-parts/sidebar/sidebar-shop.php` and populated with WooCommerce's own widgets (layered nav, price filter, categories) during provisioning when seeding is on.
 - WooCommerce's own frontend stylesheets are dequeued (`woocommerce_enqueue_styles` → `__return_empty_array`) because they're unlayered CSS that would beat Tailwind's `@layer utilities` output regardless of specificity — the theme owns all WooCommerce markup styling in `src/css/woocommerce/` instead.
+- WooCommerce's store notice is never printed (`woocommerce_demo_store` filtered to an empty string) and its Customizer section is removed: the announcement bar (see below) does that job.
 - Product image sizes are centralized in `config/media.php` (the `woocommerce_*` keys of `media.sizes`) and enforced via `woocommerce_get_image_size_{name}` filters, not left store-owner-editable.
 - Header cart markup lives in `template-parts/cart/`: `cart-link.php` (trigger + badge), `cart-drawer.php` (the `<dialog>` drawer, opened by `src/js/components/miniCart.js`) and `cart-drawer-content.php` (what's inside it). The trigger and the drawer contents are also AJAX fragments (`woocommerce_add_to_cart_fragments`), re-rendered standalone on every cart update from the same parts — keep them self-contained. WooCommerce's own mini-cart markup inside is styled in `src/css/woocommerce/minicart.css`.
 - The header account menu (next to the cart) is data from `ground_account_menu()`, rendered by `template-parts/navigation/navigation-account.php`: a "Log in" link when logged out, a dropdown with `wc_get_account_menu_items()` when logged in. Not an AJAX fragment: login/logout reload the page.
@@ -104,9 +105,17 @@ Two independent build tools, both outputting into `assets/` (git-ignored build o
 
 ### ACF
 
-Field groups are local JSON, saved/loaded from `config/acf/` (redirected via the `acf/settings/save_json` / `acf/settings/load_json` filters in [inc/extend.php](inc/extend.php)) instead of the default `acf-json` folder — keep field group edits inside `config/acf/`.
+Field groups are local JSON, saved/loaded from `config/acf/` (redirected via the `acf/settings/save_json` / `acf/settings/load_json` filters in [inc/extend.php](inc/extend.php)) instead of the default `acf-json` folder — keep field group edits inside `config/acf/`. Theme-wide options live on one **Opzioni tema** page under Appearance (`theme-options`, parent `themes.php`, capability `edit_pages`: editors see Appearance with only this page in it; made in ACF's UI and saved there too as `ui_options_page_*.json`): each feature adds its own field group located on that page, a titled box with fields prefixed by the feature's name (`announcement_bar_*`), so a feature's fields travel as one JSON file. A feature that needs other permissions moves to a sub page of it.
+
+ACF's admin texts (options page titles, field group titles, labels, instructions, choices, button labels) are written **directly in Italian** in ACF, not translated: ACF doesn't pass a UI options page's title through gettext, and `make-pot` can't read the JSON files. They are only seen by the site's editors; a project in another language rewrites them. Field names and keys stay in English.
 
 ACF blocks are registered from `config/blocks.php` through `acf_register_block_type()` (not `block.json`: every `block.json` `acf` key has a snake_case PHP equivalent, e.g. `auto_inline_editing`, `hide_fields_in_sidebar`, `render_preview`). The loop in [inc/gutenberg.php](inc/gutenberg.php) defaults each block to **ACF Blocks v3 + Block API 3** (always a live preview, no edit/preview modes, iframe-ready) and to the template `template-parts/blocks/{name}.php`. Templates open their wrapper with `ground_block_attributes( $block, $class, $is_preview )`: on the frontend it delegates to `get_block_wrapper_attributes()` (block supports, anchor, align), in the editor it prints only the theme's classes because the editor's own wrapper already carries the supports.
+
+### Announcement bar
+
+The bar above the header (`template-parts/announcement/announcement-bar.php`, before the sticky `<header>` of the primary header only, so not in checkout): short messages, one at a time, with pause/play and close. Its content is the **Barra annunci** box of Opzioni tema (on/off, seconds per message, a table of messages with text, link, style `dark`/`primary`/`light` and optional from/until dates); with WPML, ACF keeps one set of options per language. The template reads the options itself, with no helper in between, like the catalog's: messages outside their dates are left out when the page is built, so a cached page shows them until the cache is renewed. Each message's style colors the whole bar while it shows: the section picks it from the visible message (`has-[[data-style=…]:not([inert])]`), so the JS only moves `inert`.
+
+`src/js/components/announcementBar.js` moves the `inert` attribute between messages (`inert:opacity-0` fades the others; they share one grid cell so the height never changes), stops while the pointer or focus is on the messages or the tab is hidden, and remembers a close in `localStorage` with a hash of the messages shown. The template prints an inline script right before the bar that reads it back and sets `is-announcement-bar-closed` on `<html>` before the bar is parsed: the server can't leave the bar out (cached pages), and hiding it from the deferred script would flash it.
 
 ## Code style
 
@@ -128,3 +137,5 @@ ACF blocks are registered from `config/blocks.php` through `acf_register_block_t
   (editable), `ground-<locale>.mo` (compiled, loaded by WordPress).
 - To add or translate strings, follow the **i18n** skill (`skills/i18n/SKILL.md`):
   `i18n:extract` → translate the empty `msgstr` entries → `i18n:compile`.
+- Exception: ACF's admin texts are written in Italian directly in ACF, outside
+  this flow (see ACF above).

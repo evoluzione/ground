@@ -7,8 +7,9 @@
  *
  * Covers the theme-specific structures that the generic WordPress test-data XML
  * cannot: the `ground_catalog` CPT, its `ground_catalog_taxonomy` (with the ACF
- * `taxonomy_image`), the five theme nav-menu locations, a static front page, and
- * a demo page exercising the `acf/starter` ACF block.
+ * `taxonomy_image`), the five theme nav-menu locations, a static front page, a
+ * demo page exercising the `acf/starter` ACF block, and the announcement bar's
+ * messages (its ACF options page).
  *
  * Every created object is tagged with the `_ground_seed` meta so it can be wiped:
  *   wp post delete $(wp post list --meta_key=_ground_seed --format=ids) --force
@@ -394,5 +395,30 @@ if ( $footer_secondary ) {
 }
 
 set_theme_mod( 'nav_menu_locations', $assignments );
+
+// Announcement bar — three messages on its ACF options page (default language),
+// one without a link, the last in the Primary style. Options aren't tagged:
+// seed-reset.php deletes them by name.
+if ( function_exists( 'update_field' ) ) {
+	update_field( 'announcement_bar_active', 1, 'option' );
+	update_field( 'announcement_bar_interval', 5, 'option' );
+	update_field( 'announcement_bar_messages', [
+		[
+			'text' => 'Spedizione gratuita per ordini superiori a 50 €.',
+			'link' => [ 'title' => 'Scopri il catalogo', 'url' => $catalog_id ? get_permalink( $catalog_id ) : home_url( '/' ), 'target' => '' ],
+			'style' => 'dark',
+		],
+		[
+			'text' => 'Reso gratuito entro 30 giorni.',
+			'link' => '',
+			'style' => 'dark',
+		],
+		[
+			'text' => 'Hai domande? Scrivici.',
+			'link' => [ 'title' => 'Contatti', 'url' => $contact_id ? get_permalink( $contact_id ) : home_url( '/' ), 'target' => '' ],
+			'style' => 'primary',
+		],
+	], 'option' );
+}
 
 echo "  seed: done\n";

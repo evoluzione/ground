@@ -1,10 +1,10 @@
 {
     "key": "group_5ddd341334ac3",
-    "title": "Block: Starter",
+    "title": "Blocco: Starter",
     "fields": [
         {
             "key": "field_618cd45b00009",
-            "label": "Title",
+            "label": "Titolo",
             "name": "title",
             "aria-label": "",
             "type": "text",
@@ -20,7 +20,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "wpml_cf_preferences": 2
         }
     ],
     "location": [
@@ -44,6 +45,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794999638,
+    "modified": 1795171526,
     "acfml_field_group_mode": "translation"
 }

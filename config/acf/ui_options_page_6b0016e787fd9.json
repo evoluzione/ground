@@ -1,0 +1,29 @@
+{
+    "key": "ui_options_page_6b0016e787fd9",
+    "title": "Opzioni tema",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Opzioni tema",
+    "menu_slug": "theme-options",
+    "parent_slug": "themes.php",
+    "advanced_configuration": true,
+    "icon_url": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "menu_title": "Opzioni tema",
+    "position": "",
+    "redirect": false,
+    "description": "Opzioni del tema: un gruppo di campi per funzione.",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "update_button": "Aggiorna",
+    "updated_message": "Opzioni aggiornate",
+    "capability": "edit_pages",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": true,
+    "modified": 1795171468
+}
